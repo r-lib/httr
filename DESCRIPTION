@@ -1,0 +1,16 @@
+Package: web
+Type: Package
+Title: Tools for working with URLs and HTTP
+Version: 0.1
+Author: Hadley Wickham <h.wickham@gmail.com>
+Maintainer: Hadley Wickham <h.wickham@gmail.com>
+Description: Provides useful tools for working with HTTP connections.  Is a 
+  simplified wrapper built on top of RCurl.  It is much much less configurable
+  but because it only attempts to encompass the most common operations it is
+  also much much simpler.
+Depends:
+    RCurl,
+    stringr
+Suggests:
+    rjson
+License: MIT
