@@ -4,6 +4,12 @@
 
 # S3 class to manage output: headers, response, 
 
+#' Get a url.
+#'
+#' \pkg{httr} automatically reuses the same http connection for mulitple
+#' requests to the same scheme/host/port combo.  This substantially reduces
+#' connection time. See \code{\link{handle_pool}} for more details.
+#'
 #' @param handle the handle for the domain you're interested in
 #' @param url the url of the page to retrieve
 #' @param ... Further parameters, such as \code{query}, \code{path}, etc,
@@ -38,6 +44,7 @@ GET <- function(url = NULL, ..., config = config(), handle = NULL) {
   # argument to request?
   
   info <- last_request(handle)
+  times <- request_times(handle)
   
   headers <- as.list(hg$value())
   
@@ -45,7 +52,8 @@ GET <- function(url = NULL, ..., config = config(), handle = NULL) {
     url = info$effective.url,
     status_code = headers$status,
     headers = headers,
-    text = content
+    text = content,
+    times = times
   )
 }
 
