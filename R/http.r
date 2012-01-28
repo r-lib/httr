@@ -5,15 +5,31 @@
 # S3 class to manage output: headers, response, 
 
 #' @param handle the handle for the domain you're interested in
-#' @param url the url relative to the domain root
+#' @param url the url of the page to retrieve
 #' @param ... Further parameters, such as \code{query}, \code{path}, etc,
-#'   passed on to \code{\link{modify_url}}. Used to modify the current
-#'   \code{url}.  These parameter must be named.
+#'   passed on to \code{\link{modify_url}}. Typically used in conjunction
+#'   with a specified \code{handle}. These parameter must be named.
+#' @param handle The handle to use with this request. If not specified, the 
+#'   same handle will be re-used for all request to the same combination
+#'   of scheme (http or https), hostname and port.
 #' @examples
+#' GET("http://google.com/")
+#'
+#' # You might want to manually specify the handle so you can have multiple
+#' # independent logins to the same website.
 #' google <- handle("http://google.com")
-#' GET(google, "/")
-GET <- function(handle, path, ..., config = config()) {
-  url <- modify_url(handle$url, path = path, ...)
+#' GET(handle = google, path = "/")
+GET <- function(url = NULL, ..., config = config(), handle = NULL) {
+  if (!xor(is.null(url), is.null(handle))) {
+    stop("Must specify exactly one of url or handle")
+  }
+
+  if (is.null(handle)) {
+    handle <- find_handle(url)
+  } else  {
+    url <- modify_url(handle$url, ...)    
+  }
+  
   hg <- basicHeaderGatherer()
   
   content <- getURL(url, curl = handle$handle, headerfunction = hg$update)

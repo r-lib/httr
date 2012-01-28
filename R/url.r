@@ -78,6 +78,9 @@ is.url <- function(x) inherits(x, "url")
 print.url <- function(x, ...) {
   cat("Url: ", build_url(x), "\n", sep = "")
 }
+"[.url" <- function(x, ...) {
+  structure(NextMethod(), class = "url")
+}
 
 build_url <- function(url) { 
   stopifnot(is.url(url))
