@@ -85,10 +85,6 @@ config <- function(cookies, userpwd, proxy, proxyuserpwd, ...) {
 # once as 'middleware', which you can wrap around your existing code for
 # making requests.
 
-# Need an automatic pool of curl handles?
-# Config them - catch last (10?) domains, reusing handle because I think
-# this gives the behaviour that users expect?  How are cookies etc preserved?
-# Use 0 to turn off and generate new handle for every request?
 
 # Check that location redirects are turned on my default.
 
