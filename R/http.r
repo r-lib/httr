@@ -60,6 +60,8 @@ config <- function(cookies, userpwd, proxy, proxyuserpwd, ...) {
 
 # with_session(handle, {}) # if you want to reuse a handle in multiple
 #    requests - but probably not needed with handle pool?
+
+# with_headers
 # with_auth(username, password, {})
 # with_base_url(url, {})  
 # with_base_url("http://google.com", {
@@ -68,6 +70,20 @@ config <- function(cookies, userpwd, proxy, proxyuserpwd, ...) {
 #   })
 #   
 # })
+
+# From Homer:
+# POST_file <- function(file, ...){
+#  with_body(slurp(file), {
+#    with_headers(content-type="mulitpart/form-data", {
+#      POST(...)
+#    })
+#  })
+# }
+# 
+# The idea is that common (but not core) functionality like sending
+# static files, HTTP authentication, or encoding as base 64 can be done
+# once as 'middleware', which you can wrap around your existing code for
+# making requests.
 
 # Need an automatic pool of curl handles?
 # Config them - catch last (10?) domains, reusing handle because I think
