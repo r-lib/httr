@@ -1,5 +1,3 @@
-# Start by assuming that every first starts by creating a handle
-
 #' Create a handle tied to a particular domain.
 #'
 #' This handle preserves settings and cookies across multiple requests. It is
