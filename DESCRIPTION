@@ -1,4 +1,4 @@
-Package: web
+Package: httr
 Type: Package
 Title: Tools for working with URLs and HTTP
 Version: 0.1
