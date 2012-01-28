@@ -2,8 +2,6 @@
 # http://beders.github.com/Resty/Resty/Examples.html
 # http://github.com/jnunemaker/httparty/tree/master
 
-# S3 class to manage output: headers, response, 
-
 #' Get a url.
 #'
 #' \pkg{httr} automatically reuses the same http connection (aka handle)
@@ -54,6 +52,7 @@ GET <- function(url = NULL, ..., config = config(), handle = NULL) {
     url = info$effective.url,
     status_code = headers$status,
     headers = headers,
+    # cookies = cookies,
     text = content,
     times = times
   )
@@ -88,20 +87,11 @@ DELETE <- function(url, content, ...) {
   )
 }
 
+# HEAD ?
+# OPTIONS ? 
+# PATCH ?
+
 # curlPerform
-
-# ?curlGlobalInit
-# httpauth
-
-# persist_cookies(path, {}, cleanup = TRUE)
-# cookies -- read from
-# cookiejar -- write to
-
-# with_session(handle, {}) # if you want to reuse a handle in multiple
-#    requests - but probably not needed with handle pool?
-
-# with_headers
-# with_auth(username, password, {})
 # with_base_url(url, {})  
 # with_base_url("http://google.com", {
 #   with_base_url("/query.html", {
@@ -123,19 +113,4 @@ DELETE <- function(url, content, ...) {
 # static files, HTTP authentication, or encoding as base 64 can be done
 # once as 'middleware', which you can wrap around your existing code for
 # making requests.
-
-
-# Check that location redirects are turned on my default.
-
-# look up setInternet2 and see if it can be copied
-set_proxy <- function(url, username, password) {
-  old <- getOption("RCurlOptions")
-  if (is.null(old)) old <- list()
-  
-  new <- modifyList(old, list(proxy = url, 
-    proxyuserpwd = str_c(username, ":", password)))
-  
-  options(RCurlOptions = new)
-  invisible(old)
-}
 
