@@ -6,9 +6,11 @@
 
 #' Get a url.
 #'
-#' \pkg{httr} automatically reuses the same http connection for mulitple
-#' requests to the same scheme/host/port combo.  This substantially reduces
-#' connection time. See \code{\link{handle_pool}} for more details.
+#' \pkg{httr} automatically reuses the same http connection (aka handle)
+#' for mulitple requests to the same scheme/host/port combo. This 
+#' substantially reduces connection time, and ensures that cookies are 
+#' maintained over multiple request to the same host. See
+#' \code{\link{handle_pool}} for more details.
 #'
 #' @param handle the handle for the domain you're interested in
 #' @param url the url of the page to retrieve
