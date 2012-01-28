@@ -10,7 +10,7 @@
 #'   passed on to \code{\link{modify_url}}. Used to modify the current
 #'   \code{url}.  These parameter must be named.
 #' @examples
-#' google <- new_host("http://google.com")
+#' google <- handle("http://google.com")
 #' GET(google, "/")
 GET <- function(handle, path, ..., config = config()) {
   url <- modify_url(handle$url, path = path, ...)

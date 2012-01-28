@@ -8,7 +8,7 @@
 #' @examples
 #' new_host("http://google.com")
 #' new_host("https://google.com")
-new_handle <- function(url) {
+handle <- function(url) {
   stopifnot(is.character(url), length(url) == 1)
   
   url <- parse_url(url)
