@@ -7,10 +7,11 @@ print.response <- function(x, ..., max.lines = 10) {
   cat("  Status: ", x$status, "\n", sep = "")
 
   breaks <- str_locate_all(x$text, "\n")[[1]]
+  
   lines <- nrow(breaks)
   if (lines > max.lines) {
-    last_line <-  breaks[lines, 1] - 1
-    cat(str_sub(x$text, 1, last_line), "\n...\n")
+    last_line <-  breaks[max.lines, 1] - 1
+    cat(str_sub(x$text, 1, last_line), "...\n")
   } else {
     cat(x$text, "\n")
   }

@@ -10,13 +10,13 @@
 #'   passed on to \code{\link{modify_url}}. Used to modify the current
 #'   \code{url}.  These parameter must be named.
 #' @examples
-#' google <- new_handle("http://google.com")
+#' google <- new_host("http://google.com")
 #' GET(google, "/")
-GET <- function(handle, url, ..., config = config()) {
-  url <- modify_url(str_c(domain(handle), url), ...)
+GET <- function(handle, path, ..., config = config()) {
+  url <- modify_url(handle$url, path = path, ...)
   hg <- basicHeaderGatherer()
   
-  content <- getURL(url, curl = handle[[1]], headerfunction = hg$update)
+  content <- getURL(url, curl = handle$handle, headerfunction = hg$update)
   # Probably needs to work like Python's request and return text, binary 
   # and raw streams. Need to think about memory implications - maybe should be 
   # argument to request?

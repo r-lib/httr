@@ -17,6 +17,8 @@
 #' parse_url("http://google.com:80/")
 #' parse_url("http://google.com:80/?a=1&b=2")
 parse_url <- function(url) {
+  if (is.url(url)) return(url)
+  
   url <- as.character(url)
   stopifnot(length(url) == 1)
   
@@ -51,7 +53,7 @@ parse_url <- function(url) {
     
     host_pieces <- str_split(pieces, ":")[[1]]
     hostname <- host_pieces[1]
-    port <- host_pieces[2]
+    port <- if (length(host_pieces) > 1) host_pieces[2]
   } else {
     port <- username <- password <- hostname <- NULL
   }
@@ -66,36 +68,53 @@ parse_url <- function(url) {
   }  
   params <- pull_off(";(.*)$")
 
-  return(list(scheme = scheme, hostname = hostname, port = port, path = url, 
-    query = query, params = params, username = username, password = password))
-  
+  structure(list(
+    scheme = scheme, hostname = hostname, port = port, path = url, 
+    query = query, params = params, username = username, password = password),
+    class = "url")
 }
 
-build_url <- function(hostname, path, scheme = "http", port = NULL, query = list(), params = list(), username = NULL, password = NULL) { 
+is.url <- function(x) inherits(x, "url")
+print.url <- function(x, ...) {
+  cat("Url: ", build_url(x), "\n", sep = "")
+}
 
-  if (is.list(query)) {
-    escaped <- curlEscape(query)
-    query <- str_c(names(query), "=", escaped, collapse = "&")    
+build_url <- function(url) { 
+  stopifnot(is.url(url))
+
+  scheme <- url$scheme
+  hostname <- url$hostname
+
+  if (!is.null(url$port)) {
+    port <- str_c(":", url$port)
+  } else {
+    port <- NULL
+  }
+
+  path <- url$path
+  
+  if (is.list(url$query)) {
+    escaped <- curlEscape(url$query)
+    query <- str_c(names(url$query), "=", escaped, collapse = "&")    
+  } else {
+    query <- url$query
   }
   if (!is.null(query)) {
     stopifnot(is.character(query), length(query) == 1)
     query <- str_c("?", query)
   }
   
-  if (!is.null(port)) {
-    port <- str_c(":", port)
-  }
-  
-  str_c(scheme, "://", hostname, "/", path, query)
+  str_c(scheme, "://", hostname, port, "/", path, query)
 }
 
-
 modify_url <- function(url, scheme = NULL, hostname = NULL, port = NULL, path = NULL, query = NULL, params = NULL, username = NULL, password = NULL) {
+  
   old <- parse_url(url)
-  new <- compact(list(scheme = scheme, hostname = hostname, port = port, path = path,
+  new <- compact(list(
+    scheme = scheme, hostname = hostname, port = port, path = path, 
     query = query, params = params, username = username, password = password))
   
-  do.call("build_url", modifyList(old, new))
+  build_url(modifyList(old, new))
 }
 
 
