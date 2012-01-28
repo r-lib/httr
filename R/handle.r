@@ -16,10 +16,12 @@ new_handle <- function(domain) {
 }
 
 print.handle <- function(x, ...) {
-  cat("Request handle [", attr(x, "domain"), "]\n", sep = "")
+  cat("Request handle [", domain(x), "]\n", sep = "")
 }
 
 is.handle <- function(x) inherits(x, "handle")
+
+domain <- function(x) attr(x, "domain")
 
 # Eventually need an automatic pool of curl handles based on domain name?
 # Config them - catch last (10?) domains, reusing handle because I think

@@ -86,7 +86,7 @@ build_url <- function(hostname, path, scheme = "http", port = NULL, query = list
     port <- str_c(":", port)
   }
   
-  str_c(scheme, "://", hostname, path, query)
+  str_c(scheme, "://", hostname, "/", path, query)
 }
 
 

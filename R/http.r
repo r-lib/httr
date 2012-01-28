@@ -4,12 +4,29 @@
 
 # S3 class to manage output: headers, response, 
 
+#' @param handle the handle for the domain you're interested in
+#' @param url the url relative to the domain root
 #' @param ... Further parameters, such as \code{query}, \code{path}, etc,
 #'   passed on to \code{\link{modify_url}}. Used to modify the current
 #'   \code{url}.  These parameter must be named.
-GET <- function(url, ..., config = config()) {
-  url <- modify_url(url, ...)
-  getURLContent(make_url(url, params))
+#' @examples
+#' google <- new_handle("http://google.com")
+#' GET(google, "/")
+GET <- function(handle, url, ..., config = config()) {
+  url <- modify_url(str_c(domain(handle), url), ...)
+  hg <- basicHeaderGatherer()
+
+  content <- getURL(url, curl = handle[[1]], headerfunction = hg$update)
+  info <- last_request(handle)
+  
+  headers <- as.list(hg$value())
+  
+  list(
+    url = info$effective.url,
+    status_code = headers$status,
+    headers = headers,
+    text = content
+  )
 }
 
 # Need to make it easy to upload files from local paths.
@@ -43,20 +60,12 @@ DELETE <- function(url, content, ...) {
 
 # curlPerform
 
-#' @param ... All other arguments passed on \code{\link{CURLOptions}}
-config <- function(cookies, userpwd, proxy, proxyuserpwd, ...) {
-  CURLOptions(base.url=base.url, timeout=timeout, format=tolower(format), headers=headers)
-}
-
-
 # ?curlGlobalInit
 # httpauth
 
 # persist_cookies(path, {}, cleanup = TRUE)
 # cookies -- read from
 # cookiejar -- write to
-
-
 
 # with_session(handle, {}) # if you want to reuse a handle in multiple
 #    requests - but probably not needed with handle pool?
