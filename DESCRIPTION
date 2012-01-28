@@ -12,5 +12,6 @@ Depends:
     RCurl,
     stringr
 Suggests:
-    rjson
+    rjson,
+    XML
 License: MIT
