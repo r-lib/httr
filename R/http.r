@@ -15,13 +15,17 @@
 GET <- function(handle, url, ..., config = config()) {
   url <- modify_url(str_c(domain(handle), url), ...)
   hg <- basicHeaderGatherer()
-
+  
   content <- getURL(url, curl = handle[[1]], headerfunction = hg$update)
+  # Probably needs to work like Python's request and return text, binary 
+  # and raw streams. Need to think about memory implications - maybe should be 
+  # argument to request?
+  
   info <- last_request(handle)
   
   headers <- as.list(hg$value())
   
-  list(
+  response(
     url = info$effective.url,
     status_code = headers$status,
     headers = headers,
