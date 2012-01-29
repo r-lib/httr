@@ -6,8 +6,8 @@
 #'
 #' @param host host name (with protocol)
 #' @examples
-#' new_host("http://google.com")
-#' new_host("https://google.com")
+#' handle("http://google.com")
+#' handle("https://google.com")
 handle <- function(url) {
   stopifnot(is.character(url), length(url) == 1)
   
@@ -18,7 +18,11 @@ handle <- function(url) {
 }
 
 print.handle <- function(x, ...) {
-  cat("Host: ", build_url(x$url) , "\n", sep = "")
+  cat("Host: ", build_url(x$url) , " <", ref(x), ">\n", sep = "")
+}
+
+ref <- function(x) {
+  str_extract(capture.output(print(x$handle@ref)), "0x[0-9a-f]*")
 }
 
 is.handle <- function(x) inherits(x, "handle")
