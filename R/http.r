@@ -51,6 +51,12 @@ POST <- function(url = NULL, params = NULL, ..., config = config(), handle = NUL
   make_request("POST", hu$handle, hu$url, params = params, config = config)
 }
 
+HEAD <- function(url = NULL, params = NULL, ..., config = config(), handle = NULL) {
+  hu <- handle_url(handle, url, ...)
+  make_request("HEAD", hu$handle, hu$url, params = params, config = config)
+}
+
+
 # maybe need POST_file ?
 
 PUT <- function(url, content, ...) {
@@ -72,7 +78,6 @@ DELETE <- function(url, content, ...) {
   )
 }
 
-# HEAD ?
 # OPTIONS ? 
 # PATCH ?
 

@@ -1,10 +1,11 @@
 make_request <- function(action, handle, url, content, params, config = config()) {
   hg <- basicHeaderGatherer()
   
+  opts <- list(headerfunction = hg$update)
   content <- switch(action,
     GET = getURL(url, curl = handle$handle, headerfunction = hg$update),
-    POST = post_request(handle, url, style = "POST", 
-      params = params, opts = list(headerfunction = hg$update))
+    POST = post_request(handle, url, params = params, opts = opts),
+    HEAD = head_request(handle, url, opts = opts)
   )
   
   # Probably needs to work like Python's request and return text, binary 
@@ -17,7 +18,8 @@ make_request <- function(action, handle, url, content, params, config = config()
   headers <- as.list(hg$value())
   
   response(
-    url = info$effective.url,
+    url = url,
+    handle = handle,
     status_code = headers$status,
     headers = headers,
     # cookies = cookies,
@@ -26,7 +28,18 @@ make_request <- function(action, handle, url, content, params, config = config()
   )
 }
 
+# Need consistent set of functions that return raw results and headers,
+# and function (like RCurl:::processContent) to automatically create
+# correctly encoded text, and optionally parse into R objects.
 
+head_request <- function(handle, url, opts) {
+  opts$nobody <- 0
+  opts$url <- url
+
+  curlPerform(curl = handle$handle, .opts = opts)
+  curlSetOpt(curl = handle$handle, httpget = TRUE)
+  NULL
+}
 
 post_request <- function (handle, url, params = list(), opts = list(), style = "HTTPPOST", encoding = integer())  {
   stopifnot(is.handle(handle))
