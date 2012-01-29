@@ -26,36 +26,19 @@
 #' google <- handle("http://google.com")
 #' GET(handle = google, path = "/")
 GET <- function(url = NULL, ..., config = config(), handle = NULL) {
+  hu <- handle_url(handle, url, ...)
+  make_request("GET", hu$handle, hu$url, config = config)
+}
+
+handle_url <- function(handle = NULL, url = NULL, ...) {
   if (!xor(is.null(url), is.null(handle))) {
     stop("Must specify exactly one of url or handle")
   }
 
-  if (is.null(handle)) {
-    handle <- find_handle(url)
-  } else  {
-    url <- modify_url(handle$url, ...)    
-  }
-  
-  hg <- basicHeaderGatherer()
-  
-  content <- getURL(url, curl = handle$handle, headerfunction = hg$update)
-  # Probably needs to work like Python's request and return text, binary 
-  # and raw streams. Need to think about memory implications - maybe should be 
-  # argument to request?
-  
-  info <- last_request(handle)
-  times <- request_times(handle)
-  
-  headers <- as.list(hg$value())
-  
-  response(
-    url = info$effective.url,
-    status_code = headers$status,
-    headers = headers,
-    # cookies = cookies,
-    text = content,
-    times = times
-  )
+  if (is.null(handle))  handle <- find_handle(url)
+  if (is.null(url))     url <- modify_url(handle$url, ...)
+
+  list(handle = handle, url = url)
 }
 
 # Need to make it easy to upload files from local paths.
