@@ -21,6 +21,8 @@
 #' @examples
 #' GET("http://google.com/")
 #'
+#' GET("http://requestb.in/1ejpzfj1")
+#'
 #' # You might want to manually specify the handle so you can have multiple
 #' # independent logins to the same website.
 #' google <- handle("http://google.com")
@@ -44,9 +46,9 @@ handle_url <- function(handle = NULL, url = NULL, ...) {
 # Need to make it easy to upload files from local paths.
 # Same for PUT
 #' @inheritParams GET
-POST <- function(url, ..., config = config()) {
-  url <- modify_url(url, ...)
-  postForm(url, style = "post", params = params)
+POST <- function(url = NULL, params = NULL, ..., config = config(), handle = NULL) {
+  hu <- handle_url(handle, url, ...)
+  make_request("POST", hu$handle, hu$url, params = params, config = config)
 }
 
 # maybe need POST_file ?

@@ -27,3 +27,11 @@ is.handle <- function(x) inherits(x, "handle")
 # Config them - catch last (10?) hosts, reusing handle because I think
 # this gives the behaviour that users expect?  How are cookies etc preserved?
 # Use 0 to turn off and generate new handle for every request?
+
+"is.verbose<-" <- function(x, value) {
+  stopifnot(is.handle(x))
+  stopifnot(is.logical(value), length(value) == 1)
+  
+  curlSetOpt(verbose = value, curl = x$handle)
+  x
+}
