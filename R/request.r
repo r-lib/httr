@@ -1,3 +1,7 @@
+# Need consistent set of functions that return raw results and headers,
+# and function (like RCurl:::processContent) to automatically create
+# correctly encoded text, and optionally parse into R objects.
+
 make_request <- function(action, handle, url, content, params, config = config()) {
   hg <- basicHeaderGatherer()
   
@@ -28,16 +32,12 @@ make_request <- function(action, handle, url, content, params, config = config()
   )
 }
 
-# Need consistent set of functions that return raw results and headers,
-# and function (like RCurl:::processContent) to automatically create
-# correctly encoded text, and optionally parse into R objects.
-
 head_request <- function(handle, url, opts) {
   opts$nobody <- 0
   opts$url <- url
 
   curlPerform(curl = handle$handle, .opts = opts)
-  curlSetOpt(curl = handle$handle, httpget = TRUE)
+  reset(handle$handle)
   NULL
 }
 
@@ -75,7 +75,6 @@ post_request <- function (handle, url, params = list(), opts = list(), style = "
   .Call("R_post_form", handle$handle@ref, opts, params, TRUE,
     as.integer(style), PACKAGE = "RCurl")
   
-  curlSetOpt(httpget = TRUE, curl = handle$handle)
-  
+  reset(handle$handle)  
   rawToChar(as(buffer, "raw"))
 }
