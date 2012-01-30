@@ -19,3 +19,7 @@ print.config <- function(x, ...) {
   str(unclass(x), give.head = FALSE)
 }
 
+
+default_config <- function() {  
+  config(followlocation = 1L, maxredirs = 10L)
+}

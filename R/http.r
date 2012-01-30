@@ -27,7 +27,7 @@
 #' # independent logins to the same website.
 #' google <- handle("http://google.com")
 #' GET(handle = google, path = "/")
-GET <- function(url = NULL, ..., config = config(), handle = NULL) {
+GET <- function(url = NULL, ..., config = list(), handle = NULL) {
   hu <- handle_url(handle, url, ...)
   make_request("GET", hu$handle, hu$url, config = config)
 }
@@ -46,12 +46,12 @@ handle_url <- function(handle = NULL, url = NULL, ...) {
 # Need to make it easy to upload files from local paths.
 # Same for PUT
 #' @inheritParams GET
-POST <- function(url = NULL, params = NULL, ..., config = config(), handle = NULL) {
+POST <- function(url = NULL, params = NULL, ..., config = list(), handle = NULL) {
   hu <- handle_url(handle, url, ...)
   make_request("POST", hu$handle, hu$url, params = params, config = config)
 }
 
-HEAD <- function(url = NULL, params = NULL, ..., config = config(), handle = NULL) {
+HEAD <- function(url = NULL, params = NULL, ..., config = list(), handle = NULL) {
   hu <- handle_url(handle, url, ...)
   make_request("HEAD", hu$handle, hu$url, params = params, config = config)
 }

@@ -2,12 +2,14 @@
 # and function (like RCurl:::processContent) to automatically create
 # correctly encoded text, and optionally parse into R objects.
 
-make_request <- function(action, handle, url, content, params, config = config()) {
+make_request <- function(action, handle, url, content, params, config = list()) {
   hg <- basicHeaderGatherer()
   
-  opts <- list(headerfunction = hg$update)
+  opts <- modifyList(default_config(), config)
+  opts$headerfunction <- hg$update
+
   content <- switch(action,
-    GET = getURL(url, curl = handle$handle, headerfunction = hg$update),
+    GET = getURL(url, curl = handle$handle, .opts = opts),
     POST = post_request(handle, url, params = params, opts = opts),
     HEAD = head_request(handle, url, opts = opts),
     stop("Unknown action type")
@@ -23,7 +25,7 @@ make_request <- function(action, handle, url, content, params, config = config()
   headers <- as.list(hg$value())
   
   response(
-    url = url,
+    url = info$effective.url,
     handle = handle,
     status_code = headers$status,
     headers = headers,
