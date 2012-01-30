@@ -9,7 +9,8 @@ make_request <- function(action, handle, url, content, params, config = config()
   content <- switch(action,
     GET = getURL(url, curl = handle$handle, headerfunction = hg$update),
     POST = post_request(handle, url, params = params, opts = opts),
-    HEAD = head_request(handle, url, opts = opts)
+    HEAD = head_request(handle, url, opts = opts),
+    stop("Unknown action type")
   )
   
   # Probably needs to work like Python's request and return text, binary 
@@ -33,7 +34,7 @@ make_request <- function(action, handle, url, content, params, config = config()
 }
 
 head_request <- function(handle, url, opts) {
-  opts$nobody <- 0
+  opts$nobody <- 1L
   opts$url <- url
 
   curlPerform(curl = handle$handle, .opts = opts)
@@ -41,7 +42,7 @@ head_request <- function(handle, url, opts) {
   NULL
 }
 
-post_request <- function (handle, url, params = list(), opts = list(), style = "HTTPPOST", encoding = integer())  {
+post_request <- function (handle, url, params = list(), opts = list(), style = "POST", encoding = integer())  {
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
   stopifnot(is.character(style), length(style) == 1)
