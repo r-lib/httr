@@ -2,8 +2,6 @@
   if (!is.xpath(i)) NextMethod()
 
   getNodeSet(x, i)
-  # otherwise do an xml search
-  
 }
 
 
