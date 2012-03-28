@@ -10,16 +10,16 @@
 #' maintained over multiple request to the same host. See
 #' \code{\link{handle_pool}} for more details.
 #'
-#' @param handle the handle for the domain you're interested in
 #' @param url the url of the page to retrieve
 #' @param ... Further parameters, such as \code{query}, \code{path}, etc,
-#'   passed on to \code{\link{modify_url}}. Typically used in conjunction
-#'   with a specified \code{handle}. These parameter must be named.
-#' @param handle The handle to use with this request. If not specified, the 
-#'   same handle will be re-used for all request to the same combination
-#'   of scheme (http or https), hostname and port.
+#'   passed on to \code{\link{modify_url}}. These parameters must be named.
+#' @param handle The handle to use with this request. If not
+#'   supplied, will be retrieved and reused from the \code{\link{handle_pool}}
+#'   based on the scheme, hostname and port of the url.
 #' @examples
 #' GET("http://google.com/")
+#' GET("http://google.com/", path = "search")
+#' GET("http://google.com/", path = "search", query = c(q = "ham"))
 #'
 #' GET("http://requestb.in/1ejpzfj1")
 #'
@@ -27,6 +27,7 @@
 #' # independent logins to the same website.
 #' google <- handle("http://google.com")
 #' GET(handle = google, path = "/")
+#' GET(handle = google, path = "search")
 GET <- function(url = NULL, ..., config = list(), handle = NULL) {
   hu <- handle_url(handle, url, ...)
   make_request("GET", hu$handle, hu$url, config = config)
@@ -38,7 +39,9 @@ handle_url <- function(handle = NULL, url = NULL, ...) {
   }
 
   if (is.null(handle))  handle <- find_handle(url)
-  if (is.null(url))     url <- modify_url(handle$url, ...)
+  if (is.null(url))     url <- handle$url
+  
+  url <- modify_url(url, ...)
 
   list(handle = handle, url = url)
 }
