@@ -1,4 +1,8 @@
 handle_pool <- NULL
+empty_pool <- function() {
+  handle_pool <<- new.env(hash = TRUE, parent = emptyenv())
+}
+empty_pool()
 
 find_handle <- function(url) {
   handle_name <- build_url(parse_url(url)[c("scheme", "hostname", "port")])
@@ -13,7 +17,3 @@ find_handle <- function(url) {
   handle
 }
 
-empty_pool <- function() {
-  handle_pool <<- new.env(hash = TRUE, parent = emptyenv())
-}
-empty_pool()
