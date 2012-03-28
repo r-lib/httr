@@ -31,7 +31,8 @@ make_request <- function(action, handle, url, content, params, config = list()) 
     headers = headers,
     # cookies = cookies,
     text = content,
-    times = times
+    times = times,
+    config = config
   )
 }
 
