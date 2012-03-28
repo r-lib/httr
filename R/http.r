@@ -33,6 +33,12 @@ GET <- function(url = NULL, ..., config = list(), handle = NULL) {
   make_request("GET", hu$handle, hu$url, config = config)
 }
 
+BROWSE <- function(url = NULL, ..., config = list(), handle = NULL) {
+  hu <- handle_url(handle, url, ...)
+  browseURL(hu$url)
+}
+
+
 handle_url <- function(handle = NULL, url = NULL, ...) {
   if (!xor(is.null(url), is.null(handle))) {
     stop("Must specify exactly one of url or handle")
