@@ -27,11 +27,18 @@ ref <- function(x) {
 
 is.handle <- function(x) inherits(x, "handle")
 
-# Eventually need an automatic pool of curl handles based on host name?
-# Config them - catch last (10?) hosts, reusing handle because I think
-# this gives the behaviour that users expect?  How are cookies etc preserved?
-# Use 0 to turn off and generate new handle for every request?
-
+#' Set handle verbosity.
+#' 
+#' A verbose handle provides much more information about the flow of
+#' information between the client and server.
+#'
+#' @export
+#' @examples
+#' b <- new_bin()
+#' GET(handle = b)
+#' is.verbose(b) <- TRUE
+#' GET(handle = b)
+#' is.verbose(b) <- FALSE
 "is.verbose<-" <- function(x, value) {
   stopifnot(is.handle(x))
   stopifnot(is.logical(value), length(value) == 1)
