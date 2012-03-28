@@ -16,6 +16,7 @@
 #' @param handle The handle to use with this request. If not
 #'   supplied, will be retrieved and reused from the \code{\link{handle_pool}}
 #'   based on the scheme, hostname and port of the url.
+#' @export
 #' @examples
 #' GET("http://google.com/")
 #' GET("http://google.com/", path = "search")
@@ -42,6 +43,7 @@ GET <- function(url = NULL, ..., config = list(), handle = NULL) {
   make_request("GET", hu$handle, hu$url, config = config)
 }
 
+#' @export
 BROWSE <- function(url = NULL, ..., config = list(), handle = NULL) {
   hu <- handle_url(handle, url, ...)
   browseURL(hu$url)

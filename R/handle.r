@@ -5,6 +5,7 @@
 #' it will mostly be hidden from the user.
 #'
 #' @param host host name (with protocol)
+#' @export
 #' @examples
 #' handle("http://google.com")
 #' handle("https://google.com")
@@ -17,6 +18,7 @@ handle <- function(url) {
   structure(list(handle = h, url = url), class = "handle")
 }
 
+#' @S3method print handle
 print.handle <- function(x, ...) {
   cat("Host: ", build_url(x$url) , " <", ref(x), ">\n", sep = "")
 }

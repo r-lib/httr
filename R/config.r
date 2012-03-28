@@ -1,4 +1,5 @@
 
+#' @export
 config <- function(...) {
   options <- list(...)
   
@@ -11,10 +12,13 @@ config <- function(...) {
 }
 
 # Need to make it more reduce(modifyList)
+
+#' @S3method c config
 c.config <- function(...) {
   structure(NextMethod(), class = "config")
 }
 
+#' @S3method print config
 print.config <- function(x, ...) {
   cat("Config: \n")
   str(unclass(x), give.head = FALSE)
@@ -22,5 +26,5 @@ print.config <- function(x, ...) {
 
 
 default_config <- function() {  
-  config(followlocation = 1L, maxredirs = 10L)
+  c(config(followlocation = 1L, maxredirs = 10L), getOption("httr_config"))
 }

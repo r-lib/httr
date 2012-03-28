@@ -2,6 +2,7 @@ response <- function(...) {
   structure(list(...), class = "response")
 }
 
+#' @S3method print response
 print.response <- function(x, ..., max.lines = 10) {    
   cat("Response [", x$url, "]\n", sep = "")
   cat("  Status: ", x$status, "\n", sep = "")
@@ -18,6 +19,7 @@ print.response <- function(x, ..., max.lines = 10) {
   }
 }
 
+#' @S3method as.character response
 as.character.response <- function(x, ...) {
   x$text
 }

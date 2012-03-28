@@ -82,3 +82,21 @@ post_request <- function (handle, url, params = list(), opts = list(), style = "
   reset(handle$handle)  
   rawToChar(as(buffer, "raw"))
 }
+
+
+last_request <- function(x) {
+  stopifnot(is.handle(x))
+  getCurlInfo(x[[1]])
+}
+
+request_times <- function(x) {
+  req <- last_request(x)
+  
+  c(redirect = req$redirect.time, 
+    namelookup = req$namelookup.time, 
+    connect = req$connect.time, 
+    pretransfer = req$pretransfer.time, 
+    starttransfer = req$starttransfer.time, 
+    total = req$total.time)
+
+}

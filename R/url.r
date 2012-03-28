@@ -1,8 +1,11 @@
 # Good example for testing
 # http://stevenlevithan.com/demo/parseuri/js/
 
-# Parsed according to the details in http://tools.ietf.org/html/rfc1808.html
-
+#' Parsed url according RFC1808.
+#'
+#' See \url{http://tools.ietf.org/html/rfc1808.html} for details of parsing
+#' algorithm.
+#' 
 #' @return a list containing: \itemize{
 #'  \item scheme
 #'  \item hostname
@@ -13,6 +16,8 @@
 #'  \item username
 #'  \item password
 #' }
+#' @export
+#' @examples
 #' parse_url("http://google.com/")
 #' parse_url("http://google.com:80/")
 #' parse_url("http://google.com:80/?a=1&b=2")

@@ -1,3 +1,5 @@
+#' @export
+#' @family settings
 authenticate <- function(user, password, type = "anysafe") {
   stopifnot(is.character(user), length(user) == 1)
   stopifnot(is.character(password), length(password) == 1)
