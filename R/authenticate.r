@@ -9,3 +9,6 @@ authenticate <- function(user, password, type = "anysafe") {
   config(httpauth = type, userpwd = str_c(user, ":", password))
 }
 # with_auth(username, password, {})
+
+
+# Also need to make it easy to authenticate with OAuth

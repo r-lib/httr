@@ -10,6 +10,7 @@ config <- function(...) {
   structure(options, class = "config")
 }
 
+# Need to make it more reduce(modifyList)
 c.config <- function(...) {
   structure(NextMethod(), class = "config")
 }
