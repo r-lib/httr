@@ -42,10 +42,7 @@ GET(handle = b)
 GET(handle = b, config = add_headers(a = 1, b = 2))
 GET(handle = b, config = set_cookies(a = 1, b = 2))
 GET(handle = b, config = authenticate("username", "password"))
-
-# To get more feedback, make the handle verbose
-is.verbose(b) <- TRUE
-GET(handle = b)
+GET(handle = b, config = verbose())
 
 # You might want to manually specify the handle so you can have multiple
 # independent logins to the same website.

@@ -29,30 +29,10 @@ ref <- function(x) {
 
 is.handle <- function(x) inherits(x, "handle")
 
-#' Set handle verbosity.
-#' 
-#' A verbose handle provides much more information about the flow of
-#' information between the client and server.
-#'
-#' @param x a handle
-#' @param value a logical vector of length 1.
-#' @export
-#' @examples
-#' b <- new_bin()
-#' GET(handle = b)
-#' is.verbose(b) <- TRUE
-#' GET(handle = b)
-#' is.verbose(b) <- FALSE
-"is.verbose<-" <- function(x, value) {
-  stopifnot(is.handle(x))
-  stopifnot(is.logical(value), length(value) == 1)
-  
-  curlSetOpt(verbose = value, curl = x$handle)
-  x
-}
 
 reset_handle_config <- function(handle, config) {
   blank <- lapply(config, function(x) NULL)
   curlSetOpt(.opts = blank, curl = handle$handle)
   invisible(TRUE)
 }
+

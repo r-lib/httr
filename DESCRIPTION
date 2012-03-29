@@ -29,3 +29,4 @@ Collate:
     'response.r'
     'url.r'
     'xml.r'
+    'verbose.r'
