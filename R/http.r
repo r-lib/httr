@@ -1,7 +1,3 @@
-# man 3 libcurl
-# http://beders.github.com/Resty/Resty/Examples.html
-# http://github.com/jnunemaker/httparty/tree/master
-
 #' Get a url.
 #'
 #' \pkg{httr} automatically reuses the same http connection (aka handle)
@@ -100,15 +96,6 @@ DELETE <- function(url, content, ...) {
 
 # OPTIONS ? 
 # PATCH ?
-
-# curlPerform
-# with_base_url(url, {})  
-# with_base_url("http://google.com", {
-#   with_base_url("/query.html", {
-#     getURL(query = list())
-#   })
-#   
-# })
 
 # From Homer:
 # POST_file <- function(file, ...){
