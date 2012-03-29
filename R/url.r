@@ -56,7 +56,7 @@ parse_url <- function(url) {
       host <- pieces[2]
     }
     
-    host_pieces <- str_split(pieces, ":")[[1]]
+    host_pieces <- str_split(host, ":")[[1]]
     hostname <- host_pieces[1]
     port <- if (length(host_pieces) > 1) host_pieces[2]
   } else {
@@ -112,7 +112,13 @@ build_url <- function(url) {
     query <- str_c("?", query)
   }
   
-  str_c(scheme, "://", hostname, port, "/", path, query)
+  if (!is.null(url$username)) {
+    login <- str_c(url$username, ":", url$password, "@")
+  } else {
+    login <- NULL
+  }
+  
+  str_c(scheme, "://", login, hostname, port, "/", path, query)
 }
 
 modify_url <- function(url, scheme = NULL, hostname = NULL, port = NULL, path = NULL, query = NULL, params = NULL, username = NULL, password = NULL) {
