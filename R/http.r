@@ -40,8 +40,16 @@ GET <- function(url = NULL, ..., config = list(), handle = NULL) {
   make_request("GET", hu$handle, hu$url, config = config)
 }
 
+#' Open specified url in browser.
+#'
+#' Only works in interactive sessions.
+#'
+#' @inheritParams GET
 #' @export
+#' @examples
+#' BROWSE("http://google.com")
 BROWSE <- function(url = NULL, ..., config = list(), handle = NULL) {
+  if (!interactive()) return()
   hu <- handle_url(handle, url, ...)
   browseURL(hu$url)
 }
