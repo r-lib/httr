@@ -1,5 +1,5 @@
 #' @export
-#' @family settings
+#' @family config
 add_headers <- function(..., .headers = character()) {
   headers <- c(..., .headers)
   stopifnot(is.character(headers))

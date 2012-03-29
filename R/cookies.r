@@ -3,7 +3,7 @@
 # cookiejar -- write to
 
 #' @export
-#' @family settings
+#' @family config
 set_cookies <- function(..., .cookies = character(0)) {
   cookies <- c(..., .cookies)
   stopifnot(is.character(cookies))
