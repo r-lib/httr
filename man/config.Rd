@@ -31,5 +31,7 @@
   \code{\link{set_config}} to set global config defaults,
   and \code{\link{with_config}} to temporarily run code
   with set options.
+
+  Other config: \code{\link{authenticate}}
 }
 
