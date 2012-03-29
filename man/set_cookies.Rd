@@ -17,7 +17,7 @@ set_cookies(a = 1, b = 2)
 set_cookies(.cookies = c(a = "1", b = "2"))
 }
 \seealso{
-  Other config: \code{\link{authenticate}},
-  \code{\link{config}}
+  Other config: \code{\link{add_headers}},
+  \code{\link{authenticate}}, \code{\link{config}}
 }
 

@@ -21,4 +21,3 @@ set_cookies <- function(..., .cookies = character(0)) {
   
   config(cookie = cookie)
 }
-
