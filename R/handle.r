@@ -50,3 +50,9 @@ is.handle <- function(x) inherits(x, "handle")
   curlSetOpt(verbose = value, curl = x$handle)
   x
 }
+
+reset_handle_config <- function(handle, config) {
+  blank <- lapply(config, function(x) NULL)
+  curlSetOpt(.opts = blank, curl = handle$handle)
+  invisible(TRUE)
+}

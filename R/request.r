@@ -14,7 +14,8 @@ make_request <- function(action, handle, url, content, params, config = list()) 
     HEAD = head_request(handle, url, opts = opts),
     stop("Unknown action type")
   )
-  
+  reset_handle_config(handle, opts)  
+    
   # Probably needs to work like Python's request and return text, binary 
   # and raw streams. Need to think about memory implications - maybe should be 
   # argument to request?
