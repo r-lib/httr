@@ -5,7 +5,7 @@
   handle(url)
 }
 \arguments{
-  \item{host}{host name (with protocol)}
+  \item{url}{full url to site}
 }
 \description{
   This handle preserves settings and cookies across

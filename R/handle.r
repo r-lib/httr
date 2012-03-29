@@ -4,7 +4,7 @@
 #' the foundation of all requests performed through the httr package, although
 #' it will mostly be hidden from the user.
 #'
-#' @param host host name (with protocol)
+#' @param url full url to site
 #' @export
 #' @examples
 #' handle("http://google.com")
@@ -34,6 +34,8 @@ is.handle <- function(x) inherits(x, "handle")
 #' A verbose handle provides much more information about the flow of
 #' information between the client and server.
 #'
+#' @param x a handle
+#' @param value a logical vector of length 1.
 #' @export
 #' @examples
 #' b <- new_bin()

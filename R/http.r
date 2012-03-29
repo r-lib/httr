@@ -9,6 +9,10 @@
 #' @param url the url of the page to retrieve
 #' @param ... Further parameters, such as \code{query}, \code{path}, etc,
 #'   passed on to \code{\link{modify_url}}. These parameters must be named.
+#' @param config Additional configuration settings such as http
+#'   authentication (\code{\link{authenticate}}), additional headers
+#'   (\code{\link{add_headers}}), cookies (\code{\link{set_cookies}}) etc. 
+#'   See \code{\link{config}} for full details and list of helpers.
 #' @param handle The handle to use with this request. If not
 #'   supplied, will be retrieved and reused from the \code{\link{handle_pool}}
 #'   based on the scheme, hostname and port of the url.
@@ -41,6 +45,7 @@ GET <- function(url = NULL, ..., config = list(), handle = NULL) {
 
 #' @export
 BROWSE <- function(url = NULL, ..., config = list(), handle = NULL) {
+  if 
   hu <- handle_url(handle, url, ...)
   browseURL(hu$url)
 }
@@ -80,7 +85,7 @@ PUT <- function(url, content, ...) {
   getURLContent(url,
     customrequest = "PUT",
     postfields = content,
-    postfieldsize = strlen(content)
+    postfieldsize = str_length(content)
   )
 }
 
@@ -90,7 +95,7 @@ DELETE <- function(url, content, ...) {
   getURLContent(url,
     customrequest = "DELETE",
     postfields = content,
-    postfieldsize = strlen(content)
+    postfieldsize = str_length(content)
   )
 }
 

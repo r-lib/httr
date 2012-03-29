@@ -7,6 +7,8 @@
 #'  browser so you can more easily inspect the results.
 #' @export
 new_bin <- function(browse = TRUE) {
+  require("rjson")
+  
   bin <- make_bin()
   url <- str_c("http://requestb.in/", bin$name)
   h <- handle(url)

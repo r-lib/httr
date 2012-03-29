@@ -6,6 +6,7 @@
 #' See \url{http://tools.ietf.org/html/rfc1808.html} for details of parsing
 #' algorithm.
 #' 
+#' @param url a character vector (of length 1) to parse into components.
 #' @return a list containing: \itemize{
 #'  \item scheme
 #'  \item hostname

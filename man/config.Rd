@@ -4,6 +4,9 @@
 \usage{
   config(...)
 }
+\arguments{
+  \item{...}{named Curl options.}
+}
 \description{
   Generally you should only need to use this function to
   set CURL options directly if there isn't already a

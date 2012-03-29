@@ -18,13 +18,14 @@
 #' @seealso \code{\link{set_config}} to set global config defaults, and
 #'  \code{\link{with_config}} to temporarily run code with set options.
 #' @family config
+#' @param ... named Curl options.
 #' @export
 config <- function(...) {
   options <- list(...)
   
   unknown <- setdiff(names(options), listCurlOptions())
   if (length(unknown) > 0) {
-    stop("Unknown RCurl options: ", str_c(unkown, collapse = ", "))
+    stop("Unknown RCurl options: ", str_c(unknown, collapse = ", "))
   }
   
   structure(options, class = "config")

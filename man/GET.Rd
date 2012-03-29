@@ -11,6 +11,13 @@
   \code{path}, etc, passed on to \code{\link{modify_url}}.
   These parameters must be named.}
 
+  \item{config}{Additional configuration settings such as
+  http authentication (\code{\link{authenticate}}),
+  additional headers (\code{\link{add_headers}}), cookies
+  (\code{\link{set_cookies}}) etc.  See
+  \code{\link{config}} for full details and list of
+  helpers.}
+
   \item{handle}{The handle to use with this request. If not
   supplied, will be retrieved and reused from the
   \code{\link{handle_pool}} based on the scheme, hostname

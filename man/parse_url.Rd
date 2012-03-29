@@ -4,6 +4,10 @@
 \usage{
   parse_url(url)
 }
+\arguments{
+  \item{url}{a character vector (of length 1) to parse into
+  components.}
+}
 \value{
   a list containing: \itemize{ \item scheme \item hostname
   \item port \item path \item params \item query \item

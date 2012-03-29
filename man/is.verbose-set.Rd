@@ -4,6 +4,11 @@
 \usage{
   is.verbose(x, value) <- value
 }
+\arguments{
+  \item{x}{a handle}
+
+  \item{value}{a logical vector of length 1.}
+}
 \description{
   A verbose handle provides much more information about the
   flow of information between the client and server.
