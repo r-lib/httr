@@ -5,6 +5,6 @@ The aim of httr is to provide a user-friendly wrapper for RCurl that is less con
 Inspirations:
 
 * [Resty](http://beders.github.com/Resty/Resty/Examples.html)
-* [httparty]http://github.com/jnunemaker/httparty/tree/master
+* [httparty](http://github.com/jnunemaker/httparty/tree/master)
 
 
