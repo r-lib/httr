@@ -20,6 +20,7 @@
   Use http authentication.
 }
 \seealso{
-  Other config: \code{\link{config}}
+  Other config: \code{\link{config}},
+  \code{\link{set_cookies}}
 }
 

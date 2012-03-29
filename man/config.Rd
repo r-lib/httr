@@ -32,6 +32,7 @@
   and \code{\link{with_config}} to temporarily run code
   with set options.
 
-  Other config: \code{\link{authenticate}}
+  Other config: \code{\link{authenticate}},
+  \code{\link{set_cookies}}
 }
 

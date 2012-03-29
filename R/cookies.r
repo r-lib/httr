@@ -2,8 +2,15 @@
 # cookies -- read from
 # cookiejar -- write to
 
+#' Set cookies.
+#'
+#' @param ... a named cookie values
+#' @param .cookies a named character vector
 #' @export
 #' @family config
+#' @examples
+#' set_cookies(a = 1, b = 2)
+#' set_cookies(.cookies = c(a = "1", b = "2"))
 set_cookies <- function(..., .cookies = character(0)) {
   cookies <- c(..., .cookies)
   stopifnot(is.character(cookies))
