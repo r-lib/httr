@@ -45,7 +45,6 @@ GET <- function(url = NULL, ..., config = list(), handle = NULL) {
 
 #' @export
 BROWSE <- function(url = NULL, ..., config = list(), handle = NULL) {
-  if 
   hu <- handle_url(handle, url, ...)
   browseURL(hu$url)
 }
