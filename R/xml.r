@@ -5,8 +5,8 @@
 }
 
 
-#' Flags a string as an xpath expression.
-#'
+# Flags a string as an xpath expression.
+#
 xpath <- function(x) {
   stopifnot(length(x) == 1, is.character(x))
   structure(x, "xpath")

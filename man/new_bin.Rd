@@ -1,0 +1,17 @@
+\name{new_bin}
+\alias{new_bin}
+\title{Make bin at \url{http://requestb.in/}}
+\usage{
+  new_bin(browse = TRUE)
+}
+\arguments{
+  \item{browse}{if \code{TRUE}, will also open the request
+  bin in your browser so you can more easily inspect the
+  results.}
+}
+\description{
+  Returns a handle to a newly created request bin.  This is
+  very useful for checking that you're sending what you
+  think you're sending.
+}
+

@@ -4,10 +4,10 @@ Title: Tools for working with URLs and HTTP
 Version: 0.1
 Author: Hadley Wickham <h.wickham@gmail.com>
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
-Description: Provides useful tools for working with HTTP connections.  Is a 
-  simplified wrapper built on top of RCurl.  It is much much less configurable
-  but because it only attempts to encompass the most common operations it is
-  also much much simpler.
+Description: Provides useful tools for working with HTTP connections.  Is a
+    simplified wrapper built on top of RCurl.  It is much much less configurable
+    but because it only attempts to encompass the most common operations it is
+    also much much simpler.
 Depends:
     RCurl,
     stringr
@@ -15,3 +15,17 @@ Suggests:
     rjson,
     XML
 License: MIT
+Collate:
+    'authenticate.r'
+    'config.r'
+    'cookies.r'
+    'handle.r'
+    'handles.r'
+    'headers.r'
+    'http.r'
+    'proxy.r'
+    'request-bin.r'
+    'request.r'
+    'response.r'
+    'url.r'
+    'xml.r'
