@@ -81,6 +81,6 @@ GET(handle = google, path = "search")
 }
 \seealso{
   Other http methods: \code{\link{BROWSE}},
-  \code{\link{HEAD}}
+  \code{\link{DELETE}}, \code{\link{HEAD}}
 }
 

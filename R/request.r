@@ -12,6 +12,7 @@ make_request <- function(action, handle, url, content, body, config = list()) {
     GET = getURL(url, curl = handle$handle, .opts = opts),
     POST = post_request(handle, url, body = body, opts = opts),
     HEAD = head_request(handle, url, opts = opts),
+    DELETE = delete_request(handle, url, opts = opts),
     stop("Unknown action type")
   )
   reset_handle_config(handle, opts)  
@@ -44,6 +45,17 @@ head_request <- function(handle, url, opts) {
   reset(handle$handle)
   NULL
 }
+
+delete_request <- function(handle, url, opts) {
+  opts$nobody <- 1L
+  opts$url <- url
+  opts$customrequest <- "DELETE"
+
+  curlPerform(curl = handle$handle, .opts = opts)
+  reset(handle$handle)
+  NULL
+}
+
 
 post_request <- function (handle, url, body = list(), opts = list(), style = "POST", encoding = integer())  {
   stopifnot(is.handle(handle))

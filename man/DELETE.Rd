@@ -1,8 +1,8 @@
-\name{BROWSE}
-\alias{BROWSE}
-\title{Open specified url in browser.}
+\name{DELETE}
+\alias{DELETE}
+\title{Send a delete request.}
 \usage{
-  BROWSE(url = NULL, config = list(), ..., handle = NULL)
+  DELETE(url = NULL, config = list(), ..., handle = NULL)
 }
 \arguments{
   \item{url}{the url of the page to retrieve}
@@ -28,17 +28,14 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  (This isn't really a http verb, but it seems to follow
-  the same format).
-}
-\details{
-  Only works in interactive sessions.
+  Send a delete request.
 }
 \examples{
-BROWSE("http://google.com")
+b <- new_bin()
+DELETE(b)
 }
 \seealso{
-  Other http methods: \code{\link{DELETE}},
+  Other http methods: \code{\link{BROWSE}},
   \code{\link{GET}}, \code{\link{HEAD}}
 }
 
