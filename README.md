@@ -1,6 +1,6 @@
 # httr
 
-The aim of httr is to provide a wrapper for RCurl that is less configurable but (hopefully!) easier to use, and well suited to the demands of current web APIs. 
+The aim of httr is to provide a wrapper for RCurl that is less configurable but customised to the demands of modern web APIs. 
 
 Compared to `RCurl`, `httr`:
 
@@ -15,7 +15,7 @@ Compared to `RCurl`, `httr`:
   
 `httr` wouldn't be possible without the hard work of the authors of `RCurl` and `Curl`.
 
-`httr` is inspired by modern http libraries in other languages, such as:
+`httr` is inspired by http libraries in other languages, such as:
 
 * [Resty](http://beders.github.com/Resty/Resty/Examples.html)
 * [httparty](http://github.com/jnunemaker/httparty/tree/master)
