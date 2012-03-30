@@ -5,13 +5,17 @@
   timeout(seconds)
 }
 \arguments{
-  \item{second}{number of seconds to wait until giving up.}
+  \item{second}{number of seconds to wait for a response
+  until giving up.}
 }
 \description{
   Set maximum request time.
 }
 \examples{
-GET("http://had.co.nz", timeout(0.01))
+\dontrun{
+GET("http://httpbin.org/delay/3", timeout(1))
+}
+GET("http://httpbin.org/delay/1", timeout(2))
 }
 \seealso{
   Other config: \code{\link{add_headers}},
