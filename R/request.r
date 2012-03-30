@@ -27,7 +27,7 @@ make_request <- function(action, handle, url, content, body, config = list()) {
   response(
     url = info$effective.url,
     handle = handle,
-    status_code = headers$status,
+    status_code = as.numeric(headers$status),
     headers = headers,
     cookies = parse_cookies(info$cookielist),
     text = content,
