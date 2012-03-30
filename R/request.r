@@ -2,7 +2,7 @@
 # and function (like RCurl:::processContent) to automatically create
 # correctly encoded text, and optionally parse into R objects.
 
-make_request <- function(action, handle, url, content, params, config = list()) {
+make_request <- function(action, handle, url, content, body, config = list()) {
   hg <- basicHeaderGatherer()
   
   opts <- modifyList(default_config(), config)
@@ -10,7 +10,7 @@ make_request <- function(action, handle, url, content, params, config = list()) 
 
   content <- switch(action,
     GET = getURL(url, curl = handle$handle, .opts = opts),
-    POST = post_request(handle, url, params = params, opts = opts),
+    POST = post_request(handle, url, body = body, opts = opts),
     HEAD = head_request(handle, url, opts = opts),
     stop("Unknown action type")
   )
@@ -45,7 +45,7 @@ head_request <- function(handle, url, opts) {
   NULL
 }
 
-post_request <- function (handle, url, params = list(), opts = list(), style = "POST", encoding = integer())  {
+post_request <- function (handle, url, body = list(), opts = list(), style = "POST", encoding = integer())  {
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
   stopifnot(is.character(style), length(style) == 1)
@@ -56,10 +56,10 @@ post_request <- function (handle, url, params = list(), opts = list(), style = "
       if (inherits(x, "AsIs")) return(x)
       curlEscape(x)
     }
-    params <- vapply(params, encode, FUN.VALUE = character(1))
-    params <- str_c(names(params), params, sep = "=", collapse = "&")
+    body <- vapply(body, encode, FUN.VALUE = character(1))
+    body <- str_c(names(body), body, sep = "=", collapse = "&")
   } else {
-    params <- as.list(params)
+    body <- as.list(body)
   }
 
   buffer <- binaryBuffer()
@@ -68,7 +68,7 @@ post_request <- function (handle, url, params = list(), opts = list(), style = "
     writefunction = getNativeSymbolInfo("R_curl_write_binary_data")$address,
     writedata = buffer@ref)
   
-  if (params == "") {
+  if (body == "") {
     default_opts$post <- 1L
     default_opts$postfieldsize <- 0L
   }
@@ -76,7 +76,7 @@ post_request <- function (handle, url, params = list(), opts = list(), style = "
   # Create option list, but don't set values
   opts <- curlSetOpt(curl = NULL, .opts = modifyList(default_opts, opts))
 
-  .Call("R_post_form", handle$handle@ref, opts, params, TRUE,
+  .Call("R_post_form", handle$handle@ref, opts, body, TRUE,
     as.integer(style), PACKAGE = "RCurl")
   
   reset(handle$handle)  
