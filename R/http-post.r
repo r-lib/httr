@@ -10,10 +10,12 @@
 #' @examples
 #' b <- new_bin()
 #' POST(b)
+#' POST(b, body = "A simple text string")
 #' POST(b, body = list(a = 1, b = 2, c = 3))
 #' POST(b, body = list(a = 1, file = fileUpload(system.file("CITATION"))))
 #'
 #' b2 <- "http://httpbin.org/post"
+#' POST(b2, body = "A simple text string")
 #' POST(b2, body = list(x = "A simple text string"))
 #' POST(b2, body = list(y = fileUpload(system.file("CITATION"))))
 POST <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ..., handle = NULL) {
