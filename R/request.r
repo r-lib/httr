@@ -2,7 +2,7 @@
 # and function (like RCurl:::processContent) to automatically create
 # correctly encoded text, and optionally parse into R objects.
 
-make_request <- function(action, handle, url, content, body, config = list()) {
+make_request <- function(action, handle, url, ..., config = list()) {
   hg <- basicHeaderGatherer()
   
   opts <- modifyList(default_config(), config)
@@ -10,10 +10,10 @@ make_request <- function(action, handle, url, content, body, config = list()) {
 
   content <- switch(action,
     GET = getURL(url, curl = handle$handle, .opts = opts),
-    POST = post_request(handle, url, body = body, opts = opts),
-    PUT = put_request(handle, url, content = content, opts = opts),
-    HEAD = head_request(handle, url, opts = opts),
-    DELETE = delete_request(handle, url, opts = opts),
+    POST = post_request(handle, url, ..., opts = opts),
+    PUT = put_request(handle, url, ..., opts = opts),
+    HEAD = head_request(handle, url, ..., opts = opts),
+    DELETE = delete_request(handle, url, ..., opts = opts),
     stop("Unknown action type")
   )
   reset_handle_config(handle, opts)  
@@ -78,13 +78,21 @@ put_request <- function(handle, url, content, opts) {
 }
 
 
-post_request <- function (handle, url, body = list(), opts = list(), style = "POST", encoding = integer())  {
+post_request <- function (handle, url, body = list(), opts = list(), multipart = TRUE, encoding = integer())  {
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
-  stopifnot(is.character(style), length(style) == 1)
 
-  style <- RCurl:::PostStyles[match.arg(style, names(RCurl:::PostStyles))]
-  if (style == RCurl:::PostStyles["POST"]) {
+  buffer <- binaryBuffer()
+  opts$url <- url
+  opts$writefunction <-
+    getNativeSymbolInfo("R_curl_write_binary_data")$address
+  opts$writedata <- buffer@ref
+
+  if (is.null(body)) {
+    opts$post <- 1L
+    opts$postfieldsize <- 0L
+    body <- ""
+  } else if (!multipart) {
     encode <- function(x) {
       if (inherits(x, "AsIs")) return(x)
       curlEscape(x)
@@ -93,22 +101,13 @@ post_request <- function (handle, url, body = list(), opts = list(), style = "PO
     body <- str_c(names(body), body, sep = "=", collapse = "&")
   } else {
     body <- as.list(body)
-  }
-
-  buffer <- binaryBuffer()
-  default_opts <- list(
-    url = url,
-    writefunction = getNativeSymbolInfo("R_curl_write_binary_data")$address,
-    writedata = buffer@ref)
+    stopifnot(length(names(body)) > 0)
+  }    
   
-  if (body == "") {
-    default_opts$post <- 1L
-    default_opts$postfieldsize <- 0L
-  }
-    
   # Create option list, but don't set values
-  opts <- curlSetOpt(curl = NULL, .opts = modifyList(default_opts, opts))
+  opts <- curlSetOpt(curl = NULL, .opts = opts)
 
+  style <- if (multipart) NA else 47
   .Call("R_post_form", handle$handle@ref, opts, body, TRUE,
     as.integer(style), PACKAGE = "RCurl")
   
