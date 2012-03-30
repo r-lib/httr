@@ -2,7 +2,7 @@
 \alias{POST}
 \title{Post file to a server.}
 \usage{
-  POST(url = NULL, body = NULL, ..., config = list(),
+  POST(url = NULL, config = list(), body = NULL, ...,
     handle = NULL)
 }
 \arguments{
@@ -11,16 +11,16 @@
 
   \item{url}{the url of the page to retrieve}
 
-  \item{...}{Further parameters, such as \code{query},
-  \code{path}, etc, passed on to \code{\link{modify_url}}.
-  These parameters must be named.}
-
   \item{config}{Additional configuration settings such as
   http authentication (\code{\link{authenticate}}),
   additional headers (\code{\link{add_headers}}), cookies
   (\code{\link{set_cookies}}) etc.  See
   \code{\link{config}} for full details and list of
   helpers.}
+
+  \item{...}{Further parameters, such as \code{query},
+  \code{path}, etc, passed on to \code{\link{modify_url}}.
+  These parameters must be named.}
 
   \item{handle}{The handle to use with this request. If not
   supplied, will be retrieved and reused from the

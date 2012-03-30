@@ -49,17 +49,17 @@
 #' # See what GET is doing with requestb.in
 #' b <- new_bin()
 #' GET(b)
-#' GET(b, config = add_headers(a = 1, b = 2))
-#' GET(b, config = set_cookies(a = 1, b = 2))
-#' GET(b, config = authenticate("username", "password"))
-#' GET(b, config = verbose())
+#' GET(b, add_headers(a = 1, b = 2))
+#' GET(b, set_cookies(a = 1, b = 2))
+#' GET(b, authenticate("username", "password"))
+#' GET(b, verbose())
 #' 
 #' # You might want to manually specify the handle so you can have multiple
 #' # independent logins to the same website.
 #' google <- handle("http://google.com")
 #' GET(handle = google, path = "/")
 #' GET(handle = google, path = "search")
-GET <- function(url = NULL, ..., config = list(), handle = NULL) {
+GET <- function(url = NULL, config = list(), ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
   make_request("GET", hu$handle, hu$url, config = config)
 }

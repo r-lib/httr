@@ -2,7 +2,7 @@
 \alias{GET}
 \title{Get a url.}
 \usage{
-  GET(url = NULL, ..., config = list(), handle = NULL)
+  GET(url = NULL, config = list(), ..., handle = NULL)
 }
 \arguments{
   \item{url}{the url of the page to retrieve}
@@ -68,10 +68,10 @@ GET("http://google.com/", path = "search", query = c(q = "ham"))
 # See what GET is doing with requestb.in
 b <- new_bin()
 GET(b)
-GET(b, config = add_headers(a = 1, b = 2))
-GET(b, config = set_cookies(a = 1, b = 2))
-GET(b, config = authenticate("username", "password"))
-GET(b, config = verbose())
+GET(b, add_headers(a = 1, b = 2))
+GET(b, set_cookies(a = 1, b = 2))
+GET(b, authenticate("username", "password"))
+GET(b, verbose())
 
 # You might want to manually specify the handle so you can have multiple
 # independent logins to the same website.

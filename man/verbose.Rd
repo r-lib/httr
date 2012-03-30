@@ -15,7 +15,7 @@
 }
 \examples{
 b <- new_bin()
-GET(b, config = verbose())
+GET(b, verbose())
 }
 \seealso{
   Other config: \code{\link{add_headers}},

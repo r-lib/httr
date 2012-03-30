@@ -6,7 +6,7 @@
 #' @inheritParams GET
 #' @param body Named of list of elements to go in the body of the post file.
 #' @export
-POST <- function(url = NULL, body = NULL, ..., config = list(), handle = NULL) {
+POST <- function(url = NULL, config = list(), body = NULL, ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
   make_request("POST", hu$handle, hu$url, body = body, config = config)
 }

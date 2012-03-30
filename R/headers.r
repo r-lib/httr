@@ -10,8 +10,8 @@
 #' add_headers(.headers = c(a = "1", b = "2"))
 #' 
 #' # Override default headers with empty strings
-#' GET("http://had.co.nz", config = verbose())
-#' GET("http://had.co.nz", config = c(verbose(), add_headers(Accept = "")))
+#' GET("http://had.co.nz", verbose())
+#' GET("http://had.co.nz", c(verbose(), add_headers(Accept = "")))
 add_headers <- function(..., .headers = character()) {
   headers <- c(..., .headers)
   stopifnot(is.character(headers))

@@ -9,5 +9,5 @@
 #' @export
 #' @examples
 #' b <- new_bin()
-#' GET(b, config = verbose())
+#' GET(b, verbose())
 verbose <- function() config(verbose = TRUE)

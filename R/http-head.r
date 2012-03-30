@@ -22,7 +22,7 @@
 #' @examples
 #' HEAD("http://google.com")
 #' HEAD("http://google.com")$headers
-HEAD <- function(url = NULL, params = NULL, ..., config = list(), handle = NULL) {
+HEAD <- function(url = NULL, config = list(), ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  make_request("HEAD", hu$handle, hu$url, params = params, config = config)
+  make_request("HEAD", hu$handle, hu$url, config = config)
 }
