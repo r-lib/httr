@@ -7,7 +7,6 @@
 #'  browser so you can more easily inspect the results.
 #' @export
 new_bin <- function(browse = TRUE) {
-  require("rjson")
   
   bin <- make_bin()
   url <- str_c("http://requestb.in/", bin$name)
@@ -17,6 +16,8 @@ new_bin <- function(browse = TRUE) {
 }
 
 make_bin <- function() {
+  require("rjson")
+
   req <- POST("http://requestb.in/api/v1/bins")
   fromJSON(req$text)
 }
