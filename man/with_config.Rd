@@ -7,4 +7,8 @@
 \description{
   Execute code with configuration set.
 }
+\seealso{
+  Other ways to set configuration: \code{\link{config}},
+  \code{\link{set_config}}
+}
 

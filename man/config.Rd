@@ -37,5 +37,8 @@
 
   Other config: \code{\link{add_headers}},
   \code{\link{authenticate}}, \code{\link{set_cookies}}
+
+  Other ways to set configuration:
+  \code{\link{set_config}}, \code{\link{with_config}}
 }
 

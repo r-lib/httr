@@ -21,6 +21,7 @@
 #' @seealso \code{\link{set_config}} to set global config defaults, and
 #'  \code{\link{with_config}} to temporarily run code with set options.
 #' @family config
+#' @family ways to set configuration
 #' @param ... named Curl options.
 #' @export
 config <- function(...) {
@@ -61,6 +62,7 @@ default_config <- function() {
 #' @param override if \code{TRUE}, ignore existing settings, if \code{FALSE},
 #'   combine new config with old.
 #' @return invisibility, the old global config.
+#' @family ways to set configuration
 #' @export
 set_config <- function(config, override = FALSE) {
   stopifnot(is.config(config))
@@ -75,6 +77,7 @@ reset_config <- function() set_config(config(), TRUE)
 
 #' Execute code with configuration set.
 #'
+#' @family ways to set configuration
 #' @export
 with_config <- function(config = config(), expr, override = FALSE) {
   stopifnot(is.config(config))
