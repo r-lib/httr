@@ -14,10 +14,11 @@ authenticate <- function(user, password, type = "anysafe") {
   stopifnot(is.character(password), length(password) == 1)
   stopifnot(is.character(type), length(type) == 1)
   
-  type <- match.arg(type, c("basic", "digest", "digest_ie", "gssnegotiate",
-    "ntlm", "ntlm_vn", "any", "anysafe"))
+  constants <- c(basic = 1, digest = 2, gssnegotiate = 4, ntlm = 8, 
+    digest_ie = 16, any = -17)
+  type <- match.arg(type, names(constants))
   
-  config(httpauth = type, userpwd = str_c(user, ":", password))
+  config(httpauth = constants[type], userpwd = str_c(user, ":", password))
 }
 # with_auth(username, password, {})
 
