@@ -20,6 +20,7 @@
 \seealso{
   Other config: \code{\link{add_headers}},
   \code{\link{config}}, \code{\link{set_cookies}},
-  \code{\link{use_proxy}}, \code{\link{verbose}}
+  \code{\link{timeout}}, \code{\link{use_proxy}},
+  \code{\link{verbose}}
 }
 
