@@ -1,7 +1,7 @@
 # Good example for testing
 # http://stevenlevithan.com/demo/parseuri/js/
 
-#' Parsed url according RFC1808.
+#' Parse a url according to RFC1808.
 #'
 #' See \url{http://tools.ietf.org/html/rfc1808.html} for details of parsing
 #' algorithm.

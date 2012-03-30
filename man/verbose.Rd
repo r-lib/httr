@@ -17,4 +17,9 @@
 b <- new_bin()
 GET(handle = b, config = verbose())
 }
+\seealso{
+  Other config: \code{\link{add_headers}},
+  \code{\link{authenticate}}, \code{\link{config}},
+  \code{\link{set_cookies}}
+}
 

@@ -18,6 +18,7 @@ add_headers(.headers = c(a = "1", b = "2"))
 }
 \seealso{
   Other config: \code{\link{authenticate}},
-  \code{\link{config}}, \code{\link{set_cookies}}
+  \code{\link{config}}, \code{\link{set_cookies}},
+  \code{\link{verbose}}
 }
 
