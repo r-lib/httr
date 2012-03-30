@@ -13,7 +13,8 @@ Depends:
     stringr
 Suggests:
     rjson,
-    XML
+    XML,
+    testthat
 License: MIT
 Collate:
     'authenticate.r'
