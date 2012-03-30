@@ -26,6 +26,9 @@
   "sslengine.default".  See
   \code{\link[RCurl]{listCurlOptions}} for a complete list
   of the R name equivalents.
+
+  Unlike Curl (and RCurl), all configuration options are
+  per request, not per handle.
 }
 \seealso{
   \code{\link{set_config}} to set global config defaults,

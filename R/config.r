@@ -14,6 +14,9 @@
 #' the option is given in lower case.  Thus "CURLOPT_SSLENGINE_DEFAULT"
 #' becomes "sslengine.default".  See \code{\link[RCurl]{listCurlOptions}} for
 #' a complete list of the R name equivalents.
+#'
+#' Unlike Curl (and RCurl), all configuration options are per request, not
+#' per handle.
 #' 
 #' @seealso \code{\link{set_config}} to set global config defaults, and
 #'  \code{\link{with_config}} to temporarily run code with set options.
