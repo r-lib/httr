@@ -19,6 +19,6 @@ set_cookies(.cookies = c(a = "1", b = "2"))
 \seealso{
   Other config: \code{\link{add_headers}},
   \code{\link{authenticate}}, \code{\link{config}},
-  \code{\link{verbose}}
+  \code{\link{use_proxy}}, \code{\link{verbose}}
 }
 

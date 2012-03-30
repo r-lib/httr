@@ -37,7 +37,7 @@
 
   Other config: \code{\link{add_headers}},
   \code{\link{authenticate}}, \code{\link{set_cookies}},
-  \code{\link{verbose}}
+  \code{\link{use_proxy}}, \code{\link{verbose}}
 
   Other ways to set configuration:
   \code{\link{set_config}}, \code{\link{with_config}}
