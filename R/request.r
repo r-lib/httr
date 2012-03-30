@@ -11,6 +11,7 @@ make_request <- function(action, handle, url, content, body, config = list()) {
   content <- switch(action,
     GET = getURL(url, curl = handle$handle, .opts = opts),
     POST = post_request(handle, url, body = body, opts = opts),
+    PUT = put_request(handle, url, content = content, opts = opts),
     HEAD = head_request(handle, url, opts = opts),
     DELETE = delete_request(handle, url, opts = opts),
     stop("Unknown action type")
@@ -50,6 +51,26 @@ delete_request <- function(handle, url, opts) {
   opts$nobody <- 1L
   opts$url <- url
   opts$customrequest <- "DELETE"
+
+  curlPerform(curl = handle$handle, .opts = opts)
+  reset(handle$handle)
+  NULL
+}
+
+put_request <- function(handle, url, content, opts) {
+  opts$url <- url
+  opts$customrequest <- "PUT"
+  
+  if (is.null(content)) {
+    opts$nobody <- 1L
+  } else {
+    if (is.character(content)) {
+      content <- charToRaw(paste(content, collapse = "\n"))
+    }
+    opts$readfunction <- content
+    opts$upload <- TRUE
+    opts$infilesize <- length(content)
+  }
 
   curlPerform(curl = handle$handle, .opts = opts)
   reset(handle$handle)
