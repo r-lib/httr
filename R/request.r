@@ -122,7 +122,7 @@ post_request <- function (handle, url, body = NULL, opts = list(), multipart = T
   # Create option list, but don't set values
   opts <- curlSetOpt(curl = NULL, .opts = opts)
 
-  style <- if (multipart && !is.list(body)) NA else 47
+  style <- if (multipart && body != "") NA else 47
   # handle opts params isProtected r_style
   .Call("R_post_form", handle$handle@ref, opts, body, TRUE,
     as.integer(style), PACKAGE = "RCurl")
