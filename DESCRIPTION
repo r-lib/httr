@@ -30,3 +30,6 @@ Collate:
     'url.r'
     'xml.r'
     'verbose.r'
+    'aws.r'
+    'oauth.r'
+    'utils.r'
