@@ -13,7 +13,7 @@
 #'   \item \code{text} the body of the response, as text
 #'   \item \code{time} request timing information
 #'   \item \code{config} configuration for the request
-#'
+#' }
 #' @name response
 NULL
 

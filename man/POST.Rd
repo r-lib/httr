@@ -48,6 +48,6 @@ POST(b, body = list(a = 1, file = fileUpload(system.file("CITATION"))))
 
 b2 <- "http://httpbin.org/post"
 POST(b2, body = list(x = "A simple text string"))
-POST(b2, body = list(y = fileUpload(system.file("CITATION")))
+POST(b2, body = list(y = fileUpload(system.file("CITATION"))))
 }
 

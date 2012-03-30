@@ -1,6 +1,6 @@
 #' Use a proxy to connect to the internet.
 #'
-#' @param url location of proxy
+#' @param url,port location of proxy
 #' @param username,password login details for proxy, if needed
 #' @family config
 #' @export

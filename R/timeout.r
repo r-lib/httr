@@ -1,6 +1,6 @@
 #' Set maximum request time.
 #'
-#' @param second number of seconds to wait for a response until giving up.
+#' @param seconds number of seconds to wait for a response until giving up.
 #' @family config
 #' @export
 #' @examples

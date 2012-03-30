@@ -5,7 +5,7 @@
   timeout(seconds)
 }
 \arguments{
-  \item{second}{number of seconds to wait for a response
+  \item{seconds}{number of seconds to wait for a response
   until giving up.}
 }
 \description{

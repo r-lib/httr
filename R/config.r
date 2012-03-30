@@ -78,6 +78,8 @@ reset_config <- function() set_config(config(), TRUE)
 #' Execute code with configuration set.
 #'
 #' @family ways to set configuration
+#' @inheritParams set_config
+#' @param expr code to execute under specified configuration
 #' @export
 with_config <- function(config = config(), expr, override = FALSE) {
   stopifnot(is.config(config))

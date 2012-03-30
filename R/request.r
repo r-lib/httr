@@ -78,7 +78,7 @@ put_request <- function(handle, url, content, opts) {
 }
 
 
-post_request <- function (handle, url, body = list(), opts = list(), multipart = TRUE, encoding = integer())  {
+post_request <- function (handle, url, body = NULL, opts = list(), multipart = TRUE, encoding = integer())  {
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
 
@@ -87,7 +87,7 @@ post_request <- function (handle, url, body = list(), opts = list(), multipart =
   opts$writefunction <-
     getNativeSymbolInfo("R_curl_write_binary_data")$address
   opts$writedata <- buffer@ref
-
+  
   if (is.null(body)) {
     opts$post <- 1L
     opts$postfieldsize <- 0L
@@ -100,14 +100,18 @@ post_request <- function (handle, url, body = list(), opts = list(), multipart =
     body <- vapply(body, encode, FUN.VALUE = character(1))
     body <- str_c(names(body), body, sep = "=", collapse = "&")
   } else {
-    body <- as.list(body)
+    charify <- function(x) {
+      if (inherits(x, "FileUploadInfo")) return(x)
+      as.character(x)
+    }
+    body <- lapply(body, charify)
     stopifnot(length(names(body)) > 0)
   }    
   
   # Create option list, but don't set values
   opts <- curlSetOpt(curl = NULL, .opts = opts)
 
-  style <- if (multipart) NA else 47
+  style <- if (multipart && body != "") NA else 47
   .Call("R_post_form", handle$handle@ref, opts, body, TRUE,
     as.integer(style), PACKAGE = "RCurl")
   

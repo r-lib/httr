@@ -6,7 +6,7 @@
     password = NULL)
 }
 \arguments{
-  \item{url}{location of proxy}
+  \item{url,port}{location of proxy}
 
   \item{username,password}{login details for proxy, if
   needed}
