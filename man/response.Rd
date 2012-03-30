@@ -1,5 +1,5 @@
-\name{request}
-\alias{request}
+\name{response}
+\alias{response}
 \title{The response object.}
 \description{
   The response object captures all information from a
