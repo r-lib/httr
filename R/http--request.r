@@ -16,7 +16,7 @@ make_request <- function(action, handle, url, ..., config = list()) {
   
   info <- last_request(handle)
   times <- request_times(handle)
-  headers <- as.list(hg$value())
+  headers <- insensitive(as.list(hg$value()))
   
   response(
     url = info$effective.url,

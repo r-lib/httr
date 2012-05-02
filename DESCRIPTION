@@ -26,6 +26,7 @@ Collate:
     'handle.r'
     'headers.r'
     'proxy.r'
+    'insensitive.r'
     'request-bin.r'
     'http--request.r'
     'response.r'
