@@ -10,8 +10,8 @@
   results.}
 }
 \description{
-  Returns a handle to a newly created request bin.  This is
-  very useful for checking that you're sending what you
-  think you're sending.
+  Returns the url pointing to a newly created request bin.
+  This is very useful for checking that you're sending what
+  you think you're sending.
 }
 

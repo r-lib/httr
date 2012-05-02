@@ -18,4 +18,8 @@
 \description{
   Set global httr configuration.
 }
+\seealso{
+  Other ways to set configuration: \code{\link{config}},
+  \code{\link{with_config}}
+}
 

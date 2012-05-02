@@ -1,0 +1,26 @@
+\name{timeout}
+\alias{timeout}
+\title{Set maximum request time.}
+\usage{
+  timeout(seconds)
+}
+\arguments{
+  \item{seconds}{number of seconds to wait for a response
+  until giving up.}
+}
+\description{
+  Set maximum request time.
+}
+\examples{
+\dontrun{
+GET("http://httpbin.org/delay/3", timeout(1))
+}
+GET("http://httpbin.org/delay/1", timeout(2))
+}
+\seealso{
+  Other config: \code{\link{add_headers}},
+  \code{\link{authenticate}}, \code{\link{config}},
+  \code{\link{set_cookies}}, \code{\link{use_proxy}},
+  \code{\link{verbose}}
+}
+

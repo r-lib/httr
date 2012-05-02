@@ -8,28 +8,41 @@ Description: Provides useful tools for working with HTTP connections.  Is a
     simplified wrapper built on top of RCurl.  It is much much less configurable
     but because it only attempts to encompass the most common operations it is
     also much much simpler.
-Depends:
+Imports:
     RCurl,
     stringr
 Suggests:
     rjson,
-    XML
+    XML,
+    testthat,
+    png,
+    jpeg
 License: MIT
 Collate:
     'authenticate.r'
     'config.r'
+    'content.r'
     'cookies.r'
     'handle.r'
-    'handles.r'
     'headers.r'
-    'http.r'
     'proxy.r'
+    'insensitive.r'
     'request-bin.r'
-    'request.r'
+    'http--request.r'
     'response.r'
     'url.r'
     'xml.r'
     'verbose.r'
     'aws.r'
+    'handle-pool.r'
+    'handle-url.r'
+    'http-browse.r'
+    'http-delete.r'
+    'http-get.r'
+    'http-head.r'
+    'http-post.r'
+    'http-put.r'
+    'httr.r'
     'oauth.r'
+    'timeout.r'
     'utils.r'

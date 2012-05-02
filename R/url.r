@@ -1,7 +1,7 @@
 # Good example for testing
 # http://stevenlevithan.com/demo/parseuri/js/
 
-#' Parsed url according RFC1808.
+#' Parse a url according to RFC1808.
 #'
 #' See \url{http://tools.ietf.org/html/rfc1808.html} for details of parsing
 #' algorithm.
@@ -122,6 +122,15 @@ build_url <- function(url) {
   str_c(scheme, "://", login, hostname, port, "/", path, query)
 }
 
+#' Modify a url.
+#' 
+#' Modify a url by first parsing and it then replacing components with 
+#' the non-NULL arguments of this function.
+#' 
+#' @export
+#' @param url the url to modify
+#' @param scheme,hostname,port,path,query,params,username,password 
+#'   components of the url to change
 modify_url <- function(url, scheme = NULL, hostname = NULL, port = NULL, path = NULL, query = NULL, params = NULL, username = NULL, password = NULL) {
   
   old <- parse_url(url)

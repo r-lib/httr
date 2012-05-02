@@ -1,3 +1,11 @@
+#' Maintain a pool of handles.
+#'
+#' The handle pool is used to automatically reuse Curl handles for the same
+#' scheme/host/port combination.  This ensures that the http session is 
+#' automatically reused, and cookies are maintained across requests to a site
+#' without user intervention.
+#'
+#' @format An environment.
 handle_pool <- NULL
 empty_pool <- function() {
   handle_pool <<- new.env(hash = TRUE, parent = emptyenv())

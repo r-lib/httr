@@ -1,10 +1,13 @@
-\name{BROWSE}
-\alias{BROWSE}
-\title{Open specified url in browser.}
+\name{PUT}
+\alias{PUT}
+\title{Send PUT to request server.}
 \usage{
-  BROWSE(url = NULL, config = list(), ..., handle = NULL)
+  PUT(url = NULL, config = list(), content = NULL, ...,
+    handle = NULL)
 }
 \arguments{
+  \item{content}{Content, if any, to send to server.}
+
   \item{url}{the url of the page to retrieve}
 
   \item{config}{Additional configuration settings such as
@@ -28,17 +31,10 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  (This isn't really a http verb, but it seems to follow
-  the same format).
-}
-\details{
-  Only works in interactive sessions.
+  Send PUT to request server.
 }
 \examples{
-BROWSE("http://google.com")
-}
-\seealso{
-  Other http methods: \code{\link{DELETE}},
-  \code{\link{GET}}, \code{\link{HEAD}}
+b <- new_bin()
+PUT(b)
 }
 

@@ -1,10 +1,20 @@
-\name{BROWSE}
-\alias{BROWSE}
-\title{Open specified url in browser.}
+\name{POST}
+\alias{POST}
+\title{Post file to a server.}
 \usage{
-  BROWSE(url = NULL, config = list(), ..., handle = NULL)
+  POST(url = NULL, config = list(), body = NULL,
+    multipart = TRUE, ..., handle = NULL)
 }
 \arguments{
+  \item{body}{Named of list of elements to go in the body
+  of the post file.  Use \code{\link[RCurl]{fileUpload}} to
+  upload files.}
+
+  \item{multipart}{Should the form be send as
+  multipart/form-data (\code{TRUE}), or
+  application/x-www-form-urlencoded (\code{FALSE}).  Files
+  can not be uploaded when \code{FALSE}.}
+
   \item{url}{the url of the page to retrieve}
 
   \item{config}{Additional configuration settings such as
@@ -28,17 +38,18 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  (This isn't really a http verb, but it seems to follow
-  the same format).
-}
-\details{
-  Only works in interactive sessions.
+  Post file to a server.
 }
 \examples{
-BROWSE("http://google.com")
-}
-\seealso{
-  Other http methods: \code{\link{DELETE}},
-  \code{\link{GET}}, \code{\link{HEAD}}
+b <- new_bin()
+POST(b)
+POST(b, body = "A simple text string")
+POST(b, body = list(a = 1, b = 2, c = 3))
+POST(b, body = list(a = 1, file = fileUpload(system.file("CITATION"))))
+
+b2 <- "http://httpbin.org/post"
+POST(b2, body = "A simple text string")
+POST(b2, body = list(x = "A simple text string"))
+POST(b2, body = list(y = fileUpload(system.file("CITATION"))))
 }
 

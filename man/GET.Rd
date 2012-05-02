@@ -2,7 +2,7 @@
 \alias{GET}
 \title{Get a url.}
 \usage{
-  GET(url = NULL, ..., config = list(), handle = NULL)
+  GET(url = NULL, config = list(), ..., handle = NULL)
 }
 \arguments{
   \item{url}{the url of the page to retrieve}
@@ -21,15 +21,44 @@
   \item{handle}{The handle to use with this request. If not
   supplied, will be retrieved and reused from the
   \code{\link{handle_pool}} based on the scheme, hostname
-  and port of the url.}
+  and port of the url. By default \pkg{httr} requests to
+  the same scheme/host/port combo. This substantially
+  reduces connection time, and ensures that cookies are
+  maintained over multiple requests to the same host. See
+  \code{\link{handle_pool}} for more details.}
 }
 \description{
-  \pkg{httr} automatically reuses the same http connection
-  (aka handle) for mulitple requests to the same
-  scheme/host/port combo. This substantially reduces
-  connection time, and ensures that cookies are maintained
-  over multiple request to the same host. See
-  \code{\link{handle_pool}} for more details.
+  Get a url.
+}
+\section{RFC2616}{
+  The GET method means retrieve whatever information (in
+  the form of an entity) is identified by the Request-URI.
+  If the Request-URI refers to a data-producing process, it
+  is the produced data which shall be returned as the
+  entity in the response and not the source text of the
+  process, unless that text happens to be the output of the
+  process.
+
+  The semantics of the GET method change to a "conditional
+  GET" if the request message includes an
+  If-Modified-Since, If-Unmodified-Since, If-Match,
+  If-None-Match, or If-Range header field. A conditional
+  GET method requests that the entity be transferred only
+  under the circumstances described by the conditional
+  header field(s). The conditional GET method is intended
+  to reduce unnecessary network usage by allowing cached
+  entities to be refreshed without requiring multiple
+  requests or transferring data already held by the client.
+
+  The semantics of the GET method change to a "partial GET"
+  if the request message includes a Range header field. A
+  partial GET requests that only part of the entity be
+  transferred, as described in
+  \url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35}
+  The partial GET method is intended to reduce unnecessary
+  network usage by allowing partially-retrieved entities to
+  be completed without transferring data already held by
+  the client.
 }
 \examples{
 GET("http://google.com/")
@@ -38,16 +67,20 @@ GET("http://google.com/", path = "search", query = c(q = "ham"))
 
 # See what GET is doing with requestb.in
 b <- new_bin()
-GET(handle = b)
-GET(handle = b, config = add_headers(a = 1, b = 2))
-GET(handle = b, config = set_cookies(a = 1, b = 2))
-GET(handle = b, config = authenticate("username", "password"))
-GET(handle = b, config = verbose())
+GET(b)
+GET(b, add_headers(a = 1, b = 2))
+GET(b, set_cookies(a = 1, b = 2))
+GET(b, authenticate("username", "password"))
+GET(b, verbose())
 
 # You might want to manually specify the handle so you can have multiple
 # independent logins to the same website.
 google <- handle("http://google.com")
 GET(handle = google, path = "/")
 GET(handle = google, path = "search")
+}
+\seealso{
+  Other http methods: \code{\link{BROWSE}},
+  \code{\link{DELETE}}, \code{\link{HEAD}}
 }
 

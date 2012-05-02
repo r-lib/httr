@@ -1,6 +1,6 @@
 \name{parse_url}
 \alias{parse_url}
-\title{Parsed url according RFC1808.}
+\title{Parse a url according to RFC1808.}
 \usage{
   parse_url(url)
 }
