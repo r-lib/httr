@@ -24,7 +24,7 @@ Key features:
   
 * url parsing (with `parse_url`) and modification (with `modify_url`)
 
-`httr` wouldn't be possible without the hard work of the authors of `RCurl` and `Curl`.  Thanks!  `httr` is inspired by http libraries in other languages, such as [Resty](http://beders.github.com/Resty/Resty/Examples.html), [Requests](http://docs.python-requests.org/en/v0.10.7/index.html) and [httparty](http://github.com/jnunemaker/httparty/tree/master).
+`httr` wouldn't be possible without the hard work of the authors of `RCurl` and `Curl`.  Thanks!  `httr` is inspired by http libraries in other languages, such as [Resty](http://beders.github.com/Resty/Resty/Examples.html), [Requests](http://docs.python-requests.org/en/latest/index.html) and [httparty](http://github.com/jnunemaker/httparty/tree/master).
 
 ## Availability
 
