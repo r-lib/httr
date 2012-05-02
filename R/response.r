@@ -27,8 +27,8 @@ print.response <- function(x, ..., max.lines = 10) {
   cat("Response [", x$url, "]\n", sep = "")
   cat("  Status: ", x$status, "\n", sep = "")
   
-  if (length(x$text) == 0) return()
   text <- text_content(x)
+  if (length(text) == 0) return()
   breaks <- str_locate_all(text, "\n")[[1]]
   
   lines <- nrow(breaks)

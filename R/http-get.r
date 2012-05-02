@@ -73,7 +73,6 @@ get_request <- function(handle, url, opts) {
   opts$writedata <- buffer@ref
   
   curlPerform(curl = handle$handle, .opts = opts)
-  reset(handle$handle)
   
   as(buffer, "raw")
 }

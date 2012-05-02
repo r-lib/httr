@@ -7,7 +7,10 @@ make_request <- function(action, handle, url, ..., config = list()) {
   opts$headerfunction <- hg$update
 
   content <- action(handle, url, ..., opts = opts)
-  reset_handle_config(handle, opts)
+  on.exit({
+    reset_handle_config(handle, opts)
+    reset(handle$handle)
+  })  
   
   info <- last_request(handle)
   times <- request_times(handle)

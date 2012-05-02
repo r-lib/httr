@@ -74,6 +74,5 @@ post_request <- function (handle, url, body = NULL, opts = list(), multipart = T
   .Call("R_post_form", handle$handle@ref, opts, body, TRUE,
     as.integer(style), PACKAGE = "RCurl")
   
-  reset(handle$handle)  
   as(buffer, "raw")
 }

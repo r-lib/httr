@@ -8,3 +8,7 @@ test_handle <- handle(test_server)
 # Re use the same handle for multiple requests
 rowMeans(replicate(20, 
   GET(handle = test_handle, path = "index.html")$times))
+
+# With httr, handles are automatically pooled
+rowMeans(replicate(20, 
+  GET(paste(test_server, "/index.html", sep = ""))$times))
