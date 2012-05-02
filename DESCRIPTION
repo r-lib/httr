@@ -8,7 +8,7 @@ Description: Provides useful tools for working with HTTP connections.  Is a
     simplified wrapper built on top of RCurl.  It is much much less configurable
     but because it only attempts to encompass the most common operations it is
     also much much simpler.
-Depends:
+Imports:
     RCurl,
     stringr
 Suggests:
@@ -41,3 +41,4 @@ Collate:
     'http-put.r'
     'handle-pool.r'
     'timeout.r'
+    'httr.r'
