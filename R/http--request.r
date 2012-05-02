@@ -1,5 +1,7 @@
 # @param action function with (at least) arguments \code{handle}, \code{url},
-#   \code{opts}, which should return binary content from the specified request
+#   \code{opts}, which should return binary content from the specified
+#   request. \code{make_request} will take care of resetting the handle's
+#   config after the request is made.
 make_request <- function(action, handle, url, ..., config = list()) {
   hg <- basicHeaderGatherer()
   
