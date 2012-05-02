@@ -10,13 +10,13 @@
 #'   \item \code{status_code} the http status code
 #'   \item \code{header} a named list of headers returned by the server
 #'   \item \code{cookies} a named list of cookies returned by the server
-#'   \item \code{text} the body of the response, as text
+#'   \item \code{content} the body of the response, as raw vector. See
+#'      \code{\link{content}} for various ways to access the content.
 #'   \item \code{time} request timing information
 #'   \item \code{config} configuration for the request
 #' }
 #' @name response
 NULL
-
 
 response <- function(...) {  
   structure(list(...), class = "response")
@@ -28,19 +28,20 @@ print.response <- function(x, ..., max.lines = 10) {
   cat("  Status: ", x$status, "\n", sep = "")
   
   if (length(x$text) == 0) return()
-  breaks <- str_locate_all(x$text, "\n")[[1]]
+  text <- text_content(x)
+  breaks <- str_locate_all(text, "\n")[[1]]
   
   lines <- nrow(breaks)
   if (lines > max.lines) {
     last_line <-  breaks[max.lines, 1] - 1
-    cat(str_sub(x$text, 1, last_line), "...\n")
+    cat(str_sub(text, 1, last_line), "...\n")
   } else {
-    cat(x$text, "\n")
+    cat(text, "\n")
   }
 }
 
 #' @S3method as.character response
 as.character.response <- function(x, ...) {
-  x$text
+  text_content(x)
 }
 

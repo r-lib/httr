@@ -14,17 +14,20 @@ Depends:
 Suggests:
     rjson,
     XML,
-    testthat
+    testthat,
+    png,
+    jpeg
 License: MIT
 Collate:
     'authenticate.r'
     'config.r'
+    'content.r'
     'cookies.r'
     'handle.r'
     'headers.r'
     'proxy.r'
     'request-bin.r'
-    'request.r'
+    'http--request.r'
     'response.r'
     'url.r'
     'xml.r'

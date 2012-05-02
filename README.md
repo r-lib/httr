@@ -14,6 +14,10 @@ Key features:
 * a request object which captures the body of the request along with
   http status code, cookies, headers, timings and other useful information
 
+* an easy way to access the content of the response as a raw vector
+  (`content`), character vector (`text_content`), or parsed into an R object
+  (`parsed_content`, currently for html, xml, json, png and jpeg)
+
 * wrapper functions for the most common configuration options:
   `set_cookies`, `add_headers`, `authenticate`, `use_proxy`, `verbose`,
   `timeout`

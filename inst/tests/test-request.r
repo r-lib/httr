@@ -11,7 +11,7 @@ test_that("status codes returned as expected", {
 test_that("headers returned as expected", {
   round_trip <- function(...) {
     req <- GET("http://httpbin.org/headers", add_headers(...))
-    headers <- fromJSON(req$text)$headers
+    headers <- parsed_content(req)$headers
     names(headers) <- tolower(names(headers))
     headers
   }
@@ -26,7 +26,7 @@ test_that("headers returned as expected", {
 test_that("bare post requests work", {
   round_trip <- function(body) {
     req <- POST("http://httpbin.org/post", body = body)
-    fromJSON(req$text)
+    parsed_content(req)
   }
   expect_equal(round_trip(NULL)$data, "")
   expect_equal(round_trip("abc")$data, "abc")

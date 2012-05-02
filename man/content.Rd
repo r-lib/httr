@@ -1,0 +1,34 @@
+\name{content}
+\alias{content}
+\alias{parsed_content}
+\alias{text_content}
+\title{Extract content from a request.}
+\usage{
+  content(x)
+
+  text_content(x)
+
+  parsed_content(x, ...)
+}
+\arguments{
+  \item{...}{additional parameters passed to conversion
+  function}
+
+  \item{x}{request object}
+}
+\description{
+  There are currently three ways to retrieve the contents
+  of a request: as a raw object, \code{content}, as a
+  character vector, \code{text_content}, and as parsed into
+  an R object where possible, \code{parsed_content}.
+}
+\details{
+  \code{parsed_content} currently knows about the following
+  mime types: \itemize{ \item \code{text/html}:
+  \code{\link[XML]{htmlTreeParse}} \item \code{text/xml}:
+  \code{\link[XML]{xmlTreeParse}} \item
+  \code{application/json}: \code{\link[rjson]{fromJSON}}
+  \item \code{image/jpeg}: \code{\link[jpeg]{readJPEG}}
+  \item \code{image/png}: \code{\link[jpeg]{readPNG}} }
+}
+

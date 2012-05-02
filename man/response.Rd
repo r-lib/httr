@@ -12,9 +12,10 @@
   \code{status_code} the http status code \item
   \code{header} a named list of headers returned by the
   server \item \code{cookies} a named list of cookies
-  returned by the server \item \code{text} the body of the
-  response, as text \item \code{time} request timing
-  information \item \code{config} configuration for the
-  request }
+  returned by the server \item \code{content} the body of
+  the response, as raw vector. See \code{\link{content}}
+  for various ways to access the content.  \item
+  \code{time} request timing information \item
+  \code{config} configuration for the request }
 }
 

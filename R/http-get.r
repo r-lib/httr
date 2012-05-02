@@ -61,5 +61,19 @@
 #' GET(handle = google, path = "search")
 GET <- function(url = NULL, config = list(), ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  make_request("GET", hu$handle, hu$url, config = config)
+  make_request(get_request, hu$handle, hu$url, config = config)
+}
+
+get_request <- function(handle, url, opts) {
+  opts$url <- url
+
+  buffer <- binaryBuffer()
+  opts$writefunction <-
+    getNativeSymbolInfo("R_curl_write_binary_data")$address
+  opts$writedata <- buffer@ref
+  
+  curlPerform(curl = handle$handle, .opts = opts)
+  reset(handle$handle)
+  
+  as(buffer, "raw")
 }
