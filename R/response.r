@@ -22,6 +22,10 @@ response <- function(...) {
   structure(list(...), class = "response")
 }
 
+is.response <- function(x) {
+  inherits(x, "response")
+}
+
 #' @S3method print response
 print.response <- function(x, ..., max.lines = 10) {    
   cat("Response [", x$url, "]\n", sep = "")

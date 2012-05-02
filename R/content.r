@@ -19,19 +19,27 @@
 #' @param x request object
 #' @export
 content <- function(x) {
+  stopifnot(is.response(x))
+
   x$content
 }
 
 #' @export
 #' @rdname content
 text_content <- function(x) {
-  if (is.null(x)) return()
-  rawToChar(content(x))
+  stopifnot(is.response(x))
+  
+  contents <- content(x)
+  if (is.null(contents)) return()
+
+  rawToChar(contents)
 }
 
 #' @export
 #' @rdname content
 parsed_content <- function(x, ...) {
+  stopifnot(is.response(x))
+
   type <- x$headers[["Content-Type"]]
   mime <- str_split(type, "; ")[[1]][1]
   
