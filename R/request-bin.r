@@ -16,8 +16,5 @@ new_bin <- function(browse = TRUE) {
 }
 
 make_bin <- function() {
-  require("rjson")
-
-  req <- POST("http://requestb.in/api/v1/bins")
-  fromJSON(req$text)
+  parsed_content(POST("http://requestb.in/api/v1/bins"))
 }
