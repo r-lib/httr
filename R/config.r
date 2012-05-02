@@ -52,7 +52,10 @@ print.config <- function(x, ...) {
 
 
 default_config <- function() {  
-  c(config(followlocation = 1L, maxredirs = 10L), getOption("httr_config"))
+  c(
+    config(followlocation = 1L, maxredirs = 10L, encoding = "gzip"), 
+    getOption("httr_config")
+  )
 }
 
 #' Set global httr configuration.
