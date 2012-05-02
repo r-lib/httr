@@ -12,11 +12,13 @@ Key features:
   across requests.
 
 * a request object which captures the body of the request along with
-  http status code, cookies, headers, timings and other useful information
+  http status code, cookies, headers, timings and other useful information.
 
-* an easy way to access the content of the response as a raw vector
-  (`content`), character vector (`text_content`), or parsed into an R object
-  (`parsed_content`, currently for html, xml, json, png and jpeg)
+  * response content is available as a raw vector (`content`), a character
+    vector (`text_content`), or parsed into an R object (`parsed_content`,
+    currently for html, xml, json, png and jpeg)
+
+  * convert http errors into R errors with `stop_for_status`
 
 * wrapper functions for the most common configuration options:
   `set_cookies`, `add_headers`, `authenticate`, `use_proxy`, `verbose`,

@@ -8,6 +8,17 @@ test_that("status codes returned as expected", {
   
 })
 
+test_that("status converted to errors", {
+  
+  s320 <- GET("http://httpbin.org/status/320")
+  s404 <- GET("http://httpbin.org/status/404")
+  s500 <- GET("http://httpbin.org/status/500")
+  
+  expect_equal(stop_for_status(s320), NULL)
+  expect_error(stop_for_status(s404), c("404", "client"))
+  expect_error(stop_for_status(s500), c("500", "server"))  
+})
+
 test_that("headers returned as expected", {
   round_trip <- function(...) {
     req <- GET("http://httpbin.org/headers", add_headers(...))

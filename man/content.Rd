@@ -31,4 +31,8 @@
   \item \code{image/jpeg}: \code{\link[jpeg]{readJPEG}}
   \item \code{image/png}: \code{\link[jpeg]{readPNG}} }
 }
+\seealso{
+  Other response methods: \code{\link{response}},
+  \code{\link{stop_for_status}}
+}
 

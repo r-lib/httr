@@ -17,6 +17,7 @@
 #'
 #' @param ... additional parameters passed to conversion function
 #' @param x request object
+#' @family response methods
 #' @export
 content <- function(x) {
   stopifnot(is.response(x))

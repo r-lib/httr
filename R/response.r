@@ -16,6 +16,7 @@
 #'   \item \code{config} configuration for the request
 #' }
 #' @name response
+#' @family response methods
 NULL
 
 response <- function(...) {  
@@ -47,5 +48,32 @@ print.response <- function(x, ..., max.lines = 10) {
 #' @S3method as.character response
 as.character.response <- function(x, ...) {
   text_content(x)
+}
+
+#' Throw error on http error.
+#'
+#' Converts http errors to R errors - this is useful if you want to ensure
+#' the appropriate action is taken when an http request fails.
+#'
+#' @param x a request object
+#' @export
+#' @family response methods
+#' @examples
+#' x <- GET("http://httpbin.org/status/320")
+#' stop_for_status(x) # nothing happens
+#' x <- GET("http://httpbin.org/status/404")
+#' stop_for_status(x)
+stop_for_status <- function(x) {
+  stopifnot(is.response(x))
+  
+  status <- x$status_code
+  if (status < 400) return(invisible())
+  
+  if (status >= 400 & status < 500) {
+    stop("http client error (", status, ")", call. = FALSE)
+  }
+  if (status >= 500 & status < 600) {
+    stop("http server error (", status, ")", call. = FALSE)
+  }
 }
 

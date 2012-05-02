@@ -1,7 +1,7 @@
 context("Config")
 
 test_that("timeout enforced", {
-  expect_error(GET("http://httpbin.org/delay/1", timeout(0.5)), "timed out")
+  expect_error(GET("http://httpbin.org/delay/1", timeout(0.5)), "time-out")
 })
 
 test_that("basic authentication works", {
