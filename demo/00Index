@@ -1,3 +1,4 @@
 connection-sharing  Demonstration of how connection sharing saves time
 gist                Simple demo showing how to interact with github's gists
 oauth-github        Authenticating github requests with OAuth
+oauth-twitter       Authenticating twitter requests with OAuth

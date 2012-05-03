@@ -3,29 +3,45 @@
 # that for every web site you want to access, you need to create your own
 # application on the webiste. See the demos for examples of using OAuth with
 # github, twitter and vimeo
+#
+# Twitter calls this single-user OAuth, and provides a convenient way of 
+# generating the access token and secret without having to implement the full
+# 3-legged authentication process.
 
-sign_oauth <- function(url, method = "GET", consumer_key, consumer_secret, token_secret = "") {
+oauth1.0 <- function(url, method = "GET", consumer_key, consumer_secret, access_token, access_secret) {
+  method <- toupper(method)
+
   url <- parse_url(url)
-  
-  url$params$oauth_consumer_key <- consumer_key
-  url$params$oauth_nonce <- nonce()
-  url$params$oauth_signature_method <- "HMAC-SHA1"
-  url$params$oauth_timestamp <- as.integer(Sys.time())
-  url$params$oauth_version <- "1.0"
-  
-  params <- url$params[order(names(url$params))]
-  params_str <- str_c(names(params), "=", params, collapse = "&")
-  
-  url_str <- build_url(url[c("scheme", "hostname", "port", "url")])
-  
-  base_string <- str_c(method, curlEscape(url_str), curlEscape(param$str))
-  key <- str_c(consumer_secret, "&", token_secret)
-  
-  
-  sig <- hmac_sha1(key, base_string)
-  url$params$oauth_signature <- sig
-  
-  url
+  base_url <- build_url(url[c("scheme", "hostname", "port", "url", "path")])
+
+  oauth <- list(
+    oauth_consumer_key = consumer_key,
+    oauth_nonce = nonce(),
+    oauth_signature_method = "HMAC-SHA1",
+    oauth_timestamp = as.integer(Sys.time()),
+    oauth_version = "1.0",
+    oauth_token = access_token
+  )
+
+  # Collect params, escape, sort and concatenated into a single string
+  params <- c(url$params, oauth)
+  params_esc <- setNames(curlEscape(params), curlEscape(names(params)))
+  params_srt <- sort_names(params_esc)
+  params_str <- str_c(names(params_srt), "=", params_srt, collapse = "&")
+
+  # Generate hmac signature
+  key <- str_c(curlEscape(consumer_secret), "&", curlEscape(access_secret))
+  base_string <- str_c(method, "&", curlEscape(base_url), "&",
+   curlEscape(params_str))
+
+  oauth$oauth_signature <- hmac_sha1(key, base_string)
+  oauth
+}
+
+oauth_header <- function(info) {
+  ouath <- str_c("OAuth ", str_c(
+    curlEscape(names(info)), "=\"", curlEscape(info), "\"", collapse = ", "))
+  add_headers(Authorization = ouath)
 }
 
 nonce <- function(length = 10) {
