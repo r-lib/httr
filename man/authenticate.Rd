@@ -18,7 +18,8 @@
   Use http authentication.
 }
 \seealso{
-  Other config: \code{\link{add_headers}},
+  Other config: \code{\link{accept_json}},
+  \code{\link{accept_xml}}, \code{\link{add_headers}},
   \code{\link{config}}, \code{\link{set_cookies}},
   \code{\link{timeout}}, \code{\link{use_proxy}},
   \code{\link{verbose}}

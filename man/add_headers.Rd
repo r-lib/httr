@@ -1,8 +1,14 @@
 \name{add_headers}
+\alias{accept_json}
+\alias{accept_xml}
 \alias{add_headers}
 \title{Add additional headers to a request.}
 \usage{
   add_headers(..., .headers = character())
+
+  accept_json()
+
+  accept_xml()
 }
 \arguments{
   \item{...}{named header values.  To stop an existing
@@ -11,7 +17,11 @@
   \item{.headers}{a named character vector}
 }
 \description{
-  Add additional headers to a request.
+  \code{accept_json} and \code{accept_xml} are useful
+  shortcuts to request json or xml responses if the server
+  supports content negotiation. json and xml are both easy
+  to work with in R. See \code{\link{parsed_content}} for
+  how to access the results as R objects.
 }
 \examples{
 add_headers(a = 1, b = 2)

@@ -17,7 +17,8 @@ set_cookies(a = 1, b = 2)
 set_cookies(.cookies = c(a = "1", b = "2"))
 }
 \seealso{
-  Other config: \code{\link{add_headers}},
+  Other config: \code{\link{accept_json}},
+  \code{\link{accept_xml}}, \code{\link{add_headers}},
   \code{\link{authenticate}}, \code{\link{config}},
   \code{\link{timeout}}, \code{\link{use_proxy}},
   \code{\link{verbose}}

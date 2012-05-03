@@ -22,7 +22,8 @@ GET("http://had.co.nz", c(use_proxy("64.251.21.73", 8080), verbose()))
 }
 }
 \seealso{
-  Other config: \code{\link{add_headers}},
+  Other config: \code{\link{accept_json}},
+  \code{\link{accept_xml}}, \code{\link{add_headers}},
   \code{\link{authenticate}}, \code{\link{config}},
   \code{\link{set_cookies}}, \code{\link{timeout}},
   \code{\link{verbose}}

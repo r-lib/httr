@@ -1,5 +1,10 @@
 #' Add additional headers to a request.
 #' 
+#' \code{accept_json} and \code{accept_xml} are useful shortcuts to request
+#' json or xml responses if the server supports content negotiation. json 
+#' and xml are both easy to work with in R. See \code{\link{parsed_content}}
+#' for how to access the results as R objects.  
+#'
 #' @param ... named header values.  To stop an existing header from being
 #'   set, pass an empty string: \code{""}.
 #' @param .headers a named character vector
@@ -19,3 +24,10 @@ add_headers <- function(..., .headers = character()) {
   config(httpheader = headers)
 }
 
+#' @export
+#' @rdname add_headers
+accept_json <- function() add_headers(Accept = "application/json")
+
+#' @export
+#' @rdname add_headers
+accept_xml <- function() add_headers(Accept = "application/xml")
