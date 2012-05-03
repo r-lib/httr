@@ -66,11 +66,7 @@ parse_url <- function(url) {
   
   query <- pull_off("\\?(.*)$")
   if (!is.null(query)) {
-    params <- vapply(str_split(query, "&")[[1]], str_split_fixed, "=", 2,
-      FUN.VALUE = character(2))
-    values <- type.convert(curlUnescape(params[2, ]), as.is = TRUE)
-    names <- params[1, ]
-    query <- setNames(as.list(values), names)
+    query <- parse_query(query)
   }  
   params <- pull_off(";(.*)$")
 
@@ -78,6 +74,14 @@ parse_url <- function(url) {
     scheme = scheme, hostname = hostname, port = port, path = url, 
     query = query, params = params, username = username, password = password),
     class = "url")
+}
+
+parse_query <- function(query) {
+  params <- vapply(str_split(query, "&")[[1]], str_split_fixed, "=", 2,
+    FUN.VALUE = character(2))
+  values <- type.convert(curlUnescape(params[2, ]), as.is = TRUE)
+  names <- params[1, ]
+  setNames(as.list(values), names)
 }
 
 is.url <- function(x) inherits(x, "url")
