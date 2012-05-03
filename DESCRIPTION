@@ -48,3 +48,8 @@ Collate:
     'oauth.r'
     'timeout.r'
     'utils.r'
+    'oauth-app.r'
+    'oauth-endpoint.r'
+    'oauth-listener.r'
+    'oauth-sign.r'
+    'ouath-signature.r'
