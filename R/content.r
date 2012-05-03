@@ -43,7 +43,7 @@ parsed_content <- function(x, ...) {
   stopifnot(is.response(x))
 
   type <- x$headers[["Content-Type"]]
-  mime <- str_split(type, "; ")[[1]][1]
+  mime <- str_split(type, "; ?")[[1]][1]
   
   switch(mime, 
     `text/plain` = text_content(x),
