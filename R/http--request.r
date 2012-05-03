@@ -18,10 +18,12 @@ make_request <- function(action, handle, url, ..., config = list()) {
   times <- request_times(handle)
   headers <- insensitive(as.list(hg$value()))
   
+  status <- as.numeric(str_extract(headers$status, "[0-9]+"))
+  
   response(
     url = info$effective.url,
     handle = handle,
-    status_code = as.numeric(headers$status),
+    status_code = status,
     headers = headers,
     cookies = parse_cookies(info$cookielist),
     content = content,
