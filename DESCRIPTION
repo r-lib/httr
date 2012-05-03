@@ -16,7 +16,8 @@ Suggests:
     XML,
     testthat,
     png,
-    jpeg
+    jpeg,
+    rook
 License: MIT
 Collate:
     'authenticate.r'

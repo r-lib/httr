@@ -1,3 +1,9 @@
+# The OAuth framework doesn't match perfectly to this usage scenario.
+# Effectively, each use of the package is it's own application - this means
+# that for every web site you want to access, you need to create your own
+# application on the webiste. See the demos for examples of using OAuth with
+# github, twitter and vimeo
+
 sign_oauth <- function(url, method = "GET", consumer_key, consumer_secret, token_secret = "") {
   url <- parse_url(url)
   
@@ -34,4 +40,45 @@ oauth <- function(service, access_key, secret_key) {
       secret_key = secret_key)
   })
   
+}
+
+
+oauth_credential <- function(request_url) {
+  if (!require("Rook")) {
+    stop("Rook package required to capture OAuth credentials")
+  }
+  
+  info <- NULL
+  listen <- function(env) {
+    req <- Request$new(env)    
+    info <<- req$params()
+    
+    res <- Response$new()
+    res$header("Content-type", "text/plain")
+    res$write("Authentication complete - you can now close this page and ")
+    res$write("return to R.")
+    res$finish()
+  }
+  
+  server <- Rhttpd$new()
+  server$stop()
+  server$add(listen, name = "OAuth")
+  server$start(port = 1410, quiet = TRUE)
+
+  callback_url <- file.path(server$full_url("OAuth"), "cred") 
+  print(callback_url)
+  
+  message("Waiting for authentication in browser...")
+  BROWSE(request_url, query = list(redirect_uri = callback_url))
+  
+  # wait until we get a response
+  while(is.null(info)) {
+    Sys.sleep(1)
+  }
+  message("Authentication complete.")
+
+  server$remove("OAuth")
+  server$stop()
+  
+  info
 }
