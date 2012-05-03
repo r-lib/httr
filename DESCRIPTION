@@ -17,7 +17,7 @@ Suggests:
     testthat,
     png,
     jpeg,
-    rook
+    Rook
 License: MIT
 Collate:
     'authenticate.r'
