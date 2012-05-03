@@ -8,23 +8,24 @@
 # generating the access token and secret without having to implement the full
 # 3-legged authentication process.
 
-oauth1.0 <- function(url, method = "GET", consumer_key, consumer_secret, access_token, access_secret) {
+
+oauth1.0 <- function(url, method = "GET", consumer_key, consumer_secret, access_token, access_secret, other_params = list()) {
   method <- toupper(method)
 
   url <- parse_url(url)
   base_url <- build_url(url[c("scheme", "hostname", "port", "url", "path")])
 
-  oauth <- list(
+  oauth <- compact(list(
     oauth_consumer_key = consumer_key,
     oauth_nonce = nonce(),
     oauth_signature_method = "HMAC-SHA1",
     oauth_timestamp = as.integer(Sys.time()),
     oauth_version = "1.0",
     oauth_token = access_token
-  )
+  ))
 
   # Collect params, escape, sort and concatenated into a single string
-  params <- c(url$params, oauth)
+  params <- c(url$query, oauth, other_params)
   params_esc <- setNames(curlEscape(params), curlEscape(names(params)))
   params_srt <- sort_names(params_esc)
   params_str <- str_c(names(params_srt), "=", params_srt, collapse = "&")
@@ -33,9 +34,15 @@ oauth1.0 <- function(url, method = "GET", consumer_key, consumer_secret, access_
   key <- str_c(curlEscape(consumer_secret), "&", curlEscape(access_secret))
   base_string <- str_c(method, "&", curlEscape(base_url), "&",
    curlEscape(params_str))
+  params$oauth_signature <- hmac_sha1(key, base_string)  
+  
+  # Return all oauth_params
+  oauth_params <- names(params)[str_detect(names(params), "oauth_")]
+  params[oauth_params]
+}
 
-  oauth$oauth_signature <- hmac_sha1(key, base_string)
-  oauth
+oauth_callback <- function() {
+  "http://127.0.0.1:1410/custom/OAuth/cred"
 }
 
 oauth_header <- function(info) {
@@ -81,11 +88,8 @@ oauth_credential <- function(request_url) {
   server$add(listen, name = "OAuth")
   server$start(port = 1410, quiet = TRUE)
 
-  callback_url <- file.path(server$full_url("OAuth"), "cred") 
-  print(callback_url)
-  
   message("Waiting for authentication in browser...")
-  BROWSE(request_url, query = list(redirect_uri = callback_url))
+  BROWSE(request_url, query = list(redirect_uri = oauth_callback()))
   
   # wait until we get a response
   while(is.null(info)) {

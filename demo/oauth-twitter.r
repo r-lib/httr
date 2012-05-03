@@ -2,7 +2,7 @@ library(httr)
 
 # Create an app at https://dev.twitter.com/apps, and generate your development
 # access token (this lets you skip the first couple of OAuth steps and get
-# directly to signing requests.
+# directly to signing requests.  For a full example, see the vimeo demo.
 #
 # Replace the following four variables with the values your recieve.
 
