@@ -35,7 +35,6 @@ Collate:
     'url.r'
     'xml.r'
     'verbose.r'
-    'aws.r'
     'handle-pool.r'
     'handle-url.r'
     'http-browse.r'
