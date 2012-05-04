@@ -10,10 +10,10 @@
   \code{\link{DELETE}}.
 }
 \details{
-  Each request returns a \code{\link{request}} object which
-  provides easy access to status code, cookies, headers,
-  timings, and other useful info.  The content of the
-  request is available as a raw vector
+  Each request returns a \code{\link{response}} object
+  which provides easy access to status code, cookies,
+  headers, timings, and other useful info.  The content of
+  the request is available as a raw vector
   (\code{\link{content}}), character vector
   (\code{\link{text_content}}), or parsed into an R object
   (\code{\link{parsed_content}}), currently for html, xml,

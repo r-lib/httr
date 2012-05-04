@@ -1,6 +1,8 @@
 #' Create a vector with case insensitive name matching.
 #' 
 #' @param x vector to modify
+#' @export
+#' @keywords internal
 #' @examples
 #' x <- c("abc" = 1, "def" = 2)
 #' x["ABC"]

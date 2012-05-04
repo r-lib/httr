@@ -45,6 +45,8 @@ b <- new_bin()
 POST(b)
 POST(b, body = "A simple text string")
 POST(b, body = list(a = 1, b = 2, c = 3))
+
+library(RCurl)
 POST(b, body = list(a = 1, file = fileUpload(system.file("CITATION"))))
 
 b2 <- "http://httpbin.org/post"

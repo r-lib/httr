@@ -31,7 +31,7 @@
   \item \code{application/x-www-form-urlencoded}:
   \code{parse_query} \item \code{image/jpeg}:
   \code{\link[jpeg]{readJPEG}} \item \code{image/png}:
-  \code{\link[jpeg]{readPNG}} }
+  \code{\link[png]{readPNG}} }
 }
 \seealso{
   Other response methods: \code{\link{response}},

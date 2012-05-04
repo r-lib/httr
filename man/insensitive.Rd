@@ -17,4 +17,5 @@ y <- insensitive(x)
 y["ABC"]
 y[["ABC"]]
 }
+\keyword{internal}
 

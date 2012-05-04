@@ -1,7 +1,7 @@
 #' Sign an OAuth 1.0 request
 #'
 #' @param app OAuth application details, as created by
-#'   \code{\link{oauth_application}}
+#'   \code{\link{oauth_app}}
 #' @param token,token_secret access token and corresponding secret, as
 #'   retrieved by \code{\link{oauth1.0_token}}
 #' @param ... other named argument to be included in the OAuth authorisation

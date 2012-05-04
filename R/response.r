@@ -62,7 +62,7 @@ as.character.response <- function(x, ...) {
 #' x <- GET("http://httpbin.org/status/320")
 #' stop_for_status(x) # nothing happens
 #' x <- GET("http://httpbin.org/status/404")
-#' stop_for_status(x)
+#' \dontrun{stop_for_status(x)}
 stop_for_status <- function(x) {
   stopifnot(is.response(x))
   

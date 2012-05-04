@@ -7,7 +7,7 @@
 }
 \arguments{
   \item{app}{OAuth application details, as created by
-  \code{\link{oauth_application}}}
+  \code{\link{oauth_app}}}
 
   \item{token,token_secret}{access token and corresponding
   secret, as retrieved by \code{\link{oauth1.0_token}}}
