@@ -6,6 +6,12 @@
 }
 \arguments{
   \item{scope}{a character string of scopes to apply for.}
+
+  \item{endpoint}{An OAuth endpoint, created by
+  \code{\link{oauth_endpoint}}}
+
+  \item{app}{An OAuth consumer application, created by
+  \code{\link{oauth_app}}}
 }
 \description{
   Retrieve access token for

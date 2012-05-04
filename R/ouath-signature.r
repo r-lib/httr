@@ -33,3 +33,28 @@ oauth_signature <- function(url, method = "GET", app, token = NULL, token_secret
   
   sort_names(oauth)
 }
+
+#' Sign an OAuth request
+#'
+#' @param app 
+#' @param tokens authentication co
+sign_ouath1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
+  config(signature = function(method, url) {
+    oauth <- oauth_signature(url, method, app, token, token_secret, ...)
+    list(url = url, config = oauth_header(oauth))
+  })
+}
+
+sign_ouath2.0 <- function(access_token) {
+  config(signature = function(method, url) {
+    url <- parse_url(url)
+    url$query$access_token <- access_token
+    list(url = build_url(url), config = config())
+  })
+}
+
+oauth_header <- function(info) {
+  ouath <- str_c("OAuth ", str_c(
+    curlEscape(names(info)), "=\"", curlEscape(info), "\"", collapse = ", "))
+  add_headers(Authorization = ouath)
+}

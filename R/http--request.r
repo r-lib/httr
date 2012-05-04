@@ -2,12 +2,21 @@
 #   \code{opts}, which should return binary content from the specified
 #   request. \code{make_request} will take care of resetting the handle's
 #   config after the request is made.
-make_request <- function(action, handle, url, ..., config = list()) {
-  hg <- basicHeaderGatherer()
-  
-  opts <- modifyList(default_config(), config)
-  opts$headerfunction <- hg$update
+make_request <- function(method, handle, url, ..., config = list()) {
+  # Sign request, if needed
+  if (!is.null(config$signature)) {
+    signed <- config$signature(method, url)
+    url <- signed$url
+    config <- c(config, signed$config)
 
+    config$signature <- NULL
+  }
+  
+  hg <- basicHeaderGatherer()
+  opts <- modifyList(default_config(), as.list(config))
+  opts$headerfunction <- hg$update
+  
+  action <- match.fun(str_c(tolower(method), "_request"))
   content <- action(handle, url, ..., opts = opts)
   on.exit({
     reset_handle_config(handle, opts)

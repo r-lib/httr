@@ -51,5 +51,4 @@ Collate:
     'oauth-app.r'
     'oauth-endpoint.r'
     'oauth-listener.r'
-    'oauth-sign.r'
     'ouath-signature.r'

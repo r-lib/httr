@@ -8,7 +8,7 @@
 #' DELETE(b)
 DELETE <- function(url = NULL, config = list(), ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  make_request(delete_request, hu$handle, hu$url, config = config)
+  make_request("delete", hu$handle, hu$url, config = config)
 }
 
 delete_request <- function(handle, url, opts) {

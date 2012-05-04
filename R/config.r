@@ -27,7 +27,8 @@
 config <- function(...) {
   options <- list(...)
   
-  unknown <- setdiff(names(options), listCurlOptions())
+  known <- c(listCurlOptions(), "signature")
+  unknown <- setdiff(names(options), known)
   if (length(unknown) > 0) {
     stop("Unknown RCurl options: ", str_c(unknown, collapse = ", "))
   }

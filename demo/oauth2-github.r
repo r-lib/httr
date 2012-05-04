@@ -13,8 +13,8 @@ github <- oauth_endpoint(NULL, "authorize", "access_token",
 myapp <- oauth_app("github", "56b637a5baffac62cad9")
 
 # 3. Get OAuth credentials
-cred <- oauth2.0(github, myapp)
+github_token <- oauth2.0_token(github, myapp)
+github_sig <- sign_ouath2.0(github_token$access_token)
 
 # Use access token to get user specific data
-GET("https://api.github.com/user/followers", 
-  query = list(access_token = cred$access_token))
+GET("https://api.github.com/user/followers", github_sig)

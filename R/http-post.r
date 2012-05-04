@@ -20,7 +20,7 @@
 #' POST(b2, body = list(y = fileUpload(system.file("CITATION"))))
 POST <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  make_request(post_request, hu$handle, hu$url, body = body, 
+  make_request("post", hu$handle, hu$url, body = body, 
     multipart = multipart, config = config)
 }
 

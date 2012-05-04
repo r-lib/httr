@@ -8,10 +8,8 @@
 #' @family OAuth
 oauth1.0_token <- function(endpoint, app, permission = NULL) {
   # 1. Get an unauthorised request token
-  request <- endpoint$request
-  oauth <- oauth_signature(request, "GET", app, callback = oauth_callback())
-  
-  response <- GET(request, config = oauth_header(oauth))
+  response <- GET(endpoint$request, 
+    sign_ouath1.0(app, callback = oauth_callback()))
   stop_for_status(response)
   params <- parse_query(text_content(response))
   token <- params$oauth_token
@@ -24,18 +22,15 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
   verifier <- oauth_listener(authorise)$oauth_verifier
   
   # 3. Request access token
-  access <- endpoint$access
-  oauth <- oauth_signature(access, "GET", app, token, secret,
-    verifier = verifier)
-  
-  response <- GET(access, config = oauth_header(oauth))
+  response <- GET(endpoint$access, 
+    sign_ouath1.0(app, token, secret, verifier = verifier))
   stop_for_status(response)
   parse_query(text_content(response))
 }
 
 #' Retrieve access token for 
 #'
-#' @inheritParams oauth1.0
+#' @inheritParams oauth1.0_token
 #' @param scope a character string of scopes to apply for. 
 oauth2.0_token <- function(endpoint, app, scope = NULL) {
   authorize <- modify_url(endpoint$authorize, query = compact(list(
