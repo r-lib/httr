@@ -18,6 +18,12 @@
 \description{
   Execute code with configuration set.
 }
+\examples{
+with_config(verbose(), {
+  GET("http://had.co.nz")
+  GET("http://google.com")
+})
+}
 \seealso{
   Other ways to set configuration: \code{\link{config}},
   \code{\link{set_config}}

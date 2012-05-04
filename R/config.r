@@ -71,7 +71,7 @@ default_config <- function() {
 set_config <- function(config, override = FALSE) {
   stopifnot(is.config(config))
   
-  old <- getOption("httr_config")
+  old <- getOption("httr_config") %||% config()
   if (!override) config <- c(old, config)
   options(httr_config = config)
   invisible(old)
@@ -85,6 +85,11 @@ reset_config <- function() set_config(config(), TRUE)
 #' @inheritParams set_config
 #' @param expr code to execute under specified configuration
 #' @export
+#' @examples
+#' with_config(verbose(), {
+#'   GET("http://had.co.nz")
+#'   GET("http://google.com")
+#' })
 with_config <- function(config = config(), expr, override = FALSE) {
   stopifnot(is.config(config))
   
