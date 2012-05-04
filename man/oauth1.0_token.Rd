@@ -1,6 +1,6 @@
 \name{oauth1.0_token}
 \alias{oauth1.0_token}
-\title{Perform the OAuth 1.0 authentication dance.}
+\title{Retrieve OAuth 1.0 acces token.}
 \usage{
   oauth1.0_token(endpoint, app, permission = NULL)
 }
@@ -15,9 +15,12 @@
   ask for.}
 }
 \description{
-  Perform the OAuth 1.0 authentication dance.
+  See demos for use.
 }
 \seealso{
-  Other OAuth: \code{\link{oauth_app}}
+  Other OAuth: \code{\link{oauth_app}},
+  \code{\link{oauth_endpoint}},
+  \code{\link{oauth2.0_token}},
+  \code{\link{sign_ouath1.0}}, \code{\link{sign_ouath2.0}}
 }
 

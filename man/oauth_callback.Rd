@@ -1,0 +1,12 @@
+\name{oauth_callback}
+\alias{oauth_callback}
+\title{The oauth callback url.}
+\usage{
+  oauth_callback()
+}
+\description{
+  The url that \code{\link{oauth_listener}} expects that
+  the client be referred to.
+}
+\keyword{internal}
+

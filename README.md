@@ -22,11 +22,16 @@ Key features:
 
 * wrapper functions for the most common configuration options:
   `set_cookies`, `add_headers`, `authenticate`, `use_proxy`, `verbose`,
-  `timeout`
+  `timeout`.
   
 * url parsing (with `parse_url`) and modification (with `modify_url`)
 
-`httr` wouldn't be possible without the hard work of the authors of `RCurl` and `Curl`.  Thanks!  `httr` is inspired by http libraries in other languages, such as [Resty](http://beders.github.com/Resty/Resty/Examples.html), [Requests](http://docs.python-requests.org/en/latest/index.html) and [httparty](http://github.com/jnunemaker/httparty/tree/master).
+* support for OAuth 1.0 and 2.0. Use `oauth1.0_token` and `oauth2.0_token` to
+  get user tokens, and `sign_ouath1.0` and `sign_ouath2.0` to sign requests.
+  The demos directory has six demos of using OAuth: three for 1.0 (linkedin,
+  twitter and vimeo) and three for 2.0 (facebook, github, google).
+
+`httr` wouldn't be possible without the hard work of the authors of `RCurl` and `Curl`. Thanks! `httr` is inspired by http libraries in other languages, such as [Resty](http://beders.github.com/Resty/Resty/Examples.html), [Requests](http://docs.python-requests.org/en/latest/index.html) and [httparty](http://github.com/jnunemaker/httparty/tree/master).
 
 ## Availability
 

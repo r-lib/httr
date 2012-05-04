@@ -1,5 +1,7 @@
-#' Perform the OAuth 1.0 authentication dance.
+#' Retrieve OAuth 1.0 acces token.
 #'
+#' See demos for use.
+#' 
 #' @param endpoint An OAuth endpoint, created by \code{\link{oauth_endpoint}}
 #' @param app An OAuth consumer application, created by
 #'    \code{\link{oauth_app}}
@@ -28,10 +30,13 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
   parse_query(text_content(response))
 }
 
-#' Retrieve access token for 
+#' Retrieve OAuth 2.0 access token.
 #'
+#' See demos for use.
+#' 
 #' @inheritParams oauth1.0_token
 #' @param scope a character string of scopes to apply for. 
+#' @family OAuth
 oauth2.0_token <- function(endpoint, app, scope = NULL) {
   authorize <- modify_url(endpoint$authorize, query = compact(list(
       client_id = app$key, 
