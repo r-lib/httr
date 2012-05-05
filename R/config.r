@@ -84,7 +84,7 @@ set_config <- function(config, override = FALSE) {
 }
 
 #' @export
-#' @rdname reset_config
+#' @rdname set_config
 reset_config <- function() set_config(config(), TRUE)
 
 #' Execute code with configuration set.

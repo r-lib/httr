@@ -42,6 +42,7 @@
   \code{\link{verbose}}
 
   Other ways to set configuration:
-  \code{\link{set_config}}, \code{\link{with_config}}
+  \code{\link{reset_config}}, \code{\link{set_config}},
+  \code{\link{with_config}}
 }
 

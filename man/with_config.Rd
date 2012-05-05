@@ -26,6 +26,6 @@ with_config(verbose(), {
 }
 \seealso{
   Other ways to set configuration: \code{\link{config}},
-  \code{\link{set_config}}
+  \code{\link{reset_config}}, \code{\link{set_config}}
 }
 
