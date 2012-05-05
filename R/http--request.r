@@ -17,7 +17,7 @@ make_request <- function(method, handle, url, ..., config = list()) {
   
   # Figure out curl options --------------------------------------------------
   opts <- default_config()
-  opts$customrequest <- method
+  opts$customrequest <- toupper(method)
   opts$url <- url
   
   # Action config override defaults
