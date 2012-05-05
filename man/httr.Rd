@@ -5,9 +5,9 @@
 \title{\pkg{httr} makes http easy.}
 \description{
   \code{httr} is organised around the five most common http
-  verbs: \code{\link{GET}}, \code{\link{POST}},
-  \code{\link{HEAD}}, \code{\link{PUT}}, and
-  \code{\link{DELETE}}.
+  verbs: \code{\link{GET}}, \code{\link{PATCH}},
+  \code{\link{POST}}, \code{\link{HEAD}},
+  \code{\link{PUT}}, and \code{\link{DELETE}}.
 }
 \details{
   Each request returns a \code{\link{response}} object

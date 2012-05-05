@@ -4,8 +4,8 @@ The aim of httr is to provide a wrapper for RCurl that is less configurable but 
 
 Key features:
 
-* functions for the most important http verbs: `GET`, `HEAD`, `PUT`, `DELETE`
-  and `POST`.
+* functions for the most important http verbs: `GET`, `HEAD`, `PATCH`, `PUT`,
+  `DELETE` and `POST`.
 
 * automatic connection sharing across requests to the same website (by
   default, curl handles are managed automatically), and cookies are maintained

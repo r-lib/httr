@@ -52,3 +52,4 @@ Collate:
     'ouath-signature.r'
     'oauth-token.r'
     'url-query.r'
+    'http-patch.r'
