@@ -5,7 +5,7 @@
   upload_file(path)
 }
 \arguments{
-  \item{x}{path to file}
+  \item{path}{path to file}
 }
 \description{
   This is a tiny wrapper for \pkg{RCurl}'s

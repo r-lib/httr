@@ -2,7 +2,7 @@
 #' 
 #' This is a tiny wrapper for \pkg{RCurl}'s \code{\link[RCurl]{fileUpload}}.
 #' 
-#' @param x path to file
+#' @param path path to file
 #' @export
 #' @examples
 #' POST("http://httpbin.org/post", 
