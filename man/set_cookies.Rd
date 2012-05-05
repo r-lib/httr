@@ -24,6 +24,6 @@ GET("http://httpbin.org/cookies", set_cookies(a = 1, b = 2))
   \code{\link{accept_xml}}, \code{\link{add_headers}},
   \code{\link{authenticate}}, \code{\link{config}},
   \code{\link{timeout}}, \code{\link{use_proxy}},
-  \code{\link{verbose}}
+  \code{\link{user_agent}}, \code{\link{verbose}}
 }
 

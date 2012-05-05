@@ -39,7 +39,7 @@
   \code{\link{accept_xml}}, \code{\link{add_headers}},
   \code{\link{authenticate}}, \code{\link{set_cookies}},
   \code{\link{timeout}}, \code{\link{use_proxy}},
-  \code{\link{verbose}}
+  \code{\link{user_agent}}, \code{\link{verbose}}
 
   Other ways to set configuration:
   \code{\link{reset_config}}, \code{\link{set_config}},

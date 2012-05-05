@@ -27,6 +27,6 @@ GET("http://httpbin.org/basic-auth/user/passwd",
   \code{\link{accept_xml}}, \code{\link{add_headers}},
   \code{\link{config}}, \code{\link{set_cookies}},
   \code{\link{timeout}}, \code{\link{use_proxy}},
-  \code{\link{verbose}}
+  \code{\link{user_agent}}, \code{\link{verbose}}
 }
 
