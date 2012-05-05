@@ -1,8 +1,13 @@
 #' Post file to a server.
 #'
 #' @inheritParams GET
-#' @param body Named of list of elements to go in the body of the post file. 
-#'   Use \code{\link[RCurl]{fileUpload}} to upload files.
+#' @param body Use \code{NULL} for an empty body, a length-one character or 
+#    raw vector, or a named of list of elements to go in the body of the post 
+#'   file. Each component should either be a character value or the object
+#'   returned by \code{\link[RCurl]{fileUpload}} (if you want to upload a
+#'   file).  If \code{multipart} is \code{FALSE} elements will be escaped
+#'   automatically - if the values have already been escaped, then use
+#'   `I` to prevent double-escaping.
 #' @param multipart Should the form be send as multipart/form-data 
 #'   (\code{TRUE}), or application/x-www-form-urlencoded (\code{FALSE}).
 #'   Files can not be uploaded when \code{FALSE}.
@@ -26,7 +31,11 @@ POST <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ...
     multipart = multipart, config = config)
 }
 
-post_request <- function (handle, url, body = NULL, opts = list(), multipart = TRUE, encoding = integer())  {
+post_request <- function(...) {
+  send_data("POST", ...)
+}
+
+send_data <- function (method, handle, url, body = NULL, opts = list(), multipart = TRUE, encoding = integer())  {
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
 
@@ -36,16 +45,15 @@ post_request <- function (handle, url, body = NULL, opts = list(), multipart = T
   opts$writefunction <-
     getNativeSymbolInfo("R_curl_write_binary_data")$address
   opts$writedata <- buffer@ref
+  opts$customrequest <- method
   
   if (is.null(body)) {
-    opts$post <- 1L
     opts$postfieldsize <- 0L
     body <- ""
   } else if (is.character(body) || is.raw(body)) {
     if (is.character(body)) {
       body <- charToRaw(paste(body, collapse = "\n"))      
     }
-    opts$customrequest <- "POST"
     opts$readfunction <- body
     opts$upload <- TRUE
     opts$infilesize <- length(body)

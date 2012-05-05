@@ -6,9 +6,13 @@
     multipart = TRUE, ..., handle = NULL)
 }
 \arguments{
-  \item{body}{Named of list of elements to go in the body
-  of the post file.  Use \code{\link[RCurl]{fileUpload}} to
-  upload files.}
+  \item{body}{Use \code{NULL} for an empty body, a
+  length-one character or file. Each component should
+  either be a character value or the object returned by
+  \code{\link[RCurl]{fileUpload}} (if you want to upload a
+  file).  If \code{multipart} is \code{FALSE} elements will
+  be escaped automatically - if the values have already
+  been escaped, then use `I` to prevent double-escaping.}
 
   \item{multipart}{Should the form be send as
   multipart/form-data (\code{TRUE}), or

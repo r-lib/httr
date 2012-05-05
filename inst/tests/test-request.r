@@ -34,16 +34,3 @@ test_that("headers returned as expected", {
 
 
 
-test_that("bare post requests work", {
-  round_trip <- function(body) {
-    req <- POST("http://httpbin.org/post", body = body)
-    parsed_content(req)
-  }
-  expect_equal(round_trip(NULL)$data, "")
-  expect_equal(round_trip("abc")$data, "abc")
-  expect_equal(round_trip(list(a = 1))$form$a, "1")
-  
-  citation <- fileUpload(system.file("CITATION"))
-  expect_equal(round_trip(list(a = citation))$file$a, 
-    str_c(readLines(system.file("CITATION")), "\n", collapse = ""))
-})
