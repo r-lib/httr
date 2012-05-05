@@ -19,6 +19,4 @@ PUT <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ...,
     multipart = multipart, config = config)
 }
 
-put_request <- function(...) {
-  send_data("PUT", ...)
-}
+put_config <- post_config

@@ -14,9 +14,6 @@ DELETE <- function(url = NULL, config = list(), ..., handle = NULL) {
   make_request("delete", hu$handle, hu$url, config = config)
 }
 
-delete_request <- function(handle, url, opts) {
-  opts$customrequest <- "DELETE"
-  opts$nobody <- 1L
-
-  get_request(handle, url, opts)
+delete_config <- function() {
+  config(nobody = 1L)
 }

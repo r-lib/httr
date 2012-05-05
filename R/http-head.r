@@ -28,7 +28,6 @@ HEAD <- function(url = NULL, config = list(), ..., handle = NULL) {
 }
 
 
-head_request <- function(handle, url, opts) {
-  opts$nobody <- 1L
-  get_request(handle, url, opts)
+head_config <- function() {
+  list(nobody = 1L)
 }

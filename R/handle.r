@@ -44,6 +44,8 @@ reset_handle_config <- function(handle, config) {
   blank <- lapply(config, function(x) NULL)
   blank$httpauth <- NULL
   curlSetOpt(.opts = blank, curl = handle$handle)
+  reset(handle$handle)
+  
   invisible(TRUE)
 }
 

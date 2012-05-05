@@ -64,15 +64,6 @@ GET <- function(url = NULL, config = list(), ..., handle = NULL) {
   make_request("get", hu$handle, hu$url, config = config)
 }
 
-get_request <- function(handle, url, opts) {
-  opts$url <- url
-
-  buffer <- binaryBuffer()
-  opts$writefunction <-
-    getNativeSymbolInfo("R_curl_write_binary_data")$address
-  opts$writedata <- buffer@ref
-  
-  curlPerform(curl = handle$handle, .opts = opts)
-  
-  as(buffer, "raw")
+get_config <- function() {
+  config()
 }

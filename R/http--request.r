@@ -3,6 +3,9 @@
 #   request. \code{make_request} will take care of resetting the handle's
 #   config after the request is made.
 make_request <- function(method, handle, url, ..., config = list()) {
+  stopifnot(is.handle(handle))
+  stopifnot(is.character(url), length(url) == 1)
+
   # Sign request, if needed
   if (!is.null(config$signature)) {
     signed <- config$signature(method, url)
@@ -12,21 +15,48 @@ make_request <- function(method, handle, url, ..., config = list()) {
     config$signature <- NULL
   }
   
+  # Figure out curl options --------------------------------------------------
+  opts <- default_config()
+  opts$customrequest <- method
+  opts$url <- url
+  
+  # Action config override defaults
+  config_f <- match.fun(str_c(tolower(method), "_config"))
+  action_config <- config_f(...)
+  opts <- modifyList(opts, action_config) 
+
+  # Config argument overrides everything
+  opts <- modifyList(opts, config)
+  
+  # But we always override headerfunction and writefunction
   hg <- basicHeaderGatherer()
-  opts <- modifyList(default_config(), as.list(config))
   opts$headerfunction <- hg$update
+  buffer <- binaryBuffer()
+  opts$writefunction <- 
+    getNativeSymbolInfo("R_curl_write_binary_data")$address
+  opts$writedata <- buffer@ref
   
-  action <- match.fun(str_c(tolower(method), "_request"))
-  on.exit({
-    reset_handle_config(handle, opts)
-    reset(handle$handle)
-  })  
-  content <- action(handle, url, ..., opts = opts)
+  # Must always reset the handle config, even if something goes wrong
+  on.exit(reset_handle_config(handle, opts))    
   
+  # Perform request and capture output ---------------------------------------
+  curl_opts <- curlSetOpt(curl = NULL, .opts = opts)
+
+  is_post <- isTRUE(attr(action_config, "post"))
+  if (is_post) {
+    body <- attr(action_config, "body")
+    style <- attr(action_config, "style")
+    .Call("R_post_form", handle$handle@ref, curl_opts, body, TRUE,
+        as.integer(style), PACKAGE = "RCurl")
+  } else {
+    .Call("R_curl_easy_perform", handle$handle@ref, curl_opts, TRUE, 
+      integer(), PACKAGE = "RCurl")
+  }
+  
+  content <- as(buffer, "raw")
   info <- last_request(handle)
   times <- request_times(handle)
   headers <- insensitive(as.list(hg$value()))
-  
   status <- as.numeric(str_extract(headers$status, "[0-9]+"))
   
   response(

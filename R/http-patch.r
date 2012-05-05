@@ -8,6 +8,4 @@ PATCH <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ..
     multipart = multipart, config = config)
 }
 
-patch_request <- function(...) {
-  send_data("patch", ...)
-}
+patch_config <- post_config

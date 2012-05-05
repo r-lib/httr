@@ -29,36 +29,31 @@ POST <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ...
     multipart = multipart, config = config)
 }
 
-post_request <- function(...) {
-  send_data("POST", ...)
-}
-
-send_data <- function (method, handle, url, body = NULL, opts = list(), multipart = TRUE, encoding = integer())  {
-  stopifnot(is.handle(handle))
-  stopifnot(is.character(url), length(url) == 1)
-
-  opts$url <- url
-
-  buffer <- binaryBuffer()
-  opts$writefunction <-
-    getNativeSymbolInfo("R_curl_write_binary_data")$address
-  opts$writedata <- buffer@ref
-  opts$customrequest <- method
-  
+post_config <- function(body = NULL, multipart = TRUE)  {
+  # No body
   if (is.null(body)) {
-    opts$postfieldsize <- 0L
-    body <- ""
-  } else if (is.character(body) || is.raw(body)) {
+    return(list(postfieldsize = 0L))
+    # opts$
+    # opts$readfunction <- ""
+    # return(opts)
+  }
+  
+  # Simple case of send raw text
+  if (is.character(body) || is.raw(body)) {
     if (is.character(body)) {
       body <- charToRaw(paste(body, collapse = "\n"))      
     }
-    opts$readfunction <- body
-    opts$upload <- TRUE
-    opts$infilesize <- length(body)
-    curlPerform(curl = handle$handle, .opts = opts)
-    reset(handle$handle)
-    return(as(buffer, "raw"))
-  } else if (!multipart) {
+    return(list(
+      upload = TRUE, 
+      readfunction = body, 
+      infilesize = length(body)
+    ))
+  }
+  
+  # Encode each param
+  stopifnot(is.list(body))
+  
+  if (!multipart) {
     encode <- function(x) {
       if (inherits(x, "AsIs")) return(x)
       curlEscape(x)
@@ -74,13 +69,9 @@ send_data <- function (method, handle, url, body = NULL, opts = list(), multipar
     stopifnot(length(names(body)) > 0)
   }    
   
-  # Create option list, but don't set values
-  opts <- curlSetOpt(curl = NULL, .opts = opts)
-
-  style <- if (multipart && body != "") NA else 47
-  # handle opts params isProtected r_style
-  .Call("R_post_form", handle$handle@ref, opts, body, TRUE,
-    as.integer(style), PACKAGE = "RCurl")
-  
-  as(buffer, "raw")
+  structure(list(), 
+    post = TRUE,
+    body = body,
+    style = if (multipart) NA else 47
+  )
 }
