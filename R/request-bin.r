@@ -6,6 +6,7 @@
 #' @param browse if \code{TRUE}, will also open the request bin in your
 #'  browser so you can more easily inspect the results.
 #' @export
+#' @keywords internal
 new_bin <- function(browse = TRUE) {
   
   bin <- make_bin()

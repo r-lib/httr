@@ -14,4 +14,5 @@
   This is very useful for checking that you're sending what
   you think you're sending.
 }
+\keyword{internal}
 

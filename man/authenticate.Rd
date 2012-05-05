@@ -17,6 +17,11 @@
 \description{
   Use http authentication.
 }
+\examples{
+GET("http://httpbin.org/basic-auth/user/passwd")
+GET("http://httpbin.org/basic-auth/user/passwd",
+  authenticate("user", "passwd"))
+}
 \seealso{
   Other config: \code{\link{accept_json}},
   \code{\link{accept_xml}}, \code{\link{add_headers}},

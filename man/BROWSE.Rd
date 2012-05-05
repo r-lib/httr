@@ -5,14 +5,11 @@
   BROWSE(url = NULL, config = list(), ..., handle = NULL)
 }
 \arguments{
-  \item{url}{the url of the page to retrieve}
+  \item{config}{All configuration options are ignored
+  because the request is handled by the browser, not
+  \pkg{RCurl}.}
 
-  \item{config}{Additional configuration settings such as
-  http authentication (\code{\link{authenticate}}),
-  additional headers (\code{\link{add_headers}}), cookies
-  (\code{\link{set_cookies}}) etc.  See
-  \code{\link{config}} for full details and list of
-  helpers.}
+  \item{url}{the url of the page to retrieve}
 
   \item{...}{Further parameters, such as \code{query},
   \code{path}, etc, passed on to \code{\link{modify_url}}.
@@ -36,6 +33,7 @@
 }
 \examples{
 BROWSE("http://google.com")
+BROWSE("http://had.co.nz")
 }
 \seealso{
   Other http methods: \code{\link{DELETE}},

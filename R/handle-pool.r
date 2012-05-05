@@ -6,6 +6,7 @@
 #' without user intervention.
 #'
 #' @format An environment.
+#' @keywords internal
 handle_pool <- NULL
 empty_pool <- function() {
   handle_pool <<- new.env(hash = TRUE, parent = emptyenv())

@@ -20,6 +20,15 @@
 #' @param x request object
 #' @family response methods
 #' @export
+#' @examples
+#' r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2)
+#' content(r) # binary content
+#' cat(text_content(r), "\n") # text content
+#' parsed_content(r) # json converted to an R object
+#'
+#' rlogo <- parsed_content(GET("http://cran.r-project.org/Rlogo.jpg"))
+#' plot(0:1, 0:1, type = "n")
+#' rasterImage(rlogo, 0, 0, 1, 1)
 content <- function(x) {
   stopifnot(is.response(x))
 

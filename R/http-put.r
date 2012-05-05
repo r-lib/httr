@@ -6,6 +6,11 @@
 #' @examples
 #' b <- new_bin()
 #' PUT(b)
+#'
+#' POST("http://httpbin.org/put")
+#' PUT("http://httpbin.org/put")
+#' PUT("http://httpbin.org/put", content = "some body content")
+#' PUT("http://httpbin.org/put", content = list(a = 1, b = 2))
 PUT <- function(url = NULL, config = list(), content = NULL, ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
   make_request("put", hu$handle, hu$url, content = content, 
@@ -18,6 +23,9 @@ put_request <- function(handle, url, content, opts) {
   if (is.null(content)) {
     opts$nobody <- 1L
   } else {
+    if (is.list(content)) {
+      content <- compose_query(content)
+    }
     if (is.character(content)) {
       content <- charToRaw(paste(content, collapse = "\n"))
     }

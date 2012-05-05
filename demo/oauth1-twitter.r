@@ -2,19 +2,14 @@ library(httr)
 
 # Create an app at https://dev.twitter.com/apps, and generate your development
 # access token (this lets you skip the first couple of OAuth steps and get
-# directly to signing requests.  For a full example, see the vimeo demo.
+# directly to signing requests.
 #
 # Replace the following four variables with the values your recieve.
 
-consumer_key <- Sys.getenv("TWITTER_CONSUMER_KEY")
-consumer_secret <- Sys.getenv("TWITTER_CONSUMER_SECRET")
-access_token <- Sys.getenv("TWITTER_ACCESS_TOKEN")
-access_secret <- Sys.getenv("TWITTER_ACCESS_SECRET")
+myapp <- oauth_app("twitter", key = "TYrWFPkFAkn4G5BbkWINYw")
 
-home <- "https://api.twitter.com/1/statuses/home_timeline.json"
-# Generate oauth1.0 signature
-oauth <- oauth1.0(home, "GET", consumer_key, consumer_secret, 
-  access_token, access_secret)
+sig <- sign_ouath1.0(myapp, 
+  token = "69133574-FZ9GJlJ57V0SVdNAzo71mQZSUrpUbiJZBVpDmbYkd",
+  token_secret = Sys.getenv("TWITTER_ACCESS_SECRET"))
 
-# Use it to request the home timeline
-GET(home, config = oauth_header(oauth))
+GET("https://api.twitter.com/1/statuses/home_timeline.json", sig)

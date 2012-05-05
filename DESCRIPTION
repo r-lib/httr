@@ -51,3 +51,4 @@ Collate:
     'oauth-listener.r'
     'ouath-signature.r'
     'oauth-token.r'
+    'url-query.r'

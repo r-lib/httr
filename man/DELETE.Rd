@@ -33,6 +33,9 @@
 \examples{
 b <- new_bin()
 DELETE(b)
+
+DELETE("http://httpbin.org/delete")
+POST("http://httpbin.org/delete")
 }
 \seealso{
   Other http methods: \code{\link{BROWSE}},

@@ -30,6 +30,10 @@ add_headers(.headers = c(a = "1", b = "2"))
 # Override default headers with empty strings
 GET("http://had.co.nz", verbose())
 GET("http://had.co.nz", c(verbose(), add_headers(Accept = "")))
+
+GET("http://httpbin.org/headers")
+GET("http://httpbin.org/headers",
+ add_headers(version = version$version.string))
 }
 \seealso{
   Other config: \code{\link{authenticate}},

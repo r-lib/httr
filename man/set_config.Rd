@@ -1,6 +1,6 @@
 \name{set_config}
 \alias{set_config}
-\title{Set global httr configuration.}
+\title{Set (and reset) global httr configuration.}
 \usage{
   set_config(config, override = FALSE)
 }
@@ -16,7 +16,14 @@
   invisibility, the old global config.
 }
 \description{
-  Set global httr configuration.
+  Set (and reset) global httr configuration.
+}
+\examples{
+GET("http://google.com")
+set_config(verbose())
+GET("http://google.com")
+reset_config()
+GET("http://google.com")
 }
 \seealso{
   Other ways to set configuration: \code{\link{config}},

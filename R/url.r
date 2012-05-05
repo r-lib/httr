@@ -1,12 +1,13 @@
 # Good example for testing
 # http://stevenlevithan.com/demo/parseuri/js/
 
-#' Parse a url according to RFC1808.
+#' Parse and build urls according to RFC1808.
 #'
 #' See \url{http://tools.ietf.org/html/rfc1808.html} for details of parsing
 #' algorithm.
 #' 
-#' @param url a character vector (of length 1) to parse into components.
+#' @param url a character vector (of length 1) to parse into components, 
+#'   or for \code{build_url} a url to turn back into a string.
 #' @return a list containing: \itemize{
 #'  \item scheme
 #'  \item hostname
@@ -22,6 +23,8 @@
 #' parse_url("http://google.com/")
 #' parse_url("http://google.com:80/")
 #' parse_url("http://google.com:80/?a=1&b=2")
+#' 
+#' build_url(parse_url("http://google.com/"))
 parse_url <- function(url) {
   if (is.url(url)) return(url)
   
@@ -76,14 +79,6 @@ parse_url <- function(url) {
     class = "url")
 }
 
-parse_query <- function(query) {
-  params <- vapply(str_split(query, "&")[[1]], str_split_fixed, "=", 2,
-    FUN.VALUE = character(2))
-  values <- type.convert(curlUnescape(params[2, ]), as.is = TRUE)
-  names <- params[1, ]
-  setNames(as.list(values), names)
-}
-
 is.url <- function(x) inherits(x, "url")
 print.url <- function(x, ...) {
   cat("Url: ", build_url(x), "\n", sep = "")
@@ -92,6 +87,8 @@ print.url <- function(x, ...) {
   structure(NextMethod(), class = "url")
 }
 
+#' @export
+#' @rdname parse_url
 build_url <- function(url) { 
   stopifnot(is.url(url))
 
