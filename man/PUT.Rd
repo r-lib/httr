@@ -50,12 +50,11 @@ PUT(b)
 
 POST("http://httpbin.org/put")
 PUT("http://httpbin.org/put")
-PUT("http://httpbin.org/put", content = "some body content")
-PUT("http://httpbin.org/put", content = list(a = 1, b = 2))
 
 b2 <- "http://httpbin.org/put"
 PUT(b2, body = "A simple text string")
 PUT(b2, body = list(x = "A simple text string"))
+library(RCurl)
 PUT(b2, body = list(y = fileUpload(system.file("CITATION"))))
 }
 

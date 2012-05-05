@@ -34,7 +34,7 @@
   \code{\link[png]{readPNG}} }
 }
 \examples{
-r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2)
+r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
 content(r) # binary content
 cat(text_content(r), "\\n") # text content
 parsed_content(r) # json converted to an R object

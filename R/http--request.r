@@ -17,11 +17,11 @@ make_request <- function(method, handle, url, ..., config = list()) {
   opts$headerfunction <- hg$update
   
   action <- match.fun(str_c(tolower(method), "_request"))
-  content <- action(handle, url, ..., opts = opts)
   on.exit({
     reset_handle_config(handle, opts)
     reset(handle$handle)
   })  
+  content <- action(handle, url, ..., opts = opts)
   
   info <- last_request(handle)
   times <- request_times(handle)
