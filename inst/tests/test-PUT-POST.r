@@ -7,7 +7,7 @@ round_trip <- function(method, body = NULL, ...) {
 }
 methods <- c("POST", "PUT")
 
-citation <- fileUpload(system.file("CITATION"))
+citation <- upload_file(system.file("CITATION"))
 citation_val <- c(readLines(system.file("CITATION")), "")
 
 test_that("empty body gives empty data element", {

@@ -17,14 +17,12 @@
 #' POST(b)
 #' POST(b, body = "A simple text string")
 #' POST(b, body = list(a = 1, b = 2, c = 3))
-#'
-#' library(RCurl)
-#' POST(b, body = list(a = 1, file = fileUpload(system.file("CITATION"))))
+#' POST(b, body = list(a = 1, file = upload_file(system.file("CITATION"))))
 #'
 #' b2 <- "http://httpbin.org/post"
 #' POST(b2, body = "A simple text string")
 #' POST(b2, body = list(x = "A simple text string"))
-#' POST(b2, body = list(y = fileUpload(system.file("CITATION"))))
+#' POST(b2, body = list(y = upload_file(system.file("CITATION"))))
 POST <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
   make_request("post", hu$handle, hu$url, body = body, 

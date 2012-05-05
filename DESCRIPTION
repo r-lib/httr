@@ -54,3 +54,4 @@ Collate:
     'url-query.r'
     'http-patch.r'
     'user-agent.r'
+    'upload-file.r'
