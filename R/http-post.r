@@ -33,9 +33,6 @@ post_config <- function(body = NULL, multipart = TRUE)  {
   # No body
   if (is.null(body)) {
     return(list(postfieldsize = 0L))
-    # opts$
-    # opts$readfunction <- ""
-    # return(opts)
   }
   
   # Simple case of send raw text

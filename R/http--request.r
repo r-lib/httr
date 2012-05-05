@@ -37,7 +37,7 @@ make_request <- function(method, handle, url, ..., config = list()) {
   opts$writedata <- buffer@ref
   
   # Must always reset the handle config, even if something goes wrong
-  on.exit(reset_handle_config(handle, opts))    
+  on.exit(reset_handle_config(handle, opts))
   
   # Perform request and capture output ---------------------------------------
   curl_opts <- curlSetOpt(curl = NULL, .opts = opts)
@@ -48,6 +48,8 @@ make_request <- function(method, handle, url, ..., config = list()) {
     style <- attr(action_config, "style")
     .Call("R_post_form", handle$handle@ref, curl_opts, body, TRUE,
         as.integer(style), PACKAGE = "RCurl")
+    curlSetOpt(httppost = NULL, post = NULL, postfields = NULL, 
+      curl = handle$handle)
   } else {
     .Call("R_curl_easy_perform", handle$handle@ref, curl_opts, TRUE, 
       integer(), PACKAGE = "RCurl")
