@@ -1,8 +1,10 @@
 context("Config")
 
-test_that("timeout enforced", {
-  expect_error(GET("http://httpbin.org/delay/1", timeout(0.5)), "timed out")
-})
+if (Sys.info()["user"] == "hadley") {
+  test_that("timeout enforced", {
+    expect_error(GET("http://httpbin.org/delay/1", timeout(0.5)), "timed out")
+  })
+}
 
 test_that("basic authentication works", {
   url <- "http://httpbin.org/basic-auth/user/passwd"
