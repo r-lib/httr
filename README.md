@@ -8,8 +8,8 @@ Key features:
   `DELETE` and `POST`.
 
 * automatic connection sharing across requests to the same website (by
-  default, curl handles are managed automatically), and cookies are maintained
-  across requests.
+  default, curl handles are managed automatically), cookies are maintained
+  across requests, and the standard root-level SSL certificate store is used.
 
 * a request object which captures the body of the request along with
   http status code, cookies, headers, timings and other useful information.

@@ -53,8 +53,14 @@ print.config <- function(x, ...) {
 
 
 default_config <- function() {  
-  c(
-    config(followlocation = 1L, maxredirs = 10L, encoding = "gzip"), 
+  cert <- system.file("CurlSSL/cacert.pem", package = "RCurl")
+  
+  c(config(
+      followlocation = 1L, 
+      maxredirs = 10L, 
+      encoding = "gzip",
+      cainfo = cert
+    ), 
     getOption("httr_config")
   )
 }
