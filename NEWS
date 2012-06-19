@@ -1,1 +1,3 @@
 * Add new default config: use the standard SSL certificate
+
+* Add recommendation to use custom handles with `authenticate`
