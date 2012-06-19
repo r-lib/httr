@@ -18,9 +18,8 @@
   See demos for use.
 }
 \seealso{
-  Other OAuth: \code{\link{oauth_app}},
-  \code{\link{oauth_endpoint}},
-  \code{\link{oauth2.0_token}},
+  Other OAuth: \code{\link{oauth2.0_token}},
+  \code{\link{oauth_app}}, \code{\link{oauth_endpoint}},
   \code{\link{sign_ouath1.0}}, \code{\link{sign_ouath2.0}}
 }
 

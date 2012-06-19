@@ -31,9 +31,8 @@ facebook <- oauth_endpoint(
   access = "https://graph.facebook.com/oauth/access_token")
 }
 \seealso{
-  Other OAuth: \code{\link{oauth_app}},
-  \code{\link{oauth1.0_token}},
-  \code{\link{oauth2.0_token}},
+  Other OAuth: \code{\link{oauth1.0_token}},
+  \code{\link{oauth2.0_token}}, \code{\link{oauth_app}},
   \code{\link{sign_ouath1.0}}, \code{\link{sign_ouath2.0}}
 }
 

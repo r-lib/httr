@@ -32,9 +32,9 @@ github_app <- oauth_app("github", "56b637a5baffac62cad9")
 }
 }
 \seealso{
-  Other OAuth: \code{\link{oauth_endpoint}},
-  \code{\link{oauth1.0_token}},
+  Other OAuth: \code{\link{oauth1.0_token}},
   \code{\link{oauth2.0_token}},
+  \code{\link{oauth_endpoint}},
   \code{\link{sign_ouath1.0}}, \code{\link{sign_ouath2.0}}
 }
 
