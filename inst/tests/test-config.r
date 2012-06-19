@@ -7,21 +7,26 @@ if (Sys.info()["user"] == "hadley") {
 }
 
 test_that("basic authentication works", {
-  url <- "http://httpbin.org/basic-auth/user/passwd"
-  
-  r <- GET(url)
+  h <- handle("http://httpbin.org")
+  path <- "basic-auth/user/passwd"
+
+  r <- GET(path = path, handle = h)
   expect_equal(r$status, 401)
 
-  r <- GET(url, authenticate("user", "passwd"))
+  r <- GET(path = path, handle = h,
+    config = authenticate("user", "passwd", "basic"))
   expect_equal(r$status, 200)  
+  
 })
 
 test_that("digest authentication works", {
-  url <- "http://httpbin.org/digest-auth/qop/user/passwd"
-  
-  r <- GET(url)
+  h <- handle("http://httpbin.org")
+  path <- "digest-auth/qop/user/passwd"
+
+  r <- GET(path = path, handle = h)
   expect_equal(r$status, 401)
 
-  r <- GET(url, authenticate("user", "passwd", "digest"))
+  r <- GET(path = path, handle = h,
+    config = authenticate("user", "passwd", "digest"))
   expect_equal(r$status, 200)  
 })

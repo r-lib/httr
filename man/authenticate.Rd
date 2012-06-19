@@ -15,7 +15,9 @@
   to any.}
 }
 \description{
-  Use http authentication.
+  It's not obvious how to turn authentication off after
+  using it, so I recommend using custom handles with
+  authentication.
 }
 \examples{
 GET("http://httpbin.org/basic-auth/user/passwd")

@@ -1,5 +1,8 @@
 #' Use http authentication.
 #'
+#' It's not obvious how to turn authentication off after using it, so
+#' I recommend using custom handles with authentication.
+#'
 #' @param user user name
 #' @param password password
 #' @param type type of HTTP authentication.  Should be one of the following
