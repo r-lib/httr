@@ -103,6 +103,12 @@ build_url <- function(url) {
 
   path <- url$path
   
+  if (!is.null(url$params)) {
+    params <- paste(";", url$params, sep = "")
+  } else {
+    params <- NULL
+  }
+  
   if (is.list(url$query)) {
     escaped <- curlEscape(url$query)
     query <- str_c(names(url$query), "=", escaped, collapse = "&")    
@@ -120,7 +126,7 @@ build_url <- function(url) {
     login <- NULL
   }
   
-  str_c(scheme, "://", login, hostname, port, "/", path, query)
+  str_c(scheme, "://", login, hostname, port, "/", path, params, query)
 }
 
 #' Modify a url.

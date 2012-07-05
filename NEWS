@@ -1,3 +1,5 @@
+* `build_url`: correctly add params back into full url.
+
 httr 0.1.1
 ----------
 
