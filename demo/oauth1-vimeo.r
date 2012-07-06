@@ -14,7 +14,7 @@ myapp <- oauth_app("vimeo", key = "bd535bc38ed5caccd79330ff33075eb9")
 token <- oauth1.0_token(vimeo, myapp)
 
 # 4. Generate signature and make requests
-sig <- sign_ouath1.0(myapp, token$oauth_token, token$oauth_token_secret)
+sig <- sign_oauth1.0(myapp, token$oauth_token, token$oauth_token_secret)
 
 api <- "http://vimeo.com/api/rest/v2"
 GET(api, query = list(method = "vimeo.videos.getAll"), sig)

@@ -49,7 +49,7 @@ Collate:
     'oauth-app.r'
     'oauth-endpoint.r'
     'oauth-listener.r'
-    'ouath-signature.r'
+    'oauth-signature.r'
     'oauth-token.r'
     'url-query.r'
     'http-patch.r'

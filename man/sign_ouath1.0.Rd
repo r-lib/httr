@@ -1,8 +1,8 @@
-\name{sign_ouath1.0}
-\alias{sign_ouath1.0}
+\name{sign_oauth1.0}
+\alias{sign_oauth1.0}
 \title{Sign an OAuth 1.0 request}
 \usage{
-  sign_ouath1.0(app, token = NULL, token_secret = NULL,
+  sign_oauth1.0(app, token = NULL, token_secret = NULL,
     ...)
 }
 \arguments{
@@ -27,6 +27,6 @@
 \seealso{
   Other OAuth: \code{\link{oauth1.0_token}},
   \code{\link{oauth2.0_token}}, \code{\link{oauth_app}},
-  \code{\link{oauth_endpoint}}, \code{\link{sign_ouath2.0}}
+  \code{\link{oauth_endpoint}}, \code{\link{sign_oauth2.0}}
 }
 

@@ -8,7 +8,7 @@ library(httr)
 
 myapp <- oauth_app("twitter", key = "TYrWFPkFAkn4G5BbkWINYw")
 
-sig <- sign_ouath1.0(myapp, 
+sig <- sign_oauth1.0(myapp, 
   token = "69133574-FZ9GJlJ57V0SVdNAzo71mQZSUrpUbiJZBVpDmbYkd",
   token_secret = Sys.getenv("TWITTER_ACCESS_SECRET"))
 

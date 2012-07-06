@@ -20,6 +20,6 @@
 \seealso{
   Other OAuth: \code{\link{oauth2.0_token}},
   \code{\link{oauth_app}}, \code{\link{oauth_endpoint}},
-  \code{\link{sign_ouath1.0}}, \code{\link{sign_ouath2.0}}
+  \code{\link{sign_oauth1.0}}, \code{\link{sign_oauth2.0}}
 }
 

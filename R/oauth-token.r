@@ -11,7 +11,7 @@
 oauth1.0_token <- function(endpoint, app, permission = NULL) {
   # 1. Get an unauthorised request token
   response <- GET(endpoint$request, 
-    sign_ouath1.0(app, callback = oauth_callback()))
+    sign_oauth1.0(app, callback = oauth_callback()))
   stop_for_status(response)
   params <- parse_query(text_content(response))
   token <- params$oauth_token
@@ -25,7 +25,7 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
   
   # 3. Request access token
   response <- GET(endpoint$access, 
-    sign_ouath1.0(app, token, secret, verifier = verifier))
+    sign_oauth1.0(app, token, secret, verifier = verifier))
   stop_for_status(response)
   parse_query(text_content(response))
 }

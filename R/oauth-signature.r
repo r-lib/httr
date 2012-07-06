@@ -9,7 +9,7 @@
 #'   included in signature generation.
 #' @return a \code{config} object which can be used with any http request.
 #' @family OAuth
-sign_ouath1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
+sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
   config(signature = function(method, url) {
     oauth <- oauth_signature(url, method, app, token, token_secret, ...)
     list(url = url, config = oauth_header(oauth))
@@ -22,7 +22,7 @@ sign_ouath1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
 #' @param access_token access token as retrieved by
 #'    \code{\link{oauth1.0_token}}
 #' @return a \code{config} object which can be used with any http request.
-sign_ouath2.0 <- function(access_token) {
+sign_oauth2.0 <- function(access_token) {
   config(signature = function(method, url) {
     url <- parse_url(url)
     url$query$access_token <- access_token
@@ -67,7 +67,7 @@ oauth_signature <- function(url, method = "GET", app, token = NULL, token_secret
 }
 
 oauth_header <- function(info) {
-  ouath <- str_c("OAuth ", str_c(
+  oauth <- str_c("OAuth ", str_c(
     curlEscape(names(info)), "=\"", curlEscape(info), "\"", collapse = ", "))
-  add_headers(Authorization = ouath)
+  add_headers(Authorization = oauth)
 }

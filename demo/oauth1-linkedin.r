@@ -14,6 +14,6 @@ myapp <- oauth_app("linkedin", key = "outmkw3859gy")
 token <- oauth1.0_token(linkedin, myapp)
 
 # 4. Generate signature and make requests
-sig <- sign_ouath1.0(myapp, token$oauth_token, token$oauth_token_secret)
+sig <- sign_oauth1.0(myapp, token$oauth_token, token$oauth_token_secret)
 
 GET("http://api.linkedin.com/v1/people/~", sig)
