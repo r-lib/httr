@@ -9,6 +9,7 @@
 #'   included in signature generation.
 #' @return a \code{config} object which can be used with any http request.
 #' @family OAuth
+#' @export
 sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
   config(signature = function(method, url) {
     oauth <- oauth_signature(url, method, app, token, token_secret, ...)
@@ -16,12 +17,13 @@ sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
   })
 }
 
-#' Sign an OAuth 1.0 request
+#' Sign an OAuth 2.0 request
 #'
 #' @family OAuth
 #' @param access_token access token as retrieved by
 #'    \code{\link{oauth1.0_token}}
 #' @return a \code{config} object which can be used with any http request.
+#' @export
 sign_oauth2.0 <- function(access_token) {
   config(signature = function(method, url) {
     url <- parse_url(url)
