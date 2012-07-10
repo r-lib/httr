@@ -1,0 +1,33 @@
+\name{url_ok}
+\alias{url_ok}
+\title{Check for an http OK status.}
+\usage{
+  url_ok(...)
+}
+\arguments{
+  \item{...}{passed to HEAD to perform the request (usually
+  just a url)}
+}
+\value{
+  This function returns \code{TRUE} only if the http status
+  is exactly 200, \code{FALSE otherwise}. See
+  \code{http://en.wikipedia.org/wiki/Http_status_codes} for
+  more information on http status codes.
+}
+\description{
+  Checks if a request on a given URL succeeds and returns
+  an OK status.
+}
+\examples{
+url_ok("http://www.google.com")
+url_ok("http://httpbin.org/status/200")
+url_ok("http://httpbin.org/status/201")
+}
+\seealso{
+  Other response methods: \code{\link{content}},
+  \code{\link{parsed_content}}, \code{\link{response}},
+  \code{\link{stop_for_status}},
+  \code{\link{text_content}}, \code{\link{url_success}},
+  \code{\link{warn_for_status}}
+}
+

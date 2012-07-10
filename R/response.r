@@ -50,6 +50,72 @@ as.character.response <- function(x, ...) {
   text_content(x)
 }
 
+
+# Turn http status code into a more meaningful message
+describe_status <- function(status) {
+
+  if (status < 200) {
+    out <- paste("information (", status, ")")
+  } else if (status == 200 ) {
+    out <- "ok"
+  } else if (status < 300) {
+    out <- "success"
+  } else if (status < 400) {
+    out <- paste("redirection (", status, ")")
+  } else if (status < 500) {
+    out <- paste("http client error (", status, ")")
+  } else if (status < 600) {
+    out <- paste("http server error (", status, ")")
+  } else {
+    stop("Unknown HTTP status : ", status)
+  }
+
+  return(out)
+}
+
+
+#' Check for an http OK status.
+#'
+#' Checks if a request on a given URL succeeds and returns an OK status.
+#'
+#' @param ... passed to HEAD to perform the request (usually just a url)
+#' @return This function returns \code{TRUE} only if the http status is
+#'   exactly 200, \code{FALSE otherwise}. See
+#'   \code{http://en.wikipedia.org/wiki/Http_status_codes}
+#'   for more information on http status codes.
+#' @export
+#' @family response methods
+#' @examples
+#' url_ok("http://www.google.com")
+#' url_ok("http://httpbin.org/status/200")
+#' url_ok("http://httpbin.org/status/201")
+url_ok <- function(...) {
+  x <- HEAD(...)
+  describe_status(x$status_code) == "ok"
+}
+
+#' Check for an http success status.
+#'
+#' Checks if a request on a given URL succeeds.
+#'
+#' @param ... passed to HEAD to perform the request (usually just a url)
+#' @return This function returns \code{TRUE} if the request succeeds
+#'   (status in the 200s), \code{FALSE otherwise}. See
+#'   \code{http://en.wikipedia.org/wiki/Http_status_codes}
+#'   for more information on http status codes.
+#' @export
+#' @family response methods
+#' @examples
+#' url_success("http://www.google.com")
+#' url_success("http://httpbin.org/status/200")
+#' url_success("http://httpbin.org/status/201")
+#' url_success("http://httpbin.org/status/300")
+url_success <- function(...) {
+  x <- HEAD(...)
+  describe_status(x$status_code) %in% c("ok", "success")
+}
+
+
 #' Throw error on http error.
 #'
 #' Converts http errors to R errors - this is useful if you want to ensure
@@ -59,42 +125,45 @@ as.character.response <- function(x, ...) {
 #' @export
 #' @family response methods
 #' @examples
-#' x <- GET("http://httpbin.org/status/320")
+#' x <- GET("http://httpbin.org/status/200")
 #' stop_for_status(x) # nothing happens
+#' x <- GET("http://httpbin.org/status/320")
+#' \dontrun{stop_for_status(x)}
 #' x <- GET("http://httpbin.org/status/404")
 #' \dontrun{stop_for_status(x)}
 stop_for_status <- function(x) {
   stopifnot(is.response(x))
-  
-  status <- x$status_code
-  if (status < 400) return(invisible())
-  
-  if (status >= 400 & status < 500) {
-    stop("http client error (", status, ")", call. = FALSE)
+
+  status <- describe_status(x$status_code)
+  if ( ! status %in% c("ok", "success")) {
+    stop(status, call. = FALSE)
   }
-  if (status >= 500 & status < 600) {
-    stop("http server error (", status, ")", call. = FALSE)
-  }
+
+  return(invisible())
 }
 
-#' Check if URL exists
+#' Issue a warning on http error.
 #'
-#' Checks if a request on a given URL returns a success status.
-#' Serve a similar purpose to the RCurl function of the same name
-#' but uses httr conventions.
+#' Converts http errors to R warnings - this is useful if you want to
+#' monitor http request failures.
 #'
-#' @param ... passed to HEAD to perform the request
-#' @return \code{TRUE} when the URL exists (HTTP status = 2xx) and \code{FALSE} otherwise
+#' @param x a request object
 #' @export
 #' @family response methods
 #' @examples
-#' url.exists("http://www.google.com")
-#' url.exists("http://www.g00gle.com")
-url.exists <- function(...) {
-  # perform the request
-  x <- HEAD(...)
+#' x <- GET("http://httpbin.org/status/200")
+#' warn_for_status(x) # nothing happens
+#' x <- GET("http://httpbin.org/status/320")
+#' warn_for_status(x)
+#' x <- GET("http://httpbin.org/status/404")
+#' warn_for_status(x)
+warn_for_status <- function(x) {
+  stopifnot(is.response(x))
 
-  # a 2xx status is OK
-  as.integer(as.integer(x$status_code)/100) == 2
+  status <- describe_status(x$status_code)
+  if ( ! status %in% c("ok", "success")) {
+    warning(status, call. = FALSE)
+  }
+
+  return(invisible())
 }
-

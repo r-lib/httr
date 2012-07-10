@@ -13,14 +13,17 @@
   http request fails.
 }
 \examples{
-x <- GET("http://httpbin.org/status/320")
+x <- GET("http://httpbin.org/status/200")
 stop_for_status(x) # nothing happens
+x <- GET("http://httpbin.org/status/320")
+\dontrun{stop_for_status(x)}
 x <- GET("http://httpbin.org/status/404")
 \dontrun{stop_for_status(x)}
 }
 \seealso{
   Other response methods: \code{\link{content}},
   \code{\link{parsed_content}}, \code{\link{response}},
-  \code{\link{text_content}}, \code{\link{url.exists}}
+  \code{\link{text_content}}, \code{\link{url_ok}},
+  \code{\link{url_success}}, \code{\link{warn_for_status}}
 }
 

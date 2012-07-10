@@ -45,6 +45,7 @@ rasterImage(rlogo, 0, 0, 1, 1)
 }
 \seealso{
   Other response methods: \code{\link{response}},
-  \code{\link{stop_for_status}}, \code{\link{url.exists}}
+  \code{\link{stop_for_status}}, \code{\link{url_ok}},
+  \code{\link{url_success}}, \code{\link{warn_for_status}}
 }
 
