@@ -21,6 +21,6 @@ x <- GET("http://httpbin.org/status/404")
 \seealso{
   Other response methods: \code{\link{content}},
   \code{\link{parsed_content}}, \code{\link{response}},
-  \code{\link{text_content}}
+  \code{\link{text_content}}, \code{\link{url.exists}}
 }
 
