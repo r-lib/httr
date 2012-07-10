@@ -2,13 +2,17 @@
 \alias{handle}
 \title{Create a handle tied to a particular host.}
 \usage{
-  handle(url, cookies = TRUE)
+  handle(url, cookies = TRUE, ...)
 }
 \arguments{
   \item{url}{full url to site}
 
   \item{cookies}{if \code{TRUE} (the default), maintain
   cookies across requests.}
+
+  \item{...}{RCurl options to be stored in the handle. See
+  \code{\link{config}} for more information about those
+  options.}
 }
 \description{
   This handle preserves settings and cookies across

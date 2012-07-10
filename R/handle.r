@@ -7,6 +7,8 @@
 #' @param url full url to site
 #' @param cookies if \code{TRUE} (the default), maintain cookies across
 #'   requests.
+#' @param ... RCurl options to be stored in the handle. See \code{\link{config}}
+#'   for more information about those options.
 #' @export
 #' @examples
 #' handle("http://google.com")
@@ -19,13 +21,13 @@
 #'
 #' h <- handle("http://google.com", cookies = FALSE)
 #' GET(handle = h)$cookies
-handle <- function(url, cookies = TRUE) {
+handle <- function(url, cookies = TRUE, ...) {
   stopifnot(is.character(url), length(url) == 1)
   
   url <- parse_url(url)
   cookie_path <- if (cookies) tempfile() else NULL
   
-  h <- getCurlHandle(cookiefile = cookie_path, .defaults = list()) 
+  h <- getCurlHandle(cookiefile = cookie_path, .defaults = list(), ...)
   structure(list(handle = h, url = url), class = "handle")
 }
 
