@@ -7,6 +7,8 @@
 #' @param url full url to site
 #' @param cookies if \code{TRUE} (the default), maintain cookies across
 #'   requests.
+#' @param ... RCurl options to be stored in the handle. See \code{\link{config}}
+#'   for more information about those options.
 #' @export
 #' @examples
 #' handle("http://google.com")
