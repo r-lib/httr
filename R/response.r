@@ -77,3 +77,24 @@ stop_for_status <- function(x) {
   }
 }
 
+#' Check if URL exists
+#'
+#' Checks if a request on a given URL returns a success status.
+#' Serve a similar purpose to the RCurl function of the same name
+#' but uses httr conventions.
+#'
+#' @param ... passed to HEAD to perform the request
+#' @return \code{TRUE} when the URL exists (HTTP status = 2xx) and \code{FALSE} otherwise
+#' @export
+#' @family response methods
+#' @examples
+#' url.exists("http://www.google.com")
+#' url.exists("http://www.g00gle.com")
+url.exists <- function(...) {
+  # perform the request
+  x <- HEAD(...)
+
+  # a 2xx status is OK
+  as.integer(as.integer(x$status_code)/100) == 2
+}
+
