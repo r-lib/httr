@@ -91,7 +91,7 @@ describe_status <- function(status) {
 #' url_ok("http://httpbin.org/status/201")
 url_ok <- function(...) {
   x <- HEAD(...)
-  describe_status(x$status_code) == "ok"
+  identical(describe_status(x$status_code), "ok")
 }
 
 #' Check for an http success status.
