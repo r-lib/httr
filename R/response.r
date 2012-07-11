@@ -116,21 +116,35 @@ url_success <- function(...) {
 }
 
 
-#' Throw error on http error.
+#' Take action on http error.
 #'
-#' Converts http errors to R errors - this is useful if you want to ensure
+#' Converts http errors to R errors or warnings - this is useful if you want to ensure
 #' the appropriate action is taken when an http request fails.
 #'
+#' http servers send  a status code with the response to each request. This code gives
+#' information regarding the outcome of the execution of the request on the server.
+#' Roughly, codes in the 200s mean the request was successfully executed; codes in the
+#' 300s mean the page was redirected; codes in the 400s mean there was a mistake in the
+#' way the client sent the request; codes in the 500s mean the server failed to fulfill
+#' an apparently valid request. More details on the codes can be found at
+#' \code{http://en.wikipedia.org/wiki/Http_error_codes}
+#'
 #' @param x a request object
-#' @export
 #' @family response methods
 #' @examples
 #' x <- GET("http://httpbin.org/status/200")
 #' stop_for_status(x) # nothing happens
+#' warn_for_status(x)
+#'
 #' x <- GET("http://httpbin.org/status/320")
 #' \dontrun{stop_for_status(x)}
+#' warn_for_status(x)
+#'
 #' x <- GET("http://httpbin.org/status/404")
 #' \dontrun{stop_for_status(x)}
+#' warn_for_status(x)
+#' @rdname http_status
+#' @export
 stop_for_status <- function(x) {
   stopifnot(is.response(x))
 
@@ -142,21 +156,8 @@ stop_for_status <- function(x) {
   return(invisible())
 }
 
-#' Issue a warning on http error.
-#'
-#' Converts http errors to R warnings - this is useful if you want to
-#' monitor http request failures.
-#'
-#' @param x a request object
+#' @rdname http_status
 #' @export
-#' @family response methods
-#' @examples
-#' x <- GET("http://httpbin.org/status/200")
-#' warn_for_status(x) # nothing happens
-#' x <- GET("http://httpbin.org/status/320")
-#' warn_for_status(x)
-#' x <- GET("http://httpbin.org/status/404")
-#' warn_for_status(x)
 warn_for_status <- function(x) {
   stopifnot(is.response(x))
 
