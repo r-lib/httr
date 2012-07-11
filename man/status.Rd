@@ -1,19 +1,21 @@
-\name{stop_for_status}
-\alias{stop_for_status}
-\alias{warn_for_status}
-\title{Take action on http error.}
+\name{status}
+\alias{status}
+\title{Give information on the status of a request.}
 \usage{
-  stop_for_status(x)
-
-  warn_for_status(x)
+  status(x)
 }
 \arguments{
   \item{x}{a request object}
 }
+\value{
+  If the status code does not match a known status, the
+  function errors out.  Otherwise, it returns a list with
+  components \item{category}{the broad category of the
+  status} \item{message}{the meaning of the status code}
+}
 \description{
-  Converts http errors to R errors or warnings - this is
-  useful if you want to ensure the appropriate action is
-  taken when an http request fails.
+  Extract the http status code and convert it into a human
+  readable message.
 }
 \details{
   http servers send a status code with the response to each
@@ -25,25 +27,24 @@
   mistake in the way the client sent the request; codes in
   the 500s mean the server failed to fulfill an apparently
   valid request. More details on the codes can be found at
-  \code{http://en.wikipedia.org/wiki/Http_error_codes}
+  \code{http://en.wikipedia.org/wiki/Http_error_codes}.
 }
 \examples{
 x <- GET("http://httpbin.org/status/200")
-stop_for_status(x) # nothing happens
-warn_for_status(x)
+status(x)
 
-x <- GET("http://httpbin.org/status/320")
-\dontrun{stop_for_status(x)}
-warn_for_status(x)
+status(GET("http://httpbin.org/status/300"))
+status(GET("http://httpbin.org/status/301"))
+status(GET("http://httpbin.org/status/404"))
 
-x <- GET("http://httpbin.org/status/404")
-\dontrun{stop_for_status(x)}
-warn_for_status(x)
+# errors out on unknown status
+\dontrun{status(GET("http://httpbin.org/status/320"))}
 }
 \seealso{
   Other response methods: \code{\link{content}},
   \code{\link{parsed_content}}, \code{\link{response}},
+  \code{\link{stop_for_status}},
   \code{\link{text_content}}, \code{\link{url_ok}},
-  \code{\link{url_success}}
+  \code{\link{url_success}}, \code{\link{warn_for_status}}
 }
 

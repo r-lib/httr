@@ -20,7 +20,7 @@
 }
 \seealso{
   Other response methods: \code{\link{content}},
-  \code{\link{parsed_content}},
+  \code{\link{parsed_content}}, \code{\link{status}},
   \code{\link{stop_for_status}},
   \code{\link{text_content}}, \code{\link{url_ok}},
   \code{\link{url_success}}, \code{\link{warn_for_status}}

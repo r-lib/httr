@@ -1,6 +1,6 @@
 * add several functions related to checking the status of an http request.
-  Those are : `url_ok` and `url_success` as well as `stop_for_status` and
-  `warn_for_status`.
+  Those are : `status`, `url_ok` and `url_success` as well as `stop_for_status`
+  and `warn_for_status`.
 
 * `build_url`: correctly add params back into full url.
 
