@@ -37,6 +37,7 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
 #' @inheritParams oauth1.0_token
 #' @param scope a character string of scopes to apply for. 
 #' @family OAuth
+#' @export
 oauth2.0_token <- function(endpoint, app, scope = NULL) {
   authorize <- modify_url(endpoint$authorize, query = compact(list(
       client_id = app$key, 
