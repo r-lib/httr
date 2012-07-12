@@ -163,7 +163,7 @@ status <- function(x) {
   # check if the status code matches one of those
   codeMatch <- match(status, names(messages))
   if (is.na(codeMatch)) {
-    stop("Unknown http status code : ", status)
+    stop("Unknown http status code: ", status)
   }
 
   # detect the category of code
@@ -174,7 +174,7 @@ status <- function(x) {
   ))
 
   # create the final information message
-  message <- paste(category, " : (", status, ") ", messages[codeMatch], sep = "")
+  message <- paste(category, ": (", status, ") ", messages[codeMatch], sep = "")
 
   return(list(category = category, message = message))
 }
