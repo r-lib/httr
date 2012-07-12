@@ -242,6 +242,9 @@ url_success <- function(...) {
 #' x <- GET("http://httpbin.org/status/404")
 #' \dontrun{stop_for_status(x)}
 #' warn_for_status(x)
+#' @name http_error
+NULL
+
 #' @rdname http_error
 #' @export
 stop_for_status <- function(x) {
