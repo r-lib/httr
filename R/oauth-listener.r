@@ -29,10 +29,16 @@ oauth_listener <- function(request_url) {
   }
   
   server <- Rhttpd$new()
-  server$stop()
-  server$add(listen, name = "OAuth")
-  server$start(port = 1410, quiet = TRUE)
+  port <- tools:::httpdPort
+  server_on <- port != 0
 
+  server <- Rhttpd$new()
+  server$add(listen, name = "OAuth")
+  if (!server_on) {
+    port <- 1410
+    server$start(port = port, quiet = TRUE)
+  }
+  
   message("Waiting for authentication in browser...")
   Sys.sleep(1)
   BROWSE(request_url)
@@ -57,5 +63,7 @@ oauth_listener <- function(request_url) {
 #' @keywords internal
 #' @export
 oauth_callback <- function() {
-  "http://localhost:1410/custom/OAuth/cred"
+  port <- tools:::httpdPort
+  if (port == 0) port <- 1410
+  str_c("http://localhost:", port, "/custom/OAuth/cred")
 }
