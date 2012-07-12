@@ -1,8 +1,8 @@
-\name{status}
-\alias{status}
+\name{http_status}
+\alias{http_status}
 \title{Give information on the status of a request.}
 \usage{
-  status(x)
+  http_status(x)
 }
 \arguments{
   \item{x}{a request object}
@@ -31,19 +31,19 @@
 }
 \examples{
 x <- GET("http://httpbin.org/status/200")
-status(x)
+http_status(x)
 
-status(GET("http://httpbin.org/status/300"))
-status(GET("http://httpbin.org/status/301"))
-status(GET("http://httpbin.org/status/404"))
+http_status(GET("http://httpbin.org/status/300"))
+http_status(GET("http://httpbin.org/status/301"))
+http_status(GET("http://httpbin.org/status/404"))
 
 # errors out on unknown status
-\dontrun{status(GET("http://httpbin.org/status/320"))}
+\dontrun{http_status(GET("http://httpbin.org/status/320"))}
 }
 \seealso{
   Other response methods: \code{\link{content}},
-  \code{\link{parsed_content}}, \code{\link{response}},
-  \code{\link{stop_for_status}},
+  \code{\link{http_error}}, \code{\link{parsed_content}},
+  \code{\link{response}}, \code{\link{stop_for_status}},
   \code{\link{text_content}}, \code{\link{url_ok}},
   \code{\link{url_success}}, \code{\link{warn_for_status}}
 }

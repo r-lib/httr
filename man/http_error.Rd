@@ -1,4 +1,5 @@
-\name{stop_for_status}
+\name{http_error}
+\alias{http_error}
 \alias{stop_for_status}
 \alias{warn_for_status}
 \title{Take action on http error.}
@@ -14,7 +15,7 @@
   Converts http errors to R errors or warnings - this is
   useful if you want to ensure the appropriate action is
   taken when an http request fails. See
-  \code{\link{status}} or
+  \code{\link{http_status}} or
   \code{http://en.wikipedia.org/wiki/Http_status_codes} for
   more information on http status codes.
 }
@@ -33,8 +34,8 @@ warn_for_status(x)
 }
 \seealso{
   Other response methods: \code{\link{content}},
-  \code{\link{parsed_content}}, \code{\link{response}},
-  \code{\link{status}}, \code{\link{text_content}},
+  \code{\link{http_status}}, \code{\link{parsed_content}},
+  \code{\link{response}}, \code{\link{text_content}},
   \code{\link{url_ok}}, \code{\link{url_success}}
 }
 

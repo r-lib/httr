@@ -71,16 +71,16 @@ as.character.response <- function(x, ...) {
 #' @family response methods
 #' @examples
 #' x <- GET("http://httpbin.org/status/200")
-#' status(x)
+#' http_status(x)
 #'
-#' status(GET("http://httpbin.org/status/300"))
-#' status(GET("http://httpbin.org/status/301"))
-#' status(GET("http://httpbin.org/status/404"))
+#' http_status(GET("http://httpbin.org/status/300"))
+#' http_status(GET("http://httpbin.org/status/301"))
+#' http_status(GET("http://httpbin.org/status/404"))
 #'
 #' # errors out on unknown status
-#' \dontrun{status(GET("http://httpbin.org/status/320"))}
+#' \dontrun{http_status(GET("http://httpbin.org/status/320"))}
 #' @export
-status <- function(x) {
+http_status <- function(x) {
   stopifnot(is.response(x))
 
   # extract status code
@@ -217,14 +217,14 @@ url_ok <- function(...) {
 #' url_success("http://httpbin.org/status/300")
 url_success <- function(...) {
   x <- HEAD(...)
-  status(x)$category == "success"
+  http_status(x)$category == "success"
 }
 
 
 #' Take action on http error.
 #'
 #' Converts http errors to R errors or warnings - this is useful if you want to ensure
-#' the appropriate action is taken when an http request fails. See \code{\link{status}}
+#' the appropriate action is taken when an http request fails. See \code{\link{http_status}}
 #' or \code{http://en.wikipedia.org/wiki/Http_status_codes} for more information on
 #' http status codes.
 #'
@@ -249,9 +249,9 @@ NULL
 #' @export
 stop_for_status <- function(x) {
 
-  status_info <- status(x)
-  if ( status_info$category != "success" ) {
-    stop(status_info$message, call. = FALSE)
+  status <- http_status(x)
+  if ( status$category != "success" ) {
+    stop(status$message, call. = FALSE)
   }
 
   return(invisible())
@@ -261,9 +261,9 @@ stop_for_status <- function(x) {
 #' @export
 warn_for_status <- function(x) {
 
-  status_info <- status(x)
-  if ( status_info$category != "success" ) {
-    warning(status_info$message, call. = FALSE)
+  status <- http_status(x)
+  if ( status$category != "success" ) {
+    warning(status$message, call. = FALSE)
   }
 
   return(invisible())
