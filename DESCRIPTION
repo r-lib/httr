@@ -59,3 +59,4 @@ Collate:
     'content-parse.r'
     'media-guess.r'
     'media-parse.r'
+    'response-status.r'
