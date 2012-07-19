@@ -3,7 +3,7 @@ context("Send data")
 round_trip <- function(method, body = NULL, ...) {
   url <- str_c("http://httpbin.org/", tolower(method))
   request <- match.fun(toupper(method))
-  parsed_content(request(url, body = body, ...))
+  content(request(url, body = body, ...))
 }
 methods <- c("POST", "PUT")
 

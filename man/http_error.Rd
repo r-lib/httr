@@ -34,8 +34,7 @@ warn_for_status(x)
 }
 \seealso{
   Other response methods: \code{\link{content}},
-  \code{\link{http_status}}, \code{\link{parsed_content}},
-  \code{\link{response}}, \code{\link{text_content}},
+  \code{\link{http_status}}, \code{\link{response}},
   \code{\link{url_ok}}, \code{\link{url_success}}
 }
 

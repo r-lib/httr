@@ -24,7 +24,7 @@ test_that("status converted to errors", {
 test_that("headers returned as expected", {
   round_trip <- function(...) {
     req <- GET("http://httpbin.org/headers", add_headers(...))
-    headers <- parsed_content(req)$headers
+    headers <- content(req)$headers
     names(headers) <- tolower(names(headers))
     headers
   }

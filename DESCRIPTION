@@ -11,7 +11,8 @@ Description: Provides useful tools for working with HTTP connections.  Is a
 Imports:
     RCurl,
     stringr,
-    digest
+    digest,
+    tools
 Suggests:
     rjson,
     XML,
@@ -55,3 +56,6 @@ Collate:
     'http-patch.r'
     'user-agent.r'
     'upload-file.r'
+    'content-parse.r'
+    'media-guess.r'
+    'media-parse.r'

@@ -31,8 +31,9 @@ is.response <- function(x) {
 print.response <- function(x, ..., max.lines = 10) {    
   cat("Response [", x$url, "]\n", sep = "")
   cat("  Status: ", x$status, "\n", sep = "")
+  cat("  Content-type: ", x$headers$`content-type`, "\n", sep = "")
   
-  text <- text_content(x)
+  text <- content(x, "text")
   if (length(text) == 0) return()
   breaks <- str_locate_all(text, "\n")[[1]]
   
@@ -47,7 +48,7 @@ print.response <- function(x, ..., max.lines = 10) {
 
 #' @S3method as.character response
 as.character.response <- function(x, ...) {
-  text_content(x)
+  content(x, "text")
 }
 
 

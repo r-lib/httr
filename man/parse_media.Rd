@@ -1,0 +1,29 @@
+\name{parse_media}
+\alias{parse_media}
+\title{Parse a media type.}
+\usage{
+  parse_media(x)
+}
+\description{
+  Parsed according to RFC 2616, as at
+  \url{http://pretty-rfc.herokuapp.com/RFC2616#media.types}.
+}
+\details{
+  A simplified minimal EBNF is:
+
+  \itemize{ \item media-type = type "/" subtype *( ";"
+  parameter ) \item type = token \item subtype = token
+  \item parameter = attribute "=" value \item attribute =
+  token \item value = token | quoted-string \item token =
+  1*<any CHAR except CTLs or ()<>@,;:\"/[]?={} \item
+  quoted-string = " *(any text except ", unless escaped
+  with \) " }
+}
+\examples{
+parse_media("text/plain")
+parse_media("text/plain; charset=utf-8")
+parse_media("text/plain; charset=\\"utf-8\\"")
+parse_media("text/plain; randomparam=\\";=;=\\"")
+}
+\keyword{internal}
+

@@ -1,11 +1,12 @@
 #' Extract content from a request.
 #'
 #' There are currently three ways to retrieve the contents of a request:
-#' as a raw object, \code{content}, as a character vector,
-#' \code{text_content}, and as parsed into an R object where possible,
-#' \code{parsed_content}.
+#' as a raw object (\code{as = "raw"}), as a character vector,
+#' (\code{as = "text"}), and as parsed into an R object where possible,
+#' (\code{as = "parsed"}). If \code{as} is not specified, \code{content}
+#' does it's best to guess which output is most appropriate.
 #' 
-#' \code{parsed_content} currently knows about the following mime types:
+#' \code{content} currently knows about the following mime types:
 #' \itemize{
 #'  \item \code{text/html}: \code{\link[XML]{htmlTreeParse}}
 #'  \item \code{text/xml}: \code{\link[XML]{xmlTreeParse}}
@@ -14,54 +15,59 @@
 #'  \item \code{image/jpeg}: \code{\link[jpeg]{readJPEG}}
 #'  \item \code{image/png}: \code{\link[png]{readPNG}}
 #' }
+#' You can add new parsers by adding appropriately functions to
+#' \code{httr:::parsers}.
 #'
-#'
-#' @param ... additional parameters passed to conversion function
 #' @param x request object
+#' @param as desired type of output: \code{raw}, \code{text} or
+#'   \code{parsed}. \code{content} attempts to automatically figure out
+#'   which one is most appropriate, based on the content-type.
+#' @param type MIME type (aka internet media type) used to override
+#'   the content type returned by the server. See
+#'   \url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of
+#'   common types.
+#' @param encoding For text, overrides the charset or the Latin1 (ISO-8859-1)
+#'   default, if you know that the server is returning the incorrect encoding
+#'   as the charset in the content-type. Use for text and auto outputs.
+#' @param ... Other parameters parsed on to the parsing functions, if 
+#'  \code{as = "auto"}
 #' @family response methods
 #' @export
 #' @examples
 #' r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
-#' content(r) # binary content
-#' cat(text_content(r), "\n") # text content
-#' parsed_content(r) # json converted to an R object
+#' content(r) # automatically parses JSON
+#' cat(content(r, "text"), "\n") # text content
+#' content(r, "raw") # raw bytes from server
 #'
-#' rlogo <- parsed_content(GET("http://cran.r-project.org/Rlogo.jpg"))
+#' rlogo <- content(GET("http://cran.r-project.org/Rlogo.jpg"))
 #' plot(0:1, 0:1, type = "n")
 #' rasterImage(rlogo, 0, 0, 1, 1)
-content <- function(x) {
-  stopifnot(is.response(x))
-
-  x$content
-}
-
-#' @export
-#' @rdname content
-text_content <- function(x) {
+#' @aliases text_content parsed_content
+content <- function(x, as = NULL, type = NULL, encoding = NULL, ...) {
   stopifnot(is.response(x))
   
-  contents <- content(x)
-  if (is.null(contents)) return()
+  type <- type %||% x$headers[["Content-Type"]] %||% guess_media_url(x$url)
 
-  rawToChar(contents)
-}
+  as <- as %||% parseability(type)  
+  as <- match.arg(as, c("raw", "text", "parsed"))
 
-#' @export
-#' @rdname content
-parsed_content <- function(x, ...) {
-  stopifnot(is.response(x))
-
-  type <- x$headers[["Content-Type"]]
-  mime <- str_split(type, "; ?")[[1]][1]
-  
-  switch(mime, 
-    `text/plain` = text_content(x),
-    `text/html` = {require("XML"); htmlTreeParse(text_content(x), ...)},
-    `text/xml` = {require("XML"); xmlTreeParse(text_content(x), ...)},
-    `application/json` = {require("rjson"); fromJSON(text_content(x), ...)},
-    `image/jpeg` = {require("jpeg"); readJPEG(content(x))},
-    `image/png` = {require("png"); readPNG(content(x))},
-    `application/x-www-form-urlencoded` = {parse_query(text_content(x))},
-    stop("Unknown mime type: ", mime)
+  switch(as,
+    raw = x$content,
+    text = parse_text(x$content, type, encoding),
+    parsed = parse_auto(x$content, type, encoding, ...)
   )
+}
+
+#' @export
+text_content <- function(x) {
+  .Deprecated("content", msg = 
+    "text_content() deprecated. Use content(x, as = 'text')")
+  content(x, as = "text")
+}
+
+#' @export
+parsed_content <- function(x, ...) {
+  .Deprecated("content", msg = 
+    "text_content() deprecated. Use parsed_content(x, as = 'parsed')")
+  content(x, as = "parsed", ...)
 }

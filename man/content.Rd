@@ -4,42 +4,56 @@
 \alias{text_content}
 \title{Extract content from a request.}
 \usage{
-  content(x)
-
-  text_content(x)
-
-  parsed_content(x, ...)
+  content(x, as = NULL, type = NULL, encoding = NULL, ...)
 }
 \arguments{
-  \item{...}{additional parameters passed to conversion
-  function}
-
   \item{x}{request object}
+
+  \item{as}{desired type of output: \code{raw}, \code{text}
+  or \code{parsed}. \code{content} attempts to
+  automatically figure out which one is most appropriate,
+  based on the content-type.}
+
+  \item{type}{MIME type (aka internet media type) used to
+  override the content type returned by the server. See
+  \url{http://en.wikipedia.org/wiki/Internet_media_type}
+  for a list of common types.}
+
+  \item{encoding}{For text, overrides the charset or the
+  Latin1 (ISO-8859-1) default, if you know that the server
+  is returning the incorrect encoding as the charset in the
+  content-type. Use for text and auto outputs.}
+
+  \item{...}{Other parameters parsed on to the parsing
+  functions, if \code{as = "auto"}}
 }
 \description{
   There are currently three ways to retrieve the contents
-  of a request: as a raw object, \code{content}, as a
-  character vector, \code{text_content}, and as parsed into
-  an R object where possible, \code{parsed_content}.
+  of a request: as a raw object (\code{as = "raw"}), as a
+  character vector, (\code{as = "text"}), and as parsed
+  into an R object where possible, (\code{as = "parsed"}).
+  If \code{as} is not specified, \code{content} does it's
+  best to guess which output is most appropriate.
 }
 \details{
-  \code{parsed_content} currently knows about the following
-  mime types: \itemize{ \item \code{text/html}:
+  \code{content} currently knows about the following mime
+  types: \itemize{ \item \code{text/html}:
   \code{\link[XML]{htmlTreeParse}} \item \code{text/xml}:
   \code{\link[XML]{xmlTreeParse}} \item
   \code{application/json}: \code{\link[rjson]{fromJSON}}
   \item \code{application/x-www-form-urlencoded}:
   \code{parse_query} \item \code{image/jpeg}:
   \code{\link[jpeg]{readJPEG}} \item \code{image/png}:
-  \code{\link[png]{readPNG}} }
+  \code{\link[png]{readPNG}} } You can add new parsers by
+  adding appropriately functions to \code{httr:::parsers}.
 }
 \examples{
 r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
-content(r) # binary content
-cat(text_content(r), "\\n") # text content
-parsed_content(r) # json converted to an R object
+content(r) # automatically parses JSON
+cat(content(r, "text"), "\\n") # text content
+content(r, "raw") # raw bytes from server
 
-rlogo <- parsed_content(GET("http://cran.r-project.org/Rlogo.jpg"))
+rlogo <- content(GET("http://cran.r-project.org/Rlogo.jpg"))
 plot(0:1, 0:1, type = "n")
 rasterImage(rlogo, 0, 0, 1, 1)
 }

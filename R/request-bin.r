@@ -17,5 +17,5 @@ new_bin <- function(browse = TRUE) {
 }
 
 make_bin <- function() {
-  parsed_content(POST("http://requestb.in/api/v1/bins"))
+  content(POST("http://requestb.in/api/v1/bins"))
 }

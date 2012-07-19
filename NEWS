@@ -1,3 +1,14 @@
+* `content` will automatically guess what type of output (parsed, text or raw)
+  based on the content-type header. It also automatically converts text
+  content to UTF-8 (using the charset in the media type) and can guess at mime
+  type from extension if server doesn't supply one. Media type and encoding
+  can be overridden with the `type` and `encoding` arguments respectively.
+
+* response objects automatically print content type to aid debugging.
+
+* `text_content` has become `context(, "text")` and `parsed_content` 
+  `content(, "parsed")`
+
 * In `oauth_listener`, use existing httpd port if help server has already been
   started. This allows the ouath authentication dance to work if you're in
   RStudio. (Fixes #15).

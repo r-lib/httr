@@ -13,7 +13,7 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
   response <- GET(endpoint$request, 
     sign_oauth1.0(app, callback = oauth_callback()))
   stop_for_status(response)
-  params <- parse_query(text_content(response))
+  params <- content(response, type = "application/x-www-form-urlencoded")
   token <- params$oauth_token
   secret <- params$oauth_token_secret
   
@@ -27,7 +27,7 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
   response <- GET(endpoint$access, 
     sign_oauth1.0(app, token, secret, verifier = verifier))
   stop_for_status(response)
-  parse_query(text_content(response))
+  content(response, type = "application/x-www-form-urlencoded")
 }
 
 #' Retrieve OAuth 2.0 access token.
@@ -55,7 +55,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL) {
       redirect_uri = oauth_callback(),
       grant_type = "authorization_code",
       code = code))
-  parsed_content(req)
+  content(req)
 }
 
 
