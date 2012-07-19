@@ -34,7 +34,6 @@ Collate:
     'http--request.r'
     'response.r'
     'url.r'
-    'xml.r'
     'verbose.r'
     'handle-pool.r'
     'handle-url.r'
