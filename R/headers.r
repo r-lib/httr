@@ -2,8 +2,11 @@
 #' 
 #' \code{accept_json} and \code{accept_xml} are useful shortcuts to request
 #' json or xml responses if the server supports content negotiation. json 
-#' and xml are both easy to work with in R. See \code{\link{parsed_content}}
+#' and xml are both easy to work with in R. See \code{\link{content}}
 #' for how to access the results as R objects.  
+#'
+#' Wikipedia provides a useful list of common http headers: 
+#' \url{http://en.wikipedia.org/wiki/List_of_HTTP_header_fields}.
 #'
 #' @param ... named header values.  To stop an existing header from being
 #'   set, pass an empty string: \code{""}.

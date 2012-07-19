@@ -1,4 +1,4 @@
-#' Send PATCH request server.
+#' Send PATCH request to a server.
 #'
 #' @inheritParams POST
 #' @export

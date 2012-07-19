@@ -20,8 +20,12 @@
   \code{accept_json} and \code{accept_xml} are useful
   shortcuts to request json or xml responses if the server
   supports content negotiation. json and xml are both easy
-  to work with in R. See \code{\link{parsed_content}} for
-  how to access the results as R objects.
+  to work with in R. See \code{\link{content}} for how to
+  access the results as R objects.
+}
+\details{
+  Wikipedia provides a useful list of common http headers:
+  \url{http://en.wikipedia.org/wiki/List_of_HTTP_header_fields}.
 }
 \examples{
 add_headers(a = 1, b = 2)

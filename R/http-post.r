@@ -1,4 +1,4 @@
-#' Post file to a server.
+#' POST file to a server.
 #'
 #' @inheritParams GET
 #' @param body Use \code{NULL} for an empty body, a length-one character or 

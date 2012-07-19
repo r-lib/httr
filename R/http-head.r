@@ -1,6 +1,6 @@
-#' Get url headers.
+#' Get url HEADers.
 #'
-#' @section RF2616:
+#' @section RFC2616:
 #' The HEAD method is identical to GET except that the server MUST NOT return
 #' a message-body in the response. The metainformation contained in the HTTP
 #' headers in response to a HEAD request SHOULD be identical to the

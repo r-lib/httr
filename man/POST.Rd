@@ -1,6 +1,6 @@
 \name{POST}
 \alias{POST}
-\title{Post file to a server.}
+\title{POST file to a server.}
 \usage{
   POST(url = NULL, config = list(), body = NULL,
     multipart = TRUE, ..., handle = NULL)
@@ -42,7 +42,7 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  Post file to a server.
+  POST file to a server.
 }
 \examples{
 b <- new_bin()

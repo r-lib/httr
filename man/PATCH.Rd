@@ -1,6 +1,6 @@
 \name{PATCH}
 \alias{PATCH}
-\title{Send PATCH request server.}
+\title{Send PATCH request to a server.}
 \usage{
   PATCH(url = NULL, config = list(), body = NULL,
     multipart = TRUE, ..., handle = NULL)
@@ -42,6 +42,6 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  Send PATCH request server.
+  Send PATCH request to a server.
 }
 

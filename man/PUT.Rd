@@ -1,6 +1,6 @@
 \name{PUT}
 \alias{PUT}
-\title{Send PUT to request server.}
+\title{Send PUT request to server.}
 \usage{
   PUT(url = NULL, config = list(), body = NULL,
     multipart = TRUE, ..., handle = NULL)
@@ -42,7 +42,7 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  Send PUT to request server.
+  Send PUT request to server.
 }
 \examples{
 b <- new_bin()

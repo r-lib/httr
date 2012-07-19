@@ -1,4 +1,4 @@
-#' Send PUT to request server.
+#' Send PUT request to server.
 #'
 #' @inheritParams POST
 #' @export

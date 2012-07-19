@@ -1,4 +1,4 @@
-#' Get a url.
+#' GET a url.
 #'
 #' @section RFC2616:
 #' The GET method means retrieve whatever information (in the form of an

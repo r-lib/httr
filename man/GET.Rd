@@ -1,6 +1,6 @@
 \name{GET}
 \alias{GET}
-\title{Get a url.}
+\title{GET a url.}
 \usage{
   GET(url = NULL, config = list(), ..., handle = NULL)
 }
@@ -28,7 +28,7 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  Get a url.
+  GET a url.
 }
 \section{RFC2616}{
   The GET method means retrieve whatever information (in
