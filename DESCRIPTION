@@ -59,3 +59,4 @@ Collate:
     'media-guess.r'
     'media-parse.r'
     'response-status.r'
+    'hmac.r'

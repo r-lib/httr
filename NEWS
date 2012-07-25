@@ -1,3 +1,5 @@
+* export `hmac_sha1` since so many authentication protocols need this
+
 * `content` will automatically guess what type of output (parsed, text or raw)
   based on the content-type header. It also automatically converts text
   content to UTF-8 (using the charset in the media type) and can guess at mime
