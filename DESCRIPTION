@@ -10,7 +10,7 @@ Description: Provides useful tools for working with HTTP connections.  Is a
     also much much simpler.
 Imports:
     RCurl,
-    stringr,
+    stringr (>= 0.6.1),
     digest,
     tools
 Suggests:
