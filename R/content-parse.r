@@ -1,5 +1,6 @@
 parse_text <- function(content, type, encoding = NULL) {
-  encoding <- encoding %||% parse_media(type)$params$charset %||% "ISO-8859-1"
+  charset <- if (!is.null(type)) parse_media(type)$params$charset
+  encoding <- encoding %||% charset %||% "ISO-8859-1"
 
   if (!(encoding %in% iconvlist())) {
     message("Unknown encoding ", encoding, ". ", 
@@ -61,6 +62,7 @@ parsers$`text/xml` <- function(x, ...) {
 }
 
 parseability <- function(type) {
+  if (is.null(type)) return("raw")
   mt <- parse_media(type)
   
   if (exists(mt$complete, parsers)) {

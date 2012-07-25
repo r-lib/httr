@@ -17,7 +17,7 @@ guess_media <- function(x) {
 }
 
 guess_media_url <- function(x) {
-  guess_media(parse_url(x$path))
+  guess_media(parse_url(x)$path)
 }
 
 cache_media <- function() {
