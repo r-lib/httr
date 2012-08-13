@@ -1,4 +1,4 @@
-parse_text <- function(content, type, encoding = NULL) {
+parse_text <- function(content, type = NULL, encoding = NULL) {
   charset <- if (!is.null(type)) parse_media(type)$params$charset
   encoding <- toupper(encoding %||% charset %||% "ISO-8859-1")
   
