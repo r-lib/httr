@@ -38,11 +38,30 @@ config <- function(...) {
 
 is.config <- function(x) inherits(x, "config")
 
-# Need to make it more reduce(modifyList)
 
+# Grepping http://curl.haxx.se/libcurl/c/curl_easy_setopt.html for 
+# "linked list", finds the follow options:
+#
+# CURLOPT_HTTPHEADER
+# CURLOPT_HTTPPOST
+# CURLOPT_HTTP200ALIASES
+# CURLOPT_MAIL_RCPT
+# CURLOPT_QUOTE
+# CURLOPT_POSTQUOTE
+# CURLOPT_PREQUOTE
+# CURLOPT_RESOLVE
+#
+# Of these, only CURLOPT_HTTPHEADER is likely ever to be used, so we'll
+# deal with it specially.  It's possible you might also want to do that
+# with cookies, but that would require a bigger rewrite.
 #' @S3method c config
 c.config <- function(...) {
-  structure(NextMethod(), class = "config")
+  all <- NextMethod()
+  is_header <- names(all) == "httpheader"
+  headers <- unlist(unname(all[is_header]), recursive = FALSE)
+  all <- c(all[!is_header], list(httpheader = headers))
+  
+  structure(all, class = "config")
 }
 
 #' @S3method print config

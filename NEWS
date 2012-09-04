@@ -1,3 +1,5 @@
+* When concatenating configs, concatenate all the headers. (Fixes #19)
+
 * export `hmac_sha1` since so many authentication protocols need this
 
 * `content` will automatically guess what type of output (parsed, text or raw)
