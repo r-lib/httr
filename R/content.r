@@ -60,14 +60,12 @@ content <- function(x, as = NULL, type = NULL, encoding = NULL, ...) {
 
 #' @export
 text_content <- function(x) {
-  .Deprecated("content", msg = 
-    "text_content() deprecated. Use content(x, as = 'text')")
+  message("text_content() deprecated. Use content(x, as = 'text')")
   content(x, as = "text")
 }
 
 #' @export
 parsed_content <- function(x, ...) {
-  .Deprecated("content", msg = 
-    "text_content() deprecated. Use parsed_content(x, as = 'parsed')")
+  message("text_content() deprecated. Use parsed_content(x, as = 'parsed')")
   content(x, as = "parsed", ...)
 }
