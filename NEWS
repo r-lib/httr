@@ -1,3 +1,6 @@
+httr 0.2
+----------
+
 * OAuth now uses custom escaping function which is guaranteed to work on all
   platforms (Fixes #21)
 
@@ -13,8 +16,9 @@
 
 * response objects automatically print content type to aid debugging.
 
-* `text_content` has become `context(, "text")` and `parsed_content` 
-  `content(, "parsed")`
+* `text_content` has become `context(, "text")` and `parsed_content`
+  `content(, "parsed")`. The previous calls are deprecated and will be removed
+  in a future version.
 
 * In `oauth_listener`, use existing httpd port if help server has already been
   started. This allows the ouath authentication dance to work if you're in
