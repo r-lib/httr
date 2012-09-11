@@ -53,23 +53,39 @@ oauth_signature <- function(url, method = "GET", app, token = NULL, token_secret
     oauth <- c(oauth, other_params)    
   }
 
-  # Collect params, escape, sort and concatenated into a single string
+  # Collect params, oauth_encode, sort and concatenated into a single string
   params <- c(url$query, oauth)
-  params_esc <- setNames(curlEscape(params), curlEscape(names(params)))
+  params_esc <- setNames(oauth_encode(params), oauth_encode(names(params)))
   params_srt <- sort_names(params_esc)
   params_str <- str_c(names(params_srt), "=", params_srt, collapse = "&")
-
+  
   # Generate hmac signature
-  key <- str_c(curlEscape(app$secret), "&", curlEscape(token_secret))
-  base_string <- str_c(method, "&", curlEscape(base_url), "&",
-   curlEscape(params_str))
-  oauth$oauth_signature <- hmac_sha1(key, base_string)  
+  key <- str_c(oauth_encode(app$secret), "&", oauth_encode(token_secret))
+  base_string <- str_c(method, "&", oauth_encode(base_url), "&",
+   oauth_encode(params_str))
+  oauth$oauth_signature <- hmac_sha1(key, base_string)
   
   sort_names(oauth)
 }
 
 oauth_header <- function(info) {
   oauth <- str_c("OAuth ", str_c(
-    curlEscape(names(info)), "=\"", curlEscape(info), "\"", collapse = ", "))
+    oauth_encode(names(info)), "=\"", oauth_encode(info), "\"", collapse = ", "))
   add_headers(Authorization = oauth)
+}
+
+oauth_encode <- function(x) vapply(x, oauth_encode1, character(1))
+
+# As described in http://tools.ietf.org/html/rfc5849#page-29
+oauth_encode1 <- function(x) {
+  encode <- function(x) str_c("%", toupper(as.character(charToRaw(x))))
+  
+  x <- as.character(x)
+  chars <- str_split(x, "")[[1]]
+  ok <- !str_detect(chars, "[^A-Za-z0-9_.~-]")
+  
+  if (all(ok)) return(x)
+  
+  chars[!ok] <- unlist(lapply(chars[!ok], encode))
+  str_c(chars, collapse = "")
 }
