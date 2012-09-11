@@ -1,3 +1,6 @@
+* OAuth now uses custom escaping function which is guaranteed to work on all
+  platforms (Fixes #21)
+
 * When concatenating configs, concatenate all the headers. (Fixes #19)
 
 * export `hmac_sha1` since so many authentication protocols need this
