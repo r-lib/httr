@@ -1,6 +1,6 @@
 #' Create a webserver to listen for OAuth callback.
 #'
-#' This opens a web browser pointing to \code{request_url}, and opens a 
+#' This opens a web browser pointing to \code{request_url}, and opens a
 #' webserver on port 1410 to listen to the reponse.  The redirect url for
 #' should be either set previously (during the OAuth authentication) dance
 #' or supplied as a parameter to the url.  See \code{\link{oauth1.0_token}}
@@ -15,19 +15,19 @@ oauth_listener <- function(request_url) {
   if (!require("Rook")) {
     stop("Rook package required to capture OAuth credentials")
   }
-  
+
   info <- NULL
   listen <- function(env) {
-    req <- Request$new(env)    
+    req <- Request$new(env)
     info <<- req$params()
-    
+
     res <- Response$new()
     res$header("Content-type", "text/plain")
     res$write("Authentication complete - you can now close this page and ")
     res$write("return to R.")
     res$finish()
   }
-  
+
   server <- Rhttpd$new()
   port <- tools:::httpdPort
   server_on <- port != 0
@@ -38,11 +38,11 @@ oauth_listener <- function(request_url) {
     port <- 1410
     server$start(port = port, quiet = TRUE)
   }
-  
+
   message("Waiting for authentication in browser...")
   Sys.sleep(1)
   BROWSE(request_url)
-  
+
   # wait until we get a response
   while(is.null(info)) {
     Sys.sleep(1)
@@ -51,14 +51,14 @@ oauth_listener <- function(request_url) {
 
   server$remove("OAuth")
   server$stop()
-  
+
   info
 }
 
 #' The oauth callback url.
 #'
-#' The url that \code{\link{oauth_listener}} expects that the client be 
-#' referred to. 
+#' The url that \code{\link{oauth_listener}} expects that the client be
+#' referred to.
 #'
 #' @keywords internal
 #' @export

@@ -14,9 +14,9 @@ use_proxy <- function(url, port = NULL, username = NULL, password = NULL) {
   } else {
     proxyuserpwd <- NULL
   }
-  
+
   if (!is.null(port)) stopifnot(is.numeric(port))
-  
+
   config(proxy = url, proxyuserpwd = proxyuserpwd, proxyport = port)
 }
 

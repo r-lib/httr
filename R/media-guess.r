@@ -1,5 +1,5 @@
 #' Guess the media type of a path from it's extension.
-#' 
+#'
 #' @param x path to file
 #' @importFrom tools file_ext
 #' @export
@@ -8,7 +8,7 @@
 #' guess_media("owl.png")
 guess_media <- function(x) {
   ext <- file_ext(x)
-  
+
   if (ext %in% names(ext_media)) {
     ext_media[[ext]]
   } else {
@@ -24,7 +24,7 @@ cache_media <- function() {
   url <- "http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types"
   tbl <- scan(url, character(1), comment.char = "#", sep = "\n", quiet = TRUE)
   pieces <- str_split(tbl, "\\s+")
-  
+
   make_lookup <- function(x) setNames(rep(x[1], length(x) - 1), x[-1])
   ext_media <- unlist(lapply(pieces, make_lookup), recursive = FALSE)
   save(ext_media, file = "R/sysdata.rda")

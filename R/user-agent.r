@@ -1,5 +1,5 @@
 #' Set user agent.
-#' 
+#'
 #' Override the default RCurl user agent of \code{NULL}
 #'
 #' @param agent string giving user agent

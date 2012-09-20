@@ -28,7 +28,7 @@
 #'   passed on to \code{\link{modify_url}}. These parameters must be named.
 #' @param config Additional configuration settings such as http
 #'   authentication (\code{\link{authenticate}}), additional headers
-#'   (\code{\link{add_headers}}), cookies (\code{\link{set_cookies}}) etc. 
+#'   (\code{\link{add_headers}}), cookies (\code{\link{set_cookies}}) etc.
 #'   See \code{\link{config}} for full details and list of helpers.
 #' @param handle The handle to use with this request. If not
 #'   supplied, will be retrieved and reused from the \code{\link{handle_pool}}
@@ -53,7 +53,7 @@
 #' GET(b, set_cookies(a = 1, b = 2))
 #' GET(b, authenticate("username", "password"))
 #' GET(b, verbose())
-#' 
+#'
 #' # You might want to manually specify the handle so you can have multiple
 #' # independent logins to the same website.
 #' google <- handle("http://google.com")

@@ -10,12 +10,12 @@
 #' completed successfully. However, the server SHOULD NOT indicate success
 #' unless, at the time the response is given, it intends to delete the
 #' resource or move it to an inaccessible location.
-#' 
+#'
 #' A successful response SHOULD be 200 (OK) if the response includes an entity
 #' describing the status, 202 (Accepted) if the action has not yet been
 #' enacted, or 204 (No Content) if the action has been enacted but the
 #' response does not include an entity.
-#' 
+#'
 #' If the request passes through a cache and the Request-URI identifies one or
 #' more currently cached entities, those entries SHOULD be treated as stale.
 #' Responses to this method are not cacheable.
@@ -26,7 +26,7 @@
 #' @examples
 #' b <- new_bin()
 #' DELETE(b)
-#' 
+#'
 #' DELETE("http://httpbin.org/delete")
 #' POST("http://httpbin.org/delete")
 DELETE <- function(url = NULL, config = list(), ..., handle = NULL) {

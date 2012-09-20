@@ -6,10 +6,10 @@
 #' linkedin, twitter, vimeo, facebook, github and google.
 #'
 #' @param appname name of the application.  This is not used for OAuth, but
-#'   is used to make it easier to identifier different applications and 
+#'   is used to make it easier to identifier different applications and
 #'   provide a consistent ways of storing secrets in environmental variables.
 #' @param key consumer key (equivalent to a user name)
-#' @param secret consumer secret.  This is equivalent to a password and 
+#' @param secret consumer secret.  This is equivalent to a password and
 #'   should not be stored in publicly visible code.  As a convenient shortcut,
 #'   if \code{secret} is \code{NULL}, we'll look in the environment variable
 #'   \code{APPNAME_CONSUMER_SECRET}
@@ -25,7 +25,7 @@ oauth_app <- function(appname, key, secret = NULL) {
     env_name <- str_c(toupper(appname), "_CONSUMER_SECRET")
     secret <- Sys.getenv(env_name)
     if (secret == "") {
-      stop("Couldn't find secret in environment variable ", env_name, 
+      stop("Couldn't find secret in environment variable ", env_name,
         call. = FALSE)
     }
     message("Using secret stored in environment variable ", env_name)

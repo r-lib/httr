@@ -5,7 +5,7 @@
 #' (\code{as = "text"}), and as parsed into an R object where possible,
 #' (\code{as = "parsed"}). If \code{as} is not specified, \code{content}
 #' does it's best to guess which output is most appropriate.
-#' 
+#'
 #' \code{content} currently knows about the following mime types:
 #' \itemize{
 #'  \item \code{text/html}: \code{\link[XML]{htmlTreeParse}}
@@ -29,7 +29,7 @@
 #' @param encoding For text, overrides the charset or the Latin1 (ISO-8859-1)
 #'   default, if you know that the server is returning the incorrect encoding
 #'   as the charset in the content-type. Use for text and auto outputs.
-#' @param ... Other parameters parsed on to the parsing functions, if 
+#' @param ... Other parameters parsed on to the parsing functions, if
 #'  \code{as = "auto"}
 #' @family response methods
 #' @export
@@ -45,10 +45,10 @@
 #' @aliases text_content parsed_content
 content <- function(x, as = NULL, type = NULL, encoding = NULL, ...) {
   stopifnot(is.response(x))
-  
+
   type <- type %||% x$headers[["Content-Type"]] %||% guess_media_url(x$url)
 
-  as <- as %||% parseability(type)  
+  as <- as %||% parseability(type)
   as <- match.arg(as, c("raw", "text", "parsed"))
 
   switch(as,

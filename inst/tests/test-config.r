@@ -15,8 +15,8 @@ test_that("basic authentication works", {
 
   r <- GET(path = path, handle = h,
     config = authenticate("user", "passwd", "basic"))
-  expect_equal(r$status, 200)  
-  
+  expect_equal(r$status, 200)
+
 })
 
 test_that("digest authentication works", {
@@ -28,5 +28,5 @@ test_that("digest authentication works", {
 
   r <- GET(path = path, handle = h,
     config = authenticate("user", "passwd", "digest"))
-  expect_equal(r$status, 200)  
+  expect_equal(r$status, 200)
 })

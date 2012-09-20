@@ -2,7 +2,7 @@ library(httr)
 
 # 1. Find OAuth settings for github:
 #    http://developer.github.com/v3/oauth/
-github <- oauth_endpoint(NULL, "authorize", "access_token", 
+github <- oauth_endpoint(NULL, "authorize", "access_token",
   base_url = "https://github.com/login/oauth")
 
 # 2. Register an application at https://github.com/settings/applications

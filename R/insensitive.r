@@ -1,5 +1,5 @@
 #' Create a vector with case insensitive name matching.
-#' 
+#'
 #' @param x vector to modify
 #' @export
 #' @keywords internal
@@ -19,9 +19,9 @@ insensitive <- function(x) {
 "[[.insensitive" <- "[.insensitive" <- function(x, i, ...) {
   if (is.character(i)) {
     i <- tolower(i)
-  }  
-  
-  NextMethod() 
+  }
+
+  NextMethod()
 }
 
 #' @S3method $ insensitive

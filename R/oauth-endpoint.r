@@ -1,6 +1,6 @@
 #' Describe an OAuth endpoint.
 #'
-#' @param request url used to request initial (unauthenticated) token. 
+#' @param request url used to request initial (unauthenticated) token.
 #'   If using OAuth, leave as \code{NULL}.
 #' @param authorize url to send client to for authorisation
 #' @param access url used to exchange unauthenticated for authenticated token.
@@ -11,7 +11,7 @@
 #' @examples
 #' linkedin <- oauth_endpoint("requestToken", "authorize", "accessToken",
 #'  base_url = "https://api.linkedin.com/uas/oauth/")
-#' github <- oauth_endpoint(NULL, "authorize", "access_token", 
+#' github <- oauth_endpoint(NULL, "authorize", "access_token",
 #'   base_url = "https://github.com/login/oauth")
 #' facebook <- oauth_endpoint(
 #'   authorize = "https://www.facebook.com/dialog/oauth",
@@ -23,7 +23,7 @@ oauth_endpoint <- function(request = NULL, authorize, access, base_url = NULL) {
       request = modify_url(base_url, path = file.path(path, request)),
       authorize = modify_url(base_url, path = file.path(path, authorize)),
       access = modify_url(base_url, path = file.path(path, access))
-    )    
+    )
   } else {
     list(request = request, authorize = authorize, access = access)
   }
