@@ -51,8 +51,7 @@ make_request <- function(method, handle, url, ..., config = list()) {
     curlSetOpt(httppost = NULL, post = NULL, postfields = NULL,
       curl = handle$handle)
   } else {
-    .Call("R_curl_easy_perform", handle$handle@ref, curl_opts, TRUE,
-      integer(), PACKAGE = "RCurl")
+    curlPerform(curl = handle$handle, .opts = curl_opts$values)
   }
 
   content <- as(buffer, "raw")
