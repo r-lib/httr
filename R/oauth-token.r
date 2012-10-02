@@ -35,10 +35,11 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
 #' See demos for use.
 #'
 #' @inheritParams oauth1.0_token
+#' @type content type used to override incorrect server response
 #' @param scope a character string of scopes to apply for.
 #' @family OAuth
 #' @export
-oauth2.0_token <- function(endpoint, app, scope = NULL) {
+oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL) {
   authorize <- modify_url(endpoint$authorize, query = compact(list(
       client_id = app$key,
       scope = scope,
@@ -55,7 +56,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL) {
       redirect_uri = oauth_callback(),
       grant_type = "authorization_code",
       code = code))
-  content(req)
+  content(req, type = type)
 }
 
 

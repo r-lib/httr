@@ -46,7 +46,7 @@ make_request <- function(method, handle, url, ..., config = list()) {
   if (is_post) {
     body <- attr(action_config, "body")
     style <- attr(action_config, "style")
-    .postForm(handle$handle, curl_opts, body)
+    .postForm(handle$handle, curl_opts, body, style)
     curlSetOpt(httppost = NULL, post = NULL, postfields = NULL,
       curl = handle$handle)
   } else {
