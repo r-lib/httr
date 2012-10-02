@@ -58,7 +58,7 @@ parsers$`text/html` <- function(x, ...) {
 }
 parsers$`text/xml` <- function(x, ...) {
   require("XML")
-  xmlTreeParse(x, ...)
+  xmlParse(x, ...)
 }
 
 parseability <- function(type) {
