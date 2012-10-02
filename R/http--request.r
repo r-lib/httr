@@ -46,8 +46,7 @@ make_request <- function(method, handle, url, ..., config = list()) {
   if (is_post) {
     body <- attr(action_config, "body")
     style <- attr(action_config, "style")
-    .Call("R_post_form", handle$handle@ref, curl_opts, body, TRUE,
-        as.integer(style), PACKAGE = "RCurl")
+    .postForm(handle$handle, curl_opts, body)
     curlSetOpt(httppost = NULL, post = NULL, postfields = NULL,
       curl = handle$handle)
   } else {
