@@ -36,7 +36,7 @@ Key features:
 
 ## Availability
 
-`httr` is still under active development, so is not yet available from CRAN.  You can install the latest development version from github with:
+`httr` is still under active development, so you may want to get the development version rather than the CRAN version.  You can get the latest version from github with:
 
     library(devtools)
     install_github("httr")
