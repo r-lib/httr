@@ -35,7 +35,7 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
 #' See demos for use.
 #'
 #' @inheritParams oauth1.0_token
-#' @type content type used to override incorrect server response
+#' @param type content type used to override incorrect server response
 #' @param scope a character string of scopes to apply for.
 #' @family OAuth
 #' @export

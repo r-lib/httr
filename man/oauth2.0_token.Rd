@@ -2,9 +2,12 @@
 \alias{oauth2.0_token}
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
-  oauth2.0_token(endpoint, app, scope = NULL)
+  oauth2.0_token(endpoint, app, scope = NULL, type = NULL)
 }
 \arguments{
+  \item{type}{content type used to override incorrect
+  server response}
+
   \item{scope}{a character string of scopes to apply for.}
 
   \item{endpoint}{An OAuth endpoint, created by
