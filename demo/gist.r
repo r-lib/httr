@@ -1,10 +1,12 @@
-gists_r <- GET("http://gist.github.com/api/v1/json/gists/hadley")
-gists <- content(gists_r)$gists
-str(gists)
+library(httr)
 
-gist_r <- GET(str_c("http://gist.github.com/api/v1/json/", gists[[1]]$repo))
-gist <- content(gist_r)
+# get list of gists
+gists_r <- GET("https://api.github.com/users/hadley/gists")
+gists   <- content(gists_r)
 
+# retreive gist urls
+gist_urls <- sapply(gists, '[[', 'url')
 
-library(whisker)
-# url <- "http://gist.github.com/raw/{{gist_id}}/{{filename}}"
+# get contents of the first gist
+gist1 = GET(gist_urls[[1]])
+str(gist1)
