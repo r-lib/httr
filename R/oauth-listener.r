@@ -63,7 +63,6 @@ oauth_listener <- function(request_url) {
 #' @keywords internal
 #' @export
 oauth_callback <- function() {
-  port <- tools:::httpdPort
-  if (port == 0) port <- 1410
+  port <- 1410
   str_c("http://localhost:", port, "/custom/OAuth/cred")
 }
