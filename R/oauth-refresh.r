@@ -22,8 +22,8 @@ oauth2.0_refresh <- function(endpoint, app, access_token, type = NULL) {
   content_out <- content(req, type = type)
   content_out <- c(
     content_out,
-    use_by = Sys.time() + content_out$expires_in,
     access_token['refresh_token']
   )
+  content_out$use_by <- Sys.time() + content_out$expires_in
   return(content_out)  
 }
