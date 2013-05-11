@@ -1,7 +1,7 @@
 Package: httr
 Type: Package
 Title: Tools for working with URLs and HTTP
-Version: 0.2
+Version: 0.2.1
 Author: Hadley Wickham <h.wickham@gmail.com>
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
 Description: Provides useful tools for working with HTTP connections.  Is a
@@ -51,6 +51,7 @@ Collate:
     'oauth-listener.r'
     'oauth-signature.r'
     'oauth-token.r'
+    'oauth-refresh.r'
     'url-query.r'
     'http-patch.r'
     'user-agent.r'
