@@ -1,5 +1,8 @@
+httr 0.2.99
+-------------
+
 httr 0.2
-----------
+-----------
 
 * OAuth now uses custom escaping function which is guaranteed to work on all
   platforms (Fixes #21)
