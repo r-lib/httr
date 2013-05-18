@@ -1,6 +1,8 @@
+httr 0.2.99
+-------------
+
 httr 0.2
-----------
-* Added a function to refresh an OAuth2.0 token. A use_by field has been added to OAuth2.0 access tokens, with a function to check if that use_by has expired. (Fixes #31) Credit: jdeboer
+-----------
 
 * OAuth now uses custom escaping function which is guaranteed to work on all
   platforms (Fixes #21)
