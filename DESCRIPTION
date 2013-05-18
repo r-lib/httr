@@ -51,6 +51,8 @@ Collate:
     'oauth-listener.r'
     'oauth-signature.r'
     'oauth-token.r'
+    'oauth-refresh.r'
+    'oauth-has-expired.r'
     'url-query.r'
     'http-patch.r'
     'user-agent.r'

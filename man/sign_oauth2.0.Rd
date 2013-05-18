@@ -17,6 +17,8 @@
 }
 \seealso{
   Other OAuth: \code{\link{oauth1.0_token}},
+  \code{\link{oauth2.0_has_expired}},
+  \code{\link{oauth2.0_refresh}},
   \code{\link{oauth2.0_token}}, \code{\link{oauth_app}},
   \code{\link{oauth_endpoint}}, \code{\link{sign_oauth1.0}}
 }
