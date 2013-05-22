@@ -1,6 +1,8 @@
 httr 0.2.99
 -------------
 
+* Switched to RJSONIO from rjson. No longer loads onto search path.
+
 httr 0.2
 -----------
 

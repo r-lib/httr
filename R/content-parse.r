@@ -35,8 +35,7 @@ parsers <- new.env(parent = emptyenv())
 
 # http://www.ietf.org/rfc/rfc4627.txt - section 3. (encoding)
 parsers$`application/json` <- function(x, ...) {
-  require("rjson")
-  fromJSON(parse_text(x, encoding = "UTF-8"), ...)
+  RJSONIO::fromJSON(parse_text(x, encoding = "UTF-8"), ...)
 }
 parsers$`application/x-www-form-urlencoded` <- function(x) {
   parse_query(parse_text(x, encoding = "UTF-8"))

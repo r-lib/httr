@@ -14,7 +14,7 @@ Imports:
     digest,
     tools
 Suggests:
-    rjson,
+    RJSONIO,
     XML,
     testthat,
     png,
