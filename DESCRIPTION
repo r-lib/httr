@@ -53,6 +53,7 @@ Collate:
     'oauth-token.r'
     'oauth-refresh.r'
     'oauth-has-expired.r'
+    'oauth-session.r'
     'url-query.r'
     'http-patch.r'
     'user-agent.r'
