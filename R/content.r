@@ -10,7 +10,7 @@
 #' \itemize{
 #'  \item \code{text/html}: \code{\link[XML]{htmlTreeParse}}
 #'  \item \code{text/xml}: \code{\link[XML]{xmlTreeParse}}
-#'  \item \code{application/json}: \code{\link[rjson]{fromJSON}}
+#'  \item \code{application/json}: \code{\link[RJSONIO]{fromJSON}}
 #'  \item \code{application/x-www-form-urlencoded}: \code{parse_query}
 #'  \item \code{image/jpeg}: \code{\link[jpeg]{readJPEG}}
 #'  \item \code{image/png}: \code{\link[png]{readPNG}}
