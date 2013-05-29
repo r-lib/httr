@@ -34,7 +34,7 @@ oauth2.0_generator <- setRefClass(
       scope,
       type,
       file = NULL,
-      margin = 5
+      margin = 30
     ) {
       .self$endpoint <- endpoint
       .self$app <- app
@@ -44,9 +44,9 @@ oauth2.0_generator <- setRefClass(
       .self$margin <- margin
       # if the no file is provided or it does not exist then...
       if(
-        is.null(file) |
+        (length(file) >= 1) |
           if(
-            !is.null(file)
+            !(length(file) >= 1)
           ) {
             !file.exists(file)
           }
