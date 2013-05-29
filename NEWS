@@ -6,6 +6,8 @@ httr 0.2.99
   2. a function to check if a token's use_by has expired
   3. a function to refresh an OAuth2.0 access token
 
+* Switched to RJSONIO from rjson. No longer loads onto search path.
+
 httr 0.2
 -----------
 
