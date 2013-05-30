@@ -97,9 +97,15 @@ oauth2.0_generator <- setRefClass(
   )
 )
 
-# The following function, new_oauth, incorporates the use of httr's oauth2.0
-# functions to create of a new oauth2.0 object using the
-# above generator function.
+#' new_oauth
+#' 
+#' Create a new oauth2.0 reference object
+#' 
+#' Uses httr's oauth2.0 functions to create of a new oauth2.0 object of
+#' reference class oauth2.0
+#' 
+#' @export
+
 new_oauth <- function(
   base_url,
   authorize_url,
