@@ -2,7 +2,7 @@
 \alias{oauth2.0_has_expired}
 \title{Check if an OAuth 2.0 access token has past its use by.}
 \usage{
-  oauth2.0_has_expired(access_token, margin = 5)
+  oauth2.0_has_expired(access_token, margin = 30)
 }
 \arguments{
   \item{access_token}{the access token to check use_by of}
