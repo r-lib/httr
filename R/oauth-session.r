@@ -156,13 +156,13 @@ new_oauth <- function(
 #' Perform a GET request using the new oauth2.0 object.
 #' 
 #' @inheritParams GET
-#' @param oauth2.0_connection oauth connection to use.
+#' @param oauth OAuth2.0 connection to use.
 #' @export
-oauth2.0_GET <- function(url, oauth2.0_connection, ...) {
+oauth2.0_GET <- function(url, oauth, handle = NULL, ...) {
   GET(
     url = url,
     config = sign_oauth2.0(
-      access_token = oauth2.0_connection$
+      access_token = oauth$
         getAccessToken()$access_token
     ),
     handle = handle,
