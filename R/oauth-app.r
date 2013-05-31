@@ -30,7 +30,7 @@ oauth_app <- function(appname, key = NULL, secret = NULL) {
       stop("Couldn't find key in environment variable ", env_name,
            call. = FALSE)
     }
-    message("Using secret stored in environment variable ", env_name)
+    # message("Using key stored in environment variable ", env_name)
   }
   if (is.null(secret)) {
     env_name <- str_c(toupper(appname), "_CONSUMER_SECRET")
@@ -39,7 +39,7 @@ oauth_app <- function(appname, key = NULL, secret = NULL) {
       stop("Couldn't find secret in environment variable ", env_name,
         call. = FALSE)
     }
-    message("Using secret stored in environment variable ", env_name)
+    # message("Using secret stored in environment variable ", env_name)
   }
   list(secret = secret, key = key)
 }
