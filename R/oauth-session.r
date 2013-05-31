@@ -44,9 +44,9 @@ oauth2.0_generator <- setRefClass(
       .self$margin <- margin
       # if the no file is provided or it does not exist then...
       if(
-        (length(file) >= 1) |
+        (length(file) == 0) |
           if(
-            !(length(file) >= 1)
+            !(length(file) == 0)
           ) {
             !file.exists(file)
           } else {
@@ -62,7 +62,7 @@ oauth2.0_generator <- setRefClass(
         )
       }
       # If a file was provided...
-      if (!is.null(file)) {
+      if (!(length(file) == 0)) {
         # and the file exists...
         if (file.exists(file)) {
           # then load the access token and refresh it.
