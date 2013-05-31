@@ -4,6 +4,6 @@
 #' @param margin the number of seconds before use_by to use as the expiration threshold (default of 5 seconds)
 #' @family OAuth
 #' @export
-oauth2.0_has_expired <- function(access_token, margin = 5) {
+oauth2.0_has_expired <- function(access_token, margin = 30) {
   (access_token$use_by - margin) < Sys.time()
 }
