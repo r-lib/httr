@@ -3,7 +3,7 @@
 \title{new_oauth}
 \usage{
   new_oauth(base_url, authorize, access, scope, appname,
-    key, secret = NULL, file = NULL, request = NULL,
+    key = NULL, secret = NULL, file = NULL, request = NULL,
     type = NULL, margin = 30)
 }
 \arguments{
@@ -29,7 +29,10 @@
   different applications and provide a consistent ways of
   storing secrets in environmental variables.}
 
-  \item{key}{consumer key (equivalent to a user name)}
+  \item{key}{consumer key (equivalent to a user name). As a
+  convenient shortcut, if \code{key} is \code{NULL}, we'll
+  look in the environment variable
+  \code{APPNAME_CONSUMER_ID}}
 
   \item{secret}{consumer secret.  This is equivalent to a
   password and should not be stored in publicly visible

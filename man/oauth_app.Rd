@@ -2,7 +2,7 @@
 \alias{oauth_app}
 \title{Create an OAuth application.}
 \usage{
-  oauth_app(appname, key, secret = NULL)
+  oauth_app(appname, key = NULL, secret = NULL)
 }
 \arguments{
   \item{appname}{name of the application.  This is not used
@@ -10,7 +10,10 @@
   different applications and provide a consistent ways of
   storing secrets in environmental variables.}
 
-  \item{key}{consumer key (equivalent to a user name)}
+  \item{key}{consumer key (equivalent to a user name). As a
+  convenient shortcut, if \code{key} is \code{NULL}, we'll
+  look in the environment variable
+  \code{APPNAME_CONSUMER_ID}}
 
   \item{secret}{consumer secret.  This is equivalent to a
   password and should not be stored in publicly visible

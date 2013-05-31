@@ -119,7 +119,7 @@ new_oauth <- function(
   access,
   scope,
   appname,
-  key,
+  key = NULL,
   secret = NULL,
   file = NULL,
   request = NULL,
