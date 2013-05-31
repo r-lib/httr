@@ -23,9 +23,16 @@
 #' github_app <- oauth_app("github", "56b637a5baffac62cad9")
 #' }
 oauth_app <- function(appname, key = NULL, secret = NULL) {
-  if (is.null(secret)) {
+  if (is.null(key)) {
     env_name <- str_c(toupper(appname), "_CONSUMER_ID")
     key <- Sys.getenv(env_name)
+    if (key == "") {
+      stop("Couldn't find key in environment variable ", env_name,
+           call. = FALSE)
+    }
+    message("Using secret stored in environment variable ", env_name)
+  }
+  if (is.null(secret)) {
     env_name <- str_c(toupper(appname), "_CONSUMER_SECRET")
     secret <- Sys.getenv(env_name)
     if (secret == "") {
