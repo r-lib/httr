@@ -34,7 +34,7 @@ oauth2.0_generator <- setRefClass(
       scope,
       type,
       file = NULL,
-      margin = 30
+      margin
     ) {
       .self$endpoint <- endpoint
       .self$app <- app
@@ -49,13 +49,15 @@ oauth2.0_generator <- setRefClass(
             !(length(file) >= 1)
           ) {
             !file.exists(file)
+          } else {
+            FALSE
           }
       ) {
         # Request authorisation for a new OAuth 2.0 access token
         .self$access_token <- oauth2.0_token(
           endpoint = endpoint,
           app = app,
-          scope = scope_url,
+          scope = scope,
           type = type
         )
       }
@@ -104,50 +106,66 @@ oauth2.0_generator <- setRefClass(
 #' Uses httr's oauth2.0 functions to create of a new oauth2.0 object of
 #' reference class oauth2.0
 #' 
+#' @inheritParams oauth_endpoint
+#' @inheritParams oauth_app
+#' @inheritParams oauth2.0_token
+#' @param file where to save the token or NULL to not save.
+#' @param margin threshold for determing if a token has expired,
+#'  specified in number of seconds.
 #' @export
-
 new_oauth <- function(
   base_url,
-  authorize_url,
-  access_url,
-  scope_url,
+  authorize,
+  access,
+  scope,
   appname,
-  client_id,
-  client_secret = NULL,
-  token_file = NULL,
-  type = NULL
+  key,
+  secret = NULL,
+  file = NULL,
+  request = NULL,
+  type = NULL,
+  margin = 30
 ) {
   # Define an OAuth endpoint.
   endpoint <- oauth_endpoint(
-    request = NULL,
-    authorize = authorize_url,
-    access = access_url,
+    request = request,
+    authorize = authorize,
+    access = access,
     base_url = base_url
   )
   # Define an OAuth application.
   app <- oauth_app(
     appname = appname,
-    key = client_id,
-    secret = client_secret
+    key = key,
+    secret = secret
   )
   # Create an OAuth2.0 reference object for endpoint and app
   oauth <- oauth2.0_generator$new(
     endpoint = endpoint,
     app = app,
-    scope = scope_url,
+    scope = scope,
     type = type,
-    file = token_file
+    file = file,
+    margin = margin
   )
   return(oauth)
 }
 
-# The following function can be used to perform a GET request using the new oauth2.0 object.
-oauth2.0_GET <- function(url, oauth2.0_connection) {
+#' oauth2.0_GET
+#' 
+#' Perform a GET request using the new oauth2.0 object.
+#' 
+#' @inheritParams GET
+#' @param oauth2.0_connection oauth connection to use.
+#' @export
+oauth2.0_GET <- function(url, oauth2.0_connection, ...) {
   GET(
     url = url,
     config = sign_oauth2.0(
       access_token = oauth2.0_connection$
         getAccessToken()$access_token
-    )
+    ),
+    handle = handle,
+    ...
   )
 }
