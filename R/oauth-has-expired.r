@@ -5,5 +5,8 @@
 #' @family OAuth
 #' @export
 oauth2.0_has_expired <- function(access_token, margin = 30) {
+  stopifnot(
+    length(access_token$use_by) == 1,
+  )
   (access_token$use_by - margin) < Sys.time()
 }

@@ -60,6 +60,7 @@ oauth2.0_generator <- setRefClass(
           scope = scope,
           type = type
         )
+        stopifnot(length(.self$access_token$use_by) == 1)
       }
       # If a file was provided...
       if (!(length(file) == 0)) {
@@ -89,6 +90,7 @@ oauth2.0_generator <- setRefClass(
           access_token = access_token,
           type = type
         )
+        stopifnot(length(.self$access_token$use_by) == 1)
         # If a file is provided, then save the access token.
         if (!is.null(file)) {
           saveRDS(access_token, file = file)
