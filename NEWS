@@ -1,7 +1,8 @@
 httr 0.2.99
 -------------
+
 * Functionality to handle refreshing expired OAuth2.0 tokens (Fixes #31). Credit: jdeboer
-* Added:
+  Added:
   1. a use_by field to OAuth2.0 access tokens
   2. a function to check if a token's use_by has expired
   3. a function to refresh an OAuth2.0 access token

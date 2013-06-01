@@ -12,14 +12,16 @@ Imports:
     RCurl (>= 1.95-0),
     stringr (>= 0.6.1),
     digest,
-    tools
+    tools,
+    methods
 Suggests:
     RJSONIO,
     XML,
     testthat,
     png,
     jpeg,
-    Rook
+    Rook,
+    httpuv
 License: MIT
 Collate:
     'authenticate.r'
@@ -53,6 +55,7 @@ Collate:
     'oauth-token.r'
     'oauth-refresh.r'
     'oauth-has-expired.r'
+    'oauth-session.r'
     'url-query.r'
     'http-patch.r'
     'user-agent.r'
