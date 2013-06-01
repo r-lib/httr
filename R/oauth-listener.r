@@ -23,20 +23,31 @@ oauth_listener <- function(request_url) {
     req <- Request$new(req)
     info <<- req$params()
     res <- Response$new()
-    res$header("Content-type", "text/plain")
+    res$header(key = "Content-type", value = "text/plain")
     res$write("Authentication complete - you can now close this page and ")
     res$write("return to R.")
     res$finish()
   }
-
-#   port <- tools:::httpdPort
-
+  waitForResponse <- function(
+    host, port, app,
+    interruptIntervalMs = ifelse(interactive(), 100, 1000)
+  ) {
+    server <- startServer(host, port, app)
+    on.exit(stopServer(server))
+    while(is.null(info)) {
+      service(interruptIntervalMs)
+      Sys.sleep(0.001)
+    }
+    Sys.sleep(1)
+    service(interruptIntervalMs)
+  }
   message("Waiting for authentication in browser...")
   BROWSE(request_url)
-  port <- 1410
-  host <- "127.0.0.1"
-  app <- list(call = listen)
-  runServer(host, port, app)
+  waitForResponse(
+    port = 1410,
+    host = "127.0.0.1",
+    app = list(call = listen)
+  )
   message("Authentication complete.")
   info
 }
