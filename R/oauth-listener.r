@@ -15,43 +15,40 @@ oauth_listener <- function(request_url) {
   if (!require("Rook")) {
     stop("Rook package required to capture OAuth credentials")
   }
-
+  if (!require("httpuv")) {
+    stop("Rook package required to capture OAuth credentials")
+  }
   info <- NULL
-  listen <- function(env) {
-    req <- Request$new(env)
+  listen <- function(req) {
+    req <- Request$new(req)
     info <<- req$params()
-
     res <- Response$new()
-    res$header("Content-type", "text/plain")
+    res$header(key = "Content-type", value = "text/plain")
     res$write("Authentication complete - you can now close this page and ")
     res$write("return to R.")
     res$finish()
   }
-
-  server <- Rhttpd$new()
-  port <- tools:::httpdPort
-  server_on <- port != 0
-
-  server <- Rhttpd$new()
-  server$add(listen, name = "OAuth")
-  if (!server_on) {
-    port <- 1410
-    server$start(port = port, quiet = TRUE)
-  }
-
-  message("Waiting for authentication in browser...")
-  Sys.sleep(1)
-  BROWSE(request_url)
-
-  # wait until we get a response
-  while(is.null(info)) {
+  waitForResponse <- function(
+    host, port, app,
+    interruptIntervalMs = ifelse(interactive(), 100, 1000)
+  ) {
+    server <- startServer(host, port, app)
+    on.exit(stopServer(server))
+    while(is.null(info)) {
+      service(interruptIntervalMs)
+      Sys.sleep(0.001)
+    }
     Sys.sleep(1)
+    service(interruptIntervalMs)
   }
+  message("Waiting for authentication in browser...")
+  BROWSE(request_url)
+  waitForResponse(
+    port = 1410,
+    host = "127.0.0.1",
+    app = list(call = listen)
+  )
   message("Authentication complete.")
-
-  server$remove("OAuth")
-  server$stop()
-
   info
 }
 
@@ -63,7 +60,8 @@ oauth_listener <- function(request_url) {
 #' @keywords internal
 #' @export
 oauth_callback <- function() {
-  port <- tools:::httpdPort
-  if (port == 0) port <- 1410
+  #port <- tools:::httpdPort
+  #if (port == 0)
+  port <- 1410
   str_c("http://localhost:", port, "/custom/OAuth/cred")
 }

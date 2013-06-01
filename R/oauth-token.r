@@ -56,7 +56,9 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL) {
       redirect_uri = oauth_callback(),
       grant_type = "authorization_code",
       code = code))
-  content(req, type = type)
+  content_out <- content(req, type = type)
+  content_out$use_by <- Sys.time() + content_out$expires_in
+  return(content_out) 
 }
 
 

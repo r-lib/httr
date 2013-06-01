@@ -2,7 +2,7 @@
 \alias{oauth_app}
 \title{Create an OAuth application.}
 \usage{
-  oauth_app(appname, key, secret = NULL)
+  oauth_app(appname, key = NULL, secret = NULL)
 }
 \arguments{
   \item{appname}{name of the application.  This is not used
@@ -10,7 +10,10 @@
   different applications and provide a consistent ways of
   storing secrets in environmental variables.}
 
-  \item{key}{consumer key (equivalent to a user name)}
+  \item{key}{consumer key (equivalent to a user name). As a
+  convenient shortcut, if \code{key} is \code{NULL}, we'll
+  look in the environment variable
+  \code{APPNAME_CONSUMER_ID}}
 
   \item{secret}{consumer secret.  This is equivalent to a
   password and should not be stored in publicly visible
@@ -33,6 +36,8 @@ github_app <- oauth_app("github", "56b637a5baffac62cad9")
 }
 \seealso{
   Other OAuth: \code{\link{oauth1.0_token}},
+  \code{\link{oauth2.0_has_expired}},
+  \code{\link{oauth2.0_refresh}},
   \code{\link{oauth2.0_token}},
   \code{\link{oauth_endpoint}},
   \code{\link{sign_oauth1.0}}, \code{\link{sign_oauth2.0}}
