@@ -20,7 +20,8 @@ Suggests:
     testthat,
     png,
     jpeg,
-    Rook
+    Rook,
+    httpuv
 License: MIT
 Collate:
     'authenticate.r'
