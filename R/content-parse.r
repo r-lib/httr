@@ -35,7 +35,11 @@ parsers <- new.env(parent = emptyenv())
 
 # http://www.ietf.org/rfc/rfc4627.txt - section 3. (encoding)
 parsers$`application/json` <- function(x, ...) {
-  RJSONIO::fromJSON(parse_text(x, encoding = "UTF-8"), ...)
+  args <- list(...)
+  if (!("simplifyWithNames" %in% args)) {
+    args$simplifyWithNames = FALSE
+  }
+  do.call(RJSONIO::fromJSON, c(parse_text(x, encoding = "UTF-8"), args))
 }
 parsers$`application/x-www-form-urlencoded` <- function(x) {
   parse_query(parse_text(x, encoding = "UTF-8"))
