@@ -34,13 +34,12 @@ parse_auto <- function(content, type = NULL, encoding = NULL, ...) {
 parsers <- new.env(parent = emptyenv())
 
 # http://www.ietf.org/rfc/rfc4627.txt - section 3. (encoding)
-parsers$`application/json` <- function(x, ...) {
-  args <- list(...)
-  if (!("simplifyWithNames" %in% args)) {
-    args$simplifyWithNames = FALSE
-  }
-  do.call(RJSONIO::fromJSON, c(parse_text(x, encoding = "UTF-8"), args))
+parsers$`application/json` <- function(x, simplifyWithNames = FALSE, ...) {
+  RJSONIO::fromJSON(parse_text(x, encoding = "UTF-8"),
+                    simplifyWithNames = simplifyWithNames,
+                    ...)
 }
+
 parsers$`application/x-www-form-urlencoded` <- function(x) {
   parse_query(parse_text(x, encoding = "UTF-8"))
 }
