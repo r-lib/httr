@@ -33,6 +33,3 @@ test_that("headers returned as expected", {
   expect_equal(round_trip(a = "a + b")$a, "a + b")
 
 })
-
-
-
