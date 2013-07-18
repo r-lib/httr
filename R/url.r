@@ -55,7 +55,11 @@ parse_url <- function(url) {
     } else {
       user_pass <- str_split(pieces[[1]], ":")[[1]]
       username <- user_pass[1]
-      password <- user_pass[2]
+      if (length(user_pass) == 1) {
+        password <- NULL
+      } else {
+        password <- user_pass[2]
+      }
 
       host <- pieces[2]
     }
@@ -121,7 +125,12 @@ build_url <- function(url) {
   }
 
   if (!is.null(url$username)) {
-    login <- str_c(url$username, ":", url$password, "@")
+    if (!is.null(url$password)) {
+      password <- str_c(":", url$password)
+    } else {
+      password <- NULL
+    }
+    login <- str_c(url$username, password, "@")
   } else {
     login <- NULL
   }
