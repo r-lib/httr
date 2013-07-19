@@ -9,7 +9,7 @@
 #' @export
 #' @family OAuth
 oauth1.0_token <- function(endpoint, app, permission = NULL) {
-  # 1. Get an unauthorised request token
+  # 1. Get an unauthorized request token
   response <- GET(endpoint$request,
     sign_oauth1.0(app, callback = oauth_callback()))
   stop_for_status(response)
@@ -17,11 +17,11 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
   token <- params$oauth_token
   secret <- params$oauth_token_secret
 
-  # 2. Authorise the token
-  authorise <- modify_url(endpoint$authorize, query = list(
+  # 2. Authorize the token
+  authorize_url <- modify_url(endpoint$authorize, query = list(
     oauth_token = token,
     permission = "read"))
-  verifier <- oauth_listener(authorise)$oauth_verifier
+  verifier <- oauth_listener(authorize_url)$oauth_verifier
 
   # 3. Request access token
   response <- GET(endpoint$access,
@@ -36,27 +36,39 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
 #'
 #' @inheritParams oauth1.0_token
 #' @param type content type used to override incorrect server response
-#' @param scope a character string of scopes to apply for.
+#' @param scope a character vector of scopes to request.
+#' @param use_oob if FALSE, use a local webserver for the OAuth dance.
+#'     Otherwise, provide a URL to the user and prompt for a validation
+#'     code.
 #' @family OAuth
 #' @export
-oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL) {
-  authorize <- modify_url(endpoint$authorize, query = compact(list(
+oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
+                           use_oob = FALSE) {
+  if (use_oob) {
+    stopifnot(interactive())
+    authorizer <- oauth_exchanger
+    redirect_uri <- "urn:ietf:wg:oauth:2.0:oob"
+  } else {
+    authorizer <- oauth_listener
+    redirect_uri <- oauth_callback()
+  }
+
+  scope_arg <- paste(scope, collapse = ' ')
+  authorize_url <- modify_url(endpoint$authorize, query = compact(list(
       client_id = app$key,
-      scope = scope,
-      redirect_uri = oauth_callback(),
+      scope = scope_arg,
+      redirect_uri = redirect_uri,
       response_type = "code",
       state = nonce())))
-  code <- oauth_listener(authorize)$code
+  code <- authorizer(authorize_url)$code
 
   # Use authorisation code to get (temporary) access token
   req <- POST(endpoint$access,  multipart = FALSE,
     body = list(
       client_id = app$key,
       client_secret = app$secret,
-      redirect_uri = oauth_callback(),
+      redirect_uri = redirect_uri,
       grant_type = "authorization_code",
       code = code))
   content(req, type = type)
 }
-
-

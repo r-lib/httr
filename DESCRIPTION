@@ -48,6 +48,7 @@ Collate:
     'utils.r'
     'oauth-app.r'
     'oauth-endpoint.r'
+    'oauth-exchanger.r'
     'oauth-listener.r'
     'oauth-signature.r'
     'oauth-token.r'
