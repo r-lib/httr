@@ -48,9 +48,11 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
     stopifnot(interactive())
     authorizer <- oauth_exchanger
     redirect_uri <- "urn:ietf:wg:oauth:2.0:oob"
+    state <- NULL
   } else {
     authorizer <- oauth_listener
     redirect_uri <- oauth_callback()
+    state <- nonce()
   }
 
   scope_arg <- paste(scope, collapse = ' ')
@@ -59,7 +61,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
       scope = scope_arg,
       redirect_uri = redirect_uri,
       response_type = "code",
-      state = nonce())))
+      state = state)))
   code <- authorizer(authorize_url)$code
 
   # Use authorisation code to get (temporary) access token
