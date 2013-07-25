@@ -2,13 +2,18 @@
 \alias{oauth2.0_token}
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
-  oauth2.0_token(endpoint, app, scope = NULL, type = NULL)
+  oauth2.0_token(endpoint, app, scope = NULL, type = NULL,
+    use_oob = FALSE)
 }
 \arguments{
   \item{type}{content type used to override incorrect
   server response}
 
-  \item{scope}{a character string of scopes to apply for.}
+  \item{scope}{a character vector of scopes to request.}
+
+  \item{use_oob}{if FALSE, use a local webserver for the
+  OAuth dance.  Otherwise, provide a URL to the user and
+  prompt for a validation code.}
 
   \item{endpoint}{An OAuth endpoint, created by
   \code{\link{oauth_endpoint}}}

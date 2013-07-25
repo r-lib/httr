@@ -30,3 +30,20 @@ test_that("digest authentication works", {
     config = authenticate("user", "passwd", "digest"))
   expect_equal(r$status, 200)
 })
+
+test_that("oauth2.0 signing works", {
+  request_url <- "http://httpbin.org/headers"
+
+  header_signer <- sign_oauth2.0("ofNoArms")
+  header_response <- GET(request_url, config = header_signer)
+  response_content <- content(header_response)$headers
+  expect_equal("Bearer ofNoArms", response_content$Authorization)
+  expect_equal(request_url, header_response$url)
+
+  url_signer <- sign_oauth2.0("ofNoArms", as_header = FALSE)
+  url_response <- GET(request_url, config = url_signer)
+  response_content <- content(url_response)$headers
+  expect_equal(NULL, response_content$Authorization)
+  expect_that(request_url, not(equals(url_response$url)))
+  expect_match(url_response$url, "access_token=ofNoArms")
+})

@@ -21,15 +21,21 @@ sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
 #'
 #' @family OAuth
 #' @param access_token access token as retrieved by
-#'    \code{\link{oauth1.0_token}}
+#'    \code{\link{oauth2.0_token}}
+#' @param as_header if TRUE, pass the authorization as a header instead
+#'    of in the url
 #' @return a \code{config} object which can be used with any http request.
 #' @export
-sign_oauth2.0 <- function(access_token) {
-  config(signature = function(method, url) {
-    url <- parse_url(url)
-    url$query$access_token <- access_token
-    list(url = build_url(url), config = config())
-  })
+sign_oauth2.0 <- function(access_token, as_header = TRUE) {
+  if (as_header) {
+    add_headers(Authorization = paste('Bearer', access_token))
+  } else {
+    config(signature = function(method, url) {
+      url <- parse_url(url)
+      url$query$access_token <- access_token
+      list(url = build_url(url), config = config())
+    })
+  }
 }
 
 oauth_signature <- function(url, method = "GET", app, token = NULL, token_secret = NULL, ...) {
