@@ -46,7 +46,7 @@
 #' GET("http://google.com/", path = "search")
 #' GET("http://google.com/", path = "search", query = c(q = "ham"))
 #'
-#' # See what GET is doing with requestb.in
+#' # See what GET is doing with request.bin
 #' b <- new_bin()
 #' GET(b)
 #' GET(b, add_headers(a = 1, b = 2))

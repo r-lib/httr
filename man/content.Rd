@@ -32,7 +32,7 @@
   of a request: as a raw object (\code{as = "raw"}), as a
   character vector, (\code{as = "text"}), and as parsed
   into an R object where possible, (\code{as = "parsed"}).
-  If \code{as} is not specified, \code{content} does it's
+  If \code{as} is not specified, \code{content} does its
   best to guess which output is most appropriate.
 }
 \details{
@@ -45,7 +45,7 @@
   \code{parse_query} \item \code{image/jpeg}:
   \code{\link[jpeg]{readJPEG}} \item \code{image/png}:
   \code{\link[png]{readPNG}} } You can add new parsers by
-  adding appropriately functions to \code{httr:::parsers}.
+  adding appropriate functions to \code{httr:::parsers}.
 }
 \examples{
 r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
