@@ -6,6 +6,9 @@ httr 0.2.99
 * Add support for handling the OAuth2 dance without running a local webserver.
   Contributed by Craig Citro. (#33)
 
+* Add support for passing oauth2 tokens in headers instead of the URL, and
+  make this the default. Contributed by Craig Citro. (#34)
+
 httr 0.2
 -----------
 
