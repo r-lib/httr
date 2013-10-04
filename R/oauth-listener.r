@@ -34,9 +34,11 @@ oauth_listener <- function(request_url) {
 
   server <- Rhttpd$new()
   server$add(listen, name = "OAuth")
+  on.exit(server$remove("OAuth"))
   if (!server_on) {
     port <- 1410
     server$start(port = port, quiet = TRUE)
+    on.exit(server$stop(), add = TRUE)
   }
 
   message("Waiting for authentication in browser...")
@@ -49,8 +51,6 @@ oauth_listener <- function(request_url) {
   }
   message("Authentication complete.")
 
-  server$remove("OAuth")
-  server$stop()
 
   info
 }
