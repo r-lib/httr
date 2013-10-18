@@ -1,6 +1,8 @@
 # httr
 
-The aim of httr is to provide a wrapper for RCurl that is less configurable but customised to the demands of modern web APIs. 
+[![Build Status](https://travis-ci.org/hadley/httr.png)](https://travis-ci.org/hadley/httr)
+
+The aim of httr is to provide a wrapper for RCurl that is less configurable but customised to the demands of modern web APIs.
 
 Key features:
 
@@ -16,14 +18,14 @@ Key features:
 
   * response content is available with `content()` as a raw vector (`as =
     "raw"`), a character vector (`as = "text"`), or parsed into an R object
-    (`as = "parsed"`), currently for html, xml, json, png and jpeg). 
+    (`as = "parsed"`), currently for html, xml, json, png and jpeg).
 
   * convert http errors into R errors with `stop_for_status`
 
 * wrapper functions for the most common configuration options:
   `set_cookies`, `add_headers`, `authenticate`, `use_proxy`, `verbose`,
   `timeout`.
-  
+
 * url parsing (with `parse_url`) and modification (with `modify_url`)
 
 * support for OAuth 1.0 and 2.0. Use `oauth1.0_token` and `oauth2.0_token` to
