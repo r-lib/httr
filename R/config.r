@@ -78,10 +78,21 @@ default_config <- function() {
       followlocation = 1L,
       maxredirs = 10L,
       encoding = "gzip",
-      cainfo = cert
+      cainfo = cert,
+      "user-agent" = default_ua()
     ),
     getOption("httr_config")
   )
+}
+
+#' @importFrom RCurl curlVersion
+default_ua <- function() {
+  versions <- c(
+    curl = curlVersion()$version, 
+    Rcurl = as.character(packageVersion("RCurl")),
+    httr = as.character(packageVersion("httr"))
+  )
+  paste0(names(versions), "/", versions, collapse = " ")
 }
 
 #' Set (and reset) global httr configuration.

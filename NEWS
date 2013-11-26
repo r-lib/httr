@@ -1,6 +1,8 @@
 httr 0.2.99
 -------------
 
+* Added default user agent which includes versions of Curl, RCurl and httr.
+
 * Switched to RJSONIO from rjson. No longer loads onto search path.
 
 * Add support for handling the OAuth2 dance without running a local webserver.
