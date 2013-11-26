@@ -78,9 +78,9 @@ default_config <- function() {
       followlocation = 1L,
       maxredirs = 10L,
       encoding = "gzip",
-      cainfo = cert,
-      "user-agent" = default_ua()
+      cainfo = cert
     ),
+    add_headers("user-agent" = default_ua()),
     getOption("httr_config")
   )
 }
