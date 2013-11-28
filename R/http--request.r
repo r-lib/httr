@@ -53,7 +53,7 @@ make_request <- function(method, handle, url, ..., config = list()) {
     curlPerform(curl = handle$handle, .opts = curl_opts$values)
   }
 
-  content <- as(buffer, "raw")
+  content <- methods::as(buffer, "raw")
   info <- last_request(handle)
   times <- request_times(handle)
   headers <- insensitive(as.list(hg$value()))

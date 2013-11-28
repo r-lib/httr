@@ -11,6 +11,8 @@ httr 0.2.99
 * Add support for passing oauth2 tokens in headers instead of the URL, and
   make this the default. Contributed by Craig Citro. (#34)
 
+* Import methods package. Contributed by Kirill Müller. (#52)
+
 httr 0.2
 -----------
 
