@@ -10,7 +10,7 @@ refresh_oauth2.0 <- function(endpoint, app, credentials) {
 
   refresh_url <- endpoint$access
   body <- list(
-    refresh_token = credential$refresh_token,
+    refresh_token = credentials$refresh_token,
     client_id = app$key,
     client_secret = app$secret,
     grant_type = "refresh_token"
