@@ -39,11 +39,11 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
 #' @param scope a character vector of scopes to request.
 #' @param use_oob if FALSE, use a local webserver for the OAuth dance.
 #'     Otherwise, provide a URL to the user and prompt for a validation
-#'     code.
+#'     code. Defaults to the of the \code{"httr_oob_default"} default.
 #' @family OAuth
 #' @export
 oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
-                           use_oob = FALSE) {
+                           use_oob = getOption("httr_oob_default")) {
   if (use_oob) {
     stopifnot(interactive())
     authorizer <- oauth_exchanger

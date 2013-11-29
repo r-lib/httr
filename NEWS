@@ -25,6 +25,10 @@ httr 0.2.99
   parsed correctly (#27). The names of query params are now also escaped
   and unescaped correctly when parsing and building urls.
 
+* `oauth2.0_token()` uses option `httr_oob_default` to determine whether 
+  or not to use `oob` authentication by default. This is useful to set when
+  running R remotely.
+
 httr 0.2
 -----------
 
