@@ -1,4 +1,4 @@
-#' Guess the media type of a path from it's extension.
+#' Guess the media type of a path from its extension.
 #'
 #' @param x path to file
 #' @importFrom tools file_ext
