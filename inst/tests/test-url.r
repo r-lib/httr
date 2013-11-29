@@ -25,3 +25,10 @@ test_that("empty queries not converted to NA", {
   
   expect_equal(parse_url("http://x.com/?a&q")$query, list(a = "", q = ""))
 })
+
+test_that("empty queries not converted to NA", {
+  expect_equal(parse_url("http://x.com/?q=")$query, list(q = ""))
+  expect_equal(parse_url("http://x.com/?q")$query, list(q = ""))
+  
+  expect_equal(parse_url("http://x.com/?a&q")$query, list(a = "", q = ""))
+})
