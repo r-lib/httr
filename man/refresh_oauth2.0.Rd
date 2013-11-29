@@ -22,7 +22,6 @@ https://developers.google.com/accounts/docs/OAuth2InstalledApp#refresh
 \seealso{
 Other OAuth: \code{\link{init_oauth1.0}},
 \code{\link{init_oauth2.0}}, \code{\link{oauth_app}},
-\code{\link{oauth_endpoint}}, \code{\link{sign_oauth1.0}},
-\code{\link{sign_oauth2.0}}
+\code{\link{oauth_endpoint}}
 }
 

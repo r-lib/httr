@@ -1,0 +1,16 @@
+\name{sign_oauth}
+\alias{sign_oauth}
+\alias{sign_oauth1.0}
+\alias{sign_oauth2.0}
+\title{Sign an OAuth request}
+\usage{
+sign_oauth1.0(app, token = NULL, token_secret = NULL, ...)
+
+sign_oauth2.0(access_token, as_header = TRUE)
+}
+\description{
+Deprecated. Instead create a config object directly using
+\code{config(token = my_token)}.
+}
+\keyword{internal}
+

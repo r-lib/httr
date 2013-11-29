@@ -1,41 +1,22 @@
-#' Sign an OAuth 1.0 request
+#' Sign an OAuth request
 #'
-#' @param app OAuth application details, as created by
-#'   \code{\link{oauth_app}}
-#' @param token,token_secret access token and corresponding secret, as
-#'   retrieved by \code{\link{oauth1.0_token}}
-#' @param ... other named argument to be included in the OAuth authorisation
-#'   header.  \code{extra = 1} will sent as \code{OAUTH_EXTRA = 1} and
-#'   included in signature generation.
-#' @return a \code{config} object which can be used with any http request.
-#' @family OAuth
+#' Deprecated. Instead create a config object directly using 
+#' \code{config(token = my_token)}.
+#'
+#' @keywords internal
+#' @name sign_oauth
+NULL
+
 #' @export
+#' @rdname sign_oauth
 sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
-  config(signature = function(method, url) {
-    oauth <- oauth_signature(url, method, app, token, token_secret, ...)
-    list(url = url, config = oauth_header(oauth))
-  })
+  stop("Deprecated: use supply token object to config directly", call. = FALSE)
 }
 
-#' Sign an OAuth 2.0 request
-#'
-#' @family OAuth
-#' @param access_token access token as retrieved by
-#'    \code{\link{oauth2.0_token}}
-#' @param as_header if TRUE, pass the authorization as a header instead
-#'    of in the url
-#' @return a \code{config} object which can be used with any http request.
 #' @export
+#' @rdname sign_oauth
 sign_oauth2.0 <- function(access_token, as_header = TRUE) {
-  if (as_header) {
-    add_headers(Authorization = paste('Bearer', access_token))
-  } else {
-    config(signature = function(method, url) {
-      url <- parse_url(url)
-      url$query$access_token <- access_token
-      list(url = build_url(url), config = config())
-    })
-  }
+  stop("Deprecated: supply token object to config directly", call. = FALSE)
 }
 
 oauth_signature <- function(url, method = "GET", app, token = NULL, token_secret = NULL, ...) {

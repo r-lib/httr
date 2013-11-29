@@ -30,6 +30,11 @@ Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
   },
   refresh = function() {
     stop("Not implemented")
+  }, 
+  sign = function(method, url) {
+    oauth_signature(url, method, app, credentials$token, 
+      credentials$token_secret)
+    list(url = url, config = oauth_header(oauth))    
   }
 ))
 
@@ -58,6 +63,17 @@ Token2.0 <- setRefClass("Token2.0", contains = "Token", methods = list(
     credentials <<- refresh_oauth2.0(endpoint, app, credentials)
     cache()
     .self
+  },
+  sign = function(method, url) {
+    if (params$as_header) {
+      config <- add_headers(Authorization = 
+          paste('Bearer', credentials$access_token))
+      list(url = url, config = config)
+    } else {
+      url <- parse_url(url)
+      url$query$access_token <- credentials$access_token
+      list(url = build_url(url), config = config())
+    }
   }
 ))
 
@@ -67,7 +83,9 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
 }
 
 oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
-                           use_oob = getOption("httr_oob_default")) {
-  params <- list(scope = scope, type = type, use_oob = use_oob)
+                           use_oob = getOption("httr_oob_default"),
+                           as_header = TRUE) {
+  params <- list(scope = scope, type = type, use_oob = use_oob,
+    as_header = as_header)
   Token2.0$new(app = app, endpoint = endpoint, params = params)$init()
 }
