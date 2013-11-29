@@ -17,17 +17,13 @@ Token <- setRefClass("Token",
     },
     hash = function() {
       digest(list(endpoint, params))
-    },
-    reinit = function() {
-      credentials <<- NULL
-      init()
-    } 
+    }
   )
 )
 
 Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
-  init = function() {
-    if (!is.null(credentials)) return(.self)
+  init = function(force = FALSE) {
+    if (!force && !is.null(credentials)) return(.self)
     credentials <<- oauth1.0_init(endpoint, app, 
       permission = params$permission)
     .self
@@ -38,14 +34,14 @@ Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
 ))
 
 Token2.0 <- setRefClass("Token2.0", contains = "Token", methods = list(
-  init = function() {
+  init = function(force = FALSE) {
     # Have already initialized
-    if (!is.null(credentials)) {
+    if (!force && !is.null(credentials)) {
       return(.self)
     } 
     
     # Have we computed in the past?
-    if (use_cache()) {
+    if (!force && use_cache()) {
       cached <- fetch_cached_token(hash())
       if (!is.null(cached)) {
         import(cached)
