@@ -35,6 +35,10 @@ httr 0.2.99
 * Add support for `fragment` in url building/parsing. Contributed by
   Craig Citro. (#70)
 
+* `oauth2.0_token()` uses option `httr_oob_default` to determine whether
+  or not to use `oob` authentication by default. This is useful to set when
+  running R remotely.
+
 httr 0.2
 -----------
 

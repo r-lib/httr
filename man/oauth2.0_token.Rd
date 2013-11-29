@@ -3,7 +3,8 @@
 \alias{oauth2.0_token}
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
-oauth2.0_token(endpoint, app, scope = NULL, type = NULL, use_oob = FALSE)
+oauth2.0_token(endpoint, app, scope = NULL, type = NULL,
+  use_oob = getOption("httr_oob_default"))
 }
 \arguments{
   \item{type}{content type used to override incorrect
@@ -13,7 +14,8 @@ oauth2.0_token(endpoint, app, scope = NULL, type = NULL, use_oob = FALSE)
 
   \item{use_oob}{if FALSE, use a local webserver for the
   OAuth dance.  Otherwise, provide a URL to the user and
-  prompt for a validation code.}
+  prompt for a validation code. Defaults to the of the
+  \code{"httr_oob_default"} default.}
 
   \item{endpoint}{An OAuth endpoint, created by
   \code{\link{oauth_endpoint}}}
