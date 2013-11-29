@@ -49,6 +49,7 @@ Collate:
     'oauth-endpoint.r'
     'oauth-exchanger.r'
     'oauth-listener.r'
+    'oauth-refresher.r'
     'oauth-signature.r'
     'oauth-token.r'
     'proxy.r'
