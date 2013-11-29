@@ -13,18 +13,36 @@ use_cache <- function() {
   
   cat("Use a local file to cache OAuth access credentials between R sessions?")
   choice <- menu(c("Yes", "No")) == 1
-  
-  if (choice) {
-    if (file.exists("DESCRIPTION")) {
-      message("Make sure to add .httr-oauth to .Rbuildignore")
-    }
-    if (file.exists(".git")) {
-      message("Make sure to add .httr-oauth to .gitignore")
-    }    
-  }
+  if (choice) protect_cache()
   
   options("httr_oauth_cache" = choice)
   choice
+}
+
+protect_cache <- function() {
+  if (file.exists("DESCRIPTION")) {
+    add_line(".Rbuildignore", "^\\.httr-oauth$")
+  }
+  if (file.exists(".git")) {
+    add_line(".gitignore", ".httr-oauth")
+  }    
+  invisible(TRUE)
+}
+
+add_line <- function(path, line, quiet = FALSE) {
+  if (file.exists(path)) {
+    lines <- readLines(path, warn = FALSE)
+    lines <- lines[lines != ""]
+  } else {
+    lines <- character()
+  }
+  
+  if (line %in% lines) return(TRUE)
+  if (!quiet) message("Adding ", line, " to ", path)
+  
+  lines <- c(lines, line)
+  writeLines(lines, path)
+  TRUE
 }
 
 cache_token <- function(token) {
