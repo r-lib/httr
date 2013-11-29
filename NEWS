@@ -29,6 +29,10 @@ httr 0.2.99
   or not to use `oob` authentication by default. This is useful to set when
   running R remotely.
 
+* Use the httpuv webserver for the OAuth dance (instead of the built-in 
+  httpd server). This makes the dance work in Rstudio, and also seems a little
+  faster. (#32, thanks to @jdeboer)
+
 httr 0.2
 -----------
 
