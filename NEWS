@@ -21,6 +21,9 @@ httr 0.2.99
 * New automatic parsers for mime types `text/tab-separated-values` and 
   `text/csv` (#49)
 
+* Urls with missing query param values (e.g. `http://x.com/?q=`) are now
+  parsed correctly. (#27)
+
 httr 0.2
 -----------
 
