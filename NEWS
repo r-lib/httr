@@ -18,6 +18,8 @@ httr 0.2.99
 * httr now imports the methods package so that it works when called with
   Rscript.
   
+* New automatic parsers for mime types `text/tab-separated-values` and 
+  `text/csv` (#49)
 
 httr 0.2
 -----------

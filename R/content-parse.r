@@ -62,6 +62,12 @@ parsers$`text/xml` <- function(x, ...) {
   require("XML")
   xmlParse(x, ...)
 }
+parsers$`text/csv` <- function(x, ...) {
+  read.csv(text = x, stringsAsFactors = FALSE, ...)
+}
+parsers$`text/tab-separated-values` <- function(x, ...) {
+  read.delim(text = x, stringsAsFactors = FALSE, ...)
+}
 
 parseability <- function(type) {
   if (is.null(type)) return("raw")
