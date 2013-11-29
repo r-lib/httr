@@ -10,11 +10,14 @@ make_request <- function(method, handle, url, ..., config = NULL) {
 
   # Sign request, if needed
   if (!is.null(config$token)) {
-    signed <- config$token$sign(method, url)
+    token <- config$token
+    config$token <- NULL
     
+    signed <- token$sign(method, url)    
     url <- signed$url
     config <- c(config, signed$config)
-    config$token <- NULL
+  } else {
+    token <- NULL
   }
 
   # Figure out curl options --------------------------------------------------
