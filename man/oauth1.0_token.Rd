@@ -24,7 +24,6 @@ the endpoint, other parameters and the received credentials.
 }
 \seealso{
 Other OAuth: \code{\link{oauth2.0_token}};
-  \code{\link{oauth_app}}; \code{\link{oauth_endpoint}};
-  \code{\link{refresh_oauth2.0}}
+  \code{\link{oauth_app}}; \code{\link{oauth_endpoint}}
 }
 
