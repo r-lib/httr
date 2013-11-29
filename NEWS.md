@@ -1,40 +1,41 @@
-httr 0.2.99
--------------
+# httr 0.2.99
 
-* Added default user agent which includes versions of Curl, RCurl and httr.
+## OAuth improvements
 
-* Switched to RJSONIO from rjson. No longer loads onto search path.
-
-* Add support for handling the OAuth2 dance without running a local webserver.
-  Contributed by Craig Citro. (#33)
-
+* OAuth2 dance can now be performed without running a local webserver (#33,
+  thanks to Craig Citro). To make that the default, set 
+  `options(httr_oob_default = TRUE)` to determine whether. This is useful 
+  when running R remotely.
+  
 * Add support for passing oauth2 tokens in headers instead of the URL, and
   make this the default. Contributed by Craig Citro. (#34)
-
-* `stop_for_status()` now raises errors with useful classes so that you can
-  use `tryCatch()` to take different actions depending on the type of error.
-  See `http_condition()` for more details.
-
-* httr now imports the methods package so that it works when called with
-  Rscript.
-  
-* New automatic parsers for mime types `text/tab-separated-values` and 
-  `text/csv` (#49)
-
-* Urls with missing query param values (e.g. `http://x.com/?q=`) are now
-  parsed correctly (#27). The names of query params are now also escaped
-  and unescaped correctly when parsing and building urls.
-
-* `oauth2.0_token()` uses option `httr_oob_default` to determine whether 
-  or not to use `oob` authentication by default. This is useful to set when
-  running R remotely.
 
 * Use the httpuv webserver for the OAuth dance (instead of the built-in 
   httpd server). This makes the dance work in Rstudio, and also seems a little
   faster. (#32, thanks to @jdeboer)
 
-httr 0.2
------------
+## Other improvements
+
+* Added default user agent which includes versions of Curl, RCurl and httr.
+
+* Switched to RJSONIO from rjson. No longer loaded onto search path.
+
+* `stop_for_status()` now raises errors with useful classes so that you can
+  use `tryCatch()` to take different actions depending on the type of error.
+  See `http_condition()` for more details.
+
+* New automatic parsers for mime types `text/tab-separated-values` and 
+  `text/csv` (#49)
+
+## Bug fixes
+
+* Urls with missing query param values (e.g. `http://x.com/?q=`) are now
+  parsed correctly (#27). The names of query params are now also escaped
+  and unescaped correctly when parsing and building urls.
+
+* Methods package imported so httr now works when called from Rscript.
+
+# httr 0.2
 
 * OAuth now uses custom escaping function which is guaranteed to work on all
   platforms (Fixes #21)
@@ -65,8 +66,7 @@ httr 0.2
 
 * `build_url`: correctly add params back into full url.
 
-httr 0.1.1
-----------
+# httr 0.1.1
 
 * Add new default config: use the standard SSL certificate
 
