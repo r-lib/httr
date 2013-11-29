@@ -24,8 +24,10 @@ a \code{config} object which can be used with any http request.
 Sign an OAuth 1.0 request
 }
 \seealso{
-Other OAuth: \code{\link{oauth1.0_token}};
-  \code{\link{oauth2.0_token}}; \code{\link{oauth_app}};
-  \code{\link{oauth_endpoint}}; \code{\link{sign_oauth2.0}}
+Other OAuth: \code{\link{init_oauth1.0}};
+  \code{\link{init_oauth2.0}}; \code{\link{oauth_app}};
+  \code{\link{oauth_endpoint}};
+  \code{\link{refresh_oauth2.0}};
+  \code{\link{sign_oauth2.0}}
 }
 
