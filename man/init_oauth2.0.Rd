@@ -16,13 +16,15 @@ init_oauth2.0(endpoint, app, scope = NULL, type = NULL,
   OAuth dance.  Otherwise, provide a URL to the user and
   prompt for a validation code. Defaults to the of the
   \code{"httr_oob_default"} default.}
+
+  \item{endpoint}{An OAuth endpoint, created by
+  \code{\link{oauth_endpoint}}}
+
+  \item{app}{An OAuth consumer application, created by
+  \code{\link{oauth_app}}}
 }
 \description{
 See demos for use.
 }
-\seealso{
-Other OAuth: \code{\link{init_oauth1.0}};
-  \code{\link{oauth_app}}; \code{\link{oauth_endpoint}};
-  \code{\link{refresh_oauth2.0}}
-}
+\keyword{internal}
 

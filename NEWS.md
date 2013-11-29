@@ -2,6 +2,16 @@
 
 ## OAuth improvements
 
+* The OAuth token objects are now reference classes, which mean they can be
+  updated in place, such as when an access token expires and needs to be 
+  refreshed. You can manually refresh by calling `$refresh()` on the object.
+
+* OAuth tokens are cached locally in a file called `.oauth-httr` (unless
+  you opt out). You can force reinitialisation (to do the complete dance from
+  scratch) by calling `$reinit(force)`. This file should not be included in
+  source code control, and httr will automatically add to `.gitignore`
+  and `.Rbuildignore` if needed.
+
 * OAuth2 dance can now be performed without running a local webserver (#33,
   thanks to Craig Citro). To make that the default, set
   `options(httr_oob_default = TRUE)` to determine whether. This is useful

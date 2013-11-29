@@ -1,4 +1,4 @@
-#' Retrieve OAuth 1.0 acces token.
+#' Retrieve OAuth 1.0 access token.
 #'
 #' See demos for use.
 #'
@@ -7,7 +7,7 @@
 #'    \code{\link{oauth_app}}
 #' @param permission optional, a string of permissions to ask for.
 #' @export
-#' @family OAuth
+#' @keywords internal
 init_oauth1.0 <- function(endpoint, app, permission = NULL) {
   # 1. Get an unauthorized request token
   response <- GET(endpoint$request,
@@ -34,16 +34,16 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL) {
 #'
 #' See demos for use.
 #'
-#' @inheritParams oauth1.0_token
+#' @inheritParams init_oauth1.0
 #' @param type content type used to override incorrect server response
 #' @param scope a character vector of scopes to request.
 #' @param use_oob if FALSE, use a local webserver for the OAuth dance.
 #'     Otherwise, provide a URL to the user and prompt for a validation
 #'     code. Defaults to the of the \code{"httr_oob_default"} default.
-#' @family OAuth
 #' @export
+#' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
-  use_oob = getOption("httr_oob_default")) {
+                          use_oob = getOption("httr_oob_default")) {
   if (use_oob) {
     stopifnot(interactive())
     authorizer <- oauth_exchanger
