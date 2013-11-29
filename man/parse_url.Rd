@@ -14,8 +14,8 @@ build_url(url)
 }
 \value{
 a list containing: \itemize{ \item scheme \item hostname
-\item port \item path \item params \item query \item
-username \item password }
+\item port \item path \item params \item query, a list
+\item username \item password }
 }
 \description{
 See \url{http://tools.ietf.org/html/rfc1808.html} for

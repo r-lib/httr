@@ -14,7 +14,7 @@
 #'  \item port
 #'  \item path
 #'  \item params
-#'  \item query
+#'  \item query, a list
 #'  \item username
 #'  \item password
 #' }
@@ -114,8 +114,10 @@ build_url <- function(url) {
   }
 
   if (is.list(url$query)) {
-    escaped <- curlEscape(url$query)
-    query <- str_c(names(url$query), "=", escaped, collapse = "&")
+    names <- curlEscape(names(url$query))
+    values <- curlEscape(url$query)
+
+    query <- str_c(names, "=", values, collapse = "&")
   } else {
     query <- url$query
   }

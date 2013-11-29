@@ -26,9 +26,9 @@ test_that("empty queries not converted to NA", {
   expect_equal(parse_url("http://x.com/?a&q")$query, list(a = "", q = ""))
 })
 
-test_that("empty queries not converted to NA", {
-  expect_equal(parse_url("http://x.com/?q=")$query, list(q = ""))
-  expect_equal(parse_url("http://x.com/?q")$query, list(q = ""))
-  
-  expect_equal(parse_url("http://x.com/?a&q")$query, list(a = "", q = ""))
+test_that("query strings escaped and unescaped correctly", {
+  url <- "http://x.com/?x%20y=a%20b" 
+  parsed <- parse_url(url)
+  expect_equal(parsed$query, list("x y" = "a b"))
+  expect_equal(build_url(parsed), url)
 })

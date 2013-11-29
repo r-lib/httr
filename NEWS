@@ -22,7 +22,8 @@ httr 0.2.99
   `text/csv` (#49)
 
 * Urls with missing query param values (e.g. `http://x.com/?q=`) are now
-  parsed correctly. (#27)
+  parsed correctly (#27). The names of query params are now also escaped
+  and unescaped correctly when parsing and building urls.
 
 httr 0.2
 -----------
