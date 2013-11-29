@@ -2,7 +2,7 @@
 \alias{HEAD}
 \title{Get url HEADers.}
 \usage{
-  HEAD(url = NULL, config = list(), ..., handle = NULL)
+HEAD(url = NULL, config = list(), ..., handle = NULL)
 }
 \arguments{
   \item{url}{the url of the page to retrieve}
@@ -28,7 +28,7 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  Get url HEADers.
+Get url HEADers.
 }
 \section{RFC2616}{
   The HEAD method is identical to GET except that the
@@ -56,7 +56,7 @@ HEAD("http://google.com")
 HEAD("http://google.com")$headers
 }
 \seealso{
-  Other http methods: \code{\link{BROWSE}},
-  \code{\link{DELETE}}, \code{\link{GET}}
+Other http methods: \code{\link{BROWSE}},
+\code{\link{DELETE}}, \code{\link{GET}}
 }
 

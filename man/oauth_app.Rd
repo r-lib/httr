@@ -2,7 +2,7 @@
 \alias{oauth_app}
 \title{Create an OAuth application.}
 \usage{
-  oauth_app(appname, key, secret = NULL)
+oauth_app(appname, key, secret = NULL)
 }
 \arguments{
   \item{appname}{name of the application.  This is not used
@@ -19,11 +19,11 @@
   \code{APPNAME_CONSUMER_SECRET}}
 }
 \description{
-  The OAuth framework doesn't match perfectly to use from
-  R. Each user of the package for a particular OAuth
-  enabled site must create their own application. See the
-  demos for instructions on how to do this for linkedin,
-  twitter, vimeo, facebook, github and google.
+The OAuth framework doesn't match perfectly to use from R.
+Each user of the package for a particular OAuth enabled
+site must create their own application. See the demos for
+instructions on how to do this for linkedin, twitter,
+vimeo, facebook, github and google.
 }
 \examples{
 \dontrun{
@@ -32,9 +32,8 @@ github_app <- oauth_app("github", "56b637a5baffac62cad9")
 }
 }
 \seealso{
-  Other OAuth: \code{\link{oauth1.0_token}},
-  \code{\link{oauth2.0_token}},
-  \code{\link{oauth_endpoint}},
-  \code{\link{sign_oauth1.0}}, \code{\link{sign_oauth2.0}}
+Other OAuth: \code{\link{oauth1.0_token}},
+\code{\link{oauth2.0_token}}, \code{\link{oauth_endpoint}},
+\code{\link{sign_oauth1.0}}, \code{\link{sign_oauth2.0}}
 }
 

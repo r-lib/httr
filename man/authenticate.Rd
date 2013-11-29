@@ -2,7 +2,7 @@
 \alias{authenticate}
 \title{Use http authentication.}
 \usage{
-  authenticate(user, password, type = "any")
+authenticate(user, password, type = "any")
 }
 \arguments{
   \item{user}{user name}
@@ -15,9 +15,9 @@
   to any.}
 }
 \description{
-  It's not obvious how to turn authentication off after
-  using it, so I recommend using custom handles with
-  authentication.
+It's not obvious how to turn authentication off after using
+it, so I recommend using custom handles with
+authentication.
 }
 \examples{
 GET("http://httpbin.org/basic-auth/user/passwd")
@@ -25,10 +25,10 @@ GET("http://httpbin.org/basic-auth/user/passwd",
   authenticate("user", "passwd"))
 }
 \seealso{
-  Other config: \code{\link{accept_json}},
-  \code{\link{accept_xml}}, \code{\link{add_headers}},
-  \code{\link{config}}, \code{\link{set_cookies}},
-  \code{\link{timeout}}, \code{\link{use_proxy}},
-  \code{\link{user_agent}}, \code{\link{verbose}}
+Other config: \code{\link{accept_json}},
+\code{\link{accept_xml}}, \code{\link{add_headers}},
+\code{\link{config}}, \code{\link{set_cookies}},
+\code{\link{timeout}}, \code{\link{use_proxy}},
+\code{\link{user_agent}}, \code{\link{verbose}}
 }
 

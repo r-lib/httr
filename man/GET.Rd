@@ -2,7 +2,7 @@
 \alias{GET}
 \title{GET a url.}
 \usage{
-  GET(url = NULL, config = list(), ..., handle = NULL)
+GET(url = NULL, config = list(), ..., handle = NULL)
 }
 \arguments{
   \item{url}{the url of the page to retrieve}
@@ -28,7 +28,7 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  GET a url.
+GET a url.
 }
 \section{RFC2616}{
   The GET method means retrieve whatever information (in
@@ -80,7 +80,7 @@ GET(handle = google, path = "/")
 GET(handle = google, path = "search")
 }
 \seealso{
-  Other http methods: \code{\link{BROWSE}},
-  \code{\link{DELETE}}, \code{\link{HEAD}}
+Other http methods: \code{\link{BROWSE}},
+\code{\link{DELETE}}, \code{\link{HEAD}}
 }
 

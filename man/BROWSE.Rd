@@ -2,7 +2,7 @@
 \alias{BROWSE}
 \title{Open specified url in browser.}
 \usage{
-  BROWSE(url = NULL, config = list(), ..., handle = NULL)
+BROWSE(url = NULL, config = list(), ..., handle = NULL)
 }
 \arguments{
   \item{config}{All configuration options are ignored
@@ -25,18 +25,18 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  (This isn't really a http verb, but it seems to follow
-  the same format).
+(This isn't really a http verb, but it seems to follow the
+same format).
 }
 \details{
-  Only works in interactive sessions.
+Only works in interactive sessions.
 }
 \examples{
 BROWSE("http://google.com")
 BROWSE("http://had.co.nz")
 }
 \seealso{
-  Other http methods: \code{\link{DELETE}},
-  \code{\link{GET}}, \code{\link{HEAD}}
+Other http methods: \code{\link{DELETE}},
+\code{\link{GET}}, \code{\link{HEAD}}
 }
 

@@ -2,8 +2,7 @@
 \alias{oauth2.0_token}
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
-  oauth2.0_token(endpoint, app, scope = NULL, type = NULL,
-    use_oob = FALSE)
+oauth2.0_token(endpoint, app, scope = NULL, type = NULL, use_oob = FALSE)
 }
 \arguments{
   \item{type}{content type used to override incorrect
@@ -22,11 +21,11 @@
   \code{\link{oauth_app}}}
 }
 \description{
-  See demos for use.
+See demos for use.
 }
 \seealso{
-  Other OAuth: \code{\link{oauth1.0_token}},
-  \code{\link{oauth_app}}, \code{\link{oauth_endpoint}},
-  \code{\link{sign_oauth1.0}}, \code{\link{sign_oauth2.0}}
+Other OAuth: \code{\link{oauth1.0_token}},
+\code{\link{oauth_app}}, \code{\link{oauth_endpoint}},
+\code{\link{sign_oauth1.0}}, \code{\link{sign_oauth2.0}}
 }
 

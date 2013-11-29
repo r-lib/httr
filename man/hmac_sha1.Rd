@@ -2,7 +2,7 @@
 \alias{hmac_sha1}
 \title{HMAC SHA1}
 \usage{
-  hmac_sha1(key, string)
+hmac_sha1(key, string)
 }
 \arguments{
   \item{key}{secret key}
@@ -10,8 +10,8 @@
   \item{string}{data to securely hash}
 }
 \description{
-  As described in
-  \url{http://datatracker.ietf.org/doc/rfc2104/}.
+As described in
+\url{http://datatracker.ietf.org/doc/rfc2104/}.
 }
 \keyword{internal}
 

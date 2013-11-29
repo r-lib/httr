@@ -2,8 +2,7 @@
 \alias{sign_oauth1.0}
 \title{Sign an OAuth 1.0 request}
 \usage{
-  sign_oauth1.0(app, token = NULL, token_secret = NULL,
-    ...)
+sign_oauth1.0(app, token = NULL, token_secret = NULL, ...)
 }
 \arguments{
   \item{app}{OAuth application details, as created by
@@ -18,15 +17,15 @@
   generation.}
 }
 \value{
-  a \code{config} object which can be used with any http
-  request.
+a \code{config} object which can be used with any http
+request.
 }
 \description{
-  Sign an OAuth 1.0 request
+Sign an OAuth 1.0 request
 }
 \seealso{
-  Other OAuth: \code{\link{oauth1.0_token}},
-  \code{\link{oauth2.0_token}}, \code{\link{oauth_app}},
-  \code{\link{oauth_endpoint}}, \code{\link{sign_oauth2.0}}
+Other OAuth: \code{\link{oauth1.0_token}},
+\code{\link{oauth2.0_token}}, \code{\link{oauth_app}},
+\code{\link{oauth_endpoint}}, \code{\link{sign_oauth2.0}}
 }
 

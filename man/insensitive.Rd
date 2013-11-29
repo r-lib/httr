@@ -2,13 +2,13 @@
 \alias{insensitive}
 \title{Create a vector with case insensitive name matching.}
 \usage{
-  insensitive(x)
+insensitive(x)
 }
 \arguments{
   \item{x}{vector to modify}
 }
 \description{
-  Create a vector with case insensitive name matching.
+Create a vector with case insensitive name matching.
 }
 \examples{
 x <- c("abc" = 1, "def" = 2)

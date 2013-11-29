@@ -2,23 +2,23 @@
 \alias{oauth_exchanger}
 \title{Walk the user through the OAuth2 dance without a local webserver.}
 \usage{
-  oauth_exchanger(request_url)
+oauth_exchanger(request_url)
 }
 \arguments{
   \item{request_url}{the url to provide to the user}
 }
 \description{
-  This performs a similar function to
-  \code{\link{oauth-listener}}, but without trying do open
-  a browser or start a local webserver. This manual process
-  can be useful in situations where the user is remotely
-  accessing the machine outside a browser (say via ssh) or
-  when it's not possible to successfully receive a callback
-  (such as when behind a firewall).
+This performs a similar function to
+\code{\link{oauth-listener}}, but without trying do open a
+browser or start a local webserver. This manual process can
+be useful in situations where the user is remotely
+accessing the machine outside a browser (say via ssh) or
+when it's not possible to successfully receive a callback
+(such as when behind a firewall).
 }
 \details{
-  This function should generally not be called directly by
-  the user.
+This function should generally not be called directly by
+the user.
 }
 \keyword{internal}
 

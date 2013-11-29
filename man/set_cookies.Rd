@@ -2,7 +2,7 @@
 \alias{set_cookies}
 \title{Set cookies.}
 \usage{
-  set_cookies(..., .cookies = character(0))
+set_cookies(..., .cookies = character(0))
 }
 \arguments{
   \item{...}{a named cookie values}
@@ -10,7 +10,7 @@
   \item{.cookies}{a named character vector}
 }
 \description{
-  Set cookies.
+Set cookies.
 }
 \examples{
 set_cookies(a = 1, b = 2)
@@ -20,10 +20,10 @@ GET("http://httpbin.org/cookies")
 GET("http://httpbin.org/cookies", set_cookies(a = 1, b = 2))
 }
 \seealso{
-  Other config: \code{\link{accept_json}},
-  \code{\link{accept_xml}}, \code{\link{add_headers}},
-  \code{\link{authenticate}}, \code{\link{config}},
-  \code{\link{timeout}}, \code{\link{use_proxy}},
-  \code{\link{user_agent}}, \code{\link{verbose}}
+Other config: \code{\link{accept_json}},
+\code{\link{accept_xml}}, \code{\link{add_headers}},
+\code{\link{authenticate}}, \code{\link{config}},
+\code{\link{timeout}}, \code{\link{use_proxy}},
+\code{\link{user_agent}}, \code{\link{verbose}}
 }
 

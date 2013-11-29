@@ -2,13 +2,13 @@
 \alias{guess_media}
 \title{Guess the media type of a path from it's extension.}
 \usage{
-  guess_media(x)
+guess_media(x)
 }
 \arguments{
   \item{x}{path to file}
 }
 \description{
-  Guess the media type of a path from it's extension.
+Guess the media type of a path from it's extension.
 }
 \examples{
 guess_media("report.doc")

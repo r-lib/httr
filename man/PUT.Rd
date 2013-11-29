@@ -2,8 +2,8 @@
 \alias{PUT}
 \title{Send PUT request to server.}
 \usage{
-  PUT(url = NULL, config = list(), body = NULL,
-    multipart = TRUE, ..., handle = NULL)
+PUT(url = NULL, config = list(), body = NULL, multipart = TRUE, ...,
+  handle = NULL)
 }
 \arguments{
   \item{url}{the url of the page to retrieve}
@@ -42,7 +42,7 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  Send PUT request to server.
+Send PUT request to server.
 }
 \examples{
 b <- new_bin()

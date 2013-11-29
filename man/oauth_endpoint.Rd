@@ -2,8 +2,7 @@
 \alias{oauth_endpoint}
 \title{Describe an OAuth endpoint.}
 \usage{
-  oauth_endpoint(request = NULL, authorize, access,
-    base_url = NULL)
+oauth_endpoint(request = NULL, authorize, access, base_url = NULL)
 }
 \arguments{
   \item{request}{url used to request initial
@@ -19,7 +18,7 @@
   \code{request}, \code{authorize} and \code{access} urls.}
 }
 \description{
-  Describe an OAuth endpoint.
+Describe an OAuth endpoint.
 }
 \examples{
 linkedin <- oauth_endpoint("requestToken", "authorize", "accessToken",
@@ -31,8 +30,8 @@ facebook <- oauth_endpoint(
   access = "https://graph.facebook.com/oauth/access_token")
 }
 \seealso{
-  Other OAuth: \code{\link{oauth1.0_token}},
-  \code{\link{oauth2.0_token}}, \code{\link{oauth_app}},
-  \code{\link{sign_oauth1.0}}, \code{\link{sign_oauth2.0}}
+Other OAuth: \code{\link{oauth1.0_token}},
+\code{\link{oauth2.0_token}}, \code{\link{oauth_app}},
+\code{\link{sign_oauth1.0}}, \code{\link{sign_oauth2.0}}
 }
 

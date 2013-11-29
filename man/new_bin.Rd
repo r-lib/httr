@@ -2,7 +2,7 @@
 \alias{new_bin}
 \title{Make bin at \url{http://requestb.in/}}
 \usage{
-  new_bin(browse = TRUE)
+new_bin(browse = TRUE)
 }
 \arguments{
   \item{browse}{if \code{TRUE}, will also open the request
@@ -10,9 +10,9 @@
   results.}
 }
 \description{
-  Returns the url pointing to a newly created request bin.
-  This is very useful for checking that you're sending what
-  you think you're sending.
+Returns the url pointing to a newly created request bin.
+This is very useful for checking that you're sending what
+you think you're sending.
 }
 \keyword{internal}
 

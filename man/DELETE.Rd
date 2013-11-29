@@ -2,7 +2,7 @@
 \alias{DELETE}
 \title{Send a DELETE request.}
 \usage{
-  DELETE(url = NULL, config = list(), ..., handle = NULL)
+DELETE(url = NULL, config = list(), ..., handle = NULL)
 }
 \arguments{
   \item{url}{the url of the page to retrieve}
@@ -28,7 +28,7 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  Send a DELETE request.
+Send a DELETE request.
 }
 \section{RFC2616}{
   The DELETE method requests that the origin server delete
@@ -61,7 +61,7 @@ DELETE("http://httpbin.org/delete")
 POST("http://httpbin.org/delete")
 }
 \seealso{
-  Other http methods: \code{\link{BROWSE}},
-  \code{\link{GET}}, \code{\link{HEAD}}
+Other http methods: \code{\link{BROWSE}},
+\code{\link{GET}}, \code{\link{HEAD}}
 }
 

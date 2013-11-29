@@ -2,8 +2,8 @@
 \alias{POST}
 \title{POST file to a server.}
 \usage{
-  POST(url = NULL, config = list(), body = NULL,
-    multipart = TRUE, ..., handle = NULL)
+POST(url = NULL, config = list(), body = NULL, multipart = TRUE, ...,
+  handle = NULL)
 }
 \arguments{
   \item{body}{Use \code{NULL} for an empty body, a
@@ -42,7 +42,7 @@
   \code{\link{handle_pool}} for more details.}
 }
 \description{
-  POST file to a server.
+POST file to a server.
 }
 \examples{
 b <- new_bin()

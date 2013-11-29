@@ -2,7 +2,7 @@
 \alias{with_config}
 \title{Execute code with configuration set.}
 \usage{
-  with_config(config = config(), expr, override = FALSE)
+with_config(config = config(), expr, override = FALSE)
 }
 \arguments{
   \item{expr}{code to execute under specified
@@ -16,7 +16,7 @@
   if \code{FALSE}, combine new config with old.}
 }
 \description{
-  Execute code with configuration set.
+Execute code with configuration set.
 }
 \examples{
 with_config(verbose(), {
@@ -25,7 +25,7 @@ with_config(verbose(), {
 })
 }
 \seealso{
-  Other ways to set configuration: \code{\link{config}},
-  \code{\link{reset_config}}, \code{\link{set_config}}
+Other ways to set configuration: \code{\link{config}},
+\code{\link{reset_config}}, \code{\link{set_config}}
 }
 
