@@ -3,6 +3,7 @@ NULL
 
 #' Send PATCH request to a server.
 #'
+#' @inheritParams GET
 #' @inheritParams POST
 #' @export
 PATCH <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ..., handle = NULL) {
