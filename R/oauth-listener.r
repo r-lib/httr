@@ -11,16 +11,22 @@
 #' @param request_url the url to send the browser to
 #' @export
 #' @keywords internal
+#' @importFrom httupv startServer service
 oauth_listener <- function(request_url) {
-  if (!require("Rook")) {
-    stop("Rook package required to capture OAuth credentials")
+  if (!require("Rook") || !require("httpuv")) {
+    stop("Rook and httpuv packages required to capture OAuth credentials")
   }
 
   info <- NULL
   listen <- function(env) {
     req <- Request$new(env)
     info <<- req$params()
-
+    first_name <- names(info)[1]
+    if (substr(first_name, 1, 1) == "?") {
+      first_name <- substr(first_name, 2, nchar(first_name))
+      names(info)[1] <<- first_name
+    }
+    
     res <- Response$new()
     res$header("Content-type", "text/plain")
     res$write("Authentication complete - you can now close this page and ")
@@ -28,30 +34,18 @@ oauth_listener <- function(request_url) {
     res$finish()
   }
 
-  server <- Rhttpd$new()
-  port <- tools:::httpdPort
-  server_on <- port != 0
-
-  server <- Rhttpd$new()
-  server$add(listen, name = "OAuth")
-  on.exit(server$remove("OAuth"))
-  if (!server_on) {
-    port <- 1410
-    server$start(port = port, quiet = TRUE)
-    on.exit(server$stop(), add = TRUE)
-  }
-
+  server <- startServer("127.0.0.1", 1410, list(call = listen))
+  on.exit(stopServer(server))
+    
   message("Waiting for authentication in browser...")
-  Sys.sleep(1)
   BROWSE(request_url)
-
-  # wait until we get a response
   while(is.null(info)) {
-    Sys.sleep(1)
+    service()
+    Sys.sleep(0.001)
   }
+  service() # to send text back to browser
+  
   message("Authentication complete.")
-
-
   info
 }
 
@@ -63,7 +57,5 @@ oauth_listener <- function(request_url) {
 #' @keywords internal
 #' @export
 oauth_callback <- function() {
-  port <- tools:::httpdPort
-  if (port == 0) port <- 1410
-  str_c("http://localhost:", port, "/custom/OAuth/cred")
+  "http://localhost:1410/"
 }
