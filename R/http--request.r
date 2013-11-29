@@ -3,17 +3,18 @@
 #   request. \code{make_request} will take care of resetting the handle's
 #   config after the request is made.
 #' @importFrom methods as
-make_request <- function(method, handle, url, ..., config = list()) {
+make_request <- function(method, handle, url, ..., config = NULL) {
+  if (is.null(config)) config <- config()
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
 
   # Sign request, if needed
-  if (!is.null(config$signature)) {
-    signed <- config$signature(method, url)
+  if (!is.null(config$token)) {
+    signed <- config$token$sign(method, url)
+    
     url <- signed$url
     config <- c(config, signed$config)
-
-    config$signature <- NULL
+    config$token <- NULL
   }
 
   # Figure out curl options --------------------------------------------------
@@ -24,10 +25,10 @@ make_request <- function(method, handle, url, ..., config = list()) {
   # Action config override defaults
   config_f <- match.fun(str_c(tolower(method), "_config"))
   action_config <- config_f(...)
-  opts <- modifyList(opts, action_config)
+  opts <- modify_config(opts, action_config)
 
   # Config argument overrides everything
-  opts <- modifyList(opts, config)
+  opts <- modify_config(opts, config)
 
   # But we always override headerfunction and writefunction
   hg <- basicHeaderGatherer()
@@ -59,7 +60,7 @@ make_request <- function(method, handle, url, ..., config = list()) {
   times <- request_times(handle)
   headers <- insensitive(as.list(hg$value()))
   status <- as.numeric(str_extract(headers$status, "[0-9]+"))
-
+  
   response(
     url = info$effective.url,
     handle = handle,

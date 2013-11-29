@@ -27,7 +27,7 @@
 config <- function(...) {
   options <- list(...)
 
-  known <- c(listCurlOptions(), "signature")
+  known <- c(listCurlOptions(), "token")
   unknown <- setdiff(names(options), known)
   if (length(unknown) > 0) {
     stop("Unknown RCurl options: ", str_c(unknown, collapse = ", "))
@@ -68,6 +68,17 @@ c.config <- function(...) {
 print.config <- function(x, ...) {
   cat("Config: \n")
   str(unclass(x), give.head = FALSE)
+}
+
+# A version of modifyList that works with config files, and merges
+# http header
+modify_config <- function(x, val) {
+  overwrite <- setdiff(intersect(names(x), names(val)), "httpheader")
+  
+  x[overwrite] <- val[overwrite]
+  x$httpheader <- c(x$httpheader, val$httpheader)
+  
+  x
 }
 
 

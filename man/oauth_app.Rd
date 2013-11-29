@@ -35,7 +35,6 @@ github_app <- oauth_app("github", "56b637a5baffac62cad9")
 Other OAuth: \code{\link{init_oauth1.0}};
   \code{\link{init_oauth2.0}};
   \code{\link{oauth_endpoint}};
-  \code{\link{refresh_oauth2.0}};
-  \code{\link{sign_oauth1.0}}; \code{\link{sign_oauth2.0}}
+  \code{\link{refresh_oauth2.0}}
 }
 
