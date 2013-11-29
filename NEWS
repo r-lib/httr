@@ -11,6 +11,10 @@ httr 0.2.99
 * Add support for passing oauth2 tokens in headers instead of the URL, and
   make this the default. Contributed by Craig Citro. (#34)
 
+* `stop_for_status()` now raises errors with useful classes so that you can
+  use `tryCatch()` to take different actions depending on the type of error.
+  See `http_condition()` for more details.
+
 httr 0.2
 -----------
 
