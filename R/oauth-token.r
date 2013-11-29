@@ -22,6 +22,26 @@ Token <- setRefClass("Token",
       credentials <<- NULL
       initFields(...)
     },
+    init = function(force = FALSE) {
+      # Have already initialized
+      if (!force && !is.null(credentials)) {
+        return(.self)
+      } 
+      
+      # Have we computed in the past?
+      if (!force && use_cache()) {
+        cached <- fetch_cached_token(hash())
+        if (!is.null(cached)) {
+          import(cached)
+          return(.self)
+        }
+      }
+      
+      # Otherwise use initialise from endpoint - need to use .self to
+      # force use of subclass methods
+      .self$init_credentials()
+      cache()
+    },
     show = function() {
       cat("<OAuth> ", endpoint$authorize, "\n", sep = "")
     },
@@ -53,11 +73,8 @@ oauth1.0_token <- function(endpoint, app, permission = NULL) {
 #' @export
 #' @rdname Token-ref-class
 Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
-  init = function(force = FALSE) {
-    if (!force && !is.null(credentials)) return(.self)
-    credentials <<- oauth1.0_init(endpoint, app, 
-      permission = params$permission)
-    .self
+  init_credentials = function(force = FALSE) {
+    credentials <<- oauth1.0_init(endpoint, app, permission = params$permission)
   },
   refresh = function() {
     stop("Not implemented")
@@ -93,25 +110,9 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
 #' @export
 #' @rdname Token-ref-class
 Token2.0 <- setRefClass("Token2.0", contains = "Token", methods = list(
-  init = function(force = FALSE) {
-    # Have already initialized
-    if (!force && !is.null(credentials)) {
-      return(.self)
-    } 
-    
-    # Have we computed in the past?
-    if (!force && use_cache()) {
-      cached <- fetch_cached_token(hash())
-      if (!is.null(cached)) {
-        import(cached)
-        return(.self)
-      }
-    }
-    
-    # Otherwise use initialise from endpoint
+  init_credentials = function() {
     credentials <<- init_oauth2.0(endpoint, app, scope = params$scope, 
       type = params$type, use_oob = params$use_oob)
-    cache()
   },
   refresh = function() {
     credentials <<- refresh_oauth2.0(endpoint, app, credentials)
