@@ -11,7 +11,7 @@
 #' @param request_url the url to send the browser to
 #' @export
 #' @keywords internal
-#' @importFrom httupv startServer service
+#' @importFrom httpuv startServer service
 oauth_listener <- function(request_url) {
   if (!require("Rook") || !require("httpuv")) {
     stop("Rook and httpuv packages required to capture OAuth credentials")

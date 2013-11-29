@@ -1,5 +1,8 @@
+#' OAuth token objects
+#' 
 #' @importFrom methods setRefClass
 #' @importFrom digest digest
+#' @export
 Token <- setRefClass("Token", 
   fields = c("endpoint", "app", "credentials", "params"),
   methods = list(
@@ -21,6 +24,22 @@ Token <- setRefClass("Token",
   )
 )
 
+#' Generate an oauth1.0 token.
+#' 
+#' This is the final object in the OAuth dance - it encapsulates the app,
+#' the endpoint, other parameters and the received credentials.
+#' 
+#' @inheritParams init_oauth1.0
+#' @return A \code{Token1.0} reference class (RC) object. 
+#' @family OAuth
+#' @export
+oauth1.0_token <- function(endpoint, app, permission = NULL) {
+  params <- list(permission = permission)
+  Token1.0(app = app, endpoint = endpoint, params = params)$init()
+}
+
+#' @export
+#' @rdname Token-ref-class
 Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
   init = function(force = FALSE) {
     if (!force && !is.null(credentials)) return(.self)
@@ -38,6 +57,29 @@ Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
   }
 ))
 
+#' Generate an oauth2.0 token.
+#' 
+#' This is the final object in the OAuth dance - it encapsulates the app,
+#' the endpoint, other parameters and the received credentials. It is a 
+#' reference class so that it can be seemlessly updated (e.g. using 
+#' \code{$refresh()}) when access expires.
+#' 
+#' @inheritParams init_oauth2.0
+#' @param as_header If \code{TRUE}, the default, sends oauth in bearer header. 
+#'   If \code{FALSE}, adds as parameter to url.
+#' @return A \code{Token2.0} reference class (RC) object. 
+#' @family OAuth
+#' @export
+oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
+                           use_oob = getOption("httr_oob_default"),
+                           as_header = TRUE) {
+  params <- list(scope = scope, type = type, use_oob = use_oob,
+    as_header = as_header)
+  Token2.0(app = app, endpoint = endpoint, params = params)$init()
+}
+
+#' @export
+#' @rdname Token-ref-class
 Token2.0 <- setRefClass("Token2.0", contains = "Token", methods = list(
   init = function(force = FALSE) {
     # Have already initialized
@@ -76,16 +118,3 @@ Token2.0 <- setRefClass("Token2.0", contains = "Token", methods = list(
     }
   }
 ))
-
-oauth1.0_token <- function(endpoint, app, permission = NULL) {
-  params <- list(permission = permission)
-  Token1.0$new(app = app, endpoint = endpoint, params = params)$init()
-}
-
-oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
-                           use_oob = getOption("httr_oob_default"),
-                           as_header = TRUE) {
-  params <- list(scope = scope, type = type, use_oob = use_oob,
-    as_header = as_header)
-  Token2.0$new(app = app, endpoint = endpoint, params = params)$init()
-}

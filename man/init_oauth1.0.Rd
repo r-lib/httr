@@ -1,6 +1,6 @@
 \name{init_oauth1.0}
 \alias{init_oauth1.0}
-\title{Retrieve OAuth 1.0 acces token.}
+\title{Retrieve OAuth 1.0 access token.}
 \usage{
 init_oauth1.0(endpoint, app, permission = NULL)
 }
@@ -17,9 +17,5 @@ init_oauth1.0(endpoint, app, permission = NULL)
 \description{
 See demos for use.
 }
-\seealso{
-Other OAuth: \code{\link{init_oauth2.0}},
-\code{\link{oauth_app}}, \code{\link{oauth_endpoint}},
-\code{\link{refresh_oauth2.0}}
-}
+\keyword{internal}
 
