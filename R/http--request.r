@@ -2,6 +2,7 @@
 #   \code{opts}, which should return binary content from the specified
 #   request. \code{make_request} will take care of resetting the handle's
 #   config after the request is made.
+#' @importFrom methods as
 make_request <- function(method, handle, url, ..., config = list()) {
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)

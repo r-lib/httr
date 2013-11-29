@@ -15,6 +15,10 @@ httr 0.2.99
   use `tryCatch()` to take different actions depending on the type of error.
   See `http_condition()` for more details.
 
+* httr now imports the methods package so that it works when called with
+  Rscript.
+  
+
 httr 0.2
 -----------
 
