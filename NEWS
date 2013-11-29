@@ -25,6 +25,10 @@ httr 0.2.99
   parsed correctly (#27). The names of query params are now also escaped
   and unescaped correctly when parsing and building urls.
 
+* Use the httpuv webserver for the OAuth dance (instead of the built-in 
+  httpd server). This makes the dance work in Rstudio, and also seems a little
+  faster. (#32, thanks to @jdeboer)
+
 httr 0.2
 -----------
 
