@@ -85,7 +85,6 @@ default_config <- function() {
   )
 }
 
-#' @importFrom RCurl curlVersion
 default_ua <- function() {
   versions <- c(
     curl = curlVersion()$version, 
