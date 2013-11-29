@@ -5,13 +5,13 @@
 http_status(x)
 }
 \arguments{
-  \item{x}{a request object}
+  \item{x}{a request object or a number.}
 }
 \value{
-If the status code does not match a known status, the
-function errors out.  Otherwise, it returns a list with
-components \item{category}{the broad category of the
-status} \item{message}{the meaning of the status code}
+If the status code does not match a known status, an error.
+Otherwise, a list with components \item{category}{the broad
+category of the status} \item{message}{the meaning of the
+status code}
 }
 \description{
 Extract the http status code and convert it into a human
@@ -20,16 +20,19 @@ readable message.
 \details{
 http servers send a status code with the response to each
 request. This code gives information regarding the outcome
-of the execution of the request on the server. Roughly,
-codes in the 200s mean the request was successfully
-executed; codes in the 300s mean the page was redirected;
-codes in the 400s mean there was a mistake in the way the
-client sent the request; codes in the 500s mean the server
-failed to fulfill an apparently valid request. More details
-on the codes can be found at
+of the execution of the request on the server. Roughly
+speaking, codes in the 100s and 200s mean the request was
+successfully executed; codes in the 300s mean the page was
+redirected; codes in the 400s mean there was a mistake in
+the way the client sent the request; codes in the 500s mean
+the server failed to fulfill an apparently valid request.
+More details on the codes can be found at
 \code{http://en.wikipedia.org/wiki/Http_error_codes}.
 }
 \examples{
+http_status(100)
+http_status(404)
+
 x <- GET("http://httpbin.org/status/200")
 http_status(x)
 
