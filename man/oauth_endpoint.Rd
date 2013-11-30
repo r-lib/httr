@@ -7,7 +7,7 @@ oauth_endpoint(request = NULL, authorize, access, base_url = NULL)
 }
 \arguments{
   \item{request}{url used to request initial
-  (unauthenticated) token.  If using OAuth, leave as
+  (unauthenticated) token.  If using OAuth1.0, leave as
   \code{NULL}.}
 
   \item{authorize}{url to send client to for authorisation}
@@ -23,7 +23,7 @@ Describe an OAuth endpoint.
 }
 \examples{
 linkedin <- oauth_endpoint("requestToken", "authorize", "accessToken",
- base_url = "https://api.linkedin.com/uas/oauth/")
+  base_url = "https://api.linkedin.com/uas/oauth")
 github <- oauth_endpoint(NULL, "authorize", "access_token",
   base_url = "https://github.com/login/oauth")
 facebook <- oauth_endpoint(
