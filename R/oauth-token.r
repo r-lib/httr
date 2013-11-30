@@ -87,7 +87,7 @@ Token <- setRefClass("Token",
 #' @family OAuth
 #' @export
 oauth1.0_token <- function(endpoint, app, permission = NULL) {
-  stopifnot(is.oauth_endpoint(endpoint))
+  stopifnot(is.oauth_endpoint(endpoint), is.oauth_app(app))
   
   params <- list(permission = permission)
   Token1.0(app = app, endpoint = endpoint, params = params)$init()
@@ -128,7 +128,7 @@ Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
 oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
                            use_oob = getOption("httr_oob_default"),
                            as_header = TRUE) {
-  stopifnot(is.oauth_endpoint(endpoint))
+  stopifnot(is.oauth_endpoint(endpoint), is.oauth_app(app))
 
   params <- list(scope = scope, type = type, use_oob = use_oob,
     as_header = as_header)
