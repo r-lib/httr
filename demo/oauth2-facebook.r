@@ -14,4 +14,3 @@ myapp <- oauth_app("facebook", "353609681364760")
 # 3. Get OAuth credentials
 facebook_token <- oauth2.0_token(facebook, myapp,
   type = "application/x-www-form-urlencoded")
-facebook_sig <- sign_oauth2.0(facebook_token$access_token)

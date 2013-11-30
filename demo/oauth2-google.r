@@ -11,5 +11,5 @@ google <- oauth_endpoint(NULL, "auth", "token",
 myapp <- oauth_app("google", "16795585089.apps.googleusercontent.com")
 
 # 3. Get OAuth credentials
-cred <- oauth2.0_token(google, myapp,
+google_token <- oauth2.0_token(google, myapp,
   scope = "https://www.googleapis.com/auth/userinfo.profile")
