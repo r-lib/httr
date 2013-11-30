@@ -16,5 +16,25 @@ constructor functions \code{\link{oauth1.0_token}} and
   config \item \code{refresh()}: refresh access token (if
   possible) }
 }
+
+\section{Caching}{
+  OAuth tokens are cached on disk in a file called
+  \code{.httr-oauth} saved in the current working
+  directory.  Caching is enabled if:
+
+  \itemize{ \item The session is interactive, and the user
+  agrees to it, OR \item The \code{.httr-oauth} file is
+  already present, OR \item
+  \code{getOption("httr_oauth_cache")} is \code{TRUE} }
+
+  You can suppress caching by setting the
+  \code{httr_oauth_cache} option to \code{FALSE}.
+
+  The cache file should not be included in source code
+  control or R packages (because it contains private
+  information), so httr will automatically add the
+  appropriate entries to `.gitignore` and `.Rbuildignore`
+  if needed.
+}
 \keyword{internal}
 
