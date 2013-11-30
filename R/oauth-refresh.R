@@ -5,7 +5,7 @@
 # https://developers.google.com/accounts/docs/OAuth2InstalledApp#refresh
 refresh_oauth2.0 <- function(endpoint, app, credentials) {
   if (is.null(credentials$refresh_token)) {
-    stop("Invalid credential: missing refresh token")
+    stop("Refresh token not available", call. = FALSE)
   }
 
   refresh_url <- endpoint$access
