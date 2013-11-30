@@ -15,8 +15,10 @@ oauth_app(appname, key, secret = NULL)
   \item{secret}{consumer secret.  This is equivalent to a
   password and should not be stored in publicly visible
   code.  As a convenient shortcut, if \code{secret} is
-  \code{NULL}, we'll look in the environment variable
-  \code{APPNAME_CONSUMER_SECRET}}
+  missing, we'll look in the environment variable
+  \code{APPNAME_CONSUMER_SECRET}. Use \code{NULL} to not
+  store a secret: this is useful if you're relying on
+  cached OAuth tokens.}
 }
 \description{
 The OAuth framework doesn't match perfectly to use from R.
@@ -27,9 +29,15 @@ vimeo, facebook, github and google.
 }
 \examples{
 \dontrun{
+# These work on my computer because I have the right envvars set up
 linkedin_app <- oauth_app("linkedin", key = "outmkw3859gy")
 github_app <- oauth_app("github", "56b637a5baffac62cad9")
 }
+
+# If you're relying on caching, supply an explicit NULL to
+# suppress the warning message
+oauth_app("my_app", "mykey")
+oauth_app("my_app", "mykey", NULL)
 }
 \seealso{
 Other OAuth: \code{\link{oauth1.0_token}},
