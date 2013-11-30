@@ -11,6 +11,24 @@
 #'  \item \code{sign(method, url)}: returns list of url and config
 #'  \item \code{refresh()}: refresh access token (if possible)
 #' }
+#' 
+#' @section Caching:
+#' OAuth tokens are cached on disk in a file called \code{.httr-oauth}
+#' saved in the current working directory.  Caching is enabled if:
+#' 
+#' \itemize{
+#' \item The session is interactive, and the user agrees to it, OR
+#' \item The \code{.httr-oauth} file is already present, OR
+#' \item \code{getOption("httr_oauth_cache")} is \code{TRUE}
+#' }
+#' 
+#' You can suppress caching by setting the \code{httr_oauth_cache} option to 
+#' \code{FALSE}.
+#' 
+#' The cache file should not be included in source code control or R packages
+#' (because it contains private information), so httr will automatically add 
+#' the appropriate entries to `.gitignore` and `.Rbuildignore` if needed.
+#' 
 #' @keywords internal
 #' @importFrom methods setRefClass
 #' @importFrom digest digest
@@ -61,6 +79,9 @@ Token <- setRefClass("Token",
 #' This is the final object in the OAuth dance - it encapsulates the app,
 #' the endpoint, other parameters and the received credentials.
 #' 
+#' See \code{\link{Token}} for full details about the token object, and the 
+#' caching policies used to store credentials across sessions.
+#' 
 #' @inheritParams init_oauth1.0
 #' @return A \code{Token1.0} reference class (RC) object. 
 #' @family OAuth
@@ -92,6 +113,9 @@ Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
 #' the endpoint, other parameters and the received credentials. It is a 
 #' reference class so that it can be seemlessly updated (e.g. using 
 #' \code{$refresh()}) when access expires.
+#' 
+#' See \code{\link{Token}} for full details about the token object, and the 
+#' caching policies used to store credentials across sessions.
 #' 
 #' @inheritParams init_oauth2.0
 #' @param as_header If \code{TRUE}, the default, sends oauth in bearer header. 
