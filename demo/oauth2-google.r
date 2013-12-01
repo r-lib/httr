@@ -2,8 +2,7 @@ library(httr)
 
 # 1. Find OAuth settings for google:
 #    https://developers.google.com/accounts/docs/OAuth2InstalledApp
-google <- oauth_endpoint(NULL, "auth", "token",
-  base_url = "https://accounts.google.com/o/oauth2")
+oauth_endpoints$google
 
 # 2. Register an application at https://code.google.com/apis/console#access
 #    Insert your values below - if secret is omitted, it will look it up in
@@ -11,5 +10,5 @@ google <- oauth_endpoint(NULL, "auth", "token",
 myapp <- oauth_app("google", "16795585089.apps.googleusercontent.com")
 
 # 3. Get OAuth credentials
-google_token <- oauth2.0_token(google, myapp,
+google_token <- oauth2.0_token(oauth_endpoints$google, myapp,
   scope = "https://www.googleapis.com/auth/userinfo.profile")

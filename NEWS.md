@@ -25,6 +25,8 @@
   httpd server). This makes the dance work in Rstudio, and also seems a little
   faster. (#32, thanks to @jdeboer)
 
+* `oauth_endpoints` includes some popular OAuth endpoints.
+
 ## Other improvements
 
 * Added default user agent which includes versions of Curl, RCurl and httr.
