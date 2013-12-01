@@ -4,7 +4,8 @@
 \title{Generate an oauth2.0 token.}
 \usage{
 oauth2.0_token(endpoint, app, scope = NULL, type = NULL,
-  use_oob = getOption("httr_oob_default"), as_header = TRUE)
+  use_oob = getOption("httr_oob_default"), as_header = TRUE,
+  cache = getOption("httr_oauth_cache"))
 }
 \arguments{
   \item{as_header}{If \code{TRUE}, the default, sends oauth

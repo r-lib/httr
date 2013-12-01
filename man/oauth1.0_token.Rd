@@ -3,7 +3,8 @@
 \alias{oauth1.0_token}
 \title{Generate an oauth1.0 token.}
 \usage{
-oauth1.0_token(endpoint, app, permission = NULL)
+oauth1.0_token(endpoint, app, permission = NULL,
+  cache = getOption("httr_oauth_cache"))
 }
 \arguments{
   \item{endpoint}{An OAuth endpoint, created by
