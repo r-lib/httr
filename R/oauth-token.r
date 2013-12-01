@@ -34,7 +34,7 @@
 #' @importFrom digest digest
 #' @export
 Token <- setRefClass("Token", 
-  fields = c("endpoint", "app", "credentials", "params"),
+  fields = c("endpoint", "app", "credentials", "params", "cache_path"),
   methods = list(
     initialize = function(...) {
       credentials <<- NULL
@@ -47,10 +47,13 @@ Token <- setRefClass("Token",
       } 
       
       # Have we computed in the past?
-      if (!force && use_cache()) {
-        cached <- fetch_cached_token(hash())
+      if (!force && !is.null(cache_path)) {
+        cached <- fetch_cached_token(hash(), cache_path)
         if (!is.null(cached)) {
-          import(cached)
+          endpoint <<- cached$endpoint
+          app <<- cached$app
+          credentials <<- cached$credentials
+          params <<- cached$params
           return(.self)
         }
       }
@@ -64,8 +67,7 @@ Token <- setRefClass("Token",
       cat("<OAuth> ", endpoint$authorize, "\n", sep = "")
     },
     cache = function() {
-      if (!use_cache()) return()
-      cache_token(.self)
+      cache_token(.self, cache_path)
       .self
     },
     hash = function() {
@@ -86,18 +88,22 @@ Token <- setRefClass("Token",
 #' @return A \code{Token1.0} reference class (RC) object. 
 #' @family OAuth
 #' @export
-oauth1.0_token <- function(endpoint, app, permission = NULL) {
+oauth1.0_token <- function(endpoint, app, permission = NULL, 
+                           cache = getOption("httr_oauth_cache")) {
   stopifnot(is.oauth_endpoint(endpoint), is.oauth_app(app))
   
   params <- list(permission = permission)
-  Token1.0(app = app, endpoint = endpoint, params = params)$init()
+  cache_path <- use_cache(cache)
+  
+  Token1.0(app = app, endpoint = endpoint, params = params,
+    cache_path = cache_path)$init()
 }
 
 #' @export
 #' @rdname Token-ref-class
 Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
   init_credentials = function(force = FALSE) {
-    credentials <<- oauth1.0_init(endpoint, app, permission = params$permission)
+    credentials <<- init_oauth1.0(endpoint, app, permission = params$permission)
   },
   refresh = function() {
     stop("Not implemented")
@@ -127,12 +133,16 @@ Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
 #' @export
 oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
                            use_oob = getOption("httr_oob_default"),
-                           as_header = TRUE) {
+                           as_header = TRUE, 
+                           cache = getOption("httr_oauth_cache")) {
   stopifnot(is.oauth_endpoint(endpoint), is.oauth_app(app))
 
   params <- list(scope = scope, type = type, use_oob = use_oob,
     as_header = as_header)
-  Token2.0(app = app, endpoint = endpoint, params = params)$init()
+  cache_path <- use_cache(cache)
+  
+  Token2.0(app = app, endpoint = endpoint, params = params, 
+    cache_path = cache_path)$init()
 }
 
 #' @export

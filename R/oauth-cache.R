@@ -1,22 +1,29 @@
-cache_path <- ".httr-oauth"
-
-use_cache <- function() {
-  # Use default, if set.
-  default <- getOption("httr_oauth_cache")
-  if (!is.logical(default) || length(default) != 1) {
-    stop("httr_oauth_cache must be a logical vector of length 1", call. = FALSE)
+use_cache <- function(cache = getOption("httr_oauth_cache")) {
+  if (length(cache) != 1) {
+    stop("cache should be length 1 vector", call. = FALSE)
   }
-  if (!is.na(default)) return(default)
+  if (!is.logical(cache) && !is.character(cache)) {
+    stop("Cache must either be logical or string (file path)")
+  }
   
+  # If it's a character, then it's a file path, so use it
+  if (is.character(cache)) return(cache)
+
+  if (is.na(cache)) {
+    cache <- guess_cache()
+    if (cache) protect_cache()
+    options("httr_oauth_cache" = cache) 
+  }
+  
+  if (cache) ".httr-oauth" else NULL
+}
+
+guess_cache <- function() {
   if (!interactive()) return(FALSE)
-  if (file.exists(cache_path)) return(TRUE)
+  if (file.exists(".httr-oauth")) return(TRUE)
   
   cat("Use a local file to cache OAuth access credentials between R sessions?")
-  choice <- menu(c("Yes", "No")) == 1
-  if (choice) protect_cache()
-  
-  options("httr_oauth_cache" = choice)
-  choice
+  menu(c("Yes", "No")) == 1  
 }
 
 protect_cache <- function() {
@@ -45,17 +52,21 @@ add_line <- function(path, line, quiet = FALSE) {
   TRUE
 }
 
-cache_token <- function(token) {
-  tokens <- load_cache()
+cache_token <- function(token, cache_path) {
+  if (is.null(cache_path)) return()
+  
+  tokens <- load_cache(cache_path)
   tokens[[token$hash()]] <- token
   saveRDS(tokens, cache_path)
 }
 
-fetch_cached_token <- function(hash) {
-  load_cache()[[hash]]
+fetch_cached_token <- function(hash, cache_path) {
+  if (is.null(cache_path)) return()
+
+  load_cache(cache_path)[[hash]]
 }
 
-load_cache <- function() {
+load_cache <- function(cache_path) {
   if (!file.exists(cache_path)) {
     list()
   } else {
