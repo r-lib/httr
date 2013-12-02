@@ -40,6 +40,9 @@
 * New automatic parsers for mime types `text/tab-separated-values` and 
   `text/csv` (#49)
 
+* If you supply multiple headers of the same name, the value of the most 
+  recently set header will always be used.
+
 ## Bug fixes
 
 * Urls with missing query param values (e.g. `http://x.com/?q=`) are now

@@ -59,7 +59,7 @@ c.config <- function(...) {
   all <- NextMethod()
   is_header <- names(all) == "httpheader"
   headers <- unlist(unname(all[is_header]), recursive = FALSE)
-  all <- c(all[!is_header], list(httpheader = headers))
+  all <- c(all[!is_header], add_headers(.headers = headers))
 
   structure(all, class = "config")
 }
@@ -74,9 +74,10 @@ print.config <- function(x, ...) {
 # http header
 modify_config <- function(x, val) {
   overwrite <- setdiff(names(val), "httpheader")
-  
   x[overwrite] <- val[overwrite]
-  x$httpheader <- c(x$httpheader, val$httpheader)
+  
+  headers <- c(x$httpheader, val$httpheader)
+  x$httpheader <- add_headers(.headers = headers)$httpheader
   
   x
 }
