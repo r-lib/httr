@@ -73,7 +73,7 @@ print.config <- function(x, ...) {
 # A version of modifyList that works with config files, and merges
 # http header
 modify_config <- function(x, val) {
-  overwrite <- setdiff(intersect(names(x), names(val)), "httpheader")
+  overwrite <- setdiff(names(val), "httpheader")
   
   x[overwrite] <- val[overwrite]
   x$httpheader <- c(x$httpheader, val$httpheader)
