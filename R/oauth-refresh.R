@@ -17,6 +17,7 @@ refresh_oauth2.0 <- function(endpoint, app, credentials) {
   )
   
   response <- POST(refresh_url, body = body, multipart = FALSE)
+  if (!successful(response)) browser()
   stop_for_status(response)
 
   refresh_data <- content(response)

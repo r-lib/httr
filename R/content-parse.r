@@ -70,7 +70,7 @@ parsers$`text/tab-separated-values` <- function(x, ...) {
 }
 
 parseability <- function(type) {
-  if (is.null(type)) return("raw")
+  if (is.null(type) || type == "") return("raw")
   mt <- parse_media(type)
 
   if (exists(mt$complete, parsers)) {

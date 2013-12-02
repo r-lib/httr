@@ -2,7 +2,7 @@
 \alias{oauth_endpoint}
 \title{Describe an OAuth endpoint.}
 \usage{
-oauth_endpoint(request = NULL, authorize, access, base_url = NULL)
+oauth_endpoint(request = NULL, authorize, access, ..., base_url = NULL)
 }
 \arguments{
   \item{request}{url used to request initial
@@ -13,6 +13,8 @@ oauth_endpoint(request = NULL, authorize, access, base_url = NULL)
 
   \item{access}{url used to exchange unauthenticated for
   authenticated token.}
+
+  \item{...}{other additional endpoints.}
 
   \item{base_url}{option url to use as base for
   \code{request}, \code{authorize} and \code{access} urls.}

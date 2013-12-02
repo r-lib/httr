@@ -37,6 +37,7 @@ oauth_endpoint <- function(request = NULL, authorize, access, ...,
   path <- parse_url(base_url)$path
   add_base_url <- function(x) {
     if (is.null(x)) return(x)
+    if (substr(x, 1, 4) == "http") return(x)
     modify_url(base_url, path = file.path(path, x))
   }
   urls <- lapply(urls, add_base_url)
@@ -51,10 +52,10 @@ is.oauth_endpoint <- function(x) inherits(x, "oauth_endpoint")
 
 #' @export
 print.oauth_endpoint <- function(x, ...) {
+  x <- compact(x)
   cat("<oauth_endpoint>\n")
-  cat("  request:   ", x$request, "\n", sep = "")
-  cat("  authorize: ", x$authorize, "\n", sep = "")
-  cat("  access:    ", x$access, "\n", sep = "")
+  cat(paste0(" ", format(paste0(names(x), ": ")), unlist(x), collapse = "\n"))
+  cat("\n")
 }  
 
 #' Popular oauth endpoints.
@@ -73,7 +74,7 @@ oauth_endpoints <- list(
     base_url = "https://accounts.google.com/o/oauth2",
     authorize = "auth",
     access = "token",
-    validate = "tokeninfo",
+    validate = "https://www.googleapis.com/oauth2/v1/tokeninfo",
     revoke = "revoke"
   ),
   facebook = oauth_endpoint(
