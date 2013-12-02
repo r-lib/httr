@@ -49,14 +49,8 @@ Token <- setRefClass("Token",
       
       # Have we computed in the past?
       if (!force && !is.null(cache_path)) {
-        cached <- fetch_cached_token(hash(), cache_path)
-        if (!is.null(cached)) {
-          endpoint <<- cached$endpoint
-          app <<- cached$app
-          credentials <<- cached$credentials
-          params <<- cached$params
-          return(.self)
-        }
+        load_from_cache()
+        return(.self)
       }
       
       # Otherwise use initialise from endpoint - need to use .self to
@@ -70,6 +64,16 @@ Token <- setRefClass("Token",
     cache = function() {
       cache_token(.self, cache_path)
       .self
+    },
+    load_from_cache = function() {
+      cached <- fetch_cached_token(hash(), cache_path)
+      if (is.null(cached)) return(FALSE)
+
+      endpoint <<- cached$endpoint
+      app <<- cached$app
+      credentials <<- cached$credentials
+      params <<- cached$params
+      TRUE
     },
     hash = function() {
       digest(list(endpoint, params))
