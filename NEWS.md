@@ -3,7 +3,7 @@
 ## OAuth improvements
 
 * The OAuth token objects are now reference classes, which mean they can be
-  updated in place, such as when an access token expires and needs to be 
+  updated in place, such as when an access token expires and needs to be
   refreshed. You can manually refresh by calling `$refresh()` on the object.
 
 * OAuth tokens are cached locally in a file called `.oauth-httr` (unless
@@ -48,6 +48,9 @@
 
 * Add support for `fragment` in url building/parsing. Contributed by
   Craig Citro. (#70)
+
+* If you supply multiple headers of the same name, the value of the most
+  recently set header will always be used.
 
 ## Bug fixes
 

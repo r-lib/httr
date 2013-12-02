@@ -26,10 +26,15 @@
 #'  add_headers(version = version$version.string))
 add_headers <- function(..., .headers = character()) {
   headers <- c(..., .headers)
+  if (length(headers) == 0) return()
   stopifnot(is.character(headers))
 
+  # Keep last of duplicated headers
+  headers <- headers[!duplicated(names(headers), fromLast = TRUE)]
+  
   config(httpheader = headers)
 }
+
 
 #' @export
 #' @rdname add_headers
