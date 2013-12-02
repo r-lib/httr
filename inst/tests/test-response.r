@@ -6,7 +6,7 @@ test_that("application/json responses parsed as lists", {
                     add_headers("user-agent" = user_agent))
 
     expect_equal(response$status, 200)
-    expected_reply = list("user-agent" = user_agent)
+    expected_reply = list("user-agent" = user_agent %||% default_ua())
     expect_equal(expected_reply, content(response))
   }
 
