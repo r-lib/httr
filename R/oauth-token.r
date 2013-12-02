@@ -10,6 +10,7 @@
 #'  \item \code{cache()}: caches token to disk
 #'  \item \code{sign(method, url)}: returns list of url and config
 #'  \item \code{refresh()}: refresh access token (if possible)
+#'  \item \code{validate()}: TRUE if the token is still valid, FALSE otherwise
 #' }
 #' 
 #' @section Caching:
@@ -59,10 +60,15 @@ Token <- setRefClass("Token",
       cache()
     },
     show = function() {
-      cat("<OAuth> ", endpoint$authorize, "\n", sep = "")
+      cat("<Token>\n", sep = "")
+      print(endpoint)
+      print(app)
+      cat("<credentials> ", paste0(names(credentials), collapse = ", "), "\n",
+        sep = "")
+      cat("---\n")
     },
-    cache = function() {
-      cache_token(.self, cache_path)
+    cache = function(path = cache_path) {
+      cache_token(.self, path)
       .self
     },
     load_from_cache = function() {
@@ -177,5 +183,11 @@ Token2.0 <- setRefClass("Token2.0", contains = "Token", methods = list(
       url$query$access_token <- credentials$access_token
       list(url = build_url(url), config = config())
     }
+  },
+  validate = function() {
+    validate_oauth2.0(endpoint, credentials)
+  },
+  revoke = function() {
+    revoke_oauth2.0(endpoint, credentials)
   }
 ))

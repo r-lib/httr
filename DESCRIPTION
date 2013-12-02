@@ -56,6 +56,7 @@ Collate:
     'oauth-listener.r'
     'oauth-refresh.R'
     'oauth-signature.r'
+    'oauth-token-utils.R'
     'oauth-token.r'
     'proxy.r'
     'request-bin.r'

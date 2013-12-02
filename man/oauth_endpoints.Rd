@@ -19,10 +19,12 @@
   ..$ authorize: chr "http://vimeo.com/oauth/authorize"
   ..$ access   : chr "http://vimeo.com/oauth/access_token"
   ..- attr(*, "class")= chr "oauth_endpoint"
- $ google  :List of 3
-  ..$ request  : chr "https://accounts.google.com/"
+ $ google  :List of 5
+  ..$ request  : NULL
   ..$ authorize: chr "https://accounts.google.com/o/oauth2/auth"
   ..$ access   : chr "https://accounts.google.com/o/oauth2/token"
+  ..$ validate : chr "https://www.googleapis.com/oauth2/v1/tokeninfo"
+  ..$ revoke   : chr "https://accounts.google.com/o/oauth2/revoke"
   ..- attr(*, "class")= chr "oauth_endpoint"
  $ facebook:List of 3
   ..$ request  : NULL
@@ -30,7 +32,7 @@
   ..$ access   : chr "https://graph.facebook.com/oauth/access_token"
   ..- attr(*, "class")= chr "oauth_endpoint"
  $ github  :List of 3
-  ..$ request  : chr "https://github.com/"
+  ..$ request  : NULL
   ..$ authorize: chr "https://github.com/login/oauth/authorize"
   ..$ access   : chr "https://github.com/login/oauth/access_token"
   ..- attr(*, "class")= chr "oauth_endpoint"

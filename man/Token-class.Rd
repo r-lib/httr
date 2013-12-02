@@ -18,7 +18,8 @@ and \code{\link{oauth2.0_token}}.
   \itemize{ \item \code{cache()}: caches token to disk
   \item \code{sign(method, url)}: returns list of url and
   config \item \code{refresh()}: refresh access token (if
-  possible) }
+  possible) \item \code{validate()}: TRUE if the token is
+  still valid, FALSE otherwise }
 }
 
 \section{Caching}{
