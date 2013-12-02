@@ -1,6 +1,13 @@
+\docType{class}
 \name{Token-ref-class}
+\alias{Token}
+\alias{Token-class}
 \alias{Token-ref-class}
+\alias{Token1.0}
+\alias{Token1.0-class}
 \alias{Token1.0-ref-class}
+\alias{Token2.0}
+\alias{Token2.0-class}
 \alias{Token2.0-ref-class}
 \title{OAuth token objects.}
 \description{

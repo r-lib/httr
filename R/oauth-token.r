@@ -32,6 +32,7 @@
 #' @keywords internal
 #' @importFrom methods setRefClass
 #' @importFrom digest digest
+#' @aliases Token Token1.0 Token2.0 Token-class Token1.0-class Token2.0-class
 #' @export
 Token <- setRefClass("Token", 
   fields = c("endpoint", "app", "credentials", "params", "cache_path"),
@@ -85,6 +86,10 @@ Token <- setRefClass("Token",
 #' caching policies used to store credentials across sessions.
 #' 
 #' @inheritParams init_oauth1.0
+#' @param cache A logical value or a string. \code{TRUE} means to cache
+#'   using the default cache file \code{.oauth-httr}, \code{FALSE} means
+#'   don't cache, and \code{NA} means to guess using some sensible heuristics.
+#'   A string mean use the specified path as the cache file. 
 #' @return A \code{Token1.0} reference class (RC) object. 
 #' @family OAuth
 #' @export
@@ -128,6 +133,7 @@ Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
 #' @inheritParams init_oauth2.0
 #' @param as_header If \code{TRUE}, the default, sends oauth in bearer header. 
 #'   If \code{FALSE}, adds as parameter to url.
+#' @inheritParams oauth1.0_token
 #' @return A \code{Token2.0} reference class (RC) object. 
 #' @family OAuth
 #' @export

@@ -6,6 +6,12 @@ oauth1.0_token(endpoint, app, permission = NULL,
   cache = getOption("httr_oauth_cache"))
 }
 \arguments{
+  \item{cache}{A logical value or a string. \code{TRUE}
+  means to cache using the default cache file
+  \code{.oauth-httr}, \code{FALSE} means don't cache, and
+  \code{NA} means to guess using some sensible heuristics.
+  A string mean use the specified path as the cache file.}
+
   \item{endpoint}{An OAuth endpoint, created by
   \code{\link{oauth_endpoint}}}
 
