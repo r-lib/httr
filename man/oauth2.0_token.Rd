@@ -27,6 +27,12 @@ oauth2.0_token(endpoint, app, scope = NULL, type = NULL,
   OAuth dance.  Otherwise, provide a URL to the user and
   prompt for a validation code. Defaults to the of the
   \code{"httr_oob_default"} default.}
+
+  \item{cache}{A logical value or a string. \code{TRUE}
+  means to cache using the default cache file
+  \code{.oauth-httr}, \code{FALSE} means don't cache, and
+  \code{NA} means to guess using some sensible heuristics.
+  A string mean use the specified path as the cache file.}
 }
 \value{
 A \code{Token2.0} reference class (RC) object.

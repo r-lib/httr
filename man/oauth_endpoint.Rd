@@ -19,8 +19,8 @@ oauth_endpoint(request = NULL, authorize, access, base_url = NULL)
   \code{request}, \code{authorize} and \code{access} urls.}
 }
 \description{
-See \code{\link{oauth_endpoints}} for a list of popular
-OAuth endpoints baked into httr.
+See \code{\link{oauth_endpoints}} for a list of popular OAuth endpoints
+baked into httr.
 }
 \examples{
 linkedin <- oauth_endpoint("requestToken", "authorize", "accessToken",
