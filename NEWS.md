@@ -44,6 +44,8 @@ code review to make sure it's secure.
 * Add support for passing oauth2 tokens in headers instead of the URL, and
   make this the default. Contributed by Craig Citro. (#34)
 
+* OAuth endpoints can store arbitrary extra urls.
+
 * Use the httpuv webserver for the OAuth dance (instead of the built-in 
   httpd server). This makes the dance work in Rstudio, and also seems a little
   faster. (#32, thanks to @jdeboer)

@@ -10,6 +10,7 @@ NULL
 #'   If using OAuth1.0, leave as \code{NULL}.
 #' @param authorize url to send client to for authorisation
 #' @param access url used to exchange unauthenticated for authenticated token.
+#' @param ... other additional endpoints.
 #' @param base_url option url to use as base for \code{request},
 #'   \code{authorize} and \code{access} urls.
 #' @family OAuth
@@ -24,21 +25,25 @@ NULL
 #'   access = "https://graph.facebook.com/oauth/access_token")
 #'   
 #' oauth_endpoints
-oauth_endpoint <- function(request = NULL, authorize, access, base_url = NULL) {
+oauth_endpoint <- function(request = NULL, authorize, access, ..., 
+                           base_url = NULL) {
+  urls <- list(request = request, authorize = authorize, access = access, ...)
+
   if (is.null(base_url)) {
-    return(endpoint(request, authorize, access))
+    return(do.call(endpoint, urls))
   }
   
+  # If base_url provided, add it as a prefix
   path <- parse_url(base_url)$path
-  endpoint(
-    modify_url(base_url, path = file.path(path, request)),
-    modify_url(base_url, path = file.path(path, authorize)),
-    modify_url(base_url, path = file.path(path, access))
-  )
+  add_base_url <- function(x) {
+    if (is.null(x)) return(x)
+    modify_url(base_url, path = file.path(path, x))
+  }
+  urls <- lapply(urls, add_base_url)
+  do.call(endpoint, urls)
 }
-
-endpoint <- function(request, authorize, access) {
-  structure(list(request = request, authorize = authorize, access = access),
+endpoint <- function(request, authorize, access, ...) {
+  structure(list(request = request, authorize = authorize, access = access, ...),
     class = "oauth_endpoint")
 }
 
@@ -64,8 +69,13 @@ oauth_endpoints <- list(
     "request_token", "authenticate", "access_token"),
   vimeo = oauth_endpoint(base_url = "http://vimeo.com/oauth",
     "request_token", "authorize", "access_token"),
-  google = oauth_endpoint(base_url = "https://accounts.google.com/o/oauth2",
-    NULL, "auth", "token"),
+  google = oauth_endpoint(
+    base_url = "https://accounts.google.com/o/oauth2",
+    authorize = "auth",
+    access = "token",
+    validate = "tokeninfo",
+    revoke = "revoke"
+  ),
   facebook = oauth_endpoint(
     authorize = "https://www.facebook.com/dialog/oauth",
     access = "https://graph.facebook.com/oauth/access_token"),
