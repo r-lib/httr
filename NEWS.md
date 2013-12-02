@@ -21,7 +21,9 @@ and reset your access token through the corresponding web interface.
 
 Together, these changes mean that you should only ever have to authenticate
 once per project, and you can authenticate from any environment in which
-you can run R.
+you can run R. A big thanks go to Craig Citro (@craigcitro) from google,
+who contribute a lot of code and ideas to make this possible, and a thorough 
+code review to make sure it's secure.
 
 * The OAuth token objects are now reference classes, which mean they can be
   updated in place, such as when an access token expires and needs to be
