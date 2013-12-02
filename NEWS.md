@@ -2,6 +2,27 @@
 
 ## OAuth improvements
 
+OAuth 2.0 has recieved a major overhaul in this version. The authentication
+dance now works in more environments (including RStudio), and is generally
+a little faster. When working on a remote server, or if R's internet connection
+is constrained in other ways, you can now use out-of-band authentication,
+copying and pasting from any browser to your R session. OAuth tokens from
+endpoints that regularly expire access tokens can now be refreshed, and will
+be refresh automatically on authentication failure.
+
+httr now uses project (working directory) based caching: every time you 
+create or refresh a token, a copy of the credentials will be saved in 
+`.httr-oauth`. You can override this default for individual tokens with the 
+`cache` parameter, or on a global basis with the `httr_oauth_cache` option.
+Supply either a logical vector (`TRUE` = always cache, `FALSE` = never cache,
+`NA` = ask), or a string (the path to the cache file). You should NOT 
+include this cache file in source code control - if you do, delete it,
+and reset your access token through the corresponding web interface.
+
+Together, these changes mean that you should only ever have to authenticate
+once per project, and you can authenticate from any environment in which
+you can run R.
+
 * The OAuth token objects are now reference classes, which mean they can be
   updated in place, such as when an access token expires and needs to be 
   refreshed. You can manually refresh by calling `$refresh()` on the object.
