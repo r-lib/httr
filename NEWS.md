@@ -10,19 +10,19 @@ copying and pasting from any browser to your R session. OAuth tokens from
 endpoints that regularly expire access tokens can now be refreshed, and will
 be refresh automatically on authentication failure.
 
-httr now uses project (working directory) based caching: every time you 
-create or refresh a token, a copy of the credentials will be saved in 
-`.httr-oauth`. You can override this default for individual tokens with the 
+httr now uses project (working directory) based caching: every time you
+create or refresh a token, a copy of the credentials will be saved in
+`.httr-oauth`. You can override this default for individual tokens with the
 `cache` parameter, or on a global basis with the `httr_oauth_cache` option.
 Supply either a logical vector (`TRUE` = always cache, `FALSE` = never cache,
-`NA` = ask), or a string (the path to the cache file). You should NOT 
+`NA` = ask), or a string (the path to the cache file). You should NOT
 include this cache file in source code control - if you do, delete it,
 and reset your access token through the corresponding web interface.
 
 Together, these changes mean that you should only ever have to authenticate
 once per project, and you can authenticate from any environment in which
 you can run R. A big thanks go to Craig Citro (@craigcitro) from google,
-who contribute a lot of code and ideas to make this possible, and a thorough 
+who contribute a lot of code and ideas to make this possible, and a thorough
 code review to make sure it's secure.
 
 * The OAuth token objects are now reference classes, which mean they can be
@@ -43,6 +43,8 @@ code review to make sure it's secure.
 
 * Add support for passing oauth2 tokens in headers instead of the URL, and
   make this the default. Contributed by Craig Citro. (#34)
+
+* OAuth endpoints can store arbitrary extra urls.
 
 * Use the httpuv webserver for the OAuth dance (instead of the built-in
   httpd server). This makes the dance work in Rstudio, and also seems a little
