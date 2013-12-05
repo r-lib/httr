@@ -3,3 +3,4 @@
 ^\.travis\.yml$
 ^\.httr-oauth$
 ^\.NEWS\.md$
+^\.Rprofile$
