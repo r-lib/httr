@@ -16,3 +16,10 @@ nonce <- function(length = 10) {
 curl_version <- function() {
   as.numeric_version(RCurl::curlVersion()$version)
 }
+
+has_env_var <- function(x) !identical(Sys.getenv(x), "")
+
+travis_encrypt <- function(vars) {
+  values <- Sys.getenv(vars)
+  cat(paste0("travis encrypt ", paste0(vars, "=", values, collapse = " ")))
+}
