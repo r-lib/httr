@@ -3,13 +3,13 @@
 \title{Modify a url.}
 \usage{
 modify_url(url, scheme = NULL, hostname = NULL, port = NULL,
-  path = NULL, query = NULL, params = NULL, username = NULL,
-  password = NULL)
+  path = NULL, query = NULL, params = NULL, fragment = NULL,
+  username = NULL, password = NULL)
 }
 \arguments{
   \item{url}{the url to modify}
 
-  \item{scheme,hostname,port,path,query,params,username,password}{components
+  \item{scheme,hostname,port,path,query,params,fragment,username,password}{components
   of the url to change}
 }
 \description{
