@@ -22,7 +22,7 @@ Suggests:
     jpeg,
     Rook,
     httpuv
-License: MIT
+License: MIT + file LICENSE
 Collate:
     'authenticate.r'
     'config.r'
