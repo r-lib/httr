@@ -8,6 +8,7 @@ test_that("parse_url works as expected", {
     "http://google.com/path?a=1&b=2",
     "http://google.com/path;param?a=1&b=2",
     "http://google.com:80/path;param?a=1&b=2",
+    "http://google.com:80/path;param?a=1&b=2#frag",
     "http://user@google.com:80/path;param?a=1&b=2",
     "http://user:pass@google.com:80/path;param?a=1&b=2",
     "svn+ssh://my.svn.server/repo/trunk"
@@ -31,4 +32,12 @@ test_that("query strings escaped and unescaped correctly", {
   parsed <- parse_url(url)
   expect_equal(parsed$query, list("x y" = "a b"))
   expect_equal(build_url(parsed), url)
+})
+
+test_that("password and no username is an error", {
+  url <- "http://www.example.com/"
+  parsed <- parse_url(url)
+  expect_equal(build_url(parsed), url)
+  parsed$password <- "secret"
+  expect_error(build_url(parsed), "password without username")
 })
