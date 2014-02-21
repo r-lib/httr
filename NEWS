@@ -1,6 +1,8 @@
 httr 0.2.1
 ----------
 
+* Fix incompatibility with testthat 0.8
+
 httr 0.2
 ----------
 
