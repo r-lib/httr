@@ -22,27 +22,26 @@ and reset your access token through the corresponding web interface.
 Together, these changes mean that you should only ever have to authenticate
 once per project, and you can authenticate from any environment in which
 you can run R. A big thanks go to Craig Citro (@craigcitro) from google,
-who contribute a lot of code and ideas to make this possible, and a thorough
-code review to make sure it's secure.
+who contribute a lot of code and ideas to make this possible.
 
 * The OAuth token objects are now reference classes, which mean they can be
   updated in place, such as when an access token expires and needs to be
   refreshed. You can manually refresh by calling `$refresh()` on the object.
+  You can force reinitialisation (to do the complete dance from
+  scratch) by calling `$reinit(force)`.
 
 * OAuth tokens are cached locally in a file called `.oauth-httr` (unless
-  you opt out). You can force reinitialisation (to do the complete dance from
-  scratch) by calling `$reinit(force)`. This file should not be included in
-  source code control, and httr will automatically add to `.gitignore`
-  and `.Rbuildignore` if needed. The caching policy is described in more
-  detail in the document for the `Token` class.
+  you opt out). This file should not be included in source code control,
+  and httr will automatically add to `.gitignore` and `.Rbuildignore` if
+  needed. The caching policy is described in more detail in the help for
+  the `Token` class.
 
-* OAuth2 dance can now be performed without running a local webserver (#33,
-  thanks to Craig Citro). To make that the default, set
-  `options(httr_oob_default = TRUE)` to determine whether. This is useful
-  when running R remotely.
+* The OAuth2 dance can now be performed without running a local webserver
+  (#33, thanks to @craigcitro). To make that the default, set
+  `options(httr_oob_default = TRUE)`. This is useful when running R remotely.
 
 * Add support for passing oauth2 tokens in headers instead of the URL, and
-  make this the default. Contributed by Craig Citro. (#34)
+  make this the default (#34, thanks to @craigcitro).
 
 * OAuth endpoints can store arbitrary extra urls.
 
@@ -59,7 +58,7 @@ code review to make sure it's secure.
 
 * Added default user agent which includes versions of Curl, RCurl and httr.
 
-* Switched to RJSONIO from rjson. No longer loads onto search path.
+* Switched to RJSONIO from rjson. No longer loaded onto search path.
 
 * `stop_for_status()` now raises errors with useful classes so that you can
   use `tryCatch()` to take different actions depending on the type of error.
@@ -71,13 +70,13 @@ code review to make sure it's secure.
 * New automatic parsers for mime types `text/tab-separated-values` and
   `text/csv` (#49)
 
-* Add support for `fragment` in url building/parsing. Contributed by
-  Craig Citro. (#70)
+* Add support for `fragment` in url building/parsing (#70, thanks to
+  @craigcitro).
+
+## Bug fixes
 
 * If you supply multiple headers of the same name, the value of the most
   recently set header will always be used.
-
-## Bug fixes
 
 * Urls with missing query param values (e.g. `http://x.com/?q=`) are now
   parsed correctly (#27). The names of query params are now also escaped
