@@ -11,7 +11,6 @@
 #' @param request_url the url to send the browser to
 #' @export
 #' @keywords internal
-#' @importFrom httpuv startServer service
 oauth_listener <- function(request_url) {
   if (!require("Rook") || !require("httpuv")) {
     stop("Rook and httpuv packages required to capture OAuth credentials")
@@ -34,16 +33,16 @@ oauth_listener <- function(request_url) {
     res$finish()
   }
 
-  server <- startServer("127.0.0.1", 1410, list(call = listen))
-  on.exit(stopServer(server))
+  server <- httpuv::startServer("127.0.0.1", 1410, list(call = listen))
+  on.exit(httpuv::stopServer(server))
 
   message("Waiting for authentication in browser...")
   BROWSE(request_url)
   while(is.null(info)) {
-    service()
+    httpuv::service()
     Sys.sleep(0.001)
   }
-  service() # to send text back to browser
+  httpuv::service() # to send text back to browser
 
   message("Authentication complete.")
   info
