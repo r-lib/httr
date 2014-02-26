@@ -1,6 +1,9 @@
 httr 0.2.99
 -------------
 
+* `httr` includes its own copy of `cacert.pem`, which is more recent than
+  the version included in RCurl (#67).
+
 * Added default user agent which includes versions of Curl, RCurl and httr.
 
 * Switched to RJSONIO from rjson. No longer loads onto search path.
@@ -17,15 +20,15 @@ httr 0.2.99
 
 * httr now imports the methods package so that it works when called with
   Rscript.
-  
-* New automatic parsers for mime types `text/tab-separated-values` and 
+
+* New automatic parsers for mime types `text/tab-separated-values` and
   `text/csv` (#49)
 
 * Urls with missing query param values (e.g. `http://x.com/?q=`) are now
   parsed correctly (#27). The names of query params are now also escaped
   and unescaped correctly when parsing and building urls.
 
-* Use the httpuv webserver for the OAuth dance (instead of the built-in 
+* Use the httpuv webserver for the OAuth dance (instead of the built-in
   httpd server). This makes the dance work in Rstudio, and also seems a little
   faster. (#32, thanks to @jdeboer)
 

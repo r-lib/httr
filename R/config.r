@@ -72,7 +72,8 @@ print.config <- function(x, ...) {
 
 
 default_config <- function() {
-  cert <- system.file("CurlSSL/cacert.pem", package = "RCurl")
+  # Downloaded from http://curl.haxx.se/docs/caextract.html 2014-02-26
+  cert <- system.file("cacert.pem", package = "httr")
 
   c(config(
       followlocation = 1L,
