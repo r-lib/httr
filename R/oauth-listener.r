@@ -16,6 +16,10 @@ oauth_listener <- function(request_url) {
     stop("Rook and httpuv packages required to capture OAuth credentials")
   }
 
+  if (!interactive()) {
+    stop("oauth_listener() needs an interactive environment.", call. = FALSE)
+  }
+
   info <- NULL
   listen <- function(env) {
     req <- Request$new(env)
