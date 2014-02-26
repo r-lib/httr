@@ -1,6 +1,6 @@
 #' Sign an OAuth request
 #'
-#' Deprecated. Instead create a config object directly using 
+#' Deprecated. Instead create a config object directly using
 #' \code{config(token = my_token)}.
 #'
 #' @keywords internal
@@ -10,7 +10,7 @@ NULL
 #' @export
 #' @rdname sign_oauth
 sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
-  stop("Deprecated: use supply token object to config directly", call. = FALSE)
+  stop("Deprecated: supply token object to config directly", call. = FALSE)
 }
 
 #' @export
