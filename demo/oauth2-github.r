@@ -15,5 +15,10 @@ myapp <- oauth_app("github", "56b637a5baffac62cad9")
 github_token <- oauth2.0_token(oauth_endpoints$github, myapp)
 
 # Use access token to get user specific data
-GET("https://api.github.com/rate_limit")
-GET("https://api.github.com/rate_limit", config(token = github_token))
+req <- GET("https://api.github.com/rate_limit")
+stop_for_status(req)
+req
+
+req <- GET("https://api.github.com/rate_limit", config(token = github_token))
+stop_for_status(req)
+req
