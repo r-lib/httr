@@ -17,7 +17,7 @@ Imports:
 Suggests:
     RJSONIO,
     XML,
-    testthat,
+    testthat (>= 0.8.0),
     png,
     jpeg,
     Rook,
