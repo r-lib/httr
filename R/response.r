@@ -27,7 +27,7 @@ is.response <- function(x) {
   inherits(x, "response")
 }
 
-#' @S3method print response
+#' @export
 print.response <- function(x, ..., max.lines = 10) {
   cat("Response [", x$url, "]\n", sep = "")
   cat("  Status: ", x$status, "\n", sep = "")
@@ -46,7 +46,7 @@ print.response <- function(x, ..., max.lines = 10) {
   }
 }
 
-#' @S3method as.character response
+#' @export
 as.character.response <- function(x, ...) {
   content(x, "text")
 }

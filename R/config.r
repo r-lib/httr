@@ -54,7 +54,7 @@ is.config <- function(x) inherits(x, "config")
 # Of these, only CURLOPT_HTTPHEADER is likely ever to be used, so we'll
 # deal with it specially.  It's possible you might also want to do that
 # with cookies, but that would require a bigger rewrite.
-#' @S3method c config
+#' @export
 c.config <- function(...) {
   all <- NextMethod()
   is_header <- names(all) == "httpheader"
@@ -64,7 +64,7 @@ c.config <- function(...) {
   structure(all, class = "config")
 }
 
-#' @S3method print config
+#' @export
 print.config <- function(x, ...) {
   cat("Config: \n")
   str(unclass(x), give.head = FALSE)
@@ -87,7 +87,7 @@ default_config <- function() {
 
 default_ua <- function() {
   versions <- c(
-    curl = curlVersion()$version, 
+    curl = curlVersion()$version,
     Rcurl = as.character(packageVersion("RCurl")),
     httr = as.character(packageVersion("httr"))
   )

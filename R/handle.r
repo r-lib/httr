@@ -29,7 +29,7 @@ handle <- function(url, cookies = TRUE) {
   structure(list(handle = h, url = url), class = "handle")
 }
 
-#' @S3method print handle
+#' @export
 print.handle <- function(x, ...) {
   cat("Host: ", build_url(x$url) , " <", ref(x), ">\n", sep = "")
 }

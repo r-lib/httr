@@ -14,9 +14,8 @@ insensitive <- function(x) {
   structure(x, class = c("insensitive", class(x)))
 }
 
-#' @S3method [ insensitive
-#' @S3method [[ insensitive
-"[[.insensitive" <- "[.insensitive" <- function(x, i, ...) {
+#' @export
+`[.insensitive` <- function(x, i, ...) {
   if (is.character(i)) {
     i <- tolower(i)
   }
@@ -24,7 +23,11 @@ insensitive <- function(x) {
   NextMethod()
 }
 
-#' @S3method $ insensitive
+#' @export
+`[[.insensitive` <- `[.insensitive`
+
+
+#' @export
 "$.insensitive" <- function(x, name) {
   name <- tolower(name)
   x[[name]]
