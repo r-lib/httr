@@ -22,6 +22,7 @@ Suggests:
     jpeg,
     Rook,
     httpuv
+Roxygen: list(wrap = FALSE)
 License: MIT + file LICENSE
 Collate:
     'authenticate.r'
