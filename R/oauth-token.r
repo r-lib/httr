@@ -49,8 +49,7 @@ Token <- setRefClass("Token",
       }
 
       # Have we computed in the past?
-      if (!force && !is.null(cache_path)) {
-        load_from_cache()
+      if (!force && load_from_cache()) {
         return(.self)
       }
 
@@ -72,6 +71,8 @@ Token <- setRefClass("Token",
       .self
     },
     load_from_cache = function() {
+      if (is.null(cache_path)) return(FALSE)
+
       cached <- fetch_cached_token(hash(), cache_path)
       if (is.null(cached)) return(FALSE)
 
