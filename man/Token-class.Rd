@@ -35,6 +35,8 @@ and \code{\link{oauth2.0_token}}.
   You can suppress caching by setting the
   \code{httr_oauth_cache} option to \code{FALSE}.
 
+  Tokens are cached based on their endpoint and parameters.
+
   The cache file should not be included in source code
   control or R packages (because it contains private
   information), so httr will automatically add the

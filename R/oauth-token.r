@@ -26,6 +26,8 @@
 #' You can suppress caching by setting the \code{httr_oauth_cache} option to
 #' \code{FALSE}.
 #'
+#' Tokens are cached based on their endpoint and parameters.
+#'
 #' The cache file should not be included in source code control or R packages
 #' (because it contains private information), so httr will automatically add
 #' the appropriate entries to `.gitignore` and `.Rbuildignore` if needed.
@@ -43,7 +45,7 @@ Token <- setRefClass("Token",
       initFields(...)
     },
     init = function(force = FALSE) {
-      # Have already initialized
+      # Have already initialized?
       if (!force && !is.null(credentials)) {
         return(.self)
       }
@@ -84,6 +86,12 @@ Token <- setRefClass("Token",
     },
     hash = function() {
       digest(list(endpoint, params))
+    },
+    sign = function() {
+      stop("Must be implemented by subclass", call. = FALSE)
+    },
+    refresh = function() {
+      stop("Must be implemented by subclass", call. = FALSE)
     }
   )
 )
