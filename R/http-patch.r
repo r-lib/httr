@@ -1,6 +1,3 @@
-#' @include http-post.r
-NULL
-
 #' Send PATCH request to a server.
 #'
 #' @inheritParams GET
