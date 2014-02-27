@@ -61,9 +61,5 @@
 #' GET(handle = google, path = "search")
 GET <- function(url = NULL, config = list(), ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  make_request("get", hu$handle, hu$url, config = config)
-}
-
-get_config <- function() {
-  config()
+  make_request("get", hu$handle, hu$url, config)
 }

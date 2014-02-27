@@ -15,8 +15,6 @@
 #' PUT(b2, body = list(y = upload_file(system.file("CITATION"))))
 PUT <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  make_request("put", hu$handle, hu$url, body = body,
-    multipart = multipart, config = config)
+  make_request("put", hu$handle, hu$url, config,
+    post_config(body = body, multipart = multipart))
 }
-
-put_config <- post_config

@@ -3,7 +3,8 @@
 #   request. \code{make_request} will take care of resetting the handle's
 #   config after the request is made.
 #' @importFrom methods as
-make_request <- function(method, handle, url, ..., config = NULL) {
+make_request <- function(method, handle, url, config = NULL,
+                         action_config = NULL) {
   if (is.null(config)) config <- config()
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
@@ -12,8 +13,8 @@ make_request <- function(method, handle, url, ..., config = NULL) {
   if (!is.null(config$token)) {
     token <- config$token
     config$token <- NULL
-    
-    signed <- token$sign(method, url)    
+
+    signed <- token$sign(method, url)
     url <- signed$url
     config <- c(config, signed$config)
   } else {
@@ -26,8 +27,6 @@ make_request <- function(method, handle, url, ..., config = NULL) {
   opts$url <- url
 
   # Action config override defaults
-  config_f <- match.fun(str_c(tolower(method), "_config"))
-  action_config <- config_f(...)
   opts <- modify_config(opts, action_config)
 
   # Config argument overrides everything
@@ -63,7 +62,7 @@ make_request <- function(method, handle, url, ..., config = NULL) {
   times <- request_times(handle)
   headers <- insensitive(as.list(hg$value()))
   status <- as.numeric(str_extract(headers$status, "[0-9]+"))
-  
+
   response(
     url = info$effective.url,
     handle = handle,
