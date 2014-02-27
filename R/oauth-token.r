@@ -129,12 +129,15 @@ Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
   init_credentials = function(force = FALSE) {
     credentials <<- init_oauth1.0(endpoint, app, permission = params$permission)
   },
+  can_refresh = function() {
+    FALSE
+  },
   refresh = function() {
     stop("Not implemented")
   },
   sign = function(method, url) {
-    oauth_signature(url, method, app, credentials$token,
-      credentials$token_secret)
+    oauth <- oauth_signature(url, method, app, credentials$oauth_token,
+      credentials$oauth_token_secret)
     list(url = url, config = oauth_header(oauth))
   }
 ))

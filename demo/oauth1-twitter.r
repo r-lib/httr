@@ -1,15 +1,19 @@
 library(httr)
 
-# Create an app at https://dev.twitter.com/apps, and generate your development
-# access token (this lets you skip the first couple of OAuth steps and get
-# directly to signing requests.
-#
-# Replace the following four variables with the values your recieve.
+# 1. Find OAuth settings for vimeo:
+#    http://vimeo.com/api/docs/authentication
+oauth_endpoints$twitter
 
+# 2. Register an application at http://vimeo.com/api/applications/new
+#    Insert your values below - if secret is omitted, it will look it up in
+#    the TWITTER_CONSUMER_SECRET environmental variable.
 myapp <- oauth_app("twitter", key = "TYrWFPkFAkn4G5BbkWINYw")
 
-sig <- sign_oauth1.0(myapp,
-  token = "69133574-FZ9GJlJ57V0SVdNAzo71mQZSUrpUbiJZBVpDmbYkd",
-  token_secret = Sys.getenv("TWITTER_ACCESS_SECRET"))
+# 3. Get OAuth credentials
+twitter_token <- oauth1.0_token(oauth_endpoints$twitter, myapp)
 
-GET("https://api.twitter.com/1/statuses/home_timeline.json", sig)
+# 4. Use API
+req <- GET("https://api.twitter.com/1.1/statuses/home_timeline.json",
+  config(token = twitter_token))
+stop_for_status(req)
+content(req)
