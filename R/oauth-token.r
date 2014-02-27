@@ -177,7 +177,7 @@ Token2.0 <- setRefClass("Token2.0", contains = "Token", methods = list(
     credentials <<- init_oauth2.0(endpoint, app, scope = params$scope,
       type = params$type, use_oob = params$use_oob)
   },
-  can_fresh = function() {
+  can_refresh = function() {
     !is.null(credentials$refresh_token)
   },
   refresh = function() {
