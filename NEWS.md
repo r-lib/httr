@@ -45,9 +45,9 @@ who contribute a lot of code and ideas to make this possible.
 
 * OAuth endpoints can store arbitrary extra urls.
 
-* Use the httpuv webserver for the OAuth dance (instead of the built-in
-  httpd server). This makes the dance work in Rstudio, and also seems a little
-  faster. (#32, thanks to @jdeboer)
+* Use the httpuv webserver for the OAuth dance instead of the built-in
+  httpd server (#32, thanks to @jdeboer). This makes the dance work in
+  Rstudio, and also seems a little faster. Rook is no longer required.
 
 * `oauth_endpoints` includes some popular OAuth endpoints.
 

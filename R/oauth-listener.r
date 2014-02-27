@@ -12,8 +12,8 @@
 #' @export
 #' @keywords internal
 oauth_listener <- function(request_url) {
-  if (!require("Rook") || !require("httpuv")) {
-    stop("Rook and httpuv packages required to capture OAuth credentials")
+  if (!require("httpuv")) {
+    stop("httpuv package required to capture OAuth credentials")
   }
 
   if (!interactive()) {
@@ -22,19 +22,12 @@ oauth_listener <- function(request_url) {
 
   info <- NULL
   listen <- function(env) {
-    req <- Request$new(env)
-    info <<- req$params()
-    first_name <- names(info)[1]
-    if (substr(first_name, 1, 1) == "?") {
-      first_name <- substr(first_name, 2, nchar(first_name))
-      names(info)[1] <<- first_name
-    }
-
-    res <- Response$new()
-    res$header("Content-type", "text/plain")
-    res$write("Authentication complete - you can now close this page and ")
-    res$write("return to R.")
-    res$finish()
+    info <<- parse_query(gsub("^\\?", "", env$QUERY_STRING))
+    list(
+      status = 200L,
+      headers = list("Content-type" = "text/plain"),
+      body = "Authentication complete. Please close this page and return to R."
+    )
   }
 
   server <- httpuv::startServer("127.0.0.1", 1410, list(call = listen))

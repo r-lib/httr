@@ -20,7 +20,6 @@ Suggests:
     testthat (>= 0.8.0),
     png,
     jpeg,
-    Rook,
     httpuv
 Roxygen: list(wrap = FALSE)
 License: MIT + file LICENSE
