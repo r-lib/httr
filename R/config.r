@@ -75,13 +75,12 @@ print.config <- function(x, ...) {
 modify_config <- function(x, val) {
   overwrite <- setdiff(names(val), "httpheader")
   x[overwrite] <- val[overwrite]
-  
+
   headers <- c(x$httpheader, val$httpheader)
   x$httpheader <- add_headers(.headers = headers)$httpheader
-  
+
   x
 }
-
 
 default_config <- function() {
   # Downloaded from http://curl.haxx.se/docs/caextract.html 2014-02-26

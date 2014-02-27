@@ -25,6 +25,7 @@ Roxygen: list(wrap = FALSE)
 License: MIT + file LICENSE
 Collate:
     'authenticate.r'
+    'body.R'
     'config.r'
     'content-parse.r'
     'content.r'
@@ -57,6 +58,7 @@ Collate:
     'oauth-signature.r'
     'oauth-token-utils.R'
     'oauth-token.r'
+    'perform.R'
     'proxy.r'
     'request-bin.r'
     'response-status.r'

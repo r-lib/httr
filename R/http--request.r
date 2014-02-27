@@ -1,10 +1,5 @@
-# @param action function with (at least) arguments \code{handle}, \code{url},
-#   \code{opts}, which should return binary content from the specified
-#   request. \code{make_request} will take care of resetting the handle's
-#   config after the request is made.
 #' @importFrom methods as
-make_request <- function(method, handle, url, config = NULL,
-                         action_config = NULL) {
+make_request <- function(method, handle, url, config = NULL, body = NULL) {
   if (is.null(config)) config <- config()
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
@@ -26,53 +21,11 @@ make_request <- function(method, handle, url, config = NULL,
   opts$customrequest <- toupper(method)
   opts$url <- url
 
-  # Action config override defaults
-  opts <- modify_config(opts, action_config)
-
-  # Config argument overrides everything
+  # Config argument overrides defaults
   opts <- modify_config(opts, config)
 
-  # But we always override headerfunction and writefunction
-  hg <- basicHeaderGatherer()
-  opts$headerfunction <- hg$update
-  buffer <- binaryBuffer()
-  opts$writefunction <-
-    getNativeSymbolInfo("R_curl_write_binary_data")$address
-  opts$writedata <- buffer@ref
-
-  # Must always reset the handle config, even if something goes wrong
-  on.exit(reset_handle_config(handle, opts))
-
   # Perform request and capture output ---------------------------------------
-  curl_opts <- curlSetOpt(curl = NULL, .opts = opts)
-
-  is_post <- isTRUE(attr(action_config, "post"))
-  if (is_post) {
-    body <- attr(action_config, "body")
-    style <- attr(action_config, "style")
-    .postForm(handle$handle, curl_opts, body, style)
-    curlSetOpt(httppost = NULL, post = NULL, postfields = NULL,
-      curl = handle$handle)
-  } else {
-    curlPerform(curl = handle$handle, .opts = curl_opts$values)
-  }
-
-  content <- as(buffer, "raw")
-  info <- last_request(handle)
-  times <- request_times(handle)
-  headers <- insensitive(as.list(hg$value()))
-  status <- as.numeric(str_extract(headers$status, "[0-9]+"))
-
-  response(
-    url = info$effective.url,
-    handle = handle,
-    status_code = status,
-    headers = headers,
-    cookies = parse_cookies(info$cookielist),
-    content = content,
-    times = times,
-    config = config
-  )
+  perform(handle, opts, body)
 }
 
 last_request <- function(x) {

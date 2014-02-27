@@ -25,50 +25,5 @@
 #' POST(b2, body = list(y = upload_file(system.file("CITATION"))))
 POST <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  make_request("post", hu$handle, hu$url, config,
-    post_config(body = body, multipart = multipart))
-}
-
-post_config <- function(body = NULL, multipart = TRUE)  {
-  # No body
-  if (is.null(body)) {
-    return(list(postfieldsize = 0L))
-  }
-
-  # Simple case of send raw text
-  if (is.character(body) || is.raw(body)) {
-    if (is.character(body)) {
-      body <- charToRaw(paste(body, collapse = "\n"))
-    }
-    return(list(
-      upload = TRUE,
-      readfunction = body,
-      infilesize = length(body)
-    ))
-  }
-
-  # Encode each param
-  stopifnot(is.list(body))
-
-  if (!multipart) {
-    encode <- function(x) {
-      if (inherits(x, "AsIs")) return(x)
-      curlEscape(x)
-    }
-    body <- vapply(body, encode, FUN.VALUE = character(1))
-    body <- str_c(names(body), body, sep = "=", collapse = "&")
-  } else {
-    charify <- function(x) {
-      if (inherits(x, "FileUploadInfo")) return(x)
-      as.character(x)
-    }
-    body <- lapply(body, charify)
-    stopifnot(length(names(body)) > 0)
-  }
-
-  structure(list(),
-    post = TRUE,
-    body = body,
-    style = if (multipart) NA else 47
-  )
+  make_request("post", hu$handle, hu$url, config, body_config(body, multipart))
 }

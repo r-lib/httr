@@ -1,7 +1,7 @@
 context("Send data")
 
 round_trip <- function(method, body = NULL, ...) {
-  url <- str_c("http://httpbin.org/", tolower(method))
+  url <- paste0("http://httpbin.org/", tolower(method))
   request <- match.fun(toupper(method))
   content(request(url, body = body, ...))
 }
