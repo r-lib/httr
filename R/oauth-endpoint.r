@@ -23,16 +23,16 @@ NULL
 #' facebook <- oauth_endpoint(
 #'   authorize = "https://www.facebook.com/dialog/oauth",
 #'   access = "https://graph.facebook.com/oauth/access_token")
-#'   
+#'
 #' oauth_endpoints
-oauth_endpoint <- function(request = NULL, authorize, access, ..., 
+oauth_endpoint <- function(request = NULL, authorize, access, ...,
                            base_url = NULL) {
   urls <- list(request = request, authorize = authorize, access = access, ...)
 
   if (is.null(base_url)) {
     return(do.call(endpoint, urls))
   }
-  
+
   # If base_url provided, add it as a prefix
   path <- parse_url(base_url)$path
   add_base_url <- function(x) {
@@ -56,16 +56,21 @@ print.oauth_endpoint <- function(x, ...) {
   cat("<oauth_endpoint>\n")
   cat(paste0(" ", format(paste0(names(x), ": ")), unlist(x), collapse = "\n"))
   cat("\n")
-}  
+}
 
 #' Popular oauth endpoints.
-#' 
+#'
 #' This list provides some common OAuth endpoints.
-#' 
+#'
 #' @export
 oauth_endpoints <- list(
-  linkedin = oauth_endpoint(base_url = "https://api.linkedin.com/uas/oauth",
-    "requestToken", "authorize", "accessToken"),
+  linkedin = oauth_endpoint(
+    base_url = "https://www.linkedin.com/uas/oauth2",
+    authorize = "authorization",
+    access = "accessToken",
+  ),
+  linkedin = oauth_endpoint(base_url = ,
+    "requestToken", "authorization", "accessToken"),
   twitter = oauth_endpoint(base_url = "http://api.twitter.com/oauth",
     "request_token", "authenticate", "access_token"),
   vimeo = oauth_endpoint(base_url = "http://vimeo.com/oauth",

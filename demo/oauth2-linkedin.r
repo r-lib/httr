@@ -10,9 +10,9 @@ oauth_endpoints$linkedin
 myapp <- oauth_app("linkedin", key = "outmkw3859gy")
 
 # 3. Get OAuth credentials
-token <- oauth1.0_token(oauth_endpoints$linkedin, myapp)
+token <- oauth2.0_token(oauth_endpoints$linkedin, myapp)
 
-# 4. Generate signature and make requests
-sig <- sign_oauth1.0(myapp, token$oauth_token, token$oauth_token_secret)
+# But doesn't currently work becaused LinkedIn doesn't implement OAuth 2.0
+# standard: http://tools.ietf.org/html/rfc6750#section-2
 
-GET("http://api.linkedin.com/v1/people/~", sig)
+GET("http://api.linkedin.com/v1/people/~", config(token = token))

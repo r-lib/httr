@@ -16,13 +16,13 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL) {
   params <- content(response, type = "application/x-www-form-urlencoded")
   token <- params$oauth_token
   secret <- params$oauth_token_secret
-  
+
   # 2. Authorize the token
   authorize_url <- modify_url(endpoint$authorize, query = list(
     oauth_token = token,
     permission = "read"))
   verifier <- oauth_listener(authorize_url)$oauth_verifier
-  
+
   # 3. Request access token
   response <- GET(endpoint$access,
     sign_oauth1.0(app, token, secret, verifier = verifier))
@@ -54,8 +54,9 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
     redirect_uri <- oauth_callback()
     state <- nonce()
   }
-  
+
   scope_arg <- paste(scope, collapse = ' ')
+
   authorize_url <- modify_url(endpoint$authorize, query = compact(list(
     client_id = app$key,
     scope = scope_arg,
@@ -63,7 +64,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
     response_type = "code",
     state = state)))
   code <- authorizer(authorize_url)$code
-  
+
   # Use authorisation code to get (temporary) access token
   req <- POST(endpoint$access,  multipart = FALSE,
     body = list(
