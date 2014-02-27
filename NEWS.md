@@ -30,6 +30,9 @@ who contribute a lot of code and ideas to make this possible.
   You can force reinitialisation (to do the complete dance from
   scratch) by calling `$reinit(force)`.
 
+* If a signed OAuth2 request fails with a 401 and the credentials have a
+  `refresh_token`, then the OAuth token will be automatically refreshed (#74).
+
 * OAuth tokens are cached locally in a file called `.oauth-httr` (unless
   you opt out). This file should not be included in source code control,
   and httr will automatically add to `.gitignore` and `.Rbuildignore` if

@@ -1,31 +1,41 @@
 #' @importFrom methods as
-make_request <- function(method, handle, url, config = NULL, body = NULL) {
+make_request <- function(method, handle, url, config = NULL, body = NULL,
+                         refresh = TRUE) {
   if (is.null(config)) config <- config()
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
 
   # Sign request, if needed
-  if (!is.null(config$token)) {
-    token <- config$token
-    config$token <- NULL
+  signature <- sign(config$token, method, url, config)
 
-    signed <- token$sign(method, url)
-    url <- signed$url
-    config <- c(config, signed$config)
-  } else {
-    token <- NULL
-  }
-
-  # Figure out curl options --------------------------------------------------
-  opts <- default_config()
+  # Combine options
+  opts <- modify_config(default_config(), signature$config)
   opts$customrequest <- toupper(method)
-  opts$url <- url
+  opts$url <- signature$url
 
-  # Config argument overrides defaults
-  opts <- modify_config(opts, config)
+  # Perform request and capture output
+  req <- perform(handle, opts, body)
 
-  # Perform request and capture output ---------------------------------------
-  perform(handle, opts, body)
+  needs_refresh <- refresh && req$status == 401L &&
+    !is.null(config$token) && config$token$can_refresh()
+  if (needs_refresh) {
+    message("Auto-refreshing stale OAuth token.")
+    config$token$refresh()
+
+    make_request(method, handle, url, config = config, body = body,
+      refresh = FALSE)
+  } else {
+    req
+  }
+}
+
+sign <- function(token, method, url, config) {
+  if (is.null(token)) {
+    list(url = url, config = config)
+  } else {
+    config$token <- NULL
+    token$sign(method, url)
+  }
 }
 
 last_request <- function(x) {
