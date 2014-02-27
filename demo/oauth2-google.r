@@ -16,6 +16,7 @@ google_token <- oauth2.0_token(oauth_endpoints$google, myapp,
 r <- GET("https://www.googleapis.com/oauth2/v1/userinfo",
   config(token = google_token))
 stop_for_status(r)
+content(r)
 
 # If the token runs out, you can refresh with:
 google_token$refresh()
