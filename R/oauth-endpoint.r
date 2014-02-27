@@ -71,9 +71,9 @@ oauth_endpoints <- list(
   ),
   linkedin = oauth_endpoint(base_url = ,
     "requestToken", "authorization", "accessToken"),
-  twitter = oauth_endpoint(base_url = "http://api.twitter.com/oauth",
+  twitter = oauth_endpoint(base_url = "https://api.twitter.com/oauth",
     "request_token", "authenticate", "access_token"),
-  vimeo = oauth_endpoint(base_url = "http://vimeo.com/oauth",
+  vimeo = oauth_endpoint(base_url = "https://vimeo.com/oauth",
     "request_token", "authorize", "access_token"),
   google = oauth_endpoint(
     base_url = "https://accounts.google.com/o/oauth2",
