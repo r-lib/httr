@@ -34,7 +34,10 @@ sign <- function(token, method, url, config) {
     list(url = url, config = config)
   } else {
     config$token <- NULL
-    token$sign(method, url)
+
+    signed <- token$sign(method, url)
+    signed$config <- modify_config(config, signed$config)
+    signed
   }
 }
 
