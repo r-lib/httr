@@ -36,9 +36,17 @@ Key features:
 
 `httr` wouldn't be possible without the hard work of the authors of `RCurl` and `Curl`. Thanks! `httr` is inspired by http libraries in other languages, such as [Resty](http://beders.github.com/Resty/Resty/Examples.html), [Requests](http://docs.python-requests.org/en/latest/index.html) and [httparty](http://github.com/jnunemaker/httparty/tree/master).
 
-## Availability
+## Installation
 
-`httr` is still under active development, so you may want to get the development version rather than the CRAN version.  You can get the latest version from github with:
+To get the current released version from CRAN:
 
-    library(devtools)
-    install_github("httr")
+```R
+install.packages("httr")
+```
+
+To get the current development version from github:
+
+```R
+# install.packages("devtools")
+devtools::install_github("hadley/httr")
+```
