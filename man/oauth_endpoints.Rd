@@ -3,21 +3,26 @@
 \name{oauth_endpoints}
 \alias{oauth_endpoints}
 \title{Popular oauth endpoints.}
-\format{\preformatted{List of 6
+\format{\preformatted{List of 7
  $ linkedin:List of 3
-  ..$ request  : chr "https://api.linkedin.com/uas/oauth/requestToken"
-  ..$ authorize: chr "https://api.linkedin.com/uas/oauth/authorize"
-  ..$ access   : chr "https://api.linkedin.com/uas/oauth/accessToken"
+  ..$ request  : NULL
+  ..$ authorize: chr "https://www.linkedin.com/uas/oauth2/authorization"
+  ..$ access   : chr "https://www.linkedin.com/uas/oauth2/accessToken"
+  ..- attr(*, "class")= chr "oauth_endpoint"
+ $ linkedin:List of 3
+  ..$ request  : chr "requestToken"
+  ..$ authorize: chr "authorization"
+  ..$ access   : chr "accessToken"
   ..- attr(*, "class")= chr "oauth_endpoint"
  $ twitter :List of 3
-  ..$ request  : chr "http://api.twitter.com/oauth/request_token"
-  ..$ authorize: chr "http://api.twitter.com/oauth/authenticate"
-  ..$ access   : chr "http://api.twitter.com/oauth/access_token"
+  ..$ request  : chr "https://api.twitter.com/oauth/request_token"
+  ..$ authorize: chr "https://api.twitter.com/oauth/authenticate"
+  ..$ access   : chr "https://api.twitter.com/oauth/access_token"
   ..- attr(*, "class")= chr "oauth_endpoint"
  $ vimeo   :List of 3
-  ..$ request  : chr "http://vimeo.com/oauth/request_token"
-  ..$ authorize: chr "http://vimeo.com/oauth/authorize"
-  ..$ access   : chr "http://vimeo.com/oauth/access_token"
+  ..$ request  : chr "https://vimeo.com/oauth/request_token"
+  ..$ authorize: chr "https://vimeo.com/oauth/authorize"
+  ..$ access   : chr "https://vimeo.com/oauth/access_token"
   ..- attr(*, "class")= chr "oauth_endpoint"
  $ google  :List of 5
   ..$ request  : NULL
