@@ -62,15 +62,16 @@ print.oauth_endpoint <- function(x, ...) {
 #'
 #' This list provides some common OAuth endpoints.
 #'
+#' @format A named list of objects created by \code{\link{oauth_endpoint}}.
 #' @export
+#' @examples
+#' oauth_endpoints$twitter
 oauth_endpoints <- list(
   linkedin = oauth_endpoint(
     base_url = "https://www.linkedin.com/uas/oauth2",
     authorize = "authorization",
     access = "accessToken",
   ),
-  linkedin = oauth_endpoint(base_url = ,
-    "requestToken", "authorization", "accessToken"),
   twitter = oauth_endpoint(base_url = "https://api.twitter.com/oauth",
     "request_token", "authenticate", "access_token"),
   vimeo = oauth_endpoint(base_url = "https://vimeo.com/oauth",
