@@ -14,11 +14,7 @@ myapp <- oauth_app("github", "56b637a5baffac62cad9")
 # 3. Get OAuth credentials
 github_token <- oauth2.0_token(oauth_endpoints$github, myapp)
 
-# Use access token to get user specific data
-req <- GET("https://api.github.com/rate_limit")
-stop_for_status(req)
-req
-
+# 4. Use API
 req <- GET("https://api.github.com/rate_limit", config(token = github_token))
 stop_for_status(req)
 req

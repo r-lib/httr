@@ -12,7 +12,9 @@ myapp <- oauth_app("linkedin", key = "outmkw3859gy")
 # 3. Get OAuth credentials
 token <- oauth2.0_token(oauth_endpoints$linkedin, myapp)
 
+# 4. Use API
 # But doesn't currently work becaused LinkedIn doesn't implement OAuth 2.0
 # standard: http://tools.ietf.org/html/rfc6750#section-2
-
-GET("http://api.linkedin.com/v1/people/~", config(token = token))
+req <- GET("http://api.linkedin.com/v1/people/~", config(token = token))
+stop_for_status(req)
+content(req)

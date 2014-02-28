@@ -13,8 +13,7 @@ myapp <- oauth_app("facebook", "353609681364760")
 facebook_token <- oauth2.0_token(oauth_endpoints$facebook, myapp,
   type = "application/x-www-form-urlencoded")
 
-
-# Retrieve info about authenticated user
+# 4. Use API
 req <- GET("https://graph.facebook.com/me", config(token = facebook_token))
 stop_for_status(req)
 str(content(req))
