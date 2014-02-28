@@ -48,7 +48,7 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL) {
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
                           use_oob = getOption("httr_oob_default")) {
-  if (use_oob) {
+  if (isTRUE(use_oob)) {
     stopifnot(interactive())
     authorizer <- oauth_exchanger
     redirect_uri <- "urn:ietf:wg:oauth:2.0:oob"

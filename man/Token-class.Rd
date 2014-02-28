@@ -12,7 +12,8 @@
 These objects represent the complete set of data needed for OAuth access:
 an app, an endpoint, cached credentials and parameters. They should be
 created through their constructor functions \code{\link{oauth1.0_token}}
-and \code{\link{oauth2.0_token}}.
+and \code{\link{oauth2.0_token}}. If you create your own subclass
+(as in the linkedin demo), use \code{\link{new_token}} to initialise.
 }
 \section{Methods}{
   \itemize{ \item \code{cache()}: caches token to disk
