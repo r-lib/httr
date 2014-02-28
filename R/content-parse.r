@@ -56,7 +56,7 @@ parsers$`image/png` <- function(x) {
 parsers$`text/plain` <- function(x) x
 parsers$`text/html` <- function(x, ...) {
   require("XML")
-  htmlTreeParse(x, ...)
+  htmlParse(x, ...)
 }
 parsers$`text/xml` <- function(x, ...) {
   require("XML")

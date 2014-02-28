@@ -85,6 +85,9 @@ who contribute a lot of code and ideas to make this possible.
   parsed correctly (#27). The names of query params are now also escaped
   and unescaped correctly when parsing and building urls.
 
+* Default html parser is now `XML::htmlParse()` which is easier to use
+  with xpath (#66).
+
 # httr 0.2
 
 * OAuth now uses custom escaping function which is guaranteed to work on all
