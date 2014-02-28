@@ -1,5 +1,4 @@
 connection-sharing  Demonstration of how connection sharing saves time
-gist                Simple demo showing how to interact with github's gists
 oauth1-twitter      Using twitter api with OAuth 1.0
 oauth1-linkedin     Using linkedin api with OAuth 1.0
 oauth1-vimeo        Using vimeo api with OAuth 1.0
