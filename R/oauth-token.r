@@ -36,7 +36,7 @@
 #' @keywords internal
 #' @importFrom methods setRefClass
 #' @importFrom digest digest
-#' @aliases Token Token1.0 Token2.0 Token-class Token1.0-class Token2.0-class
+#' @aliases Token Token1.0 Token2.0
 #' @export
 Token <- setRefClass("Token",
   fields = c("endpoint", "app", "credentials", "params", "cache_path"),
