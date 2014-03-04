@@ -15,6 +15,6 @@ vimeo_token <- oauth1.0_token(oauth_endpoints$vimeo, myapp)
 # 4. Use API
 req <- GET("https://vimeo.com/api/rest/v2",
   query = list(method = "vimeo.videos.getAll", format = "json"),
-  config(token = token))
+  config(token = vimeo_token))
 stop_for_status(req)
-content(req)
+str(content(req))

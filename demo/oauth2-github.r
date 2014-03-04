@@ -17,4 +17,4 @@ github_token <- oauth2.0_token(oauth_endpoints$github, myapp)
 # 4. Use API
 req <- GET("https://api.github.com/rate_limit", config(token = github_token))
 stop_for_status(req)
-req
+content(req)

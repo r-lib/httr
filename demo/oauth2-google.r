@@ -14,7 +14,7 @@ google_token <- oauth2.0_token(oauth_endpoints$google, myapp,
   scope = "https://www.googleapis.com/auth/userinfo.profile")
 
 # 4. Use API
-r <- GET("https://www.googleapis.com/oauth2/v1/userinfo",
+req <- GET("https://www.googleapis.com/oauth2/v1/userinfo",
   config(token = google_token))
-stop_for_status(r)
-content(r)
+stop_for_status(req)
+content(req)
