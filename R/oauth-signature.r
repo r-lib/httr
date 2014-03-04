@@ -31,7 +31,8 @@ oauth_signature <- function(url, method = "GET", app, token = NULL, token_secret
     oauth_signature_method = "HMAC-SHA1",
     oauth_timestamp = as.integer(Sys.time()),
     oauth_version = "1.0",
-    oauth_token = token
+    oauth_token = token,
+    oauth_callback = oauth_callback()
   ))
 
   other_params <- list(...)

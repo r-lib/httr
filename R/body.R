@@ -21,7 +21,7 @@ body_config <- function(body = NULL, multipart = TRUE)  {
         if (inherits(x, "AsIs")) return(x)
         curlEscape(x)
       }
-      body <- vapply(body, encode, FUN.VALUE = character(1))
+      body <- vapply(compact(body), encode, FUN.VALUE = character(1))
       body <- str_c(names(body), body, sep = "=", collapse = "&")
     } else {
       charify <- function(x) {
