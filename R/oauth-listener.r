@@ -22,7 +22,18 @@ oauth_listener <- function(request_url) {
 
   info <- NULL
   listen <- function(env) {
-    info <<- parse_query(gsub("^\\?", "", env$QUERY_STRING))
+    oauth_return_is_valid <- function(oauth_response) {
+      # info starts as NULL and then gets populated. In some situations the polling
+      # routine returns an invalid info object - a length 1 list with an empty string
+      # in the one element. Check if either of these is TRUE
+      !(is.list(oauth_response) && (length(oauth_response) == 1) && (oauth_response[[1]] == ""))
+    }
+    
+    oauth_response <- parse_query(gsub("^\\?", "", env$QUERY_STRING))
+    if (oauth_return_is_valid(oauth_response)) {
+      info <<- oauth_response
+    }
+        
     list(
       status = 200L,
       headers = list("Content-type" = "text/plain"),
