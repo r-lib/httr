@@ -22,7 +22,9 @@ oauth_listener <- function(request_url) {
 
   info <- NULL
   listen <- function(env) {
-    info <<- parse_query(gsub("^\\?", "", env$QUERY_STRING))
+    if ((is.character(env$QUERY_STRING)) && (env$QUERY_STRING != "")) {
+      info <<- parse_query(gsub("^\\?", "", env$QUERY_STRING))
+    }
     list(
       status = 200L,
       headers = list("Content-type" = "text/plain"),
