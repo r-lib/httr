@@ -23,14 +23,20 @@ oauth_listener <- function(request_url) {
   info <- NULL
   listen <- function(env) {
     if (!identical(env$PATH_INFO, "/")) {
-      return(list(status = 404L))
+      return(list(
+        status = 404L,
+        headers = list("Content-type" = "text/plain"),
+        body = "Not found")
+      )
     }
 
     query <- env$QUERY_STRING
     if (!is.character(query) || identical(query, "")) {
-      stop("Authentication failed.", call. = FALSE)
+      info <<- NA
+    } else {
+      info <<- parse_query(gsub("^\\?", "", query))
     }
-    info <<- parse_query(gsub("^\\?", "", query))
+
     list(
       status = 200L,
       headers = list("Content-type" = "text/plain"),
@@ -49,6 +55,10 @@ oauth_listener <- function(request_url) {
     Sys.sleep(0.001)
   }
   httpuv::service() # to send text back to browser
+
+  if (identical(info, NA)) {
+    stop("Authentication failed.", call. = FALSE)
+  }
 
   message("Authentication complete.")
   info
