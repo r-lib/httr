@@ -1,7 +1,7 @@
 Package: httr
 Type: Package
 Title: Tools for working with URLs and HTTP
-Version: 0.2.99
+Version: 0.3
 Author: Hadley Wickham <h.wickham@gmail.com>
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
 Description: Provides useful tools for working with HTTP connections.  Is a
