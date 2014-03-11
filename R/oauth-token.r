@@ -86,7 +86,10 @@ Token <- setRefClass("Token",
       TRUE
     },
     hash = function() {
-      digest(list(endpoint, params))
+      # endpoint = which site
+      # app = client identification
+      # params = scope
+      digest(list(endpoint, app, params$scope))
     },
     sign = function() {
       stop("Must be implemented by subclass", call. = FALSE)
