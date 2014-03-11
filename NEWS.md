@@ -22,18 +22,18 @@ and reset your access token through the corresponding web interface.
 Together, these changes mean that you should only ever have to authenticate
 once per project, and you can authenticate from any environment in which
 you can run R. A big thanks go to Craig Citro (@craigcitro) from google,
-who contribute a lot of code and ideas to make this possible.
+who contributed a lot of code and ideas to make this possible.
 
 * The OAuth token objects are now reference classes, which mean they can be
   updated in place, such as when an access token expires and needs to be
   refreshed. You can manually refresh by calling `$refresh()` on the object.
   You can force reinitialisation (to do the complete dance from
-  scratch) by calling `$reinit(force)`.
+  scratch) by calling `$reinit(force = TRUE)`.
 
 * If a signed OAuth2 request fails with a 401 and the credentials have a
   `refresh_token`, then the OAuth token will be automatically refreshed (#74).
 
-* OAuth tokens are cached locally in a file called `.oauth-httr` (unless
+* OAuth tokens are cached locally in a file called `.httr-oauth` (unless
   you opt out). This file should not be included in source code control,
   and httr will automatically add to `.gitignore` and `.Rbuildignore` if
   needed. The caching policy is described in more detail in the help for
