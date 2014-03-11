@@ -13,7 +13,7 @@
 #' @keywords internal
 oauth_listener <- function(request_url) {
   if (!require("httpuv")) {
-    stop("httpuv package required to capture OAuth credentials")
+    stop("httpuv package required to capture OAuth credentials.")
   }
 
   if (!interactive()) {
@@ -22,7 +22,15 @@ oauth_listener <- function(request_url) {
 
   info <- NULL
   listen <- function(env) {
-    info <<- parse_query(gsub("^\\?", "", env$QUERY_STRING))
+    if (!identical(env$PATH_INFO, "/")) {
+      return(list(status = 404L))
+    }
+
+    query <- env$QUERY_STRING
+    if (!is.character(query) || identical(query, "")) {
+      stop("Authentication failed.", call. = FALSE)
+    }
+    info <<- parse_query(gsub("^\\?", "", query))
     list(
       status = 200L,
       headers = list("Content-type" = "text/plain"),
@@ -34,6 +42,7 @@ oauth_listener <- function(request_url) {
   on.exit(httpuv::stopServer(server))
 
   message("Waiting for authentication in browser...")
+  message("Press Esc/Ctrl + C to abort")
   BROWSE(request_url)
   while(is.null(info)) {
     httpuv::service()
