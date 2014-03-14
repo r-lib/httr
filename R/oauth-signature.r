@@ -10,7 +10,9 @@ NULL
 #' @export
 #' @rdname sign_oauth
 sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
-  stop("Deprecated: supply token object to config directly", call. = FALSE)
+  credentials <- list(oauth_token = token, oauth_token_secret = token_secret)
+  token <- Token1.0(endpoint = NULL, app = app, credentials = credentials)
+  config(token = token)
 }
 
 #' @export
