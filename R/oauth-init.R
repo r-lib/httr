@@ -10,12 +10,12 @@
 #' @keywords internal
 init_oauth1.0 <- function(endpoint, app, permission = NULL) {
 
-  oauth_sig <- function(url, token = NULL, token_secret = NULL, ...) {
-    oauth_header(oauth_signature(url, "GET", app, token, token_secret, ...))
+  oauth_sig <- function(url, method, token = NULL, token_secret = NULL, ...) {
+    oauth_header(oauth_signature(url, method, app, token, token_secret, ...))
   }
 
   # 1. Get an unauthorized request token
-  response <- GET(endpoint$request, oauth_sig(endpoint$request))
+  response <- GET(endpoint$request, oauth_sig(endpoint$request, "GET"))
   stop_for_status(response)
   params <- content(response, type = "application/x-www-form-urlencoded")
   token <- params$oauth_token
@@ -28,8 +28,8 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL) {
   verifier <- oauth_listener(authorize_url)$oauth_verifier
 
   # 3. Request access token
-  response <- GET(endpoint$access,
-    oauth_sig(endpoint$access, token, secret, verifier = verifier))
+  response <- POST(endpoint$access,
+    oauth_sig(endpoint$access, "POST", token, secret, verifier = verifier))
   stop_for_status(response)
   content(response, type = "application/x-www-form-urlencoded")
 }
