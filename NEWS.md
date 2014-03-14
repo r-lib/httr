@@ -15,10 +15,12 @@ create or refresh a token, a copy of the credentials will be saved in
 `.httr-oauth`. You can override this default for individual tokens with the
 `cache` parameter, or globally with the `httr_oauth_cache` option. Supply
 either a logical vector (`TRUE` = always cache, `FALSE` = never cache,
-`NA` = ask), or a string (the path to the cache file). You should NOT include
-this cache file in source code control - if you do, delete it, and reset your
-access token through the corresponding web interface. To help, httr will
-automatically add appropriate entries to `.gitignore` and `.Rbuildignore`.
+`NA` = ask), or a string (the path to the cache file).
+
+You should NOT include this cache file in source code control - if you do,
+delete it, and reset your access token through the corresponding web interface.
+To help, httr will automatically add appropriate entries to `.gitignore` and
+`.Rbuildignore`.
 
 These changes mean that you should only ever have to authenticate
 once per project, and you can authenticate from any environment in which
@@ -36,9 +38,9 @@ who contributed much code and many ideas to make this possible.
 
 * OAuth tokens are cached locally in a file called `.httr-oauth` (unless
   you opt out). This file should not be included in source code control,
-  and httr will automatically add to `.gitignore` and `.Rbuildignore` if
-  needed. The caching policy is described in more detail in the help for
-  the `Token` class.
+  and httr will automatically add to `.gitignore` and `.Rbuildignore`.
+  The caching policy is described in more detail in the help for the
+  `Token` class.
 
 * The OAuth2 dance can now be performed without running a local webserver
   (#33, thanks to @craigcitro). To make that the default, set

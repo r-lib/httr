@@ -27,12 +27,9 @@ guess_cache <- function() {
 }
 
 protect_cache <- function() {
-  if (file.exists("DESCRIPTION")) {
-    add_line(".Rbuildignore", "^\\.httr-oauth$")
-  }
-  if (file.exists(".git")) {
-    add_line(".gitignore", ".httr-oauth")
-  }
+  add_line(".Rbuildignore", "^\\.httr-oauth$")
+  add_line(".gitignore", ".httr-oauth")
+
   invisible(TRUE)
 }
 
