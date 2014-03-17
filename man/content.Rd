@@ -53,6 +53,13 @@ does its best to guess which output is most appropriate.
 are trying to parse is not available, use \code{as = "text"} and parse
 yourself.
 }
+\section{WARNING}{
+  When using \code{content()} in a package, DO NOT use on
+  \code{as = "parsed"}. Instead, check the mime-type is
+  what you expect, and then parse yourself. This is safer,
+  as you will fail informatively if the API changes, and
+  you will protect yourself against changes to httr.
+}
 \examples{
 r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
 content(r) # automatically parses JSON

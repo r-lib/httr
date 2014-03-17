@@ -7,7 +7,7 @@
 #' does its best to guess which output is most appropriate.
 #'
 #' \code{content} currently knows about the following mime types:
-#' 
+#'
 #' \itemize{
 #'  \item \code{text/html}: \code{\link[XML]{htmlTreeParse}}
 #'  \item \code{text/xml}: \code{\link[XML]{xmlTreeParse}}
@@ -18,10 +18,17 @@
 #'  \item \code{image/jpeg}: \code{\link[jpeg]{readJPEG}}
 #'  \item \code{image/png}: \code{\link[png]{readPNG}}
 #' }
-#' 
+#'
 #' \code{as = "parsed"} is provided as a convenience only: if the type you
-#' are trying to parse is not available, use \code{as = "text"} and parse 
-#' yourself. 
+#' are trying to parse is not available, use \code{as = "text"} and parse
+#' yourself.
+#'
+#' @section WARNING:
+#'
+#' When using \code{content()} in a package, DO NOT use on \code{as = "parsed"}.
+#' Instead, check the mime-type is what you expect, and then parse yourself.
+#' This is safer, as you will fail informatively if the API changes, and
+#' you will protect yourself against changes to httr.
 #'
 #' @param x request object
 #' @param as desired type of output: \code{raw}, \code{text} or
