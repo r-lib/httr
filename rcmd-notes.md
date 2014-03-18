@@ -1,4 +1,4 @@
-The following notes were generated across my local OS X install, ubuntu running on travis-ci and win builder:
+The following notes were generated across my local OS X install, ubuntu running on travis-ci and win builder (devel and release):
 
 * checking CRAN incoming feasibility ... NOTE
 
