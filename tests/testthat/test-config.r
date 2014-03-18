@@ -49,9 +49,10 @@ test_that("oauth2.0 signing works", {
   url_response <- GET(request_url, config(token = token))
   response_content <- content(url_response)$headers
   expect_equal(NULL, response_content$Authorization)
-  # FIXME: testthat 0.7.1
-  # expect_that(request_url, not(equals(url_response$url)))
-  expect_match(url_response$url, "access_token=ofNoArms")
+  expect_equal(
+    parse_url(url_response$url)$query,
+    list(access_token = "ofNoArms")
+  )
 })
 
 
