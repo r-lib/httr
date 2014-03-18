@@ -2,7 +2,7 @@ library(httr)
 
 # 1. Find OAuth settings for facebook:
 #    http://developers.facebook.com/docs/authentication/server-side/
-oauth_endpoints$facebook
+oauth_endpoints("facebook")
 
 # 2. Register an application at https://developers.facebook.com/apps/
 #    Insert your values below - if secret is omitted, it will look it up in
@@ -10,7 +10,7 @@ oauth_endpoints$facebook
 myapp <- oauth_app("facebook", "353609681364760")
 
 # 3. Get OAuth credentials
-facebook_token <- oauth2.0_token(oauth_endpoints$facebook, myapp,
+facebook_token <- oauth2.0_token(oauth_endpoints("facebook"), myapp,
   type = "application/x-www-form-urlencoded")
 
 # 4. Use API

@@ -2,7 +2,7 @@ library(httr)
 
 # 1. Find OAuth settings for linkedin:
 #    https://developer.linkedin.com/documents/linkedins-oauth-details
-oauth_endpoints$linkedin
+oauth_endpoints("linkedin")
 
 # 2. Register an application at https://www.linkedin.com/secure/developer
 #    Insert your values below - if secret is omitted, it will look it up in
@@ -22,7 +22,7 @@ TokenLinkedIn <- setRefClass("TokenLinkedIn", contains = "Token2.0",
     }
   ), where = asNamespace("httr")
 )
-token <- new_token(TokenLinkedIn, oauth_endpoints$linkedin, myapp)
+token <- new_token(TokenLinkedIn, oauth_endpoints("linkedin"), myapp)
 
 # 4. Use API
 req <- GET("https://api.linkedin.com/v1/people/~", config(token = token))

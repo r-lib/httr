@@ -2,7 +2,7 @@ library(httr)
 
 # 1. Find OAuth settings for github:
 #    http://developer.github.com/v3/oauth/
-oauth_endpoints$github
+oauth_endpoints("github")
 
 # 2. Register an application at https://github.com/settings/applications
 #    Insert your values below - if secret is omitted, it will look it up in
@@ -12,7 +12,7 @@ oauth_endpoints$github
 myapp <- oauth_app("github", "56b637a5baffac62cad9")
 
 # 3. Get OAuth credentials
-github_token <- oauth2.0_token(oauth_endpoints$github, myapp)
+github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
 
 # 4. Use API
 req <- GET("https://api.github.com/rate_limit", config(token = github_token))

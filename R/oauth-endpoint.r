@@ -1,6 +1,3 @@
-#' @include url.r
-NULL
-
 #' Describe an OAuth endpoint.
 #'
 #' See \code{\link{oauth_endpoints}} for a list of popular OAuth endpoints
@@ -60,32 +57,36 @@ print.oauth_endpoint <- function(x, ...) {
 
 #' Popular oauth endpoints.
 #'
-#' This list provides some common OAuth endpoints.
+#' Provides some common OAuth endpoints.
 #'
-#' @format A named list of objects created by \code{\link{oauth_endpoint}}.
+#' @param name One of the following endpoints: linkedin, twitter,
+#'   vimeo, google, facebook, github.
 #' @export
 #' @examples
-#' oauth_endpoints$twitter
-oauth_endpoints <- list(
-  linkedin = oauth_endpoint(
-    base_url = "https://www.linkedin.com/uas/oauth2",
-    authorize = "authorization",
-    access = "accessToken",
-  ),
-  twitter = oauth_endpoint(base_url = "https://api.twitter.com/oauth",
-    "request_token", "authenticate", "access_token"),
-  vimeo = oauth_endpoint(base_url = "https://vimeo.com/oauth",
-    "request_token", "authorize", "access_token"),
-  google = oauth_endpoint(
-    base_url = "https://accounts.google.com/o/oauth2",
-    authorize = "auth",
-    access = "token",
-    validate = "https://www.googleapis.com/oauth2/v1/tokeninfo",
-    revoke = "revoke"
-  ),
-  facebook = oauth_endpoint(
-    authorize = "https://www.facebook.com/dialog/oauth",
-    access = "https://graph.facebook.com/oauth/access_token"),
-  github = oauth_endpoint(base_url = "https://github.com/login/oauth",
-    NULL, "authorize", "access_token")
-)
+#' oauth_endpoints("twitter")
+oauth_endpoints <- function(name) {
+  switch(name,
+    linkedin = oauth_endpoint(
+      base_url = "https://www.linkedin.com/uas/oauth2",
+      authorize = "authorization",
+      access = "accessToken",
+    ),
+    twitter = oauth_endpoint(base_url = "https://api.twitter.com/oauth",
+      "request_token", "authenticate", "access_token"),
+    vimeo = oauth_endpoint(base_url = "https://vimeo.com/oauth",
+      "request_token", "authorize", "access_token"),
+    google = oauth_endpoint(
+      base_url = "https://accounts.google.com/o/oauth2",
+      authorize = "auth",
+      access = "token",
+      validate = "https://www.googleapis.com/oauth2/v1/tokeninfo",
+      revoke = "revoke"
+    ),
+    facebook = oauth_endpoint(
+      authorize = "https://www.facebook.com/dialog/oauth",
+      access = "https://graph.facebook.com/oauth/access_token"),
+    github = oauth_endpoint(base_url = "https://github.com/login/oauth",
+      NULL, "authorize", "access_token"),
+    stop("Unknown endpoint", call. = FALSE)
+  )
+}

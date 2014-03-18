@@ -55,7 +55,7 @@ who contributed much code and many ideas to make this possible.
   httpd server (#32, thanks to @jdeboer). This makes the dance work in
   Rstudio, and also seems a little faster. Rook is no longer required.
 
-* `oauth_endpoints` includes some popular OAuth endpoints.
+* `oauth_endpoints()` includes some popular OAuth endpoints.
 
 ## Other improvements
 
@@ -73,7 +73,7 @@ who contributed much code and many ideas to make this possible.
 
 * Switched to jsonlite from rjson.
 
-* Content parsers no longer load pacages on to search path.
+* Content parsers no longer load packages on to search path.
 
 * `stop_for_status()` now raises errors with useful classes so that you can
   use `tryCatch()` to take different actions depending on the type of error.

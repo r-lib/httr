@@ -22,7 +22,7 @@ test_that("token saved to and restored from cache", {
 
   token_a <- Token2.0(
     app = oauth_app("x", "y", "z"),
-    endpoint = oauth_endpoints$google,
+    endpoint = oauth_endpoints("google"),
     params = list(),
     credentials = list(a = 1),
     cache_path = ".tmp-cache"
@@ -31,7 +31,7 @@ test_that("token saved to and restored from cache", {
 
   token_b <- Token2.0(
     app = oauth_app("x", "y", "z"),
-    endpoint = oauth_endpoints$google,
+    endpoint = oauth_endpoints("google"),
     params = list(),
     cache_path = ".tmp-cache"
   )
