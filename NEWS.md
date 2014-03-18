@@ -82,6 +82,9 @@ who contributed much code and many ideas to make this possible.
 * Add support for `fragment` in url building/parsing (#70, thanks to
   @craigcitro).
 
+* You can suppress the body entirely in `POST()`, `PATCH()` and `PUT()`
+  with `body = FALSE`.
+
 ## Bug fixes
 
 * If you supply multiple headers of the same name, the value of the most

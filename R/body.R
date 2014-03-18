@@ -1,7 +1,13 @@
 body_config <- function(body = NULL, multipart = TRUE)  {
   if (is.null(body)) {
-    # No body
+    # No body supply
     NULL
+  } else if (identical(body, FALSE)) {
+    # No body
+    list(
+      curl_post = FALSE,
+      config = config(nobody = 1L)
+    )
   } else if (is.character(body) || is.raw(body)) {
     # For character/raw don't need to use postForm
     if (is.character(body)) {
