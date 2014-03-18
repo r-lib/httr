@@ -19,6 +19,16 @@ curl_version <- function() {
 
 has_env_var <- function(x) !identical(Sys.getenv(x), "")
 
+named <- function(x) x[has_names(x)]
+unnamed <- function(x) x[!has_names(x)]
+
+has_names <- function(x) {
+  nms <- names(x)
+  if (is.null(nms)) return(rep(FALSE, length(x)))
+
+  names(x) != ""
+}
+
 travis_encrypt <- function(vars) {
   values <- Sys.getenv(vars)
   cat(paste0("travis encrypt ", paste0(vars, "=", values, collapse = " ")))
