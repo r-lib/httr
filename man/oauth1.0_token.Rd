@@ -7,20 +7,17 @@ oauth1.0_token(endpoint, app, permission = NULL,
   cache = getOption("httr_oauth_cache"))
 }
 \arguments{
-  \item{cache}{A logical value or a string. \code{TRUE}
-  means to cache using the default cache file
-  \code{.oauth-httr}, \code{FALSE} means don't cache, and
-  \code{NA} means to guess using some sensible heuristics.
-  A string mean use the specified path as the cache file.}
+\item{cache}{A logical value or a string. \code{TRUE} means to cache
+using the default cache file \code{.oauth-httr}, \code{FALSE} means
+don't cache, and \code{NA} means to guess using some sensible heuristics.
+A string mean use the specified path as the cache file.}
 
-  \item{endpoint}{An OAuth endpoint, created by
-  \code{\link{oauth_endpoint}}}
+\item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
 
-  \item{app}{An OAuth consumer application, created by
-  \code{\link{oauth_app}}}
+\item{app}{An OAuth consumer application, created by
+\code{\link{oauth_app}}}
 
-  \item{permission}{optional, a string of permissions to
-  ask for.}
+\item{permission}{optional, a string of permissions to ask for.}
 }
 \value{
 A \code{Token1.0} reference class (RC) object.

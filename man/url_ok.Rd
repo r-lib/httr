@@ -6,8 +6,7 @@
 url_ok(...)
 }
 \arguments{
-  \item{...}{passed to HEAD to perform the request (usually
-  just a url)}
+\item{...}{passed to HEAD to perform the request (usually just a url)}
 }
 \value{
 This function returns \code{TRUE} only if the http status is

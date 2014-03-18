@@ -6,10 +6,9 @@
 use_proxy(url, port = NULL, username = NULL, password = NULL)
 }
 \arguments{
-  \item{url,port}{location of proxy}
+\item{url,port}{location of proxy}
 
-  \item{username,password}{login details for proxy, if
-  needed}
+\item{username,password}{login details for proxy, if needed}
 }
 \description{
 Use a proxy to connect to the internet.

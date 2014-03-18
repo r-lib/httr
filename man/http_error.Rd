@@ -10,7 +10,7 @@ stop_for_status(x)
 warn_for_status(x)
 }
 \arguments{
-  \item{x}{a request object}
+\item{x}{a request object}
 }
 \value{
 If request was successful, an invisible \code{TRUE}. Otherwise,

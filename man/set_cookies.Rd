@@ -6,9 +6,9 @@
 set_cookies(..., .cookies = character(0))
 }
 \arguments{
-  \item{...}{a named cookie values}
+\item{...}{a named cookie values}
 
-  \item{.cookies}{a named character vector}
+\item{.cookies}{a named character vector}
 }
 \description{
 Set cookies.

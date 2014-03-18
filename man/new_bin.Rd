@@ -6,9 +6,8 @@
 new_bin(browse = TRUE)
 }
 \arguments{
-  \item{browse}{if \code{TRUE}, will also open the request
-  bin in your browser so you can more easily inspect the
-  results.}
+\item{browse}{if \code{TRUE}, will also open the request bin in your
+browser so you can more easily inspect the results.}
 }
 \description{
 Returns the url pointing to a newly created request bin.  This is very

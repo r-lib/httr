@@ -6,7 +6,7 @@
 oauth_listener(request_url)
 }
 \arguments{
-  \item{request_url}{the url to send the browser to}
+\item{request_url}{the url to send the browser to}
 }
 \description{
 This opens a web browser pointing to \code{request_url}, and opens a

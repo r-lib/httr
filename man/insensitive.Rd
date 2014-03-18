@@ -6,7 +6,7 @@
 insensitive(x)
 }
 \arguments{
-  \item{x}{vector to modify}
+\item{x}{vector to modify}
 }
 \description{
 Create a vector with case insensitive name matching.

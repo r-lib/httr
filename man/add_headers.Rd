@@ -12,10 +12,10 @@ accept_json()
 accept_xml()
 }
 \arguments{
-  \item{...}{named header values.  To stop an existing
-  header from being set, pass an empty string: \code{""}.}
+\item{...}{named header values.  To stop an existing header from being
+set, pass an empty string: \code{""}.}
 
-  \item{.headers}{a named character vector}
+\item{.headers}{a named character vector}
 }
 \description{
 \code{accept_json} and \code{accept_xml} are useful shortcuts to request

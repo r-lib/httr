@@ -16,33 +16,34 @@ and \code{\link{oauth2.0_token}}. If you create your own subclass
 (as in the linkedin demo), use \code{\link{new_token}} to initialise.
 }
 \section{Methods}{
-  \itemize{ \item \code{cache()}: caches token to disk
-  \item \code{sign(method, url)}: returns list of url and
-  config \item \code{refresh()}: refresh access token (if
-  possible) \item \code{validate()}: TRUE if the token is
-  still valid, FALSE otherwise }
+
+\itemize{
+ \item \code{cache()}: caches token to disk
+ \item \code{sign(method, url)}: returns list of url and config
+ \item \code{refresh()}: refresh access token (if possible)
+ \item \code{validate()}: TRUE if the token is still valid, FALSE otherwise
+}
 }
 
 \section{Caching}{
-  OAuth tokens are cached on disk in a file called
-  \code{.httr-oauth} saved in the current working
-  directory.  Caching is enabled if:
 
-  \itemize{ \item The session is interactive, and the user
-  agrees to it, OR \item The \code{.httr-oauth} file is
-  already present, OR \item
-  \code{getOption("httr_oauth_cache")} is \code{TRUE} }
+OAuth tokens are cached on disk in a file called \code{.httr-oauth}
+saved in the current working directory.  Caching is enabled if:
 
-  You can suppress caching by setting the
-  \code{httr_oauth_cache} option to \code{FALSE}.
+\itemize{
+\item The session is interactive, and the user agrees to it, OR
+\item The \code{.httr-oauth} file is already present, OR
+\item \code{getOption("httr_oauth_cache")} is \code{TRUE}
+}
 
-  Tokens are cached based on their endpoint and parameters.
+You can suppress caching by setting the \code{httr_oauth_cache} option to
+\code{FALSE}.
 
-  The cache file should not be included in source code
-  control or R packages (because it contains private
-  information), so httr will automatically add the
-  appropriate entries to `.gitignore` and `.Rbuildignore`
-  if needed.
+Tokens are cached based on their endpoint and parameters.
+
+The cache file should not be included in source code control or R packages
+(because it contains private information), so httr will automatically add
+the appropriate entries to `.gitignore` and `.Rbuildignore` if needed.
 }
 \keyword{internal}
 

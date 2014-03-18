@@ -6,17 +6,16 @@
 http_condition(x, type, message = NULL, call = sys.call(-1))
 }
 \arguments{
-  \item{x}{a response, or numeric http code (or other
-  object with \code{status_code} method)}
+\item{x}{a response, or numeric http code (or other object with
+\code{status_code} method)}
 
-  \item{type}{type of condition to generate. Must be one of
-  error, warning or message.}
+\item{type}{type of condition to generate. Must be one of error,
+warning or message.}
 
-  \item{message}{The text of the message. If \code{NULL},
-  the default, will use \code{\link{http_status}} to
-  generate the message.}
+\item{message}{The text of the message. If \code{NULL}, the default,
+will use \code{\link{http_status}} to generate the message.}
 
-  \item{call}{The call stored in the condition object.}
+\item{call}{The call stored in the condition object.}
 }
 \value{
 An S3 object that inherits from (e.g.) condition, \code{type},

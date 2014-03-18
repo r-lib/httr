@@ -7,19 +7,17 @@ new_token(token, endpoint, app, params = list(),
   cache = getOption("httr_oauth_cache"))
 }
 \arguments{
-  \item{params}{list of params}
+\item{params}{list of params}
 
-  \item{endpoint}{An OAuth endpoint, created by
-  \code{\link{oauth_endpoint}}}
+\item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
 
-  \item{app}{An OAuth consumer application, created by
-  \code{\link{oauth_app}}}
+\item{app}{An OAuth consumer application, created by
+\code{\link{oauth_app}}}
 
-  \item{cache}{A logical value or a string. \code{TRUE}
-  means to cache using the default cache file
-  \code{.oauth-httr}, \code{FALSE} means don't cache, and
-  \code{NA} means to guess using some sensible heuristics.
-  A string mean use the specified path as the cache file.}
+\item{cache}{A logical value or a string. \code{TRUE} means to cache
+using the default cache file \code{.oauth-httr}, \code{FALSE} means
+don't cache, and \code{NA} means to guess using some sensible heuristics.
+A string mean use the specified path as the cache file.}
 }
 \description{
 This is useful if you've created your own Token subclass - it initialises

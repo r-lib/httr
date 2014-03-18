@@ -6,20 +6,17 @@
 oauth_app(appname, key, secret = NULL)
 }
 \arguments{
-  \item{appname}{name of the application.  This is not used
-  for OAuth, but is used to make it easier to identifier
-  different applications and provide a consistent ways of
-  storing secrets in environmental variables.}
+\item{appname}{name of the application.  This is not used for OAuth, but
+is used to make it easier to identifier different applications and
+provide a consistent ways of storing secrets in environmental variables.}
 
-  \item{key}{consumer key (equivalent to a user name)}
+\item{key}{consumer key (equivalent to a user name)}
 
-  \item{secret}{consumer secret.  This is equivalent to a
-  password and should not be stored in publicly visible
-  code.  As a convenient shortcut, if \code{secret} is
-  missing, we'll look in the environment variable
-  \code{APPNAME_CONSUMER_SECRET}. Use \code{NULL} to not
-  store a secret: this is useful if you're relying on
-  cached OAuth tokens.}
+\item{secret}{consumer secret.  This is equivalent to a password and
+should not be stored in publicly visible code.  As a convenient shortcut,
+if \code{secret} is missing, we'll look in the environment variable
+\code{APPNAME_CONSUMER_SECRET}. Use \code{NULL} to not store a secret:
+this is useful if you're relying on cached OAuth tokens.}
 }
 \description{
 The OAuth framework doesn't match perfectly to use from R. Each user of the

@@ -6,7 +6,7 @@
 user_agent(agent)
 }
 \arguments{
-  \item{agent}{string giving user agent}
+\item{agent}{string giving user agent}
 }
 \description{
 Override the default RCurl user agent of \code{NULL}

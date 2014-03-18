@@ -6,9 +6,9 @@
 hmac_sha1(key, string)
 }
 \arguments{
-  \item{key}{secret key}
+\item{key}{secret key}
 
-  \item{string}{data to securely hash}
+\item{string}{data to securely hash}
 }
 \description{
 As described in \url{http://datatracker.ietf.org/doc/rfc2104/}.

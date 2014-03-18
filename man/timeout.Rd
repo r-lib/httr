@@ -6,8 +6,7 @@
 timeout(seconds)
 }
 \arguments{
-  \item{seconds}{number of seconds to wait for a response
-  until giving up.}
+\item{seconds}{number of seconds to wait for a response until giving up.}
 }
 \description{
 Set maximum request time.

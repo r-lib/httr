@@ -6,24 +6,21 @@
 BROWSE(url = NULL, config = list(), ..., handle = NULL)
 }
 \arguments{
-  \item{config}{All configuration options are ignored
-  because the request is handled by the browser, not
-  \pkg{RCurl}.}
+\item{config}{All configuration options are ignored because the request
+is handled by the browser, not \pkg{RCurl}.}
 
-  \item{url}{the url of the page to retrieve}
+\item{url}{the url of the page to retrieve}
 
-  \item{...}{Further parameters, such as \code{query},
-  \code{path}, etc, passed on to \code{\link{modify_url}}.
-  These parameters must be named.}
+\item{...}{Further parameters, such as \code{query}, \code{path}, etc,
+passed on to \code{\link{modify_url}}. These parameters must be named.}
 
-  \item{handle}{The handle to use with this request. If not
-  supplied, will be retrieved and reused from the
-  \code{\link{handle_pool}} based on the scheme, hostname
-  and port of the url. By default \pkg{httr} requests to
-  the same scheme/host/port combo. This substantially
-  reduces connection time, and ensures that cookies are
-  maintained over multiple requests to the same host. See
-  \code{\link{handle_pool}} for more details.}
+\item{handle}{The handle to use with this request. If not
+  supplied, will be retrieved and reused from the \code{\link{handle_pool}}
+  based on the scheme, hostname and port of the url. By default \pkg{httr}
+  requests to the same scheme/host/port combo. This substantially reduces
+  connection time, and ensures that cookies are maintained over multiple
+  requests to the same host. See \code{\link{handle_pool}} for more
+  details.}
 }
 \description{
 (This isn't really a http verb, but it seems to follow the same format).

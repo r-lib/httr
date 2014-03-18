@@ -6,14 +6,13 @@
 authenticate(user, password, type = "any")
 }
 \arguments{
-  \item{user}{user name}
+\item{user}{user name}
 
-  \item{password}{password}
+\item{password}{password}
 
-  \item{type}{type of HTTP authentication.  Should be one
-  of the following types supported by Curl: basic, digest,
-  digest_ie, gssnegotiate, ntlm, ntlm_vn, any.  It defaults
-  to any.}
+\item{type}{type of HTTP authentication.  Should be one of the following
+types supported by Curl: basic, digest, digest_ie, gssnegotiate,
+ntlm, ntlm_vn, any.  It defaults to any.}
 }
 \description{
 It's not obvious how to turn authentication off after using it, so

@@ -9,9 +9,8 @@ parse_url(url)
 build_url(url)
 }
 \arguments{
-  \item{url}{a character vector (of length 1) to parse into
-  components, or for \code{build_url} a url to turn back
-  into a string.}
+\item{url}{a character vector (of length 1) to parse into components,
+or for \code{build_url} a url to turn back into a string.}
 }
 \value{
 a list containing: \itemize{

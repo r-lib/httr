@@ -6,60 +6,50 @@
 GET(url = NULL, config = list(), ..., handle = NULL)
 }
 \arguments{
-  \item{url}{the url of the page to retrieve}
+\item{url}{the url of the page to retrieve}
 
-  \item{...}{Further parameters, such as \code{query},
-  \code{path}, etc, passed on to \code{\link{modify_url}}.
-  These parameters must be named.}
+\item{...}{Further parameters, such as \code{query}, \code{path}, etc,
+passed on to \code{\link{modify_url}}. These parameters must be named.}
 
-  \item{config}{Additional configuration settings such as
-  http authentication (\code{\link{authenticate}}),
-  additional headers (\code{\link{add_headers}}), cookies
-  (\code{\link{set_cookies}}) etc.  See
-  \code{\link{config}} for full details and list of
-  helpers.}
+\item{config}{Additional configuration settings such as http
+authentication (\code{\link{authenticate}}), additional headers
+(\code{\link{add_headers}}), cookies (\code{\link{set_cookies}}) etc.
+See \code{\link{config}} for full details and list of helpers.}
 
-  \item{handle}{The handle to use with this request. If not
-  supplied, will be retrieved and reused from the
-  \code{\link{handle_pool}} based on the scheme, hostname
-  and port of the url. By default \pkg{httr} requests to
-  the same scheme/host/port combo. This substantially
-  reduces connection time, and ensures that cookies are
-  maintained over multiple requests to the same host. See
-  \code{\link{handle_pool}} for more details.}
+\item{handle}{The handle to use with this request. If not
+  supplied, will be retrieved and reused from the \code{\link{handle_pool}}
+  based on the scheme, hostname and port of the url. By default \pkg{httr}
+  requests to the same scheme/host/port combo. This substantially reduces
+  connection time, and ensures that cookies are maintained over multiple
+  requests to the same host. See \code{\link{handle_pool}} for more
+  details.}
 }
 \description{
 GET a url.
 }
 \section{RFC2616}{
-  The GET method means retrieve whatever information (in
-  the form of an entity) is identified by the Request-URI.
-  If the Request-URI refers to a data-producing process, it
-  is the produced data which shall be returned as the
-  entity in the response and not the source text of the
-  process, unless that text happens to be the output of the
-  process.
 
-  The semantics of the GET method change to a "conditional
-  GET" if the request message includes an
-  If-Modified-Since, If-Unmodified-Since, If-Match,
-  If-None-Match, or If-Range header field. A conditional
-  GET method requests that the entity be transferred only
-  under the circumstances described by the conditional
-  header field(s). The conditional GET method is intended
-  to reduce unnecessary network usage by allowing cached
-  entities to be refreshed without requiring multiple
-  requests or transferring data already held by the client.
+The GET method means retrieve whatever information (in the form of an
+entity) is identified by the Request-URI. If the Request-URI refers to a
+data-producing process, it is the produced data which shall be returned as
+the entity in the response and not the source text of the process, unless
+that text happens to be the output of the process.
 
-  The semantics of the GET method change to a "partial GET"
-  if the request message includes a Range header field. A
-  partial GET requests that only part of the entity be
-  transferred, as described in
-  \url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35}
-  The partial GET method is intended to reduce unnecessary
-  network usage by allowing partially-retrieved entities to
-  be completed without transferring data already held by
-  the client.
+The semantics of the GET method change to a "conditional GET" if the
+request message includes an If-Modified-Since, If-Unmodified-Since,
+If-Match, If-None-Match, or If-Range header field. A conditional GET method
+requests that the entity be transferred only under the circumstances
+described by the conditional header field(s). The conditional GET method is
+intended to reduce unnecessary network usage by allowing cached entities to
+be refreshed without requiring multiple requests or transferring data
+already held by the client.
+
+The semantics of the GET method change to a "partial GET" if the request
+message includes a Range header field. A partial GET requests that only
+part of the entity be transferred, as described in \url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35}
+The partial GET method is intended to reduce unnecessary network usage by
+allowing partially-retrieved entities to be completed without transferring
+data already held by the client.
 }
 \examples{
 GET("http://google.com/")

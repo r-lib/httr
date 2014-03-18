@@ -6,7 +6,7 @@
 guess_media(x)
 }
 \arguments{
-  \item{x}{path to file}
+\item{x}{path to file}
 }
 \description{
 Guess the media type of a path from its extension.

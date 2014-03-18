@@ -6,14 +6,12 @@
 init_oauth1.0(endpoint, app, permission = NULL)
 }
 \arguments{
-  \item{endpoint}{An OAuth endpoint, created by
-  \code{\link{oauth_endpoint}}}
+\item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
 
-  \item{app}{An OAuth consumer application, created by
-  \code{\link{oauth_app}}}
+\item{app}{An OAuth consumer application, created by
+\code{\link{oauth_app}}}
 
-  \item{permission}{optional, a string of permissions to
-  ask for.}
+\item{permission}{optional, a string of permissions to ask for.}
 }
 \description{
 See demos for use.

@@ -6,19 +6,17 @@
 oauth_endpoint(request = NULL, authorize, access, ..., base_url = NULL)
 }
 \arguments{
-  \item{request}{url used to request initial
-  (unauthenticated) token.  If using OAuth1.0, leave as
-  \code{NULL}.}
+\item{request}{url used to request initial (unauthenticated) token.
+If using OAuth1.0, leave as \code{NULL}.}
 
-  \item{authorize}{url to send client to for authorisation}
+\item{authorize}{url to send client to for authorisation}
 
-  \item{access}{url used to exchange unauthenticated for
-  authenticated token.}
+\item{access}{url used to exchange unauthenticated for authenticated token.}
 
-  \item{...}{other additional endpoints.}
+\item{...}{other additional endpoints.}
 
-  \item{base_url}{option url to use as base for
-  \code{request}, \code{authorize} and \code{access} urls.}
+\item{base_url}{option url to use as base for \code{request},
+\code{authorize} and \code{access} urls.}
 }
 \description{
 See \code{\link{oauth_endpoints}} for a list of popular OAuth endpoints

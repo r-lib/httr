@@ -6,8 +6,7 @@
 url_success(...)
 }
 \arguments{
-  \item{...}{passed to HEAD to perform the request (usually
-  just a url)}
+\item{...}{passed to HEAD to perform the request (usually just a url)}
 }
 \value{
 This function returns \code{TRUE} if the request succeeds

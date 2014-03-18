@@ -6,7 +6,7 @@
 http_status(x)
 }
 \arguments{
-  \item{x}{a request object or a number.}
+\item{x}{a request object or a number.}
 }
 \value{
 If the status code does not match a known status, an error.

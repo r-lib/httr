@@ -8,25 +8,23 @@
 content(x, as = NULL, type = NULL, encoding = NULL, ...)
 }
 \arguments{
-  \item{x}{request object}
+\item{x}{request object}
 
-  \item{as}{desired type of output: \code{raw}, \code{text}
-  or \code{parsed}. \code{content} attempts to
-  automatically figure out which one is most appropriate,
-  based on the content-type.}
+\item{as}{desired type of output: \code{raw}, \code{text} or
+\code{parsed}. \code{content} attempts to automatically figure out
+which one is most appropriate, based on the content-type.}
 
-  \item{type}{MIME type (aka internet media type) used to
-  override the content type returned by the server. See
-  \url{http://en.wikipedia.org/wiki/Internet_media_type}
-  for a list of common types.}
+\item{type}{MIME type (aka internet media type) used to override
+the content type returned by the server. See
+\url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of
+common types.}
 
-  \item{encoding}{For text, overrides the charset or the
-  Latin1 (ISO-8859-1) default, if you know that the server
-  is returning the incorrect encoding as the charset in the
-  content-type. Use for text and auto outputs.}
+\item{encoding}{For text, overrides the charset or the Latin1 (ISO-8859-1)
+default, if you know that the server is returning the incorrect encoding
+as the charset in the content-type. Use for text and auto outputs.}
 
-  \item{...}{Other parameters parsed on to the parsing
-  functions, if \code{as = "auto"}}
+\item{...}{Other parameters parsed on to the parsing functions, if
+\code{as = "auto"}}
 }
 \description{
 There are currently three ways to retrieve the contents of a request:
@@ -54,11 +52,12 @@ are trying to parse is not available, use \code{as = "text"} and parse
 yourself.
 }
 \section{WARNING}{
-  When using \code{content()} in a package, DO NOT use on
-  \code{as = "parsed"}. Instead, check the mime-type is
-  what you expect, and then parse yourself. This is safer,
-  as you will fail informatively if the API changes, and
-  you will protect yourself against changes to httr.
+
+
+When using \code{content()} in a package, DO NOT use on \code{as = "parsed"}.
+Instead, check the mime-type is what you expect, and then parse yourself.
+This is safer, as you will fail informatively if the API changes, and
+you will protect yourself against changes to httr.
 }
 \examples{
 r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))

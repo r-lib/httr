@@ -6,7 +6,7 @@
 oauth_exchanger(request_url)
 }
 \arguments{
-  \item{request_url}{the url to provide to the user}
+\item{request_url}{the url to provide to the user}
 }
 \description{
 This performs a similar function to \code{\link{oauth_listener}},
