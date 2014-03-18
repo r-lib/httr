@@ -71,7 +71,9 @@ who contributed much code and many ideas to make this possible.
 
 * Added default user agent which includes versions of Curl, RCurl and httr.
 
-* Switched to jsonlite from rjson. No longer loaded onto search path.
+* Switched to jsonlite from rjson.
+
+* Content parsers no longer load pacages on to search path.
 
 * `stop_for_status()` now raises errors with useful classes so that you can
   use `tryCatch()` to take different actions depending on the type of error.

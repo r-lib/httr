@@ -37,6 +37,7 @@ parsers <- new.env(parent = emptyenv())
 parsers$`application/json` <- function(x, simplifyVector = FALSE,
                                        simplifyMatrix = FALSE,
                                        simplifyDataFrame = FALSE, ...) {
+  need_package("jsonlite")
   jsonlite::fromJSON(parse_text(x, encoding = "UTF-8"),
     simplifyVector = simplifyVector, simplifyMatrix = simplifyMatrix,
     simplifyDataFrame = simplifyDataFrame, ...)
@@ -47,22 +48,22 @@ parsers$`application/x-www-form-urlencoded` <- function(x) {
 }
 
 parsers$`image/jpeg` <- function(x) {
-  require("jpeg")
-  readJPEG(x)
+  need_package("jpeg")
+  jpeg::readJPEG(x)
 }
 parsers$`image/png` <- function(x) {
-  require("png")
-  readPNG(x)
+  need_package("png")
+  png::readPNG(x)
 }
 
 parsers$`text/plain` <- function(x) x
 parsers$`text/html` <- function(x, ...) {
-  require("XML")
-  htmlParse(x, ...)
+  need_package("XML")
+  XML::htmlParse(x, ...)
 }
 parsers$`text/xml` <- function(x, ...) {
-  require("XML")
-  xmlParse(x, ...)
+  need_package("XML")
+  XML::xmlParse(x, ...)
 }
 parsers$`text/csv` <- function(x, ...) {
   read.csv(text = x, stringsAsFactors = FALSE, ...)

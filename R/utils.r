@@ -33,3 +33,13 @@ travis_encrypt <- function(vars) {
   values <- Sys.getenv(vars)
   cat(paste0("travis encrypt ", paste0(vars, "=", values, collapse = " ")))
 }
+
+is_installed <- function(pkg) {
+  system.file(package = pkg) != ""
+}
+
+need_package <- function(pkg) {
+  if (is_installed(pkg)) return(invisible())
+
+  stop("Please install ", pkg, " package", call. = FALSE)
+}
