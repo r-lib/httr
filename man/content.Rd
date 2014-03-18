@@ -41,7 +41,7 @@ does its best to guess which output is most appropriate.
  \item \code{text/xml}: \code{\link[XML]{xmlTreeParse}}
  \item \code{text/csv}: \code{\link{read.csv}}
  \item \code{text/tab-separated-values}: \code{\link{read.delim}}
- \item \code{application/json}: \code{\link[RJSONIO]{fromJSON}}
+ \item \code{application/json}: \code{\link[jsonlite]{fromJSON}}
  \item \code{application/x-www-form-urlencoded}: \code{parse_query}
  \item \code{image/jpeg}: \code{\link[jpeg]{readJPEG}}
  \item \code{image/png}: \code{\link[png]{readPNG}}
