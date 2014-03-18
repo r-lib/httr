@@ -12,7 +12,7 @@
 #' @export
 #' @keywords internal
 oauth_listener <- function(request_url) {
-  if (!require("httpuv")) {
+  if (!is_installed("httpuv")) {
     stop("httpuv package required to capture OAuth credentials.")
   }
 
