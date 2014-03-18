@@ -8,7 +8,7 @@ handle_url <- function(handle = NULL, url = NULL, ...) {
 
   # If named components in ..., modify the url
   new <- named(list(...))
-  if (length(new) > 0) {
+  if (length(new) > 0 || is.url(url)) {
     old <- parse_url(url)
     url <- build_url(modifyList(old, new))
   }
