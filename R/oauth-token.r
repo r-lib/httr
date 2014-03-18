@@ -34,11 +34,9 @@
 #' the appropriate entries to `.gitignore` and `.Rbuildignore` if needed.
 #'
 #' @keywords internal
-#' @importFrom methods setRefClass
-#' @importFrom digest digest
 #' @aliases Token Token1.0 Token2.0
 #' @export
-Token <- setRefClass("Token",
+Token <- methods::setRefClass("Token",
   fields = c("endpoint", "app", "credentials", "params", "cache_path"),
   methods = list(
     initialize = function(...) {
@@ -89,7 +87,7 @@ Token <- setRefClass("Token",
       # endpoint = which site
       # app = client identification
       # params = scope
-      digest(list(endpoint, app, params$scope))
+      digest::digest(list(endpoint, app, params$scope))
     },
     sign = function() {
       stop("Must be implemented by subclass", call. = FALSE)

@@ -1,13 +1,12 @@
 #' Guess the media type of a path from its extension.
 #'
 #' @param x path to file
-#' @importFrom tools file_ext
 #' @export
 #' @examples
 #' guess_media("report.doc")
 #' guess_media("owl.png")
 guess_media <- function(x) {
-  ext <- file_ext(x)
+  ext <- tools::file_ext(x)
 
   if (ext %in% names(ext_media)) {
     ext_media[[ext]]

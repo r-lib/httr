@@ -1,4 +1,3 @@
-#' @importFrom methods as
 make_request <- function(method, handle, url, config = NULL, body = NULL,
                          refresh = TRUE) {
   if (is.null(config)) config <- config()
