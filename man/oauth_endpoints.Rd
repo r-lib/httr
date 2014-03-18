@@ -10,7 +10,7 @@ oauth_endpoints(name)
 vimeo, google, facebook, github.}
 }
 \description{
-This list provides some common OAuth endpoints.
+Provides some common OAuth endpoints.
 }
 \examples{
 oauth_endpoints("twitter")
