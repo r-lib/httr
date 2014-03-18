@@ -2,6 +2,7 @@
 make_request <- function(method, handle, url, config = NULL, body = NULL,
                          refresh = TRUE) {
   if (is.null(config)) config <- config()
+  stopifnot(is.config(config))
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
 
