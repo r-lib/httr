@@ -1,7 +1,7 @@
 #' Send a DELETE request.
 #'
 #' @section RFC2616:
-
+#'
 #' The DELETE method requests that the origin server delete the resource
 #' identified by the Request-URI. This method MAY be overridden by human
 #' intervention (or other means) on the origin server. The client cannot be
@@ -31,6 +31,7 @@
 #' POST("http://httpbin.org/delete")
 DELETE <- function(url = NULL, config = list(), ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  config <- modify_config(config, list(nobody = 1L))
+  config <- make_config(config, ..., list(nobody = 1L))
+
   make_request("delete", hu$handle, hu$url, config)
 }

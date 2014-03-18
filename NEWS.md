@@ -59,6 +59,9 @@ who contributed much code and many ideas to make this possible.
 
 ## Other improvements
 
+* HTTP verbs (`GET()`, `POST()` etc) now pass unnamed arguments to `config()`
+  and named arguments to `modify_url()` (#81).
+
 * `httr` includes its own copy of `cacert.pem`, which is more recent than
   the version included in RCurl (#67).
 

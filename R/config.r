@@ -82,6 +82,15 @@ modify_config <- function(x, val) {
   x
 }
 
+make_config <- function(x, ...) {
+  if (is.list(x)) {
+    class(x) <- "config"
+  }
+
+  configs <- c(list(x), unnamed(list(...)))
+  do.call("c", configs)
+}
+
 default_config <- function() {
   # Downloaded from http://curl.haxx.se/docs/caextract.html 2014-02-26
   cert <- system.file("cacert.pem", package = "httr")

@@ -33,12 +33,12 @@ test_that("digest authentication works", {
 
 test_that("oauth2.0 signing works", {
   request_url <- "http://httpbin.org/headers"
-  
+
   token <- Token2.0(
-    credentials = list(access_token = "ofNoArms"), 
+    credentials = list(access_token = "ofNoArms"),
     params = list()
   )
-  
+
   token$params$as_header <- TRUE
   header_response <- GET(request_url, config(token = token))
   response_content <- content(header_response)$headers
@@ -52,4 +52,19 @@ test_that("oauth2.0 signing works", {
   # FIXME: testthat 0.7.1
   # expect_that(request_url, not(equals(url_response$url)))
   expect_match(url_response$url, "access_token=ofNoArms")
+})
+
+
+test_that("make_config combines headers correctly", {
+  config <- make_config(list(), add_headers(a = 1), add_headers(a = 2))
+  expect_is(config, "config")
+  expect_equal(config$httpheader, c(a = "2"))
+
+  config <- make_config(add_headers(a = 1), add_headers(a = 2))
+  expect_is(config, "config")
+  expect_equal(config$httpheader, c(a = "2"))
+
+  config <- make_config(add_headers(a = 1), list(httpheader = c(a = "2")))
+  expect_is(config, "config")
+  expect_equal(config$httpheader, c(a = "2"))
 })

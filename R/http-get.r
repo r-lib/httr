@@ -60,8 +60,8 @@
 #' GET(handle = google, path = "/")
 #' GET(handle = google, path = "search")
 GET <- function(url = NULL, config = list(), ..., handle = NULL) {
-  config <- merge_config(config, ...)
   hu <- handle_url(handle, url, ...)
+  config <- make_config(config, ...)
 
   make_request("get", hu$handle, hu$url, config)
 }
