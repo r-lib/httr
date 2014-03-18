@@ -23,7 +23,8 @@
 #' POST(b2, body = "A simple text string")
 #' POST(b2, body = list(x = "A simple text string"))
 #' POST(b2, body = list(y = upload_file(system.file("CITATION"))))
-POST <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ..., handle = NULL) {
+POST <- function(url = NULL, config = list(), ..., body = NULL,
+                 multipart = TRUE,  handle = NULL) {
   hu <- handle_url(handle, url, ...)
   config <- make_config(config, ...)
 

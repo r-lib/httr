@@ -62,6 +62,10 @@ who contributed much code and many ideas to make this possible.
 * HTTP verbs (`GET()`, `POST()` etc) now pass unnamed arguments to `config()`
   and named arguments to `modify_url()` (#81).
 
+* The placement of `...` in `POST()`, `PATCH()` and `PUT()` has been tweaked
+  so that you must always specify `body` and `multipart` arguments with their
+  full name. This has always been recommended practice; now it is enforced.
+
 * `httr` includes its own copy of `cacert.pem`, which is more recent than
   the version included in RCurl (#67).
 

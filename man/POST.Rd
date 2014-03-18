@@ -3,7 +3,7 @@
 \alias{POST}
 \title{POST file to a server.}
 \usage{
-POST(url = NULL, config = list(), body = NULL, multipart = TRUE, ...,
+POST(url = NULL, config = list(), ..., body = NULL, multipart = TRUE,
   handle = NULL)
 }
 \arguments{

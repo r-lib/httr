@@ -3,7 +3,7 @@
 \alias{PATCH}
 \title{Send PATCH request to a server.}
 \usage{
-PATCH(url = NULL, config = list(), body = NULL, multipart = TRUE, ...,
+PATCH(url = NULL, config = list(), ..., body = NULL, multipart = TRUE,
   handle = NULL)
 }
 \arguments{

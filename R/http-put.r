@@ -13,7 +13,8 @@
 #' PUT(b2, body = "A simple text string")
 #' PUT(b2, body = list(x = "A simple text string"))
 #' PUT(b2, body = list(y = upload_file(system.file("CITATION"))))
-PUT <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ..., handle = NULL) {
+PUT <- function(url = NULL, config = list(), ..., body = NULL, multipart = TRUE,
+                handle = NULL) {
   hu <- handle_url(handle, url, ...)
   config <- make_config(config, ...)
 

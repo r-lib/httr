@@ -3,7 +3,8 @@
 #' @inheritParams GET
 #' @inheritParams POST
 #' @export
-PATCH <- function(url = NULL, config = list(), body = NULL, multipart = TRUE, ..., handle = NULL) {
+PATCH <- function(url = NULL, config = list(), ..., body = NULL,
+                  multipart = TRUE, handle = NULL) {
   hu <- handle_url(handle, url, ...)
   config <- make_config(config, ...)
 

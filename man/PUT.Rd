@@ -3,7 +3,7 @@
 \alias{PUT}
 \title{Send PUT request to server.}
 \usage{
-PUT(url = NULL, config = list(), body = NULL, multipart = TRUE, ...,
+PUT(url = NULL, config = list(), ..., body = NULL, multipart = TRUE,
   handle = NULL)
 }
 \arguments{
@@ -15,6 +15,10 @@ PUT(url = NULL, config = list(), body = NULL, multipart = TRUE, ...,
   (\code{\link{set_cookies}}) etc.  See
   \code{\link{config}} for full details and list of
   helpers.}
+
+  \item{...}{Further parameters, such as \code{query},
+  \code{path}, etc, passed on to \code{\link{modify_url}}.
+  These parameters must be named.}
 
   \item{body}{Use \code{NULL} for an empty body, a
   length-one character or file. Each component should
@@ -28,10 +32,6 @@ PUT(url = NULL, config = list(), body = NULL, multipart = TRUE, ...,
   multipart/form-data (\code{TRUE}), or
   application/x-www-form-urlencoded (\code{FALSE}).  Files
   can not be uploaded when \code{FALSE}.}
-
-  \item{...}{Further parameters, such as \code{query},
-  \code{path}, etc, passed on to \code{\link{modify_url}}.
-  These parameters must be named.}
 
   \item{handle}{The handle to use with this request. If not
   supplied, will be retrieved and reused from the
