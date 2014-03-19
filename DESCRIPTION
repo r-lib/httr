@@ -8,6 +8,7 @@ Description: Provides useful tools for working with HTTP connections.  Is a
     simplified wrapper built on top of RCurl.  It is much much less configurable
     but because it only attempts to encompass the most common operations it is
     also much much simpler.
+Depends: R (>= 3.0.0)
 Imports:
     RCurl (>= 1.95-0),
     stringr (>= 0.6.1),
