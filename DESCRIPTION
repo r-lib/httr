@@ -22,6 +22,8 @@ Suggests:
     testthat (>= 0.8.0),
     png,
     jpeg,
-    httpuv
+    httpuv,
+    knitr
+VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
 License: MIT + file LICENSE

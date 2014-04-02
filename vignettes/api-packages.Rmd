@@ -1,0 +1,182 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{Best practices for writing an API package}
+-->
+
+```{r, echo = FALSE}
+library(httr)
+knitr::opts_chunk$set(comment = "#>")
+```
+
+# Best practices for writing an API package
+
+This document collects best practices for writing a package that connects to an web API. The goal is to help you produce a package that is safe, secure and keeps working in the long run.
+
+If you're new to working with web APIs, start by reading [An introduction to APIs](https://zapier.com/learn/apis) by zapier.
+
+## Key info
+
+When writing an API, it's best to start with some helper functions that capture the common conventions of the API in one place. These fuctions capture information like:
+
+* the base URL for all API requests.
+* how authentication works
+* how the API is versioned
+* how results (including errors) are returned
+
+The following example shows how you might write these functions for the github API. Note that I've used lots of small function to avoid repeating code as much as possible. This is important when writing code that talks to APIs because APIs change all too frequently and you only want to have to change important facts in one place.
+
+We start with functions to execute `GET` and `POST` requests:
+
+```{r}
+github_GET <- function(path, ..., pat = github_pat()) {
+  auth <- github_auth(pat)
+  req <- GET("https://api.github.com/", path = path, auth, ...)
+  github_check(req)
+
+  req
+}
+
+github_POST <- function(path, body, ..., pat = github_pat()) {
+  auth <- github_auth(pat)
+
+  stopifnot(is.list(body))
+  body_json <- jsonlite::toJSON(body)
+
+  req <- POST("https://api.github.com/", path = path, body = body_json,
+    auth, post, ...)
+  github_check(req)
+
+  req
+}
+```
+
+These need some additional infrastructure to authenticate, check the responses and give useful error messages and parse responses:
+
+```{r}
+github_auth <- function(pat = github_pat()) {
+  authenticate(pat, "x-oauth-basic", "basic")
+}
+
+github_check <- function(req) {
+  if (req$status_code < 400) return(invisible())
+
+  message <- github_parse(req)$message
+  stop("HTTP failure: ", req$status_code, "\n", message, call. = FALSE)
+}
+
+github_parse <- function(req) {
+  text <- content(req, as = "text")
+  if (identical(text, "")) stop("Not output to parse", call. = FALSE)
+  jsonlite::fromJSON(text, simplifyVector = FALSE)
+}
+
+github_pat <- function() {
+  Sys.getenv('GITHUB_PAT')
+}
+```
+
+`github_pat()` is just a shim, to get my personal access token from an environment variable. Later, you'll see a better, if lengthier, way of writing it in the authentication section.
+
+Once you have these pieces in place, it's simple to implement API functions. For example, we could implement a `rate_limit()` function that tells you how many calls against the github API are available to you.
+
+```{r}
+rate_limit <- function() {
+  req <- github_GET("rate_limit")
+  github_parse(req)
+}
+str(rate_limit())
+```
+
+After getting the first version getting working, you'll often want to polish the output to more user friendly. For this example, we can parse the unix timestamps into more useful date types.
+
+```{r}
+rate_limit <- function() {
+  req <- github_GET("rate_limit")
+  core <- github_parse(req)$resources$core
+
+  reset <- as.POSIXct(core$reset, origin = "1970-01-01")
+  cat(core$remaining, " / ", core$limit,
+    " (Reset ", strftime(reset, "%H:%M:%S"), ")\n", sep = "")
+}
+rate_limit()
+```
+
+## Parsing output and posting input
+
+Most APIs communicate either with json or xml. To work with json, I recommend the `jsonlite` package. To work with xml, use the `xml` package.
+
+httr provides some default parsers with `content(..., as = "auto")` but I don't recommend using them. Instead get the content as text with `content(..., as = "text")` and parse yourself. The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.
+
+```{r}
+github_parse <- function(req) {
+  text <- content(req, as = "text")
+  if (identical(text, "")) stop("")
+  jsonlite::fromJSON(text, simplifyVector = FALSE)
+}
+```
+
+## Responding to errors
+
+First, check the HTTP status code. Status codes in the 400 range usually mean that you've done something wrong. Status codes in the 500 range typically mean that something has gone wrong on the server side. This however, might be that you sent the server something badly formed.
+
+When you get an error, often the body of the request will contain some useful information, so you should parse it and pull out the error:
+
+```{r}
+github_parse <- function(req) {
+  text <- content(req, as = "text")
+  if (identical(text, "")) stop("Not output to parse", call. = FALSE)
+  jsonlite::fromJSON(text, simplifyVector = FALSE)
+}
+```
+
+If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are [rate limited](https://developer.github.com/v3/#rate-limiting) you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).
+
+## Authentication
+
+The most common forms of authentication are OAuth:
+
+* OAuth 1.0. Not terribly common any more.
+
+* OAuth 2.0. It's ok to publish api key and "secret".
+
+* HTTP basic auth with API key.
+
+    ```{r}
+    authenticate("ddfa3d40d5855d6ba76b7003fd4", "")
+    ```
+
+* HTTP basic auth with username and password. This is the least secure
+  since it requires the most information.
+
+    ```{r}
+    authenticate("username", "password")
+    ```
+
+You also need some way to preserve user credentials so that they don't need to be re-entered multiple times. If you use OAuth, httr will take care of this for. For other use cases, I recommend using environment variables. The following function retrieves your PAT from an environmental variable called `GITHUB_PAT`, telling you how it set it if not. The devtools package needs to access you github personal access token to install packages from private repos.
+
+```{r}
+github_pat <- function(force = FALSE) {
+  env <- Sys.getenv('GITHUB_PAT')
+  if (!identical(env, "") && !force) return(env)
+
+  if (!interactive()) {
+    stop("Please set env var GITHUB_PAT to your github personal access token",
+      call. = FALSE)
+  }
+
+  message("Couldn't find env var GITHUB_PAT. See ?github_pat for more details.")
+  message("Please enter your PAT and press enter:")
+  pat <- readline(": ")
+
+  if (identical(pat, "")) {
+    stop("Github personal access token entry failed", call. = FALSE)
+  }
+
+  message("Updating GITHUB_PAT env var to PAT")
+  Sys.setenv(GITHUB_PAT = pat)
+
+  pat
+}
+```
+
+Encourage you users to store their important information once, rather than typing it into the console - it's easy to accidentally publish your `.Rhistory` and you don't want it to contain private data.

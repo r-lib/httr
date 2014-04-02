@@ -1,5 +1,8 @@
 # httr 0.3.0.99
 
+* New vignette `api-packages` describes how best practices to follow when
+  writing a package that talks to a web api.
+
 # httr 0.3
 
 ## OAuth improvements
