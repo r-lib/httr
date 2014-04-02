@@ -1,3 +1,5 @@
+# httr 0.3.0.99
+
 # httr 0.3
 
 ## OAuth improvements
