@@ -29,7 +29,9 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL) {
 
   # 3. Request access token
   response <- POST(endpoint$access,
-    oauth_sig(endpoint$access, "POST", token, secret, verifier = verifier))
+    oauth_sig(endpoint$access, "POST", token, secret, verifier = verifier),
+    body = ""
+  )
   stop_for_status(response)
   content(response, type = "application/x-www-form-urlencoded")
 }

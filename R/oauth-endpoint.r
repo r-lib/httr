@@ -75,6 +75,9 @@ oauth_endpoints <- function(name) {
       "request_token", "authenticate", "access_token"),
     vimeo = oauth_endpoint(base_url = "https://vimeo.com/oauth",
       "request_token", "authorize", "access_token"),
+    yahoo = oauth_endpoint(base_url = "https://api.login.yahoo.com/oauth/v2",
+      "get_request_token", "request_auth", "get_token"
+    ),
     google = oauth_endpoint(
       base_url = "https://accounts.google.com/o/oauth2",
       authorize = "auth",
