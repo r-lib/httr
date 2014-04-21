@@ -1,5 +1,7 @@
 # httr 0.3.0.99
 
+* `user_agent()` once again overrides default (closes #97)
+
 * New vignette `api-packages` describes how best practices to follow when
   writing a package that talks to a web api.
 

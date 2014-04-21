@@ -101,7 +101,7 @@ default_config <- function() {
       encoding = "gzip",
       cainfo = cert
     ),
-    add_headers("user-agent" = default_ua()),
+    user_agent(default_ua()),
     getOption("httr_config")
   )
 }
