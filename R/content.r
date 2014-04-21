@@ -81,3 +81,14 @@ parsed_content <- function(x, ...) {
   message("text_content() deprecated. Use parsed_content(x, as = 'parsed')")
   content(x, as = "parsed", ...)
 }
+
+#' Does the request have content associated with it?
+#'
+#' @keywords internal
+#' @export
+#' @examples
+#' has_content(POST("http://httpbin.org/post", body = FALSE))
+#' has_content(HEAD("http://httpbin.org/headers"))
+has_content <- function(x) {
+  length(r) == 0
+}

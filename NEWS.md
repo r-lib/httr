@@ -1,5 +1,10 @@
 # httr 0.3.0.99
 
+* `has_content()` tells you if request has any content associated with it (#91)
+
+* `parse(type = "auto")` returns NULL if no content associated with request 
+  (#91).
+
 * `with_verbose()` makes it easier to see verbose information when http 
   requests are made within other functions (#87).
 

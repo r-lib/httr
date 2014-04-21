@@ -12,6 +12,10 @@ parse_text <- function(content, type = NULL, encoding = NULL) {
 }
 
 parse_auto <- function(content, type = NULL, encoding = NULL, ...) {
+  if (length(content) == 0) {
+    return(NULL)
+  }
+
   if (is.null(type)) {
     stop("Unknown mime type: can't parse automatically. Use the type ",
       "argument to specify manually.", call. = FALSE)
