@@ -3,7 +3,7 @@
 \alias{authenticate}
 \title{Use http authentication.}
 \usage{
-authenticate(user, password, type = "any")
+authenticate(user, password, type = "basic")
 }
 \arguments{
 \item{user}{user name}
@@ -12,7 +12,7 @@ authenticate(user, password, type = "any")
 
 \item{type}{type of HTTP authentication.  Should be one of the following
 types supported by Curl: basic, digest, digest_ie, gssnegotiate,
-ntlm, ntlm_vn, any.  It defaults to any.}
+ntlm, ntlm_vn, any.  It defaults to "basic", the most common type.}
 }
 \description{
 It's not obvious how to turn authentication off after using it, so

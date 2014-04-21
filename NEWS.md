@@ -1,5 +1,8 @@
 # httr 0.3.0.99
 
+* `authenticate()` now defaults to `type = "basic"` which is pretty much the
+  only type of authentication anyone uses.
+
 * `content_type()`, `content_type_xml()` and `content_type_json()` make it
   easier to set the content type for `POST` requests (and other requests with
   a body).
