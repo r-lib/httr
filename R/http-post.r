@@ -5,6 +5,7 @@
 #'   \itemize{
 #'     \item \code{FALSE}: No body
 #'     \item \code{NULL}: An empty body
+#'     \item \code{""}: A length 0 body
 #'     \item A length one character or raw vector: sent as is in body.
 #'     \item A named list: Each component should either be a string
 #'       or the object returned by \code{\link[RCurl]{fileUpload}}
