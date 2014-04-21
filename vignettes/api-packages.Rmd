@@ -73,6 +73,8 @@ github_parse <- function(req) {
 github_pat <- function() {
   Sys.getenv('GITHUB_PAT')
 }
+
+has_pat <- function() !identical(github_pat(), "")
 ```
 
 `github_pat()` is just a shim, to get my personal access token from an environment variable. Later, you'll see a better, if lengthier, way of writing it in the authentication section.
@@ -84,7 +86,10 @@ rate_limit <- function() {
   req <- github_GET("rate_limit")
   github_parse(req)
 }
-str(rate_limit())
+
+if (has_pat()) {
+  str(rate_limit())
+}
 ```
 
 After getting the first version getting working, you'll often want to polish the output to more user friendly. For this example, we can parse the unix timestamps into more useful date types.
@@ -98,7 +103,10 @@ rate_limit <- function() {
   cat(core$remaining, " / ", core$limit,
     " (Reset ", strftime(reset, "%H:%M:%S"), ")\n", sep = "")
 }
-rate_limit()
+
+if (has_pat()) {
+  rate_limit()
+}
 ```
 
 ## Parsing output and posting input
