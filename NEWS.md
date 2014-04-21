@@ -1,5 +1,8 @@
 # httr 0.3.0.99
 
+* Add `is_interactive()` parameter to `oauth_listener()`, `init_oauth1.0()` and
+  `init_oauth2.0()` (#90).
+
 * `authenticate()` now defaults to `type = "basic"` which is pretty much the
   only type of authentication anyone uses.
 

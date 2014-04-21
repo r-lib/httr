@@ -3,10 +3,12 @@
 \alias{oauth_listener}
 \title{Create a webserver to listen for OAuth callback.}
 \usage{
-oauth_listener(request_url)
+oauth_listener(request_url, is_interactive = interactive())
 }
 \arguments{
 \item{request_url}{the url to send the browser to}
+
+\item{is_interactive}{Is an interactive environment available?}
 }
 \description{
 This opens a web browser pointing to \code{request_url}, and opens a

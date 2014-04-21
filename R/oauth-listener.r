@@ -9,14 +9,15 @@
 #' This function should not normally be called directly by the user.
 #'
 #' @param request_url the url to send the browser to
+#' @param is_interactive Is an interactive environment available?
 #' @export
 #' @keywords internal
-oauth_listener <- function(request_url) {
+oauth_listener <- function(request_url, is_interactive = interactive()) {
   if (!is_installed("httpuv")) {
     stop("httpuv package required to capture OAuth credentials.")
   }
 
-  if (!interactive()) {
+  if (!is_interactive) {
     stop("oauth_listener() needs an interactive environment.", call. = FALSE)
   }
 

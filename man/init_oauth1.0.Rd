@@ -3,7 +3,8 @@
 \alias{init_oauth1.0}
 \title{Retrieve OAuth 1.0 access token.}
 \usage{
-init_oauth1.0(endpoint, app, permission = NULL)
+init_oauth1.0(endpoint, app, permission = NULL,
+  is_interactive = interactive())
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -12,6 +13,8 @@ init_oauth1.0(endpoint, app, permission = NULL)
 \code{\link{oauth_app}}}
 
 \item{permission}{optional, a string of permissions to ask for.}
+
+\item{is_interactive}{Is the current environment interactive?}
 }
 \description{
 See demos for use.

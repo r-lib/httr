@@ -4,7 +4,7 @@
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
 init_oauth2.0(endpoint, app, scope = NULL, type = NULL,
-  use_oob = getOption("httr_oob_default"))
+  use_oob = getOption("httr_oob_default"), is_interactive = interactive())
 }
 \arguments{
 \item{type}{content type used to override incorrect server response}
@@ -19,6 +19,8 @@ code. Defaults to the of the \code{"httr_oob_default"} default.}
 
 \item{app}{An OAuth consumer application, created by
 \code{\link{oauth_app}}}
+
+\item{is_interactive}{Is the current environment interactive?}
 }
 \description{
 See demos for use.
