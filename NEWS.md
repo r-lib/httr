@@ -1,5 +1,8 @@
 # httr 0.3.0.99
 
+* `with_verbose()` makes it easier to see verbose information when http 
+  requests are made within other functions (#87).
+
 * Add `is_interactive()` parameter to `oauth_listener()`, `init_oauth1.0()` and
   `init_oauth2.0()` (#90).
 

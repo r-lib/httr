@@ -30,6 +30,6 @@ GET("http://google.com")
 }
 \seealso{
 Other ways to set configuration: \code{\link{config}};
-  \code{\link{with_config}}
+  \code{\link{with_config}}, \code{\link{with_verbose}}
 }
 

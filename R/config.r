@@ -154,10 +154,19 @@ reset_config <- function() set_config(config(), TRUE)
 #'   GET("http://had.co.nz")
 #'   GET("http://google.com")
 #' })
+#'
+#' # Or even easier:
+#' with_verbose(GET("http://google.com"))
 with_config <- function(config = config(), expr, override = FALSE) {
   stopifnot(is.config(config))
 
   old <- set_config(config, override)
   on.exit(set_config(old, override = TRUE))
   force(expr)
+}
+
+#' @export
+#' @rdname with_config
+with_verbose <- function(code) {
+  with_config(verbose(), code)
 }
