@@ -32,8 +32,7 @@ per handle.
 \code{\link{set_config}} to set global config defaults, and
  \code{\link{with_config}} to temporarily run code with set options.
 
-Other config: \code{\link{accept_json}},
-  \code{\link{accept_xml}}, \code{\link{add_headers}};
+Other config: \code{\link{add_headers}};
   \code{\link{authenticate}}; \code{\link{set_cookies}};
   \code{\link{timeout}}; \code{\link{use_proxy}};
   \code{\link{user_agent}}; \code{\link{verbose}}

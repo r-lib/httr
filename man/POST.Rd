@@ -8,15 +8,18 @@ POST(url = NULL, config = list(), ..., body = NULL, multipart = TRUE,
 }
 \arguments{
 \item{body}{One of the following:
-\itemize{
-  \item \code{FALSE}: No body
-  \item \code{NULL}: An empty body
-  \item A length one character or raw vector: sent as is in body.
-  \item A named list: Each component should either be a string
-    or the object returned by \code{\link[RCurl]{fileUpload}}
-   (if you want to upload a file). Strings will be escaped
-   automatically: use \code{I()} to prevent double-escaping.
-}}
+  \itemize{
+    \item \code{FALSE}: No body
+    \item \code{NULL}: An empty body
+    \item A length one character or raw vector: sent as is in body.
+    \item A named list: Each component should either be a string
+      or the object returned by \code{\link[RCurl]{fileUpload}}
+     (if you want to upload a file). Strings will be escaped
+     automatically: use \code{I()} to prevent double-escaping.
+  }
+
+  Use \code{\link{content_type}} to tell the server what sort of data
+  you are sending.}
 
 \item{multipart}{Should the form be send as multipart/form-data
 (\code{TRUE}), or application/x-www-form-urlencoded (\code{FALSE}).

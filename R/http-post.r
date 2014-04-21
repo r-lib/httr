@@ -11,6 +11,9 @@
 #'      (if you want to upload a file). Strings will be escaped
 #'      automatically: use \code{I()} to prevent double-escaping.
 #'   }
+#'
+#'   Use \code{\link{content_type}} to tell the server what sort of data
+#'   you are sending.
 #' @param multipart Should the form be send as multipart/form-data
 #'   (\code{TRUE}), or application/x-www-form-urlencoded (\code{FALSE}).
 #'   Files can not be uploaded when \code{FALSE}.

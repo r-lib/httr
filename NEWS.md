@@ -1,5 +1,9 @@
 # httr 0.3.0.99
 
+* `content_type()`, `content_type_xml()` and `content_type_json()` make it
+  easier to set the content type for `POST` requests (and other requests with
+  a body).
+
 * `user_agent()` once again overrides default (closes #97)
 
 * New vignette `api-packages` describes how best practices to follow when
