@@ -5,7 +5,11 @@
 
 ```{r, echo = FALSE}
 library(httr)
-knitr::opts_chunk$set(comment = "#>")
+if (nchar(Sys.getenv('GITHUB_PAT')) == 0) {
+  knitr::opts_chunk$set(comment = "#>", eval = FALSE)
+} else {
+  knitr::opts_chunk$set(comment = "#>")
+}
 ```
 
 # Best practices for writing an API package
@@ -23,7 +27,7 @@ When writing an API, it's best to start with some helper functions that capture 
 * how the API is versioned
 * how results (including errors) are returned
 
-The following example shows how you might write these functions for the github API. Note that I've used lots of small function to avoid repeating code as much as possible. This is important when writing code that talks to APIs because APIs change all too frequently and you only want to have to change important facts in one place.
+The following example shows how you might write these functions for the github API. Note that I've used lots of small functions to avoid repeating code as much as possible. This is important when writing code that talks to APIs because APIs change all too frequently and you only want to have to change important facts in one place.
 
 We start with functions to execute `GET` and `POST` requests:
 
@@ -111,9 +115,9 @@ if (has_pat()) {
 
 ## Parsing output and posting input
 
-Most APIs communicate either with json or xml. To work with json, I recommend the `jsonlite` package. To work with xml, use the `xml` package.
+Most APIs communicate either with json or xml. To work with json, I recommend the `jsonlite` package. To work with xml, use the `XML` package.
 
-httr provides some default parsers with `content(..., as = "auto")` but I don't recommend using them. Instead get the content as text with `content(..., as = "text")` and parse yourself. The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.
+`httr` provides some default parsers with `content(..., as = "auto")` but I don't recommend using them. Instead get the content as text with `content(..., as = "text")` and parse yourself. The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.
 
 ```{r}
 github_parse <- function(req) {
@@ -160,7 +164,7 @@ The most common forms of authentication are OAuth:
     authenticate("username", "password")
     ```
 
-You also need some way to preserve user credentials so that they don't need to be re-entered multiple times. If you use OAuth, httr will take care of this for. For other use cases, I recommend using environment variables. The following function retrieves your PAT from an environmental variable called `GITHUB_PAT`, telling you how it set it if not. The devtools package needs to access you github personal access token to install packages from private repos.
+You also need some way to preserve user credentials so that they don't need to be re-entered multiple times. If you use OAuth, httr will take care of this for you. For other use cases, I recommend using environment variables. The following function retrieves your PAT from an environmental variable called `GITHUB_PAT`, telling you how it set it if not. The devtools package needs to access your github personal access token to install packages from private repos.
 
 ```{r}
 github_pat <- function(force = FALSE) {
