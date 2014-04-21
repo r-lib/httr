@@ -16,7 +16,7 @@ Use a proxy to connect to the internet.
 \examples{
 # See http://www.hidemyass.com/proxy-list for a list of public proxies
 # to test with
-# GET("http://had.co.nz", c(use_proxy("64.251.21.73", 8080), verbose()))
+# GET("http://had.co.nz", use_proxy("64.251.21.73", 8080), verbose())
 }
 \seealso{
 Other config: \code{\link{add_headers}};

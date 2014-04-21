@@ -11,8 +11,9 @@ is handled by the browser, not \pkg{RCurl}.}
 
 \item{url}{the url of the page to retrieve}
 
-\item{...}{Further parameters, such as \code{query}, \code{path}, etc,
-passed on to \code{\link{modify_url}}. These parameters must be named.}
+\item{...}{Further named parameters, such as \code{query}, \code{path}, etc,
+passed on to \code{\link{modify_url}}. Unnamed parameters will be combined
+with \code{\link{config}}.}
 
 \item{handle}{The handle to use with this request. If not
   supplied, will be retrieved and reused from the \code{\link{handle_pool}}

@@ -24,8 +24,9 @@
 #' data already held by the client.
 #'
 #' @param url the url of the page to retrieve
-#' @param ... Further parameters, such as \code{query}, \code{path}, etc,
-#'   passed on to \code{\link{modify_url}}. These parameters must be named.
+#' @param ... Further named parameters, such as \code{query}, \code{path}, etc,
+#'   passed on to \code{\link{modify_url}}. Unnamed parameters will be combined
+#'   with \code{\link{config}}.
 #' @param config Additional configuration settings such as http
 #'   authentication (\code{\link{authenticate}}), additional headers
 #'   (\code{\link{add_headers}}), cookies (\code{\link{set_cookies}}) etc.
@@ -51,6 +52,7 @@
 #' GET(b)
 #' GET(b, add_headers(a = 1, b = 2))
 #' GET(b, set_cookies(a = 1, b = 2))
+#' GET(b, add_headers(a = 1, b = 2), set_cookies(a = 1, b = 2))
 #' GET(b, authenticate("username", "password"))
 #' GET(b, verbose())
 #'

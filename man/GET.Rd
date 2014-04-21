@@ -8,8 +8,9 @@ GET(url = NULL, config = list(), ..., handle = NULL)
 \arguments{
 \item{url}{the url of the page to retrieve}
 
-\item{...}{Further parameters, such as \code{query}, \code{path}, etc,
-passed on to \code{\link{modify_url}}. These parameters must be named.}
+\item{...}{Further named parameters, such as \code{query}, \code{path}, etc,
+passed on to \code{\link{modify_url}}. Unnamed parameters will be combined
+with \code{\link{config}}.}
 
 \item{config}{Additional configuration settings such as http
 authentication (\code{\link{authenticate}}), additional headers
@@ -61,6 +62,7 @@ b <- new_bin()
 GET(b)
 GET(b, add_headers(a = 1, b = 2))
 GET(b, set_cookies(a = 1, b = 2))
+GET(b, add_headers(a = 1, b = 2), set_cookies(a = 1, b = 2))
 GET(b, authenticate("username", "password"))
 GET(b, verbose())
 

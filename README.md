@@ -24,7 +24,7 @@ Key features:
 
 * wrapper functions for the most common configuration options:
   `set_cookies`, `add_headers`, `authenticate`, `use_proxy`, `verbose`,
-  `timeout`.
+  `timeout`, `content_type`, `accept`.
 
 * url parsing (with `parse_url`) and modification (with `modify_url`)
 
