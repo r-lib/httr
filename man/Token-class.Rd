@@ -17,11 +17,6 @@ and \code{\link{oauth2.0_token}}. If you create your own subclass
 }
 \section{Methods}{
 
-\describe{
-\item{\code{}}{}
-}}
-\section{Methods}{
-
 \itemize{
  \item \code{cache()}: caches token to disk
  \item \code{sign(method, url)}: returns list of url and config
