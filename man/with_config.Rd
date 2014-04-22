@@ -6,7 +6,7 @@
 \usage{
 with_config(config = config(), expr, override = FALSE)
 
-with_verbose(code)
+with_verbose(expr)
 }
 \arguments{
 \item{expr}{code to execute under specified configuration}

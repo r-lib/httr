@@ -167,6 +167,6 @@ with_config <- function(config = config(), expr, override = FALSE) {
 
 #' @export
 #' @rdname with_config
-with_verbose <- function(code) {
-  with_config(verbose(), code)
+with_verbose <- function(expr) {
+  with_config(verbose(), expr)
 }
