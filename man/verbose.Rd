@@ -3,15 +3,55 @@
 \alias{verbose}
 \title{Give verbose output.}
 \usage{
-verbose()
+verbose(data_out = TRUE, data_in = FALSE, info = FALSE, ssl = FALSE)
+}
+\arguments{
+\item{data_out}{Show data sent to the server.}
+
+\item{info}{Show informational text from curl. This is mainly useful
+for debugging https and auth problems, so is disabled by default.}
+
+\item{data_in}{Show data recieved from the server.}
+
+\item{ssl}{Show even data sent/recieved over SSL connections?}
 }
 \description{
 A verbose connection provides much more information about the flow of
 information between the client and server.
 }
+\section{Prefixes}{
+
+
+\code{verbose()} uses the following prefixes to distinguish between
+different components of the http messages:
+
+\itemize{
+  \item \code{*} informative curl messages
+
+  \item \code{->} headers sent (out)
+  \item \code{>>} data sent (out)
+  \item \code{*>} ssl data sent (out)
+
+  \item \code{<-} headers received (in)
+  \item \code{<<} data received (in)
+  \item \code{<*} ssl data received (in)
+}
+}
 \examples{
 b <- new_bin()
 GET(b, verbose())
+
+# verbose() makes it easy to see exactly what POST requests send
+POST_verbose <- function(body, ...) {
+  POST("https://httpbin.org/post", body = body, verbose(), ...)
+  invisible()
+}
+POST_verbose(list(x = "a", y = "b"))
+POST_verbose(list(x = "a", y = "b"), multipart = FALSE)
+POST_verbose(FALSE)
+POST_verbose(NULL)
+POST_verbose("")
+POST_verbose("xyz")
 }
 \seealso{
 Other config: \code{\link{add_headers}};

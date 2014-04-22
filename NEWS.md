@@ -1,5 +1,10 @@
 # httr 0.3.0.99
 
+* `verbose()` now uses custom debug function so that you can see exactly
+  what data is sent to the server. Arguments control exactly what is included,
+  and the defaults have been selected to be more helpful for the most common
+  cases (#102)
+
 * `has_content()` tells you if request has any content associated with it (#91)
 
 * `parse(type = "auto")` returns NULL if no content associated with request 
