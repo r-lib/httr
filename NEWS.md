@@ -1,5 +1,9 @@
 # httr 0.3.0.99
 
+* `oauth_signature()` and `oauth_header()` now exported to make it easier to 
+  construct custom authentication for APIs that use only some components of
+  the full OAuth process (e.g. 2 legged OAuth)
+
 * `verbose()` now uses custom debug function so that you can see exactly
   what data is sent to the server. Arguments control exactly what is included,
   and the defaults have been selected to be more helpful for the most common
