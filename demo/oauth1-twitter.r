@@ -1,10 +1,10 @@
 library(httr)
 
-# 1. Find OAuth settings for vimeo:
-#    http://vimeo.com/api/docs/authentication
+# 1. Find OAuth settings for twitter:
+#    https://dev.twitter.com/docs/auth/oauth
 oauth_endpoints("twitter")
 
-# 2. Register an application at http://vimeo.com/api/applications/new
+# 2. Register an application at https://apps.twitter.com/
 #    Insert your values below - if secret is omitted, it will look it up in
 #    the TWITTER_CONSUMER_SECRET environmental variable.
 myapp <- oauth_app("twitter", key = "TYrWFPkFAkn4G5BbkWINYw")
