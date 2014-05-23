@@ -45,7 +45,7 @@
 #' @examples
 #' GET("http://google.com/")
 #' GET("http://google.com/", path = "search")
-#' GET("http://google.com/", path = "search", query = c(q = "ham"))
+#' GET("http://google.com/", path = "search", query = list(q = "ham"))
 #'
 #' # See what GET is doing with request.bin
 #' b <- new_bin()
