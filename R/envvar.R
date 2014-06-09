@@ -17,7 +17,7 @@ set_envvar <- function(name, value, scope = c("session", "project", "user", "sit
   stopifnot(length(name) == 1, length(value) == 1)
   scope <- match.arg(scope)
 
-  old <- getenv(value)
+  old <- get_envvar(value)
 
   if (scope == "session") {
     set_envvar_local(name, value)
@@ -79,7 +79,7 @@ set_envvar_renviron <- function(name, value, path) {
     return(invisible(FALSE))
   }
 
-  if (length(nmatches) == 1) {
+  if (length(matches) == 1) {
     lines[matches] <- ev
   } else {
     lines[matches[1]] <- ev
