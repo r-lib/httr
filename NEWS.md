@@ -1,5 +1,14 @@
 # httr 0.3.0.99
 
+* `PUT()`, `PATCH()` and `POST()` now use `encode` argument to determine how
+  list inputs are encoded. Valid values are "multiple", "form" or "json".
+  The `multipart` argument is now deprecated (#103).
+  
+* `PUT()`, `PATCH()` and `POST()` can send a file from disk use 
+  `upload_file("path/")` to file. The mime type will be guessed from the 
+  extension, or can be supplied explicitly as the second argument to 
+  `upload_file()`.
+
 * `oauth_signature()` and `oauth_header()` now exported to make it easier to 
   construct custom authentication for APIs that use only some components of
   the full OAuth process (e.g. 2 legged OAuth)

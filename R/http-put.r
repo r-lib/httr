@@ -13,10 +13,20 @@
 #' PUT(b2, body = "A simple text string")
 #' PUT(b2, body = list(x = "A simple text string"))
 #' PUT(b2, body = list(y = upload_file(system.file("CITATION"))))
-PUT <- function(url = NULL, config = list(), ..., body = NULL, multipart = TRUE,
-                handle = NULL) {
+#' PUT(b2, body = list(x = "A simple text string"), encode = "json")
+PUT <- function(url = NULL, config = list(), ..., body = NULL,
+                  encode = c("multipart", "form", "json"),
+                  multipart = TRUE, handle = NULL) {
+
+  if (!missing(multipart)) {
+    warning("multiplart is deprecated, please use encode argument instead",
+      call. = FALSE)
+    encode <- if (multipart) "multipart" else "form"
+  }
+  encode <- match.arg(encode)
+
   hu <- handle_url(handle, url, ...)
   config <- make_config(config, ...)
 
-  make_request("put", hu$handle, hu$url, config, body_config(body, multipart))
+  make_request("put", hu$handle, hu$url, config, body_config(body, encode))
 }

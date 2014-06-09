@@ -3,27 +3,35 @@
 \alias{POST}
 \title{POST file to a server.}
 \usage{
-POST(url = NULL, config = list(), ..., body = NULL, multipart = TRUE,
+POST(url = NULL, config = list(), ..., body = NULL,
+  encode = c("multipart", "form", "json"), multipart = TRUE,
   handle = NULL)
 }
 \arguments{
 \item{body}{One of the following:
-  \itemize{
-    \item \code{FALSE}: No body
-    \item \code{NULL}: An empty body
-    \item \code{""}: A length 0 body
-    \item A length one character or raw vector: sent as is in body.
-    \item A named list: Each component should either be a string
-      or the object returned by \code{\link[RCurl]{fileUpload}}
-     (if you want to upload a file). Strings will be escaped
-     automatically: use \code{I()} to prevent double-escaping.
-  }
+\itemize{
+  \item \code{FALSE}: No body
+  \item \code{NULL}: An empty body
+  \item \code{""}: A length 0 body
+  \item \code{upload_file("path/")}: The contents of a file.  The mime
+    type will be guessed from the extension, or can be supplied explicitly
+    as the second argument to \code{upload_file()}
+  \item A character or raw vector: sent as is in body. Use
+    \code{\link{content_type}} to tell the server what sort of data
+    you are sending.
+  \item A named list: See details for encode.
+}}
 
-  Use \code{\link{content_type}} to tell the server what sort of data
-  you are sending.}
+\item{encode}{If the body is a named list, how should it be encoded? Can be
+  one of form (application/x-www-form-urlencoded), multipart,
+  (multipart/form-data), or json (application/json).
 
-\item{multipart}{Should the form be send as multipart/form-data
-(\code{TRUE}), or application/x-www-form-urlencoded (\code{FALSE}).
+  For "multipart", list elements can be strings or objects created by
+  \code{\link{upload_file}}. For "form", elements are coerced to strings
+  and escaped, use \code{I()} to prevent double-escaping.}
+
+\item{multipart}{Deprecated. \code{TRUE} = \code{encode = "multipart"},
+\code{FALSE} = {encode = "form"}.
 Files can not be uploaded when \code{FALSE}.}
 
 \item{url}{the url of the page to retrieve}
@@ -59,5 +67,6 @@ b2 <- "http://httpbin.org/post"
 POST(b2, body = "A simple text string")
 POST(b2, body = list(x = "A simple text string"))
 POST(b2, body = list(y = upload_file(system.file("CITATION"))))
+POST(b2, body = list(x = "A simple text string"), encode = "json")
 }
 

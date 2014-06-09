@@ -3,10 +3,13 @@
 \alias{upload_file}
 \title{Upload a file with \code{\link{POST}} or \code{\link{PUT}}.}
 \usage{
-upload_file(path)
+upload_file(path, type = NULL)
 }
 \arguments{
 \item{path}{path to file}
+
+\item{type}{mime type of path. If not supplied, will be guess by
+\code{\link{guess_media}} when needed.}
 }
 \description{
 This is a tiny wrapper for \pkg{RCurl}'s \code{\link[RCurl]{fileUpload}}.
