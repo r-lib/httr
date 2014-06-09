@@ -43,6 +43,7 @@ is.handle <- function(x) inherits(x, "handle")
 reset_handle_config <- function(handle, config) {
   blank <- lapply(config, function(x) NULL)
   blank$httpauth <- NULL
+  blank$noprogress <- TRUE
   curlSetOpt(.opts = blank, curl = handle$handle)
 
   invisible(TRUE)
