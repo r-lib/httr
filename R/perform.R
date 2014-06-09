@@ -3,8 +3,12 @@
 perform <- function(handle, opts, body) {
   # Must always override headerfunction and writefunction
   # FIXME: throw error if these are set already
-  hg <- basicHeaderGatherer()
-  opts$headerfunction <- hg$update
+  headers <- character()
+  add_header <- function(text) {
+    headers <<- c(headers, text)
+    nchar(text, "bytes")
+  }
+  opts$headerfunction <- add_header
   buffer <- binaryBuffer()
   opts$writefunction <-
     getNativeSymbolInfo("R_curl_write_binary_data")$address
@@ -27,7 +31,7 @@ perform <- function(handle, opts, body) {
   content <- methods::as(buffer, "raw")
   info <- last_request(handle)
   times <- request_times(handle)
-  headers <- insensitive(as.list(hg$value()))
+  headers <- insensitive(as.list(RCurl::parseHTTPHeader(headers)))
   status <- as.numeric(str_extract(headers$status, "[0-9]+"))
 
   response(
