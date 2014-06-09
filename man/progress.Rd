@@ -10,8 +10,7 @@ progress(type = c("down", "up"))
 or downloaded.}
 }
 \description{
-This is still somewhat experimental. Currently, due to a bug in RCurl,
-you can't abort downloads
+Add a progress bar.
 }
 \examples{
 \donttest{
@@ -20,8 +19,5 @@ x <- GET("http://courses.had.co.nz/12-oscon/slides.zip", progress())
 # Otherwise you get the number of bytes downloaded:
 x <- GET("http://httpbin.org/drip?numbytes=4000&duration=3", progress())
 }
-
-x <- GET("http://httpbin.org/drip?numbytes=4000&duration=1", progress())
-x <- GET("http://httpbin.org/drip?numbytes=4000&duration=1")
 }
 

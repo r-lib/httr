@@ -1,8 +1,5 @@
 #' Add a progress bar.
 #'
-#' This is still somewhat experimental. Currently, due to a bug in RCurl,
-#' you can't abort downloads
-#'
 #' @param type Type of progress to display: either number of bytes uploaded
 #'   or downloaded.
 #' @export
@@ -13,9 +10,6 @@
 #' # Otherwise you get the number of bytes downloaded:
 #' x <- GET("http://httpbin.org/drip?numbytes=4000&duration=3", progress())
 #' }
-#'
-#' x <- GET("http://httpbin.org/drip?numbytes=4000&duration=1", progress())
-#' x <- GET("http://httpbin.org/drip?numbytes=4000&duration=1")
 progress <- function(type = c("down", "up")) {
   type <- match.arg(type)
 
@@ -56,21 +50,19 @@ progress_bar <- function(type ) {
       setTxtProgressBar(bar, now)
     }
 
-    1
+    0L
   }
 
-  # Catch errors and interrupts - this is suboptimal because it means that
-  # you can't interrupt the transfer, but otherwise you'll crash R
-  # https://github.com/omegahat/RCurl/issues/10
+  # Catch errors and interrupts - otherwise you'll crash R
   function(down, up) {
     tryCatch(unsafe(down, up),
       error = function(e, ...) {
         message("Error:", e$message)
-        1
+        1L
       },
       interrupt = function(...) {
         message("Interrupted by user")
-        1
+        1L
       }
     )
   }
