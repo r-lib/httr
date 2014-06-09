@@ -1,7 +1,7 @@
 # httr 0.3.0.99
 
 * Experimental `progress()` config which displays a progress bar, useful if
-  you're doing large uploads or downloads.
+  you're doing large uploads or downloads (#17).
 
 * `PUT()`, `PATCH()` and `POST()` now use `encode` argument to determine how
   list inputs are encoded. Valid values are "multiple", "form" or "json".
