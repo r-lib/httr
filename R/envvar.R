@@ -12,6 +12,7 @@
 #'   affects every project. If "site", modifies the site .Renviron so that
 #'   it affects every user.
 #' @return Invisibly, the previous value of the environment variable.
+#' @noRd
 set_envvar <- function(name, value, scope = c("session", "project", "user", "site")) {
   stopifnot(length(name) == 1, length(value) == 1)
   scope <- match.arg(scope)
@@ -39,6 +40,7 @@ set_envvars <- function(..., .envs = list(), .scope) {
 }
 
 #' @rdname set_envvar
+#' @noRd
 get_envvar <- function(name) {
   stopifnot(is.character(name))
   Sys.getenv(name, unset = NA_character_)
