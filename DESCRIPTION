@@ -15,14 +15,14 @@ Imports:
     stringr (>= 0.6.1),
     digest,
     tools,
-    methods
-Suggests:
+    methods,
     jsonlite,
     XML,
-    testthat (>= 0.8.0),
     png,
     jpeg,
-    httpuv,
+    httpuv
+Suggests:
+    testthat (>= 0.8.0),
     knitr
 VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
