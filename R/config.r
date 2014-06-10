@@ -166,7 +166,8 @@ with_config <- function(config = config(), expr, override = FALSE) {
 }
 
 #' @export
+#' @param ... Other arguments passed on to \code{\link{verbose}}
 #' @rdname with_config
-with_verbose <- function(expr) {
-  with_config(verbose(), expr)
+with_verbose <- function(expr, ...) {
+  with_config(verbose(...), expr)
 }

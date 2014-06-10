@@ -40,6 +40,13 @@ different components of the http messages:
 \examples{
 b <- new_bin()
 GET(b, verbose())
+GET(b, verbose(info = TRUE))
+
+f <- function() {
+  GET(b)
+}
+with_verbose(f())
+with_verbose(f(), info = TRUE)
 
 # verbose() makes it easy to see exactly what POST requests send
 POST_verbose <- function(body, ...) {
@@ -54,6 +61,9 @@ POST_verbose("")
 POST_verbose("xyz")
 }
 \seealso{
+\code{\link{with_verbose}()} makes it easier to use verbose mode
+ even when the requests are buried inside another function call.
+
 Other config: \code{\link{add_headers}};
   \code{\link{authenticate}}; \code{\link{config}};
   \code{\link{set_cookies}}; \code{\link{timeout}};

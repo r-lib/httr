@@ -26,10 +26,19 @@
 #'   for debugging https and auth problems, so is disabled by default.
 #' @param data_in Show data recieved from the server.
 #' @param ssl Show even data sent/recieved over SSL connections?
+#' @seealso \code{\link{with_verbose}()} makes it easier to use verbose mode
+#'  even when the requests are buried inside another function call.
 #' @export
 #' @examples
 #' b <- new_bin()
 #' GET(b, verbose())
+#' GET(b, verbose(info = TRUE))
+#'
+#' f <- function() {
+#'   GET(b)
+#' }
+#' with_verbose(f())
+#' with_verbose(f(), info = TRUE)
 #'
 #' # verbose() makes it easy to see exactly what POST requests send
 #' POST_verbose <- function(body, ...) {
@@ -63,4 +72,3 @@ prefix_message <- function(prefix, x, blank_line = FALSE) {
   message(out)
   if (blank_line) cat("\n")
 }
-
