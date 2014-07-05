@@ -25,7 +25,7 @@ handle <- function(url, cookies = TRUE) {
   url <- parse_url(url)
   cookie_path <- if (cookies) tempfile() else NULL
 
-  h <- getCurlHandle(cookiefile = cookie_path, .defaults = list())
+  h <- RCurl::getCurlHandle(cookiefile = cookie_path, .defaults = list())
   structure(list(handle = h, url = url), class = "handle")
 }
 
@@ -44,7 +44,7 @@ reset_handle_config <- function(handle, config) {
   blank <- lapply(config, function(x) NULL)
   blank$httpauth <- NULL
   blank$noprogress <- TRUE
-  curlSetOpt(.opts = blank, curl = handle$handle)
+  RCurl::curlSetOpt(.opts = blank, curl = handle$handle)
 
   invisible(TRUE)
 }

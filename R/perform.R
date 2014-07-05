@@ -9,7 +9,7 @@ perform <- function(handle, opts, body) {
     nchar(text, "bytes")
   }
   opts$headerfunction <- add_header
-  buffer <- binaryBuffer()
+  buffer <- RCurl::binaryBuffer()
   opts$writefunction <-
     getNativeSymbolInfo("R_curl_write_binary_data")$address
   opts$writedata <- buffer@ref
@@ -17,15 +17,15 @@ perform <- function(handle, opts, body) {
   opts <- modify_config(opts, body$config)
   # Ensure config always gets reset
   on.exit(reset_handle_config(handle, opts), add = TRUE)
-  curl_opts <- curlSetOpt(curl = NULL, .opts = opts)
+  curl_opts <- RCurl::curlSetOpt(curl = NULL, .opts = opts)
 
   if (isTRUE(body$curl_post)) {
-    .postForm(handle$handle, curl_opts, body$body, body$style)
+    RCurl::.postForm(handle$handle, curl_opts, body$body, body$style)
     # Reset curl options that RCurl sets
-    curlSetOpt(httppost = NULL, post = NULL, postfields = NULL,
+    RCurl::curlSetOpt(httppost = NULL, post = NULL, postfields = NULL,
       curl = handle$handle)
   } else {
-    curlPerform(curl = handle$handle, .opts = curl_opts$values)
+    RCurl::curlPerform(curl = handle$handle, .opts = curl_opts$values)
   }
 
   content <- methods::as(buffer, "raw")

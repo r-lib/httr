@@ -116,8 +116,8 @@ build_url <- function(url) {
   }
 
   if (is.list(url$query)) {
-    names <- curlEscape(names(url$query))
-    values <- curlEscape(url$query)
+    names <- RCurl::curlEscape(names(url$query))
+    values <- RCurl::curlEscape(url$query)
 
     query <- str_c(names, "=", values, collapse = "&")
   } else {

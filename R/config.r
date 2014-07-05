@@ -27,7 +27,7 @@
 config <- function(...) {
   options <- list(...)
 
-  known <- c(listCurlOptions(), "token")
+  known <- c(RCurl::listCurlOptions(), "token")
   unknown <- setdiff(names(options), known)
   if (length(unknown) > 0) {
     stop("Unknown RCurl options: ", str_c(unknown, collapse = ", "))
@@ -108,7 +108,7 @@ default_config <- function() {
 
 default_ua <- function() {
   versions <- c(
-    curl = curlVersion()$version,
+    curl = RCurl::curlVersion()$version,
     Rcurl = as.character(packageVersion("RCurl")),
     httr = as.character(packageVersion("httr"))
   )

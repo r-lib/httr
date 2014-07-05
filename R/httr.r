@@ -25,5 +25,5 @@
 #'
 #' @name httr
 #' @docType package
-#' @import RCurl stringr
+#' @import stringr
 NULL

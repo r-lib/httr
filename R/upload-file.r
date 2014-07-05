@@ -11,5 +11,5 @@
 #'   body = list(y = upload_file(system.file("CITATION"))))
 upload_file <- function(path, type = NULL) {
   stopifnot(is.character(path), length(path) == 1)
-  fileUpload(path, contentType = type)
+  RCurl::fileUpload(path, contentType = type)
 }

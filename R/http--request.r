@@ -43,7 +43,7 @@ sign <- function(token, method, url, config) {
 
 last_request <- function(x) {
   stopifnot(is.handle(x))
-  getCurlInfo(x[[1]])
+  RCurl::getCurlInfo(x[[1]])
 }
 
 request_times <- function(x) {
