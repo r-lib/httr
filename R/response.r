@@ -29,14 +29,21 @@ is.response <- function(x) {
 
 #' @export
 print.response <- function(x, ..., max.lines = 10) {
+  content_type <- x$headers$`content-type`
+
   cat("Response [", x$url, "]\n", sep = "")
   cat("  Status: ", x$status, "\n", sep = "")
-  cat("  Content-type: ", x$headers$`content-type`, "\n", sep = "")
-  cat("  Size: ", bytes(length(x$content)), "\n", sep = "")
+  cat("  Content-type: ", content_type %||% "<unknown>", "\n", sep = "")
 
+  size <- length(x$content)
+  if (size == 0) {
+    cat("<EMPTY BODY>\n")
+    return()
+  }
 
-  if (!is_text(x$headers$`content-type`)) {
-    cat("<BINARY DATA>\n")
+  cat("  Size: ", bytes(size), "\n", sep = "")
+  if (!is_text(content_type)) {
+    cat("<BINARY BODY>\n")
     return()
   }
 
@@ -54,6 +61,8 @@ print.response <- function(x, ..., max.lines = 10) {
 }
 
 is_text <- function(type) {
+  if (is.null(type)) return(FALSE)
+
   media <- parse_media(type)
   if (media$type == "text") return(TRUE)
   if (media$type == "application" && media$subtype == "json") return(TRUE)
