@@ -25,5 +25,4 @@ Suggests:
     httpuv,
     knitr
 VignetteBuilder: knitr
-Roxygen: list(wrap = FALSE)
 License: MIT + file LICENSE
