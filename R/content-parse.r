@@ -41,7 +41,6 @@ parsers <- new.env(parent = emptyenv())
 parsers$`application/json` <- function(x, simplifyVector = FALSE,
                                        simplifyMatrix = FALSE,
                                        simplifyDataFrame = FALSE, ...) {
-  need_package("jsonlite")
   jsonlite::fromJSON(parse_text(x, encoding = "UTF-8"),
     simplifyVector = simplifyVector, simplifyMatrix = simplifyMatrix,
     simplifyDataFrame = simplifyDataFrame, ...)

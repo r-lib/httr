@@ -1,14 +1,14 @@
 # httr 0.3.0.99
 
 * When `print()`ing a response, httr will only print the first few lines if
-  it appears to be a text format (i.e. either the main type is text, it's
-  application/json)
+  it appears to be a text format (i.e. either the main type is text or is
+  application/json).
 
 * Better strategy for resetting Curl handles prevents carry-over of error
   status and other problems (#112).
 
-* Experimental `progress()` config which displays a progress bar, useful if
-  you're doing large uploads or downloads (#17).
+* `progress()` will display a progress bar, useful if you're doing large 
+  uploads or downloads (#17).
 
 * `PUT()`, `PATCH()` and `POST()` now use `encode` argument to determine how
   list inputs are encoded. Valid values are "multiple", "form" or "json".
