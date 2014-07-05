@@ -9,3 +9,7 @@
 
   invisible()
 }
+
+release_questions <- function() {
+  c("Have you run all the OAuth demos?")
+}
