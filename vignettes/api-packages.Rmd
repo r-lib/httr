@@ -5,14 +5,14 @@
 
 ```{r, echo = FALSE}
 library(httr)
-knitr::opts_chunk$set(comment = "#>")
+knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 ```
 
 # Best practices for writing an API package
 
 This document collects best practices for writing a package that connects to an web API. The goal is to help you produce a package that is safe, secure and keeps working in the long run.
 
-If you're new to working with web APIs, start by reading [An introduction to APIs](https://zapier.com/learn/apis) by zapier.
+If you're new to working with web APIs, start by reading "[An introduction to APIs](https://zapier.com/learn/apis)" by zapier.
 
 ## Key info
 
@@ -92,7 +92,7 @@ if (has_pat()) {
 }
 ```
 
-After getting the first version getting working, you'll often want to polish the output to more user friendly. For this example, we can parse the unix timestamps into more useful date types.
+After getting the first version getting working, you'll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.
 
 ```{r}
 rate_limit <- function() {
@@ -109,11 +109,13 @@ if (has_pat()) {
 }
 ```
 
+Depending on the complexity of the API, you might want to keep separate the functions that return a request object and the functions that parse it into a useful R object.
+
 ## Parsing output and posting input
 
 Most APIs communicate either with json or xml. To work with json, I recommend the `jsonlite` package. To work with xml, use the `xml` package.
 
-httr provides some default parsers with `content(..., as = "auto")` but I don't recommend using them. Instead get the content as text with `content(..., as = "text")` and parse yourself. The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.
+httr provides some default parsers with `content(..., as = "auto")` but I don't recommend using them inside a package. Instead get the content as text with `content(..., as = "text")` and parse it yourself. The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.
 
 ```{r}
 github_parse <- function(req) {
@@ -123,11 +125,13 @@ github_parse <- function(req) {
 }
 ```
 
+Many APIs use [content negotiation](http://en.wikipedia.org/wiki/Content_negotiation) to determine whats sort of data to send back. If the API you're wrapping does this, then you might find `accepts_json()` and `accepts_xml()` to be useful.
+
 ## Responding to errors
 
 First, check the HTTP status code. Status codes in the 400 range usually mean that you've done something wrong. Status codes in the 500 range typically mean that something has gone wrong on the server side. This however, might be that you sent the server something badly formed.
 
-When you get an error, often the body of the request will contain some useful information, so you should parse it and pull out the error:
+When you get an error, often the body of the request will contain some useful information, so you should parse it and pull out the error. This will vary based on the API. For github, we can parse it as follows:
 
 ```{r}
 github_parse <- function(req) {
@@ -141,23 +145,31 @@ If the API returns special errors for common problems, you might want to provide
 
 ## Authentication
 
-The most common forms of authentication are OAuth:
+The most common forms of authentication are OAuth and http basic auth:
 
-* OAuth 1.0. Not terribly common any more.
+* OAuth 1.0. Not terribly common any more. See `oauth1.0_token()` for 
+  details.
 
-* OAuth 2.0. It's ok to publish api key and "secret".
-
-* HTTP basic auth with API key.
-
-    ```{r}
-    authenticate("ddfa3d40d5855d6ba76b7003fd4", "")
-    ```
+* OAuth 2.0. Very common in modern web apps. It involves a round trip between
+  the client and server to establish if the API client has the authority to
+  access the data. See `oauth2.0_token()`. It's ok to publish api key and 
+  "secret" - these are not actually important for security of user data.
 
 * HTTP basic auth with username and password. This is the least secure
   since it requires the most information.
 
     ```{r}
     authenticate("username", "password")
+    ```
+
+* HTTP basic auth with API key. An alternative provided by increasing number
+  of APIs - instead of using a username and password intimately associated
+  with the users account, you instead use a randomly generated API key that
+  can be independently deactivated. Often the password is left blank or set
+  to a prespecified value.
+
+    ```{r}
+    authenticate("ddfa3d40d5855d6ba76b7003fd4", "")
     ```
 
 You also need some way to preserve user credentials so that they don't need to be re-entered multiple times. If you use OAuth, httr will take care of this for. For other use cases, I recommend using environment variables. The following function retrieves your PAT from an environmental variable called `GITHUB_PAT`, telling you how it set it if not. The devtools package needs to access you github personal access token to install packages from private repos.
