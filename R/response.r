@@ -32,6 +32,13 @@ print.response <- function(x, ..., max.lines = 10) {
   cat("Response [", x$url, "]\n", sep = "")
   cat("  Status: ", x$status, "\n", sep = "")
   cat("  Content-type: ", x$headers$`content-type`, "\n", sep = "")
+  cat("  Size: ", bytes(length(x$content)), "\n", sep = "")
+
+
+  if (!is_text(x$headers$`content-type`)) {
+    cat("<BINARY DATA>\n")
+    return()
+  }
 
   text <- content(x, "text")
   if (length(text) == 0) return()
@@ -44,6 +51,14 @@ print.response <- function(x, ..., max.lines = 10) {
   } else {
     cat(text, "\n")
   }
+}
+
+is_text <- function(type) {
+  media <- parse_media(type)
+  if (media$type == "text") return(TRUE)
+  if (media$type == "application" && media$subtype == "json") return(TRUE)
+
+  FALSE
 }
 
 #' @export

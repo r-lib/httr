@@ -1,5 +1,9 @@
 # httr 0.3.0.99
 
+* When `print()`ing a response, httr will only print the first few lines if
+  it appears to be a text format (i.e. either the main type is text, it's
+  application/json)
+
 * Better strategy for resetting Curl handles prevents carry-over of error
   status and other problems (#112).
 
