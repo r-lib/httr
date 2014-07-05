@@ -41,11 +41,10 @@ ref <- function(x) {
 is.handle <- function(x) inherits(x, "handle")
 
 reset_handle_config <- function(handle, config) {
-  blank <- lapply(config, function(x) NULL)
-  blank$httpauth <- NULL
-  blank$noprogress <- TRUE
-  RCurl::curlSetOpt(.opts = blank, curl = handle$handle)
-
+  # Calls curl_easy_reset (http://curl.haxx.se/libcurl/c/curl_easy_reset.html)
+  # Does not change live connections, session ID cache, DNS cache, cookies
+  # or shares.
+  RCurl::reset(handle$handle)
   invisible(TRUE)
 }
 

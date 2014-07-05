@@ -17,6 +17,9 @@ test_that("basic authentication works", {
     config = authenticate("user", "passwd", "basic"))
   expect_equal(r$status, 200)
 
+  # Authentication shouldn't persist
+  r <- GET(path = path, handle = h)
+  expect_equal(r$status, 401)
 })
 
 test_that("digest authentication works", {

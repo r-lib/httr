@@ -1,5 +1,8 @@
 # httr 0.3.0.99
 
+* Better strategy for resetting Curl handles prevents carry-over of error
+  status and other problems (#112).
+
 * Experimental `progress()` config which displays a progress bar, useful if
   you're doing large uploads or downloads (#17).
 
