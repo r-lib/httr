@@ -38,6 +38,56 @@ config <- function(...) {
 
 is.config <- function(x) inherits(x, "config")
 
+#' List available options.
+#'
+#' This function lists all available options for \code{\link{config}()}.
+#' It provides both the short R name which you use with httr, and the longer
+#' Curl name, which is useful when searching the documentation. \code{curl_doc}
+#' opens a link to the libcurl documentation for an option in your browser.
+#'
+#' @param x An option name (either short or full).
+#' @return A named character vector (with custom print method)
+#' @export
+#' @examples
+#' httr_options()
+#'
+#' # Use curl_docs to read the curl documentation for each option.
+#' # You can use either the httr or curl option name.
+#' curl_docs("userpwd")
+#' curl_docs("CURLOPT_USERPWD")
+httr_options <- function() {
+  rcurl <- sort(RCurl::listCurlOptions())
+  curl  <- translate_curl(rcurl)
+  opts <- setNames(curl, rcurl)
+  class(opts) <- "opts_list"
+  opts
+}
+
+#' @export
+print.opts_list <- function(x, ...) {
+  cat(paste0(format(names(x)), ": ", x, collapse = "\n"), "\n", sep = "")
+}
+
+translate_curl <- function(x) {
+  paste0("CURLOPT_", gsub(".", "_", toupper(x), fixed = TRUE))
+}
+
+#' @export
+#' @rdname httr_options
+curl_docs <- function(x) {
+  stopifnot(is.character(x), length(x) == 1)
+
+  opts <- httr_options()
+  if (x %in% names(opts)) {
+    x <- opts[x]
+  }
+  if (!(x %in% opts)) {
+    stop(x, " is not a known curl option", call. = FALSE)
+  }
+
+  url <- paste0("http://curl.haxx.se/libcurl/c/", x, ".html")
+  BROWSE(url)
+}
 
 # Grepping http://curl.haxx.se/libcurl/c/curl_easy_setopt.html for
 # "linked list", finds the follow options:

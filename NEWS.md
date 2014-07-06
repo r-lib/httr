@@ -1,5 +1,10 @@
 # httr 0.3.0.99
 
+* New `httr_options()` lists all known config options, translating between
+  their short R names and the full libcurl names. The `curl_doc()` helper
+  function allows you to jump directly to the online documentation for an
+  option.
+
 * Update `cacert.pem` to version at 2014-04-22 (#114).
 
 * When `print()`ing a response, httr will only print the first few lines if
