@@ -1,5 +1,7 @@
 # httr 0.3.0.99
 
+* Update `cacert.pem` to version at 2014-04-22 (#114).
+
 * When `print()`ing a response, httr will only print the first few lines if
   it appears to be a text format (i.e. either the main type is text or is
   application/json).
