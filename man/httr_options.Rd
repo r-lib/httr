@@ -12,7 +12,10 @@ curl_docs(x)
 \item{x}{An option name (either short or full).}
 }
 \value{
-A named character vector (with custom print method)
+A data frame with three columns:
+\item{httr}{The short name used in httr}
+\item{libcurl}{The full name used by libcurl}
+\item{type}{The type of R object that the option accepts}
 }
 \description{
 This function lists all available options for \code{\link{config}()}.

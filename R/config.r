@@ -46,7 +46,10 @@ is.config <- function(x) inherits(x, "config")
 #' opens a link to the libcurl documentation for an option in your browser.
 #'
 #' @param x An option name (either short or full).
-#' @return A named character vector (with custom print method)
+#' @return A data frame with three columns:
+#' \item{httr}{The short name used in httr}
+#' \item{libcurl}{The full name used by libcurl}
+#' \item{type}{The type of R object that the option accepts}
 #' @export
 #' @examples
 #' httr_options()
@@ -56,11 +59,19 @@ is.config <- function(x) inherits(x, "config")
 #' curl_docs("userpwd")
 #' curl_docs("CURLOPT_USERPWD")
 httr_options <- function() {
-  rcurl <- sort(RCurl::listCurlOptions())
+
+  constants <- RCurl::getCurlOptionsConstants()
+  constants <- constants[order(names(constants))]
+
+  rcurl <- names(constants)
   curl  <- translate_curl(rcurl)
-  opts <- setNames(curl, rcurl)
-  class(opts) <- "opts_list"
-  opts
+
+  data.frame(
+    httr = rcurl,
+    libcurl = translate_curl(rcurl),
+    type = unname(RCurl::getCurlOptionTypes(constants)),
+    stringsAsFactors = FALSE
+  )
 }
 
 #' @export
@@ -78,10 +89,10 @@ curl_docs <- function(x) {
   stopifnot(is.character(x), length(x) == 1)
 
   opts <- httr_options()
-  if (x %in% names(opts)) {
-    x <- opts[x]
+  if (x %in% opts$httr) {
+    x <- opts$libcurl[match(x, opts$httr)]
   }
-  if (!(x %in% opts)) {
+  if (!(x %in% opts$libcurl)) {
     stop(x, " is not a known curl option", call. = FALSE)
   }
 
