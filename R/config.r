@@ -3,17 +3,10 @@
 #' Generally you should only need to use this function to set CURL options
 #' directly if there isn't already a helpful wrapper function, like
 #' \code{\link{set_cookies}}, \code{\link{add_headers}} or
-#' \code{\link{authenticate}}.
-#'
-#' To use this function effectively requires some knowledge of CURL, and
-#' CURL options. A complete set of options can be found at
-#' \url{http://linux.die.net/man/3/curl_easy_setopt}.
-#'
-#' Within R, the options have slightly different names: the initial
-#' \code{CURLOPT_} is removed, all underscores are converted to periods and
-#' the option is given in lower case.  Thus "CURLOPT_SSLENGINE_DEFAULT"
-#' becomes "sslengine.default".  See \code{\link[RCurl]{listCurlOptions}} for
-#' a complete list of the R name equivalents.
+#' \code{\link{authenticate}}. To use this function effectively requires
+#' some knowledge of CURL, and CURL options. Use \code{\link{httr_options}} to
+#' see a complete list of available options. To see the libcurl documentation
+#' for a given option, use \code{\link{curl_docs}}.
 #'
 #' Unlike Curl (and RCurl), all configuration options are per request, not
 #' per handle.
@@ -44,6 +37,11 @@ is.config <- function(x) inherits(x, "config")
 #' It provides both the short R name which you use with httr, and the longer
 #' Curl name, which is useful when searching the documentation. \code{curl_doc}
 #' opens a link to the libcurl documentation for an option in your browser.
+#'
+#' RCurl and httr use slightly different names to libcurl: the initial
+#' \code{CURLOPT_} is removed, all underscores are converted to periods and
+#' the option is given in lower case.  Thus "CURLOPT_SSLENGINE_DEFAULT"
+#' becomes "sslengine.default".
 #'
 #' @param x An option name (either short or full).
 #' @return A data frame with three columns:

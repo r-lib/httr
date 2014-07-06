@@ -12,19 +12,12 @@ config(...)
 Generally you should only need to use this function to set CURL options
 directly if there isn't already a helpful wrapper function, like
 \code{\link{set_cookies}}, \code{\link{add_headers}} or
-\code{\link{authenticate}}.
+\code{\link{authenticate}}. To use this function effectively requires
+some knowledge of CURL, and CURL options. Use \code{\link{httr_options}} to
+see a complete list of available options. To see the libcurl documentation
+for a given option, use \code{\link{curl_docs}}.
 }
 \details{
-To use this function effectively requires some knowledge of CURL, and
-CURL options. A complete set of options can be found at
-\url{http://linux.die.net/man/3/curl_easy_setopt}.
-
-Within R, the options have slightly different names: the initial
-\code{CURLOPT_} is removed, all underscores are converted to periods and
-the option is given in lower case.  Thus "CURLOPT_SSLENGINE_DEFAULT"
-becomes "sslengine.default".  See \code{\link[RCurl]{listCurlOptions}} for
-a complete list of the R name equivalents.
-
 Unlike Curl (and RCurl), all configuration options are per request, not
 per handle.
 }

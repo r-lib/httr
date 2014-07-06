@@ -23,6 +23,12 @@ It provides both the short R name which you use with httr, and the longer
 Curl name, which is useful when searching the documentation. \code{curl_doc}
 opens a link to the libcurl documentation for an option in your browser.
 }
+\details{
+RCurl and httr use slightly different names to libcurl: the initial
+\code{CURLOPT_} is removed, all underscores are converted to periods and
+the option is given in lower case.  Thus "CURLOPT_SSLENGINE_DEFAULT"
+becomes "sslengine.default".
+}
 \examples{
 httr_options()
 
