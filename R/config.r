@@ -24,6 +24,24 @@
 #' @family ways to set configuration
 #' @param ... named Curl options.
 #' @export
+#'
+#' @examples
+#' #First example: use HTTP
+#' result_1 <-  GET(
+#'   url = "http://rstudio.com",
+#' )
+#' result_1$status_code
+#'
+#' #Second example: use HTTPS using the SSL certificates provided in httr.
+#' cert_location <- system.file("cacert.pem", package="httr")
+#' curl_options <- RCurl::curlOptions(cainfo=cert_location, sslversion=3)
+#'
+#' result_2 <- GET(
+#'   url = "https://google.com",
+#'   config = curl_options
+#' )
+#' result_2$status_code
+#'
 config <- function(...) {
   options <- list(...)
 
