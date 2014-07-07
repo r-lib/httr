@@ -55,3 +55,9 @@ test_that("handle_url ignores unnamed arguments", {
   hu <- handle_url(NULL, "http://google.com", 1, 2, 3)
   expect_equal(hu$url, "http://google.com")
 })
+
+test_that("build_url drops null query", {
+  url <- modify_url("http://google.com", query = list(a = 1, b = NULL))
+  expect_equal(url, "http://google.com/?a=1")
+
+})

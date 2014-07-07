@@ -55,6 +55,8 @@
   construct custom authentication for APIs that use only some components of
   the full OAuth process (e.g. 2 legged OAuth).
 
+* NULL `query` parameters are now dropped automatically.
+
 * When `print()`ing a response, httr will only attempt to print the first few 
   lines if it's a text format (i.e. either the main type is text or is
   application/json).

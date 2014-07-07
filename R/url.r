@@ -116,6 +116,7 @@ build_url <- function(url) {
   }
 
   if (is.list(url$query)) {
+    url$query <- compact(url$query)
     names <- RCurl::curlEscape(names(url$query))
     values <- RCurl::curlEscape(url$query)
 

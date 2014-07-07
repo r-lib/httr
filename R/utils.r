@@ -45,3 +45,8 @@ need_package <- function(pkg) {
 }
 
 last <- function(x) x[[length(x)]]
+
+compact <- function(x) {
+  null <- vapply(x, is.null, logical(1))
+  x[!null]
+}
