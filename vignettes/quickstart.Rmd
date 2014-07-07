@@ -1,6 +1,6 @@
 <!--
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Introduction to httr}
+%\VignetteIndexEntry{httr quickstart guide}
 -->
 
 ```{r, echo = FALSE}
