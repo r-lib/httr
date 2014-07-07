@@ -16,7 +16,7 @@ refresh_oauth2.0 <- function(endpoint, app, credentials) {
     grant_type = "refresh_token"
   )
 
-  response <- POST(refresh_url, body = body, multipart = FALSE)
+  response <- POST(refresh_url, body = body, encode = "form")
   stop_for_status(response)
 
   refresh_data <- content(response)

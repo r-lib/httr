@@ -76,7 +76,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
   code <- authorizer(authorize_url, is_interactive)$code
 
   # Use authorisation code to get (temporary) access token
-  req <- POST(endpoint$access,  multipart = FALSE,
+  req <- POST(endpoint$access, encode = "form",
     body = list(
       client_id = app$key,
       client_secret = app$secret,

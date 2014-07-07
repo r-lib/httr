@@ -45,7 +45,7 @@
 #'   invisible()
 #' }
 #' POST_verbose(list(x = "a", y = "b"))
-#' POST_verbose(list(x = "a", y = "b"), multipart = FALSE)
+#' POST_verbose(list(x = "a", y = "b"), encode = "form")
 #' POST_verbose(FALSE)
 #' POST_verbose(NULL)
 #' POST_verbose("")
