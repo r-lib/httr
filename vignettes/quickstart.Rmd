@@ -10,7 +10,7 @@ knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 
 # httr quickstart guide
 
-The goal of this document is to get you up and running with httr as quickly as possible. It assumes some familiarity with the http protocol.
+The goal of this document is to get you up and running with httr as quickly as possible. It assumes some familiarity with the http protocol. If you're not familiar with http already, I'd recommend reading a tutorial like "[HTTP: The Protocol Every Web Developer Must Know][http-tutorial]".
 
 This vignette (and parts of the httr API) derived from the excellent "[Requests quickstart guide](http://docs.python-requests.org/en/latest/user/quickstart/)" by Kenneth Reitz.  
 
@@ -240,3 +240,5 @@ See `POST()` for more details on the other types of thing that you can send: no 
 ```{r}
 sessionInfo()
 ```
+
+[http-tutorial]:http://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177
