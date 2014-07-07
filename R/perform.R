@@ -51,7 +51,7 @@ perform <- function(handle, opts, body) {
 # Parses a header lines as recieved from libcurl. Multiple responses
 # will be intermingled, each separated by an http status line.
 parse_headers <- function(lines) {
-  lines <- gsub("\r\n$", "", lines)
+  lines <- gsub("\r?\n$", "", lines)
 
   new_response <- grepl("^HTTP", lines)
   grps <- cumsum(new_response)
