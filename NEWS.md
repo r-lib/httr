@@ -1,5 +1,7 @@
 # httr 0.3.0.99
 
+* New quickstart vignette to help you get up and running with httr.
+
 * New `headers()` and `cookies()` functions to extract headers and cookies 
   from requests.
 
