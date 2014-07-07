@@ -28,7 +28,7 @@ is.response <- function(x) {
 }
 
 #' @export
-print.response <- function(x, ..., max.lines = 10) {
+print.response <- function(x, ..., max.lines = 10, width = getOption("width")) {
   content_type <- x$headers$`content-type`
 
   cat("Response [", x$url, "]\n", sep = "")
@@ -47,17 +47,19 @@ print.response <- function(x, ..., max.lines = 10) {
     return()
   }
 
+  # Content is text, so print up to `max.lines` lines, truncating each line to
+  # at most `width` characters wide
   text <- content(x, "text")
-  if (length(text) == 0) return()
-  breaks <- str_locate_all(text, "\n")[[1]]
 
-  lines <- nrow(breaks)
-  if (lines > max.lines) {
-    last_line <-  breaks[max.lines, 1] - 1
-    cat(str_sub(text, 1, last_line), "...\n")
-  } else {
-    cat(text, "\n")
-  }
+  breaks <- gregexpr("\n", text, fixed = TRUE)[[1]]
+  last_line <- breaks[min(length(breaks), max.lines)]
+  lines <- strsplit(substr(text, 1, last_line), "\n")[[1]]
+
+  too_wide <- nchar(lines) > width
+  lines[too_wide] <- paste0(substr(lines[too_wide], 1, width - 3), "...")
+
+  cat(lines, sep = "\n")
+  if (max.lines < length(breaks)) cat("...\n")
 }
 
 is_text <- function(type) {

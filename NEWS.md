@@ -59,7 +59,9 @@
 
 * When `print()`ing a response, httr will only attempt to print the first few 
   lines if it's a text format (i.e. either the main type is text or is
-  application/json).
+  application/json). It will also truncate each line so that it fits on
+  screen - this should hopefully make it easier to see a little bit of the
+  content, without filling the screen with gibberish.
 
 * `new_bin()` has been removed: it's easier to see what's going on in 
   examples with `httpbin.org`.
