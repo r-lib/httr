@@ -1,5 +1,7 @@
 # httr 0.3.0.99
 
+* New `headers()` function to extract headers from a request object.
+
 * New `httr_options()` lists all known config options, translating between
   their short R names and the full libcurl names. The `curl_doc()` helper
   function allows you to jump directly to the online documentation for an

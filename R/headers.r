@@ -1,3 +1,17 @@
+#' Extract the headers from a response
+#'
+#' @param x A request object
+#' @seealso \code{\link{add_headers}()} to send additional headers in a
+#'   request
+#' @export
+#' @examples
+#' r <- GET("http://httpbin.org/get")
+#' headers(r)
+headers <- function(x) {
+  stopifnot(is.response(x))
+  x$headers
+}
+
 #' Add additional headers to a request.
 #'
 #' Wikipedia provides a useful list of common http headers:
