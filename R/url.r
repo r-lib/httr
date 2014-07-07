@@ -47,14 +47,14 @@ parse_url <- function(url) {
 
   if (!is.null(netloc)) {
 
-    pieces <- str_split(netloc, "@")[[1]]
+    pieces <- strsplit(netloc, "@")[[1]]
     if (length(pieces) == 1) {
       username <- NULL
       password <- NULL
 
       host <- pieces
     } else {
-      user_pass <- str_split(pieces[[1]], ":")[[1]]
+      user_pass <- strsplit(pieces[[1]], ":")[[1]]
       username <- user_pass[1]
       if (length(user_pass) == 1) {
         password <- NULL
@@ -102,7 +102,7 @@ build_url <- function(url) {
   hostname <- url$hostname
 
   if (!is.null(url$port)) {
-    port <- str_c(":", url$port)
+    port <- paste0(":", url$port)
   } else {
     port <- NULL
   }
@@ -110,7 +110,7 @@ build_url <- function(url) {
   path <- url$path
 
   if (!is.null(url$params)) {
-    params <- paste(";", url$params, sep = "")
+    params <- paste0(";", url$params)
   } else {
     params <- NULL
   }
@@ -120,20 +120,20 @@ build_url <- function(url) {
     names <- RCurl::curlEscape(names(url$query))
     values <- RCurl::curlEscape(url$query)
 
-    query <- str_c(names, "=", values, collapse = "&")
+    query <- paste0(names, "=", values, collapse = "&")
   } else {
     query <- url$query
   }
   if (!is.null(query)) {
     stopifnot(is.character(query), length(query) == 1)
-    query <- str_c("?", query)
+    query <- paste0("?", query)
   }
 
   if (is.null(url$username) && !is.null(url$password)) {
     stop("Cannot set password without username")
   }
 
-  str_c(scheme, "://",
+  paste0(scheme, "://",
         url$username, if (!is.null(url$password)) ":", url$password,
         if (!is.null(url$username)) "@",
         hostname, port, "/", path, params, query,

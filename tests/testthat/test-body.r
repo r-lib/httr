@@ -40,10 +40,10 @@ test_that("named list matches form results (encode = 'json')", {
 test_that("file and form vals mixed give form and data elements", {
   out <- round_trip(body = list(y = data_path, a = 1))
   expect_equal(out$form$a, "1")
-  expect_equal(str_split(out$file$y, "\n")[[1]], data)
+  expect_equal(strsplit(out$file$y, "\n")[[1]], data)
 })
 
 test_that("single file matches contents on disk", {
   out <- round_trip(body = data_path)
-  expect_equal(str_split(out$data, "\n")[[1]], data)
+  expect_equal(strsplit(out$data, "\n")[[1]], data)
 })

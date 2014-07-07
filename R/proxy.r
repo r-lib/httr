@@ -10,7 +10,7 @@
 #' # GET("http://had.co.nz", use_proxy("64.251.21.73", 8080), verbose())
 use_proxy <- function(url, port = NULL, username = NULL, password = NULL) {
   if (!is.null(username) || !is.null(password)) {
-    proxyuserpwd <- str_c(username, ":", password)
+    proxyuserpwd <- paste0(username, ":", password)
   } else {
     proxyuserpwd <- NULL
   }

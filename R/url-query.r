@@ -1,5 +1,5 @@
 parse_query <- function(query) {
-  params <- vapply(str_split(query, "&")[[1]], str_split_fixed, "=", 2,
+  params <- vapply(strsplit(query, "&")[[1]], str_split_fixed, "=", 2,
     FUN.VALUE = character(2))
 
   values <- as.list(RCurl::curlUnescape(params[2, ]))

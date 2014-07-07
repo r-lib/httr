@@ -22,24 +22,24 @@
 #' linkedin_app <- oauth_app("linkedin", key = "outmkw3859gy")
 #' github_app <- oauth_app("github", "56b637a5baffac62cad9")
 #' }
-#' 
+#'
 #' # If you're relying on caching, supply an explicit NULL to
 #' # suppress the warning message
 #' oauth_app("my_app", "mykey")
 #' oauth_app("my_app", "mykey", NULL)
 oauth_app <- function(appname, key, secret = NULL) {
   if (missing(secret)) {
-    env_name <- str_c(toupper(appname), "_CONSUMER_SECRET")
+    env_name <- paste0(toupper(appname), "_CONSUMER_SECRET")
     secret <- Sys.getenv(env_name)
     if (secret == "") {
       warning("Couldn't find secret in environment variable ", env_name,
         call. = FALSE)
       secret <- NULL
     } else {
-      message("Using secret stored in environment variable ", env_name)  
+      message("Using secret stored in environment variable ", env_name)
     }
   }
-  structure(list(appname = appname, secret = secret, key = key), 
+  structure(list(appname = appname, secret = secret, key = key),
     class = "oauth_app")
 }
 

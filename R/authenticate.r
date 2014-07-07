@@ -23,5 +23,5 @@ authenticate <- function(user, password, type = "basic") {
     digest_ie = 16, any = -17)
   type <- match.arg(type, names(constants))
 
-  config(httpauth = constants[type], userpwd = str_c(user, ":", password))
+  config(httpauth = constants[type], userpwd = paste0(user, ":", password))
 }

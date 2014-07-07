@@ -53,7 +53,7 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
 
   other_params <- list(...)
   if (length(other_params) > 0) {
-    names(other_params) <- str_c("oauth_", names(other_params))
+    names(other_params) <- paste0("oauth_", names(other_params))
     oauth <- c(oauth, other_params)
   }
 
@@ -61,11 +61,11 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
   params <- c(url$query, oauth)
   params_esc <- setNames(oauth_encode(params), oauth_encode(names(params)))
   params_srt <- sort_names(params_esc)
-  params_str <- str_c(names(params_srt), "=", params_srt, collapse = "&")
+  params_str <- paste0(names(params_srt), "=", params_srt, collapse = "&")
 
   # Generate hmac signature
-  key <- str_c(oauth_encode(app$secret), "&", oauth_encode(token_secret))
-  base_string <- str_c(method, "&", oauth_encode(base_url), "&",
+  key <- paste0(oauth_encode(app$secret), "&", oauth_encode(token_secret))
+  base_string <- paste0(method, "&", oauth_encode(base_url), "&",
    oauth_encode(params_str))
   oauth$oauth_signature <- hmac_sha1(key, base_string)
 
@@ -75,7 +75,7 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
 #' @rdname oauth_signature
 #' @export
 oauth_header <- function(info) {
-  oauth <- str_c("OAuth ", str_c(
+  oauth <- paste0("OAuth ", paste0(
     oauth_encode(names(info)), "=\"", oauth_encode(info), "\"", collapse = ", "))
   add_headers(Authorization = oauth)
 }
@@ -84,14 +84,14 @@ oauth_encode <- function(x) vapply(x, oauth_encode1, character(1))
 
 # As described in http://tools.ietf.org/html/rfc5849#page-29
 oauth_encode1 <- function(x) {
-  encode <- function(x) str_c("%", toupper(as.character(charToRaw(x))))
+  encode <- function(x) paste0("%", toupper(as.character(charToRaw(x))))
 
   x <- as.character(x)
-  chars <- str_split(x, "")[[1]]
+  chars <- strsplit(x, "")[[1]]
   ok <- !str_detect(chars, "[^A-Za-z0-9_.~-]")
 
   if (all(ok)) return(x)
 
   chars[!ok] <- unlist(lapply(chars[!ok], encode))
-  str_c(chars, collapse = "")
+  paste0(chars, collapse = "")
 }

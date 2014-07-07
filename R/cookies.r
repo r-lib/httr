@@ -17,7 +17,7 @@ set_cookies <- function(..., .cookies = character(0)) {
 
   cookies_str <- vapply(cookies, RCurl::curlEscape, FUN.VALUE = character(1))
 
-  cookie <- str_c(names(cookies), cookies_str, sep = "=", collapse = ";")
+  cookie <- paste0(names(cookies), cookies_str, sep = "=", collapse = ";")
 
   config(cookie = cookie)
 }

@@ -3,11 +3,11 @@ revoke_oauth2.0 <- function(endpoint, credentials) {
     stop("No revoke endpoint", call. = FALSE)
   }
 
-  url <- modify_url(endpoint$revoke, 
+  url <- modify_url(endpoint$revoke,
     query = list(token = credentials$access_token))
   response <- GET(url, accept_json())
   stop_for_status(response)
-  
+
   invisible(TRUE)
 }
 
@@ -21,7 +21,7 @@ get_token_scopes <- function(endpoint, credentials) {
   validate_url <- endpoint_validation_url(endpoint, credentials)
   response <- GET(validate_url, accept_json())
   if (response$status_code == 200) {
-    str_split(content(response)$scope, " ")[[1]]
+    strsplit(content(response)$scope, " ")[[1]]
   }
 }
 
