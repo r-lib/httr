@@ -61,7 +61,7 @@ parse_headers <- function(lines) {
 
 parse_single_header <- function(lines) {
   # Parse initial status line
-  status <- as.list(strsplit(lines[1], " ", fixed = TRUE)[[1]])
+  status <- as.list(strsplit(lines[1], "\s+")[[1]])
   names(status) <- c("version", "status", "message")
   status$status <- as.integer(status$status)
 
