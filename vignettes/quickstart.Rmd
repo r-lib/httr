@@ -12,7 +12,7 @@ knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 
 The goal of this document is to get you up and running with httr as quickly as possible. It assumes some familiarity with the http protocol. If you're not familiar with http already, I'd recommend reading a tutorial like "[HTTP: The Protocol Every Web Developer Must Know][http-tutorial]".
 
-This vignette (and parts of the httr API) derived from the excellent "[Requests quickstart guide](http://docs.python-requests.org/en/latest/user/quickstart/)" by Kenneth Reitz.  
+This vignette (and parts of the httr API) derived from the excellent "[Requests quickstart guide](http://docs.python-requests.org/en/latest/user/quickstart/)" by Kenneth Reitz. Requests is a python library similar in spirit to httr.  
 
 ## HTTP verbs
 
@@ -84,8 +84,8 @@ There are three ways to access the body of the request, all using `content()`:
     ```
     
     These are convenient for interactive usage, but if you're writing an API
-    wrapper, it's best to parse the text or raw content yourself. See the 
-    API wrappers vignette for more details.
+    wrapper, it's best to parse the text or raw content yourself and check it
+    is as you expect. See the API wrappers vignette for more details.
 
 ## Response headers
 
