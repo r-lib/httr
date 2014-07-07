@@ -1,70 +1,77 @@
 # httr 0.3.0.99
 
-* `new_bin()` has been removed: it's easier to see what's going on in 
-  examples with `httpbin.org`.
-
-* New quickstart vignette to help you get up and running with httr.
+## New features
 
 * New `headers()` and `cookies()` functions to extract headers and cookies 
-  from requests.
+  from responses.
 
-* New `httr_options()` lists all known config options, translating between
-  their short R names and the full libcurl names. The `curl_doc()` helper
-  function allows you to jump directly to the online documentation for an
-  option.
-
-* Update `cacert.pem` to version at 2014-04-22 (#114).
-
-* When `print()`ing a response, httr will only print the first few lines if
-  it appears to be a text format (i.e. either the main type is text or is
-  application/json).
-
-* Better strategy for resetting Curl handles prevents carry-over of error
-  status and other problems (#112).
+* `POST()`, `PUT()`, and `PATCH()` now use `encode` argument to determine how
+  list inputs are encoded. Valid values are "multiple", "form" or "json".
+  The `multipart` argument is now deprecated (#103). You can stream a single 
+  file from disk with  `upload_file("path/")`. The mime type will be guessed 
+  from the extension, or can be supplied explicitly as the second argument to 
+  `upload_file()`.
 
 * `progress()` will display a progress bar, useful if you're doing large 
   uploads or downloads (#17).
-
-* `PUT()`, `PATCH()` and `POST()` now use `encode` argument to determine how
-  list inputs are encoded. Valid values are "multiple", "form" or "json".
-  The `multipart` argument is now deprecated (#103).
-  
-* `PUT()`, `PATCH()` and `POST()` can send a file from disk with 
-  `upload_file("path/")`. The mime type will be guessed from the 
-  extension, or can be supplied explicitly as the second argument to 
-  `upload_file()`.
-
-* `oauth_signature()` and `oauth_header()` now exported to make it easier to 
-  construct custom authentication for APIs that use only some components of
-  the full OAuth process (e.g. 2 legged OAuth).
 
 * `verbose()` now uses a custom debug function so that you can see exactly
   what data is sent to the server. Arguments control exactly what is included,
   and the defaults have been selected to be more helpful for the most common
   cases (#102).
 
-* `has_content()` tells you if request has any content associated with it (#91).
-
-* `parse(type = "auto")` returns NULL if no content associated with request 
-  (#91).
-
 * `with_verbose()` makes it easier to see verbose information when http 
   requests are made within other functions (#87).
 
-* Add `is_interactive()` parameter to `oauth_listener()`, `init_oauth1.0()` and
-  `init_oauth2.0()` (#90).
+## Documentation improvements
+
+* New `quickstart` vignette to help you get up and running with httr.
+
+* New `api-packages` vignette describes how best practices to follow when
+  writing R packages that wrap web APIs.
+
+* `httr_options()` lists all known config options, translating between
+  their short R names and the full libcurl names. The `curl_doc()` helper
+  function allows you to jump directly to the online documentation for an
+  option.
+
+## Minor improvements
 
 * `authenticate()` now defaults to `type = "basic"` which is pretty much the
   only type of authentication anyone uses.
+
+* Updated `cacert.pem` to version at 2014-04-22 (#114).
 
 * `content_type()`, `content_type_xml()` and `content_type_json()` make it
   easier to set the content type for `POST` requests (and other requests with
   a body).
 
+* `has_content()` tells you if request has any content associated with it (#91).
+
+* Add `is_interactive()` parameter to `oauth_listener()`, `init_oauth1.0()` and
+  `init_oauth2.0()` (#90).
+
+* `oauth_signature()` and `oauth_header()` now exported to make it easier to 
+  construct custom authentication for APIs that use only some components of
+  the full OAuth process (e.g. 2 legged OAuth).
+
+* When `print()`ing a response, httr will only attempt to print the first few 
+  lines if it's a text format (i.e. either the main type is text or is
+  application/json).
+
+* `new_bin()` has been removed: it's easier to see what's going on in 
+  examples with `httpbin.org`.
+
+## Bug fixes
+
 * `user_agent()` once again overrides default (closes #97)
 
-* New vignette `api-packages` describes how best practices to follow when
-  writing a package that talks to a web api.
+* `parse(type = "auto")` returns NULL if no content associated with request 
+  (#91).
+  
+* Better strategy for resetting Curl handles prevents carry-over of error
+  status and other problems (#112).
+
 
 # httr 0.3
 
