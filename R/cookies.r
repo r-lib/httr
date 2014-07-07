@@ -20,3 +20,26 @@ set_cookies <- function(..., .cookies = character(0)) {
 
   config(cookie = cookie)
 }
+
+#' Access cookies in a response.
+#'
+#' @param x A response.
+#' @examples
+#' r <- GET("http://httpbin.org/cookies/set", query = list(a = 1, b = 2))
+#' cookies(r)
+#' @export
+cookies <- function(x) UseMethod("cookies")
+
+#' @export
+cookies.response <- function(x) x$cookies
+
+#' @export
+cookies.handle <- function(x) {
+  raw <- getCurlInfo(x$handle, "cookielist")[[1]]
+  parsed <- read.delim(text = raw, sep = "\t", header = FALSE,
+    stringsAsFactors = FALSE)
+  names(parsed) <- c("domain", "tailmatch", "path", "secure", "expires", "name",
+    "value")
+
+  setNames(as.list(parsed$value), parsed$name)
+}

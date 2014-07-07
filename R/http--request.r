@@ -57,10 +57,3 @@ request_times <- function(x) {
     total = req$total.time)
 
 }
-
-parse_cookies <- function(x) {
-  if (length(x) == 0) return(list())
-
-  pieces <- str_split_fixed(x, fixed("\t"), n = 7)
-  setNames(as.list(pieces[, 7]), pieces[, 6])
-}

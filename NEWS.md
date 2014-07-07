@@ -1,6 +1,7 @@
 # httr 0.3.0.99
 
-* New `headers()` function to extract headers from a request object.
+* New `headers()` and `cookies()` functions to extract headers and cookies 
+  from requests.
 
 * New `httr_options()` lists all known config options, translating between
   their short R names and the full libcurl names. The `curl_doc()` helper

@@ -39,7 +39,7 @@ perform <- function(handle, opts, body) {
     handle = handle,
     status_code = status,
     headers = headers,
-    cookies = parse_cookies(info$cookielist),
+    cookies = cookies(handle),
     content = content,
     times = times,
     config = config
