@@ -40,10 +40,21 @@ test_that("named list matches form results (encode = 'json')", {
 test_that("file and form vals mixed give form and data elements", {
   out <- round_trip(body = list(y = data_path, a = 1))
   expect_equal(out$form$a, "1")
-  expect_equal(str_split(out$file$y, "\n")[[1]], data)
+  split_actual <- str_split(out$file$y, "\n")[[1]]
+
+  expect_equal(length(split_actual), expected = length(data), label = "The number of returned elements should match the number of lines in the data file.")
+  for( i in seq_along(data) ) {
+    expect_match(split_actual[i], regexp = data[i], info = paste("Element:", i))
+  }
 })
 
 test_that("single file matches contents on disk", {
   out <- round_trip(body = data_path)
-  expect_equal(str_split(out$data, "\n")[[1]], data)
+  # expect_equal(str_split(out$data, "\n")[[1]], data) #This line is dependent the line endings of ./test/testthat/data.txt.  The version below isn't.
+  split_actual <- str_split(out$data, "\n")[[1]]
+
+  expect_equal(length(split_actual), expected = length(data), label = "The number of returned elements should match the number of lines in the data file.")
+  for( i in seq_along(data) ) {
+    expect_match(split_actual[i], regexp = data[i], info = paste("Element:", i))
+  }
 })
