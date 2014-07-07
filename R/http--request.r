@@ -5,13 +5,21 @@ make_request <- function(method, handle, url, config = NULL, body = NULL,
   stopifnot(is.handle(handle))
   stopifnot(is.character(url), length(url) == 1)
 
-  # Sign request, if needed
-  signature <- sign(config$token, method, url, config)
-
-  # Combine options
-  opts <- modify_config(default_config(), signature$config)
+  # Combine with default config
+  opts <- modify_config(default_config(), config)
   opts$customrequest <- toupper(method)
-  opts$url <- signature$url
+
+  # Sign request, if needed
+  token <- opts$token
+  if (!is.null(token)) {
+    signature <- token$sign(method, url)
+
+    opts <- modify_config(opts, signature$config)
+    opts$token <- NULL
+    opts$url <- signature$url
+  } else {
+    opts$url <- url
+  }
 
   # Perform request and capture output
   req <- perform(handle, opts, body)
@@ -26,18 +34,6 @@ make_request <- function(method, handle, url, config = NULL, body = NULL,
       refresh = FALSE)
   } else {
     req
-  }
-}
-
-sign <- function(token, method, url, config) {
-  if (is.null(token)) {
-    list(url = url, config = config)
-  } else {
-    config$token <- NULL
-
-    signed <- token$sign(method, url)
-    signed$config <- modify_config(config, signed$config)
-    signed
   }
 }
 

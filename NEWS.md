@@ -74,6 +74,7 @@
 * Better strategy for resetting Curl handles prevents carry-over of error
   status and other problems (#112).
 
+* `set_config()` and `with_config()` now work with `token`s (#111).
 
 # httr 0.3
 
