@@ -37,7 +37,7 @@ cookies.response <- function(x) x$cookies
 
 #' @export
 cookies.handle <- function(x) {
-  raw <- getCurlInfo(x$handle, "cookielist")[[1]]
+  raw <- RCurl::getCurlInfo(x$handle, "cookielist")[[1]]
   parsed <- read.delim(text = raw, sep = "\t", header = FALSE,
     stringsAsFactors = FALSE)
   names(parsed) <- c("domain", "tailmatch", "path", "secure", "expires", "name",
