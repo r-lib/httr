@@ -43,3 +43,5 @@ need_package <- function(pkg) {
 
   stop("Please install ", pkg, " package", call. = FALSE)
 }
+
+last <- function(x) x[[length(x)]]
