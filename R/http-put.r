@@ -16,7 +16,7 @@ PUT <- function(url = NULL, config = list(), ..., body = NULL,
                   multipart = TRUE, handle = NULL) {
 
   if (!missing(multipart)) {
-    warning("multiplart is deprecated, please use encode argument instead",
+    warning("multipart is deprecated, please use encode argument instead",
       call. = FALSE)
     encode <- if (multipart) "multipart" else "form"
   }
