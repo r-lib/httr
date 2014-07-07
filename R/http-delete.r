@@ -24,9 +24,6 @@
 #' @family http methods
 #' @export
 #' @examples
-#' b <- new_bin()
-#' DELETE(b)
-#'
 #' DELETE("http://httpbin.org/delete")
 #' POST("http://httpbin.org/delete")
 DELETE <- function(url = NULL, config = list(), ..., handle = NULL) {

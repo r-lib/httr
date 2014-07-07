@@ -1,5 +1,8 @@
 # httr 0.3.0.99
 
+* `new_bin()` has been removed: it's easier to see what's going on in 
+  examples with `httpbin.org`.
+
 * New quickstart vignette to help you get up and running with httr.
 
 * New `headers()` and `cookies()` functions to extract headers and cookies 

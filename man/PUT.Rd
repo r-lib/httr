@@ -57,9 +57,6 @@ Files can not be uploaded when \code{FALSE}.}
 Send PUT request to server.
 }
 \examples{
-b <- new_bin()
-PUT(b)
-
 POST("http://httpbin.org/put")
 PUT("http://httpbin.org/put")
 

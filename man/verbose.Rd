@@ -38,12 +38,11 @@ different components of the http messages:
 }
 }
 \examples{
-b <- new_bin()
-GET(b, verbose())
-GET(b, verbose(info = TRUE))
+GET("http://httpbin.org", verbose())
+GET("http://httpbin.org", verbose(info = TRUE))
 
 f <- function() {
-  GET(b)
+  GET("http://httpbin.org")
 }
 with_verbose(f())
 with_verbose(f(), info = TRUE)

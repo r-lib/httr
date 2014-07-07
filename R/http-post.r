@@ -26,17 +26,16 @@
 #'   Files can not be uploaded when \code{FALSE}.
 #' @export
 #' @examples
-#' b <- new_bin()
-#' POST(b)
-#' POST(b, body = "A simple text string")
-#' POST(b, body = list(a = 1, b = 2, c = 3))
-#' POST(b, body = list(a = 1, file = upload_file(system.file("CITATION"))))
-#'
 #' b2 <- "http://httpbin.org/post"
 #' POST(b2, body = "A simple text string")
 #' POST(b2, body = list(x = "A simple text string"))
 #' POST(b2, body = list(y = upload_file(system.file("CITATION"))))
 #' POST(b2, body = list(x = "A simple text string"), encode = "json")
+#'
+#' # Various types of empty body:
+#' POST(b2, body = NULL, verbose())
+#' POST(b2, body = FALSE, verbose())
+#' POST(b2, body = "", verbose())
 POST <- function(url = NULL, config = list(), ..., body = NULL,
                  encode = c("multipart", "form", "json"),
                  multipart = TRUE, handle = NULL) {

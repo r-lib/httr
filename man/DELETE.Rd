@@ -50,9 +50,6 @@ more currently cached entities, those entries SHOULD be treated as stale.
 Responses to this method are not cacheable.
 }
 \examples{
-b <- new_bin()
-DELETE(b)
-
 DELETE("http://httpbin.org/delete")
 POST("http://httpbin.org/delete")
 }

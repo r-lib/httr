@@ -3,9 +3,6 @@
 #' @inheritParams POST
 #' @export
 #' @examples
-#' b <- new_bin()
-#' PUT(b)
-#'
 #' POST("http://httpbin.org/put")
 #' PUT("http://httpbin.org/put")
 #'
