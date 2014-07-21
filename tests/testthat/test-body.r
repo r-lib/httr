@@ -6,7 +6,7 @@ round_trip <- function(method, ...) {
 }
 
 data_path <- upload_file("data.txt")
-data <- c(readLines("data.txt"), "")
+data <- readLines("data.txt")
 
 test_that("empty body gives empty data element", {
   out <- round_trip(body = NULL)
