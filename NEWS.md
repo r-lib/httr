@@ -3,7 +3,8 @@
 ## New features
 
 * New `headers()` and `cookies()` functions to extract headers and cookies 
-  from responses.
+  from responses. Previoulsy internal `status_code()` function now exported
+  to extract `status_code()` from responses.
 
 * `POST()`, `PUT()`, and `PATCH()` now use `encode` argument to determine how
   list inputs are encoded. Valid values are "multiple", "form" or "json".

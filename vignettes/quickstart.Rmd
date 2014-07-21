@@ -34,7 +34,7 @@ r
 You can pull out important parts of the response with various helper methods, or dig directly into the object:
 
 ```{r}
-http_status(r)
+status_code(r)
 headers(r)
 str(content(r))
 ```
