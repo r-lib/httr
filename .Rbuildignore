@@ -4,4 +4,4 @@
 ^\.httr-oauth$
 ^NEWS\.md$
 ^\.Rprofile$
-^rcmd-notes.md$
+^cran-comments.md$
