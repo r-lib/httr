@@ -32,7 +32,7 @@ print.response <- function(x, ..., max.lines = 10, width = getOption("width")) {
   content_type <- x$headers$`content-type`
 
   cat("Response [", x$url, "]\n", sep = "")
-  cat("  Status: ", x$status, "\n", sep = "")
+  cat("  Status: ", x$status_code, "\n", sep = "")
   cat("  Content-type: ", content_type %||% "<unknown>", "\n", sep = "")
 
   size <- length(x$content)
