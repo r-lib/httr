@@ -1,5 +1,7 @@
 # httr 0.4.0.99
 
+* `headers()` is now a generic with a method for response objects.
+
 * Now possible to specify both handle and url when making a request.
 
 # httr 0.4

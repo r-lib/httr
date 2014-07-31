@@ -7,8 +7,10 @@
 #' @examples
 #' r <- GET("http://httpbin.org/get")
 #' headers(r)
-headers <- function(x) {
-  stopifnot(is.response(x))
+headers <- function(x) UseMethod("headers")
+
+#' @export
+headers.response <- function(x) {
   x$headers
 }
 
