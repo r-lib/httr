@@ -1,6 +1,6 @@
 handle_url <- function(handle = NULL, url = NULL, ...) {
-  if (!xor(is.null(url), is.null(handle))) {
-    stop("Must specify exactly one of url or handle")
+  if (is.null(url) && is.null(handle)) {
+    stop("Must specify at least one of url or handle")
   }
 
   if (is.null(handle))  handle <- find_handle(url)

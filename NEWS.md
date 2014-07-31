@@ -1,5 +1,7 @@
 # httr 0.4.0.99
 
+* Now possible to specify both handle and url when making a request.
+
 # httr 0.4
 
 ## New features
