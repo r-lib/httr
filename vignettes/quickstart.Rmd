@@ -105,7 +105,7 @@ There are three ways to access the body of the request, all using `content()`:
     
     ```{r, eval = FALSE}
     bin <- content(r, "raw")
-    writeBin("myfile.txt", bin)
+    writeBin(bin, "myfile.txt")
     ```
 
 *   httr provides a number of default parsers for common file types:
