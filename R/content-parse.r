@@ -8,7 +8,7 @@ parse_text <- function(content, type = NULL, encoding = NULL) {
     encoding <- "ISO-8859-1"
   }
 
-  iconv(rawToChar(content), from = encoding, to = "UTF-8")
+  iconv(readBin(content, character()), from = encoding, to = "UTF-8")
 }
 
 parse_auto <- function(content, type = NULL, encoding = NULL, ...) {
