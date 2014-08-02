@@ -1,5 +1,9 @@
 # httr 0.4.0.99
 
+* `content(type = "text")` uses `readBin()` instead of `rawToChar()` so
+  that strings with embedded NULLs (e.g. WINDOWS-1252) can be re-encoded
+  to UTF-8.
+
 * `headers()` is now a generic with a method for response objects.
 
 * Now possible to specify both handle and url when making a request.
