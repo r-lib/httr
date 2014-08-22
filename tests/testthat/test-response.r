@@ -13,3 +13,12 @@ test_that("application/json responses parsed as lists", {
   test_user_agent()
   test_user_agent("gunicorn-client/0.1")
 })
+
+test_that("url_ok works as expected", {
+
+  expect_true(url_ok("http://httpbin.org/status/200"))
+  expect_false(url_ok("http://httpbin.org/status/300"))
+  expect_false(url_ok("http://httpbin.org/status/404"))
+  expect_false(url_ok("http://httpbin.org/status/500"))
+
+})
