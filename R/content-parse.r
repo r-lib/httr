@@ -68,6 +68,10 @@ parsers$`text/xml` <- function(x, ...) {
   need_package("XML")
   XML::xmlParse(x, ...)
 }
+parsers$`application/xml` <- function(x, ...) {
+  need_package("XML")
+  XML::xmlParse(x, ...)
+}
 parsers$`text/csv` <- function(x, ...) {
   read.csv(text = x, stringsAsFactors = FALSE, ...)
 }
