@@ -8,6 +8,9 @@
 
 * Now possible to specify both handle and url when making a request.
 
+* Mime type `application/xml` is automatically parsed with ``XML::xmlParse()`.
+  (#128)
+
 ## Bug fixes
 
 * `url_ok()` works correctly now, instead of always returning `FALSE`,
