@@ -30,7 +30,7 @@
 #' old <- set_config(verbose())
 #' HEAD("https://www.google.com")
 #' # and re-establish the previous settings with
-#' set_config(old)
+#' set_config(old, override = TRUE)
 #' HEAD("https://www.google.com")
 #' # or
 #' reset_config()
