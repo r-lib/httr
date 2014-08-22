@@ -4,6 +4,11 @@
 
 * Now possible to specify both handle and url when making a request.
 
+## Bug fixes
+
+* `url_ok()` works correctly now, instead of always returning `FALSE`,
+  a bug since version 0.4 (#133).
+
 # httr 0.4
 
 ## New features
