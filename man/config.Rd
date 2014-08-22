@@ -30,9 +30,13 @@ HEAD("https://www.google.com", verbose())
 with_config(verbose(), HEAD("https://www.google.com"))
 
 # * you can set global with set_config()
-set_config(verbose())
+old <- set_config(verbose())
 HEAD("https://www.google.com")
-reset_config(old)
+# and re-establish the previous settings with
+set_config(old)
+HEAD("https://www.google.com")
+# or
+reset_config()
 HEAD("https://www.google.com")
 
 # If available, you should use a friendly httr wrapper over RCurl
