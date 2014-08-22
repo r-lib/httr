@@ -1,5 +1,7 @@
 # httr 0.4.0.99
 
+* Typo which broke `set_cookies()` fixed by @hrbrmstr.
+
 * `content(type = "text")` uses `readBin()` instead of `rawToChar()` so
   that strings with embedded NULLs (e.g. WINDOWS-1252) can be re-encoded
   to UTF-8.
