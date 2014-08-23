@@ -43,7 +43,7 @@
 config <- function(...) {
   options <- list(...)
 
-  known <- c(RCurl::listCurlOptions(), "token")
+  known <- c(RCurl::listCurlOptions(), "token", "writer")
   unknown <- setdiff(names(options), known)
   if (length(unknown) > 0) {
     stop("Unknown RCurl options: ", paste0(unknown, collapse = ", "))

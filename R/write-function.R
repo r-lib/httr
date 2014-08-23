@@ -1,0 +1,109 @@
+#' S3 object to define respose writer.
+#'
+#' This S3 object allows you to control how the response body is saved.
+#'
+#'
+#' There are three key methods:
+#' \itemize{
+#'   \item \code{write_init()}: called before the write is started. It should
+#'     return a modified object.
+#'   \item \code{write_opts()}: returns a list options passed on to RCurl
+#'   \item \code{write_term()}: called after the request is complete.
+#'     Should return the content (or a pointer to it)
+#' }
+#' @param subclass,... Class name and fields. Used in class constructors.
+#' @param x A \code{write_function} object to process.
+#' @keywords internal
+#' @export
+write_function <- function(subclass, ...) {
+  structure(list(...), class = c(subclass, "write_function"))
+}
+#' @export
+#' @rdname write_function
+write_init <- function(x) UseMethod("write_init")
+#' @export
+#' @rdname write_function
+write_opts <- function(x) UseMethod("write_opts")
+#' @export
+#' @rdname write_function
+write_term <- function(x) UseMethod("write_term")
+
+#' Control where the response body is written.
+#'
+#' The default behaviour is to use \code{write_memory()}, which caches
+#' the response locally in memory. This is useful when talking to APIs as
+#' it avoids a round-trip to disk. If you want to save a file that's bigger
+#' than memory, use \code{write_disk()} to save it to a known path.
+#'
+#' @param path Path to content to.
+#' @param overwrite Will only overwrite existing \code{path} if TRUE.
+#' @export
+#' @useDynLib httr writer
+#' @examples
+#' tmp <- tempfile()
+#' r <- GET("https://www.google.com", write_disk(tmp))
+#' readLines(tmp)
+#'
+#' # The default
+#' r <- GET("https://www.google.com", write_memory())
+write_disk <- function(path, overwrite = FALSE) {
+  if (!overwrite && file.exists(path)) {
+    stop("Path exists and overrwrite is FALSE", call. = FALSE)
+  }
+  config(
+    writer = write_function("write_disk", path = path, file = NULL)
+  )
+}
+#' @export
+write_init.write_disk <- function(x) {
+  x$file <- RCurl::CFILE(path, "wb")
+  x
+}
+#' @export
+write_opts.write_disk <- function(x) {
+  list(
+    writefunction = writer$address,
+    writedata = x$file@ref
+  )
+}
+#' @export
+write_term.write_disk <- function(x) {
+  close(x$file)
+  x$file <- NULL
+  path(x$path)
+}
+#' @export
+print.write_disk <- function(x, ...) {
+  cat("<write_disk> ", x$path, "\n", sep = "")
+}
+
+path <- function(x) structure(x, class = "path")
+
+#' @rdname write_disk
+#' @export
+write_memory <- function() {
+  config(
+    writer = write_function("write_memory", buffer = NULL)
+  )
+}
+#' @export
+print.write_memory <- function(x, ...) {
+  cat("<write_memory>\n")
+}
+
+#' @export
+write_init.write_memory <- function(x) {
+  x$buffer <- RCurl::binaryBuffer()
+  x
+}
+#' @export
+write_opts.write_memory <- function(x) {
+  list(
+    writefunction = getNativeSymbolInfo("R_curl_write_binary_data")$address,
+    writedata = x$buffer@ref
+  )
+}
+#' @export
+write_term.write_memory <- function(x) {
+  methods::as(x$buffer, "raw")
+}
