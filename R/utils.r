@@ -1,5 +1,5 @@
 "%||%" <- function(a, b) {
-  if (!is.null(a)) a else b
+  if (length(a) > 0) a else b
 }
 
 timestamp <- function(x = Sys.time()) {

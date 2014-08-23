@@ -1,6 +1,6 @@
 # Abstract over the differences in RCurl API depending on whether or not
 # you send a body.
-perform <- function(handle, opts, body) {
+perform <- function(handle, method, opts, body) {
   # Must always override headerfunction and writefunction
   # FIXME: throw error if these are set already
   headers <- character()
@@ -32,6 +32,7 @@ perform <- function(handle, opts, body) {
   content <- methods::as(buffer, "raw")
 
   response(
+    method = toupper(method),
     url = last_request(handle)$effective.url,
     handle = handle,
     status_code = last(headers)$status,
