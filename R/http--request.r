@@ -21,6 +21,10 @@ make_request <- function(method, handle, url, config = NULL, body = NULL,
     opts$url <- url
   }
 
+  # Extract writer object
+  writer <- opts$writer %||% write_memory()
+  opts$writer <- NULL
+
   # Perform request and capture output
   req <- perform(handle, method, opts, body)
 
