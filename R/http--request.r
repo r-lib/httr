@@ -22,11 +22,11 @@ make_request <- function(method, handle, url, config = NULL, body = NULL,
   }
 
   # Extract writer object
-  writer <- opts$writer %||% write_memory()
+  writer <- opts$writer
   opts$writer <- NULL
 
   # Perform request and capture output
-  req <- perform(handle, method, opts, body)
+  req <- perform(handle, writer, method, opts, body)
 
   needs_refresh <- refresh && req$status == 401L &&
     !is.null(config$token) && config$token$can_refresh()

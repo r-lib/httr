@@ -56,7 +56,7 @@ write_disk <- function(path, overwrite = FALSE) {
 }
 #' @export
 write_init.write_disk <- function(x) {
-  x$file <- RCurl::CFILE(path, "wb")
+  x$file <- RCurl::CFILE(x$path, "wb")
   x
 }
 #' @export
@@ -68,7 +68,7 @@ write_opts.write_disk <- function(x) {
 }
 #' @export
 write_term.write_disk <- function(x) {
-  close(x$file)
+  .Call("R_closeCFILE", x$file@ref, PACKAGE = "RCurl")
   x$file <- NULL
   path(x$path)
 }

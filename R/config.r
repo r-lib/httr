@@ -184,6 +184,7 @@ default_config <- function() {
       cainfo = cert
     ),
     user_agent(default_ua()),
+    write_memory(),
     getOption("httr_config")
   )
 }
