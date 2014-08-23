@@ -18,6 +18,11 @@
 * `url_ok()` works correctly now, instead of always returning `FALSE`,
   a bug since version 0.4 (#133).
 
+## Caching
+
+* `parse_http_date()` parses http dates according RFC2616 spec.
+
+
 # httr 0.4
 
 ## New features
