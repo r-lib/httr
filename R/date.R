@@ -43,7 +43,8 @@ parse_http_date <- function(x, failure = NA) {
 #' @export
 #' @rdname parse_http_date
 http_date <- function(x) {
-  stopifnot(!inherits(x, "POSIXt"))
+  if (is.null(x)) return(NULL)
+  stopifnot(inherits(x, "POSIXt"))
   c_time(strftime(x, "%a, %d %b %Y %H:%M:%S", tz = "GMT", usetz = TRUE))
 }
 

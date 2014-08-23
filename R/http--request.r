@@ -22,7 +22,7 @@ make_request <- function(method, handle, url, config = NULL, body = NULL,
   }
 
   # Perform request and capture output
-  req <- perform(handle, opts, body)
+  req <- perform(handle, method, opts, body)
 
   needs_refresh <- refresh && req$status == 401L &&
     !is.null(config$token) && config$token$can_refresh()

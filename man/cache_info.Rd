@@ -3,19 +3,19 @@
 \alias{cache_info}
 \title{Compute caching information for a response.}
 \usage{
-cache_info(x)
+cache_info(r)
 }
 \arguments{
-\item{x}{A response}
+\item{r}{A response}
 }
 \description{
 Compute caching information for a response.
 }
 \examples{
-r <- GET("https://www.google.com")
-cache_info(r)
+r1 <- GET("https://www.google.com")
+cache_info(r1)
 
-r <- GET("https://www.google.com/images/srpr/logo11w.png")
-cache_info(r)
+r2 <- GET("https://www.google.com/images/srpr/logo11w.png")
+cache_info(r2)
 }
 
