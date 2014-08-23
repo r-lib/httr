@@ -12,6 +12,9 @@ handle_url <- function(handle = NULL, url = NULL, ...) {
     old <- parse_url(url)
     url <- build_url(modifyList(old, new))
   }
+  
+  #Regardless of components, encode
+  url <- URLencode(url)
 
   list(handle = handle, url = url)
 }
