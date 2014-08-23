@@ -63,10 +63,16 @@ content <- function(x, as = NULL, type = NULL, encoding = NULL, ...) {
   as <- as %||% parseability(type)
   as <- match.arg(as, c("raw", "text", "parsed"))
 
+  if (is.path(x$content)) {
+    raw <- readBin(x$content, "raw", file.info(x$content)$size)
+  } else {
+    raw <- x$content
+  }
+
   switch(as,
-    raw = x$content,
-    text = parse_text(x$content, type, encoding),
-    parsed = parse_auto(x$content, type, encoding, ...)
+    raw = raw,
+    text = parse_text(raw, type, encoding),
+    parsed = parse_auto(raw, type, encoding, ...)
   )
 }
 
