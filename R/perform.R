@@ -39,6 +39,7 @@ perform <- function(handle, opts, body) {
     all_headers = headers,
     cookies = cookies(handle),
     content = content,
+    date = Sys.time(),
     times = request_times(handle),
     config = config
   )
