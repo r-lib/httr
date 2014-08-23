@@ -42,6 +42,10 @@ print.response <- function(x, ..., max.lines = 10, width = getOption("width")) {
   }
 
   cat("  Size: ", bytes(size), "\n", sep = "")
+  if (is.path(x$content)) {
+    cat("<ON DISK> ", x$content)
+    return()
+  }
   if (!is_text(content_type)) {
     cat("<BINARY BODY>\n")
     return()

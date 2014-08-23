@@ -1,5 +1,9 @@
 # httr 0.4.0.99
 
+* You can now save response bodies directly to disk by using the `write_disk()`
+  config. This is useful if you want to capture large files that don't fit in
+  memory (#44).
+
 * Typo which broke `set_cookies()` fixed by @hrbrmstr.
 
 * `content(type = "text")` uses `readBin()` instead of `rawToChar()` so

@@ -41,11 +41,17 @@ write_term <- function(x) UseMethod("write_term")
 #' @useDynLib httr writer
 #' @examples
 #' tmp <- tempfile()
-#' r <- GET("https://www.google.com", write_disk(tmp))
+#' r1 <- GET("https://www.google.com", write_disk(tmp))
 #' readLines(tmp)
 #'
 #' # The default
-#' r <- GET("https://www.google.com", write_memory())
+#' r2 <- GET("https://www.google.com", write_memory())
+#'
+#' # Save a very large file
+#' \dontrun{
+#' GET("http://www2.census.gov/acs2011_5yr/pums/csv_pus.zip",
+#'   write_disk("csv_pus.zip"), progress())
+#' }
 write_disk <- function(path, overwrite = FALSE) {
   if (!overwrite && file.exists(path)) {
     stop("Path exists and overrwrite is FALSE", call. = FALSE)
@@ -79,6 +85,9 @@ print.write_disk <- function(x, ...) {
 }
 
 path <- function(x) structure(x, class = "path")
+#' @export
+length.path <- function(x) file.info(x)$size
+is.path <- function(x) inherits(x, "path")
 
 #' @rdname write_disk
 #' @export

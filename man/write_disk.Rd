@@ -21,10 +21,16 @@ than memory, use \code{write_disk()} to save it to a known path.
 }
 \examples{
 tmp <- tempfile()
-r <- GET("https://www.google.com", write_disk(tmp))
+r1 <- GET("https://www.google.com", write_disk(tmp))
 readLines(tmp)
 
 # The default
-r <- GET("https://www.google.com", write_memory())
+r2 <- GET("https://www.google.com", write_memory())
+
+# Save a very large file
+\dontrun{
+GET("http://www2.census.gov/acs2011_5yr/pums/csv_pus.zip",
+  write_disk("csv_pus.zip"), progress())
+}
 }
 
