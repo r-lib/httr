@@ -67,8 +67,9 @@ write_opts.write_disk <- function(x) {
   )
 }
 #' @export
+#' @useDynLib httr close_file
 write_term.write_disk <- function(x) {
-  .Call("R_closeCFILE", x$file@ref, PACKAGE = "RCurl")
+  .Call(close_file, x$file@ref)
   x$file <- NULL
   path(x$path)
 }
