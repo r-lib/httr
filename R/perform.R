@@ -1,8 +1,6 @@
 # Abstract over the differences in RCurl API depending on whether or not
 # you send a body.
 perform <- function(handle, writer, method, opts, body) {
-  # Must always override headerfunction and writefunction
-  # FIXME: throw error if these are set already
   headers <- character()
   add_header <- function(text) {
     headers <<- c(headers, text)
