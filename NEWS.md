@@ -1,5 +1,10 @@
 # httr 0.4.0.99
 
+* Preliminary and experimental support for caching with `cache_info()` and
+  `rerequest()` (#129).
+
+* Requests now print the time they were made.
+  
 * You can now save response bodies directly to disk by using the `write_disk()`
   config. This is useful if you want to capture large files that don't fit in
   memory (#44).
