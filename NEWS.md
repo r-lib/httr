@@ -1,5 +1,9 @@
 # httr 0.4.0.99
 
+* `parse_media()` failed to take into account that media types are 
+  case-insenstive - this lead to bad re-encoding for content-types like
+  "text/html; Charset=UTF-8"
+
 * Preliminary and experimental support for caching with `cache_info()` and
   `rerequest()` (#129).
 

@@ -31,7 +31,7 @@ parse_media <- function(x) {
   parse <- function(x, sep) {
     scan(text = x, what = character(), sep = sep, quiet = TRUE, quote = '"')
   }
-  pieces <- str_trim(parse(x, ";"))
+  pieces <- str_trim(parse(tolower(x), ";"))
 
   types <- str_split_fixed(pieces[1], "/", 2)[1, ]
   type <- tolower(types[1])
