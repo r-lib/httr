@@ -1,5 +1,7 @@
 # httr 0.4.0.99
 
+* `DELETE()` now returns body of request (#138).
+
 * `parse_media()` failed to take into account that media types are 
   case-insenstive - this lead to bad re-encoding for content-types like
   "text/html; Charset=UTF-8"
