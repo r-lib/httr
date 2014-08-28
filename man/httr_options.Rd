@@ -4,12 +4,15 @@
 \alias{httr_options}
 \title{List available options.}
 \usage{
-httr_options()
+httr_options(matches)
 
 curl_docs(x)
 }
 \arguments{
 \item{x}{An option name (either short or full).}
+
+\item{matches}{If not missing, this restricts the output so that either
+the httr or curl option matches this regular expression.}
 }
 \value{
 A data frame with three columns:

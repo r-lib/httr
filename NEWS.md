@@ -1,5 +1,8 @@
 # httr 0.4.0.99
 
+* `httr_options()` allows you to easily filter the options, e.g. 
+  `httr_options("post")`
+
 * `DELETE()` now returns body of request (#138).
 
 * `parse_media()` failed to take into account that media types are 
