@@ -39,7 +39,7 @@
 #' # If available, you should use a friendly httr wrapper over RCurl
 #' # options. But you can pass Curl options (as listed in httr_options())
 #' # in config
-#' HEAD("https://www.google.com/", config(verbose = 1L))
+#' HEAD("https://www.google.com/", config(verbose = TRUE))
 config <- function(...) {
   options <- list(...)
 
@@ -190,7 +190,7 @@ default_config <- function() {
   cert <- system.file("cacert.pem", package = "httr")
 
   c(config(
-      followlocation = 1L,
+      followlocation = TRUE,
       maxredirs = 10L,
       encoding = "gzip",
       cainfo = cert

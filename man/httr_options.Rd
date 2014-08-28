@@ -34,6 +34,7 @@ becomes "sslengine.default".
 }
 \examples{
 httr_options()
+httr_options("post")
 
 # Use curl_docs to read the curl documentation for each option.
 # You can use either the httr or curl option name.

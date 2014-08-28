@@ -24,7 +24,7 @@
 #' HEAD("http://google.com")$headers
 HEAD <- function(url = NULL, config = list(), ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  config <- make_config(config, ..., list(nobody = 1L))
+  config <- make_config(config, ..., list(nobody = TRUE))
 
   make_request("head", hu$handle, hu$url, config)
 }

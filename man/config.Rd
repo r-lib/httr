@@ -42,7 +42,7 @@ HEAD("https://www.google.com")
 # If available, you should use a friendly httr wrapper over RCurl
 # options. But you can pass Curl options (as listed in httr_options())
 # in config
-HEAD("https://www.google.com/", config(verbose = 1L))
+HEAD("https://www.google.com/", config(verbose = TRUE))
 }
 \seealso{
 \code{\link{set_config}} to set global config defaults, and
