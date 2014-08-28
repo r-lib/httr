@@ -36,6 +36,7 @@
 #' POST(b2, body = NULL, verbose())
 #' POST(b2, body = FALSE, verbose())
 #' POST(b2, body = "", verbose())
+#'
 POST <- function(url = NULL, config = list(), ..., body = NULL,
                  encode = c("multipart", "form", "json"),
                  multipart = TRUE, handle = NULL) {
@@ -47,7 +48,11 @@ POST <- function(url = NULL, config = list(), ..., body = NULL,
   }
   encode <- match.arg(encode)
 
-  hu <- handle_url(handle, url, ...)
+  # Need to set post = TRUE to tell curl that this is a POST request and
+  # hence has special behaviour when redirecting. Not sure if this will
+  # work given that I later also specifically set the method. See
+  # http://sourceforge.net/p/curl/bugs/692/ for discussion
+  hu <- handle_url(handle, url, ..., list(post = TRUE))
   config <- make_config(config, ...)
 
   make_request("post", hu$handle, hu$url, config, body_config(body, encode))
