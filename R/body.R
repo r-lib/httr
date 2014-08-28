@@ -3,7 +3,7 @@ body_config <- function(body = NULL, encode = "form")  {
   if (is.null(body)) return(NULL)
 
   # No body
-  if (identical(body, FALSE)) return(body_httr(nobody = 1L))
+  if (identical(body, FALSE)) return(body_httr(nobody = TRUE))
 
   # For character/raw, send raw bytes
   if (is.character(body) || is.raw(body)) {
