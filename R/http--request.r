@@ -8,10 +8,7 @@ make_request <- function(method, handle, url, config = NULL, body = NULL,
 
   # Combine with default config
   opts <- modify_config(default_config(), config)
-
-  if (method != "POST") {
-    opts$customrequest <- method
-  }
+  opts$customrequest <- method
 
   # Sign request, if needed
   token <- opts$token
