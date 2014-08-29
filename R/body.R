@@ -78,7 +78,7 @@ body_raw <- function(body, type = NULL) {
     post = TRUE,
     postfieldsize = length(body),
     readfunction = body,
-    httpheader = c("Content-type" = type, "Content-Type" = "")
+    httpheader = c("Content-type" = type %||% "")
   )
   base
 }
