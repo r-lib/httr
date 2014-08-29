@@ -52,7 +52,7 @@ POST <- function(url = NULL, config = list(), ..., body = NULL,
   # hence has special behaviour when redirecting. Not sure if this will
   # work given that I later also specifically set the method. See
   # http://sourceforge.net/p/curl/bugs/692/ for discussion
-  hu <- handle_url(handle, url, ..., list(post = TRUE))
+  hu <- handle_url(handle, url, ...)
   config <- make_config(config, ...)
 
   make_request("post", hu$handle, hu$url, config, body_config(body, encode))
