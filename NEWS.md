@@ -1,51 +1,51 @@
 # httr 0.4.0.99
 
-* Default accept header is now "application/json, text/xml, */*" - this should
-  encourage servers to send json or xml if they know how.
-
-* `POST()` now specifies Curl options more precisely so that Curl know's 
-  that you're doing a POST and can response appropriately to redirects.
-
-* `httr_options()` allows you to easily filter the options, e.g. 
-  `httr_options("post")`
-
-* `DELETE()` now returns body of request (#138).
-
-* `parse_media()` failed to take into account that media types are 
-  case-insenstive - this lead to bad re-encoding for content-types like
-  "text/html; Charset=UTF-8"
-
-* Preliminary and experimental support for caching with `cache_info()` and
-  `rerequest()` (#129).
-
-* Requests now print the time they were made.
-  
 * You can now save response bodies directly to disk by using the `write_disk()`
   config. This is useful if you want to capture large files that don't fit in
   memory (#44).
 
-* Typo which broke `set_cookies()` fixed by @hrbrmstr.
+* Default accept header is now "application/json, text/xml, */*" - this should
+  encourage servers to send json or xml if they know how.
+
+* `httr_options()` allows you to easily filter the options, e.g. 
+  `httr_options("post")`
+  
+* `POST()` now specifies Curl options more precisely so that Curl know's 
+  that you're doing a POST and can respond appropriately to redirects.
+  
+## Caching
+
+* Preliminary and experimental support for caching with `cache_info()` and
+  `rerequest()` (#129). Be aware that this API is likely to change in 
+  the future.
+
+* `parse_http_date()` parses http dates according RFC2616 spec.
+
+* Requests now print the time they were made.
+
+* Mime type `application/xml` is automatically parsed with ``XML::xmlParse()`.
+  (#128)
+
+## Minor improvements and bug fixes
+
+* Now possible to specify both handle and url when making a request.
 
 * `content(type = "text")` uses `readBin()` instead of `rawToChar()` so
   that strings with embedded NULLs (e.g. WINDOWS-1252) can be re-encoded
   to UTF-8.
 
+* `DELETE()` now returns body of request (#138).
+
 * `headers()` is now a generic with a method for response objects.
 
-* Now possible to specify both handle and url when making a request.
+* `parse_media()` failed to take into account that media types are 
+  case-insenstive - this lead to bad re-encoding for content-types like
+  "text/html; Charset=UTF-8"
 
-* Mime type `application/xml` is automatically parsed with ``XML::xmlParse()`.
-  (#128)
-
-## Bug fixes
+* Typo which broke `set_cookies()` fixed by @hrbrmstr.
 
 * `url_ok()` works correctly now, instead of always returning `FALSE`,
   a bug since version 0.4 (#133).
-
-## Caching
-
-* `parse_http_date()` parses http dates according RFC2616 spec.
-
 
 # httr 0.4
 
