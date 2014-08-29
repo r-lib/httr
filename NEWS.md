@@ -1,5 +1,8 @@
 # httr 0.4.0.99
 
+* Default accept header is now "application/json, text/xml, */*" - this should
+  encourage servers to send json or xml if they know how.
+
 * `POST()` now specifies Curl options more precisely so that Curl know's 
   that you're doing a POST and can response appropriately to redirects.
 

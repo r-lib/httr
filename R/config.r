@@ -196,6 +196,7 @@ default_config <- function() {
       cainfo = cert
     ),
     user_agent(default_ua()),
+    add_headers(accept = "application/json, text/xml, */*"),
     write_memory(),
     getOption("httr_config")
   )
