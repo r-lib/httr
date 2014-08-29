@@ -1,7 +1,7 @@
 context("Body")
 
 round_trip <- function(method, ...) {
-  content(PUT("http://httpbin.org/post", ...))
+  content(POST("http://httpbin.org/post", ...))
 }
 
 data_path <- upload_file("data.txt")
