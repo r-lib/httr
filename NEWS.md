@@ -1,5 +1,8 @@
 # httr 0.4.0.99
 
+* `POST()` now specifies Curl options more precisely so that Curl know's 
+  that you're doing a POST and can response appropriately to redirects.
+
 * `httr_options()` allows you to easily filter the options, e.g. 
   `httr_options("post")`
 

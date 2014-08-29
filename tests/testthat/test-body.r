@@ -1,20 +1,27 @@
 context("Body")
 
 round_trip <- function(method, ...) {
-  url <- paste0("http://httpbin.org/", "post")
-  content(POST(url, ...))
+  content(PUT("http://httpbin.org/post", ...))
 }
 
 data_path <- upload_file("data.txt")
 data <- readLines("data.txt")
 
-test_that("empty body gives empty data element", {
+test_that("NULL body gives empty data element", {
   out <- round_trip(body = NULL)
   expect_equal(out$data, "")
 })
 
-test_that("string in body gives same string in data element", {
+test_that("FALSE body doesn't send body", {
+  out <- round_trip(body = FALSE)
+  expect_equal(out$data, NULL)
+})
+
+test_that("string/raw in body gives same string in data element", {
   out <- round_trip(body = "test")
+  expect_equal(out$data, "test")
+
+  out <- round_trip(body = charToRaw("test"))
   expect_equal(out$data, "test")
 })
 
@@ -46,4 +53,5 @@ test_that("file and form vals mixed give form and data elements", {
 test_that("single file matches contents on disk", {
   out <- round_trip(body = data_path)
   expect_equal(strsplit(out$data, "\n")[[1]], data)
+  expect_equal(out$headers$`Content-Type`, "text/plain")
 })

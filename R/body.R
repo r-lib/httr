@@ -1,9 +1,9 @@
 body_config <- function(body = NULL, encode = "form")  {
   # Post without body
-  if (is.null(body)) return(NULL)
+  if (is.null(body)) return(body_raw(raw()))
 
   # No body
-  if (identical(body, FALSE)) return(body_httr(nobody = TRUE))
+  if (identical(body, FALSE)) return(body_httr(post = TRUE, nobody = TRUE))
 
   # For character/raw, send raw bytes
   if (is.character(body) || is.raw(body)) {
@@ -18,9 +18,9 @@ body_config <- function(body = NULL, encode = "form")  {
     size <- file.info(body$filename)$size
 
     return(body_httr(
-      upload = TRUE,
+      post = TRUE,
       readfunction = function(nbytes, ...) readBin(con, "raw", nbytes),
-      infilesize = size,
+      postfieldsize = size,
       httpheader = c("Content-type" = mime_type)
     ))
   }
@@ -75,12 +75,10 @@ body_raw <- function(body, type = NULL) {
   }
 
   base <- body_httr(
-    upload = TRUE,
+    post = TRUE,
+    postfieldsize = length(body),
     readfunction = body,
-    infilesize = length(body)
+    httpheader = c("Content-type" = type, "Content-Type" = "")
   )
-  if (!is.null(type)) {
-    base$config$httpheader <- c("Content-type" = type)
-  }
   base
 }
