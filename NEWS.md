@@ -1,4 +1,4 @@
-# httr 0.4.0.99
+# httr 0.5
 
 * You can now save response bodies directly to disk by using the `write_disk()`
   config. This is useful if you want to capture large files that don't fit in
