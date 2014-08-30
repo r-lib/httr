@@ -44,7 +44,10 @@ need_package <- function(pkg) {
   stop("Please install ", pkg, " package", call. = FALSE)
 }
 
-last <- function(x) x[[length(x)]]
+last <- function(x) {
+  if (length(x) < 1) return(x)
+  x[[length(x)]]
+}
 
 compact <- function(x) {
   null <- vapply(x, is.null, logical(1))
