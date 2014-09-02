@@ -1,7 +1,7 @@
 Package: httr
 Type: Package
 Title: Tools for working with URLs and HTTP
-Version: 0.5
+Version: 0.5.0.9000
 Authors@R: c(
     person("Hadley", "Wickham", email = "hadley@rstudio.com",
     role = c("cre", "aut", "cph")),
