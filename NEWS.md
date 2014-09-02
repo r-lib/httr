@@ -1,3 +1,6 @@
+# httr 0.5.0.9000
+
+
 # httr 0.5
 
 * You can now save response bodies directly to disk by using the `write_disk()`
