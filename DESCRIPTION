@@ -4,7 +4,7 @@ Title: Tools for working with URLs and HTTP
 Version: 0.5
 Authors@R: c(
     person("Hadley", "Wickham", email = "hadley@rstudio.com",
-      role = c("cre", "aut", "cph")),
+    role = c("cre", "aut", "cph")),
     person("RStudio", role = "cph"))
 Description: Provides useful tools for working with HTTP. The API is based
     around http verbs (GET(), POST(), etc) with pluggable components to control
