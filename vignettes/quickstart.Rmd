@@ -60,7 +60,7 @@ http_status(r)
 r$status_code
 ```
 
-A succesful request always returns a status of 200. Common errors are 404 (file not found) and 403 (permission denied). If you're talking to web APIs you might also see 500, which is a generic failure code (and thus not very helpful). If you'd like to learn more, the most memorable guides are the [https://www.flickr.com/photos/girliemac/sets/72157628409467125](http status cats).
+A succesful request always returns a status of 200. Common errors are 404 (file not found) and 403 (permission denied). If you're talking to web APIs you might also see 500, which is a generic failure code (and thus not very helpful). If you'd like to learn more, the most memorable guides are the [http status cats](https://www.flickr.com/photos/girliemac/sets/72157628409467125).
 
 You can automatically throw a warning or raise an error if a request did not succeed:
 
