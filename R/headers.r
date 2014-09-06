@@ -76,7 +76,7 @@ content_type <- function(type) {
     type <- guess_media(type)
   }
 
-  add_headers("Content-type" = type)
+  add_headers("Content-Type" = type)
 }
 
 #' @export
