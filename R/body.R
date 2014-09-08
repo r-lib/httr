@@ -21,7 +21,7 @@ body_config <- function(body = NULL, encode = "form")  {
       post = TRUE,
       readfunction = function(nbytes, ...) readBin(con, "raw", nbytes),
       postfieldsize = size,
-      httpheader = c("Content-type" = mime_type)
+      httpheader = c("Content-Type" = mime_type)
     ))
   }
 
@@ -80,5 +80,11 @@ body_raw <- function(body, type = NULL) {
     postfields = body,
     httpheader = c("Content-type" = type %||% "")
   )
+<<<<<<< HEAD
+=======
+  if (!is.null(type)) {
+    base$config$httpheader <- c("Content-Type" = type)
+  }
+>>>>>>> Standardize Content-Type capitalization
   base
 }
