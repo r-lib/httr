@@ -80,11 +80,5 @@ body_raw <- function(body, type = NULL) {
     postfields = body,
     httpheader = c("Content-type" = type %||% "")
   )
-<<<<<<< HEAD
-=======
-  if (!is.null(type)) {
-    base$config$httpheader <- c("Content-Type" = type)
-  }
->>>>>>> Standardize Content-Type capitalization
   base
 }
