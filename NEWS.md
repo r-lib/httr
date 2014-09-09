@@ -1,5 +1,11 @@
 # httr 0.5.0.9000
 
+## Minor improvements and bug fixes
+
+* `Content-Type` set to title case to avoid errors in servers which do not
+  correctly implement case insensitivity in header names. (#142, #146) thanks
+  to Håkon Malmedal (@hmalmedal) and Jim Hester (@jimhester).
+
 
 # httr 0.5
 
