@@ -1,4 +1,4 @@
-body_config <- function(body = NULL, encode = "form")  {
+body_config <- function(body = NULL, encode = "form", type = NULL)  {
   # Post without body
   if (is.null(body)) return(body_raw(raw()))
 
@@ -7,7 +7,7 @@ body_config <- function(body = NULL, encode = "form")  {
 
   # For character/raw, send raw bytes
   if (is.character(body) || is.raw(body)) {
-    return(body_raw(body))
+    return(body_raw(body, type = type))
   }
 
   # Send single file lazily

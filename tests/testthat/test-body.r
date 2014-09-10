@@ -25,6 +25,14 @@ test_that("string/raw in body gives same string in data element", {
   expect_equal(out$data, "test")
 })
 
+test_that("string/raw in body doesn't lose content type", {
+  body <- charToRaw("test")
+  content_type <- "application/awesome"
+  response <- content(POST("http://httpbin.org/post", body = body,
+                           add_headers("Content-type" = content_type)))
+  expect_equal(response$headers$`Content-Type`, content_type)
+})
+
 test_that("named list matches form results (encode = 'form')", {
   out <- round_trip(body = list(a = 1, b = 2), encode = "form")
   expect_equal(out$form$a, "1")
