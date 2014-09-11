@@ -49,6 +49,8 @@
 
 * `url_ok()` works correctly now, instead of always returning `FALSE`,
   a bug since version 0.4 (#133).
+  
+* Remove redundant arguments `simplifyDataFrame` and `simplifyMatrix` for json parser.
 
 # httr 0.4
 

@@ -38,12 +38,9 @@ parse_auto <- function(content, type = NULL, encoding = NULL, ...) {
 parsers <- new.env(parent = emptyenv())
 
 # http://www.ietf.org/rfc/rfc4627.txt - section 3. (encoding)
-parsers$`application/json` <- function(x, simplifyVector = FALSE,
-                                       simplifyMatrix = FALSE,
-                                       simplifyDataFrame = FALSE, ...) {
+parsers$`application/json` <- function(x, simplifyVector = FALSE, ...) {
   jsonlite::fromJSON(parse_text(x, encoding = "UTF-8"),
-    simplifyVector = simplifyVector, simplifyMatrix = simplifyMatrix,
-    simplifyDataFrame = simplifyDataFrame, ...)
+    simplifyVector = simplifyVector, ...)
 }
 
 parsers$`application/x-www-form-urlencoded` <- function(x) {
