@@ -34,7 +34,7 @@ print.response <- function(x, ..., max.lines = 10, width = getOption("width")) {
   cat("Response [", x$url, "]\n", sep = "")
   cat("  Date: ", format(x$date, "%Y-%m-%d %H:%M"), "\n", sep = "")
   cat("  Status: ", x$status_code, "\n", sep = "")
-  cat("  Content-type: ", content_type %||% "<unknown>", "\n", sep = "")
+  cat("  Content-Type: ", content_type %||% "<unknown>", "\n", sep = "")
 
   size <- length(x$content)
   if (size == 0) {
