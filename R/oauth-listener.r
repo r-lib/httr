@@ -26,7 +26,7 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
     if (!identical(env$PATH_INFO, "/")) {
       return(list(
         status = 404L,
-        headers = list("Content-type" = "text/plain"),
+        headers = list("Content-Type" = "text/plain"),
         body = "Not found")
       )
     }
@@ -40,7 +40,7 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
 
     list(
       status = 200L,
-      headers = list("Content-type" = "text/plain"),
+      headers = list("Content-Type" = "text/plain"),
       body = "Authentication complete. Please close this page and return to R."
     )
   }

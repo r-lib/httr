@@ -21,7 +21,7 @@ body_config <- function(body = NULL, encode = "form")  {
       post = TRUE,
       readfunction = function(nbytes, ...) readBin(con, "raw", nbytes),
       postfieldsize = size,
-      httpheader = c("Content-type" = mime_type)
+      httpheader = c("Content-Type" = mime_type)
     ))
   }
 
