@@ -16,11 +16,11 @@ progress <- function(type = c("down", "up")) {
   config(noprogress = FALSE, progressfunction = progress_bar(type))
 }
 
-progress_bar <- function(type ) {
+progress_bar <- function(type) {
   bar <- NULL
   first <- TRUE
 
-  unsafe <- function(down, up) {
+  show_progress <- function(down, up) {
     if (type == "down") {
       total <- down[[1]]
       now <- down[[2]]
@@ -53,19 +53,7 @@ progress_bar <- function(type ) {
     0L
   }
 
-  # Catch errors and interrupts - otherwise you'll crash R
-  function(down, up) {
-    tryCatch(unsafe(down, up),
-      error = function(e, ...) {
-        message("Error:", e$message)
-        1L
-      },
-      interrupt = function(...) {
-        message("Interrupted by user")
-        1L
-      }
-    )
-  }
+  safe_callback(show_progress)
 }
 
 
