@@ -20,7 +20,7 @@ perform <- function(handle, writer, method, opts, body) {
   writer <- write_init(writer)
   opts <- modifyList(opts, write_opts(writer))
 
-  opts <- modify_config(opts, body$config)
+  opts <- modify_config(body$config, opts)
   # Ensure config always gets reset
   on.exit(reset_handle_config(handle, opts), add = TRUE)
   curl_opts <- RCurl::curlSetOpt(curl = NULL, .opts = opts)

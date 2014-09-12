@@ -1,6 +1,6 @@
 context("Body")
 
-round_trip <- function(method, ...) {
+round_trip <- function(...) {
   content(POST("http://httpbin.org/post", ...))
 }
 
@@ -43,7 +43,6 @@ test_that("named list matches form results (encode = 'json')", {
   expect_equal(out$json$b[[1]], 2)
 })
 
-
 test_that("file and form vals mixed give form and data elements", {
   out <- round_trip(body = list(y = data_path, a = 1))
   expect_equal(out$form$a, "1")
@@ -55,3 +54,13 @@ test_that("single file matches contents on disk", {
   expect_equal(strsplit(out$data, "\n")[[1]], data)
   expect_equal(out$headers$`Content-Type`, "text/plain")
 })
+
+test_that("explicit content type overrides defaults", {
+  out <- round_trip(
+    body = jsonlite::toJSON(list(a = 1, b = 2)),
+    content_type_json()
+  )
+
+  expect_equal(out$headers$`Content-Type`, "application/json")
+})
+
