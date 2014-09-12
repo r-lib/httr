@@ -17,7 +17,8 @@ Imports:
     digest,
     tools,
     methods,
-    jsonlite
+    jsonlite,
+    mime
 Suggests:
     XML,
     testthat (>= 0.8.0),

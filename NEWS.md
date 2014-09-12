@@ -6,6 +6,7 @@
   correctly implement case insensitivity in header names. (#142, #146) thanks
   to Håkon Malmedal (@hmalmedal) and Jim Hester (@jimhester).
 
+* Deprecate `guess_media()`, and instead use `mime::guess_type()` (#148).
 
 # httr 0.5
 

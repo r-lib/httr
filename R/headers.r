@@ -59,7 +59,7 @@ add_headers <- function(..., .headers = character()) {
 #' ask for json or xml responses or tell the server you are sending json/xml.
 #'
 #' @param type A mime type or a file extension. If a file extension (i.e. starts
-#'   with \code{.}) will guess the mime type using \code{\link{guess_media}}.
+#'   with \code{.}) will guess the mime type using \code{\link[mime]{guess_type}}.
 #' @export
 #' @examples
 #' GET("http://httpbin.org/headers")
@@ -73,7 +73,7 @@ add_headers <- function(..., .headers = character()) {
 #' GET("http://httpbin.org/headers", content_type(".xml"))
 content_type <- function(type) {
   if (substr(type, 1, 1) == ".") {
-    type <- guess_media(type)
+    type <- mime::guess_type(type, empty = NULL)
   }
 
   add_headers("Content-Type" = type)
@@ -93,7 +93,7 @@ content_type_xml <- function() content_type("application/xml")
 #' @rdname content_type
 accept <- function(type) {
   if (substr(type, 1, 1) == ".") {
-    type <- guess_media(type)
+    type <- mime::guess_type(type, empty = NULL)
   }
   add_headers("Accept" = type)
 

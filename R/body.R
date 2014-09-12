@@ -14,7 +14,8 @@ body_config <- function(body = NULL, encode = "form")  {
   if (inherits(body, "FileUploadInfo")) {
     con <- file(body$filename, "rb")
     # FIXME: also need to close when done
-    mime_type <- body$contentType %||% guess_media(body$filename)
+    mime_type <- body$contentType %||%
+      mime::guess_type(body$filename, empty = NULL)
     size <- file.info(body$filename)$size
 
     return(body_httr(
