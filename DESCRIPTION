@@ -15,7 +15,6 @@ Imports:
     RCurl (>= 1.95-0),
     stringr (>= 0.6.1),
     digest,
-    tools,
     methods,
     jsonlite,
     mime
