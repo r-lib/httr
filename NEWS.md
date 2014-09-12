@@ -11,6 +11,9 @@
 * Make it again possible to override the content type set up by `POST()`
   when sending data (#140).
 
+* New `safe_callback()` function operator that makes R functions safe for
+  use as RCurl callbacks (#144).
+
 # httr 0.5
 
 * You can now save response bodies directly to disk by using the `write_disk()`
