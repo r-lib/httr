@@ -22,7 +22,7 @@ accept_xml()
 }
 \arguments{
 \item{type}{A mime type or a file extension. If a file extension (i.e. starts
-with \code{.}) will guess the mime type using \code{\link{guess_media}}.}
+with \code{.}) will guess the mime type using \code{\link[mime]{guess_type}}.}
 }
 \description{
 These are convenient wrappers aroud \code{\link{add_headers}}.

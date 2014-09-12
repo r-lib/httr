@@ -9,10 +9,7 @@ guess_media(x)
 \item{x}{path to file}
 }
 \description{
-Guess the media type of a path from its extension.
+DEPRECATED: please use \code{mime::guess_type} instead.
 }
-\examples{
-guess_media("report.doc")
-guess_media("owl.png")
-}
+\keyword{internal}
 

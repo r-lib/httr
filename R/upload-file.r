@@ -4,7 +4,7 @@
 #'
 #' @param path path to file
 #' @param type mime type of path. If not supplied, will be guess by
-#'   \code{\link{guess_media}} when needed.
+#'   \code{\link[mime]{guess_type}} when needed.
 #' @export
 #' @examples
 #' POST("http://httpbin.org/post",
@@ -13,3 +13,4 @@ upload_file <- function(path, type = NULL) {
   stopifnot(is.character(path), length(path) == 1)
   RCurl::fileUpload(path, contentType = type)
 }
+

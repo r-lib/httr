@@ -9,7 +9,7 @@ upload_file(path, type = NULL)
 \item{path}{path to file}
 
 \item{type}{mime type of path. If not supplied, will be guess by
-\code{\link{guess_media}} when needed.}
+\code{\link[mime]{guess_type}} when needed.}
 }
 \description{
 This is a tiny wrapper for \pkg{RCurl}'s \code{\link[RCurl]{fileUpload}}.

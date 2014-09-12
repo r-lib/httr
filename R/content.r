@@ -58,7 +58,8 @@
 content <- function(x, as = NULL, type = NULL, encoding = NULL, ...) {
   stopifnot(is.response(x))
 
-  type <- type %||% x$headers[["Content-Type"]] %||% guess_media_url(x$url)
+  type <- type %||% x$headers[["Content-Type"]] %||%
+    mime::guess_type(x$url, empty = NULL)
 
   as <- as %||% parseability(type)
   as <- match.arg(as, c("raw", "text", "parsed"))
