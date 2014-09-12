@@ -8,6 +8,9 @@
 
 * Deprecate `guess_media()`, and instead use `mime::guess_type()` (#148).
 
+* Make it again possible to override the content type set up by `POST()`
+  when sending data (#140).
+
 # httr 0.5
 
 * You can now save response bodies directly to disk by using the `write_disk()`

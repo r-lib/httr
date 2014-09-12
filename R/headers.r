@@ -72,6 +72,8 @@ add_headers <- function(..., .headers = character()) {
 #' GET("http://httpbin.org/headers", content_type("text/csv"))
 #' GET("http://httpbin.org/headers", content_type(".xml"))
 content_type <- function(type) {
+  if (is.null(type)) return()
+
   if (substr(type, 1, 1) == ".") {
     type <- mime::guess_type(type, empty = NULL)
   }

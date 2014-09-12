@@ -22,7 +22,7 @@ body_config <- function(body = NULL, encode = "form")  {
       post = TRUE,
       readfunction = function(nbytes, ...) readBin(con, "raw", nbytes),
       postfieldsize = size,
-      httpheader = c("Content-Type" = mime_type)
+      type = mime_type
     ))
   }
 
@@ -63,9 +63,9 @@ body_rcurl <- function(body = NULL, style = NULL) {
   )
 }
 
-body_httr <- function(...) {
+body_httr <- function(..., type = NULL) {
   list(
-    config = config(...),
+    config = c(config(...), content_type(type)),
     curl_post = FALSE
   )
 }
@@ -79,7 +79,8 @@ body_raw <- function(body, type = NULL) {
     post = TRUE,
     postfieldsize = length(body),
     postfields = body,
-    httpheader = c("Content-type" = type %||% "")
+    type = type %||% "" # For raw bodies, override default POST content-type
   )
+
   base
 }
