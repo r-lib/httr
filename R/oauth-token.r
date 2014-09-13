@@ -107,6 +107,8 @@ Token <- methods::setRefClass("Token",
 #' caching policies used to store credentials across sessions.
 #'
 #' @inheritParams init_oauth1.0
+#' @param as_header If \code{TRUE}, the default, sends oauth in header.
+#'   If \code{FALSE}, adds as parameter to url.
 #' @param cache A logical value or a string. \code{TRUE} means to cache
 #'   using the default cache file \code{.oauth-httr}, \code{FALSE} means
 #'   don't cache, and \code{NA} means to guess using some sensible heuristics.
@@ -115,8 +117,9 @@ Token <- methods::setRefClass("Token",
 #' @family OAuth
 #' @export
 oauth1.0_token <- function(endpoint, app, permission = NULL,
+                           as_header = TRUE,
                            cache = getOption("httr_oauth_cache")) {
-  params <- list(permission = permission)
+  params <- list(permission = permission, as_header = as_header)
   new_token(Token1.0, endpoint, app, params, cache = cache)
 }
 
@@ -135,7 +138,13 @@ Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
   sign = function(method, url) {
     oauth <- oauth_signature(url, method, app, credentials$oauth_token,
       credentials$oauth_token_secret)
-    list(url = url, config = oauth_header(oauth))
+    if (params$as_header) {
+      list(url = url, config = oauth_header(oauth))
+    } else {
+      url <- parse_url(url)
+      url$query <- c(url$query, oauth)
+      list(url = build_url(url), config = config())
+    }
   }
 ))
 
