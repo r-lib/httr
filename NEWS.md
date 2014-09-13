@@ -1,3 +1,21 @@
+# httr 0.5.0.9000
+
+## Minor improvements and bug fixes
+
+* `Content-Type` set to title case to avoid errors in servers which do not
+  correctly implement case insensitivity in header names. (#142, #146) thanks
+  to Håkon Malmedal (@hmalmedal) and Jim Hester (@jimhester).
+
+* Deprecate `guess_media()`, and instead use `mime::guess_type()` (#148).
+
+* Make it again possible to override the content type set up by `POST()`
+  when sending data (#140).
+
+* New `safe_callback()` function operator that makes R functions safe for
+  use as RCurl callbacks (#144).
+  
+* Added support for passing oauth1 tokens in URL instead of the headers. (#145) Thanks to Krister Bogstag (@Bogstag)
+
 # httr 0.5
 
 * You can now save response bodies directly to disk by using the `write_disk()`
@@ -46,6 +64,8 @@
 
 * `url_ok()` works correctly now, instead of always returning `FALSE`,
   a bug since version 0.4 (#133).
+  
+* Remove redundant arguments `simplifyDataFrame` and `simplifyMatrix` for json parser.
 
 # httr 0.4
 
