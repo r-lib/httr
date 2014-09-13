@@ -11,9 +11,8 @@ withingsapp <- oauth_app("withings", key = "xxx", secret = "xxx")
 withings_token <- oauth1.0_token(withings, withingsapp, as_header = FALSE)
 
 # 4. Use API
-#   You get userid in Step 2: http://oauth.withings.com/api
 req <- GET("http://wbsapi.withings.net/measure",
-           query = list(action = "getmeas", userid = 1234567),
+           query = list(action = "getmeas", userid = withings_token$credentials$userid),
            config(token = withings_token))
 
 stop_for_status(req)
