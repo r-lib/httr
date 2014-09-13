@@ -107,7 +107,8 @@ Token <- methods::setRefClass("Token",
 #' caching policies used to store credentials across sessions.
 #'
 #' @inheritParams init_oauth1.0
-#' @param as_header If \code{TRUE}, adds as parameter to url.
+#' @param as_header If \code{TRUE}, the default, sends oauth in header.
+#'   If \code{FALSE}, adds as parameter to url.
 #' @param cache A logical value or a string. \code{TRUE} means to cache
 #'   using the default cache file \code{.oauth-httr}, \code{FALSE} means
 #'   don't cache, and \code{NA} means to guess using some sensible heuristics.
