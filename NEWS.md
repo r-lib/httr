@@ -13,6 +13,8 @@
 
 * New `safe_callback()` function operator that makes R functions safe for
   use as RCurl callbacks (#144).
+  
++* Added support for passing oauth1 tokens in URL instead of the headers. (#145) Thanks to Krister Bogstag (@Bogstag)  
 
 # httr 0.5
 
