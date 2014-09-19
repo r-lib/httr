@@ -66,7 +66,7 @@ verbose <- function(data_out = TRUE, data_in = FALSE, info = FALSE, ssl = FALSE)
 }
 
 prefix_message <- function(prefix, x, blank_line = FALSE) {
-  lines <- unlist(strsplit(x, "\n", fixed = TRUE))
+  lines <- unlist(strsplit(x, "\n", fixed = TRUE, useBytes = TRUE))
   out <- paste0(prefix, lines, collapse = "\n")
   message(out)
   if (blank_line) cat("\n")
