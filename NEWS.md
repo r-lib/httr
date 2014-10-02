@@ -2,6 +2,9 @@
 
 ## Minor improvements and bug fixes
 
+* `httr` checks to see if you have libCurl uses NSS. This is unlikely to work
+  so it gives you some advice on how to fix the problem.
+
 * `Content-Type` set to title case to avoid errors in servers which do not
   correctly implement case insensitivity in header names. (#142, #146) thanks
   to Håkon Malmedal (@hmalmedal) and Jim Hester (@jimhester).
