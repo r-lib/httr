@@ -4,10 +4,16 @@
 \alias{Token}
 \alias{Token-class}
 \alias{Token1.0}
-\alias{Token1.0-class}
 \alias{Token2.0}
-\alias{Token2.0-class}
 \title{OAuth token objects.}
+\format{An R6 class object.}
+\usage{
+Token
+
+Token1.0
+
+Token2.0
+}
 \description{
 These objects represent the complete set of data needed for OAuth access:
 an app, an endpoint, cached credentials and parameters. They should be
@@ -45,5 +51,6 @@ The cache file should not be included in source code control or R packages
 (because it contains private information), so httr will automatically add
 the appropriate entries to `.gitignore` and `.Rbuildignore` if needed.
 }
+\keyword{datasets}
 \keyword{internal}
 
