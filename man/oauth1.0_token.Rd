@@ -3,7 +3,7 @@
 \alias{oauth1.0_token}
 \title{Generate an oauth1.0 token.}
 \usage{
-oauth1.0_token(endpoint, app, permission = NULL,
+oauth1.0_token(endpoint, app, permission = NULL, as_header = TRUE,
   cache = getOption("httr_oauth_cache"))
 }
 \arguments{
@@ -13,6 +13,9 @@ oauth1.0_token(endpoint, app, permission = NULL,
 \code{\link{oauth_app}}}
 
 \item{permission}{optional, a string of permissions to ask for.}
+
+\item{as_header}{If \code{TRUE}, the default, sends oauth in header.
+If \code{FALSE}, adds as parameter to url.}
 
 \item{cache}{A logical value or a string. \code{TRUE} means to cache
 using the default cache file \code{.oauth-httr}, \code{FALSE} means

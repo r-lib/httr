@@ -33,9 +33,11 @@
 #' (because it contains private information), so httr will automatically add
 #' the appropriate entries to `.gitignore` and `.Rbuildignore` if needed.
 #'
+#' @docType class
 #' @keywords internal
-#' @aliases Token Token1.0 Token2.0
+#' @format An R6 class object.
 #' @export
+#' @name Token-class
 Token <- R6::R6Class("Token", list(
   endpoint = NULL,
   app = NULL,

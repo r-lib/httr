@@ -6,7 +6,7 @@
 #'
 #' @param f A function.
 #' @export
-#' @example
+#' @examples
 #' f1 <- function(x) {
 #'   if (x < 0) stop("Negative value")
 #'   sqrt(x)
