@@ -20,19 +20,17 @@ test_that("use_cache() respects options", {
 test_that("token saved to and restored from cache", {
   on.exit(unlink(".tmp-cache"))
 
-  token_a <- Token2.0(
+  token_a <- Token2.0$new(
     app = oauth_app("x", "y", "z"),
     endpoint = oauth_endpoints("google"),
-    params = list(),
-    credentials = list(a = 1),
     cache_path = ".tmp-cache"
   )
+  token_a$credentials <- list(a = 1)
   token_a$cache()
 
-  token_b <- Token2.0(
+  token_b <- Token2.0$new(
     app = oauth_app("x", "y", "z"),
     endpoint = oauth_endpoints("google"),
-    params = list(),
     cache_path = ".tmp-cache"
   )
 

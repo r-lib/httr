@@ -36,67 +36,73 @@
 #' @keywords internal
 #' @aliases Token Token1.0 Token2.0
 #' @export
-Token <- methods::setRefClass("Token",
-  fields = c("endpoint", "app", "credentials", "params", "cache_path"),
-  methods = list(
-    initialize = function(...) {
-      credentials <<- NULL
-      initFields(...)
-    },
-    init = function(force = FALSE) {
-      # Have already initialized?
-      if (!force && !is.null(credentials)) {
-        return(.self)
-      }
+Token <- R6::R6Class("Token", list(
+  endpoint = NULL,
+  app = NULL,
+  credentials = NULL,
+  params = NULL,
+  cache_path = NULL,
 
-      # Have we computed in the past?
-      if (!force && load_from_cache()) {
-        return(.self)
-      }
+  initialize = function(app, endpoint, params = list(),
+                        cache_path = getOption("httr_oauth_cache")) {
+    self$app <- app
+    self$endpoint <- endpoint
+    self$params <- params
+    self$cache_path <- cache_path
+    self
+  },
 
-      # Otherwise use initialise from endpoint - need to use .self to
-      # force use of subclass methods
-      .self$init_credentials()
-      cache()
-    },
-    show = function() {
-      cat("<Token>\n", sep = "")
-      print(endpoint)
-      print(app)
-      cat("<credentials> ", paste0(names(credentials), collapse = ", "), "\n",
-        sep = "")
-      cat("---\n")
-    },
-    cache = function(path = cache_path) {
-      cache_token(.self, path)
-      .self
-    },
-    load_from_cache = function() {
-      if (is.null(cache_path)) return(FALSE)
-
-      cached <- fetch_cached_token(hash(), cache_path)
-      if (is.null(cached)) return(FALSE)
-
-      endpoint <<- cached$endpoint
-      app <<- cached$app
-      credentials <<- cached$credentials
-      params <<- cached$params
-      TRUE
-    },
-    hash = function() {
-      # endpoint = which site
-      # app = client identification
-      # params = scope
-      digest::digest(list(endpoint, app, params$scope))
-    },
-    sign = function() {
-      stop("Must be implemented by subclass", call. = FALSE)
-    },
-    refresh = function() {
-      stop("Must be implemented by subclass", call. = FALSE)
+  init = function(force = FALSE) {
+    # Have already initialized?
+    if (!force && !is.null(self$credentials)) {
+      return(self)
     }
-  )
-)
+
+    # Have we computed in the past?
+    if (!force && self$load_from_cache()) {
+      return(self)
+    }
+
+    self$init_credentials()
+    cache()
+  },
+  print = function(...) {
+    cat("<Token>\n", sep = "")
+    print(self$endpoint)
+    print(self$app)
+    cat("<credentials> ", paste0(names(self$credentials), collapse = ", "), "\n",
+      sep = "")
+    cat("---\n")
+  },
+  cache = function(path = self$cache_path) {
+    cache_token(self, path)
+    self
+  },
+  load_from_cache = function() {
+    if (is.null(self$cache_path)) return(FALSE)
+
+    cached <- fetch_cached_token(self$hash(), self$cache_path)
+    if (is.null(cached)) return(FALSE)
+
+    self$endpoint <- cached$endpoint
+    self$app <- cached$app
+    self$credentials <- cached$credentials
+    self$params <- cached$params
+    TRUE
+  },
+  hash = function() {
+    # endpoint = which site
+    # app = client identification
+    # params = scope
+    digest::digest(list(self$endpoint, self$app, self$params$scope))
+  },
+  sign = function() {
+    stop("Must be implemented by subclass", call. = FALSE)
+  },
+  refresh = function() {
+    stop("Must be implemented by subclass", call. = FALSE)
+  }
+))
 
 #' Generate an oauth1.0 token.
 #'
@@ -125,9 +131,10 @@ oauth1.0_token <- function(endpoint, app, permission = NULL,
 
 #' @export
 #' @rdname Token-class
-Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
+Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
   init_credentials = function(force = FALSE) {
-    credentials <<- init_oauth1.0(endpoint, app, permission = params$permission)
+    self$credentials <- init_oauth1.0(self$endpoint, self$app,
+      permission = self$params$permission)
   },
   can_refresh = function() {
     FALSE
@@ -136,9 +143,9 @@ Token1.0 <- setRefClass("Token1.0", contains = "Token", methods = list(
     stop("Not implemented")
   },
   sign = function(method, url) {
-    oauth <- oauth_signature(url, method, app, credentials$oauth_token,
-      credentials$oauth_token_secret)
-    if (params$as_header) {
+    oauth <- oauth_signature(url, method, self$app, self$credentials$oauth_token,
+      self$credentials$oauth_token_secret)
+    if (self$params$as_header) {
       list(url = url, config = oauth_header(oauth))
     } else {
       url <- parse_url(url)
@@ -200,34 +207,36 @@ new_token <- function(token, endpoint, app, params = list(),
 
 #' @export
 #' @rdname Token-class
-Token2.0 <- setRefClass("Token2.0", contains = "Token", methods = list(
+Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   init_credentials = function() {
-    credentials <<- init_oauth2.0(endpoint, app, scope = params$scope,
-      type = params$type, use_oob = params$use_oob)
+    self$credentials <- init_oauth2.0(self$endpoint, self$app,
+      scope = self$params$scope, type = self$params$type,
+      use_oob = self$params$use_oob)
   },
   can_refresh = function() {
-    !is.null(credentials$refresh_token)
+    !is.null(self$credentials$refresh_token)
   },
   refresh = function() {
-    credentials <<- refresh_oauth2.0(endpoint, app, credentials)
+    self$credentials <- refresh_oauth2.0(self$endpoint, self$app, self$credentials)
     cache()
-    .self
+    self
   },
   sign = function(method, url) {
-    if (params$as_header) {
-      config <- add_headers(Authorization =
-          paste('Bearer', credentials$access_token))
+    if (self$params$as_header) {
+      config <- add_headers(
+        Authorization = paste('Bearer', self$credentials$access_token)
+      )
       list(url = url, config = config)
     } else {
       url <- parse_url(url)
-      url$query$access_token <- credentials$access_token
+      url$query$access_token <- self$credentials$access_token
       list(url = build_url(url), config = config())
     }
   },
   validate = function() {
-    validate_oauth2.0(endpoint, credentials)
+    validate_oauth2.0(self$endpoint, self$credentials)
   },
   revoke = function() {
-    revoke_oauth2.0(endpoint, credentials)
+    revoke_oauth2.0(self$endpoint, self$credentials)
   }
 ))

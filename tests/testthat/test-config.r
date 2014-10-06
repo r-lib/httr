@@ -37,10 +37,8 @@ test_that("digest authentication works", {
 test_that("oauth2.0 signing works", {
   request_url <- "http://httpbin.org/headers"
 
-  token <- Token2.0(
-    credentials = list(access_token = "ofNoArms"),
-    params = list()
-  )
+  token <- Token2.0$new(NULL, NULL)
+  token$credentials <- list(access_token = "ofNoArms")
 
   token$params$as_header <- TRUE
   header_response <- GET(request_url, config(token = token))
