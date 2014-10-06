@@ -196,14 +196,14 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
 new_token <- function(token, endpoint, app, params = list(),
                       cache = getOption("httr_oauth_cache")) {
   stopifnot(
-    is(token, "refClass"),
+    inherits(token, "R6ClassGenerator"),
     is.oauth_endpoint(endpoint),
     is.oauth_app(app),
     is.list(params))
 
   cache_path <- use_cache(cache)
 
-  token(app = app, endpoint = endpoint, params = params,
+  token$new(app = app, endpoint = endpoint, params = params,
     cache_path = cache_path)$init()
 }
 
