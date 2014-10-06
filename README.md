@@ -47,3 +47,12 @@ To get the current development version from github:
 # install.packages("devtools")
 devtools::install_github("hadley/httr")
 ```
+
+## Updating ca-bundle.crt
+
+httr includes a recent [CA certificate bundle](http://curl.haxx.se/docs/caextract.html) from mozilla.org. Run this code to update the package:
+
+```r
+GET("https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt",
+  write_disk("inst/cacert.pem", overwrite = TRUE))
+```
