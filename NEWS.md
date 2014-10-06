@@ -2,6 +2,8 @@
 
 ## Minor improvements and bug fixes
 
+* Update `cacert.pem` to Thu Sep 4 06:31:22 2014 (#154).
+
 * `httr` checks to see if you have libCurl uses NSS. This is unlikely to work
   so it gives you some advice on how to fix the problem (thanks to 
   @eddelbuettel for debugging this problem).
