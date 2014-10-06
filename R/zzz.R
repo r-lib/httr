@@ -13,7 +13,10 @@
 }
 
 release_questions <- function() {
-  c("Have you run all the OAuth demos?")
+  c(
+    "Have you run all the OAuth demos?",
+    "Is inst/cacert.pem up to date?"
+  )
 }
 
 check_for_nss <- function() {
