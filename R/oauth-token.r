@@ -66,7 +66,7 @@ Token <- R6::R6Class("Token", list(
     }
 
     self$init_credentials()
-    cache()
+    self$cache()
   },
   print = function(...) {
     cat("<Token>\n", sep = "")
