@@ -29,7 +29,7 @@ test_that("string/raw in body doesn't lose content type", {
   body <- charToRaw("test")
   content_type <- "application/awesome"
   response <- content(POST("http://httpbin.org/post", body = body,
-                           add_headers("Content-type" = content_type)))
+                           add_headers("Content-Type" = content_type)))
   expect_equal(response$headers$`Content-Type`, content_type)
 })
 
