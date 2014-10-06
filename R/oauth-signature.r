@@ -11,7 +11,7 @@ NULL
 #' @rdname sign_oauth
 sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
   credentials <- list(oauth_token = token, oauth_token_secret = token_secret)
-  token <- Token1.0(endpoint = NULL, app = app, credentials = credentials)
+  token <- Token1.0$new(endpoint = NULL, app = app, credentials = credentials)
   config(token = token)
 }
 
