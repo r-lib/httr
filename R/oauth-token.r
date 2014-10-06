@@ -147,7 +147,7 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
   sign = function(method, url) {
     oauth <- oauth_signature(url, method, self$app, self$credentials$oauth_token,
       self$credentials$oauth_token_secret)
-    if (self$params$as_header) {
+    if (isTRUE(self$params$as_header)) {
       list(url = url, config = oauth_header(oauth))
     } else {
       url <- parse_url(url)
