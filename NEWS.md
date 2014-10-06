@@ -2,6 +2,9 @@
 
 ## Minor improvements and bug fixes
 
+* New `write_stream()` allows you to process the response from a server as 
+  a stream of raw vectors (#143).
+
 * Update `cacert.pem` to Thu Sep 4 06:31:22 2014 (#154).
 
 * `httr` checks to see if you have libCurl uses NSS. This is unlikely to work

@@ -2,7 +2,6 @@
 #'
 #' This S3 object allows you to control how the response body is saved.
 #'
-#'
 #' There are three key methods:
 #' \itemize{
 #'   \item \code{write_init()}: called before the write is started. It should
@@ -27,6 +26,8 @@ write_opts <- function(x) UseMethod("write_opts")
 #' @export
 #' @rdname write_function
 write_term <- function(x) UseMethod("write_term")
+
+# Disk -------------------------------------------------------------------------
 
 #' Control where the response body is written.
 #'
@@ -89,6 +90,8 @@ path <- function(x) structure(x, class = "path")
 length.path <- function(x) file.info(x)$size
 is.path <- function(x) inherits(x, "path")
 
+# Memory -----------------------------------------------------------------------
+
 #' @rdname write_disk
 #' @export
 write_memory <- function() {
@@ -116,4 +119,49 @@ write_opts.write_memory <- function(x) {
 #' @export
 write_term.write_memory <- function(x) {
   methods::as(x$buffer, "raw")
+}
+
+# Streaming -----------------------------------------------------------------------
+
+#' Process output in a streaming manner.
+#'
+#' This is the most general way of processing the response from the server -
+#' you receive the raw bytes as they come in, and you can do whatever you want
+#' with them.
+#'
+#' @param f Callback function. It should have a single argument, a raw
+#'   vector containing the bytes recieved from the server. This will usually
+#'   be 16k or less
+#' @examples
+#' GET("https://jeroenooms.github.io/data/diamonds.json",
+#'   write_stream(function(x) print(length(x)))
+#' )
+#' @export
+write_stream <- function(f) {
+  stopifnot(is.function(f), length(formals(f)) == 1)
+
+  config(
+    writer = write_function("write_stream", f = safe_callback(f))
+  )
+}
+#' @export
+print.write_stream <- function(x, ...) {
+  cat("<write_stream>\n")
+}
+
+#' @export
+write_init.write_stream <- function(x) {
+  x
+}
+#' @export
+#' @useDynLib httr write_callback
+write_opts.write_stream <- function(x) {
+  list(
+    writefunction = write_callback$address,
+    writedata = x$f
+  )
+}
+#' @export
+write_term.write_stream <- function(x) {
+  raw()
 }
