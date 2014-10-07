@@ -3,8 +3,7 @@
 #' These objects represent the complete set of data needed for OAuth access:
 #' an app, an endpoint, cached credentials and parameters. They should be
 #' created through their constructor functions \code{\link{oauth1.0_token}}
-#' and \code{\link{oauth2.0_token}}. If you create your own subclass
-#' (as in the linkedin demo), use \code{\link{new_token}} to initialise.
+#' and \code{\link{oauth2.0_token}}.
 #'
 #' @section Methods:
 #' \itemize{
@@ -45,13 +44,21 @@ Token <- R6::R6Class("Token", list(
   params = NULL,
   cache_path = NULL,
 
-  initialize = function(app, endpoint, params = list(),
+  initialize = function(app, endpoint, params = list(), credentials = NULL,
                         cache_path = getOption("httr_oauth_cache")) {
+    stopifnot(
+      is.oauth_endpoint(endpoint),
+      is.oauth_app(app),
+      is.list(params)
+    )
+
     self$app <- app
     self$endpoint <- endpoint
     self$params <- params
-    self$cache_path <- cache_path
-    self
+    self$cache_path <- use_cache(cache_path)
+
+    self$credentials <- credentials
+    self$init()
   },
 
   init = function(force = FALSE) {
@@ -128,7 +135,9 @@ oauth1.0_token <- function(endpoint, app, permission = NULL,
                            as_header = TRUE,
                            cache = getOption("httr_oauth_cache")) {
   params <- list(permission = permission, as_header = as_header)
-  new_token(Token1.0, endpoint, app, params, cache = cache)
+
+  Token1.0$new(app = app, endpoint = endpoint, params = params,
+    cache_path = cache)
 }
 
 #' @export
@@ -180,31 +189,8 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
                            cache = getOption("httr_oauth_cache")) {
   params <- list(scope = scope, type = type, use_oob = use_oob,
     as_header = as_header)
-  new_token(Token2.0, endpoint, app, params, cache = cache)
-}
-
-#' Generate and initialise new token.
-#'
-#' This is useful if you've created your own Token subclass - it initialises
-#' the token object in a standard way.
-#'
-#' @param params list of params
-#' @export
-#' @keywords internal
-#' @inheritParams init_oauth2.0
-#' @inheritParams oauth1.0_token
-new_token <- function(token, endpoint, app, params = list(),
-                      cache = getOption("httr_oauth_cache")) {
-  stopifnot(
-    inherits(token, "R6ClassGenerator"),
-    is.oauth_endpoint(endpoint),
-    is.oauth_app(app),
-    is.list(params))
-
-  cache_path <- use_cache(cache)
-
-  token$new(app = app, endpoint = endpoint, params = params,
-    cache_path = cache_path)$init()
+  Token2.0$new(app = app, endpoint = endpoint, params = params,
+    cache_path = cache)
 }
 
 #' @export
