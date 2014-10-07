@@ -5,6 +5,7 @@
 \alias{Token-class}
 \alias{Token1.0}
 \alias{Token2.0}
+\alias{TokenServiceAccount}
 \title{OAuth token objects.}
 \format{An R6 class object.}
 \usage{
@@ -13,6 +14,8 @@ Token
 Token1.0
 
 Token2.0
+
+TokenServiceAccount
 }
 \description{
 These objects represent the complete set of data needed for OAuth access:
