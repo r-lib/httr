@@ -24,6 +24,8 @@ Suggests:
     png,
     jpeg,
     httpuv,
-    knitr
+    knitr,
+    PKI (>= 0.1-2),
+    base64enc
 VignetteBuilder: knitr
 License: MIT + file LICENSE

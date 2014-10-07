@@ -2,6 +2,10 @@
 
 ## Minor improvements and bug fixes
 
+* Suport for Google OAuth2 
+  [service accounts](https://developers.google.com/accounts/docs/OAuth2ServiceAccount).
+  (#119).
+
 * New `write_stream()` allows you to process the response from a server as 
   a stream of raw vectors (#143).
 
