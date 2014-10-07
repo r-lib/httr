@@ -57,24 +57,21 @@ Token <- R6::R6Class("Token", list(
     self$params <- params
     self$cache_path <- use_cache(cache_path)
 
-    self$credentials <- credentials
-    self$init()
-  },
-
-  init = function(force = FALSE) {
-    # Have already initialized?
-    if (!force && !is.null(self$credentials)) {
+    if (!is.null(credentials)) {
+      # Use credentials created elsewhere - usually for tests
+      self$credentials <- credentials
       return(self)
     }
 
-    # Have we computed in the past?
-    if (!force && self$load_from_cache()) {
-      return(self)
+    # Are credentials cache already?
+    if (self$load_from_cache()) {
+      self
+    } else {
+      self$init_credentials()
+      self$cache()
     }
-
-    self$init_credentials()
-    self$cache()
   },
+
   print = function(...) {
     cat("<Token>\n", sep = "")
     print(self$endpoint)
@@ -109,6 +106,9 @@ Token <- R6::R6Class("Token", list(
     stop("Must be implemented by subclass", call. = FALSE)
   },
   refresh = function() {
+    stop("Must be implemented by subclass", call. = FALSE)
+  },
+  init_credentials = function() {
     stop("Must be implemented by subclass", call. = FALSE)
   }
 ))
