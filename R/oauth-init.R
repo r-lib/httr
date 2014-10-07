@@ -56,11 +56,9 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
                           is_interactive = interactive()) {
   if (isTRUE(use_oob)) {
     stopifnot(interactive())
-    authorizer <- oauth_exchanger
     redirect_uri <- "urn:ietf:wg:oauth:2.0:oob"
     state <- NULL
   } else {
-    authorizer <- oauth_listener
     redirect_uri <- oauth_callback()
     state <- nonce()
   }
@@ -73,7 +71,11 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
     redirect_uri = redirect_uri,
     response_type = "code",
     state = state)))
-  code <- authorizer(authorize_url, is_interactive)$code
+  if (isTRUE(use_oob)) {
+    code <- oauth_exchanger(authorize_url)$code
+  } else {
+    code <- oauth_listener(authorize_url, is_interactive)$code
+  }
 
   # Use authorisation code to get (temporary) access token
   req <- POST(endpoint$access, encode = "form",
