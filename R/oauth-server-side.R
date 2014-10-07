@@ -1,3 +1,16 @@
+
+init_oauth_service_account <- function(endpoint, secrets, scope = NULL) {
+  signature <- jwt_signature(secrets, scope = scope)
+
+  res <- POST(endpoint$access, body = list(
+    grant_type = "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    assertion = signature
+  ), encode = "form")
+  stop_for_status(res)
+
+  content(res, type = "application/json")
+}
+
 #' Generate a JWT signature given credentials.
 #'
 #' As described in
@@ -7,6 +20,7 @@
 #' @param scope A space-delimited list of the permissions that the application
 #'    requests.
 #' @param duration Duration of token, in seconds.
+#' @keywords internal
 #' @examples
 #' \dontrun{
 #' cred <- jsonlite::fromJSON("~/Desktop/httrtest-45693cbfac92.json")

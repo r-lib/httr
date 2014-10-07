@@ -42,7 +42,7 @@ Token <- R6::R6Class("Token", list(
   app = NULL,
   credentials = NULL,
   params = NULL,
-  cache_path = NULL,
+  cache_path = FALSE,
 
   initialize = function(app, endpoint, params = list(), credentials = NULL,
                         cache_path = getOption("httr_oauth_cache")) {
@@ -227,4 +227,57 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   revoke = function() {
     revoke_oauth2.0(self$endpoint, self$credentials)
   }
+))
+
+
+#' Generate OAuth token for service accounts.
+#'
+#' @inheritParams oauth2.0_token
+#' @param secrets Secrets loaded from JSON file, downloaded from console.
+#' @export
+#' @examples
+#' \dontrun{
+#' endpoint <- oauth_endpoints("google")
+#' secrets <- jsonlite::fromJSON("~/Desktop/httrtest-45693cbfac92.json")
+#' scope <- "https://www.googleapis.com/auth/bigquery.readonly"
+#'
+#' token <- oauth_service_token(endpoint, secret, scope)
+#' }
+oauth_service_token <- function(endpoint, secrets, scope = NULL) {
+  TokenServiceAccount$new(
+    endpoint = endpoint,
+    secrets = secrets,
+    params = list(scope = scope)
+  )
+}
+
+#' @export
+#' @rdname Token-class
+TokenServiceAccount <- R6::R6Class("TokenServiceAccount", inherit = Token2.0, list(
+  secrets = NULL,
+  initialize = function(endpoint, secrets, params) {
+    self$endpoint <- endpoint
+    self$secrets <- secrets
+    self$params <- params
+
+    self$refresh()
+  },
+  can_refresh = function() {
+    TRUE
+  },
+  refresh = function() {
+    self$credentials <- init_oauth_service_account(self$endpoint, self$secrets,
+      self$params$scope)
+    self
+  },
+  sign = function(method, url) {
+    config <- add_headers(
+      Authorization = paste('Bearer', self$access_token)
+    )
+    list(url = url, config = config)
+  },
+
+  # Never cache
+  cache = function(path) self,
+  load_from_cache = function() self
 ))

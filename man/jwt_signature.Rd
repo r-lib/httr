@@ -23,4 +23,5 @@ cred <- jsonlite::fromJSON("~/Desktop/httrtest-45693cbfac92.json")
 jwt_signature(cred, "https://www.googleapis.com/auth/userinfo.profile")
 }
 }
+\keyword{internal}
 
