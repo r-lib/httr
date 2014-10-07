@@ -22,7 +22,7 @@ TokenLinkedIn <- R6::R6Class("TokenLinkedIn", inherit = Token2.0, list(
     list(url = build_url(url), config = config())
   }
 ))
-token <- new_token(TokenLinkedIn, oauth_endpoints("linkedin"), myapp)
+token <- TokenLinkedIn$new(endpoint = oauth_endpoints("linkedin"), app = myapp)
 
 # 4. Use API
 req <- GET("https://api.linkedin.com/v1/people/~", config(token = token))

@@ -2,6 +2,10 @@
 
 ## Minor improvements and bug fixes
 
+* `new_token()` has been removed - this was always an internal function
+  so you should never have been using it. If you were, switch to creating
+  the tokens directly. 
+
 * Suport for Google OAuth2 
   [service accounts](https://developers.google.com/accounts/docs/OAuth2ServiceAccount).
   (#119).
