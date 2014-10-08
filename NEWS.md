@@ -26,6 +26,9 @@
 * Added support for passing oauth1 tokens in URL instead of the headers 
   (#145, thanks @bogstag).
 
+* Fix for OAUTH 2 process when using options(httr_oob_default = TRUE)
+  (#126) PR from Willem Paling (@WillemPaling)
+
 # httr 0.5
 
 * You can now save response bodies directly to disk by using the `write_disk()`
