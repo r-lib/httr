@@ -1,10 +1,9 @@
 The following notes were generated across my local OS X install, ubuntu running on travis-ci and win builder (devel and release):
 
-* checking CRAN incoming feasibility ... NOTE
-  Possibly mis-spelled words in DESCRIPTION:
-  API (7:63), http (8:12), pluggable (8:49)
-  
-  These are correctly spelled.
+* checking dependencies in R code ... WARNING
+  Namespace in Imports field not imported from: 'R6'
+
+  This is a spurious warning: R6 is a build-time dependency.
 
 I have also run R CMD check on downstream dependencies of httr. Results are available at R release: https://github.com/wch/checkresults/blob/master/httr/r-release. Potential problems:
 
