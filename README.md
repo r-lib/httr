@@ -27,9 +27,9 @@ Key features:
   `verbose()`, `timeout()`, `content_type()`, `accept()`, `progress()`.
 
 * Support for OAuth 1.0 and 2.0 with `oauth1.0_token()` and `oauth2.0_token()`.
-  The demos directory has seven OAuth demos: three for 1.0 (twitter, vimeo and
-  yahoo) and four for 2.0 (facebook, github, google, linkedin). OAuth
-  credentials are automatically cached within a project.
+  The demos directory has eight OAuth demos: four for 1.0 (twitter, vimeo,
+  withings and yahoo) and four for 2.0 (facebook, github, google, linkedin). 
+  OAuth credentials are automatically cached within a project. 
 
 `httr` wouldn't be possible without the hard work of the authors of [RCurl](http://www.omegahat.org/RCurl/) and [curl](http://curl.haxx.se/). Thanks! `httr` is inspired by http libraries in other languages, such as [Resty](http://beders.github.com/Resty/Resty/Examples.html), [Requests](http://docs.python-requests.org/en/latest/index.html) and [httparty](http://github.com/jnunemaker/httparty/tree/master).
 

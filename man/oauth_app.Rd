@@ -39,6 +39,7 @@ oauth_app("my_app", "mykey", NULL)
 \seealso{
 Other OAuth: \code{\link{oauth1.0_token}};
   \code{\link{oauth2.0_token}};
-  \code{\link{oauth_endpoint}}
+  \code{\link{oauth_endpoint}};
+  \code{\link{oauth_service_token}}
 }
 
