@@ -1,29 +1,26 @@
 # httr 0.5.0.9000
 
-## Minor improvements and bug fixes
+## New features
 
-* `new_token()` has been removed - this was always an internal function
-  so you should never have been using it. If you were, switch to creating
-  the tokens directly. 
+* New `write_stream()` allows you to process the response from a server as 
+  a stream of raw vectors (#143).
 
 * Suport for Google OAuth2 
   [service accounts](https://developers.google.com/accounts/docs/OAuth2ServiceAccount).
   (#119, thanks to help from @siddharthab).
 
-* New `write_stream()` allows you to process the response from a server as 
-  a stream of raw vectors (#143).
+## Minor improvements and bug fixes
 
-* Update `cacert.pem` to Thu Sep 4 06:31:22 2014 (#154).
+* Fix for OAuth 2 process when using `options(httr_oob_default = TRUE)`
+  (#126, @WillemPaling).
 
-* `httr` checks to see if you have libCurl uses NSS. This is unlikely to work
+* httr checks to see if your libCurl uses NSS. This is unlikely to work
   so it gives you some advice on how to fix the problem (thanks to 
   @eddelbuettel for debugging this problem).
 
 * `Content-Type` set to title case to avoid errors in servers which do not
   correctly implement case insensitivity in header names. (#142, #146) thanks
   to Håkon Malmedal (@hmalmedal) and Jim Hester (@jimhester).
-
-* Deprecate `guess_media()`, and instead use `mime::guess_type()` (#148).
 
 * Make it again possible to override the content type set up by `POST()`
   when sending data (#140).
@@ -32,10 +29,17 @@
   use as RCurl callbacks (#144).
   
 * Added support for passing oauth1 tokens in URL instead of the headers 
-  (#145, thanks @bogstag).
+  (#145, @bogstag).
 
-* Fix for OAUTH 2 process when using options(httr_oob_default = TRUE)
-  (#126) PR from Willem Paling (@WillemPaling)
+* Update `cacert.pem` to Thu Sep 4 06:31:22 2014 (#154).
+
+## Deprecated and deleted functions
+
+* `new_token()` has been removed - this was always an internal function
+  so you should never have been using it. If you were, switch to creating
+  the tokens directly. 
+
+* Deprecate `guess_media()`, and instead use `mime::guess_type()` (#148).
 
 # httr 0.5
 
