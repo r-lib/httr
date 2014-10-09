@@ -21,7 +21,7 @@ endpoint <- oauth_endpoints("google")
 secrets <- jsonlite::fromJSON("~/Desktop/httrtest-45693cbfac92.json")
 scope <- "https://www.googleapis.com/auth/bigquery.readonly"
 
-token <- oauth_service_token(endpoint, secret, scope)
+token <- oauth_service_token(endpoint, secrets, scope)
 }
 }
 
