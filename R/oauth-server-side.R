@@ -43,14 +43,12 @@ jwt_signature <- function(credentials, scope, duration = 60 * 60) {
 jwt_sign <- function(claimset, private_key, header = jwt_header()) {
   key <- PKI::PKI.load.key(textConnection(private_key), private = TRUE)
 
-  to_sign <- charToRaw(paste0(jwt_json(header), ".", jwt_json(claimset)))
+  to_sign_base64 <- paste0(jwt_base64(header), ".", jwt_base64(claimset))
+  to_sign <- charToRaw(to_sign_base64)
   sig <- PKI::PKI.sign(to_sign, key, "SHA256")
+  sig_base64 <- base64url(sig)
 
-  paste0(
-    jwt_base64(header), ".",
-    jwt_base64(claimset), ".",
-    base64url(sig)
-  )
+  paste0(to_sign_base64, ".", sig_base64)
 }
 
 jwt_header <- function() {
