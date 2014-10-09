@@ -11,6 +11,8 @@
 
 ## Minor improvements and bug fixes
 
+* Add `revoke_all()` to revoke all stored tokens (if possible) (#77).
+
 * Fix for OAuth 2 process when using `options(httr_oob_default = TRUE)`
   (#126, @WillemPaling).
 
