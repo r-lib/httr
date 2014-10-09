@@ -13,7 +13,10 @@ oauth_service_token(endpoint, secrets, scope = NULL)
 \item{scope}{a character vector of scopes to request.}
 }
 \description{
-Generate OAuth token for service accounts.
+Service accounts provide a way of using OAuth2 without user intervention.
+They instead assume that the server has access to a private key used
+to sign requests. The OAuth app is not needed for service accounts:
+that information is embedded in the account itself.
 }
 \examples{
 \dontrun{
@@ -23,5 +26,10 @@ scope <- "https://www.googleapis.com/auth/bigquery.readonly"
 
 token <- oauth_service_token(endpoint, secrets, scope)
 }
+}
+\seealso{
+Other OAuth: \code{\link{oauth1.0_token}};
+  \code{\link{oauth2.0_token}}; \code{\link{oauth_app}};
+  \code{\link{oauth_endpoint}}
 }
 

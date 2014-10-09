@@ -232,8 +232,14 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
 
 #' Generate OAuth token for service accounts.
 #'
+#' Service accounts provide a way of using OAuth2 without user intervention.
+#' They instead assume that the server has access to a private key used
+#' to sign requests. The OAuth app is not needed for service accounts:
+#' that information is embedded in the account itself.
+#'
 #' @inheritParams oauth2.0_token
 #' @param secrets Secrets loaded from JSON file, downloaded from console.
+#' @family OAuth
 #' @export
 #' @examples
 #' \dontrun{
