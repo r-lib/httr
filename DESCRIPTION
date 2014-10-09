@@ -1,31 +1,30 @@
 Package: httr
-Type: Package
-Title: Tools for working with URLs and HTTP
 Version: 0.5.0.9000
-Authors@R: c(
-    person("Hadley", "Wickham", email = "hadley@rstudio.com",
-    role = c("cre", "aut", "cph")),
-    person("RStudio", role = "cph"))
-Description: Provides useful tools for working with HTTP. The API is based
-    around http verbs (GET(), POST(), etc) with pluggable components to control
-    the request (authenticate(), add_headers() and so on).
+Title: Tools for Working with URLs and HTTP
+Description: Useful tools for working with HTTP organised by HTTP verbs
+    (GET(), POST(), etc). Configuration functions make it easy to control
+    additional request components (authenticate(), add_headers() and so on).
+Authors@R: as.person(c(
+    "Hadley Wickham <hadley@rstudio.com> [cre, aut, cph]",
+    "RStudio [cph]"
+    ))
 Depends:
     R (>= 3.0.0)
 Imports:
-    RCurl (>= 1.95-0),
-    stringr (>= 0.6.1),
     digest,
     jsonlite,
     mime,
-    R6
+    RCurl (>= 1.95-0),
+    R6,
+    stringr (>= 0.6.1)
 Suggests:
-    XML,
-    testthat (>= 0.8.0),
-    png,
-    jpeg,
+    base64enc,
     httpuv,
+    jpeg,
     knitr,
     PKI (>= 0.1-2),
-    base64enc
+    png,
+    testthat (>= 0.8.0),
+    XML
 VignetteBuilder: knitr
 License: MIT + file LICENSE
