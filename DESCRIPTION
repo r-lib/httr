@@ -13,6 +13,7 @@ Depends:
 Imports:
     digest,
     jsonlite,
+    methods,
     mime,
     RCurl (>= 1.95-0),
     R6,
