@@ -24,6 +24,10 @@
   correctly implement case insensitivity in header names. (#142, #146) thanks
   to Håkon Malmedal (@hmalmedal) and Jim Hester (@jimhester).
 
+* Default "Accepts" header set to 
+  `application/json, application/xml, text/xml, */*`: this should slightly
+  increase the likelihood of getting xml back.
+
 * Make it again possible to override the content type set up by `POST()`
   when sending data (#140).
 
