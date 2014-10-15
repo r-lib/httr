@@ -43,7 +43,7 @@ parse_url <- function(url) {
 
   fragment <- pull_off("#(.*)$")
   scheme <- pull_off("^([[:alpha:]+.-]+):")
-  netloc <- pull_off("^//([^/]*)/?")
+  netloc <- pull_off("^//([^/?]*)/?")
 
   if (!is.null(netloc)) {
 
