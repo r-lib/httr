@@ -61,3 +61,9 @@ test_that("build_url drops null query", {
   expect_equal(url, "http://google.com/?a=1")
 
 })
+
+test_that("parse_url pulls off domain correctly given query without trailing '/'", {
+   url <- modify_url('http://google.com?a=1', query = list(b = 2)) 
+   expect_equal(url, "http://google.com/?a=1&b=2")
+})
+
