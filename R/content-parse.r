@@ -62,7 +62,7 @@ parsers$`application/x-www-form-urlencoded` <- function(x) {
 }
 parsers$`application/xml` <- function(x, ...) {
   need_package("XML")
-  XML::xmlParse(x, ...)
+  XML::xmlParse(parse_text(x, encoding = "UTF-8"), ...)
 }
 
 # Text formats -----------------------------------------------------------------
