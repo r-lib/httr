@@ -24,6 +24,8 @@
   correctly implement case insensitivity in header names. (#142, #146) thanks
   to Håkon Malmedal (@hmalmedal) and Jim Hester (@jimhester).
 
+* Correctly parse http status when it only contains two components (#162).
+
 * Default "Accepts" header set to 
   `application/json, text/xml, application/xml, */*`: this should slightly
   increase the likelihood of getting xml back.

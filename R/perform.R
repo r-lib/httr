@@ -72,10 +72,7 @@ parse_headers <- function(lines) {
 }
 
 parse_single_header <- function(lines) {
-  # Parse initial status line
-  status <- as.list(strsplit(lines[1], "\\s+")[[1]])
-  names(status) <- c("version", "status", "message")
-  status$status <- as.integer(status$status)
+  status <- parse_http_status(lines[[1]])
 
   # Parse headers into name-value pairs
   header_lines <- lines[lines != ""][-1]
@@ -95,4 +92,13 @@ parse_single_header <- function(lines) {
   headers <- insensitive(setNames(values, names))
 
   list(status = status$status, version = status$version, headers = headers)
+}
+
+parse_http_status <- function(x) {
+  status <- as.list(strsplit(x, "\\s+")[[1]])
+  names(status) <- c("version", "status", "message")[seq_along(status)]
+  status$status <- as.integer(status$status)
+
+
+  status
 }

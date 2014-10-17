@@ -44,3 +44,9 @@ test_that("Invalid header raises error", {
   )
   expect_warning(parse_headers(lines), "Failed to parse headers")
 })
+
+test_that("http status line only needs two components", {
+  headers <- parse_headers("HTTP/1.1 200")
+  expect_equal(headers[[1]]$status, 200L)
+
+})
