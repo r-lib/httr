@@ -35,47 +35,6 @@ parse_auto <- function(content, type = NULL, encoding = NULL, ...) {
   }
 }
 
-parsers <- new.env(parent = emptyenv())
-
-# http://www.ietf.org/rfc/rfc4627.txt - section 3. (encoding)
-parsers$`application/json` <- function(x, simplifyVector = FALSE, ...) {
-  jsonlite::fromJSON(parse_text(x, encoding = "UTF-8"),
-    simplifyVector = simplifyVector, ...)
-}
-
-parsers$`application/x-www-form-urlencoded` <- function(x) {
-  parse_query(parse_text(x, encoding = "UTF-8"))
-}
-
-parsers$`image/jpeg` <- function(x) {
-  need_package("jpeg")
-  jpeg::readJPEG(x)
-}
-parsers$`image/png` <- function(x) {
-  need_package("png")
-  png::readPNG(x)
-}
-
-parsers$`text/plain` <- function(x) x
-parsers$`text/html` <- function(x, ...) {
-  need_package("XML")
-  XML::htmlParse(x, ...)
-}
-parsers$`text/xml` <- function(x, ...) {
-  need_package("XML")
-  XML::xmlParse(x, ...)
-}
-parsers$`application/xml` <- function(x, ...) {
-  need_package("XML")
-  XML::xmlParse(x, ...)
-}
-parsers$`text/csv` <- function(x, ...) {
-  read.csv(text = x, stringsAsFactors = FALSE, ...)
-}
-parsers$`text/tab-separated-values` <- function(x, ...) {
-  read.delim(text = x, stringsAsFactors = FALSE, ...)
-}
-
 parseability <- function(type) {
   if (is.null(type) || type == "") return("raw")
   mt <- parse_media(type)
@@ -87,4 +46,52 @@ parseability <- function(type) {
   } else {
     "raw"
   }
+}
+
+parsers <- new.env(parent = emptyenv())
+
+# Binary formats ---------------------------------------------------------------
+
+# http://www.ietf.org/rfc/rfc4627.txt - section 3. (encoding)
+parsers$`application/json` <- function(x, simplifyVector = FALSE, ...) {
+  jsonlite::fromJSON(parse_text(x, encoding = "UTF-8"),
+    simplifyVector = simplifyVector, ...)
+}
+parsers$`application/x-www-form-urlencoded` <- function(x) {
+  parse_query(parse_text(x, encoding = "UTF-8"))
+}
+parsers$`application/xml` <- function(x, ...) {
+  need_package("XML")
+  XML::xmlParse(x, ...)
+}
+
+# Text formats -----------------------------------------------------------------
+parsers$`image/jpeg` <- function(x) {
+  need_package("jpeg")
+  jpeg::readJPEG(x)
+}
+
+parsers$`image/png` <- function(x) {
+  need_package("png")
+  png::readPNG(x)
+}
+
+parsers$`text/plain` <- function(x) x
+
+parsers$`text/html` <- function(x, ...) {
+  need_package("XML")
+  XML::htmlParse(x, ...)
+}
+
+parsers$`text/xml` <- function(x, ...) {
+  need_package("XML")
+  XML::xmlParse(x, ...)
+}
+
+parsers$`text/csv` <- function(x, ...) {
+  read.csv(text = x, stringsAsFactors = FALSE, ...)
+}
+
+parsers$`text/tab-separated-values` <- function(x, ...) {
+  read.delim(text = x, stringsAsFactors = FALSE, ...)
 }
