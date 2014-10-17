@@ -28,7 +28,8 @@
 
 * Default "Accepts" header set to 
   `application/json, text/xml, application/xml, */*`: this should slightly
-  increase the likelihood of getting xml back.
+  increase the likelihood of getting xml back. `application/xml` is correctly
+  converted to text before being parsed to `XML::xmlParse()` (#160).
 
 * Make it again possible to override the content type set up by `POST()`
   when sending data (#140).
