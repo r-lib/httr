@@ -6,8 +6,8 @@
 #' linkedin, twitter, vimeo, facebook, github and google.
 #'
 #' @param appname name of the application.  This is not used for OAuth, but
-#'   is used to make it easier to identifier different applications and
-#'   provide a consistent ways of storing secrets in environmental variables.
+#'   is used to make it easier to identify different applications and
+#'   provide a consistent way of storing secrets in environment variables.
 #' @param key consumer key (equivalent to a user name)
 #' @param secret consumer secret.  This is equivalent to a password and
 #'   should not be stored in publicly visible code.  As a convenient shortcut,
