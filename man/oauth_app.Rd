@@ -7,8 +7,8 @@ oauth_app(appname, key, secret = NULL)
 }
 \arguments{
 \item{appname}{name of the application.  This is not used for OAuth, but
-is used to make it easier to identifier different applications and
-provide a consistent ways of storing secrets in environmental variables.}
+is used to make it easier to identify different applications and
+provide a consistent way of storing secrets in environment variables.}
 
 \item{key}{consumer key (equivalent to a user name)}
 
