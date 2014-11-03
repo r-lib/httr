@@ -29,3 +29,4 @@ Suggests:
     XML
 VignetteBuilder: knitr
 License: MIT + file LICENSE
+URL: https://github.com/hadley/httr
