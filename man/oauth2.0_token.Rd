@@ -35,7 +35,7 @@ A \code{Token2.0} reference class (RC) object.
 \description{
 This is the final object in the OAuth dance - it encapsulates the app,
 the endpoint, other parameters and the received credentials. It is a
-reference class so that it can be seemlessly updated (e.g. using
+reference class so that it can be seamlessly updated (e.g. using
 \code{$refresh()}) when access expires.
 }
 \details{
