@@ -170,7 +170,7 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 #'
 #' This is the final object in the OAuth dance - it encapsulates the app,
 #' the endpoint, other parameters and the received credentials. It is a
-#' reference class so that it can be seemlessly updated (e.g. using
+#' reference class so that it can be seamlessly updated (e.g. using
 #' \code{$refresh()}) when access expires.
 #'
 #' See \code{\link{Token}} for full details about the token object, and the
