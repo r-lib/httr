@@ -48,12 +48,18 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #' @param scope a character vector of scopes to request.
 #' @param use_oob if FALSE, use a local webserver for the OAuth dance.
 #'     Otherwise, provide a URL to the user and prompt for a validation
-#'     code. Defaults to the of the \code{"httr_oob_default"} default.
+#'     code. Defaults to the of the \code{"httr_oob_default"} default,
+#'     or \code{TRUE} if \code{httpuv} is not installed.
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
                           use_oob = getOption("httr_oob_default"),
                           is_interactive = interactive()) {
+  if (!use_oob && !is_installed("httpuv")) {
+    message("httpuv not installed, defaulting to out-of-band authentication")
+    use_oob <- TRUE
+  }
+
   if (isTRUE(use_oob)) {
     stopifnot(interactive())
     redirect_uri <- "urn:ietf:wg:oauth:2.0:oob"

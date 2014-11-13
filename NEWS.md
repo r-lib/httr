@@ -44,6 +44,9 @@
 
 * Update `cacert.pem` to Thu Sep 4 06:31:22 2014 (#154).
 
+* Default to out-of-band credential exchange when `httpuv` isn't installed.
+  (#168)
+
 ## Deprecated and deleted functions
 
 * `new_token()` has been removed - this was always an internal function
