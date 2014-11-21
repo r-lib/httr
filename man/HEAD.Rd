@@ -51,6 +51,7 @@ HEAD("http://google.com")$headers
 }
 \seealso{
 Other http methods: \code{\link{BROWSE}};
-  \code{\link{DELETE}}; \code{\link{GET}}
+  \code{\link{DELETE}}; \code{\link{GET}};
+  \code{\link{VERB}}
 }
 

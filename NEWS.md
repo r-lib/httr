@@ -9,6 +9,8 @@
   [service accounts](https://developers.google.com/accounts/docs/OAuth2ServiceAccount).
   (#119, thanks to help from @siddharthab).
 
+* `VERB()` allows to you use custom http verbs (#169).
+
 ## Minor improvements and bug fixes
 
 * Add `revoke_all()` to revoke all stored tokens (if possible) (#77).
