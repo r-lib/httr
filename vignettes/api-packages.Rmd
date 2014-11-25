@@ -125,7 +125,7 @@ github_parse <- function(req) {
 }
 ```
 
-Many APIs use [content negotiation](http://en.wikipedia.org/wiki/Content_negotiation) to determine whats sort of data to send back. If the API you're wrapping does this, then you might find `accepts_json()` and `accepts_xml()` to be useful.
+Many APIs use [content negotiation](http://en.wikipedia.org/wiki/Content_negotiation) to determine whats sort of data to send back. If the API you're wrapping does this, then you might find `accept_json()` and `accept_xml()` to be useful.
 
 ## Responding to errors
 
