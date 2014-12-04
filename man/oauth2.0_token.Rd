@@ -19,7 +19,8 @@ oauth2.0_token(endpoint, app, scope = NULL, type = NULL,
 
 \item{use_oob}{if FALSE, use a local webserver for the OAuth dance.
 Otherwise, provide a URL to the user and prompt for a validation
-code. Defaults to the of the \code{"httr_oob_default"} default.}
+code. Defaults to the of the \code{"httr_oob_default"} default,
+or \code{TRUE} if \code{httpuv} is not installed.}
 
 \item{as_header}{If \code{TRUE}, the default, sends oauth in bearer header.
 If \code{FALSE}, adds as parameter to url.}
