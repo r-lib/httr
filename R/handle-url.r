@@ -3,7 +3,7 @@ handle_url <- function(handle = NULL, url = NULL, ...) {
     stop("Must specify at least one of url or handle")
   }
 
-  if (is.null(handle))  handle <- find_handle(url)
+  if (is.null(handle))  handle <- handle_find(url)
   if (is.null(url))     url <- handle$url
 
   # If named components in ..., modify the url

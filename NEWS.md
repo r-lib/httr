@@ -11,6 +11,9 @@
 
 * `VERB()` allows to you use custom http verbs (#169).
 
+* New `handle_reset()` to allow you to reset the handle if you get the error
+  "easy handle already used in multi handle" (#112).
+
 ## Minor improvements and bug fixes
 
 * Add `revoke_all()` to revoke all stored tokens (if possible) (#77).
