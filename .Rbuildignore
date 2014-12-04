@@ -5,3 +5,4 @@
 ^NEWS\.md$
 ^\.Rprofile$
 ^cran-comments.md$
+^revdep/$
