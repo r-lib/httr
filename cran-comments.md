@@ -5,8 +5,9 @@ The following notes were generated across my local OS X install, ubuntu running 
 
   This is a spurious warning: R6 is a build-time dependency.
 
-I have also run R CMD check on downstream dependencies of httr. Results are available at R release: https://github.com/wch/checkresults/blob/master/httr/r-release. Potential problems:
+## Reverse dependencies
 
-* Ecoengine: this appears to be a failure related to config on that machine,
-  I couldn't reproduce locally, and it doesn't seem to be related to changes 
-  in httr (the same problem exists with httr 0.4).
+Important reverse dependency check notes (full summary at 
+https://github.com/hadley/httr/tree/master/revdep/summary.md);
+
+* gmailr and RSocrata: use deprecated function. Package authors informed Dec 4.
