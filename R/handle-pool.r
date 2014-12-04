@@ -1,28 +1,35 @@
 #' Maintain a pool of handles.
 #'
 #' The handle pool is used to automatically reuse Curl handles for the same
-#' scheme/host/port combination.  This ensures that the http session is
+#' scheme/host/port combination. This ensures that the http session is
 #' automatically reused, and cookies are maintained across requests to a site
 #' without user intervention.
 #'
 #' @format An environment.
 #' @keywords internal
-handle_pool <- NULL
-empty_pool <- function() {
-  handle_pool <<- new.env(hash = TRUE, parent = emptyenv())
+handle_pool <- new.env(hash = TRUE, parent = emptyenv())
+
+handle_name <- function(url) {
+  build_url(parse_url(url)[c("scheme", "hostname", "port")])
 }
-empty_pool()
 
-find_handle <- function(url) {
-  handle_name <- build_url(parse_url(url)[c("scheme", "hostname", "port")])
-
-  if (exists(handle_name, handle_pool)) {
-    handle <- handle_pool[[handle_name]]
+#' @export
+#' @rdname handle_pool
+handle_find <- function(url) {
+  name <- handle_name(url)
+  if (exists(name, handle_pool)) {
+    handle <- handle_pool[[name]]
   } else {
-    handle <- handle(handle_name)
-    handle_pool[[handle_name]] <- handle
+    handle <- handle(name)
+    handle_pool[[name]] <- handle
   }
 
   handle
 }
 
+#' @export
+#' @rdname handle_pool
+handle_reset <- function(url) {
+  name <- handle_name(url)
+  rm(list = name, envir = handle_pool)
+}
