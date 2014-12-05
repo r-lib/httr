@@ -1,6 +1,9 @@
 library("devtools")
 
-res <- revdep_check()
+with_libpaths(getOption("devtools.revdep.libpath"), {
+  install.packages("rgdal", type = "source")
+})
 
-writeLines(revdep_check_summary(res), "revdep/summary.md")
+res <- revdep_check()
+revdep_check_save_summary(res)
 revdep_check_save_logs(res)
