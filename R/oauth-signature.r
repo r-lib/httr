@@ -9,9 +9,13 @@ NULL
 
 #' @export
 #' @rdname sign_oauth
-sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL, ...) {
+sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL,
+                          as_header = TRUE, ...) {
+  params <- list(as_header = as_header)
+
   credentials <- list(oauth_token = token, oauth_token_secret = token_secret)
-  token <- Token1.0$new(endpoint = NULL, app = app, credentials = credentials)
+  token <- Token1.0$new(endpoint = NULL, params = params, app = app,
+    credentials = credentials)
   config(token = token)
 }
 

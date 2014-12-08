@@ -59,6 +59,25 @@ test_that("oauth2.0 signing works", {
   )
 })
 
+test_that("partial OAuth1 flow works", {
+  skip_on_cran()
+  # From rfigshare
+
+  endpoint <- oauth_endpoint(
+    base_url = "http://api.figshare.com/v1/pbl/oauth",
+    "request_token", "authorize", "access_token"
+  )
+  myapp <- oauth_app("rfigshare",
+    key = "Kazwg91wCdBB9ggypFVVJg",
+    secret = "izgO06p1ymfgZTsdsZQbcA")
+  sig <- sign_oauth1.0(myapp,
+    token = "xdBjcKOiunwjiovwkfTF2QjGhROeLMw0y0nSCSgvg3YQxdBjcKOiunwjiovwkfTF2Q",
+    token_secret = "4mdM3pfekNGO16X4hsvZdg")
+
+  r <- GET("http://api.figshare.com/v1/my_data", sig)
+  expect_equal(status_code(r), 200)
+})
+
 
 test_that("make_config combines headers correctly", {
   config <- make_config(list(), add_headers(a = 1), add_headers(a = 2))
