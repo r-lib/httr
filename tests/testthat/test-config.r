@@ -1,10 +1,9 @@
 context("Config")
 
-if (identical(Sys.getenv("NOT_CRAN"), "true")) {
-  test_that("timeout enforced", {
-    expect_error(GET("http://httpbin.org/delay/1", timeout(0.5)), "timed out")
-  })
-}
+test_that("timeout enforced", {
+  skip_on_cran()
+  expect_error(GET("http://httpbin.org/delay/1", timeout(0.5)), "timed out")
+})
 
 test_that("basic authentication works", {
   h <- handle("http://httpbin.org")
