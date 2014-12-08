@@ -6,7 +6,7 @@
 |:--------|:----------------------------|
 |version  |R version 3.1.2 (2014-10-31) |
 |system   |x86_64, darwin13.4.0         |
-|ui       |RStudio (0.99.85)            |
+|ui       |RStudio (0.99.90)            |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
@@ -18,20 +18,19 @@
 |base64enc |*  |0.1-2    |2014-06-26 |CRAN (R 3.1.0) |
 |digest    |*  |0.6.4    |2013-12-03 |CRAN (R 3.1.0) |
 |httpuv    |*  |1.3.2    |2014-10-23 |CRAN (R 3.1.2) |
-|httr      |   |0.5      |2014-09-02 |CRAN (R 3.1.1) |
 |jpeg      |*  |0.1-8    |2014-01-23 |CRAN (R 3.1.0) |
 |jsonlite  |*  |0.9.14   |2014-12-01 |CRAN (R 3.1.2) |
 |knitr     |*  |1.8      |2014-11-11 |CRAN (R 3.1.2) |
 |mime      |*  |0.2      |2014-09-26 |CRAN (R 3.1.1) |
 |png       |*  |0.1-7    |2013-12-03 |CRAN (R 3.1.0) |
 |R6        |*  |2.0.1    |2014-10-29 |CRAN (R 3.1.2) |
-|RCurl     |*  |1.95-4.4 |2014-11-29 |CRAN (R 3.1.2) |
+|RCurl     |*  |1.95-4.5 |2014-12-06 |CRAN (R 3.1.2) |
 |stringr   |*  |0.6.2    |2012-12-06 |CRAN (R 3.1.0) |
 |testthat  |   |0.9.1    |2014-10-01 |CRAN (R 3.1.1) |
 |XML       |*  |3.98-1.1 |2013-06-20 |CRAN (R 3.1.0) |
 
 # Check results
-70 checked out of 71 dependencies 
+69 checked out of 70 dependencies 
 
 ## aemo (0.1.0)
 Maintainer: Imanuel Costigan <i.costigan@me.com>
@@ -387,7 +386,24 @@ __OK__
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rbison/issues
 
-__OK__
+```
+checking tests ... ERROR
+Running the tests in ‘tests/test-all.R’ failed.
+Last 13 lines of output:
+  bison_datause() for data use and bison_citation() for how to cite data from BISON
+  Use suppressPackageStartupMessages() to suppress these startup messages in the future
+  
+  bison : .............
+  bison_solr : ........
+  bison_tax : ........
+  bisonmap : 12..
+  is.bison : ....
+  Error in vapply(failures, "[[", "failure_msg", FUN.VALUE = character(1)) : 
+    values must be length 1,
+   but FUN(X[[2]]) result is length 2
+  Calls: test_check ... <Anonymous> -> .oapply -> eval -> eval -> <Anonymous> -> vapply
+  Execution halted
+```
 
 ## rclinicaltrials (1.4)
 Maintainer: Michael C Sachs <sachsmc@gmail.com>
@@ -435,7 +451,7 @@ Bug reports: https://github.com/christophergandrud/repmis/issues
 ```
 checking whether package ‘repmis’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/Rtmp6QoPgk/check_cranf291e0b21f3/repmis.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmpZBFnsq/check_cran4dd335b58dac/repmis.Rcheck/00install.out’ for details.
 ```
 
 ## Rfacebook (0.4)
@@ -447,24 +463,7 @@ __OK__
 Maintainer: Carl Boettiger <cboettig@gmail.com>  
 Bug reports: https://github.com/ropensci/rfigshare/issues
 
-```
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-  'help.start()' for an HTML browser interface to help.
-  Type 'q()' to quit R.
-  
-  > if (packageVersion("testthat") >= "0.7.1.99") {
-  +     library(testthat)
-  +   test_check("rfigshare")
-  + } else {
-  +   library(testthat)
-  +   test_package("rfigshare")
-  + }
-  Loading required package: rfigshare
-  Error: is.oauth_endpoint(endpoint) is not TRUE
-  Execution halted
-```
+__OK__
 
 ## rfisheries (0.1)
 Maintainer: Karthik Ram <karthik.ram@gmail.com>  
@@ -492,13 +491,7 @@ __OK__
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rgbif/issues
 
-```
-checking package dependencies ... ERROR
-Package required but not available: ‘rgeos’
-
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
-```
+__OK__
 
 ## RGoogleAnalytics (0.1.1)
 Maintainer: Kushan Shah <kushan@tatvic.com>  
@@ -526,41 +519,20 @@ Maintainer: Edmund Hart <edmund.m.hart@gmail.com>
 
 __OK__
 
-## RNeXML (1.1.3)
-Maintainer: Carl Boettiger <cboettig@gmail.com>
+## RNeXML (2.0.0)
+Maintainer: Carl Boettiger <cboettig@gmail.com>  
+Bug reports: https://github.com/ropensci/RNeXML/issues
 
 ```
 checking package dependencies ... NOTE
 Packages suggested but not available for checking: ‘rrdf’ ‘Sxslt’
-```
-```
-checking R code for possible problems ... NOTE
-get_rdf: no visible global function definition for
-  ‘xsltApplyStyleSheet’
-nexml_figshare: no visible global function definition for ‘fs_create’
-nexml_figshare: no visible global function definition for
-  ‘fs_add_authors’
-nexml_figshare: no visible global function definition for
-  ‘fs_add_categories’
-nexml_figshare: no visible global function definition for ‘fs_add_tags’
-nexml_figshare: no visible global function definition for ‘fs_upload’
-nexml_figshare: no visible global function definition for
-  ‘fs_make_private’
-nexml_figshare: no visible global function definition for
-  ‘fs_make_public’
 ```
 
 ## rnoaa (0.2.0)
 Maintainer: Hart Edmund <Edmund.m.hart@gmail.com>  
 Bug reports: http://www.github.com/ropensci/rnoaa/issues
 
-```
-checking package dependencies ... ERROR
-Package required but not available: ‘rgeos’
-
-See the information on DESCRIPTION files in the chapter ‘Creating R
-packages’ of the ‘Writing R Extensions’ manual.
-```
+__OK__
 
 ## rplos (0.4.1)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
@@ -579,19 +551,6 @@ Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
 Bug reports: https://github.com/ropensci/rsnps/issues
 
 __OK__
-
-## RSocrata (1.5)
-Maintainer: Hugh J. Devlin <Hugh.Devlin@cityofchicago.org>
-
-```
-checking examples ... WARNING
-Found the following significant warnings:
-
-  Warning: 'guess_media' is deprecated.
-Deprecated functions may be defunct as soon as of the next release of
-R.
-See ?Deprecated.
-```
 
 ## rsunlight (0.3.0)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
@@ -697,7 +656,6 @@ Bug reports: https://github.com/ropensci/spocc/issues
 checking package dependencies ... ERROR
 Packages required but not available:
   ‘rgbif’ ‘rinat’ ‘rbison’ ‘ecoengine’ ‘rebird’ ‘AntWeb’ ‘rworldmap’
-  ‘rgeos’
 
 See the information on DESCRIPTION files in the chapter ‘Creating R
 packages’ of the ‘Writing R Extensions’ manual.
@@ -724,7 +682,7 @@ Maintainer: Andrea Capozio <andreacapozio@gmail.com>
 
 __OK__
 
-## WikipediR (1.0.1)
+## WikipediR (1.1.0)
 Maintainer: Oliver Keyes <okeyes@wikimedia.org>  
 Bug reports: https://github.com/Ironholds/WikipediR/issues
 
