@@ -1,4 +1,4 @@
-# httr 0.5.0.9000
+# httr 0.6.0
 
 ## New features
 
