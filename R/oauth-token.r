@@ -47,7 +47,7 @@ Token <- R6::R6Class("Token", list(
   initialize = function(app, endpoint, params = list(), credentials = NULL,
                         cache_path = getOption("httr_oauth_cache")) {
     stopifnot(
-      is.oauth_endpoint(endpoint),
+      is.oauth_endpoint(endpoint) || !is.null(credentials),
       is.oauth_app(app),
       is.list(params)
     )
