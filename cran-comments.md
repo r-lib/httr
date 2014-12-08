@@ -7,7 +7,4 @@ The following notes were generated across my local OS X install, ubuntu running 
 
 ## Reverse dependencies
 
-Important reverse dependency check notes (full summary at 
-https://github.com/hadley/httr/tree/master/revdep/summary.md);
-
-* gmailr and RSocrata: use deprecated function. Package authors informed Dec 4.
+I ran `R CMD check` on all 70 reverse dependencies (https://github.com/hadley/httr/tree/master/revdep/summary.md). As far as I can tell, there are no new problems caused by this version of httr.  I informed all package authors of the release on Dec 8 and encouraged them to verify for themselves.
