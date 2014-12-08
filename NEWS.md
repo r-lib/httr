@@ -14,6 +14,9 @@
 * New `handle_reset()` to allow you to reset the handle if you get the error
   "easy handle already used in multi handle" (#112).
 
+* Uses R6 instead of RC. This makes it possible to extend the OAuth
+  classes from outside of httr (#113).
+
 ## Minor improvements and bug fixes
 
 * Add `revoke_all()` to revoke all stored tokens (if possible) (#77).
