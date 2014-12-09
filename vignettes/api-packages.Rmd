@@ -199,37 +199,52 @@ github_pat <- function(force = FALSE) {
 }
 ```
 
-Encourage your users to store their important information once, rather than typing it into the console - it's easy to accidentally publish your `.Rhistory` and you don't want it to contain private data.
+Encourage your users to store their important information once (see below), rather than typing it into the console - it's easy to accidentally publish your `.Rhistory` and you don't want it to contain private data.
 
-## Appendix
+## Appendix: API key best practices
 
-If your package supports an authentication workflow based on an API key or token, you can encourage users to store that in an environment variable. We illustrate this using the [`github` R package](https://github.com/cscheid/rgithub), which wraps the Github v3 API. Tailor this template to your API + package and include in `README.md` or a vignette.
+If your package supports an authentication workflow based on an API key or token, encourage users to store it in an environment variable. We illustrate this using the [`github` R package](https://github.com/cscheid/rgithub), which wraps the Github v3 API. Tailor this template to your API + package and include in `README.md` or a vignette.
 
-  * Create a personal access token in the [Applications area](https://github.com/settings/applications) of your GitHub personal settings. Copy token to the clipboard.
+1.  Create a personal access token in the 
+    [Applications area](https://github.com/settings/applications) of your GitHub
+    personal settings. Copy token to the clipboard.
 
-  * Identify your home directory. Not sure? Enter `normalizePath("~/")` in the R console.
+1.  Identify your home directory. Not sure? Enter `normalizePath("~/")` in 
+    the R console.
   
-  * Create a new text file. If in RStudio, do *File > New File > Text file.*
-  
-  * Create a line like this:
-  
-        GITHUB_TOKEN=blahblahblahblahblahblah
+1.  Create a new text file. If in RStudio, do *File > New File > Text file.*
+
+1.  Create a line like this:
+
+    ```bash
+    GITHUB_TOKEN=blahblahblahblahblahblah
+    ```
         
-    where the name `GITHUB_TOKEN` reminds you which API this is for and `blahblahblahblahblahblah` is your token, pasted from the clipboard.
+    where the name `GITHUB_TOKEN` reminds you which API this is for and 
+    `blahblahblahblahblahblah` is your token, pasted from the clipboard.
     
-  * Put a line break at the end. If you're using an editor that shows line numbers, there should be two lines, where the second one is empty.
+1.  Make sure the last line in the file is empty (if it isn't R will 
+    __silently__ fail to load the file. If you're using an editor that shows 
+    line numbers, there should be two lines, where the second one is empty.
   
-  * Save in your home directory with the filename `.Renviron`. If questioned, YES you do want to use a filename that begins with a dot `.`.
+1.  Save in your home directory with the filename `.Renviron`. If questioned, 
+    YES you do want to use a filename that begins with a dot `.`.
+
+    Note that by default [dotfiles](http://linux.about.com/cs/linux101/g/dot_file.htm) 
+    are usually hidden. But within RStudio, the file browser will make 
+    `.Renviron` visible and therefore easy to edit in the future.
   
-  * Note that by default [dotfiles](http://linux.about.com/cs/linux101/g/dot_file.htm) are usually hidden. But within RStudio, the file browser will make `.Renviron` visible and therefore easy to edit in the future.
+1.  Restart R. `.Renviron` is processed only 
+    [at the start of an R session](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html).
   
-  * Restart R. `.Renviron` is processed only [at the start of an R session](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html).
+1.  Use `Sys.getenv()` to access your token. For example, here's how to use 
+    your `GITHUB_TOKEN` with the `github` package:
   
-  * Use `Sys.getenv()` to access your token. For example, here's how to use your `GITHUB_TOKEN` with the `github` package:
-  
-        library(github)
-        ctx <- create.github.context(access_token = Sys.getenv("GITHUB_TOKEN"))
-        # ... proceed to use other package functions to open issues, etc.
+    ```R
+    library(github)
+    ctx <- create.github.context(access_token = Sys.getenv("GITHUB_TOKEN"))
+    # ... proceed to use other package functions to open issues, etc.
+    ```
     
 FAQ: Why define this environment variable via `.Renviron` instead of in `.bash_profile` or `.bashrc`?
 
