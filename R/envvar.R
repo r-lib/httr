@@ -1,43 +1,43 @@
 #' Get and set environment variables.
 #'
-#' The problem with this approach is that R doesn't really have any notion of
-#' a "project" .Renviron.
+#' This is a bad idea because it will leave it on the history
 #'
 #' @param Name of environment variable.
 #' @param Value of environment variable. Use \code{NA} to unset.
 #' @param Scope of change. If "session", the change is ephemeral and will
-#'   disappear when you restart R. If "project", will modify project the
-#'   \code{.Renviron} so it's permanently set for this project/working
-#'   directory. If "user", modifies your \code{~/.Renviron} so that it
-#'   affects every project. If "site", modifies the site .Renviron so that
-#'   it affects every user.
+#'   disappear when you restart R. If "user", modifies your \code{~/.Renviron}
+#'   so that it affects every project. If "site", modifies the site .Renviron
+#'   so that it affects every user.
 #' @return Invisibly, the previous value of the environment variable.
 #' @noRd
-set_envvar <- function(name, value, scope = c("session", "project", "user", "site")) {
+#' @examples
+#' \dontrun{
+#' # Set locally
+#' set_envvar("HTTR", "true")
+#'
+#' # Set for every new session (and this session)
+#' set_envvar("HTTR", "false", "user")
+#' # Update existing value
+#' set_envvar("HTTR", "true", "user")
+#' }
+set_envvar <- function(name, value, scope = c("session", "user", "site")) {
   stopifnot(length(name) == 1, length(value) == 1)
   scope <- match.arg(scope)
 
   old <- get_envvar(value)
 
-  if (scope == "session") {
-    set_envvar_local(name, value)
-  } else {
-    path <- switch(scope,
-      project = ".Renviron",
-      user = Sys.getenv("R_ENVIRON_USER", "~/.Renviron"),
-      site = Sys.getenv("R_ENVIRON", file.path(R.home("etc"), "Renviron.site"))
-    )
+  path <- switch(scope,
+    session = NULL,
+    user = Sys.getenv("R_ENVIRON_USER", "~/.Renviron"),
+    site = Sys.getenv("R_ENVIRON", file.path(R.home("etc"), "Renviron.site"))
+  )
+  set_envvar_local(name, value)
+  if (scope != "session")
     set_envvar_renviron(name, value, path)
-  }
 
   invisible(old)
 }
 
-set_envvars <- function(..., .envs = list(), .scope) {
-  vars <- c(list(...), .envs)
-  Map(function(name, value) set_envvar(name, value, scope = .scope),
-    names(vars), vars)
-}
 
 #' @rdname set_envvar
 #' @noRd
@@ -71,14 +71,16 @@ set_envvar_renviron <- function(name, value, path) {
     stop("Failed to read ", path, " with error:\n", e$message, call. = FALSE)
   })
   re <- paste0("^", name, "=")
-  matches <- which(grepl(lines, re))
+  matches <- which(grepl(re, lines))
 
   # No matches, so append to end of file
   if (length(matches) == 0) {
+    message("Setting ", name, " in ", path)
     cat(ev, "\n", sep = "", file = path, append = TRUE)
     return(invisible(FALSE))
   }
 
+  message("Updating ", name, " in ", path)
   if (length(matches) == 1) {
     lines[matches] <- ev
   } else {
@@ -89,7 +91,6 @@ set_envvar_renviron <- function(name, value, path) {
   lines <- tryCatch(writeLines(lines, path), error = function(e) {
     stop("Failed to write ", path, " with error:\n", e$message, call. = FALSE)
   })
-
 
   invisible(TRUE)
 }
