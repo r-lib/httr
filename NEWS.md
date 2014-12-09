@@ -19,6 +19,9 @@
 
 ## Minor improvements and bug fixes
 
+* `vignette("api-packages")` gains more detailed instructions on
+  setting environment variables, thanks to @jennybc.
+
 * Add `revoke_all()` to revoke all stored tokens (if possible) (#77).
 
 * Fix for OAuth 2 process when using `options(httr_oob_default = TRUE)`
