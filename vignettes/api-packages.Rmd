@@ -16,7 +16,7 @@ If you're new to working with web APIs, start by reading "[An introduction to AP
 
 ## Key info
 
-When writing an API, it's best to start with some helper functions that capture the common conventions of the API in one place. These fuctions capture information like:
+When writing an API, it's best to start with some helper functions that capture the common conventions of the API in one place. These functions capture information like:
 
 * the base URL for all API requests.
 * how authentication works
@@ -172,7 +172,7 @@ The most common forms of authentication are OAuth and http basic auth:
     authenticate("ddfa3d40d5855d6ba76b7003fd4", "")
     ```
 
-You also need some way to preserve user credentials so that they don't need to be re-entered multiple times. If you use OAuth, httr will take care of this for. For other use cases, I recommend using environment variables. The following function retrieves your PAT from an environmental variable called `GITHUB_PAT`, telling you how it set it if not. The devtools package needs to access you github personal access token to install packages from private repos.
+You also need some way to preserve user credentials so that they don't need to be re-entered multiple times. If you use OAuth, httr will take care of this for. For other use cases, I recommend using environment variables. The following function retrieves your PAT from an environmental variable called `GITHUB_PAT`, telling you how it set it if not. The devtools package needs to access your github personal access token to install packages from private repos.
 
 ```{r}
 github_pat <- function(force = FALSE) {
@@ -199,4 +199,39 @@ github_pat <- function(force = FALSE) {
 }
 ```
 
-Encourage you users to store their important information once, rather than typing it into the console - it's easy to accidentally publish your `.Rhistory` and you don't want it to contain private data.
+Encourage your users to store their important information once, rather than typing it into the console - it's easy to accidentally publish your `.Rhistory` and you don't want it to contain private data.
+
+## Appendix
+
+If your package supports an authentication workflow based on an API key or token, you can encourage users to store that in an environment variable. We illustrate this using the [`github` R package](https://github.com/cscheid/rgithub), which wraps the Github v3 API. Tailor this template to your API + package and include in `README.md` or a vignette.
+
+  * Create a personal access token in the [Applications area](https://github.com/settings/applications) of your GitHub personal settings. Copy token to the clipboard.
+
+  * Identify your home directory. Not sure? Enter `normalizePath("~/")` in the R console.
+  
+  * Create a new text file. If in RStudio, do *File > New File > Text file.*
+  
+  * Create a line like this:
+  
+        GITHUB_TOKEN=blahblahblahblahblahblah
+        
+    where the name `GITHUB_TOKEN` reminds you which API this is for and `blahblahblahblahblahblah` is your token, pasted from the clipboard.
+    
+  * Put a line break at the end. If you're using an editor that shows line numbers, there should be two lines, where the second one is empty.
+  
+  * Save in your home directory with the filename `.Renviron`. If questioned, YES you do want to use a filename that begins with a dot `.`.
+  
+  * Note that by default [dotfiles](http://linux.about.com/cs/linux101/g/dot_file.htm) are usually hidden. But within RStudio, the file browser will make `.Renviron` visible and therefore easy to edit in the future.
+  
+  * Restart R. `.Renviron` is processed only [at the start of an R session](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html).
+  
+  * Use `Sys.getenv()` to access your token. For example, here's how to use your `GITHUB_TOKEN` with the `github` package:
+  
+        library(github)
+        ctx <- create.github.context(access_token = Sys.getenv("GITHUB_TOKEN"))
+        # ... proceed to use other package functions to open issues, etc.
+    
+FAQ: Why define this environment variable via `.Renviron` instead of in `.bash_profile` or `.bashrc`?
+
+Because there are many combinations of OS and ways of running R where the `.Renviron` approach "just works" and the bash stuff does not. When R is a child process of, say, Emacs or RStudio, you can't always count on environment variables being passed to R. Put them in an R-specific start-up file and save yourself some grief.
+
