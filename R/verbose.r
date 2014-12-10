@@ -61,8 +61,9 @@ verbose <- function(data_out = TRUE, data_in = FALSE, info = FALSE, ssl = FALSE)
       sslDataIn =  if (data_in && ssl) prefix_message("*< ", msg, TRUE),
       sslDataOut = if (data_out && ssl) prefix_message("*> ", msg, TRUE),
     )
+    0
   }
-  config(debugfunction = debug, verbose = TRUE)
+  config(debugfunction = safe_callback(debug), verbose = TRUE)
 }
 
 prefix_message <- function(prefix, x, blank_line = FALSE) {
