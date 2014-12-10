@@ -186,18 +186,17 @@ make_config <- function(x, ...) {
 }
 
 default_config <- function() {
-  # Downloaded from http://curl.haxx.se/docs/caextract.html 2014-02-26
   cert <- system.file("cacert.pem", package = "httr")
 
   c(config(
       followlocation = TRUE,
       maxredirs = 10L,
-      encoding = "gzip",
-      cainfo = cert
+      encoding = "gzip"
     ),
     user_agent(default_ua()),
     add_headers(Accept = "application/json, text/xml, application/xml, */*"),
     write_memory(),
+    if (.Platform$OS.type == "windows") config(cainfo = cert),
     getOption("httr_config")
   )
 }

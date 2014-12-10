@@ -17,6 +17,10 @@
 * Uses R6 instead of RC. This makes it possible to extend the OAuth
   classes from outside of httr (#113).
 
+* Now only set `capath` on Windows - system defaults on linux and mac ox 
+  seem to be adequate (and in some cases better). I've added a couple of tests
+  to ensure that this continues to work in the future.
+
 ## Minor improvements and bug fixes
 
 * `vignette("api-packages")` gains more detailed instructions on
@@ -50,8 +54,6 @@
   
 * Added support for passing oauth1 tokens in URL instead of the headers 
   (#145, @bogstag).
-
-* Update `cacert.pem` to Thu Sep 4 06:31:22 2014 (#154).
 
 * Default to out-of-band credential exchange when `httpuv` isn't installed.
   (#168)

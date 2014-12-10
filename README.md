@@ -53,6 +53,9 @@ devtools::install_github("hadley/httr")
 httr includes a recent [CA certificate bundle](http://curl.haxx.se/docs/caextract.html) from mozilla.org. Run this code to update the package:
 
 ```r
-GET("https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt",
+GET("https://raw.githubusercontent.com/bagder/ca-bundle/e9175fec5d0c4d42de24ed6d84a06d504d5e5a09/ca-bundle.crt",
   write_disk("inst/cacert.pem", overwrite = TRUE))
 ```
+
+Around early September 2014, Mozilla removed the trust bits from the certs in their CA bundle that were still using RSA 1024 bit keys. This leads to problems on Windows, so we use an older version.
+
