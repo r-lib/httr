@@ -41,6 +41,9 @@
 
 * Correctly parse http status when it only contains two components (#162).
 
+* Correctly parse http headers when field name is followed by any amount
+  (including none) of white space.
+
 * Default "Accepts" header set to 
   `application/json, text/xml, application/xml, */*`: this should slightly
   increase the likelihood of getting xml back. `application/xml` is correctly
