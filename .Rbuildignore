@@ -6,3 +6,4 @@
 ^\.Rprofile$
 ^cran-comments.md$
 ^revdep$
+^cran-comments\.md$

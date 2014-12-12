@@ -6,7 +6,7 @@
 |:--------|:----------------------------|
 |version  |R version 3.1.2 (2014-10-31) |
 |system   |x86_64, darwin13.4.0         |
-|ui       |RStudio (0.99.90)            |
+|ui       |RStudio (0.99.104)           |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
@@ -16,7 +16,7 @@
 |package   |*  |version  |date       |source         |
 |:---------|:--|:--------|:----------|:--------------|
 |base64enc |*  |0.1-2    |2014-06-26 |CRAN (R 3.1.0) |
-|digest    |*  |0.6.4    |2013-12-03 |CRAN (R 3.1.0) |
+|digest    |*  |0.6.6    |2014-12-10 |CRAN (R 3.1.2) |
 |httpuv    |*  |1.3.2    |2014-10-23 |CRAN (R 3.1.2) |
 |jpeg      |*  |0.1-8    |2014-01-23 |CRAN (R 3.1.0) |
 |jsonlite  |*  |0.9.14   |2014-12-01 |CRAN (R 3.1.2) |
@@ -106,8 +106,9 @@ Bug reports: https://github.com/ropensci/ecoengine/issues
 
 __OK__
 
-## enigma (0.1.0)
-Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
+## enigma (0.1.1)
+Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
+Bug reports: https://github.com/ropengov/enigma/issues
 
 __OK__
 
@@ -382,28 +383,11 @@ Bug reports: https://github.com/ropensci/rbhl/issues
 
 __OK__
 
-## rbison (0.4.3)
+## rbison (0.4.5)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rbison/issues
 
-```
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-  bison_datause() for data use and bison_citation() for how to cite data from BISON
-  Use suppressPackageStartupMessages() to suppress these startup messages in the future
-  
-  bison : .............
-  bison_solr : ........
-  bison_tax : ........
-  bisonmap : 12..
-  is.bison : ....
-  Error in vapply(failures, "[[", "failure_msg", FUN.VALUE = character(1)) : 
-    values must be length 1,
-   but FUN(X[[2]]) result is length 2
-  Calls: test_check ... <Anonymous> -> .oapply -> eval -> eval -> <Anonymous> -> vapply
-  Execution halted
-```
+__OK__
 
 ## rclinicaltrials (1.4)
 Maintainer: Michael C Sachs <sachsmc@gmail.com>
@@ -415,7 +399,7 @@ Maintainer: Paolo Sonego <paolo.sonego@fmach.it>
 
 __OK__
 
-## rcrossref (0.2.0)
+## rcrossref (0.2.1)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rcrossref/issues
 
@@ -444,14 +428,14 @@ Maintainer: David Winter <david.winter@gmail.com>
 
 __OK__
 
-## repmis (0.3)
+## repmis (0.3.3)
 Maintainer: Christopher Gandrud <christopher.gandrud@gmail.com>  
 Bug reports: https://github.com/christophergandrud/repmis/issues
 
 ```
 checking whether package ‘repmis’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/RtmpZBFnsq/check_cran4dd335b58dac/repmis.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6SJxAU/check_cran184d668ec697/repmis.Rcheck/00install.out’ for details.
 ```
 
 ## Rfacebook (0.4)
