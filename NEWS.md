@@ -31,9 +31,9 @@
 * Fix for OAuth 2 process when using `options(httr_oob_default = TRUE)`
   (#126, @WillemPaling).
 
-* httr checks to see if your libCurl uses NSS. This is unlikely to work
-  so it gives you some advice on how to fix the problem (thanks to 
-  @eddelbuettel for debugging this problem).
+* New `brew_dr()` checks for common problems. Currently checks if your libCurl 
+  uses NSS. This is unlikely to work so it gives you some advice on how to 
+  fix the problem (thanks to @eddelbuettel for debugging this problem).
 
 * `Content-Type` set to title case to avoid errors in servers which do not
   correctly implement case insensitivity in header names. (#142, #146) thanks

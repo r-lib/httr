@@ -1,3 +1,7 @@
+Minor update: this version moves automated NSS check into explicit function to avoid false-positives.
+
+---
+
 ## Test environments
 * local OS X install, R 3.1.2
 * ubuntu 12.04 (on travis-ci), R 3.1.2
