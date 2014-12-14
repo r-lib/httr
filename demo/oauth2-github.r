@@ -1,4 +1,4 @@
-if (!is_installed("httpuv")) {
+if (!require(httpuv)) {
   install.packages("httpuv")
 }
 library(httr)
