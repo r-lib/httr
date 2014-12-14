@@ -1,3 +1,6 @@
+if (!is_installed("httpuv")) {
+  install.packages("httpuv")
+}
 library(httr)
 
 # 1. Find OAuth settings for github:
