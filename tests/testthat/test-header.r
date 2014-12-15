@@ -50,3 +50,13 @@ test_that("http status line only needs two components", {
   expect_equal(headers[[1]]$status, 200L)
 
 })
+
+test_that("Key/value parsing tolerates multiple ':'", {
+  lines <- c(
+    "HTTP/1.1 200 OK",
+    "A: B:C",
+    "D:E:F"
+  )
+  expect_equal(parse_headers(lines)[[1]]$headers$A, "B:C")
+  expect_equal(parse_headers(lines)[[1]]$headers$D, "E:F")
+})
