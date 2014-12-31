@@ -6,6 +6,8 @@
   and we can't guess the type from the extension, we now assume that it's 
   `application/octet-stream` (#181).
 
+* Throw error if `timeout()` is less than 1 ms (#175).
+
 # httr 0.6.0
 
 ## New features
