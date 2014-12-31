@@ -76,7 +76,7 @@ parse_single_header <- function(lines) {
 
   # Parse headers into name-value pairs
   header_lines <- lines[lines != ""][-1]
-  pos <- regexec("^(.*?):\\s*(.*?)$", header_lines)
+  pos <- regexec("^([^:]*):\\s*(.*)$", header_lines)
   pieces <- regmatches(header_lines, pos)
 
   n <- vapply(pieces, length, integer(1))
