@@ -16,7 +16,7 @@
 |package   |*  |version  |date       |source         |
 |:---------|:--|:--------|:----------|:--------------|
 |base64enc |*  |0.1-2    |2014-06-26 |CRAN (R 3.1.0) |
-|digest    |*  |0.6.6    |2014-12-10 |CRAN (R 3.1.2) |
+|digest    |*  |0.6.7    |2014-12-20 |CRAN (R 3.1.2) |
 |httpuv    |*  |1.3.2    |2014-10-23 |CRAN (R 3.1.2) |
 |jpeg      |*  |0.1-8    |2014-01-23 |CRAN (R 3.1.0) |
 |jsonlite  |*  |0.9.14   |2014-12-01 |CRAN (R 3.1.2) |
@@ -30,7 +30,7 @@
 |XML       |*  |3.98-1.1 |2013-06-20 |CRAN (R 3.1.0) |
 
 # Check results
-69 checked out of 70 dependencies 
+71 checked out of 72 dependencies 
 
 ## aemo (0.1.0)
 Maintainer: Imanuel Costigan <i.costigan@me.com>
@@ -58,7 +58,7 @@ Bug reports: https://github.com/pbiecek/archivist/issues
 
 __OK__
 
-## aRxiv (0.5.5)
+## aRxiv (0.5.8)
 Maintainer: Karl Broman <kbroman@biostat.wisc.edu>  
 Bug reports: https://github.com/ropensci/aRxiv/issues
 
@@ -72,11 +72,6 @@ __OK__
 
 ## couchDB (1.3.0)
 Maintainer: Aleksander Dietrichson <sasha@xrrch.com>
-
-__OK__
-
-## dataRetrieval (2.0.1)
-Maintainer: Laura DeCicco <ldecicco@usgs.gov>
 
 __OK__
 
@@ -275,7 +270,7 @@ team.name.select: no visible global function definition for
   ‘tkwait.window’
 ```
 
-## gender (0.4.2)
+## gender (0.4.3)
 Maintainer: Lincoln Mullen <lincoln@lincolnmullen.com>  
 Bug reports: https://github.com/ropensci/gender/issues
 
@@ -343,6 +338,12 @@ Bug reports: http://github.com/jeroenooms/opencpu/issues
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘RAppArmor’
 ```
+
+## packrat (0.4.2-1)
+Maintainer: Kevin Ushey <kevin@rstudio.com>  
+Bug reports: https://github.com/rstudio/packrat/issues
+
+__OK__
 
 ## pdfetch (0.1.6)
 Maintainer: Abiel Reinhart <abielr@gmail.com>
@@ -415,12 +416,30 @@ Maintainer: Benjamin Nutter <nutterb@ccf.org>
 
 __OK__
 
-## REDCapR (0.4-28)
+## REDCapR (0.7-1)
 Maintainer: Will Beasley <wibeasley@hotmail.com>
 
 ```
 checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘RODBC’
+```
+```
+checking tests ... ERROR
+Running the tests in ‘tests/test-all.R’ failed.
+Last 13 lines of output:
+                 character()
+             else names(CURLcodeValues)[i]
+         }
+         typeName = gsub("^CURLE_", "", typeName)
+         fun = (if (asError) 
+             stop
+         else warning)
+         fun(structure(list(message = msg, call = sys.call()), class = c(typeName, "GenericCurlError", 
+             "error", "condition")))
+     }(35L, "Unknown SSL protocol error in connection to bbmc.ouhsc.edu:-9800", TRUE)
+  
+  Error: Test failures
+  Execution halted
 ```
 
 ## rentrez (0.3.1)
@@ -435,7 +454,7 @@ Bug reports: https://github.com/christophergandrud/repmis/issues
 ```
 checking whether package ‘repmis’ can be installed ... ERROR
 Installation failed.
-See ‘/private/tmp/Rtmp6SJxAU/check_cran184d668ec697/repmis.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmpMXwG5D/check_cran7ee11ac16632/repmis.Rcheck/00install.out’ for details.
 ```
 
 ## Rfacebook (0.4)
@@ -459,7 +478,7 @@ fish_plot: no visible binding for global variable ‘species_code_data’
 fish_plot: no visible binding for global variable ‘country_code_data’
 ```
 
-## RGA (0.1.3)
+## RGA (0.1.4)
 Maintainer: Artem Klevtsov <a.a.klevtsov@gmail.com>  
 Bug reports: https://bitbucket.org/unikum/rga/issues
 
@@ -503,7 +522,13 @@ Maintainer: Edmund Hart <edmund.m.hart@gmail.com>
 
 __OK__
 
-## RNeXML (2.0.0)
+## rnbn (1.0.3)
+Maintainer: Tom August <tomaug@ceh.ac.uk>  
+Bug reports: https://github.com/ropensci/rnbn/issues
+
+__OK__
+
+## RNeXML (2.0.1)
 Maintainer: Carl Boettiger <cboettig@gmail.com>  
 Bug reports: https://github.com/ropensci/RNeXML/issues
 
@@ -512,8 +537,8 @@ checking package dependencies ... NOTE
 Packages suggested but not available for checking: ‘rrdf’ ‘Sxslt’
 ```
 
-## rnoaa (0.2.0)
-Maintainer: Hart Edmund <Edmund.m.hart@gmail.com>  
+## rnoaa (0.3.3)
+Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: http://www.github.com/ropensci/rnoaa/issues
 
 __OK__
@@ -521,6 +546,12 @@ __OK__
 ## rplos (0.4.1)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: http://www.github.com/ropensci/rplos/issues
+
+__OK__
+
+## RPublica (0.1.2)
+Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>  
+Bug reports: https://github.com/rOpenGov/RPublica/issues
 
 __OK__
 
@@ -593,7 +624,24 @@ These lines will be truncated in the PDF manual.
 ## rvest (0.1.0)
 Maintainer: 'Hadley Wickham' <h.wickham@gmail.com>
 
-__OK__
+```
+checking examples ... ERROR
+Running examples in ‘rvest-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: html_table
+> ### Title: Parse an html table into a data frame.
+> ### Aliases: html_table
+> 
+> ### ** Examples
+> 
+> bonds <- html("http://finance.yahoo.com/bonds/composite_bond_rates")
+Error in html.response(r, encoding = encoding) : 
+  server error: (502) Bad Gateway
+Calls: html ... html.character -> html -> html.response -> <Anonymous>
+Execution halted
+```
 
 ## rWBclimate (0.1.3)
 Maintainer: Edmund Hart <edmund.m.hart@gmail.com>  
@@ -650,7 +698,7 @@ Maintainer: Nick Carchedi <nick.carchedi@gmail.com>
 
 __OK__
 
-## taxize (0.4.0)
+## taxize (0.5.2)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/taxize/issues
 
@@ -672,7 +720,7 @@ Bug reports: https://github.com/Ironholds/WikipediR/issues
 
 __OK__
 
-## yhatr (0.13.1)
+## yhatr (0.13.2)
 Maintainer: Greg Lamp <greg@yhathq.com>
 
 __OK__

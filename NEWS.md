@@ -1,4 +1,4 @@
-# httr 0.6.0.9000
+# httr 0.6.1
 
 * Correctly parse headers with multiple `:`, thanks to @mmorgan (#180).
 
