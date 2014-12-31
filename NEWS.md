@@ -8,6 +8,8 @@
 
 * Throw error if `timeout()` is less than 1 ms (#175).
 
+* Improved LinkedIn OAuth demo (#173).
+
 # httr 0.6.0
 
 ## New features
