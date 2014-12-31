@@ -2,6 +2,10 @@
 
 * Correctly parse headers with multiple `:`, thanks to @mmorgan (#180).
 
+* In `content()`, if no type is provided to function or specified in headers,
+  and we can't guess the type from the extension, we now assume that it's 
+  `application/octet-stream` (#181).
+
 # httr 0.6.0
 
 ## New features
