@@ -1,5 +1,7 @@
 # httr 0.6.0.9000
 
+* Correctly parse headers with multiple `:`, thanks to @mmorgan (#180).
+
 # httr 0.6.0
 
 ## New features
