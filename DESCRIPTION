@@ -1,5 +1,5 @@
 Package: httr
-Version: 0.6.1
+Version: 0.6.1.9000
 Title: Tools for Working with URLs and HTTP
 Description: Useful tools for working with HTTP organised by HTTP verbs
     (GET(), POST(), etc). Configuration functions make it easy to control
