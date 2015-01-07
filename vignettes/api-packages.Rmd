@@ -66,7 +66,7 @@ github_check <- function(req) {
 
 github_parse <- function(req) {
   text <- content(req, as = "text")
-  if (identical(text, "")) stop("Not output to parse", call. = FALSE)
+  if (identical(text, "")) stop("No output to parse", call. = FALSE)
   jsonlite::fromJSON(text, simplifyVector = FALSE)
 }
 
@@ -136,7 +136,7 @@ When you get an error, often the body of the request will contain some useful in
 ```{r}
 github_parse <- function(req) {
   text <- content(req, as = "text")
-  if (identical(text, "")) stop("Not output to parse", call. = FALSE)
+  if (identical(text, "")) stop("No output to parse", call. = FALSE)
   jsonlite::fromJSON(text, simplifyVector = FALSE)
 }
 ```
@@ -172,7 +172,7 @@ The most common forms of authentication are OAuth and http basic auth:
     authenticate("ddfa3d40d5855d6ba76b7003fd4", "")
     ```
 
-You also need some way to preserve user credentials so that they don't need to be re-entered multiple times. If you use OAuth, httr will take care of this for. For other use cases, I recommend using environment variables. The following function retrieves your PAT from an environmental variable called `GITHUB_PAT`, telling you how it set it if not. The devtools package needs to access your github personal access token to install packages from private repos.
+You also need some way to preserve user credentials so that they don't need to be re-entered multiple times. If you use OAuth, httr will take care of this for. For other use cases, I recommend using environment variables. The following function retrieves your PAT from an environmental variable called `GITHUB_PAT`, telling you how to set it if not. The devtools package needs to access your github personal access token to install packages from private repos.
 
 ```{r}
 github_pat <- function(force = FALSE) {
