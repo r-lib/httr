@@ -13,14 +13,23 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
   # Send single file lazily
   if (inherits(body, "FileUploadInfo")) {
     con <- file(body$filename, "rb")
-    # FIXME: also need to close when done
     mime_type <- body$contentType %||%
       mime::guess_type(body$filename, empty = NULL)
     size <- file.info(body$filename)$size
 
     return(body_httr(
       post = TRUE,
-      readfunction = function(nbytes, ...) readBin(con, "raw", nbytes),
+      readfunction = function(nbytes, ...) {
+          bin <- tryCatch({
+              readBin(con, "raw", nbytes)
+          }, error=function(e, ...) {
+              close(con)
+              stop(e)
+          })
+          if (!length(bin))
+              close(con)
+          bin
+      },
       postfieldsize = size,
       type = mime_type
     ))
