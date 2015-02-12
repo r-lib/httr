@@ -31,7 +31,7 @@ make_request <- function(method, handle, url, config = NULL, body = NULL,
   # Perform request and capture output
   req <- perform(handle, writer, method, opts, body)
 
-  needs_refresh <- refresh && req$status == 401L &&
+  needs_refresh <- refresh && req$status_code == 401L &&
     !is.null(config$token) && config$token$can_refresh()
   if (needs_refresh) {
     message("Auto-refreshing stale OAuth token.")
