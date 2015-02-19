@@ -27,7 +27,7 @@ Key features:
   `verbose()`, `timeout()`, `content_type()`, `accept()`, `progress()`.
 
 * Support for OAuth 1.0 and 2.0 with `oauth1.0_token()` and `oauth2.0_token()`.
-  The demos directory has eight OAuth demos: four for 1.0 (twitter, vimeo,
+  The demo directory has eight OAuth demos: four for 1.0 (twitter, vimeo,
   withings and yahoo) and four for 2.0 (facebook, github, google, linkedin). 
   OAuth credentials are automatically cached within a project. 
 
