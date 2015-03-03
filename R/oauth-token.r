@@ -278,7 +278,7 @@ TokenServiceAccount <- R6::R6Class("TokenServiceAccount", inherit = Token2.0, li
   },
   sign = function(method, url) {
     config <- add_headers(
-      Authorization = paste('Bearer', self$access_token)
+      Authorization = paste('Bearer', self$credentials$access_token)
     )
     list(url = url, config = config)
   },
