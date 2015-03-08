@@ -45,5 +45,5 @@ cookies.handle <- function(x) {
   names(parsed) <- c("domain", "tailmatch", "path", "secure", "expires", "name",
     "value")
 
-  setNames(as.list(parsed$value), parsed$name)
+  stats::setNames(as.list(parsed$value), parsed$name)
 }

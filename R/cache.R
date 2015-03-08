@@ -106,7 +106,7 @@ parse_cache_control <- function(x) {
   keys <- c("flags", lapply(keyvalues, "[[", 1))
   values <- c(flags, lapply(keyvalues, "[[", 2))
 
-  setNames(values, keys)
+  stats::setNames(values, keys)
 }
 
 #' @rdname cache_info
