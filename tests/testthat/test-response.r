@@ -5,7 +5,7 @@ test_that("application/json responses parsed as lists", {
     response <- GET("http://httpbin.org/user-agent",
                     add_headers("user-agent" = user_agent))
 
-    expect_equal(response$status, 200)
+    expect_equal(response$status_code, 200)
     expected_reply = list("user-agent" = user_agent %||% default_ua())
     expect_equal(expected_reply, content(response))
   }
