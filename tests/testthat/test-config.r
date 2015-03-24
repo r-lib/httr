@@ -10,15 +10,15 @@ test_that("basic authentication works", {
   path <- "basic-auth/user/passwd"
 
   r <- GET(path = path, handle = h)
-  expect_equal(r$status, 401)
+  expect_equal(r$status_code, 401)
 
   r <- GET(path = path, handle = h,
     config = authenticate("user", "passwd", "basic"))
-  expect_equal(r$status, 200)
+  expect_equal(r$status_code, 200)
 
   # Authentication shouldn't persist
   r <- GET(path = path, handle = h)
-  expect_equal(r$status, 401)
+  expect_equal(r$status_code, 401)
 })
 
 test_that("digest authentication works", {
@@ -26,11 +26,11 @@ test_that("digest authentication works", {
   path <- "digest-auth/qop/user/passwd"
 
   r <- GET(path = path, handle = h)
-  expect_equal(r$status, 401)
+  expect_equal(r$status_code, 401)
 
   r <- GET(path = path, handle = h,
     config = authenticate("user", "passwd", "digest"))
-  expect_equal(r$status, 200)
+  expect_equal(r$status_code, 200)
 })
 
 test_that("oauth2.0 signing works", {
