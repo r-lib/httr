@@ -1,4 +1,4 @@
-#' S3 object to define respose writer.
+#' S3 object to define response writer.
 #'
 #' This S3 object allows you to control how the response body is saved.
 #'
@@ -55,7 +55,7 @@ write_term <- function(x) UseMethod("write_term")
 #' }
 write_disk <- function(path, overwrite = FALSE) {
   if (!overwrite && file.exists(path)) {
-    stop("Path exists and overrwrite is FALSE", call. = FALSE)
+    stop("Path exists and overwrite is FALSE", call. = FALSE)
   }
   config(
     writer = write_function("write_disk", path = path, file = NULL)
