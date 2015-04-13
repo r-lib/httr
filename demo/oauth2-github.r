@@ -1,4 +1,5 @@
 library(httr)
+library(httpuv)
 
 # 1. Find OAuth settings for github:
 #    http://developer.github.com/v3/oauth/
