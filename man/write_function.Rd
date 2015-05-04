@@ -5,7 +5,7 @@
 \alias{write_init}
 \alias{write_opts}
 \alias{write_term}
-\title{S3 object to define respose writer.}
+\title{S3 object to define response writer.}
 \usage{
 write_function(subclass, ...)
 
