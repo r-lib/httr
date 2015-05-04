@@ -25,17 +25,17 @@ handle <- function(url, cookies = TRUE) {
   url <- parse_url(url)
   cookie_path <- if (cookies) tempfile() else NULL
 
-  h <- RCurl::getCurlHandle(cookiefile = cookie_path, .defaults = list())
+  h <- curl::new_handle(cookiefile = cookie_path)
   structure(list(handle = h, url = url), class = "handle")
 }
 
 #' @export
 print.handle <- function(x, ...) {
-  cat("Host: ", build_url(x$url) , " <", ref(x), ">\n", sep = "")
+  cat("Host: ", build_url(x$url) , " <", ref(x$handle), ">\n", sep = "")
 }
 
 ref <- function(x) {
-  str_extract(capture.output(print(x$handle@ref)), "0x[0-9a-f]*")
+  str_extract(capture.output(print(x))[1], "0x[0-9a-f]*")
 }
 
 is.handle <- function(x) inherits(x, "handle")
@@ -44,7 +44,7 @@ reset_handle_config <- function(handle, config) {
   # Calls curl_easy_reset (http://curl.haxx.se/libcurl/c/curl_easy_reset.html)
   # Does not change live connections, session ID cache, DNS cache, cookies
   # or shares.
-  RCurl::reset(handle$handle)
+  curl::handle_reset(handle)
   invisible(TRUE)
 }
 
