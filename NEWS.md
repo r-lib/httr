@@ -1,5 +1,9 @@
 # httr 0.6.1.9000
 
+* `POST(encode = 'json')` now automatically turns length-1 vectors into json
+  scalars. To prevent this automatic "unboxing", wrap the vector in `I()` 
+  (#187).
+
 # httr 0.6.1
 
 * Correctly parse headers with multiple `:`, thanks to @mmorgan (#180).

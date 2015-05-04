@@ -20,7 +20,10 @@
 #'
 #'   For "multipart", list elements can be strings or objects created by
 #'   \code{\link{upload_file}}. For "form", elements are coerced to strings
-#'   and escaped, use \code{I()} to prevent double-escaping.
+#'   and escaped, use \code{I()} to prevent double-escaping. For "json",
+#'   parameters are automatically "unboxed" (i.e. length 1 vectors are
+#'   converted to scalars). To preserve a length 1 vector as a vector,
+#'   wrap in \code{I()}.
 #' @param multipart Deprecated. \code{TRUE} = \code{encode = "multipart"},
 #'   \code{FALSE} = {encode = "form"}.
 #'   Files can not be uploaded when \code{FALSE}.
