@@ -20,10 +20,10 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
     return(body_httr(
       post = TRUE,
       readfunction = function(nbytes, ...) {
-          bin <- readBin(con, "raw", nbytes)
-          if (!length(bin))
-              close(con)
-          bin
+        bin <- readBin(con, "raw", nbytes)
+        if (!length(bin))
+          close(con)
+        bin
       },
       postfieldsize = size,
       type = mime_type
