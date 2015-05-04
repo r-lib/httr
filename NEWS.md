@@ -1,5 +1,8 @@
 # httr 0.6.1.9000
 
+* `proxy()` gains an `auth` argument which allows you to pick the type of
+  http authentication used by the proxy (#216).
+
 * `context(type = "auto")` uses a better strategy for text based formats (#209).
   This should allow the `encoding` argument to work more reliably.
 
