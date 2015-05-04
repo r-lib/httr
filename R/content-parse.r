@@ -2,7 +2,7 @@ parse_text <- function(content, type = NULL, encoding = NULL) {
   charset <- if (!is.null(type)) parse_media(type)$params$charset
   encoding <- toupper(encoding %||% charset %||% "ISO-8859-1")
 
-  if (!(encoding %in% iconvlist())) {
+  if (!(tolower(encoding) %in% tolower(iconvlist()))) {
     message("Unknown encoding ", encoding, ". ",
       "Defaulting to latin1 (ISO-8859-1).")
     encoding <- "ISO-8859-1"
