@@ -49,7 +49,19 @@ config <- function(...) {
     stop("Unknown RCurl options: ", paste0(unknown, collapse = ", "))
   }
 
-  structure(options, class = "config")
+  # Clean up duplicated options
+  headers <- names(options) == "httpheader"
+  if (any(headers)) {
+    all_headers <- unlist(unname(options[headers]))
+    all_headers <- all_headers[!duplicated(names(all_headers), fromLast = TRUE)]
+
+    options <- options[!headers]
+    options[["httpheader"]] <- all_headers
+  }
+  options <- options[!duplicated(names(options), fromLast = TRUE)]
+
+  class(options) <- "config"
+  options
 }
 
 is.config <- function(x) inherits(x, "config")
@@ -89,7 +101,6 @@ httr_options <- function(matches) {
 
   rcurl <- names(constants)
   curl  <- translate_curl(rcurl)
-
 
   opts <- data.frame(
     httr = rcurl,
@@ -150,12 +161,7 @@ curl_docs <- function(x) {
 # with cookies, but that would require a bigger rewrite.
 #' @export
 c.config <- function(...) {
-  all <- NextMethod()
-  is_header <- names(all) == "httpheader"
-  headers <- unlist(unname(all[is_header]), recursive = FALSE)
-  all <- c(all[!is_header], add_headers(.headers = headers))
-
-  structure(all, class = "config")
+  Reduce(modify_config, list(...))
 }
 
 #' @export
@@ -177,12 +183,9 @@ modify_config <- function(x, val) {
 }
 
 make_config <- function(x, ...) {
-  if (is.list(x)) {
-    class(x) <- "config"
-  }
-
   configs <- c(list(x), unnamed(list(...)))
-  do.call("c", configs)
+
+  structure(Reduce(modify_config, configs), class = "config")
 }
 
 default_config <- function() {

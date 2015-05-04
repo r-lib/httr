@@ -78,6 +78,27 @@ test_that("partial OAuth1 flow works", {
 })
 
 
+# Construction ----------------------------------------------------------------
+
+test_that("c.config overwrites repeated options", {
+  expect_equal(c(config(url = "a"), config(url = "b")) ,
+     config(url = "b"))
+})
+
+test_that("c.config merges headers", {
+  expect_equal(c(config(httpheader = c("a" = "a")), config(httpheader = c("b" = "b"))),
+    config(httpheader = c("a" = "a", "b" = "b")))
+})
+
+test_that("config() keeps last of repeated options", {
+  expect_equal(config(url = "a", url = "b"), config(url = "b"))
+})
+
+test_that("config() merges headers", {
+  expect_equal(config(httpheader = c("a" = "a"), httpheader = c("b" = "b")),
+    config(httpheader = c("a" = "a", "b" = "b")))
+})
+
 test_that("make_config combines headers correctly", {
   config <- make_config(list(), add_headers(a = 1), add_headers(a = 2))
   expect_is(config, "config")

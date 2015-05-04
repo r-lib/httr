@@ -1,5 +1,7 @@
 # httr 0.6.1.9000
 
+* `config()` and `c.config()` now clean up duplicated options (#213).
+
 * `POST()` and `PUT()` now clean up after themselves when uploading a single 
   file (@mtmorgan).
 
