@@ -40,10 +40,18 @@
 #'   common types.
 #' @param encoding For text, overrides the charset or the Latin1 (ISO-8859-1)
 #'   default, if you know that the server is returning the incorrect encoding
-#'   as the charset in the content-type. Use for text and auto outputs.
+#'   as the charset in the content-type. Use for text and parsed outputs.
 #' @param ... Other parameters parsed on to the parsing functions, if
-#'  \code{as = "auto"}
+#'  \code{as = "parsed"}
 #' @family response methods
+#' @return
+#' For "raw", a raw vector.
+#'
+#' For "text", a character vector of length 1. The character vector is always
+#' re-encoded to UTF-8. If this encoding fails (usually because the page
+#' declares an incorrect encoding), \code{content()} will return \code{NA}.
+#'
+#' For "auto", a parsed R object.
 #' @export
 #' @examples
 #' r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
