@@ -199,7 +199,8 @@ default_config <- function() {
     user_agent(default_ua()),
     add_headers(Accept = "application/json, text/xml, application/xml, */*"),
     write_memory(),
-    if (.Platform$OS.type == "windows") config(cainfo = cert),
+    if (.Platform$OS.type == "windows"  &&
+      !("cainfo" %in% names(getOption("httr_config")))) config(cainfo = cert),
     getOption("httr_config")
   )
 }
