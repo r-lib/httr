@@ -3,8 +3,6 @@
 * `POST()` and `PUT()` now clean up after themselves when uploading a single 
   file (@mtmorgan).
 
-* Update bundled `ca-pert.pem` to 2015-04-27 release (#220).
-
 * `proxy()` gains an `auth` argument which allows you to pick the type of
   http authentication used by the proxy (#216).
 
