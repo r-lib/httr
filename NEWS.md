@@ -1,5 +1,8 @@
 # httr 0.6.1.9000
 
+* `context(type = "auto")` uses a better strategy for text based formats (#209).
+  This should allow the `encoding` argument to work more reliably.
+
 * `content(type = "text")` compares encodings in a case-insensitive manner
   (#209).
 
