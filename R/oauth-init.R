@@ -7,8 +7,7 @@
 #'    \code{\link{oauth_app}}
 #' @param permission optional, a string of permissions to ask for.
 #' @param is_interactive Is the current environment interactive?
-#' @param host ip address for the listener
-#' @param port for the listener
+#' @inheritParams oauth_listener 
 #' @export
 #' @keywords internal
 init_oauth1.0 <- function(endpoint, app, permission = NULL,
@@ -53,6 +52,7 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'     Otherwise, provide a URL to the user and prompt for a validation
 #'     code. Defaults to the of the \code{"httr_oob_default"} default,
 #'     or \code{TRUE} if \code{httpuv} is not installed.
+#' @inheritParams oauth_listener
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
