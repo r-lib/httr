@@ -5,9 +5,10 @@ library(httr)
 oauth_endpoints("google")
 
 # 2. Register an application at https://cloud.google.com/console#/project
-#    Insert your values below - if secret is omitted, it will look it up in
-#    the GOOGLE_CONSUMER_SECRET environmental variable.
-myapp <- oauth_app("google", "16795585089.apps.googleusercontent.com")
+#    Replace key and secret below.
+myapp <- oauth_app("google",
+  key = "16795585089.apps.googleusercontent.com",
+  secret = "hlJNgK73GjUXILBQvyvOyurl")
 
 # 3. Get OAuth credentials
 google_token <- oauth2.0_token(oauth_endpoints("google"), myapp,

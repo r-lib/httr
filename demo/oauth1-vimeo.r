@@ -5,9 +5,10 @@ library(httr)
 oauth_endpoints("vimeo")
 
 # 2. Register an application at https://developer.vimeo.com/apps
-#    Insert your values below - if secret is omitted, it will look it up in
-#    the VIMEO_CONSUMER_SECRET environmental variable.
-myapp <- oauth_app("vimeo", key = "bd535bc38ed5caccd79330ff33075eb9")
+#    Replace key and secret below.
+myapp <- oauth_app("vimeo",
+  key = "bd535bc38ed5caccd79330ff33075eb9",
+  secret = "51ab8cb2cbb8b7eb")
 
 # 3. Get OAuth credentials
 vimeo_token <- oauth1.0_token(oauth_endpoints("vimeo"), myapp)
