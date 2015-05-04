@@ -35,6 +35,7 @@
 #' @docType class
 #' @keywords internal
 #' @format An R6 class object.
+#' @importFrom R6 R6Class
 #' @export
 #' @name Token-class
 Token <- R6::R6Class("Token", list(
