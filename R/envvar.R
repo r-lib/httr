@@ -50,7 +50,7 @@ set_envvar_local <- function(name, value) {
   if (is.na(value)) {
     Sys.unsetenv(name)
   } else {
-    l <- setNames(list(quote(value)), name)
+    l <- stats::setNames(list(quote(value)), name)
     do.call("Sys.setenv", l)
   }
 }

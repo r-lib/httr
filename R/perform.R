@@ -89,7 +89,7 @@ parse_single_header <- function(lines) {
 
   names <- vapply(pieces, "[[", 2, FUN.VALUE = character(1))
   values <- lapply(pieces, "[[", 3)
-  headers <- insensitive(setNames(values, names))
+  headers <- insensitive(stats::setNames(values, names))
 
   list(status = status$status, version = status$version, headers = headers)
 }
