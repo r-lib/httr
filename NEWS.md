@@ -18,6 +18,12 @@
   scalars. To prevent this automatic "unboxing", wrap the vector in `I()` 
   (#187).
 
+* `oauth1.0_token` and `oauth2.0_token` now permit the `oauth_listener` to 
+  listen on a custom IP address and port (the previously hardwired ip:port 
+  of `127.0.0.1:1410` is now just the default).  This permits authentication to 
+  work under other settings, such as inside docker containers (which require 
+  localhost uses `0.0.0.0` instead) (#211, @cboettig).
+
 # httr 0.6.1
 
 * Correctly parse headers with multiple `:`, thanks to @mmorgan (#180).
