@@ -10,9 +10,11 @@
 #'
 #' @param request_url the url to send the browser to
 #' @param is_interactive Is an interactive environment available?
+#' @param host ip address for the listener
+#' @param port for the listener
 #' @export
 #' @keywords internal
-oauth_listener <- function(request_url, is_interactive = interactive()) {
+oauth_listener <- function(request_url, is_interactive = interactive(), host = "127.0.0.1", port = 1410) {
   if (!is_installed("httpuv")) {
     stop("httpuv package required to capture OAuth credentials.")
   }
@@ -45,7 +47,7 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
     )
   }
 
-  server <- httpuv::startServer("127.0.0.1", 1410, list(call = listen))
+  server <- httpuv::startServer(host, port, list(call = listen))
   on.exit(httpuv::stopServer(server))
 
   message("Waiting for authentication in browser...")
