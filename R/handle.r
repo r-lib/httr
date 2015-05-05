@@ -39,12 +39,3 @@ ref <- function(x) {
 }
 
 is.handle <- function(x) inherits(x, "handle")
-
-reset_handle_config <- function(handle, config) {
-  # Calls curl_easy_reset (http://curl.haxx.se/libcurl/c/curl_easy_reset.html)
-  # Does not change live connections, session ID cache, DNS cache, cookies
-  # or shares.
-  curl::handle_reset(handle)
-  invisible(TRUE)
-}
-

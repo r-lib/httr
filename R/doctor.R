@@ -8,7 +8,7 @@ brew_dr <- function() {
 }
 
 check_for_nss <- function() {
-  if (!grepl("^NSS", RCurl::curlVersion()$ssl_version)) return()
+  if (!grepl("^NSS", curl::curl_version()$ssl_version)) return()
 
   warning('
   ------------------------------------------------------------------------

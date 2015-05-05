@@ -43,10 +43,10 @@
 config <- function(...) {
   options <- list(...)
 
-  known <- c(RCurl::listCurlOptions(), "token", "writer")
+  known <- tolower(c(names(curl::curl_options()), "token", "writer"))
   unknown <- setdiff(names(options), known)
   if (length(unknown) > 0) {
-    stop("Unknown RCurl options: ", paste0(unknown, collapse = ", "))
+    stop("Unknown curl options: ", paste0(unknown, collapse = ", "))
   }
 
   # Clean up duplicated options
@@ -96,16 +96,15 @@ is.config <- function(x) inherits(x, "config")
 #' curl_docs("CURLOPT_USERPWD")
 httr_options <- function(matches) {
 
-  constants <- RCurl::getCurlOptionsConstants()
+  constants <- curl::curl_options()
   constants <- constants[order(names(constants))]
 
-  rcurl <- names(constants)
-  curl  <- translate_curl(rcurl)
+  rcurl <- tolower(names(constants))
 
   opts <- data.frame(
     httr = rcurl,
     libcurl = translate_curl(rcurl),
-    type = unname(RCurl::getCurlOptionTypes(constants)),
+    type = curl_option_types(constants),
     stringsAsFactors = FALSE
   )
 
@@ -116,6 +115,13 @@ httr_options <- function(matches) {
   }
 
   opts
+}
+
+curl_option_types <- function(opts = curl::curl_options()) {
+  type_name <- c("integer", "string", "function", "number")
+  type <- floor(opts / 10000)
+
+  type_name[type + 1]
 }
 
 #' @export
@@ -194,7 +200,7 @@ default_config <- function() {
   c(config(
       followlocation = TRUE,
       maxredirs = 10L,
-      encoding = "gzip"
+      accept_encoding = "gzip"
     ),
     user_agent(default_ua()),
     add_headers(Accept = "application/json, text/xml, application/xml, */*"),
@@ -206,7 +212,7 @@ default_config <- function() {
 
 default_ua <- function() {
   versions <- c(
-    curl = RCurl::curlVersion()$version,
+    curl = curl::curl_version()$version,
     Rcurl = as.character(packageVersion("RCurl")),
     httr = as.character(packageVersion("httr"))
   )

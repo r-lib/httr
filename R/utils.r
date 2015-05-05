@@ -6,15 +6,11 @@ timestamp <- function(x = Sys.time()) {
   format(x, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 }
 
-sort_names <- function(x)  x[order(names(x))]
+sort_names <- function(x) x[order(names(x))]
 
 nonce <- function(length = 10) {
   paste(sample(c(letters, LETTERS, 0:9), length, replace = TRUE),
     collapse = "")
-}
-
-curl_version <- function() {
-  as.numeric_version(RCurl::curlVersion()$version)
 }
 
 has_env_var <- function(x) !identical(Sys.getenv(x), "")
@@ -52,4 +48,9 @@ last <- function(x) {
 compact <- function(x) {
   null <- vapply(x, is.null, logical(1))
   x[!null]
+}
+
+keep_last <- function(...) {
+  x <- c(...)
+  x[!duplicated(names(x), fromLast = TRUE)]
 }

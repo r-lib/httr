@@ -1,9 +1,11 @@
 body_config <- function(body = NULL, encode = "form", type = NULL)  {
   # Post without body
-  if (is.null(body)) return(body_raw(raw()))
+  if (is.null(body))
+    return(body_raw(raw()))
 
   # No body
-  if (identical(body, FALSE)) return(body_httr(post = TRUE, nobody = TRUE))
+  if (identical(body, FALSE))
+    return(body_httr(post = TRUE, nobody = TRUE))
 
   # For character/raw, send raw bytes
   if (is.character(body) || is.raw(body)) {
@@ -11,11 +13,9 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
   }
 
   # Send single file lazily
-  if (inherits(body, "FileUploadInfo")) {
-    con <- file(body$filename, "rb")
-    mime_type <- body$contentType %||%
-      mime::guess_type(body$filename, empty = NULL)
-    size <- file.info(body$filename)$size
+  if (inherits(body, "upload_file")) {
+    con <- file(body$path, "rb")
+    size <- file.info(body$path)$size
 
     return(body_httr(
       post = TRUE,
@@ -26,7 +26,7 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
         bin
       },
       postfieldsize = size,
-      type = mime_type
+      type = body$type
     ))
   }
 
@@ -41,36 +41,22 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
   } else if (encode == "json") {
     body_raw(jsonlite::toJSON(body, auto_unbox = TRUE), "application/json")
   } else if (encode == "multipart") {
-    # For multipart, rely on RCurl .postForm function to make it possible
-    # to intermingle on-disk and in-memory content.
-
-    charify <- function(x) {
-      if (inherits(x, "FileUploadInfo")) return(x)
-      as.character(x)
-    }
-    body <- lapply(body, charify)
+    # For multipart, rely on curl::handle_setform
+    body <- lapply(body, as.character)
     stopifnot(length(names(body)) > 0)
 
-    body_rcurl(body = body, style = NA)
+    body_rcurl(body)
   } else {
     stop("Unknown encoding", call. = FALSE)
   }
 }
 
 
-body_rcurl <- function(body = NULL, style = NULL) {
+body_rcurl <- function(body = NULL) {
   list(
     config = NULL,
     body = body,
-    style = style,
     curl_post = TRUE
-  )
-}
-
-body_httr <- function(..., type = NULL) {
-  list(
-    config = c(config(...), content_type(type)),
-    curl_post = FALSE
   )
 }
 
@@ -87,4 +73,10 @@ body_raw <- function(body, type = NULL) {
   )
 
   base
+}
+
+body_httr <- function(..., type = NULL) {
+  list(
+    config = c(config(...), content_type(type))
+  )
 }
