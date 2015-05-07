@@ -15,7 +15,7 @@ Imports:
     jsonlite,
     methods,
     mime,
-    curl (>= 0.5.99),
+    curl (>= 0.5.9001),
     R6,
     stringr (>= 0.6.1)
 Suggests:
