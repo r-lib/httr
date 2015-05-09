@@ -27,6 +27,8 @@
 #' @param multipart Deprecated. \code{TRUE} = \code{encode = "multipart"},
 #'   \code{FALSE} = {encode = "form"}.
 #'   Files can not be uploaded when \code{FALSE}.
+#'
+#' @family http methods
 #' @export
 #' @examples
 #' b2 <- "http://httpbin.org/post"
