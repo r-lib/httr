@@ -56,6 +56,8 @@ POST("http://httpbin.org/delete")
 }
 \seealso{
 Other http methods: \code{\link{BROWSE}};
-  \code{\link{GET}}; \code{\link{HEAD}}; \code{\link{VERB}}
+  \code{\link{GET}}; \code{\link{HEAD}};
+  \code{\link{PATCH}}; \code{\link{POST}};
+  \code{\link{PUT}}; \code{\link{VERB}}
 }
 
