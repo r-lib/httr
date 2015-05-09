@@ -5,7 +5,7 @@
 \title{Retrieve OAuth 1.0 access token.}
 \usage{
 init_oauth1.0(endpoint, app, permission = NULL,
-  is_interactive = interactive())
+  is_interactive = interactive(), host = "127.0.0.1", port = 1410)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -16,6 +16,10 @@ init_oauth1.0(endpoint, app, permission = NULL,
 \item{permission}{optional, a string of permissions to ask for.}
 
 \item{is_interactive}{Is the current environment interactive?}
+
+\item{host}{ip address for the listener}
+
+\item{port}{for the listener}
 }
 \description{
 See demos for use.
