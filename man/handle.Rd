@@ -9,8 +9,7 @@ handle(url, cookies = TRUE)
 \arguments{
 \item{url}{full url to site}
 
-\item{cookies}{if \code{TRUE} (the default), maintain cookies across
-requests.}
+\item{cookies}{DEPRECATED}
 }
 \description{
 This handle preserves settings and cookies across multiple requests. It is

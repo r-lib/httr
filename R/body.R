@@ -41,23 +41,13 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
   } else if (encode == "json") {
     body_raw(jsonlite::toJSON(body, auto_unbox = TRUE), "application/json")
   } else if (encode == "multipart") {
-    # For multipart, rely on curl::handle_setform
     body <- lapply(body, as.character)
     stopifnot(length(names(body)) > 0)
 
-    body_rcurl(body)
+    request(fields = body)
   } else {
     stop("Unknown encoding", call. = FALSE)
   }
-}
-
-
-body_rcurl <- function(body = NULL) {
-  list(
-    config = NULL,
-    body = body,
-    curl_post = TRUE
-  )
 }
 
 body_raw <- function(body, type = NULL) {
@@ -65,6 +55,7 @@ body_raw <- function(body, type = NULL) {
     body <- charToRaw(paste(body, collapse = "\n"))
   }
 
+  request()
   base <- body_httr(
     post = TRUE,
     postfieldsize = length(body),

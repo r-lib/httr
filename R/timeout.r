@@ -14,5 +14,5 @@ timeout <- function(seconds) {
     stop("Timeout cannot be less than 1 ms", call. = FALSE)
   }
 
-  config(timeout.ms = seconds * 1000)
+  config(timeout_ms = seconds * 1000)
 }

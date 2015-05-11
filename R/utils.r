@@ -22,7 +22,7 @@ has_names <- function(x) {
   nms <- names(x)
   if (is.null(nms)) return(rep(FALSE, length(x)))
 
-  names(x) != ""
+  is.na(names(x)) || names(x) != ""
 }
 
 travis_encrypt <- function(vars) {
@@ -53,4 +53,29 @@ compact <- function(x) {
 keep_last <- function(...) {
   x <- c(...)
   x[!duplicated(names(x), fromLast = TRUE)]
+}
+
+named_vector <- function(title, x) {
+  if (length(x) == 0) return()
+
+  cat(title, ":\n", sep = "")
+  bullets <- paste0("* ", names(x), ": ", as.character(x))
+  cat(bullets, sep = "\n")
+}
+
+keep_last <- function(...) {
+  x <- c(...)
+  x[!duplicated(names(x), fromLast = TRUE)]
+}
+
+find_cert_bundle <- function() {
+  if (.Platform$OS.type != "windows")
+    return()
+
+  env <- Sys.getenv("CURL_CA_BUNDLE")
+  if (!identical(env, "")) {
+    env
+  } else {
+    system.file("cacert.pem", package = "httr")
+  }
 }

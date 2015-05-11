@@ -5,8 +5,7 @@
 #' it will mostly be hidden from the user.
 #'
 #' @param url full url to site
-#' @param cookies if \code{TRUE} (the default), maintain cookies across
-#'   requests.
+#' @param cookies DEPRECATED
 #' @export
 #' @examples
 #' handle("http://google.com")
@@ -22,10 +21,10 @@
 handle <- function(url, cookies = TRUE) {
   stopifnot(is.character(url), length(url) == 1)
 
-  url <- parse_url(url)
-  cookie_path <- if (cookies) tempfile() else NULL
+  if (!missing(cookies))
+    warning("Cookies argument is depcrated", call. = FALSE)
 
-  h <- curl::new_handle(cookiefile = cookie_path)
+  h <- curl::new_handle()
   structure(list(handle = h, url = url), class = "handle")
 }
 

@@ -41,27 +41,7 @@
 #' # in config
 #' HEAD("https://www.google.com/", config(verbose = TRUE))
 config <- function(...) {
-  options <- list(...)
-
-  known <- tolower(c(names(curl::curl_options()), "token", "writer"))
-  unknown <- setdiff(names(options), known)
-  if (length(unknown) > 0) {
-    stop("Unknown curl options: ", paste0(unknown, collapse = ", "))
-  }
-
-  # Clean up duplicated options
-  headers <- names(options) == "httpheader"
-  if (any(headers)) {
-    all_headers <- unlist(unname(options[headers]))
-    all_headers <- all_headers[!duplicated(names(all_headers), fromLast = TRUE)]
-
-    options <- options[!headers]
-    options[["httpheader"]] <- all_headers
-  }
-  options <- options[!duplicated(names(options), fromLast = TRUE)]
-
-  class(options) <- "config"
-  options
+  request(options = list(...))
 }
 
 is.config <- function(x) inherits(x, "config")
@@ -150,21 +130,6 @@ curl_docs <- function(x) {
   BROWSE(url)
 }
 
-# Grepping http://curl.haxx.se/libcurl/c/curl_easy_setopt.html for
-# "linked list", finds the follow options:
-#
-# CURLOPT_HTTPHEADER
-# CURLOPT_HTTPPOST
-# CURLOPT_HTTP200ALIASES
-# CURLOPT_MAIL_RCPT
-# CURLOPT_QUOTE
-# CURLOPT_POSTQUOTE
-# CURLOPT_PREQUOTE
-# CURLOPT_RESOLVE
-#
-# Of these, only CURLOPT_HTTPHEADER is likely ever to be used, so we'll
-# deal with it specially.  It's possible you might also want to do that
-# with cookies, but that would require a bigger rewrite.
 #' @export
 c.config <- function(...) {
   Reduce(modify_config, list(...))
@@ -194,26 +159,10 @@ make_config <- function(x, ...) {
   structure(Reduce(modify_config, configs), class = "config")
 }
 
-default_config <- function() {
-  cert <- system.file("cacert.pem", package = "httr")
-
-  c(config(
-      followlocation = TRUE,
-      maxredirs = 10L,
-      accept_encoding = "gzip"
-    ),
-    user_agent(default_ua()),
-    add_headers(Accept = "application/json, text/xml, application/xml, */*"),
-    write_memory(),
-    if (.Platform$OS.type == "windows") config(cainfo = cert),
-    getOption("httr_config")
-  )
-}
-
 default_ua <- function() {
   versions <- c(
-    curl = curl::curl_version()$version,
-    Rcurl = as.character(packageVersion("RCurl")),
+    libcurl = curl::curl_version()$version,
+    `r-curl` = as.character(packageVersion("curl")),
     httr = as.character(packageVersion("httr"))
   )
   paste0(names(versions), "/", versions, collapse = " ")

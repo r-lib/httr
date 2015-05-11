@@ -1,5 +1,16 @@
 # httr 0.6.1.9000
 
+* `cookies` argument to `handle()` is deprecated
+
+* `brew_dr()` renamed to `httr_dr()`
+
+* Uses `CURL_CA_BUNDLE` environment variable to look for cert bundle on 
+  Windows (#223).
+  
+* `safe_callback()` is deprecated - it's no longer needed with curl.
+
+* RCurl has been replaced by curl by Jeroen Ooms.
+
 * `config()` and `c.config()` now clean up duplicated options (#213).
 
 * `POST()` and `PUT()` now clean up after themselves when uploading a single 

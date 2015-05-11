@@ -13,10 +13,11 @@ upload_file(path, type = NULL)
 \code{\link[mime]{guess_type}} when needed.}
 }
 \description{
-This is a tiny wrapper for \pkg{RCurl}'s \code{\link[RCurl]{fileUpload}}.
+Upload a file with \code{\link{POST}} or \code{\link{PUT}}.
 }
 \examples{
-POST("http://httpbin.org/post",
-  body = list(y = upload_file(system.file("CITATION"))))
+citation <- upload_file(system.file("CITATION"))
+POST("http://httpbin.org/post", body = citation)
+POST("http://httpbin.org/post", body = list(y = citation))
 }
 

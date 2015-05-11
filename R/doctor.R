@@ -3,7 +3,7 @@
 #' Currently one check: that curl uses nss.
 #'
 #' @export
-brew_dr <- function() {
+httr_dr <- function() {
   check_for_nss()
 }
 
