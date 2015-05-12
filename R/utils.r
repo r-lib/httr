@@ -73,9 +73,14 @@ find_cert_bundle <- function() {
     return()
 
   env <- Sys.getenv("CURL_CA_BUNDLE")
-  if (!identical(env, "")) {
-    env
-  } else {
-    system.file("cacert.pem", package = "httr")
-  }
+  if (!identical(env, ""))
+    return(env)
+
+  bundled <- file.path(R.home("etc"), "curl-ca-bundle.crt")
+  if (file.exists(bundled))
+    bundled
+
+  # Fall back to certificate bundle in httr
+  system.file("cacert.pem", package = "httr")
+
 }
