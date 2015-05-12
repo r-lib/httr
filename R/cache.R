@@ -114,7 +114,7 @@ parse_cache_control <- function(x) {
 rerequest <- function(r) {
   x <- cache_info(r)
   if (!x$cacheable) {
-    return(reperform(r$request))
+    return(reperform(r))
   }
 
   # Cacheable, and hasn't expired
@@ -123,14 +123,13 @@ rerequest <- function(r) {
   }
 
   # Requires validation
-  r$request$opts <- c(
-    r$request$opts,
-    add_headers(
+  req <- c(r$request,
+    request(headers = c(
       `If-Modified-Since` = http_date(x$modified),
       `If-None-Match` = x$etag
-    )
+    ))
   )
-  validated <- reperform(r$request)
+  validated <- request_perform(req, r$handle)
 
   if (status_code(validated) == 304L) {
     r
@@ -139,6 +138,6 @@ rerequest <- function(r) {
   }
 }
 
-reperform <- function(x) {
-  perform(x$handle, x$writer, x$method, x$opts, x$body)
+reperform <- function(resp) {
+  request_perform(resp$request, resp$handle)
 }

@@ -13,7 +13,10 @@
 progress <- function(type = c("down", "up")) {
   type <- match.arg(type)
 
-  config(noprogress = FALSE, progressfunction = progress_bar(type))
+  request(options = list(
+    noprogress = FALSE,
+    progressfunction = progress_bar(type)
+  ))
 }
 
 progress_bar <- function(type) {
@@ -53,7 +56,7 @@ progress_bar <- function(type) {
     0L
   }
 
-  safe_callback(show_progress)
+  show_progress
 }
 
 

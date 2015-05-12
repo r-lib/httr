@@ -10,16 +10,7 @@ safe_callback(f)
 \item{f}{A function.}
 }
 \description{
-Whenever an R callback function is passed to Rcurl, it needs to be wrapped
-in this handler which converts errors and interrupts to the appropriate
-values that cause RCurl to terminate a request
+Generate a safe R callback.
 }
-\examples{
-f1 <- function(x) {
-  if (x < 0) stop("Negative value")
-  sqrt(x)
-}
-f2 <- safe_callback(f1)
-f2(-10)
-}
+\keyword{deprecated}
 

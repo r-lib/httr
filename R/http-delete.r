@@ -28,7 +28,6 @@
 #' POST("http://httpbin.org/delete")
 DELETE <- function(url = NULL, config = list(), ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  config <- make_config(config, ...)
-
-  make_request("delete", hu$handle, hu$url, config)
+  req <- request_build("DELETE", hu$url, config, ...)
+  request_perform(req, hu$handle$handle)
 }

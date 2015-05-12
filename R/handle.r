@@ -5,8 +5,7 @@
 #' it will mostly be hidden from the user.
 #'
 #' @param url full url to site
-#' @param cookies if \code{TRUE} (the default), maintain cookies across
-#'   requests.
+#' @param cookies DEPRECATED
 #' @export
 #' @examples
 #' handle("http://google.com")
@@ -22,29 +21,20 @@
 handle <- function(url, cookies = TRUE) {
   stopifnot(is.character(url), length(url) == 1)
 
-  url <- parse_url(url)
-  cookie_path <- if (cookies) tempfile() else NULL
+  if (!missing(cookies))
+    warning("Cookies argument is depcrated", call. = FALSE)
 
-  h <- RCurl::getCurlHandle(cookiefile = cookie_path, .defaults = list())
+  h <- curl::new_handle()
   structure(list(handle = h, url = url), class = "handle")
 }
 
 #' @export
 print.handle <- function(x, ...) {
-  cat("Host: ", build_url(x$url) , " <", ref(x), ">\n", sep = "")
+  cat("Host: ", x$url , " <", ref(x$handle), ">\n", sep = "")
 }
 
 ref <- function(x) {
-  str_extract(capture.output(print(x$handle@ref)), "0x[0-9a-f]*")
+  str_extract(capture.output(print(x))[1], "0x[0-9a-f]*")
 }
 
 is.handle <- function(x) inherits(x, "handle")
-
-reset_handle_config <- function(handle, config) {
-  # Calls curl_easy_reset (http://curl.haxx.se/libcurl/c/curl_easy_reset.html)
-  # Does not change live connections, session ID cache, DNS cache, cookies
-  # or shares.
-  RCurl::reset(handle$handle)
-  invisible(TRUE)
-}
-

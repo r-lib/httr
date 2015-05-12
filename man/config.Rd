@@ -4,10 +4,12 @@
 \alias{config}
 \title{Set curl options.}
 \usage{
-config(...)
+config(..., token = NULL)
 }
 \arguments{
 \item{...}{named Curl options.}
+
+\item{token}{An OAuth token (1.0 or 2.0)}
 }
 \description{
 Generally you should only need to use this function to set CURL options

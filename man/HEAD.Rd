@@ -48,7 +48,7 @@ cache MUST treat the cache entry as stale.
 }
 \examples{
 HEAD("http://google.com")
-HEAD("http://google.com")$headers
+headers(HEAD("http://google.com"))
 }
 \seealso{
 Other http methods: \code{\link{BROWSE}};

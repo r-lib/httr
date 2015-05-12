@@ -14,7 +14,6 @@
 PUT <- function(url = NULL, config = list(), ..., body = NULL,
                   encode = c("multipart", "form", "json"),
                   multipart = TRUE, handle = NULL) {
-
   if (!missing(multipart)) {
     warning("multipart is deprecated, please use encode argument instead",
       call. = FALSE)
@@ -23,7 +22,6 @@ PUT <- function(url = NULL, config = list(), ..., body = NULL,
   encode <- match.arg(encode)
 
   hu <- handle_url(handle, url, ...)
-  config <- make_config(config, ...)
-
-  make_request("put", hu$handle, hu$url, config, body_config(body, encode))
+  req <- request_build("PUT", hu$url, body_config(body, encode), config, ...)
+  request_perform(req, hu$handle$handle)
 }

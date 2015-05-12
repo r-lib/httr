@@ -5,7 +5,7 @@
 \title{Generate an oauth1.0 token.}
 \usage{
 oauth1.0_token(endpoint, app, permission = NULL, as_header = TRUE,
-  cache = getOption("httr_oauth_cache"))
+  cache = getOption("httr_oauth_cache"), host = "127.0.0.1", port = 1410)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -22,6 +22,10 @@ If \code{FALSE}, adds as parameter to url.}
 using the default cache file \code{.oauth-httr}, \code{FALSE} means
 don't cache, and \code{NA} means to guess using some sensible heuristics.
 A string mean use the specified path as the cache file.}
+
+\item{host}{ip address for the listener}
+
+\item{port}{for the listener}
 }
 \value{
 A \code{Token1.0} reference class (RC) object.

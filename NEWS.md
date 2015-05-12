@@ -1,6 +1,24 @@
 # httr 0.6.1.9000
 
-* `config()` and `c.config()` now clean up duplicated options (#213).
+* The biggest change in this version is that httr no longer uses the RCurl 
+  package. Instead it uses the curl package, fresh binding to libcurl 
+  written by Jeroen Ooms (#172). This should make httr more reliable and
+  no longer prone to the "easy handle already used in multi handle" error.
+  This change shouldn't affect any code that uses httr - all the changes 
+  have happened behind the scenes.
+
+* `cookies` argument to `handle()` is deprecated - cookies are always
+  turned on by default.
+
+* `brew_dr()` has been renamed to `httr_dr()` - that's what it should've 
+  been in the first place!
+
+* Uses `CURL_CA_BUNDLE` environment variable to look for cert bundle on 
+  Windows (#223).
+  
+* `safe_callback()` is deprecated - it's no longer needed with curl.
+
+* `config()` now clean up duplicated options (#213).
 
 * `POST()` and `PUT()` now clean up after themselves when uploading a single 
   file (@mtmorgan).

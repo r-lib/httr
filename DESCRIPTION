@@ -13,9 +13,8 @@ Depends:
 Imports:
     digest,
     jsonlite,
-    methods,
     mime,
-    RCurl (>= 1.95-0),
+    curl (>= 0.5.9001),
     R6,
     stringr (>= 0.6.1)
 Suggests:
