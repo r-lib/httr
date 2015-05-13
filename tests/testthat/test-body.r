@@ -33,6 +33,14 @@ test_that("string/raw in body doesn't lose content type", {
   expect_equal(response$headers$`Content-Type`, content_type)
 })
 
+test_that("empty list gives empty body", {
+  out <- round_trip(body = list(), encode = "form")
+  expect_equal(out$data, "")
+
+  out <- round_trip(body = list(), encode = "multipart")
+  expect_equal(out$data, "")
+})
+
 test_that("named list matches form results (encode = 'form')", {
   out <- round_trip(body = list(a = 1, b = 2), encode = "form")
   expect_equal(out$form$a, "1")
@@ -49,6 +57,14 @@ test_that("named list matches form results (encode = 'json')", {
   out <- round_trip(body = list(a = 1, b = 2), encode = "json")
   expect_equal(out$json$a[[1]], 1)
   expect_equal(out$json$b[[1]], 2)
+})
+
+test_that("NULL elements are automatically dropped", {
+  out <- round_trip(body = list(x = 1, y = NULL), encode = "form")
+  expect_equal(out$form, list(x = "1"))
+
+  out <- round_trip(body = list(x = 1, y = NULL), encode = "multipart")
+  expect_equal(out$form, list(x = "1"))
 })
 
 test_that("file and form vals mixed give form and data elements", {

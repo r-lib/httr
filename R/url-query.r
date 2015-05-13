@@ -9,6 +9,9 @@ parse_query <- function(query) {
 
 # compose_query(list(x = "&", y = I("%26")))
 compose_query <- function(elements) {
+  if (length(elements) == 0)
+    return("")
+
   stopifnot(is.list(elements))
   elements <- compact(elements)
 

@@ -20,9 +20,10 @@ unnamed <- function(x) x[!has_names(x)]
 
 has_names <- function(x) {
   nms <- names(x)
-  if (is.null(nms)) return(rep(FALSE, length(x)))
+  if (is.null(nms))
+    return(rep(FALSE, length(x)))
 
-  !is.na(names(x)) & names(x) != ""
+  !is.na(nms) & nms != ""
 }
 
 travis_encrypt <- function(vars) {

@@ -1,5 +1,8 @@
 # httr 0.6.1.9000
 
+* `POST()`, `PUT()` and `PATCH()` now drop `NULL` body elements this is 
+  convenient and consistent with url query params.
+
 * The biggest change in this version is that httr no longer uses the RCurl 
   package. Instead it uses the curl package, fresh binding to libcurl 
   written by Jeroen Ooms (#172). This should make httr more reliable and
