@@ -12,6 +12,9 @@ compose_query <- function(elements) {
   if (length(elements) == 0)
     return("")
 
+  if (!all(has_name(elements)))
+    stop("All components of query must be named", call. = FALSE)
+
   stopifnot(is.list(elements))
   elements <- compact(elements)
 
