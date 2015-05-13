@@ -54,7 +54,7 @@ as.request.Token <- function(x) request(auth_token = x)
 
 request_build <- function(method, url, ...) {
   extra <- list(...)
-  extra[has_names(extra)] <- NULL
+  extra[has_name(extra)] <- NULL
 
   req <- Reduce(request_combine, extra, init = request())
 

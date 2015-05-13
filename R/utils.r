@@ -15,10 +15,10 @@ nonce <- function(length = 10) {
 
 has_env_var <- function(x) !identical(Sys.getenv(x), "")
 
-named <- function(x) x[has_names(x)]
-unnamed <- function(x) x[!has_names(x)]
+named <- function(x) x[has_name(x)]
+unnamed <- function(x) x[!has_name(x)]
 
-has_names <- function(x) {
+has_name <- function(x) {
   nms <- names(x)
   if (is.null(nms))
     return(rep(FALSE, length(x)))

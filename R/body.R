@@ -46,7 +46,7 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
     body_raw(jsonlite::toJSON(body, auto_unbox = TRUE), "application/json")
   } else if (encode == "multipart") {
     body <- lapply(body, as.character)
-    if (!all(has_names(body)))
+    if (!all(has_name(body)))
       stop("All components of body must be named", call. = FALSE)
 
     request(fields = body)
