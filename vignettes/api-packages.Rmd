@@ -10,7 +10,7 @@ knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 
 # Best practices for writing an API package
 
-This document collects best practices for writing a package that connects to an web API. The goal is to help you produce a package that is safe, secure and keeps working in the long run.
+This document collects best practices for writing a package that connects to a web API. The goal is to help you produce a package that is safe, secure and keeps working in the long run.
 
 If you're new to working with web APIs, start by reading "[An introduction to APIs](https://zapier.com/learn/apis)" by zapier.
 
