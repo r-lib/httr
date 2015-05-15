@@ -30,7 +30,7 @@ We start with functions to execute `GET` and `POST` requests:
 ```{r}
 github_GET <- function(path, ..., pat = github_pat()) {
   auth <- github_auth(pat)
-  req <- GET("https://api.github.com/", path = path, auth, ...)
+  req <- GET("https://api.github.com", path = path, auth, ...)
   github_check(req)
 
   req
@@ -42,7 +42,7 @@ github_POST <- function(path, body, ..., pat = github_pat()) {
   stopifnot(is.list(body))
   body_json <- jsonlite::toJSON(body)
 
-  req <- POST("https://api.github.com/", path = path, body = body_json,
+  req <- POST("https://api.github.com", path = path, body = body_json,
     auth, post, ...)
   github_check(req)
 
