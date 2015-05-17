@@ -62,6 +62,8 @@
 * `VERB()` gains `body` and `encode` arguments so you can generate 
   arbitrary requests with a body.
 
+* tumblr added as an `oauth_endpoint`.
+
 # httr 0.6.1
 
 * Correctly parse headers with multiple `:`, thanks to @mmorgan (#180).

@@ -85,6 +85,8 @@ oauth_endpoints <- function(name) {
       validate = "https://www.googleapis.com/oauth2/v1/tokeninfo",
       revoke = "revoke"
     ),
+    tumblr = oauth_endpoint(base_url = "http://www.tumblr.com/oauth/",
+    "request_token", "authorize", "access_token"),
     facebook = oauth_endpoint(
       authorize = "https://www.facebook.com/dialog/oauth",
       access = "https://graph.facebook.com/oauth/access_token"),
