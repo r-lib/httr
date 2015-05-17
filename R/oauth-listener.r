@@ -50,6 +50,7 @@ oauth_listener <- function(request_url, is_interactive = interactive(), host = "
   server <- httpuv::startServer(host, port, list(call = listen))
   on.exit(httpuv::stopServer(server))
 
+  message(request_url)
   message("Waiting for authentication in browser...")
   message("Press Esc/Ctrl + C to abort")
   BROWSE(request_url)
