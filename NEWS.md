@@ -45,6 +45,8 @@
   work under other settings, such as inside docker containers (which require 
   localhost uses `0.0.0.0` instead) (#211, @cboettig).
 
+* tumblr added as an `oauth_endpoint`.
+
 # httr 0.6.1
 
 * Correctly parse headers with multiple `:`, thanks to @mmorgan (#180).
