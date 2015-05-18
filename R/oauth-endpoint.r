@@ -100,9 +100,14 @@ oauth_endpoints <- function(name) {
     "request_token", "authorize", "access_token"),
     facebook = oauth_endpoint(
       authorize = "https://www.facebook.com/dialog/oauth",
-      access = "https://graph.facebook.com/oauth/access_token"),
-    github = oauth_endpoint(base_url = "https://github.com/login/oauth",
-      NULL, "authorize", "access_token"),
+      access = "https://graph.facebook.com/oauth/access_token"
+    ),
+    github = oauth_endpoint(
+      base_url = "https://github.com/login/oauth",
+      request=NULL,
+      authorize="authorize",
+      access="access_token"
+    ),
     stop("Unknown endpoint", call. = FALSE)
   )
 }
