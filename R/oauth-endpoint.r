@@ -104,9 +104,9 @@ oauth_endpoints <- function(name) {
     ),
     github = oauth_endpoint(
       base_url = "https://github.com/login/oauth",
-      request=NULL,
-      authorize="authorize",
-      access="access_token"
+      request = NULL,
+      authorize = "authorize",
+      access = "access_token"
     ),
     stop("Unknown endpoint", call. = FALSE)
   )
