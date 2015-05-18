@@ -71,12 +71,23 @@ oauth_endpoints <- function(name) {
       authorize = "authorization",
       access = "accessToken",
     ),
-    twitter = oauth_endpoint(base_url = "https://api.twitter.com/oauth",
-      "request_token", "authenticate", "access_token"),
-    vimeo = oauth_endpoint(base_url = "https://vimeo.com/oauth",
-      "request_token", "authorize", "access_token"),
-    yahoo = oauth_endpoint(base_url = "https://api.login.yahoo.com/oauth/v2",
-      "get_request_token", "request_auth", "get_token"
+    twitter = oauth_endpoint(
+      base_url = "https://api.twitter.com/oauth",
+      request = "request_token",
+      authorize = "authenticate",
+      access = "access_token"
+    ),
+    vimeo = oauth_endpoint(
+      base_url = "https://vimeo.com/oauth",
+      request = "request_token",
+      authorize = "authorize",
+      access = "access_token"
+    ),
+    yahoo = oauth_endpoint(
+      base_url = "https://api.login.yahoo.com/oauth/v2",
+      request = "get_request_token",
+      authorize = "request_auth",
+      access = "get_token"
     ),
     google = oauth_endpoint(
       base_url = "https://accounts.google.com/o/oauth2",
