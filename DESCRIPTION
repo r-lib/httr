@@ -14,7 +14,7 @@ Imports:
     digest,
     jsonlite,
     mime,
-    curl (>= 0.5.9001),
+    curl (>= 0.6),
     R6,
     stringr (>= 0.6.1)
 Suggests:

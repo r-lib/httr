@@ -45,7 +45,6 @@ To get the current development version from github:
 
 ```R
 # install.packages("devtools")
-devtools::install_github("jeroenooms/curl")
 devtools::install_github("hadley/httr")
 ```
 

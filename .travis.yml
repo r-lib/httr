@@ -2,7 +2,6 @@ language: r
 
 r_github_packages:
   - s-u/PKI
-  - jeroenooms/curl
 
 env:
   global:
