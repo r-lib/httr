@@ -78,13 +78,7 @@ oauth_callback <- function() {
   "http://localhost:1410/"
 }
 
-listener_endpoint <- function ()
-{
-  host <- Sys.getenv("HTTR_LOCALHOST")
-  if (host == "")
-    host <- "127.0.0.1"
-  port <- as.integer(Sys.getenv("HTTR_PORT"))
-  if (is.na(port))
-    port <- 1410
-  list(host = host, port = port)
+listener_endpoint <- function() {
+  list(host = Sys.getenv("HTTR_LOCALHOST", "127.0.0.1"),
+       port = as.integer(Sys.getenv("HTTR_PORT", "1410")))
 }
