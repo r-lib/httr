@@ -6,27 +6,24 @@ timestamp <- function(x = Sys.time()) {
   format(x, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 }
 
-sort_names <- function(x)  x[order(names(x))]
+sort_names <- function(x) x[order(names(x))]
 
 nonce <- function(length = 10) {
   paste(sample(c(letters, LETTERS, 0:9), length, replace = TRUE),
     collapse = "")
 }
 
-curl_version <- function() {
-  as.numeric_version(RCurl::curlVersion()$version)
-}
-
 has_env_var <- function(x) !identical(Sys.getenv(x), "")
 
-named <- function(x) x[has_names(x)]
-unnamed <- function(x) x[!has_names(x)]
+named <- function(x) x[has_name(x)]
+unnamed <- function(x) x[!has_name(x)]
 
-has_names <- function(x) {
+has_name <- function(x) {
   nms <- names(x)
-  if (is.null(nms)) return(rep(FALSE, length(x)))
+  if (is.null(nms))
+    return(rep(FALSE, length(x)))
 
-  names(x) != ""
+  !is.na(nms) & nms != ""
 }
 
 travis_encrypt <- function(vars) {
@@ -52,4 +49,39 @@ last <- function(x) {
 compact <- function(x) {
   null <- vapply(x, is.null, logical(1))
   x[!null]
+}
+
+keep_last <- function(...) {
+  x <- c(...)
+  x[!duplicated(names(x), fromLast = TRUE)]
+}
+
+named_vector <- function(title, x) {
+  if (length(x) == 0) return()
+
+  cat(title, ":\n", sep = "")
+  bullets <- paste0("* ", names(x), ": ", as.character(x))
+  cat(bullets, sep = "\n")
+}
+
+keep_last <- function(...) {
+  x <- c(...)
+  x[!duplicated(names(x), fromLast = TRUE)]
+}
+
+find_cert_bundle <- function() {
+  if (.Platform$OS.type != "windows")
+    return()
+
+  env <- Sys.getenv("CURL_CA_BUNDLE")
+  if (!identical(env, ""))
+    return(env)
+
+  bundled <- file.path(R.home("etc"), "curl-ca-bundle.crt")
+  if (file.exists(bundled))
+    bundled
+
+  # Fall back to certificate bundle in httr
+  system.file("cacert.pem", package = "httr")
+
 }

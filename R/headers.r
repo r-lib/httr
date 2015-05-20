@@ -39,14 +39,7 @@ headers.response <- function(x) {
 #' # Override default headers with empty strings
 #' GET("http://httpbin.org/headers", add_headers(Accept = ""))
 add_headers <- function(..., .headers = character()) {
-  headers <- c(..., .headers)
-  if (length(headers) == 0) return()
-  stopifnot(is.character(headers))
-
-  # Keep last of duplicated headers
-  headers <- headers[!duplicated(names(headers), fromLast = TRUE)]
-
-  config(httpheader = headers)
+  request(headers = c(..., .headers))
 }
 
 
@@ -109,3 +102,48 @@ accept_json <- function() accept("application/json")
 #' @rdname content_type
 accept_xml <- function() accept("application/xml")
 
+
+
+
+# Parses a header lines as recieved from libcurl. Multiple responses
+# will be intermingled, each separated by an http status line.
+parse_headers <- function(raw) {
+  lines <- strsplit(rawToChar(raw), "\r?\n")[[1]]
+
+  new_response <- grepl("^HTTP", lines)
+  grps <- cumsum(new_response)
+
+  lapply(unname(split(lines, grps)), parse_single_header)
+}
+
+parse_single_header <- function(lines) {
+  status <- parse_http_status(lines[[1]])
+
+  # Parse headers into name-value pairs
+  header_lines <- lines[lines != ""][-1]
+  pos <- regexec("^([^:]*):\\s*(.*)$", header_lines)
+  pieces <- regmatches(header_lines, pos)
+
+  n <- vapply(pieces, length, integer(1))
+  if (any(n != 3)) {
+    bad <- header_lines[n != 3]
+    pieces <- pieces[n == 3]
+
+    warning("Failed to parse headers:\n", paste0(bad, "\n"), call. = FALSE)
+  }
+
+  names <- vapply(pieces, "[[", 2, FUN.VALUE = character(1))
+  values <- lapply(pieces, "[[", 3)
+  headers <- insensitive(stats::setNames(values, names))
+
+  list(status = status$status, version = status$version, headers = headers)
+}
+
+parse_http_status <- function(x) {
+  status <- as.list(strsplit(x, "\\s+")[[1]])
+  names(status) <- c("version", "status", "message")[seq_along(status)]
+  status$status <- as.integer(status$status)
+
+
+  status
+}

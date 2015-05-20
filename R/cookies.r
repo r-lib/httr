@@ -15,7 +15,7 @@ set_cookies <- function(..., .cookies = character(0)) {
   cookies <- c(..., .cookies)
   stopifnot(is.character(cookies))
 
-  cookies_str <- vapply(cookies, RCurl::curlEscape, FUN.VALUE = character(1))
+  cookies_str <- vapply(cookies, curl::curl_escape, FUN.VALUE = character(1))
 
   cookie <- paste(names(cookies), cookies_str, sep = "=", collapse = ";")
 
@@ -37,13 +37,5 @@ cookies.response <- function(x) x$cookies
 
 #' @export
 cookies.handle <- function(x) {
-  raw <- RCurl::getCurlInfo(x$handle, "cookielist")[[1]]
-  if (length(raw) == 0) return(list())
-
-  parsed <- read.delim(text = raw, sep = "\t", header = FALSE,
-    stringsAsFactors = FALSE)
-  names(parsed) <- c("domain", "tailmatch", "path", "secure", "expires", "name",
-    "value")
-
-  setNames(as.list(parsed$value), parsed$name)
+  curl::handle_cookies(x$handle)
 }

@@ -5,11 +5,13 @@ library(httr)
 oauth_endpoints("linkedin")
 
 # 2. Register an application at https://www.linkedin.com/secure/developer
-#    Insert your values below - if secret is omitted, it will look it up in
-#    the LINKEDIN_CONSUMER_SECRET environmental variable. Make sure to
-#    register http://localhost:1410/ as an "OAuth 2.0 Redirect URL".
+#    Make sure to register http://localhost:1410/ as an "OAuth 2.0 Redirect URL".
 #    (the trailing slash is important!)
-myapp <- oauth_app("linkedin", key = "outmkw3859gy")
+#
+#    Replace key and secret below.
+myapp <- oauth_app("linkedin",
+  key = "outmkw3859gy",
+  secret = "n7vBr3lokGOCDKCd")
 
 # 3. Get OAuth credentials
 # LinkedIn doesn't implement OAuth 2.0 standard

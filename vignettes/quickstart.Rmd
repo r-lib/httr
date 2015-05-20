@@ -154,7 +154,7 @@ cookies(r)
 
 ## The request
 
-Like the response, the request consistents of three pieces: a status line, headers and a body. The status line defines the http method (GET, POST, DELETE, etc) and the url. You can send additional data to the server in the url (with the query string), in the headers (including cookies) and in the body of body of `POST()`, `PUT()` and `PATCH()` requests.
+Like the response, the request consists of three pieces: a status line, headers and a body. The status line defines the http method (GET, POST, DELETE, etc) and the url. You can send additional data to the server in the url (with the query string), in the headers (including cookies) and in the body of `POST()`, `PUT()` and `PATCH()` requests.
 
 ### The url query string
 

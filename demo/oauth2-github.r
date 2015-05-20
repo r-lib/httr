@@ -4,13 +4,14 @@ library(httr)
 #    http://developer.github.com/v3/oauth/
 oauth_endpoints("github")
 
-# 2. Register an application at https://github.com/settings/applications;
-#    Use any URL you would like for the homepage URL (http://github.com is fine)
-#    and http://localhost:1410 as the callback url
+# 2. To make your own application, register at at
+#    https://github.com/settings/applications. Use any URL for the homepage URL
+#    (http://github.com is fine) and  http://localhost:1410 as the callback url
 #
-#    Insert your client ID and secret below - if secret is omitted, it will
-#    look it up in the GITHUB_CONSUMER_SECRET environmental variable.
-myapp <- oauth_app("github", "56b637a5baffac62cad9")
+#    Replace your key and secret below.
+myapp <- oauth_app("github",
+  key = "56b637a5baffac62cad9",
+  secret = "8e107541ae1791259e9987d544ca568633da2ebf")
 
 # 3. Get OAuth credentials
 github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)

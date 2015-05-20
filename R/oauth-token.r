@@ -35,6 +35,7 @@
 #' @docType class
 #' @keywords internal
 #' @format An R6 class object.
+#' @importFrom R6 R6Class
 #' @export
 #' @name Token-class
 Token <- R6::R6Class("Token", list(
@@ -157,11 +158,11 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
     oauth <- oauth_signature(url, method, self$app, self$credentials$oauth_token,
       self$credentials$oauth_token_secret)
     if (isTRUE(self$params$as_header)) {
-      list(url = url, config = oauth_header(oauth))
+      c(request(url = url), oauth_header(oauth))
     } else {
       url <- parse_url(url)
       url$query <- c(url$query, oauth)
-      list(url = build_url(url), config = config())
+      request(url = build_url(url))
     }
   }
 ))
@@ -211,14 +212,13 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   },
   sign = function(method, url) {
     if (self$params$as_header) {
-      config <- add_headers(
-        Authorization = paste('Bearer', self$credentials$access_token)
+      request(url = url, headers = c(
+        Authorization = paste('Bearer', self$credentials$access_token))
       )
-      list(url = url, config = config)
     } else {
       url <- parse_url(url)
       url$query$access_token <- self$credentials$access_token
-      list(url = build_url(url), config = config())
+      request(url = build_url(url))
     }
   },
   validate = function() {

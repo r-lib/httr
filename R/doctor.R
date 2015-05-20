@@ -3,12 +3,12 @@
 #' Currently one check: that curl uses nss.
 #'
 #' @export
-brew_dr <- function() {
+httr_dr <- function() {
   check_for_nss()
 }
 
 check_for_nss <- function() {
-  if (!grepl("^NSS", RCurl::curlVersion()$ssl_version)) return()
+  if (!grepl("^NSS", curl::curl_version()$ssl_version)) return()
 
   warning('
   ------------------------------------------------------------------------

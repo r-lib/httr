@@ -9,11 +9,12 @@
 #'   is used to make it easier to identify different applications and
 #'   provide a consistent way of storing secrets in environment variables.
 #' @param key consumer key (equivalent to a user name)
-#' @param secret consumer secret.  This is equivalent to a password and
-#'   should not be stored in publicly visible code.  As a convenient shortcut,
-#'   if \code{secret} is missing, we'll look in the environment variable
-#'   \code{APPNAME_CONSUMER_SECRET}. Use \code{NULL} to not store a secret:
-#'   this is useful if you're relying on cached OAuth tokens.
+#' @param secret consumer secret. This is not equivalent to a password, and
+#'   is not really a secret. If you are writing an API wrapper package, it
+#'   is fine to include this secret in your package code.
+#'
+#'   Use \code{NULL} to not store a secret: this is useful if you're relying on
+#'   cached OAuth tokens.
 #' @export
 #' @family OAuth
 #' @examples

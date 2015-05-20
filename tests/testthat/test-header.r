@@ -3,17 +3,12 @@ context("Headers")
 # Setting ---------------------------------------------------------------------
 
 test_that("Only last duplicated header kept in add_headers", {
-  expect_equal(add_headers(x = 1, x = 2)$httpheader, c(x = "2"))
+  expect_equal(add_headers(x = 1, x = 2)$header, c(x = "2"))
 })
 
 test_that("Only last duplicated header kept when combined", {
   out <- c(add_headers(x = 1), add_headers(x = 2))
-  expect_equal(out$httpheader, c(x = "2"))
-})
-
-test_that("Only last duplicated header kept when modified", {
-  out <- modify_config(add_headers(x = 1), add_headers(x = 2))
-  expect_equal(out$httpheader, c(x = "2"))
+  expect_equal(out$header, c(x = "2"))
 })
 
 # Getting ---------------------------------------------------------------------
@@ -29,11 +24,8 @@ test_that("All headers captures headers from redirects", {
 # Parsing ---------------------------------------------------------------------
 
 test_that("Trailing line breaks removed", {
-  lines <- c(
-    "HTTP/1.1 200 OK",
-    "A: B\r\n"
-  )
-  expect_equal(parse_headers(lines)[[1]]$headers$A, "B")
+  header <- charToRaw("HTTP/1.1 200 OK\r\nA: B\r\n")
+  expect_equal(parse_headers(header)[[1]]$headers$A, "B")
 })
 
 test_that("Invalid header raises error", {
@@ -42,11 +34,12 @@ test_that("Invalid header raises error", {
     "A: B",
     "Invalid"
   )
-  expect_warning(parse_headers(lines), "Failed to parse headers")
+  header <- charToRaw(paste(lines, collapse = "\n"))
+  expect_warning(parse_headers(header), "Failed to parse headers")
 })
 
 test_that("http status line only needs two components", {
-  headers <- parse_headers("HTTP/1.1 200")
+  headers <- parse_headers(charToRaw("HTTP/1.1 200"))
   expect_equal(headers[[1]]$status, 200L)
 
 })
@@ -57,6 +50,8 @@ test_that("Key/value parsing tolerates multiple ':'", {
     "A: B:C",
     "D:E:F"
   )
-  expect_equal(parse_headers(lines)[[1]]$headers$A, "B:C")
-  expect_equal(parse_headers(lines)[[1]]$headers$D, "E:F")
+  header <- charToRaw(paste(lines, collapse = "\n"))
+
+  expect_equal(parse_headers(header)[[1]]$headers$A, "B:C")
+  expect_equal(parse_headers(header)[[1]]$headers$D, "E:F")
 })

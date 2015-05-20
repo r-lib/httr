@@ -16,7 +16,7 @@ sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL,
   credentials <- list(oauth_token = token, oauth_token_secret = token_secret)
   token <- Token1.0$new(endpoint = NULL, params = params, app = app,
     credentials = credentials)
-  config(token = token)
+  request(auth_token = token)
 }
 
 #' @export
@@ -63,7 +63,7 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
 
   # Collect params, oauth_encode, sort and concatenated into a single string
   params <- c(url$query, oauth)
-  params_esc <- setNames(oauth_encode(params), oauth_encode(names(params)))
+  params_esc <- stats::setNames(oauth_encode(params), oauth_encode(names(params)))
   params_srt <- sort_names(params_esc)
   params_str <- paste0(names(params_srt), "=", params_srt, collapse = "&")
 

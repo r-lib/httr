@@ -15,7 +15,6 @@ PATCH <- function(url = NULL, config = list(), ..., body = NULL,
   encode <- match.arg(encode)
 
   hu <- handle_url(handle, url, ...)
-  config <- make_config(config, ...)
-
-  make_request("patch", hu$handle, hu$url, config, body_config(body, encode))
+  req <- request_build("PATCH", hu$url, body_config(body, encode), config, ...)
+  request_perform(req, hu$handle$handle)
 }

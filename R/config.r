@@ -13,6 +13,7 @@
 #'
 #' @seealso \code{\link{set_config}} to set global config defaults, and
 #'  \code{\link{with_config}} to temporarily run code with set options.
+#' @param token An OAuth token (1.0 or 2.0)
 #' @family config
 #' @family ways to set configuration
 #' @seealso All known available options are listed in \code{\link{httr_options}}
@@ -40,19 +41,9 @@
 #' # options. But you can pass Curl options (as listed in httr_options())
 #' # in config
 #' HEAD("https://www.google.com/", config(verbose = TRUE))
-config <- function(...) {
-  options <- list(...)
-
-  known <- c(RCurl::listCurlOptions(), "token", "writer")
-  unknown <- setdiff(names(options), known)
-  if (length(unknown) > 0) {
-    stop("Unknown RCurl options: ", paste0(unknown, collapse = ", "))
-  }
-
-  structure(options, class = "config")
+config <- function(..., token = NULL) {
+  request(options = list(...), auth_token = token)
 }
-
-is.config <- function(x) inherits(x, "config")
 
 #' List available options.
 #'
@@ -84,17 +75,15 @@ is.config <- function(x) inherits(x, "config")
 #' curl_docs("CURLOPT_USERPWD")
 httr_options <- function(matches) {
 
-  constants <- RCurl::getCurlOptionsConstants()
+  constants <- curl::curl_options()
   constants <- constants[order(names(constants))]
 
-  rcurl <- names(constants)
-  curl  <- translate_curl(rcurl)
-
+  rcurl <- tolower(names(constants))
 
   opts <- data.frame(
     httr = rcurl,
     libcurl = translate_curl(rcurl),
-    type = unname(RCurl::getCurlOptionTypes(constants)),
+    type = curl_option_types(constants),
     stringsAsFactors = FALSE
   )
 
@@ -105,6 +94,13 @@ httr_options <- function(matches) {
   }
 
   opts
+}
+
+curl_option_types <- function(opts = curl::curl_options()) {
+  type_name <- c("integer", "string", "function", "number")
+  type <- floor(opts / 10000)
+
+  type_name[type + 1]
 }
 
 #' @export
@@ -133,78 +129,10 @@ curl_docs <- function(x) {
   BROWSE(url)
 }
 
-# Grepping http://curl.haxx.se/libcurl/c/curl_easy_setopt.html for
-# "linked list", finds the follow options:
-#
-# CURLOPT_HTTPHEADER
-# CURLOPT_HTTPPOST
-# CURLOPT_HTTP200ALIASES
-# CURLOPT_MAIL_RCPT
-# CURLOPT_QUOTE
-# CURLOPT_POSTQUOTE
-# CURLOPT_PREQUOTE
-# CURLOPT_RESOLVE
-#
-# Of these, only CURLOPT_HTTPHEADER is likely ever to be used, so we'll
-# deal with it specially.  It's possible you might also want to do that
-# with cookies, but that would require a bigger rewrite.
-#' @export
-c.config <- function(...) {
-  all <- NextMethod()
-  is_header <- names(all) == "httpheader"
-  headers <- unlist(unname(all[is_header]), recursive = FALSE)
-  all <- c(all[!is_header], add_headers(.headers = headers))
-
-  structure(all, class = "config")
-}
-
-#' @export
-print.config <- function(x, ...) {
-  cat("Config: \n")
-  str(unclass(x), give.head = FALSE)
-}
-
-# A version of modifyList that works with config files, and merges
-# http header
-modify_config <- function(x, val) {
-  overwrite <- setdiff(names(val), "httpheader")
-  x[overwrite] <- val[overwrite]
-
-  headers <- c(x$httpheader, val$httpheader)
-  x$httpheader <- add_headers(.headers = headers)$httpheader
-
-  x
-}
-
-make_config <- function(x, ...) {
-  if (is.list(x)) {
-    class(x) <- "config"
-  }
-
-  configs <- c(list(x), unnamed(list(...)))
-  do.call("c", configs)
-}
-
-default_config <- function() {
-  cert <- system.file("cacert.pem", package = "httr")
-
-  c(config(
-      followlocation = TRUE,
-      maxredirs = 10L,
-      encoding = "gzip"
-    ),
-    user_agent(default_ua()),
-    add_headers(Accept = "application/json, text/xml, application/xml, */*"),
-    write_memory(),
-    if (.Platform$OS.type == "windows") config(cainfo = cert),
-    getOption("httr_config")
-  )
-}
-
 default_ua <- function() {
   versions <- c(
-    curl = RCurl::curlVersion()$version,
-    Rcurl = as.character(packageVersion("RCurl")),
+    libcurl = curl::curl_version()$version,
+    `r-curl` = as.character(packageVersion("curl")),
     httr = as.character(packageVersion("httr"))
   )
   paste0(names(versions), "/", versions, collapse = " ")
@@ -226,7 +154,7 @@ default_ua <- function() {
 #' reset_config()
 #' GET("http://google.com")
 set_config <- function(config, override = FALSE) {
-  stopifnot(is.config(config))
+  stopifnot(is.request(config))
 
   old <- getOption("httr_config") %||% config()
   if (!override) config <- c(old, config)
@@ -253,7 +181,7 @@ reset_config <- function() set_config(config(), TRUE)
 #' # Or even easier:
 #' with_verbose(GET("http://google.com"))
 with_config <- function(config = config(), expr, override = FALSE) {
-  stopifnot(is.config(config))
+  stopifnot(is.request(config))
 
   old <- set_config(config, override)
   on.exit(set_config(old, override = TRUE))

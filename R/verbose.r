@@ -51,7 +51,7 @@
 #' POST_verbose("")
 #' POST_verbose("xyz")
 verbose <- function(data_out = TRUE, data_in = FALSE, info = FALSE, ssl = FALSE) {
-  debug <- function(msg, type, curl)  {
+  debug <- function(type, msg) {
     switch(type + 1,
       text =       if (info) prefix_message("*  ", msg),
       headerIn =   prefix_message("<- ", msg),
@@ -59,14 +59,15 @@ verbose <- function(data_out = TRUE, data_in = FALSE, info = FALSE, ssl = FALSE)
       dataIn =     if (data_in) prefix_message("<<  ", msg, TRUE),
       dataOut =    if (data_out) prefix_message(">> ", msg, TRUE),
       sslDataIn =  if (data_in && ssl) prefix_message("*< ", msg, TRUE),
-      sslDataOut = if (data_out && ssl) prefix_message("*> ", msg, TRUE),
+      sslDataOut = if (data_out && ssl) prefix_message("*> ", msg, TRUE)
     )
-    0
   }
-  config(debugfunction = safe_callback(debug), verbose = TRUE)
+  config(debugfunction = debug, verbose = TRUE)
 }
 
 prefix_message <- function(prefix, x, blank_line = FALSE) {
+  x <- readBin(x, character())
+
   lines <- unlist(strsplit(x, "\n", fixed = TRUE, useBytes = TRUE))
   out <- paste0(prefix, lines, collapse = "\n")
   message(out)

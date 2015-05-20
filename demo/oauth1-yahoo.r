@@ -5,9 +5,8 @@ library(httr)
 oauth_endpoints("yahoo")
 
 # 2. Register an application at https://developer.apps.yahoo.com/projects
-#    Insert your values below - if secret is omitted, it will look it up in
-#    the YAHOO_CONSUMER_SECRET environmental variable.
+#    Replace key and secret below.
 myapp <- oauth_app("yahoo",
-  key = paste0("dj0yJmk9ZEp0d2J2MFRuakNQJmQ9WVdrOU0zaHRUMl",
-    "JpTTJNbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD00Nw--"),
+  key = "dj0yJmk9ZEp0d2J2MFRuakNQJmQ9WVdrOU0zaHRUMlJpTTJNbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD00Nw--",
+  secret = "82f339a41f71a3b4d9b840be427dde132e36d115"
 )

@@ -19,9 +19,13 @@ authenticate <- function(user, password, type = "basic") {
   stopifnot(is.character(password), length(password) == 1)
   stopifnot(is.character(type), length(type) == 1)
 
+  config(httpauth = auth_flags(type), userpwd = paste0(user, ":", password))
+}
+
+auth_flags <- function(x = "basic") {
   constants <- c(basic = 1, digest = 2, gssnegotiate = 4, ntlm = 8,
     digest_ie = 16, any = -17)
-  type <- match.arg(type, names(constants))
+  x <- match.arg(x, names(constants))
 
-  config(httpauth = constants[type], userpwd = paste0(user, ":", password))
+  constants[[x]]
 }

@@ -8,6 +8,6 @@
 #' @export
 hmac_sha1 <- function(key, string) {
   hash <- digest::hmac(key, string, "sha1", raw = TRUE)
-  RCurl::base64(hash)
+  base64enc::base64encode(hash)
 }
 

@@ -4,7 +4,7 @@
 #' baked into httr.
 #'
 #' @param request url used to request initial (unauthenticated) token.
-#'   If using OAuth1.0, leave as \code{NULL}.
+#'   If using OAuth2.0, leave as \code{NULL}.
 #' @param authorize url to send client to for authorisation
 #' @param access url used to exchange unauthenticated for authenticated token.
 #' @param ... other additional endpoints.

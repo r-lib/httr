@@ -13,7 +13,6 @@
 #' content(r)
 VERB <- function(verb, url = NULL, config = list(), ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  config <- make_config(config, ...)
-
-  make_request(verb, hu$handle, hu$url, config)
+  req <- request_build(verb, hu$url, config, ...)
+  request_perform(req, hu$handle$handle)
 }
