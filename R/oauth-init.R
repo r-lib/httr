@@ -7,12 +7,10 @@
 #'    \code{\link{oauth_app}}
 #' @param permission optional, a string of permissions to ask for.
 #' @param is_interactive Is the current environment interactive?
-#' @inheritParams oauth_listener 
 #' @export
 #' @keywords internal
 init_oauth1.0 <- function(endpoint, app, permission = NULL,
-                          is_interactive = interactive(),
-                          host = "127.0.0.1", port = 1410) {
+                          is_interactive = interactive()) {
 
   oauth_sig <- function(url, method, token = NULL, token_secret = NULL, ...) {
     oauth_header(oauth_signature(url, method, app, token, token_secret, ...,
@@ -30,7 +28,7 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
   authorize_url <- modify_url(endpoint$authorize, query = list(
     oauth_token = token,
     permission = "read"))
-  verifier <- oauth_listener(authorize_url, is_interactive, host, port)$oauth_verifier
+  verifier <- oauth_listener(authorize_url, is_interactive)$oauth_verifier
 
   # 3. Request access token
   response <- POST(endpoint$access,
@@ -52,13 +50,12 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'     Otherwise, provide a URL to the user and prompt for a validation
 #'     code. Defaults to the of the \code{"httr_oob_default"} default,
 #'     or \code{TRUE} if \code{httpuv} is not installed.
-#' @inheritParams oauth_listener
+#' @param is_interactive Is the current environment interactive?
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
                           use_oob = getOption("httr_oob_default"),
-                          is_interactive = interactive(),
-                          host = "127.0.0.1", port = 1410) {
+                          is_interactive = interactive()) {
   if (!use_oob && !is_installed("httpuv")) {
     message("httpuv not installed, defaulting to out-of-band authentication")
     use_oob <- TRUE
@@ -84,7 +81,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
   if (isTRUE(use_oob)) {
     code <- oauth_exchanger(authorize_url)$code
   } else {
-    code <- oauth_listener(authorize_url, is_interactive, host, port)$code
+    code <- oauth_listener(authorize_url, is_interactive)$code
   }
 
   # Use authorisation code to get (temporary) access token

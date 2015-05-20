@@ -133,8 +133,7 @@ Token <- R6::R6Class("Token", list(
 #' @export
 oauth1.0_token <- function(endpoint, app, permission = NULL,
                            as_header = TRUE,
-                           cache = getOption("httr_oauth_cache"),
-                           host = "127.0.0.1", port = 1410) {
+                           cache = getOption("httr_oauth_cache")) {
   params <- list(permission = permission, as_header = as_header)
 
   Token1.0$new(app = app, endpoint = endpoint, params = params,
@@ -146,7 +145,7 @@ oauth1.0_token <- function(endpoint, app, permission = NULL,
 Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
   init_credentials = function(force = FALSE) {
     self$credentials <- init_oauth1.0(self$endpoint, self$app,
-      permission = self$params$permission, host = host, port = port)
+      permission = self$params$permission)
   },
   can_refresh = function() {
     FALSE
@@ -187,8 +186,7 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
                            use_oob = getOption("httr_oob_default"),
                            as_header = TRUE,
-                           cache = getOption("httr_oauth_cache"),
-                           host = "127.0.0.1", port = 1410) {
+                           cache = getOption("httr_oauth_cache")) {
   params <- list(scope = scope, type = type, use_oob = use_oob,
     as_header = as_header)
   Token2.0$new(app = app, endpoint = endpoint, params = params,
@@ -201,7 +199,7 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   init_credentials = function() {
     self$credentials <- init_oauth2.0(self$endpoint, self$app,
       scope = self$params$scope, type = self$params$type,
-      use_oob = self$params$use_oob, host = host, port = port)
+      use_oob = self$params$use_oob)
   },
   can_refresh = function() {
     !is.null(self$credentials$refresh_token)
