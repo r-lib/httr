@@ -14,7 +14,7 @@
 #' @param port for the listener
 #' @export
 #' @keywords internal
-oauth_listener <- function(request_url, is_interactive = interactive(), host = "127.0.0.1", port = 1410) {
+oauth_listener <- function(request_url, is_interactive = interactive()) {
   if (!is_installed("httpuv")) {
     stop("httpuv package required to capture OAuth credentials.")
   }
@@ -46,8 +46,8 @@ oauth_listener <- function(request_url, is_interactive = interactive(), host = "
       body = "Authentication complete. Please close this page and return to R."
     )
   }
-
-  server <- httpuv::startServer(host, port, list(call = listen))
+  use <- listener_endpoint()
+  server <- httpuv::startServer(use$host, use$port, list(call = listen))
   on.exit(httpuv::stopServer(server))
 
   message("Waiting for authentication in browser...")
@@ -75,5 +75,13 @@ oauth_listener <- function(request_url, is_interactive = interactive(), host = "
 #' @keywords internal
 #' @export
 oauth_callback <- function() {
-  "http://localhost:1410/"
+	paste0("http://", 
+               Sys.getenv("HTTR_SERVER", "localhost"),
+               ":",
+               Sys.getenv("HTTR_SERVER_PORT", "1410"))
+}
+
+listener_endpoint <- function() {
+  list(host = Sys.getenv("HTTR_LOCALHOST", "127.0.0.1"),
+       port = as.integer(Sys.getenv("HTTR_PORT", "1410")))
 }
