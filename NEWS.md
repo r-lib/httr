@@ -1,21 +1,26 @@
 # httr 1.0.0
 
-* The `oauth_listener` can now listen on
-  a custom IP address and port (the previously hardwired ip:port of `127.0.0.1:1410`
-  is now just the default).  This permits authentication to work under other settings,
-  such as inside docker containers (which require localhost uses `0.0.0.0` instead).
-  To configure, set the system environmental variables `HTTR_LOCALHOST` and `HTTR_PORT`
-  respectively. Thanks @cboettig (#211).
-
-* `POST()`, `PUT()` and `PATCH()` now drop `NULL` body elements this is 
-  convenient and consistent with url query params.
-
-* The biggest change in this version is that httr no longer uses the RCurl 
-  package. Instead it uses the curl package, fresh binding to libcurl 
-  written by Jeroen Ooms (#172). This should make httr more reliable and
-  no longer prone to the "easy handle already used in multi handle" error.
-  This change shouldn't affect any code that uses httr - all the changes 
+* httr no longer uses the RCurl package. Instead it uses the curl package, 
+  a modern binding to libcurl written by Jeroen Ooms (#172). This should make 
+  httr more reliable and prevent the "easy handle already used in multi handle" 
+  error. This change shouldn't affect any code that uses httr - all the changes 
   have happened behind the scenes.
+
+* The `oauth_listener` can now listen on a custom IP address and port (the 
+  previously hardwired ip:port of `127.0.0.1:1410` is now just the default).
+  This permits authentication to work under other settings, such as inside 
+  docker containers (which require localhost uses `0.0.0.0` instead). To 
+  configure, set the system environmental variables `HTTR_LOCALHOST` and 
+  `HTTR_PORT` respectively (@cboettig, #211).
+
+* `POST(encode = 'json')` now automatically turns length-1 vectors into json
+  scalars. To prevent this automatic "unboxing", wrap the vector in `I()` 
+  (#187).
+
+* `POST()`, `PUT()` and `PATCH()` now drop `NULL` body elements. This is 
+  convenient and consistent with the behaviour for url query params.
+
+## Minor improvements and bug fixes
 
 * `cookies` argument to `handle()` is deprecated - cookies are always
   turned on by default.
@@ -23,29 +28,24 @@
 * `brew_dr()` has been renamed to `httr_dr()` - that's what it should've 
   been in the first place!
 
+* `content(type = "text")` compares encodings in a case-insensitive manner
+  (#209).
+
+* `context(type = "auto")` uses a better strategy for text based formats (#209).
+  This should allow the `encoding` argument to work more reliably.
+
+* `config()` now cleans up duplicated options (#213).
+
 * Uses `CURL_CA_BUNDLE` environment variable to look for cert bundle on 
   Windows (#223).
   
 * `safe_callback()` is deprecated - it's no longer needed with curl.
-
-* `config()` now clean up duplicated options (#213).
 
 * `POST()` and `PUT()` now clean up after themselves when uploading a single 
   file (@mtmorgan).
 
 * `proxy()` gains an `auth` argument which allows you to pick the type of
   http authentication used by the proxy (#216).
-
-* `context(type = "auto")` uses a better strategy for text based formats (#209).
-  This should allow the `encoding` argument to work more reliably.
-
-* `content(type = "text")` compares encodings in a case-insensitive manner
-  (#209).
-
-* `POST(encode = 'json')` now automatically turns length-1 vectors into json
-  scalars. To prevent this automatic "unboxing", wrap the vector in `I()` 
-  (#187).
-
 
 # httr 0.6.1
 
