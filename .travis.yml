@@ -2,6 +2,10 @@ language: r
 
 r_github_packages:
   - s-u/PKI
+  - jimhester/covr
+
+after_success:
+  - Rscript -e 'covr::codecov()'
 
 env:
   global:

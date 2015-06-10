@@ -1,6 +1,7 @@
 # httr
 
 [![Build Status](https://travis-ci.org/hadley/httr.png?branch=master)](https://travis-ci.org/hadley/httr)
+[![Coverage Status](https://img.shields.io/codecov/c/github/hadley/httr/master.svg)](https://codecov.io/github/hadley/httr?branch=master)
 
 The aim of httr is to provide a wrapper for RCurl customised to the demands of modern web APIs.
 
