@@ -5,8 +5,7 @@
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
 init_oauth2.0(endpoint, app, scope = NULL, type = NULL,
-  use_oob = getOption("httr_oob_default"), is_interactive = interactive(),
-  host = "127.0.0.1", port = 1410)
+  use_oob = getOption("httr_oob_default"), is_interactive = interactive())
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -24,10 +23,6 @@ code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
 
 \item{is_interactive}{Is the current environment interactive?}
-
-\item{host}{ip address for the listener}
-
-\item{port}{for the listener}
 }
 \description{
 See demos for use.
