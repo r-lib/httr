@@ -7,4 +7,4 @@
 There were no ERRORs or WARNINGs. 
 
 ## Downstream dependencies
-This is a minor update to fix a number of small bugs. I ran `R CMD check` on all 72 reverse dependencies (https://github.com/hadley/httr/tree/master/revdep/summary.md). As far as I can tell, there are no new problems.
+This is a minor update to fix a number of small bugs. I ran `R CMD check` on all 104 reverse dependencies (https://github.com/hadley/httr/tree/master/revdep/summary.md). As far as I can tell, there were several failures. Authors were notified on June 10.

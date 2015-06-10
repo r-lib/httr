@@ -6,32 +6,32 @@
 |:--------|:----------------------------|
 |version  |R version 3.2.0 (2015-04-16) |
 |system   |x86_64, darwin13.4.0         |
-|ui       |RStudio (0.99.435)           |
+|ui       |RStudio (0.99.584)           |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
 
 ## Packages
 
-|package   |*  |version  |date       |source                           |
-|:---------|:--|:--------|:----------|:--------------------------------|
-|base64enc |   |0.1-2    |2014-06-26 |CRAN (R 3.2.0)                   |
-|curl      |   |0.5.9001 |2015-05-12 |Github (jeroenooms/curl@0911193) |
-|digest    |   |0.6.8    |2014-12-31 |CRAN (R 3.2.0)                   |
-|httpuv    |   |1.3.2    |2014-10-23 |CRAN (R 3.2.0)                   |
-|jpeg      |   |0.1-8    |2014-01-23 |CRAN (R 3.2.0)                   |
-|jsonlite  |   |0.9.16   |2015-04-11 |CRAN (R 3.2.0)                   |
-|knitr     |   |1.10.5   |2015-05-06 |CRAN (R 3.2.0)                   |
-|mime      |   |0.3      |2015-03-29 |CRAN (R 3.2.0)                   |
-|PKI       |   |0.1-1    |2013-02-20 |CRAN (R 3.2.0)                   |
-|png       |   |0.1-7    |2013-12-03 |CRAN (R 3.2.0)                   |
-|R6        |   |2.0.1    |2014-10-29 |CRAN (R 3.2.0)                   |
-|stringr   |   |1.0.0    |2015-04-30 |CRAN (R 3.2.0)                   |
-|testthat  |*  |0.9.1    |2014-10-01 |CRAN (R 3.2.0)                   |
-|XML       |   |3.98-1.1 |2013-06-20 |CRAN (R 3.2.0)                   |
+|package   |*  |version  |date       |source         |
+|:---------|:--|:--------|:----------|:--------------|
+|base64enc |   |0.1-2    |2014-06-26 |CRAN (R 3.2.0) |
+|curl      |   |0.8      |2015-06-06 |CRAN (R 3.2.0) |
+|digest    |   |0.6.8    |2014-12-31 |CRAN (R 3.2.0) |
+|httpuv    |   |1.3.2    |2014-10-23 |CRAN (R 3.2.0) |
+|jpeg      |   |0.1-8    |2014-01-23 |CRAN (R 3.2.0) |
+|jsonlite  |   |0.9.16   |2015-04-11 |CRAN (R 3.2.0) |
+|knitr     |   |1.10.5   |2015-05-06 |CRAN (R 3.2.0) |
+|mime      |   |0.3      |2015-03-29 |CRAN (R 3.2.0) |
+|PKI       |   |0.1-1    |2013-02-20 |CRAN (R 3.2.0) |
+|png       |   |0.1-7    |2013-12-03 |CRAN (R 3.2.0) |
+|R6        |   |2.0.1    |2014-10-29 |CRAN (R 3.2.0) |
+|stringr   |   |1.0.0    |2015-04-30 |CRAN (R 3.2.0) |
+|testthat  |*  |0.10.0   |2015-05-22 |CRAN (R 3.2.0) |
+|XML       |   |3.98-1.2 |2015-05-31 |CRAN (R 3.2.0) |
 
 # Check results
-98 checked out of 98 dependencies 
+104 checked out of 104 dependencies 
 
 ## aemo (0.1.0)
 Maintainer: Imanuel Costigan <i.costigan@me.com>
@@ -56,54 +56,16 @@ Bug reports: https://github.com/pbiecek/archivist/issues
 
 __OK__
 
-## aRxiv (0.5.8)
+## aRxiv (0.5.10)
 Maintainer: Karl Broman <kbroman@biostat.wisc.edu>  
 Bug reports: https://github.com/ropensci/aRxiv/issues
 
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  Type 'demo()' for some demos, 'help()' for on-line help, or
-  'help.start()' for an HTML browser interface to help.
-  Type 'q()' to quit R.
-  
-  > library(testthat)
-  > 
-  > test_check("aRxiv")
-  Loading required package: aRxiv
-  arxiv_errors : ...
-  arxiv_search in batches : 1
-  cleaning the records : Error in arxiv_count(query) : arXiv error: incorrect id format for NA
-  Calls: test_check ... all.equal.numeric -> attr.all.equal -> mode -> omit_attr -> arxiv_count
-  Execution halted
-```
-```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-Quitting from lines 66-68 (aRxiv.Rmd) 
-Error: processing vignette 'aRxiv.Rmd' failed with diagnostics:
-arXiv error: incorrect id format for NA
-Execution halted
-
-```
-```
-DONE
-Status: 1 ERROR, 1 NOTE
-```
+__OK__
 
 ## atsd (1.0.8441)
 Maintainer: Mikhail Zvagelsky <mikhail.zvagelsky@axibase.com>
 
-```
-checking package dependencies ... NOTE
-Package suggested but not available for checking: ‘pander’
-```
-```
-DONE
-Status: 1 NOTE
-```
+__OK__
 
 ## bigrquery (0.1.0)
 Maintainer: Hadley Wickham <hadley@rstudio.com>
@@ -131,7 +93,7 @@ DONE
 Status: 1 NOTE
 ```
 
-## boxr (0.2.5)
+## boxr (0.2.6)
 Maintainer: Brendan Rocks <rocks.brendan@gmail.com>  
 Bug reports: https://github.com/brendan-R/boxr/issues
 
@@ -162,13 +124,45 @@ DONE
 Status: 1 NOTE
 ```
 
+## covr (1.0.0)
+Maintainer: Jim Hester <james.f.hester@gmail.com>
+
+```
+checking dependencies in R code ... NOTE
+There are ::: calls to the package's namespace in its code. A package
+  almost never needs to use ::: for its own objects:
+  ‘count’
+```
+```
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  6. Error: it works with travis pull requests 
+  7. Error: it works with codeship 
+  8. Error: it works with circleci 
+  9. Error: it works with semaphore 
+  1. Error: it works with drone 
+  2. Error: it works with AppVeyor 
+  3. Error: it works with Wercker 
+  4. Error: coveralls generates a properly formatted json file 
+  5. Error: coveralls can spawn a job using repo_token 
+  6. ...
+  
+  Error: testthat unit tests failed
+  Execution halted
+```
+```
+DONE
+Status: 1 ERROR, 1 NOTE
+```
+
 ## cranlogs (2.0.0)
 Maintainer: Gabor Csardi <csardi.gabor@gmail.com>  
 Bug reports: https://github.com/metacran/cranlogs/issues
 
 __OK__
 
-## crunch (1.1.1)
+## crunch (1.2.1)
 Maintainer: Neal Richardson <neal@crunch.io>  
 Bug reports: https://github.com/Crunch-io/rcrunch/issues
 
@@ -176,18 +170,18 @@ Bug reports: https://github.com/Crunch-io/rcrunch/issues
 checking tests ... ERROR
 Running the tests in ‘tests/testthat.R’ failed.
 Last 13 lines of output:
-  Variable grouping and order setting : ...................................S..
-  Variable summaries : .........................
-  Variable types : ...
-  Variables : ..............................
-  Weights : 
+      table
   
-  
-  1. Failure(@test-auth.R#15): getToken can retrieve a token ---------------------
+  1. Failure (at test-auth.R#15): getToken can retrieve a token ------------------
   class(test.token) is not identical to "config". Differences: 
   1 string mismatch
   
-  Error: Test failures
+  Error : Testing error handling, please ignore
+  testthat results ================================================================
+  OK: 497 SKIPPED: 5 FAILED: 1
+  1. Failure (at test-auth.R#15): getToken can retrieve a token 
+  
+  Error: testthat unit tests failed
   Execution halted
 ```
 ```
@@ -198,7 +192,37 @@ Status: 1 ERROR
 ## ddeploy (1.0.2)
 Maintainer: Niall McGearailt <niall@dukeanalytics.com>
 
-__OK__
+```
+checking examples ... ERROR
+Running examples in ‘ddeploy-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: duke_deploy
+> ### Title: Deploy model using REST API
+> ### Aliases: duke_deploy
+> 
+> ### ** Examples
+> 
+> duke_auth <- list(
++ user_name = "try_it",
++ api_key   = "db1542b66f16aba5768d8a19c27dec4facf9168a",
++ endpoint = "/api/v1.0"
++ )
+> example_data <- as.data.frame(cbind(gl(3,50),rnorm(150)));names(example_data) <- c("x","y")
+> example_fit  <- lm(y~x,data=example_data)
+> duke_deploy(auth_details=duke_auth,model_object=example_fit)
+Error in parse_string(txt, bigint_as_char) : 
+  lexical error: invalid char in json text.
+                                       <html>  <head><title>502 Bad Ga
+                     (right here) ------^
+Calls: duke_deploy ... fromJSON_string -> parseJSON -> parse_string -> .Call
+Execution halted
+```
+```
+DONE
+Status: 1 ERROR
+```
 
 ## devtools (1.8.0)
 Maintainer: Hadley Wickham <hadley@rstudio.com>  
@@ -227,6 +251,17 @@ See section ‘Good practice’ in ‘?attach’.
 DONE
 Status: 3 NOTEs
 ```
+
+## distcomp (0.25.1)
+Maintainer: Balasubramanian Narasimhan <naras@stat.Stanford.EDU>
+
+__OK__
+
+## dpmr (0.1.7-1)
+Maintainer: Christopher Gandrud <christopher.gandrud@gmail.com>  
+Bug reports: https://github.com/christophergandrud/dpmr/issues
+
+__OK__
 
 ## ecoengine (1.9.1)
 Maintainer: Karthik Ram <karthik.ram@gmail.com>  
@@ -420,7 +455,7 @@ DONE
 Status: 2 NOTEs
 ```
 
-## fitbitScraper (0.1.2)
+## fitbitScraper (0.1.3)
 Maintainer: Cory Nissen <corynissen@gmail.com>
 
 __OK__
@@ -445,18 +480,18 @@ Bug reports: https://github.com/kalimu/genderizeR
 checking tests ... ERROR
 Running the tests in ‘tests/testthat.R’ failed.
 Last 13 lines of output:
-  6: condition(object)
-  7: evaluate_promise(expr, print = TRUE)
-  8: with_sink(temp, withCallingHandlers(withVisible(code), warning = wHandler, message = mHandler))
-  9: withCallingHandlers(withVisible(code), warning = wHandler, message = mHandler)
-  10: withVisible(code)
-  11: genderizeAPI("Kamil", apikey = "test")
   12: httr::GET("https://api.genderize.io", query = query, httr::config(ssl.verifypeer = ssl.verifypeer))
   13: request_perform(req, hu$handle$handle) at /Users/hadley/Documents/web/httr/R/http-get.r:67
-  14: curl::handle_setopt(handle, .list = req$options) at /Users/hadley/Documents/web/httr/R/request.R:119
-  15: stop("Unknown options.") at /private/tmp/RtmpRrn4aZ/devtoolse6b2242dabf0/jeroenooms-curl-0911193/R/handle.R:49
+  14: curl::handle_setopt(handle, .list = req$options) at /Users/hadley/Documents/web/httr/R/request.R:116
+  15: stop("Unknown options.")
   
-  Error: Test failures
+  testthat results ================================================================
+  OK: 0 SKIPPED: 0 FAILED: 3
+  1. Error: given name found 
+  2. Error: subscription limits 
+  3. Error: authorization 
+  
+  Error: testthat unit tests failed
   Execution halted
 ```
 ```
@@ -528,17 +563,18 @@ Bug reports: https://github.com/ropensci/internetarchive/issues
 
 __OK__
 
-## knitcitations (1.0.5)
-Maintainer: Carl Boettiger <cboettig@gmail.com>
+## knitcitations (1.0.6)
+Maintainer: Carl Boettiger <cboettig@gmail.com>  
+Bug reports: https://github.com/cboettig/knitcitations/issues
 
 __OK__
 
-## leafletR (0.3-2)
+## leafletR (0.3-3)
 Maintainer: Christian Graul <christian.graul@gmail.com>
 
 __OK__
 
-## manifestoR (0.9-12)
+## manifestoR (1.0-1)
 Maintainer: Jirka Lewandowski <jirka.lewandowski@wzb.eu>  
 Bug reports: https://github.com/ManifestoProject/manifestoR/issues
 
@@ -551,18 +587,11 @@ Bug reports: https://github.com/RevolutionAnalytics/miniCRAN/issues
 
 __OK__
 
-## nat (1.6.4)
+## nat (1.6.6)
 Maintainer: Greg Jefferis <jefferis@gmail.com>  
 Bug reports: https://github.com/jefferis/nat/issues
 
-```
-checking package dependencies ... NOTE
-Package suggested but not available for checking: ‘Rvcg’
-```
-```
-DONE
-Status: 1 NOTE
-```
+__OK__
 
 ## ngramr (1.4.5)
 Maintainer: Sean Carmody <seancarmody@gmail.com>
@@ -582,8 +611,7 @@ Bug reports: https://github.com/jeroenooms/opencpu/issues
 
 ```
 checking package dependencies ... NOTE
-Packages suggested but not available for checking:
-  ‘RAppArmor’ ‘RProtoBuf’ ‘pander’
+Package suggested but not available for checking: ‘RAppArmor’
 ```
 ```
 DONE
@@ -637,26 +665,26 @@ Maintainer: Ulrich Matter <ulrich.matter@unibas.ch>
 
 __OK__
 
-## pxweb (0.5.5)
+## pxweb (0.5.54)
 Maintainer: Mans Magnusson <mons.magnusson@gmail.com>  
 Bug reports: https://github.com/rOpenGov/pxweb/issues
 
 ```
 checking tests ... ERROR
-Running the tests in ‘tests/testthat_multiple.R’ failed.
+Running the tests in ‘tests/testthat_clean_pxweb.R’ failed.
 Last 13 lines of output:
-  {
-      for (i in 1:(api_config$calls_per_period + 10)) {
-          topnode <- pxweb::get_pxweb_metadata(baseURL = test)
-      }
-  } threw an error
-  http://api.scb.se/OV0104/v1/doris/sv
+  3: eval(expr, envir, enclos)
+  4: get_pxweb_data(url = test$url, dims = test$dims, clean = FALSE) at test-clean_pxweb.R:71
+  5: create_batch_list(url = url, dims = dims)
+  6: get_dim_size(url = url, dims = dims)
+  7: get_pxweb_metadata(url)
+  8: stop(str_join("No internet connection to ", url), call. = FALSE)
   
-  Error: Test failures
-  In addition: Warning message:
-  'str_join' is deprecated.
-  Use 'str_c' instead.
-  See help("Deprecated") 
+  testthat results ================================================================
+  OK: 1 SKIPPED: 0 FAILED: 1
+  1. Error: clean_pxweb 
+  
+  Error: testthat unit tests failed
   Execution halted
 ```
 ```
@@ -752,18 +780,18 @@ checking dependencies in R code ... NOTE
 checking tests ... ERROR
 Running the tests in ‘tests/test-all.R’ failed.
 Last 13 lines of output:
-  13: httr::url_success(url = pathDeleteTestRecord, config = config_options)
-  14: successful(HEAD(...)) at /Users/hadley/Documents/web/httr/R/response-status.r:175
-  15: status_code(x) at /Users/hadley/Documents/web/httr/R/response-status.r:177
-  16: HEAD(...) at /Users/hadley/Documents/web/httr/R/response-status.r:5
-  17: request_build("HEAD", hu$url, config, ..., config(nobody = TRUE)) at /Users/hadley/Documents/web/httr/R/http-head.r:27
-  18: Reduce(request_combine, extra, init = request()) at /Users/hadley/Documents/web/httr/R/request.R:59
-  19: f(init, x[[i]])
-  20: stopifnot(is.request(x), is.request(y)) at /Users/hadley/Documents/web/httr/R/request.R:71
-  21: stop(sprintf(ngettext(length(r), "%s is not TRUE", "%s are not all TRUE"), ch), call. = FALSE, 
-         domain = NA)
+  6. Error: All Records -label 
+  7. Error: Smoke Test 
+  8. Error: Write Batch -Insert 
+  9. Error: Write Batch -Update One Field 
+  1. Error: Write Batch -Update Two Fields 
+  2. Error: Smoke Test 
+  3. Error: Write One Shot -Insert 
+  4. Error: Write One Shot -Update One Field 
+  5. Error: Write One Shot -Update Two Fields 
+  6. ...
   
-  Error: Test failures
+  Error: testthat unit tests failed
   Execution halted
 ```
 ```
@@ -784,30 +812,9 @@ Status: 1 ERROR, 3 NOTEs
 ## rentrez (0.4.1)
 Maintainer: David Winter <david.winter@gmail.com>
 
-```
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-  WebEnv : ....
-  
-  
-  1. Failure(@test_fetch.r#32): Functions to fetch records & summaries work ------
-  length(strsplit(coi, ">")[[1]]) not equal to 30
-  Mean relative difference: 0.9666667
-  
-  2. Failure(@test_query.r#30): Query building functions work --------------------
-  nrecs not equal to 2
-  Mean relative difference: 0.5
-  
-  Error: Test failures
-  Execution halted
-```
-```
-DONE
-Status: 1 ERROR
-```
+__OK__
 
-## repmis (0.4.2)
+## repmis (0.4.4)
 Maintainer: Christopher Gandrud <christopher.gandrud@gmail.com>  
 Bug reports: https://github.com/christophergandrud/repmis/issues
 
@@ -817,14 +824,7 @@ __OK__
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: http://www.github.com/ropensci/rerddap/issues
 
-```
-checking package dependencies ... NOTE
-Package suggested but not available for checking: ‘ncdf4’
-```
-```
-DONE
-Status: 1 NOTE
-```
+__OK__
 
 ## Rfacebook (0.5)
 Maintainer: Pablo Barbera <pablo.barbera@nyu.edu>
@@ -879,7 +879,7 @@ DONE
 Status: 2 NOTEs
 ```
 
-## rfoaas (0.1.3)
+## rfoaas (0.1.6)
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 
 __OK__
@@ -896,11 +896,32 @@ Bug reports: https://github.com/ropensci/rgauges/issues
 
 __OK__
 
-## rgbif (0.8.0)
+## rgbif (0.8.4)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rgbif/issues
 
-__OK__
+```
+checking tests ... ERROR
+Running the tests in ‘tests/test-all.R’ failed.
+Last 13 lines of output:
+  9: build_url(modifyList(old, new)) at /Users/hadley/Documents/web/httr/R/handle-url.r:13
+  10: curl::curl_escape(names(url$query)) at /Users/hadley/Documents/web/httr/R/url.r:120
+  
+  testthat results ================================================================
+  OK: 241 SKIPPED: 0 FAILED: 5
+  1. Error: dataset_metrics returns the correct class 
+  2. Error: enumeration 
+  3. Failure (at test-enumeration.r#23): fails correctly 
+  4. Failure (at test-enumeration.r#24): fails correctly 
+  5. Error: returns the correct class 
+  
+  Error: testthat unit tests failed
+  Execution halted
+```
+```
+DONE
+Status: 1 ERROR
+```
 
 ## RGoogleAnalytics (0.1.1)
 Maintainer: Kushan Shah <kushan@tatvic.com>  
@@ -956,67 +977,17 @@ Bug reports: https://github.com/ropensci/rnbn/issues
 
 __OK__
 
-## RNeXML (2.0.2)
+## RNeXML (2.0.3)
 Maintainer: Carl Boettiger <cboettig@gmail.com>  
 Bug reports: https://github.com/ropensci/RNeXML/issues
 
 ```
 checking package dependencies ... NOTE
-Packages suggested but not available for checking:
-  ‘rrdf’ ‘phytools’ ‘Sxslt’
-```
-```
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-   NeXML generated by RNeXML using schema version: 0.9 
-   size: 21.7 Kb 
-  
-  parsing : ...
-  publish : 
-  rdf : Loading required package: Sxslt
-  Loading required package: Sxslt
-  
-  serializing : ..
-  simmap : Error in library(phytools) : there is no package called 'phytools'
-  Calls: test_check ... .test_file -> sys.source2 -> eval -> eval -> library
-  In addition: There were 41 warnings (use warnings() to see them)
-  Execution halted
-```
-```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-
-Retrieving data for taxon 'Trochiliformes'
-
-
-Retrieving data for taxon 'Musophagiformes'
-
-
-Retrieving data for taxon 'Strigiformes'
-
-
-Retrieving data for taxon 'Columbiformes'
-
-
-Retrieving data for taxon 'Gruiformes'
-
-
-Retrieving data for taxon 'Ciconiiformes'
-
-
-Retrieving data for taxon 'Passeriformes'
-
-Quitting from lines 148-150 (simmap.Rmd) 
-Error: processing vignette 'simmap.Rmd' failed with diagnostics:
-there is no package called 'phytools'
-Execution halted
-
+Packages suggested but not available for checking: ‘rrdf’ ‘Sxslt’
 ```
 ```
 DONE
-Status: 1 ERROR, 2 NOTEs
+Status: 1 NOTE
 ```
 
 ## rnoaa (0.3.3)
@@ -1056,18 +1027,18 @@ Malformed Description field: should contain one or more complete sentences.
 checking tests ... ERROR
 Running the tests in ‘tests/testthat.R’ failed.
 Last 13 lines of output:
-  4: expect_output(SCAuth(Sys.getenv("USER", ""), Sys.getenv("SECRET", "")), "Authentication Succeeded.") at test-scauth.R:6
-  5: expect_that(object, prints_text(regexp, ...), info = info, label = label)
-  6: condition(object)
-  7: evaluate_promise(expr, print = TRUE)
-  8: with_sink(temp, withCallingHandlers(withVisible(code), warning = wHandler, message = mHandler))
-  9: withCallingHandlers(withVisible(code), warning = wHandler, message = mHandler)
-  10: withVisible(code)
-  11: SCAuth(Sys.getenv("USER", ""), Sys.getenv("SECRET", ""))
-  12: stop("Authentication failed due to errors")
+  2. Error: Validate GetUniqueVisitorVariable using legacy credentials 
+  3. Error: Validate GetVersionAccess using legacy credentials 
+  4. Error: Validate GetVideoSettings using legacy credentials 
+  5. Error: Validate QueueFallout using legacy credentials 
+  6. Error: Validate QueueOvertime using legacy credentials 
+  7. Error: Validate QueuePathing using legacy credentials 
+  8. Error: Validate QueueRanked using legacy credentials 
+  9. Error: Validate QueueTrended using legacy credentials 
+  1. Error: SCAuth legacy credentials work as expected 
+  2. ...
   
-  Error: Test failures
-  In addition: There were 50 or more warnings (use warnings() to see the first 50)
+  Error: testthat unit tests failed
   Execution halted
 ```
 ```
@@ -1089,7 +1060,7 @@ Bug reports: https://github.com/Chicago/RSocrata/issues
 checking whether package ‘RSocrata’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: replacing previous import by ‘curl::handle_reset’ when loading ‘RSocrata’
-See ‘/private/tmp/RtmpRrn4aZ/check_crane6b25e22298a/RSocrata.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmpXqUQlV/check_cran86c84367aa41/RSocrata.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -1228,8 +1199,63 @@ Maintainer: Jiri Kadlec <jirikadlec2@gmail.com>
 
 __OK__
 
-## WikipediR (1.1.0)
-Maintainer: Oliver Keyes <okeyes@wikimedia.org>  
+## whoami (1.0.0)
+Maintainer: Gabor Csardi <csardi.gabor@gmail.com>  
+Bug reports: https://github.com/gaborcsardi/whoami/issues
+
+__OK__
+
+## WikidataR (1.0.0)
+Maintainer: Oliver Keyes <ironholds@gmail.com>
+
+__OK__
+
+## wikipediatrend (1.1.3)
+Maintainer: Peter Meissner <retep.meissner@gmail.com>  
+Bug reports: https://github.com/petermeissner/wikipediatrend/issues
+
+```
+checking package dependencies ... NOTE
+Packages suggested but not available for checking:
+  ‘AnomalyDetection’ ‘BreakoutDetection’
+```
+```
+checking for unstated dependencies in vignettes ... NOTE
+Warning: parse error in file '/private/tmp/RtmpXqUQlV/check_cran86c84367aa41/wikipediatrend.Rcheck/wikipediatrend/doc/using-wikipediatrend.R':
+invalid multibyte character in parser at line 88
+```
+```
+checking re-building of vignette outputs ... NOTE
+Error in re-building vignettes:
+  ...
+http://stats.grok.se/json/en/201505/Main_page
+http://stats.grok.se/json/en/201505/Millennium_Development_Goals
+http://stats.grok.se/json/en/201505/Climate_Change
+http://stats.grok.se/json/en/200712/Millennium_Development_Goals
+http://stats.grok.se/json/en/200801/Millennium_Development_Goals
+http://stats.grok.se/json/en/200807/Millennium_Development_Goals
+http://stats.grok.se/json/es/201505/Objetivos_de_Desarrollo_del_Milenio
+geom_smooth: method="auto" and size of largest group is <1000, so using loess. Use 'method = x' to change the smoothing method.
+http://stats.grok.se/json/en/201505/Cheese
+http://stats.grok.se/json/de/201505/K%C3%A4se
+http://stats.grok.se/json/en/201505/Islamic_State_of_Iraq_and_the_Levant
+http://stats.grok.se/json/ar/201505/%D8%AF%D8%A7%D8%B9%D8%B4
+http://stats.grok.se/json/de/201505/Islamischer_Staat_(Organisation)
+http://stats.grok.se/json/es/201505/Estado_Isl%C3%A1mico
+http://stats.grok.se/json/ru/201505/%D0%98%D1%81%D0%BB%D0%B0%D0%BC%D1%81%D0%BA%D0%BE%D0%B5_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%BE_%D0%98%D1%80%D0%B0%D0%BA%D0%B0_%D0%B8_%D0%9B%D0%B5%D0%B2%D0%B0%D0%BD%D1%82%D0%B0
+Quitting from lines 334-338 (using-wikipediatrend.Rmd) 
+Error: processing vignette 'using-wikipediatrend.Rmd' failed with diagnostics:
+there is no package called 'AnomalyDetection'
+Execution halted
+
+```
+```
+DONE
+Status: 3 NOTEs
+```
+
+## WikipediR (1.2.0)
+Maintainer: Oliver Keyes <ironholds@gmail.com>  
 Bug reports: https://github.com/Ironholds/WikipediR/issues
 
 __OK__
