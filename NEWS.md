@@ -1,5 +1,4 @@
-# httr 0.6.1.9000
-
+# httr 1.0.0
 
 * The `oauth_listener` can now listen on
   a custom IP address and port (the previously hardwired ip:port of `127.0.0.1:1410`
