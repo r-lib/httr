@@ -9,6 +9,29 @@ test_that("status codes returned as expected", {
 
 })
 
+test_that("DELETE deletes", {
+  expect_equal(GET("http://httpbin.org/delete")$status_code, 405)
+  expect_equal(DELETE("http://httpbin.org/delete")$status_code, 200)
+})
+
+test_that("POST posts", {
+  expect_equal(GET("http://httpbin.org/post")$status_code, 405)
+  expect_equal(POST("http://httpbin.org/post", body=list(),
+    encode="json")$status_code, 200)  
+})
+
+test_that("PATCH patches", {
+  expect_equal(GET("http://httpbin.org/patch")$status_code, 405)
+  expect_equal(PATCH("http://httpbin.org/patch", body=list(),
+    encode="json")$status_code, 200)  
+})
+
+test_that("PUT puts", {
+  expect_equal(GET("http://httpbin.org/put")$status_code, 405)
+  expect_equal(PUT("http://httpbin.org/put", body=list(),
+    encode="json")$status_code, 200)  
+})
+
 test_that("status converted to errors", {
 
   s200 <- GET("http://httpbin.org/status/200")
