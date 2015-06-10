@@ -47,6 +47,9 @@
 * `proxy()` gains an `auth` argument which allows you to pick the type of
   http authentication used by the proxy (#216).
 
+* `VERB()` gains `body` and `encode` arguments so you can generate 
+  arbitrary requests with a body.
+
 # httr 0.6.1
 
 * Correctly parse headers with multiple `:`, thanks to @mmorgan (#180).
