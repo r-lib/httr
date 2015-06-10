@@ -100,9 +100,6 @@ print.request <- function(x, ...) {
 request_prepare <- function(req) {
   req <- request_combine(request_default(), req)
 
-  if (req$method != "POST")
-    req$options$customrequest <- req$method
-
   # Sign request, if needed
   token <- req$auth_token
   if (!is.null(token))
