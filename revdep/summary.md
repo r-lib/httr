@@ -4,9 +4,9 @@
 
 |setting  |value                        |
 |:--------|:----------------------------|
-|version  |R version 3.2.0 (2015-04-16) |
+|version  |R version 3.2.1 (2015-06-18) |
 |system   |x86_64, darwin13.4.0         |
-|ui       |RStudio (0.99.584)           |
+|ui       |RStudio (0.99.601)           |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
@@ -16,7 +16,7 @@
 |package   |*  |version  |date       |source         |
 |:---------|:--|:--------|:----------|:--------------|
 |base64enc |   |0.1-2    |2014-06-26 |CRAN (R 3.2.0) |
-|curl      |   |0.8      |2015-06-06 |CRAN (R 3.2.0) |
+|curl      |   |0.9      |2015-06-19 |CRAN (R 3.2.0) |
 |digest    |   |0.6.8    |2014-12-31 |CRAN (R 3.2.0) |
 |httpuv    |   |1.3.2    |2014-10-23 |CRAN (R 3.2.0) |
 |jpeg      |   |0.1-8    |2014-01-23 |CRAN (R 3.2.0) |
@@ -31,7 +31,13 @@
 |XML       |   |3.98-1.2 |2015-05-31 |CRAN (R 3.2.0) |
 
 # Check results
-104 checked out of 104 dependencies 
+109 checked out of 109 dependencies 
+
+## abbyyR (0.1)
+Maintainer: Gaurav Sood <gsood07@gmail.com>  
+Bug reports: http://github.com/soodoku/abbyyR/issues
+
+__OK__
 
 ## aemo (0.1.0)
 Maintainer: Imanuel Costigan <i.costigan@me.com>
@@ -42,7 +48,16 @@ __OK__
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: http://www.github.com/ropensci/alm/issues
 
-__OK__
+```
+checking files in ‘vignettes’ ... NOTE
+The following directory looks like a leftover from 'knitr':
+  ‘figure’
+Please remove from your package.
+```
+```
+DONE
+Status: 1 NOTE
+```
 
 ## AntWeb (0.7)
 Maintainer: 'Karthik Ram' <karthik.ram@gmail.com>  
@@ -162,67 +177,16 @@ Bug reports: https://github.com/metacran/cranlogs/issues
 
 __OK__
 
-## crunch (1.2.1)
+## crunch (1.3.2)
 Maintainer: Neal Richardson <neal@crunch.io>  
 Bug reports: https://github.com/Crunch-io/rcrunch/issues
 
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-      table
-  
-  1. Failure (at test-auth.R#15): getToken can retrieve a token ------------------
-  class(test.token) is not identical to "config". Differences: 
-  1 string mismatch
-  
-  Error : Testing error handling, please ignore
-  testthat results ================================================================
-  OK: 497 SKIPPED: 5 FAILED: 1
-  1. Failure (at test-auth.R#15): getToken can retrieve a token 
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
-```
-DONE
-Status: 1 ERROR
-```
+__OK__
 
 ## ddeploy (1.0.2)
 Maintainer: Niall McGearailt <niall@dukeanalytics.com>
 
-```
-checking examples ... ERROR
-Running examples in ‘ddeploy-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: duke_deploy
-> ### Title: Deploy model using REST API
-> ### Aliases: duke_deploy
-> 
-> ### ** Examples
-> 
-> duke_auth <- list(
-+ user_name = "try_it",
-+ api_key   = "db1542b66f16aba5768d8a19c27dec4facf9168a",
-+ endpoint = "/api/v1.0"
-+ )
-> example_data <- as.data.frame(cbind(gl(3,50),rnorm(150)));names(example_data) <- c("x","y")
-> example_fit  <- lm(y~x,data=example_data)
-> duke_deploy(auth_details=duke_auth,model_object=example_fit)
-Error in parse_string(txt, bigint_as_char) : 
-  lexical error: invalid char in json text.
-                                       <html>  <head><title>502 Bad Ga
-                     (right here) ------^
-Calls: duke_deploy ... fromJSON_string -> parseJSON -> parse_string -> .Call
-Execution halted
-```
-```
-DONE
-Status: 1 ERROR
-```
+__OK__
 
 ## devtools (1.8.0)
 Maintainer: Hadley Wickham <hadley@rstudio.com>  
@@ -279,7 +243,16 @@ __OK__
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropengov/enigma/issues
 
-__OK__
+```
+checking files in ‘vignettes’ ... NOTE
+The following directory looks like a leftover from 'knitr':
+  ‘figure’
+Please remove from your package.
+```
+```
+DONE
+Status: 1 NOTE
+```
 
 ## fbRanks (2.0)
 Maintainer: E Holmes <eeholmes@u.washington.edu>
@@ -480,10 +453,10 @@ Bug reports: https://github.com/kalimu/genderizeR
 checking tests ... ERROR
 Running the tests in ‘tests/testthat.R’ failed.
 Last 13 lines of output:
-  12: httr::GET("https://api.genderize.io", query = query, httr::config(ssl.verifypeer = ssl.verifypeer))
   13: request_perform(req, hu$handle$handle) at /Users/hadley/Documents/web/httr/R/http-get.r:67
   14: curl::handle_setopt(handle, .list = req$options) at /Users/hadley/Documents/web/httr/R/request.R:116
-  15: stop("Unknown options.")
+  15: stop("Unknown option", ifelse(length(bad_opts) > 1, "s: ", ": "), paste(bad_opts, 
+         collapse = ", "))
   
   testthat results ================================================================
   OK: 0 SKIPPED: 0 FAILED: 3
@@ -618,7 +591,7 @@ DONE
 Status: 1 NOTE
 ```
 
-## packrat (0.4.3)
+## packrat (0.4.4)
 Maintainer: Kevin Ushey <kevin@rstudio.com>  
 Bug reports: https://github.com/rstudio/packrat/issues
 
@@ -669,28 +642,7 @@ __OK__
 Maintainer: Mans Magnusson <mons.magnusson@gmail.com>  
 Bug reports: https://github.com/rOpenGov/pxweb/issues
 
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat_clean_pxweb.R’ failed.
-Last 13 lines of output:
-  3: eval(expr, envir, enclos)
-  4: get_pxweb_data(url = test$url, dims = test$dims, clean = FALSE) at test-clean_pxweb.R:71
-  5: create_batch_list(url = url, dims = dims)
-  6: get_dim_size(url = url, dims = dims)
-  7: get_pxweb_metadata(url)
-  8: stop(str_join("No internet connection to ", url), call. = FALSE)
-  
-  testthat results ================================================================
-  OK: 1 SKIPPED: 0 FAILED: 1
-  1. Error: clean_pxweb 
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
-```
-DONE
-Status: 1 ERROR
-```
+__OK__
 
 ## Quandl (2.6.0)
 Maintainer: Raymond McTaggart <raymond@quandl.com>  
@@ -721,7 +673,16 @@ Status: 1 NOTE
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rbison/issues
 
-__OK__
+```
+checking files in ‘vignettes’ ... NOTE
+The following directory looks like a leftover from 'knitr':
+  ‘figure’
+Please remove from your package.
+```
+```
+DONE
+Status: 1 NOTE
+```
 
 ## rclinicaltrials (1.4.1)
 Maintainer: Michael C Sachs <sachsmc@gmail.com>
@@ -777,24 +738,6 @@ checking dependencies in R code ... NOTE
   See section 'Suggested packages' in the 'Writing R Extensions' manual.
 ```
 ```
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-  6. Error: All Records -label 
-  7. Error: Smoke Test 
-  8. Error: Write Batch -Insert 
-  9. Error: Write Batch -Update One Field 
-  1. Error: Write Batch -Update Two Fields 
-  2. Error: Smoke Test 
-  3. Error: Write One Shot -Insert 
-  4. Error: Write One Shot -Update One Field 
-  5. Error: Write One Shot -Update Two Fields 
-  6. ...
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
-```
 checking re-building of vignette outputs ... NOTE
 Error in re-building vignettes:
   ...
@@ -806,13 +749,34 @@ Execution halted
 ```
 ```
 DONE
-Status: 1 ERROR, 3 NOTEs
+Status: 3 NOTEs
 ```
 
 ## rentrez (0.4.1)
 Maintainer: David Winter <david.winter@gmail.com>
 
-__OK__
+```
+checking tests ... ERROR
+Running the tests in ‘tests/test-all.R’ failed.
+Last 13 lines of output:
+  > test_check("rentrez")
+  Loading required package: rentrez
+  Loading required package: XML
+  1. Failure (at test_webenv.r#16): Searches using WebEnv features work ----------
+  length(strsplit(snail_coi, ">")[[1]]) not equal to 11
+  11 - 17 == -6
+  
+  testthat results ================================================================
+  OK: 65 SKIPPED: 0 FAILED: 1
+  1. Failure (at test_webenv.r#16): Searches using WebEnv features work 
+  
+  Error: testthat unit tests failed
+  Execution halted
+```
+```
+DONE
+Status: 1 ERROR
+```
 
 ## repmis (0.4.4)
 Maintainer: Christopher Gandrud <christopher.gandrud@gmail.com>  
@@ -838,28 +802,11 @@ DONE
 Status: 1 NOTE
 ```
 
-## rfigshare (0.3.6)
+## rfigshare (0.3.7)
 Maintainer: Carl Boettiger <cboettig@gmail.com>  
 Bug reports: https://github.com/ropensci/rfigshare/issues
 
-```
-checking DESCRIPTION meta-information ... NOTE
-Malformed Title field: should not end in a period.
-```
-```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-Quitting from lines 78-81 (README.Rmd) 
-Error: processing vignette 'README.Rmd' failed with diagnostics:
-file.exists(path) is not TRUE
-Execution halted
-
-```
-```
-DONE
-Status: 2 NOTEs
-```
+__OK__
 
 ## rfisheries (0.1)
 Maintainer: Karthik Ram <karthik.ram@gmail.com>  
@@ -884,7 +831,7 @@ Maintainer: Dirk Eddelbuettel <edd@debian.org>
 
 __OK__
 
-## RGA (0.2.1)
+## RGA (0.2.2)
 Maintainer: Artem Klevtsov <a.a.klevtsov@gmail.com>  
 Bug reports: https://bitbucket.org/unikum/rga/issues
 
@@ -894,34 +841,22 @@ __OK__
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rgauges/issues
 
-__OK__
+```
+checking files in ‘vignettes’ ... NOTE
+The following directory looks like a leftover from 'knitr':
+  ‘figure’
+Please remove from your package.
+```
+```
+DONE
+Status: 1 NOTE
+```
 
 ## rgbif (0.8.4)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rgbif/issues
 
-```
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-  9: build_url(modifyList(old, new)) at /Users/hadley/Documents/web/httr/R/handle-url.r:13
-  10: curl::curl_escape(names(url$query)) at /Users/hadley/Documents/web/httr/R/url.r:120
-  
-  testthat results ================================================================
-  OK: 241 SKIPPED: 0 FAILED: 5
-  1. Error: dataset_metrics returns the correct class 
-  2. Error: enumeration 
-  3. Failure (at test-enumeration.r#23): fails correctly 
-  4. Failure (at test-enumeration.r#24): fails correctly 
-  5. Error: returns the correct class 
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
-```
-DONE
-Status: 1 ERROR
-```
+__OK__
 
 ## RGoogleAnalytics (0.1.1)
 Maintainer: Kushan Shah <kushan@tatvic.com>  
@@ -954,6 +889,12 @@ fetch_healthdata : <anonymous>: no visible binding for global variable
 DONE
 Status: 1 NOTE
 ```
+
+## ridigbio (0.2.2)
+Maintainer: Matthew Collins <mcollins@acis.ufl.edu>  
+Bug reports: https://github.com/iDigBio/ridigbio/issues
+
+__OK__
 
 ## rinat (0.1.4)
 Maintainer: Edmund Hart <edmund.m.hart@gmail.com>
@@ -990,7 +931,7 @@ DONE
 Status: 1 NOTE
 ```
 
-## rnoaa (0.3.3)
+## rnoaa (0.4.0)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: http://www.github.com/ropensci/rnoaa/issues
 
@@ -1024,26 +965,8 @@ checking DESCRIPTION meta-information ... NOTE
 Malformed Description field: should contain one or more complete sentences.
 ```
 ```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  2. Error: Validate GetUniqueVisitorVariable using legacy credentials 
-  3. Error: Validate GetVersionAccess using legacy credentials 
-  4. Error: Validate GetVideoSettings using legacy credentials 
-  5. Error: Validate QueueFallout using legacy credentials 
-  6. Error: Validate QueueOvertime using legacy credentials 
-  7. Error: Validate QueuePathing using legacy credentials 
-  8. Error: Validate QueueRanked using legacy credentials 
-  9. Error: Validate QueueTrended using legacy credentials 
-  1. Error: SCAuth legacy credentials work as expected 
-  2. ...
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
-```
 DONE
-Status: 1 ERROR, 1 NOTE
+Status: 1 NOTE
 ```
 
 ## rsnps (0.1.6)
@@ -1060,7 +983,7 @@ Bug reports: https://github.com/Chicago/RSocrata/issues
 checking whether package ‘RSocrata’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: replacing previous import by ‘curl::handle_reset’ when loading ‘RSocrata’
-See ‘/private/tmp/RtmpXqUQlV/check_cran86c84367aa41/RSocrata.Rcheck/00install.out’ for details.
+See ‘/private/tmp/RtmpSvieTp/check_cranddb1ca750de/RSocrata.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -1081,8 +1004,14 @@ Malformed Title field: should not end in a period.
 Malformed Description field: should contain one or more complete sentences.
 ```
 ```
+checking files in ‘vignettes’ ... NOTE
+The following directory looks like a leftover from 'knitr':
+  ‘figure’
+Please remove from your package.
+```
+```
 DONE
-Status: 2 NOTEs
+Status: 3 NOTEs
 ```
 
 ## rvertnet (0.2.2)
@@ -1155,6 +1084,24 @@ Bug reports: https://github.com/ropensci/spocc/issues
 
 __OK__
 
+## stringgaussnet (1.0)
+Maintainer: Emmanuel Chaplais <emmanuel.chaplais@inserm.fr>
+
+```
+checking package dependencies ... ERROR
+Packages required but not available:
+  ‘AnnotationDbi’ ‘GO.db’ ‘biomaRt’ ‘limma’
+
+Package suggested but not available for checking: ‘org.Hs.eg.db’
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+```
+```
+DONE
+Status: 1 ERROR
+```
+
 ## swirl (2.2.21)
 Maintainer: Nick Carchedi <nick.carchedi@gmail.com>
 
@@ -1173,9 +1120,20 @@ Bug reports: https://github.com/fawda123/SWMPr/issues
 
 __OK__
 
-## taxize (0.5.2)
+## taxize (0.6.0)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/taxize/issues
+
+__OK__
+
+## TMDb (1.0)
+Maintainer: Andrea Capozio <andreacapozio@gmail.com>
+
+__OK__
+
+## traits (0.1.0)
+Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
+Bug reports: http://www.github.com/ropensci/traits/issues
 
 __OK__
 
@@ -1199,7 +1157,7 @@ Maintainer: Jiri Kadlec <jirikadlec2@gmail.com>
 
 __OK__
 
-## whoami (1.0.0)
+## whoami (1.1.0)
 Maintainer: Gabor Csardi <csardi.gabor@gmail.com>  
 Bug reports: https://github.com/gaborcsardi/whoami/issues
 
@@ -1210,7 +1168,7 @@ Maintainer: Oliver Keyes <ironholds@gmail.com>
 
 __OK__
 
-## wikipediatrend (1.1.3)
+## wikipediatrend (1.1.4)
 Maintainer: Peter Meissner <retep.meissner@gmail.com>  
 Bug reports: https://github.com/petermeissner/wikipediatrend/issues
 
@@ -1220,38 +1178,8 @@ Packages suggested but not available for checking:
   ‘AnomalyDetection’ ‘BreakoutDetection’
 ```
 ```
-checking for unstated dependencies in vignettes ... NOTE
-Warning: parse error in file '/private/tmp/RtmpXqUQlV/check_cran86c84367aa41/wikipediatrend.Rcheck/wikipediatrend/doc/using-wikipediatrend.R':
-invalid multibyte character in parser at line 88
-```
-```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-http://stats.grok.se/json/en/201505/Main_page
-http://stats.grok.se/json/en/201505/Millennium_Development_Goals
-http://stats.grok.se/json/en/201505/Climate_Change
-http://stats.grok.se/json/en/200712/Millennium_Development_Goals
-http://stats.grok.se/json/en/200801/Millennium_Development_Goals
-http://stats.grok.se/json/en/200807/Millennium_Development_Goals
-http://stats.grok.se/json/es/201505/Objetivos_de_Desarrollo_del_Milenio
-geom_smooth: method="auto" and size of largest group is <1000, so using loess. Use 'method = x' to change the smoothing method.
-http://stats.grok.se/json/en/201505/Cheese
-http://stats.grok.se/json/de/201505/K%C3%A4se
-http://stats.grok.se/json/en/201505/Islamic_State_of_Iraq_and_the_Levant
-http://stats.grok.se/json/ar/201505/%D8%AF%D8%A7%D8%B9%D8%B4
-http://stats.grok.se/json/de/201505/Islamischer_Staat_(Organisation)
-http://stats.grok.se/json/es/201505/Estado_Isl%C3%A1mico
-http://stats.grok.se/json/ru/201505/%D0%98%D1%81%D0%BB%D0%B0%D0%BC%D1%81%D0%BA%D0%BE%D0%B5_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%BE_%D0%98%D1%80%D0%B0%D0%BA%D0%B0_%D0%B8_%D0%9B%D0%B5%D0%B2%D0%B0%D0%BD%D1%82%D0%B0
-Quitting from lines 334-338 (using-wikipediatrend.Rmd) 
-Error: processing vignette 'using-wikipediatrend.Rmd' failed with diagnostics:
-there is no package called 'AnomalyDetection'
-Execution halted
-
-```
-```
 DONE
-Status: 3 NOTEs
+Status: 1 NOTE
 ```
 
 ## WikipediR (1.2.0)
@@ -1260,7 +1188,7 @@ Bug reports: https://github.com/Ironholds/WikipediR/issues
 
 __OK__
 
-## yhatr (0.13.4)
+## yhatr (0.13.6)
 Maintainer: Greg Lamp <greg@yhathq.com>
 
 __OK__
