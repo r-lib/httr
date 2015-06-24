@@ -1,5 +1,14 @@
 ## Submission summary
 
+This is a resubmission:
+
+* I've updated Authors@R: sorry I missed this!
+
+* I don't see the problem with REDCapR locally - and is.request() isn't
+  actually a httr function, so I think it might be a problem elsewhere?
+
+----
+
 This is a large update that replaces the dependency on RCurl with curl. This should mainly only affect the internal operation of the package, but some authors have relied on stuff they shouldn't have. Because of the large change, I notified all reverse depencies authors on June 10, giving them two weeks to fix any problems.
 
 ## Test environments
