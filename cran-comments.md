@@ -13,10 +13,9 @@ There were no ERRORs or WARNINGs.
 ## Downstream dependencies
 I ran `R CMD check` on all 109 reverse dependencies (https://github.com/hadley/httr/tree/master/revdep/summary.md). 
 
-There were three failures that appear related to httr:
+There were two failures that appear related to httr:
 
 * covr
 * genderizeR
-* rentrez
 
-I notified these authors on June 10, and again yesterday.
+I notified these authors on June 10, and again yesterday: both are planning on submitting updates ASAP. (rentrez also fails, but for a different reason - I've corresponded with the maintainer and he's planning on submitting an update soon.)
