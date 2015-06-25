@@ -36,7 +36,7 @@ progress_bar <- function(type) {
     if (total == 0 && now == 0) {
       bar <<- NULL
       first <<- TRUE
-      return()
+      return(TRUE)
     }
 
     if (total == 0) {
@@ -53,7 +53,7 @@ progress_bar <- function(type) {
       setTxtProgressBar(bar, now)
     }
 
-    0L
+    TRUE
   }
 
   show_progress
