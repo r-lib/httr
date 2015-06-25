@@ -1,5 +1,7 @@
 # httr 1.0.0.9000
 
+* fix for 'progress callback must return boolean' warning
+
 # httr 1.0.0
 
 * httr no longer uses the RCurl package. Instead it uses the curl package, 
