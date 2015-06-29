@@ -10,7 +10,7 @@
 #' # Otherwise you get the number of bytes downloaded:
 #' x <- GET("http://httpbin.org/drip?numbytes=4000&duration=3", progress())
 #' }
-progress <- function(type = c("down", "up")) {
+progress <- function(type = c("down", "up", "both")) {
   type <- match.arg(type)
 
   request(options = list(
@@ -24,7 +24,13 @@ progress_bar <- function(type) {
   first <- TRUE
 
   show_progress <- function(down, up) {
-    if (type == "down") {
+    if (type == "both") {
+      total <- 1
+      now <- 0.5 * (up[[2]] / up[[1]])
+      if(down[[2]] > 0) {
+        now <- now + 0.5 * (down[[2]] / down[[1]])
+      }
+    } else if (type == "down") {
       total <- down[[1]]
       now <- down[[2]]
     } else {
