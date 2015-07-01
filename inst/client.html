@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+  <script>
+    var hash = window.location.hash.substr(1);
+    if (hash != null) {
+      xhr = new XMLHttpRequest();
+      xhr.open('POST', encodeURI('/'));
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.send(encodeURI(hash));
+    }
+  </script>
+  </head>
+  <body>
+    Authentication complete. Please close this page and return to R.
+  </body>
+</html>
