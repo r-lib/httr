@@ -21,7 +21,7 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
             close(con)
           bin
         },
-        postfieldsize = size
+        postfieldsize_large = size
       ),
       content_type(body$type)
     ))
