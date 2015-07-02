@@ -1,6 +1,8 @@
 # httr 1.0.0.9000
 
-* fix for 'progress callback must return boolean' warning
+* Fix for 'progress callback must return boolean' warning
+
+* Support for uploading large binaries by using postfieldsize_large
 
 # httr 1.0.0
 

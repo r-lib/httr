@@ -3,6 +3,7 @@ language: r
 r_github_packages:
   - s-u/PKI
   - jimhester/covr
+  - jeroenooms/curl
 
 after_success:
   - Rscript -e 'covr::codecov()'
