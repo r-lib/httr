@@ -217,11 +217,11 @@ If your package supports an authentication workflow based on an API key or token
 1.  Create a line like this:
 
     ```bash
-    GITHUB_TOKEN=blahblahblahblahblahblah
+    GITHUB_PAT=blahblahblahblahblahblah
     ```
         
-    where the name `GITHUB_TOKEN` reminds you which API this is for and 
-    `blahblahblahblahblahblah` is your token, pasted from the clipboard.
+    where the name `GITHUB_PAT` reminds you which API this is for and 
+    `blahblahblahblahblahblah` is your personal access token, pasted from the clipboard.
     
 1.  Make sure the last line in the file is empty (if it isn't R will 
     __silently__ fail to load the file. If you're using an editor that shows 
@@ -238,11 +238,11 @@ If your package supports an authentication workflow based on an API key or token
     [at the start of an R session](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html).
   
 1.  Use `Sys.getenv()` to access your token. For example, here's how to use 
-    your `GITHUB_TOKEN` with the `github` package:
+    your `GITHUB_PAT` with the `github` package:
   
     ```R
     library(github)
-    ctx <- create.github.context(access_token = Sys.getenv("GITHUB_TOKEN"))
+    ctx <- create.github.context(access_token = Sys.getenv("GITHUB_PAT"))
     # ... proceed to use other package functions to open issues, etc.
     ```
     
