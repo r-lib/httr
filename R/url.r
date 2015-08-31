@@ -116,11 +116,7 @@ build_url <- function(url) {
   }
 
   if (is.list(url$query)) {
-    url$query <- compact(url$query)
-    names <- curl::curl_escape(names(url$query))
-    values <- curl::curl_escape(as.character(url$query))
-
-    query <- paste0(names, "=", values, collapse = "&")
+    query <- compose_query(url$query)
   } else {
     query <- url$query
   }

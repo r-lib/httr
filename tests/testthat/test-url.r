@@ -63,7 +63,17 @@ test_that("build_url drops null query", {
 })
 
 test_that("parse_url pulls off domain correctly given query without trailing '/'", {
-   url <- modify_url('http://google.com?a=1', query = list(b = 2)) 
+   url <- modify_url('http://google.com?a=1', query = list(b = 2))
    expect_equal(url, "http://google.com/?a=1&b=2")
 })
 
+
+# compose_query -----------------------------------------------------------
+
+test_that("I() prevents escaping", {
+  expect_equal(compose_query(list(x = I("&"))), "x=&")
+})
+
+test_that("null elements are dropped", {
+  expect_equal(compose_query(list(x = 1, y = NULL)), "x=1")
+})

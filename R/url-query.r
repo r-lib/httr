@@ -7,7 +7,6 @@ parse_query <- function(query) {
   values
 }
 
-# compose_query(list(x = "&", y = I("%26")))
 compose_query <- function(elements) {
   if (length(elements) == 0)
     return("")
@@ -18,12 +17,12 @@ compose_query <- function(elements) {
   stopifnot(is.list(elements))
   elements <- compact(elements)
 
+  names <- curl::curl_escape(names(elements))
+
   encode <- function(x) {
     if (inherits(x, "AsIs")) return(x)
     curl::curl_escape(as.character(x))
   }
-
-  names <- curl::curl_escape(names(elements))
   values <- vapply(elements, encode, character(1))
 
   paste0(names, "=", values, collapse = "&")
