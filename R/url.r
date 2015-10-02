@@ -107,11 +107,7 @@ build_url <- function(url) {
     port <- NULL
   }
 
-  if (length(url$path) > 1) {
-    url$path <- paste(url$path, collapse = "/")
-  }
-
-  path <- url$path
+  path <- paste(url$path, collapse = "/")
 
   if (!is.null(url$params)) {
     params <- paste0(";", url$params)
