@@ -25,5 +25,4 @@
 #'
 #' @name httr
 #' @docType package
-#' @import stringr
 NULL
