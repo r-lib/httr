@@ -15,8 +15,7 @@ Imports:
     jsonlite,
     mime,
     curl (>= 0.9.0.9000),
-    R6,
-    stringr (>= 0.6.1)
+    R6
 Suggests:
     base64enc,
     httpuv,
