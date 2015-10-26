@@ -1,5 +1,7 @@
 # httr 1.0.0.9000
 
+* Remove the stringr dependency (#285, @jimhester).
+
 * Fix for 'progress callback must return boolean' warning
 
 * Support for uploading large binaries by using postfieldsize_large
