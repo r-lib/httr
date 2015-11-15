@@ -1,14 +1,8 @@
 # These are drop in replacements for the stringr:: functions used in httr. They
 # do not retain all functionality from stringr, only that which is used in
 # httr. Notably they are generally not vectorized.
-str_trim <- function(x, which = c("both", "left", "right")) {
-    which <- match.arg(which)
-    mysub <- function(re, x) sub(re, "", x, perl = TRUE)
-    if(which == "left")
-        return(mysub("^[ \t\r\n]+", x))
-    if(which == "right")
-        return(mysub("[ \t\r\n]+$", x))
-    mysub("[ \t\r\n]+$", mysub("^[ \t\r\n]+", x))
+str_trim <- function(x) {
+    gsub("(^\\s+)|(\\s+$)", "", x)
 }
 
 str_split_fixed <- function(string, pattern, n) {
