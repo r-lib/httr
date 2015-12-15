@@ -27,13 +27,9 @@ init_oauth_service_account <- function(endpoint, secrets, scope = NULL) {
 #' jwt_signature(cred, "https://www.googleapis.com/auth/userinfo.profile")
 #' }
 jwt_signature <- function(credentials, scope, duration = 60 * 60) {
-  if (!requireNamespace("PKI", quietly = TRUE)) {
-    stop("PKI package required for JWT signing", call. = FALSE)
+  if (!requireNamespace("openssl", quietly = TRUE)) {
+    stop("Package 'openssl' required for JWT signing", call. = FALSE)
   }
-  if (!requireNamespace("base64enc", quietly = TRUE)) {
-    stop("base64enc package required for base64 encoding", call. = FALSE)
-  }
-
   now <- as.numeric(Sys.time())
   cs <- jwt_claimset(credentials$client_email, scope, iat = now,
     exp = now + duration)
@@ -41,11 +37,10 @@ jwt_signature <- function(credentials, scope, duration = 60 * 60) {
 }
 
 jwt_sign <- function(claimset, private_key, header = jwt_header()) {
-  key <- PKI::PKI.load.key(textConnection(private_key), private = TRUE)
-
+  key <- openssl::read_key(textConnection(private_key))
   to_sign_base64 <- paste0(jwt_base64(header), ".", jwt_base64(claimset))
   to_sign <- charToRaw(to_sign_base64)
-  sig <- PKI::PKI.sign(to_sign, key, "SHA256")
+  sig <- signature_create(to_sign, openssl::sha256, key)
   sig_base64 <- base64url(sig)
 
   paste0(to_sign_base64, ".", sig_base64)
@@ -96,6 +91,6 @@ base64url <- function(x) {
   if (is.character(x)) {
     x <- charToRaw(x)
   }
-  out <- chartr('+/', '-_', base64enc::base64encode(x))
+  out <- chartr('+/', '-_', openssl::base64_encode(x))
   gsub("=+$", "", out)
 }
