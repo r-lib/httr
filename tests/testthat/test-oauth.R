@@ -1,4 +1,4 @@
-context("Oauth")
+context("OAuth")
 
 test_that("oauth2.0 signing works", {
   request_url <- "http://httpbin.org/headers"
@@ -40,7 +40,7 @@ test_that("partial OAuth1 flow works", {
     token = "xdBjcKOiunwjiovwkfTF2QjGhROeLMw0y0nSCSgvg3YQxdBjcKOiunwjiovwkfTF2Q",
     token_secret = "4mdM3pfekNGO16X4hsvZdg")
 
-  r <- GET("http://api.figshare.com/v1/my_data", sig)
+  r <- GET("http://api.figshare.com/v1/my_data/articles", sig)
   expect_equal(status_code(r), 200)
 })
 
