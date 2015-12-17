@@ -105,5 +105,5 @@ parsed_content <- function(x, ...) {
 #' has_content(POST("http://httpbin.org/post", body = FALSE))
 #' has_content(HEAD("http://httpbin.org/headers"))
 has_content <- function(x) {
-  length(x) == 0
+  length(x$content) > 0
 }
