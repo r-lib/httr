@@ -10,6 +10,8 @@
 
 * Support for uploading large binaries by using postfieldsize_large
 
+* Add support for progress(type = "both")
+
 # httr 1.0.0
 
 * httr no longer uses the RCurl package. Instead it uses the curl package, 
