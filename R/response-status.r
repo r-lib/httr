@@ -135,46 +135,67 @@ http_statuses <- c(
   "599" = "Network connect timeout error (Unknown)"
 )
 
-#' Check for an http OK status.
+#' Check for an http error.
 #'
-#' Checks if a request on a given URL succeeds and returns an OK status.
-#'
-#' @param ... passed to HEAD to perform the request (usually just a url)
-#' @return This function returns \code{TRUE} only if the http status is
-#'   exactly 200, \code{FALSE otherwise}. See
-#'   \code{http://en.wikipedia.org/wiki/Http_status_codes}
-#'   for more information on http status codes.
+#' @param x Object to check. Default methods are provided for strings
+#'   (which perform an \code{\link{HEAD}} request), responses, and
+#'   integer status codes.
+#' @param ... Other arguments passed on to methods.
+#' @return  \code{TRUE} if the request fails (status code 400 or above),
+#'   otherwise \code{FALSE}.
 #' @export
 #' @family response methods
 #' @examples
-#' url_ok("http://www.google.com")
-#' url_ok("http://httpbin.org/status/200")
-#' url_ok("http://httpbin.org/status/201")
-url_ok <- function(...) {
-  x <- HEAD(...)
-  identical(status_code(x), 200L)
+#' # You can pass a url:
+#' http_error("http://www.google.com")
+#' http_error("http://httpbin.org/status/404")
+#'
+#' # Or a request
+#' r <- GET("http://httpbin.org/status/201")
+#' http_error(r)
+#'
+#' # Or an (integer) status code
+#' http_error(200L)
+#' http_error(404L)
+http_error <- function(x, ...) {
+  UseMethod("http_error")
+}
+#' @export
+http_error.character <- function(x, ...) {
+  http_error(HEAD(x, ...))
+}
+#' @export
+http_error.response <- function(x, ...) {
+  http_error(status_code(x))
 }
 
-#' Check for an http success status.
-#'
-#' Checks if a request on a given URL succeeds.
-#'
-#' @param ... passed to HEAD to perform the request (usually just a url)
-#' @return This function returns \code{TRUE} if the request succeeds
-#'   (status in the 200s), \code{FALSE otherwise}. See
-#'   \code{http://en.wikipedia.org/wiki/Http_status_codes}
-#'   for more information on http status codes.
 #' @export
-#' @family response methods
-#' @examples
-#' url_success("http://www.google.com")
-#' url_success("http://httpbin.org/status/200")
-#' url_success("http://httpbin.org/status/201")
-#' url_success("http://httpbin.org/status/300")
-url_success <- function(...) {
-  successful(HEAD(...))
+http_error.integer <- function(x, ...) {
+  x >= 400L
 }
-successful <- function(x) status_code(x) < 300
+
+#' @export
+#' @rdname http_error
+#' @usage NULL
+url_success <- function(x, ...) {
+  warning(
+    "`url_success(x)` is deprecated; please use `!http_error(x)` instead.",
+    call. = FALSE
+  )
+  !http_error(x, ...)
+}
+
+#' @export
+#' @rdname http_error
+#' @usage NULL
+url_ok <- function(x, ...) {
+  warning(
+    "`url_ok(x)` is deprecated; ",
+    "please use `identical(status_code(x), 200L)` instead.",
+    call. = FALSE
+  )
+  identical(status_code(HEAD(x, ...)), 200L)
+}
 
 #' Take action on http error.
 #'
@@ -202,20 +223,16 @@ successful <- function(x) status_code(x) < 300
 #' x <- GET("http://httpbin.org/status/404")
 #' \dontrun{stop_for_status(x)}
 #' warn_for_status(x)
-#' @name http_error
-NULL
-
-#' @rdname http_error
 #' @export
 stop_for_status <- function(x) {
-  if (successful(x)) return(invisible(x))
+  if (status_code(x) < 300) return(invisible(x))
   stop(http_condition(x, "error", call = sys.call(-1)))
 }
 
-#' @rdname http_error
+#' @rdname stop_for_status
 #' @export
 warn_for_status <- function(x) {
-  if (successful(x)) return(invisible(x))
+  if (status_code(x) < 300) return(invisible(x))
   warning(http_condition(x, "warning", call = sys.call(-1)))
 }
 

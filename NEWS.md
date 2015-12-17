@@ -1,5 +1,9 @@
 # httr 1.0.0.9000
 
+* `url_ok()` and `url_successful()` have been deprecated in favour of the more
+  flexible `http_error()`, which works with urls, responses and integer status
+  codes (#299).
+
 * `stop_for_status()` and `warn_for_status()` now return the response if
   there were no errors. This makes them easier to use in pipelines (#278).
 
