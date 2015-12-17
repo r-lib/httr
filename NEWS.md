@@ -1,5 +1,7 @@
 # httr 1.0.0.9000
 
+* `content(x)` now uses xml2 for XML documents and readr for csv and tsv.
+
 * Default encoding is now UTF-8.
 
 * `has_content()` correctly tests for the presence/absence of body content (#91).

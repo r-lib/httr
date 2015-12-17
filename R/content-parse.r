@@ -42,6 +42,8 @@ parse_auto <- function(content, type = NULL, encoding = NULL, ...) {
       call. = FALSE)
   }
 
+  encoding <- guess_encoding(encoding, type)
+
   parser(content, type = type, encoding = encoding, ...)
 }
 
@@ -72,10 +74,6 @@ parsers$`application/x-www-form-urlencoded` <- function(x, type = NULL,
                                                         encoding = NULL, ...) {
   parse_query(parse_text(x, encoding = "UTF-8"))
 }
-parsers$`application/xml` <- function(x, type = NULL, encoding = NULL, ...) {
-  need_package("XML")
-  XML::xmlParse(parse_text(x, encoding = "UTF-8"), ...)
-}
 
 # Text formats -----------------------------------------------------------------
 parsers$`image/jpeg` <- function(x, type = NULL, encoding = NULL, ...) {
@@ -93,23 +91,26 @@ parsers$`text/plain` <- function(x, type = NULL, encoding = NULL, ...) {
 }
 
 parsers$`text/html` <- function(x, type = NULL, encoding = NULL, ...) {
-  need_package("XML")
-  text <- parse_text(x, type = type, encoding = encoding)
-  XML::htmlParse(text, ...)
+  need_package("xml2")
+  xml2::read_html(x, encoding = encoding, ...)
+}
+
+parsers$`application/xml` <- function(x, type = NULL, encoding = NULL, ...) {
+  need_package("xml2")
+  xml2::read_xml(x, encoding = encoding, ...)
 }
 
 parsers$`text/xml` <- function(x, type = NULL, encoding = NULL, ...) {
-  need_package("XML")
-  text <- parse_text(x, type = type, encoding = encoding)
-  XML::xmlParse(text, ...)
+  need_package("xml2")
+  xml2::read_xml(x, encoding = encoding, ...)
 }
 
 parsers$`text/csv` <- function(x, type = NULL, encoding = NULL, ...) {
-  text <- parse_text(x, type = type, encoding = encoding)
-  read.csv(text = text, stringsAsFactors = FALSE, ...)
+  need_package("readr")
+  readr::read_csv(x, readr::locale(encoding = encoding), ...)
 }
 
 parsers$`text/tab-separated-values` <- function(x, type = NULL, encoding = NULL, ...) {
-  text <- parse_text(x, type = type, encoding = encoding)
-  read.delim(text = text, stringsAsFactors = FALSE, ...)
+  need_package("readr")
+  readr::read_tsv(x, readr::locale(encoding = encoding), ...)
 }
