@@ -46,8 +46,8 @@ with \code{\link{config}}.}
   wrap in \code{I()}.}
 
 \item{multipart}{Deprecated. \code{TRUE} = \code{encode = "multipart"},
-\code{FALSE} = {encode = "form"}.
-Files can not be uploaded when \code{FALSE}.}
+  \code{FALSE} = {encode = "form"}.
+  Files can not be uploaded when \code{FALSE}.}
 
 \item{handle}{The handle to use with this request. If not
   supplied, will be retrieved and reused from the \code{\link{handle_pool}}
@@ -71,5 +71,11 @@ POST(b2, body = list(x = "A simple text string"), encode = "json")
 POST(b2, body = NULL, verbose())
 POST(b2, body = FALSE, verbose())
 POST(b2, body = "", verbose())
+}
+\seealso{
+Other http methods: \code{\link{BROWSE}};
+  \code{\link{DELETE}}; \code{\link{GET}};
+  \code{\link{HEAD}}; \code{\link{PATCH}};
+  \code{\link{PUT}}; \code{\link{VERB}}
 }
 

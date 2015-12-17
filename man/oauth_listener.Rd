@@ -4,7 +4,8 @@
 \alias{oauth_listener}
 \title{Create a webserver to listen for OAuth callback.}
 \usage{
-oauth_listener(request_url, is_interactive = interactive())
+oauth_listener(request_url, is_interactive = interactive(),
+  host = "127.0.0.1", port = 1410)
 }
 \arguments{
 \item{request_url}{the url to send the browser to}

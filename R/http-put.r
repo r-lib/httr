@@ -1,6 +1,8 @@
 #' Send PUT request to server.
 #'
 #' @inheritParams POST
+#'
+#' @family http methods
 #' @export
 #' @examples
 #' POST("http://httpbin.org/put")

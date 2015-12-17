@@ -46,8 +46,8 @@ with \code{\link{config}}.}
   wrap in \code{I()}.}
 
 \item{multipart}{Deprecated. \code{TRUE} = \code{encode = "multipart"},
-\code{FALSE} = {encode = "form"}.
-Files can not be uploaded when \code{FALSE}.}
+  \code{FALSE} = {encode = "form"}.
+  Files can not be uploaded when \code{FALSE}.}
 
 \item{handle}{The handle to use with this request. If not
   supplied, will be retrieved and reused from the \code{\link{handle_pool}}
@@ -69,5 +69,11 @@ PUT(b2, body = "A simple text string")
 PUT(b2, body = list(x = "A simple text string"))
 PUT(b2, body = list(y = upload_file(system.file("CITATION"))))
 PUT(b2, body = list(x = "A simple text string"), encode = "json")
+}
+\seealso{
+Other http methods: \code{\link{BROWSE}};
+  \code{\link{DELETE}}; \code{\link{GET}};
+  \code{\link{HEAD}}; \code{\link{PATCH}};
+  \code{\link{POST}}; \code{\link{VERB}}
 }
 
