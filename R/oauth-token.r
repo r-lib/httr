@@ -101,7 +101,10 @@ Token <- R6::R6Class("Token", list(
     # endpoint = which site
     # app = client identification
     # params = scope
-    digest::digest(list(self$endpoint, self$app, self$params$scope))
+    msg <- serialize(list(self$endpoint, self$app, self$params$scope), NULL)
+
+    # for compatibility with digest::digest()
+    paste(openssl::md5(msg[-(1:14)]), collapse = "")
   },
   sign = function() {
     stop("Must be implemented by subclass", call. = FALSE)

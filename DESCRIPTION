@@ -11,18 +11,15 @@ Authors@R: c(
 Depends:
     R (>= 3.0.0)
 Imports:
-    digest,
     jsonlite,
     mime,
-    curl (>= 0.9.0.9000),
-    R6,
-    stringr (>= 0.6.1)
+    curl (>= 0.9.1),
+    openssl (>= 0.8),
+    R6
 Suggests:
-    base64enc,
     httpuv,
     jpeg,
     knitr,
-    PKI (>= 0.1-2),
     png,
     testthat (>= 0.8.0),
     XML

@@ -21,7 +21,7 @@ compose_query <- function(elements) {
 
   encode <- function(x) {
     if (inherits(x, "AsIs")) return(x)
-    curl::curl_escape(as.character(x))
+    curl::curl_escape(x)
   }
   values <- vapply(elements, encode, character(1))
 

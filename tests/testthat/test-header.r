@@ -3,12 +3,12 @@ context("Headers")
 # Setting ---------------------------------------------------------------------
 
 test_that("Only last duplicated header kept in add_headers", {
-  expect_equal(add_headers(x = 1, x = 2)$header, c(x = "2"))
+  expect_equal(add_headers(x = 1, x = 2)$headers, c(x = "2"))
 })
 
 test_that("Only last duplicated header kept when combined", {
   out <- c(add_headers(x = 1), add_headers(x = 2))
-  expect_equal(out$header, c(x = "2"))
+  expect_equal(out$headers, c(x = "2"))
 })
 
 # Getting ---------------------------------------------------------------------
