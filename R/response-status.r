@@ -224,16 +224,18 @@ url_ok <- function(x, ...) {
 #' \dontrun{stop_for_status(x)}
 #' warn_for_status(x)
 #' @export
-stop_for_status <- function(x) {
+stop_for_status <- function(x, msg = NULL) {
   if (status_code(x) < 300) return(invisible(x))
-  stop(http_condition(x, "error", call = sys.call(-1)))
+  if (!is.null(msg)) msg <- sprintf("%s failed: (HTTP %d)", msg, status_code(x))
+  stop(http_condition(x, "error", msg, call = sys.call(-1)))
 }
 
 #' @rdname stop_for_status
 #' @export
-warn_for_status <- function(x) {
+warn_for_status <- function(x, msg = NULL) {
   if (status_code(x) < 300) return(invisible(x))
-  warning(http_condition(x, "warning", call = sys.call(-1)))
+  if (!is.null(msg)) msg <- sprintf("%s failed: (HTTP %d)", msg, status_code(x))
+  warning(http_condition(x, "warning", msg, call = sys.call(-1)))
 }
 
 #' Generate a classed http condition.
