@@ -1,5 +1,7 @@
 # httr 1.0.0.9000
 
+* `oauth2_init()` throws an error if it fails to get an access token (#250).
+
 * `url_ok()` and `url_successful()` have been deprecated in favour of the more
   flexible `http_error()`, which works with urls, responses and integer status
   codes (#299).
