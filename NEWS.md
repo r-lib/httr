@@ -1,5 +1,10 @@
 # httr 1.0.0.9000
 
+* `stop_for_status()`, `warn_for_status()` and (new) `message_for_status()`
+  have expanded `message` argument which can either be a character vector
+  or a named list. This allows API wrappers to provide more informative
+  error messages on failure (#277)
+
 * `oauth2_init()` throws an error if it fails to get an access token (#250).
 
 * `url_ok()` and `url_successful()` have been deprecated in favour of the more

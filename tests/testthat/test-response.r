@@ -29,19 +29,6 @@ test_that("PUT puts", {
   expect_equal(PUT("http://httpbin.org/put")$status_code, 200)
 })
 
-test_that("status converted to errors", {
-
-  s200 <- GET("http://httpbin.org/status/200")
-  s300 <- GET("http://httpbin.org/status/300")
-  s404 <- GET("http://httpbin.org/status/404")
-  s500 <- GET("http://httpbin.org/status/500")
-
-  expect_equal(stop_for_status(s200), s200)
-  expect_error(stop_for_status(s300), "redirection.*\\(300\\)")
-  expect_error(stop_for_status(s404), "client.*\\(404\\)")
-  expect_error(stop_for_status(s500), "server.*\\(500\\)")
-})
-
 test_that("headers returned as expected", {
   round_trip <- function(...) {
     req <- GET("http://httpbin.org/headers", add_headers(...))
@@ -54,7 +41,6 @@ test_that("headers returned as expected", {
   expect_equal(round_trip(a = "a + b")$a, "a + b")
 
 })
-
 
 test_that("application/json responses parsed as lists", {
   test_user_agent <- function(user_agent = NULL) {
