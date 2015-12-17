@@ -60,4 +60,10 @@ details.}
 \description{
 Send PATCH request to a server.
 }
+\seealso{
+Other http methods: \code{\link{BROWSE}},
+  \code{\link{DELETE}}, \code{\link{GET}},
+  \code{\link{HEAD}}, \code{\link{POST}},
+  \code{\link{PUT}}, \code{\link{VERB}}
+}
 

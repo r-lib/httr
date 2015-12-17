@@ -72,4 +72,10 @@ POST(b2, body = NULL, verbose())
 POST(b2, body = FALSE, verbose())
 POST(b2, body = "", verbose())
 }
+\seealso{
+Other http methods: \code{\link{BROWSE}},
+  \code{\link{DELETE}}, \code{\link{GET}},
+  \code{\link{HEAD}}, \code{\link{PATCH}},
+  \code{\link{PUT}}, \code{\link{VERB}}
+}
 

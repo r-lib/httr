@@ -70,4 +70,10 @@ PUT(b2, body = list(x = "A simple text string"))
 PUT(b2, body = list(y = upload_file(system.file("CITATION"))))
 PUT(b2, body = list(x = "A simple text string"), encode = "json")
 }
+\seealso{
+Other http methods: \code{\link{BROWSE}},
+  \code{\link{DELETE}}, \code{\link{GET}},
+  \code{\link{HEAD}}, \code{\link{PATCH}},
+  \code{\link{POST}}, \code{\link{VERB}}
+}
 

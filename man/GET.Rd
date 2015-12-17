@@ -76,6 +76,7 @@ GET(handle = google, path = "search")
 \seealso{
 Other http methods: \code{\link{BROWSE}},
   \code{\link{DELETE}}, \code{\link{HEAD}},
-  \code{\link{VERB}}
+  \code{\link{PATCH}}, \code{\link{POST}},
+  \code{\link{PUT}}, \code{\link{VERB}}
 }
 

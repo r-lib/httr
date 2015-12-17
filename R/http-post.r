@@ -28,6 +28,7 @@
 #'   \code{FALSE} = {encode = "form"}.
 #'   Files can not be uploaded when \code{FALSE}.
 #' @export
+#' @family http methods
 #' @examples
 #' b2 <- "http://httpbin.org/post"
 #' POST(b2, body = "A simple text string")
