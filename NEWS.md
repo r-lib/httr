@@ -10,7 +10,7 @@
 
 * Support for uploading large binaries by using postfieldsize_large
 
-* `build_url()` now collapses the `path` argument.
+* `build_url()` now collapses vector `path` with `/` (#280, @artemklevtsov).
 
 # httr 1.0.0
 
