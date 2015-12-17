@@ -1,5 +1,7 @@
 # httr 1.0.0.9000
 
+* Default encoding is now UTF-8.
+
 * `has_content()` correctly tests for the presence/absence of body content (#91).
 
 * Switch to 'openssl' package for hashing, hmac, signatures, and base64.

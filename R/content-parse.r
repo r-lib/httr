@@ -1,13 +1,27 @@
-parse_text <- function(content, type = NULL, encoding = NULL) {
-  charset <- if (!is.null(type)) parse_media(type)$params$charset
-  encoding <- toupper(encoding %||% charset %||% "ISO-8859-1")
+check_encoding <- function(x) {
+  if ((tolower(x) %in% tolower(iconvlist())))
+    return(x)
 
-  if (!(tolower(encoding) %in% tolower(iconvlist()))) {
-    message("Unknown encoding ", encoding, ". ",
-      "Defaulting to latin1 (ISO-8859-1).")
-    encoding <- "ISO-8859-1"
+  message("Invalid encoding ", x, ": defaulting to UTF-8.")
+  "UTF-8"
+}
+
+guess_encoding <- function(encoding = NULL, type = NULL) {
+  if (!is.null(encoding))
+    return(check_encoding(encoding))
+
+  charset <- if (!is.null(type)) parse_media(type)$params$charset
+
+  if (is.null(charset)) {
+    message("No encoding supplied: defaulting to UTF-8.")
+    return("UTF-8")
   }
 
+  check_encoding(charset)
+}
+
+parse_text <- function(content, type = NULL, encoding = NULL) {
+  encoding <- guess_encoding(encoding, type)
   iconv(readBin(content, character()), from = encoding, to = "UTF-8")
 }
 
