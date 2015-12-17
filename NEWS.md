@@ -1,5 +1,7 @@
 # httr 1.0.0.9000
 
+* Switch to 'openssl' package for hashing, hmac, signatures, and base64.
+
 * Remove the stringr dependency (#285, @jimhester).
 
 * Fix for 'progress callback must return boolean' warning
