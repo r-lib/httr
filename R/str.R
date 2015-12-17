@@ -1,7 +1,9 @@
 # These are drop in replacements for the stringr:: functions used in httr. They
 # do not retain all functionality from stringr, only that which is used in
 # httr. Notably they are generally not vectorized.
-str_trim <- trimws
+str_trim <- function(x) {
+  gsub("(^\\s+)|(\\s+$)", "", x)
+}
 
 str_split_fixed <- function(string, pattern, n) {
   if (length(string) == 0) return(matrix(character(), nrow = 1, ncol = n))
