@@ -7,9 +7,9 @@
 #' @keywords internal
 #' @export
 hmac_sha1 <- function(key, string) {
-  if(is.character(string))
+  if (is.character(string))
     string <- charToRaw(paste(string, collapse = "\n"))
-  if(is.character(key))
+  if (is.character(key))
     key <- charToRaw(paste(key, collapse = "\n"))
   hash <- openssl::sha1(string, key = key)
   openssl::base64_encode(hash)

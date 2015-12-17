@@ -27,9 +27,6 @@ init_oauth_service_account <- function(endpoint, secrets, scope = NULL) {
 #' jwt_signature(cred, "https://www.googleapis.com/auth/userinfo.profile")
 #' }
 jwt_signature <- function(credentials, scope, duration = 60 * 60) {
-  if (!requireNamespace("openssl", quietly = TRUE)) {
-    stop("Package 'openssl' required for JWT signing", call. = FALSE)
-  }
   now <- as.numeric(Sys.time())
   cs <- jwt_claimset(credentials$client_email, scope, iat = now,
     exp = now + duration)
