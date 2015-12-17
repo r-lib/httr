@@ -76,12 +76,12 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
 #' @export
 oauth_callback <- function() {
 	paste0("http://", 
-               Sys.getenv("HTTR_SERVER", "localhost"),
+               Sys.getenv("HTTR_SERVER", "127.0.0.1"),
                ":",
                Sys.getenv("HTTR_SERVER_PORT", "1410"))
 }
 
 listener_endpoint <- function() {
-  list(host = Sys.getenv("HTTR_LOCALHOST", "127.0.0.1"),
-       port = as.integer(Sys.getenv("HTTR_PORT", "1410")))
+  list(host = Sys.getenv("HTTR_LOCALHOST", Sys.getenv("HTTR_LOCALHOST", "127.0.0.1")),
+       port = as.integer(Sys.getenv("HTTR_PORT", Sys.getenv("HTTR_PORT", "1410"))))
 }
