@@ -1,5 +1,8 @@
 # httr 1.0.0.9000
 
+* `stop_for_status()` and `warn_for_status()` now return the response if
+  there were no errors. This makes them easier to use in pipelines (#278).
+
 * `content(x)` now uses xml2 for XML documents and readr for csv and tsv.
 
 * Default encoding is now UTF-8.
