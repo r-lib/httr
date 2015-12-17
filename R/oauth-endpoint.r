@@ -71,12 +71,23 @@ oauth_endpoints <- function(name) {
       authorize = "authorization",
       access = "accessToken",
     ),
-    twitter = oauth_endpoint(base_url = "https://api.twitter.com/oauth",
-      "request_token", "authenticate", "access_token"),
-    vimeo = oauth_endpoint(base_url = "https://vimeo.com/oauth",
-      "request_token", "authorize", "access_token"),
-    yahoo = oauth_endpoint(base_url = "https://api.login.yahoo.com/oauth/v2",
-      "get_request_token", "request_auth", "get_token"
+    twitter = oauth_endpoint(
+      base_url = "https://api.twitter.com/oauth",
+      request = "request_token",
+      authorize = "authenticate",
+      access = "access_token"
+    ),
+    vimeo = oauth_endpoint(
+      base_url = "https://vimeo.com/oauth",
+      request = "request_token",
+      authorize = "authorize",
+      access = "access_token"
+    ),
+    yahoo = oauth_endpoint(
+      base_url = "https://api.login.yahoo.com/oauth/v2",
+      request = "get_request_token",
+      authorize = "request_auth",
+      access = "get_token"
     ),
     google = oauth_endpoint(
       base_url = "https://accounts.google.com/o/oauth2",
@@ -85,11 +96,18 @@ oauth_endpoints <- function(name) {
       validate = "https://www.googleapis.com/oauth2/v1/tokeninfo",
       revoke = "revoke"
     ),
+    tumblr = oauth_endpoint(base_url = "http://www.tumblr.com/oauth/",
+    "request_token", "authorize", "access_token"),
     facebook = oauth_endpoint(
       authorize = "https://www.facebook.com/dialog/oauth",
-      access = "https://graph.facebook.com/oauth/access_token"),
-    github = oauth_endpoint(base_url = "https://github.com/login/oauth",
-      NULL, "authorize", "access_token"),
+      access = "https://graph.facebook.com/oauth/access_token"
+    ),
+    github = oauth_endpoint(
+      base_url = "https://github.com/login/oauth",
+      request = NULL,
+      authorize = "authorize",
+      access = "access_token"
+    ),
     stop("Unknown endpoint", call. = FALSE)
   )
 }
