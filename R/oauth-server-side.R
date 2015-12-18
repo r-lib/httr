@@ -2,10 +2,15 @@
 init_oauth_service_account <- function(endpoint, secrets, scope = NULL) {
   signature <- jwt_signature(secrets, scope = scope)
 
-  res <- POST(endpoint$access, body = list(
-    grant_type = "urn:ietf:params:oauth:grant-type:jwt-bearer",
-    assertion = signature
-  ), encode = "form")
+  res <- POST(
+    endpoint$access,
+    body = list(
+      grant_type = "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      assertion = signature
+    ),
+    verbose(),
+    encode = "form"
+  )
   stop_for_status(res)
 
   content(res, type = "application/json")
