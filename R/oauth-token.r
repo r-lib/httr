@@ -253,6 +253,13 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
 #' token <- oauth_service_token(endpoint, secrets, scope)
 #' }
 oauth_service_token <- function(endpoint, secrets, scope = NULL) {
+  if (!is.oauth_endpoint(endpoint))
+    stop("`endpoint` must be an OAuth endpoint", call. = FALSE)
+  if (!is.list(secrets))
+    stop("`secrets` must be a list.", call. = FALSE)
+  if (!is.null(scope) && !(is.character(scope) && length(scope) == 1))
+    stop("`scope` must be a length 1 character vector.", call. = FALSE)
+
   TokenServiceAccount$new(
     endpoint = endpoint,
     secrets = secrets,

@@ -1,5 +1,8 @@
 # httr 1.0.0.9000
 
+* `oauth_service_token()` checks that its arguments are the correct types 
+  (#282).
+
 * httr no longer bundles `cacert.pem`, and instead it relies on the bundle in 
   openssl. This bundle is only used a last-resort on windows with R <3.2.0.
 
