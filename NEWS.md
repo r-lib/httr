@@ -1,5 +1,8 @@
 # httr 1.0.0.9000
 
+* httr no longer bundles `cacert.pem`, and instead it relies on the bundle in 
+  openssl. This bundle is only used a last-resort on windows with R <3.2.0.
+
 * `stop_for_status()`, `warn_for_status()` and (new) `message_for_status()`
   have expanded `message` argument which can either be a character vector
   or a named list. This allows API wrappers to provide more informative
