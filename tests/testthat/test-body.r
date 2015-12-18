@@ -1,11 +1,13 @@
 context("Body")
 
+strip_trailing_caret_moves <- function (x) as.vector(sapply(x, function(x_) sub("[\r\n]+$", "", x_)))
+
 round_trip <- function(...) {
   content(POST("http://httpbin.org/post", ...))
 }
 
 data_path <- upload_file("data.txt")
-data <- readLines("data.txt")
+data <- strip_trailing_caret_moves(readLines("data.txt"))
 
 test_that("NULL body gives empty data element", {
   out <- round_trip(body = NULL)
@@ -70,12 +72,12 @@ test_that("NULL elements are automatically dropped", {
 test_that("file and form vals mixed give form and data elements", {
   out <- round_trip(body = list(y = data_path, a = 1))
   expect_equal(out$form$a, "1")
-  expect_equal(strsplit(out$files$y, "\n")[[1]], data)
+  expect_equal(strip_trailing_caret_moves(strsplit(out$files$y, "\n")[[1]]), data)
 })
 
 test_that("single file matches contents on disk", {
   out <- round_trip(body = data_path)
-  expect_equal(strsplit(out$data, "\n")[[1]], data)
+  expect_equal(strip_trailing_caret_moves(strsplit(out$data, "\n")[[1]]), data)
   expect_equal(out$headers$`Content-Type`, "text/plain")
 })
 
