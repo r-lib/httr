@@ -201,6 +201,19 @@ github_pat <- function(force = FALSE) {
 
 Encourage your users to store their important information once (see below), rather than typing it into the console - it's easy to accidentally publish your `.Rhistory` and you don't want it to contain private data.
 
+### Vignettes
+
+Including authentication requiring code in your vignettes is challenging, because you don't want to bundle your own credentials with the package! However, you can take advantage of the fact that the vignette is built locally, and only checked by CRAN with this idea from Jenny Bryan:
+
+In an setup chunk, do:
+
+```{r}
+NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
+knitr::opts_chunk$set(purl = NOT_CRAN)
+```
+
+And then use `eval = NOT_CRAN` as needed as a chunk option.
+
 ## Appendix: API key best practices
 
 If your package supports an authentication workflow based on an API key or token, encourage users to store it in an environment variable. We illustrate this using the [`github` R package](https://github.com/cscheid/rgithub), which wraps the Github v3 API. Tailor this template to your API + package and include in `README.md` or a vignette.
