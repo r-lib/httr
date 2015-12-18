@@ -44,8 +44,9 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #' See demos for use.
 #'
 #' @inheritParams init_oauth1.0
-#' @param type content type used to override incorrect server response
 #' @param scope a character vector of scopes to request.
+#' @param type content type used to override incorrect server response
+#' @param resource_id Resource to request permission for.
 #' @param use_oob if FALSE, use a local webserver for the OAuth dance.
 #'     Otherwise, provide a URL to the user and prompt for a validation
 #'     code. Defaults to the of the \code{"httr_oob_default"} default,
@@ -53,7 +54,7 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #' @param is_interactive Is the current environment interactive?
 #' @export
 #' @keywords internal
-init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
+init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL, resource_id = NULL,
                           use_oob = getOption("httr_oob_default"),
                           is_interactive = interactive()) {
   if (!use_oob && !is_installed("httpuv")) {
@@ -89,6 +90,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
     body = list(
       client_id = app$key,
       client_secret = app$secret,
+      resource = resource_id,
       redirect_uri = redirect_uri,
       grant_type = "authorization_code",
       code = code))

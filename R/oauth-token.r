@@ -184,11 +184,11 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 #' @return A \code{Token2.0} reference class (RC) object.
 #' @family OAuth
 #' @export
-oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
+oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL, resource_id = NULL,
                            use_oob = getOption("httr_oob_default"),
                            as_header = TRUE,
                            cache = getOption("httr_oauth_cache")) {
-  params <- list(scope = scope, type = type, use_oob = use_oob,
+  params <- list(scope = scope, type = type, resource_id = resource_id, use_oob = use_oob,
     as_header = as_header)
   Token2.0$new(app = app, endpoint = endpoint, params = params,
     cache_path = cache)
@@ -199,7 +199,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
 Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   init_credentials = function() {
     self$credentials <- init_oauth2.0(self$endpoint, self$app,
-      scope = self$params$scope, type = self$params$type,
+      scope = self$params$scope, type = self$params$type, resource_id = self$params$resource_id,
       use_oob = self$params$use_oob)
   },
   can_refresh = function() {
