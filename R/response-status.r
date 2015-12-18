@@ -240,7 +240,8 @@ stop_for_status <- function(x, message = NULL) {
   if (status_code(x) < 300)
     return(invisible(x))
 
-  stop(http_condition(x, "error", message, call = sys.call(-1)))
+  call <- sys.call(-1)
+  stop(http_condition(x, "error", message, call = call))
 }
 
 #' @rdname stop_for_status
@@ -249,13 +250,15 @@ warn_for_status <- function(x, message = NULL) {
   if (status_code(x) < 300)
     return(invisible(x))
 
-  warning(http_condition(x, "warning", message, call = sys.call(-1)))
+  call <- sys.call(-1)
+  warning(http_condition(x, "warning", message, call = call))
 }
 
 #' @rdname stop_for_status
 #' @export
 message_for_status <- function(x, message = NULL) {
-  message(http_condition(x, "message", message, call = sys.call(-1)))
+  call <- sys.call(-1)
+  message(http_condition(x, "message", message, call = call))
 }
 
 
@@ -321,7 +324,7 @@ http_condition <- function(x, type, message = NULL, call = sys.call(-1)) {
 
   message <- sprintf("%s (HTTP %d)", message, status)
 
-  http_class <- paste("http_", c(status, status_type, "error"), sep = "")
+  http_class <- paste0("http_", unique(c(status, status_type, "error")))
 
   structure(
     list(message = message, call = call),
