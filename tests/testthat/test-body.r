@@ -70,12 +70,12 @@ test_that("NULL elements are automatically dropped", {
 test_that("file and form vals mixed give form and data elements", {
   out <- round_trip(body = list(y = data_path, a = 1))
   expect_equal(out$form$a, "1")
-  expect_equal(strsplit(out$files$y, "\n")[[1]], data)
+  expect_equal(strsplit(out$files$y, "\r?\n")[[1]], data)
 })
 
 test_that("single file matches contents on disk", {
   out <- round_trip(body = data_path)
-  expect_equal(strsplit(out$data, "\n")[[1]], data)
+  expect_equal(strsplit(out$data, "\r?\n")[[1]], data)
   expect_equal(out$headers$`Content-Type`, "text/plain")
 })
 
