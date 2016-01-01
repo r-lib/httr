@@ -6,7 +6,7 @@
 \usage{
 oauth2.0_token(endpoint, app, scope = NULL, type = NULL,
   use_oob = getOption("httr_oob_default"), as_header = TRUE,
-  cache = getOption("httr_oauth_cache"))
+  use_basic_auth = FALSE, cache = getOption("httr_oauth_cache"))
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -23,8 +23,14 @@ Otherwise, provide a URL to the user and prompt for a validation
 code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
 
-\item{as_header}{If \code{TRUE}, the default, sends oauth in bearer header.
-If \code{FALSE}, adds as parameter to url.}
+\item{as_header}{If \code{TRUE}, the default, configures the token to add
+itself to the bearer header of subsequent requests.
+If \code{FALSE}, configures the token to add itself as a url parameter of subsequent requests.}
+
+\item{use_basic_auth}{if \code{TRUE} use http basic authentication to
+retrieve the token. Some authorization servers require this.
+If \code{FALSE}, the default, retrieve the token by including the
+app key and secret in the request body.}
 
 \item{cache}{A logical value or a string. \code{TRUE} means to cache
 using the default cache file \code{.oauth-httr}, \code{FALSE} means

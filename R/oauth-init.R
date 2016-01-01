@@ -51,11 +51,16 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'     code. Defaults to the of the \code{"httr_oob_default"} default,
 #'     or \code{TRUE} if \code{httpuv} is not installed.
 #' @param is_interactive Is the current environment interactive?
+#' @param use_basic_auth if \code{TRUE} use http basic authentication to
+#'     retrieve the token. Some authorization servers require this.
+#'     If \code{FALSE}, the default, retrieve the token by including the
+#'     app key and secret in the request body.
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
                           use_oob = getOption("httr_oob_default"),
-                          is_interactive = interactive()) {
+                          is_interactive = interactive(),
+                          use_basic_auth = NULL) {
   if (!use_oob && !is_installed("httpuv")) {
     message("httpuv not installed, defaulting to out-of-band authentication")
     use_oob <- TRUE
@@ -85,13 +90,23 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
   }
 
   # Use authorisation code to get (temporary) access token
-  req <- POST(endpoint$access, encode = "form",
-    body = list(
-      client_id = app$key,
-      client_secret = app$secret,
-      redirect_uri = redirect_uri,
-      grant_type = "authorization_code",
-      code = code))
+  if (isTRUE(use_basic_auth)){
+    req <- POST(endpoint$access, encode = "form",
+      body = list(
+        client_id = app$key,
+        redirect_uri = redirect_uri,
+        grant_type = "authorization_code",
+        code = code),
+      authenticate(app$key, app$secret, type = "basic"))
+  } else {
+    req <- POST(endpoint$access, encode = "form",
+      body = list(
+        client_id = app$key,
+        client_secret = app$secret,
+        redirect_uri = redirect_uri,
+        grant_type = "authorization_code",
+        code = code))
+  }
 
   stop_for_status(req)
   content(req, type = type)

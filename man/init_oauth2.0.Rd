@@ -5,7 +5,8 @@
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
 init_oauth2.0(endpoint, app, scope = NULL, type = NULL,
-  use_oob = getOption("httr_oob_default"), is_interactive = interactive())
+  use_oob = getOption("httr_oob_default"), is_interactive = interactive(),
+  use_basic_auth = NULL)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -23,6 +24,11 @@ code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
 
 \item{is_interactive}{Is the current environment interactive?}
+
+\item{use_basic_auth}{if \code{TRUE} use http basic authentication to
+retrieve the token. Some authorization servers require this.
+If \code{FALSE}, the default, retrieve the token by including the
+app key and secret in the request body.}
 }
 \description{
 See demos for use.
