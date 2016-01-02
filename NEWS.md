@@ -36,6 +36,9 @@
 
 * `build_url()` now collapses vector `path` with `/` (#280, @artemklevtsov).
 
+* `oauth2.0_token()` gains a `use_basic_auth` argument which allows you to pick 
+  the type of http authentication used to retrieve the token (#310, @grahamrp).
+
 # httr 1.0.0
 
 * httr no longer uses the RCurl package. Instead it uses the curl package, 

@@ -60,7 +60,7 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
                           use_oob = getOption("httr_oob_default"),
                           is_interactive = interactive(),
-                          use_basic_auth = NULL) {
+                          use_basic_auth = FALSE) {
   if (!use_oob && !is_installed("httpuv")) {
     message("httpuv not installed, defaulting to out-of-band authentication")
     use_oob <- TRUE
@@ -90,6 +90,8 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
   }
 
   # Use authorisation code to get (temporary) access token
+  # Send credentials using HTTP Basic or as parameters in the request body
+  # See https://tools.ietf.org/html/rfc6749#section-2.3 (Client Authentication)
   if (isTRUE(use_basic_auth)){
     req <- POST(endpoint$access, encode = "form",
       body = list(

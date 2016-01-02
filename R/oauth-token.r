@@ -183,7 +183,7 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 #' @inheritParams init_oauth2.0
 #' @param as_header If \code{TRUE}, the default, configures the token to add
 #' itself to the bearer header of subsequent requests.
-#' If \code{FALSE}, configures the token to add itself as a url parameter of subsequent requests.
+#'   If \code{FALSE}, configures the token to add itself as a url parameter of subsequent requests.
 #' @inheritParams oauth1.0_token
 #' @return A \code{Token2.0} reference class (RC) object.
 #' @family OAuth
