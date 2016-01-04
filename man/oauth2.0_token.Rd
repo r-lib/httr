@@ -5,8 +5,8 @@
 \title{Generate an oauth2.0 token.}
 \usage{
 oauth2.0_token(endpoint, app, scope = NULL, type = NULL,
-  use_oob = getOption("httr_oob_default"), as_header = TRUE,
-  cache = getOption("httr_oauth_cache"))
+  resource_id = NULL, use_oob = getOption("httr_oob_default"),
+  as_header = TRUE, cache = getOption("httr_oauth_cache"))
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -17,6 +17,8 @@ oauth2.0_token(endpoint, app, scope = NULL, type = NULL,
 \item{scope}{a character vector of scopes to request.}
 
 \item{type}{content type used to override incorrect server response}
+
+\item{resource_id}{Resource to request permission for.}
 
 \item{use_oob}{if FALSE, use a local webserver for the OAuth dance.
 Otherwise, provide a URL to the user and prompt for a validation

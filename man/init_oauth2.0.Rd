@@ -5,7 +5,8 @@
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
 init_oauth2.0(endpoint, app, scope = NULL, type = NULL,
-  use_oob = getOption("httr_oob_default"), is_interactive = interactive())
+  resource_id = NULL, use_oob = getOption("httr_oob_default"),
+  is_interactive = interactive())
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -16,6 +17,8 @@ init_oauth2.0(endpoint, app, scope = NULL, type = NULL,
 \item{scope}{a character vector of scopes to request.}
 
 \item{type}{content type used to override incorrect server response}
+
+\item{resource_id}{Resource to request permission for.}
 
 \item{use_oob}{if FALSE, use a local webserver for the OAuth dance.
 Otherwise, provide a URL to the user and prompt for a validation
