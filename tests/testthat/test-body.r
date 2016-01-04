@@ -1,13 +1,11 @@
 context("Body")
 
-strip_trailing_caret_moves <- function (x) as.vector(sapply(x, function(x_) sub("[\r\n]+$", "", x_)))
-
 round_trip <- function(...) {
   content(POST("http://httpbin.org/post", ...))
 }
 
 data_path <- upload_file("data.txt")
-data <- strip_trailing_caret_moves(readLines("data.txt"))
+data <- readLines("data.txt")
 
 test_that("NULL body gives empty data element", {
   out <- round_trip(body = NULL)
