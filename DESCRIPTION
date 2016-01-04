@@ -11,21 +11,20 @@ Authors@R: c(
 Depends:
     R (>= 3.0.0)
 Imports:
-    digest,
     jsonlite,
     mime,
-    curl (>= 0.9.0.9000),
+    curl (>= 0.9.1),
+    openssl (>= 0.8),
     R6
 Suggests:
-    base64enc,
     httpuv,
     jpeg,
     knitr,
-    PKI (>= 0.1-2),
     png,
     testthat (>= 0.8.0),
-    XML
+    readr,
+    xml2
 VignetteBuilder: knitr
 License: MIT + file LICENSE
 URL: https://github.com/hadley/httr
-RoxygenNote: 5.0.1
+RoxygenNote: 5.0.0

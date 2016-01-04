@@ -1,10 +1,40 @@
 # httr 1.0.0.9000
 
+* `oauth_service_token()` checks that its arguments are the correct types 
+  (#282).
+
+* httr no longer bundles `cacert.pem`, and instead it relies on the bundle in 
+  openssl. This bundle is only used a last-resort on windows with R <3.2.0.
+
+* `stop_for_status()`, `warn_for_status()` and (new) `message_for_status()`
+  have expanded `message` argument which can either be a character vector
+  or a named list. This allows API wrappers to provide more informative
+  error messages on failure (#277)
+
+* `oauth2_init()` throws an error if it fails to get an access token (#250).
+
+* `url_ok()` and `url_successful()` have been deprecated in favour of the more
+  flexible `http_error()`, which works with urls, responses and integer status
+  codes (#299).
+
+* `stop_for_status()` and `warn_for_status()` now return the response if
+  there were no errors. This makes them easier to use in pipelines (#278).
+
+* `content(x)` now uses xml2 for XML documents and readr for csv and tsv.
+
+* Default encoding is now UTF-8.
+
+* `has_content()` correctly tests for the presence/absence of body content (#91).
+
+* Switch to 'openssl' package for hashing, hmac, signatures, and base64.
+
 * Remove the stringr dependency (#285, @jimhester).
 
 * Fix for 'progress callback must return boolean' warning
 
 * Support for uploading large binaries by using postfieldsize_large
+
+* `build_url()` now collapses vector `path` with `/` (#280, @artemklevtsov).
 
 # httr 1.0.0
 
@@ -57,6 +87,8 @@
 
 * `VERB()` gains `body` and `encode` arguments so you can generate 
   arbitrary requests with a body.
+
+* tumblr added as an `oauth_endpoint`.
 
 # httr 0.6.1
 

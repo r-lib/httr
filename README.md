@@ -4,7 +4,7 @@
 [![Coverage Status](https://img.shields.io/codecov/c/github/hadley/httr/master.svg)](https://codecov.io/github/hadley/httr?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/httr)](http://cran.r-project.org/web/packages/httr)
 
-The aim of httr is to provide a wrapper for RCurl customised to the demands of modern web APIs.
+The aim of httr is to provide a wrapper for the [curl](https://cran.r-project.org/web/packages/curl/index.html) package, customised to the demands of modern web APIs.
 
 Key features:
 
@@ -33,7 +33,7 @@ Key features:
   withings and yahoo) and four for 2.0 (facebook, github, google, linkedin). 
   OAuth credentials are automatically cached within a project. 
 
-`httr` wouldn't be possible without the hard work of the authors of [RCurl](http://www.omegahat.org/RCurl/) and [curl](http://curl.haxx.se/). Thanks! `httr` is inspired by http libraries in other languages, such as [Resty](http://beders.github.com/Resty/Resty/Examples.html), [Requests](http://docs.python-requests.org/en/latest/index.html) and [httparty](http://github.com/jnunemaker/httparty/tree/master).
+`httr` wouldn't be possible without the hard work of the authors of [curl](https://cran.r-project.org/web/packages/curl/index.html) and [libcurl](http://curl.haxx.se/). Thanks! `httr` is inspired by http libraries in other languages, such as [Resty](http://beders.github.com/Resty/Resty/Examples.html), [Requests](http://docs.python-requests.org/en/latest/index.html) and [httparty](http://github.com/jnunemaker/httparty/tree/master).
 
 ## Installation
 
@@ -49,15 +49,3 @@ To get the current development version from github:
 # install.packages("devtools")
 devtools::install_github("hadley/httr")
 ```
-
-## Updating ca-bundle.crt
-
-httr includes a recent [CA certificate bundle](http://curl.haxx.se/docs/caextract.html) from mozilla.org. Run this code to update the package:
-
-```r
-GET("https://github.com/bagder/ca-bundle/raw/e9175fec5d0c4d42de24ed6d84a06d504d5e5a09/ca-bundle.crt",
-  write_disk("inst/cacert.pem", overwrite = TRUE))
-```
-
-Around early September 2014, Mozilla removed the trust bits from the certs in their CA bundle that were still using RSA 1024 bit keys. This leads to problems on Windows, so we use an older version.
-

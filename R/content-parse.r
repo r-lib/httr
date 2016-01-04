@@ -1,13 +1,27 @@
-parse_text <- function(content, type = NULL, encoding = NULL) {
-  charset <- if (!is.null(type)) parse_media(type)$params$charset
-  encoding <- toupper(encoding %||% charset %||% "ISO-8859-1")
+check_encoding <- function(x) {
+  if ((tolower(x) %in% tolower(iconvlist())))
+    return(x)
 
-  if (!(tolower(encoding) %in% tolower(iconvlist()))) {
-    message("Unknown encoding ", encoding, ". ",
-      "Defaulting to latin1 (ISO-8859-1).")
-    encoding <- "ISO-8859-1"
+  message("Invalid encoding ", x, ": defaulting to UTF-8.")
+  "UTF-8"
+}
+
+guess_encoding <- function(encoding = NULL, type = NULL) {
+  if (!is.null(encoding))
+    return(check_encoding(encoding))
+
+  charset <- if (!is.null(type)) parse_media(type)$params$charset
+
+  if (is.null(charset)) {
+    message("No encoding supplied: defaulting to UTF-8.")
+    return("UTF-8")
   }
 
+  check_encoding(charset)
+}
+
+parse_text <- function(content, type = NULL, encoding = NULL) {
+  encoding <- guess_encoding(encoding, type)
   iconv(readBin(content, character()), from = encoding, to = "UTF-8")
 }
 
@@ -27,6 +41,8 @@ parse_auto <- function(content, type = NULL, encoding = NULL, ...) {
     stop("No automatic parser available for ", mt$complete, ".",
       call. = FALSE)
   }
+
+  encoding <- guess_encoding(encoding, type)
 
   parser(content, type = type, encoding = encoding, ...)
 }
@@ -58,10 +74,6 @@ parsers$`application/x-www-form-urlencoded` <- function(x, type = NULL,
                                                         encoding = NULL, ...) {
   parse_query(parse_text(x, encoding = "UTF-8"))
 }
-parsers$`application/xml` <- function(x, type = NULL, encoding = NULL, ...) {
-  need_package("XML")
-  XML::xmlParse(parse_text(x, encoding = "UTF-8"), ...)
-}
 
 # Text formats -----------------------------------------------------------------
 parsers$`image/jpeg` <- function(x, type = NULL, encoding = NULL, ...) {
@@ -79,23 +91,26 @@ parsers$`text/plain` <- function(x, type = NULL, encoding = NULL, ...) {
 }
 
 parsers$`text/html` <- function(x, type = NULL, encoding = NULL, ...) {
-  need_package("XML")
-  text <- parse_text(x, type = type, encoding = encoding)
-  XML::htmlParse(text, ...)
+  need_package("xml2")
+  xml2::read_html(x, encoding = encoding, ...)
+}
+
+parsers$`application/xml` <- function(x, type = NULL, encoding = NULL, ...) {
+  need_package("xml2")
+  xml2::read_xml(x, encoding = encoding, ...)
 }
 
 parsers$`text/xml` <- function(x, type = NULL, encoding = NULL, ...) {
-  need_package("XML")
-  text <- parse_text(x, type = type, encoding = encoding)
-  XML::xmlParse(text, ...)
+  need_package("xml2")
+  xml2::read_xml(x, encoding = encoding, ...)
 }
 
 parsers$`text/csv` <- function(x, type = NULL, encoding = NULL, ...) {
-  text <- parse_text(x, type = type, encoding = encoding)
-  read.csv(text = text, stringsAsFactors = FALSE, ...)
+  need_package("readr")
+  readr::read_csv(x, readr::locale(encoding = encoding), ...)
 }
 
 parsers$`text/tab-separated-values` <- function(x, type = NULL, encoding = NULL, ...) {
-  text <- parse_text(x, type = type, encoding = encoding)
-  read.delim(text = text, stringsAsFactors = FALSE, ...)
+  need_package("readr")
+  readr::read_tsv(x, readr::locale(encoding = encoding), ...)
 }

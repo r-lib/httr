@@ -101,7 +101,10 @@ Token <- R6::R6Class("Token", list(
     # endpoint = which site
     # app = client identification
     # params = scope
-    digest::digest(list(self$endpoint, self$app, self$params$scope))
+    msg <- serialize(list(self$endpoint, self$app, self$params$scope), NULL)
+
+    # for compatibility with digest::digest()
+    paste(openssl::md5(msg[-(1:14)]), collapse = "")
   },
   sign = function() {
     stop("Must be implemented by subclass", call. = FALSE)
@@ -250,6 +253,13 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
 #' token <- oauth_service_token(endpoint, secrets, scope)
 #' }
 oauth_service_token <- function(endpoint, secrets, scope = NULL) {
+  if (!is.oauth_endpoint(endpoint))
+    stop("`endpoint` must be an OAuth endpoint", call. = FALSE)
+  if (!is.list(secrets))
+    stop("`secrets` must be a list.", call. = FALSE)
+  if (!is.null(scope) && !(is.character(scope) && length(scope) == 1))
+    stop("`scope` must be a length 1 character vector.", call. = FALSE)
+
   TokenServiceAccount$new(
     endpoint = endpoint,
     secrets = secrets,

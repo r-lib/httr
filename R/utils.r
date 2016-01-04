@@ -81,7 +81,6 @@ find_cert_bundle <- function() {
   if (file.exists(bundled))
     bundled
 
-  # Fall back to certificate bundle in httr
-  system.file("cacert.pem", package = "httr")
-
+  # Fall back to certificate bundle in openssl
+  system.file("cacert.pem", package = "openssl")
 }

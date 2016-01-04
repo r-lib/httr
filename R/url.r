@@ -107,7 +107,7 @@ build_url <- function(url) {
     port <- NULL
   }
 
-  path <- url$path
+  path <- paste(url$path, collapse = "/")
 
   if (!is.null(url$params)) {
     params <- paste0(";", url$params)
@@ -116,11 +116,7 @@ build_url <- function(url) {
   }
 
   if (is.list(url$query)) {
-    url$query <- compact(url$query)
-    names <- curl::curl_escape(names(url$query))
-    values <- curl::curl_escape(url$query)
-
-    query <- paste0(names, "=", values, collapse = "&")
+    query <- compose_query(url$query)
   } else {
     query <- url$query
   }

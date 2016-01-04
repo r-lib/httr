@@ -94,5 +94,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL, resource_id 
       redirect_uri = redirect_uri,
       grant_type = "authorization_code",
       code = code))
+
+  stop_for_status(req)
   content(req, type = type)
 }

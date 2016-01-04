@@ -2,6 +2,7 @@
 #'
 #' @inheritParams GET
 #' @inheritParams POST
+#' @family http methods
 #' @export
 PATCH <- function(url = NULL, config = list(), ..., body = NULL,
                   encode = c("multipart", "form", "json"),

@@ -69,6 +69,7 @@ VERB("POST", url = "http://httpbin.org/post", body = "foobar")
 \seealso{
 Other http methods: \code{\link{BROWSE}},
   \code{\link{DELETE}}, \code{\link{GET}},
-  \code{\link{HEAD}}
+  \code{\link{HEAD}}, \code{\link{PATCH}},
+  \code{\link{POST}}, \code{\link{PUT}}
 }
 

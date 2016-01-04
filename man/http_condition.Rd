@@ -13,8 +13,12 @@ http_condition(x, type, message = NULL, call = sys.call(-1))
 \item{type}{type of condition to generate. Must be one of error,
 warning or message.}
 
-\item{message}{The text of the message. If \code{NULL}, the default,
-will use \code{\link{http_status}} to generate the message.}
+\item{message}{The text of the message: either \code{NULL}, a character
+  vector or a list.
+
+  If \code{NULL}, the default, will use \code{\link{http_status}} to generate
+  the message. If a character vector, all elements will be pasted together.
+  If a list, it will be indexed in by the status code.}
 
 \item{call}{The call stored in the condition object.}
 }
