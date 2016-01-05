@@ -36,6 +36,8 @@
 
 * `build_url()` now collapses vector `path` with `/` (#280, @artemklevtsov).
 
+* Ensure that OAuth token `sign()` returns a `request` (#313, @nathangoulding).
+
 # httr 1.0.0
 
 * httr no longer uses the RCurl package. Instead it uses the curl package, 

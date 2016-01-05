@@ -103,8 +103,11 @@ request_prepare <- function(req) {
 
   # Sign request, if needed
   token <- req$auth_token
-  if (!is.null(token))
-    req <- c(req, token$sign(req$method, req$url))
+  if (!is.null(token)) {
+    signed_req <- token$sign(req$method, req$url)
+    stopifnot(is.request(signed_req))
+    req <- c(req, signed_req)
+  }
 
   req
 }
