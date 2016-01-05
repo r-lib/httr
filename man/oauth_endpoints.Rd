@@ -8,7 +8,7 @@ oauth_endpoints(name)
 }
 \arguments{
 \item{name}{One of the following endpoints: linkedin, twitter,
-vimeo, google, facebook, github.}
+vimeo, google, facebook, github, azure.}
 }
 \description{
 Provides some common OAuth endpoints.

@@ -4,8 +4,9 @@
 \alias{init_oauth2.0}
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
-init_oauth2.0(endpoint, app, scope = NULL, type = NULL,
-  use_oob = getOption("httr_oob_default"), is_interactive = interactive())
+init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
+  type = NULL, use_oob = getOption("httr_oob_default"),
+  is_interactive = interactive())
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -14,6 +15,9 @@ init_oauth2.0(endpoint, app, scope = NULL, type = NULL,
 \code{\link{oauth_app}}}
 
 \item{scope}{a character vector of scopes to request.}
+
+\item{user_params}{List of named values holding endpoint specific parameters to pass to
+the server when posting the request for obtaining or refreshing the access token.}
 
 \item{type}{content type used to override incorrect server response}
 
