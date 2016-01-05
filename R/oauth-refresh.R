@@ -3,7 +3,7 @@
 # Refreshes the given token, and returns a new credential with a
 # valid access_token. Based on:
 # https://developers.google.com/accounts/docs/OAuth2InstalledApp#refresh
-refresh_oauth2.0 <- function(endpoint, app, credentials, user_params) {
+refresh_oauth2.0 <- function(endpoint, app, credentials, user_params = NULL) {
   if (is.null(credentials$refresh_token)) {
     stop("Refresh token not available", call. = FALSE)
   }
