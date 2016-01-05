@@ -68,7 +68,6 @@ request_combine <- function(x, y) {
   if (length(x) == 0 && length(y) == 0) return(request())
   if (length(x) == 0) return(y)
   if (length(y) == 0) return(x)
-  if (length(y$config) > 0 && is.request(y$config)) y = y$config
   stopifnot(is.request(x), is.request(y))
 
   request(
