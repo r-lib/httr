@@ -9,14 +9,14 @@ refresh_oauth2.0 <- function(endpoint, app, credentials, user_params = NULL) {
   }
 
   refresh_url <- endpoint$access
-  body <- c(
-      list(
-          refresh_token = credentials$refresh_token,
-          client_id = app$key,
-          client_secret = app$secret,
-          grant_type = "refresh_token"
-      ),
-      user_params)
+  body <- list(
+      refresh_token = credentials$refresh_token,
+      client_id = app$key,
+      client_secret = app$secret,
+      grant_type = "refresh_token")
+  if (! is.null(user_params)) {
+    body <- modifyList(user_params, body);
+  }
 
   response <- POST(refresh_url, body = body, encode = "form")
   stop_for_status(response)

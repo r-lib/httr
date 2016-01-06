@@ -46,8 +46,9 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #' @inheritParams init_oauth1.0
 #' @param type content type used to override incorrect server response
 #' @param scope a character vector of scopes to request.
-#' @param user_params List of named values holding endpoint specific parameters to pass to
-#'     the server when posting the request for obtaining or refreshing the access token.
+#' @param user_params Named list holding endpoint specific parameters to pass to
+#'     the server when posting the request for obtaining or refreshing the
+#'     access token.
 #' @param use_oob if FALSE, use a local webserver for the OAuth dance.
 #'     Otherwise, provide a URL to the user and prompt for a validation
 #'     code. Defaults to the of the \code{"httr_oob_default"} default,
@@ -87,16 +88,16 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
   }
 
   # Use authorisation code to get (temporary) access token
-  req_params <- c(
-      list(
-          client_id = app$key,
-          client_secret = app$secret,
-          redirect_uri = redirect_uri,
-          grant_type = "authorization_code",
-          code = code
-      ),
-      user_params)
-  req <- POST(endpoint$access, encode = "form", body=req_params)
+  req_params <- list(
+      client_id = app$key,
+      client_secret = app$secret,
+      redirect_uri = redirect_uri,
+      grant_type = "authorization_code",
+      code = code)
+  if (! is.null(user_params)) {
+    req_params <- modifyList(user_params, req_params);
+  }
+  req <- POST(endpoint$access, encode = "form", body = req_params)
 
   stop_for_status(req)
   content(req, type = type)
