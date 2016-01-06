@@ -212,7 +212,7 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
     self$credentials <- refresh_oauth2.0(self$endpoint, self$app, self$credentials)
     if (is.null(self$credentials)) {
       remove_cached_token(self)
-      warning("Unable to get refresh token with provided credentials")
+      warning("Unable to get refreshed credentials with refresh token")
     } else {
       self$cache()
     }
