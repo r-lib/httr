@@ -17,6 +17,9 @@ refresh_oauth2.0 <- function(endpoint, app, credentials) {
   )
 
   response <- POST(refresh_url, body = body, encode = "form")
+  if (has_oauth2.0_error(response)) {
+    return(NULL)
+  }
   stop_for_status(response)
 
   refresh_data <- content(response)
