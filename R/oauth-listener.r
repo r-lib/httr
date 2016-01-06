@@ -10,11 +10,13 @@
 #'
 #' @param request_url the url to send the browser to
 #' @param is_interactive Is an interactive environment available?
+#' @param use_implicit Use an implicit grant type
 #' @param host ip address for the listener
 #' @param port for the listener
 #' @export
 #' @keywords internal
-oauth_listener <- function(request_url, is_interactive = interactive()) {
+oauth_listener <- function(request_url, is_interactive = interactive(),
+                           use_implicit = FALSE) {
   if (!is_installed("httpuv")) {
     stop("httpuv package required to capture OAuth credentials.")
   }
@@ -33,17 +35,35 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
       )
     }
 
-    query <- env$QUERY_STRING
-    if (!is.character(query) || identical(query, "")) {
-      info <<- NA
+    if (use_implicit) {
+      # in implicit mode, we wait for the client script to POST the credentials
+      if (identical(env$REQUEST_METHOD, "POST")) {
+        # look for the credentials in the request body
+        fragment <- env$rook.input$read_lines()
+        if (!is.character(fragment) || identical(fragment, "")) {
+          info <<- NA
+        } else {
+          info <<- parse_query(gsub("^\\?", "", fragment))
+        }
+      } else {
+        # just serve the page with the script
+      }
     } else {
-      info <<- parse_query(gsub("^\\?", "", query))
+      # look for the authorization in the query string
+      query <- env$QUERY_STRING
+      if (!is.character(query) || identical(query, "")) {
+        info <<- NA
+      } else {
+        info <<- parse_query(gsub("^\\?", "", query))
+      }
     }
 
+    # serve client.html page
     list(
       status = 200L,
-      headers = list("Content-Type" = "text/plain"),
-      body = "Authentication complete. Please close this page and return to R."
+      headers = list("Content-Type" = "text/html"),
+      body = paste(readLines(system.file("client.html", package="httr")),
+                   collapse="\n")
     )
   }
   use <- listener_endpoint()
@@ -75,7 +95,7 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
 #' @keywords internal
 #' @export
 oauth_callback <- function() {
-	paste0("http://", 
+	paste0("http://",
                Sys.getenv("HTTR_SERVER", "localhost"),
                ":",
                Sys.getenv("HTTR_SERVER_PORT", "1410"))

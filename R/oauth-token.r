@@ -184,15 +184,17 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 #' @param as_header If \code{TRUE}, the default, sends oauth in bearer header.
 #'   If \code{FALSE}, adds as parameter to url.
 #' @inheritParams oauth1.0_token
+#' @param use_implicit Use an implicit grant type
 #' @return A \code{Token2.0} reference class (RC) object.
 #' @family OAuth
 #' @export
 oauth2.0_token <- function(endpoint, app, scope = NULL, type = NULL,
                            use_oob = getOption("httr_oob_default"),
                            as_header = TRUE,
-                           cache = getOption("httr_oauth_cache")) {
+                           cache = getOption("httr_oauth_cache"),
+                           use_implicit = FALSE) {
   params <- list(scope = scope, type = type, use_oob = use_oob,
-    as_header = as_header)
+    as_header = as_header, use_implicit = use_implicit)
   Token2.0$new(app = app, endpoint = endpoint, params = params,
     cache_path = cache)
 }
@@ -203,7 +205,7 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   init_credentials = function() {
     self$credentials <- init_oauth2.0(self$endpoint, self$app,
       scope = self$params$scope, type = self$params$type,
-      use_oob = self$params$use_oob)
+      use_oob = self$params$use_oob, use_implicit = self$params$use_implicit)
   },
   can_refresh = function() {
     !is.null(self$credentials$refresh_token)
