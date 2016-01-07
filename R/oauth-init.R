@@ -92,22 +92,18 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
   # Use authorisation code to get (temporary) access token
   # Send credentials using HTTP Basic or as parameters in the request body
   # See https://tools.ietf.org/html/rfc6749#section-2.3 (Client Authentication)
+  body <- list(
+    client_id = app$key,
+    redirect_uri = redirect_uri,
+    grant_type = "authorization_code",
+    code = code)
+
   if (isTRUE(use_basic_auth)){
-    req <- POST(endpoint$access, encode = "form",
-      body = list(
-        client_id = app$key,
-        redirect_uri = redirect_uri,
-        grant_type = "authorization_code",
-        code = code),
+    req <- POST(endpoint$access, encode = "form", body = body,
       authenticate(app$key, app$secret, type = "basic"))
   } else {
-    req <- POST(endpoint$access, encode = "form",
-      body = list(
-        client_id = app$key,
-        client_secret = app$secret,
-        redirect_uri = redirect_uri,
-        grant_type = "authorization_code",
-        code = code))
+    body <- c(body, client_secret = app$secret)
+    req <- POST(endpoint$access, encode = "form", body = body)
   }
 
   stop_for_status(req)
