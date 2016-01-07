@@ -1,5 +1,8 @@
 # httr 1.0.0.9000
 
+* `oauth2.0_token()` gains a `use_basic_auth` argument which allows you to pick 
+  the type of http authentication used to retrieve the token (#310, @grahamrp).
+
 * `oauth_service_token()` checks that its arguments are the correct types 
   (#282).
 
@@ -36,8 +39,7 @@
 
 * `build_url()` now collapses vector `path` with `/` (#280, @artemklevtsov).
 
-* `oauth2.0_token()` gains a `use_basic_auth` argument which allows you to pick 
-  the type of http authentication used to retrieve the token (#310, @grahamrp).
+* Ensure that OAuth token `sign()` returns a `request` (#313, @nathangoulding).
 
 # httr 1.0.0
 
