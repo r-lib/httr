@@ -290,7 +290,7 @@ TokenServiceAccount <- R6::R6Class("TokenServiceAccount", inherit = Token2.0, li
     config <- add_headers(
       Authorization = paste('Bearer', self$credentials$access_token)
     )
-    list(url = url, config = config)
+    request_build(method = method, url = url, config)
   },
 
   # Never cache
