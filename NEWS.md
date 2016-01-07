@@ -1,5 +1,12 @@
 # httr 1.0.0.9000
 
+* `oauth2.0_token()` accepts the optional named list parameter `user_params`
+  which can be used to pass additional parameters to the token access endpoint
+  when acquiring or refreshing a token, if required by the endpoint protocol.
+  (@cornf4ke, #312)
+
+* New demo `oauth2-azure`.
+
 * `oauth_service_token()` checks that its arguments are the correct types 
   (#282).
 
