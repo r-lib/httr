@@ -54,11 +54,16 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'     code. Defaults to the of the \code{"httr_oob_default"} default,
 #'     or \code{TRUE} if \code{httpuv} is not installed.
 #' @param is_interactive Is the current environment interactive?
+#' @param use_basic_auth if \code{TRUE} use http basic authentication to
+#'     retrieve the token. Some authorization servers require this.
+#'     If \code{FALSE}, the default, retrieve the token by including the
+#'     app key and secret in the request body.
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
                           type = NULL, use_oob = getOption("httr_oob_default"),
-                          is_interactive = interactive()) {
+                          is_interactive = interactive(),
+                          use_basic_auth = FALSE) {
   if (!use_oob && !is_installed("httpuv")) {
     message("httpuv not installed, defaulting to out-of-band authentication")
     use_oob <- TRUE
@@ -88,16 +93,26 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
   }
 
   # Use authorisation code to get (temporary) access token
+
+  # Send credentials using HTTP Basic or as parameters in the request body
+  # See https://tools.ietf.org/html/rfc6749#section-2.3 (Client Authentication)
   req_params <- list(
-      client_id = app$key,
-      client_secret = app$secret,
-      redirect_uri = redirect_uri,
-      grant_type = "authorization_code",
-      code = code)
-  if (! is.null(user_params)) {
-    req_params <- modifyList(user_params, req_params);
+    client_id = app$key,
+    redirect_uri = redirect_uri,
+    grant_type = "authorization_code",
+    code = code)
+
+  if (!is.null(user_params)) {
+    req_params <- modifyList(user_params, req_params)
   }
-  req <- POST(endpoint$access, encode = "form", body = req_params)
+
+  if (isTRUE(use_basic_auth)) {
+    req <- POST(endpoint$access, encode = "form", body = req_params,
+      authenticate(app$key, app$secret, type = "basic"))
+  } else {
+    body$client_secret <- app$secret
+    req <- POST(endpoint$access, encode = "form", body = req_params)
+  }
 
   stop_for_status(req)
   content(req, type = type)

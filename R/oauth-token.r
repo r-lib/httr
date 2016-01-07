@@ -181,8 +181,10 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 #' caching policies used to store credentials across sessions.
 #'
 #' @inheritParams init_oauth2.0
-#' @param as_header If \code{TRUE}, the default, sends oauth in bearer header.
-#'   If \code{FALSE}, adds as parameter to url.
+#' @param as_header If \code{TRUE}, the default, configures the token to add
+#'   itself to the bearer header of subsequent requests. If \code{FALSE},
+#'   configures the token to add itself as a url parameter of subsequent
+#'   requests.
 #' @inheritParams oauth1.0_token
 #' @return A \code{Token2.0} reference class (RC) object.
 #' @family OAuth
@@ -190,9 +192,12 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            type = NULL, use_oob = getOption("httr_oob_default"),
                            as_header = TRUE,
+                           use_basic_auth = FALSE,
                            cache = getOption("httr_oauth_cache")) {
   params <- list(scope = scope, user_params = user_params, type = type,
-      use_oob = use_oob, as_header = as_header)
+      use_oob = use_oob, as_header = as_header,
+      use_basic_auth = use_basic_auth)
+
   Token2.0$new(app = app, endpoint = endpoint, params = params,
     cache_path = cache)
 }
@@ -203,7 +208,8 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   init_credentials = function() {
     self$credentials <- init_oauth2.0(self$endpoint, self$app,
       scope = self$params$scope, user_params = self$params$user_params,
-      type = self$params$type, use_oob = self$params$use_oob)
+      type = self$params$type, use_oob = self$params$use_oob,
+      use_basic_auth = self$params$use_basic_auth)
   },
   can_refresh = function() {
     !is.null(self$credentials$refresh_token)

@@ -7,6 +7,9 @@
 
 * New demo `oauth2-azure`.
 
+* `oauth2.0_token()` gains a `use_basic_auth` argument which allows you to pick 
+  the type of http authentication used to retrieve the token (#310, @grahamrp).
+
 * `oauth_service_token()` checks that its arguments are the correct types 
   (#282).
 
