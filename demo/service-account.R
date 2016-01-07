@@ -15,3 +15,8 @@ token <- oauth_service_token(
   jsonlite::fromJSON("demo/service-account.json"),
   "https://www.googleapis.com/auth/userinfo.profile"
 )
+
+# 4. Use API
+req <- GET("https://www.googleapis.com/oauth2/v1/userinfo", config(token = token))
+stop_for_status(req)
+content(req)

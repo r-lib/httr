@@ -16,8 +16,9 @@ init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
 
 \item{scope}{a character vector of scopes to request.}
 
-\item{user_params}{List of named values holding endpoint specific parameters to pass to
-the server when posting the request for obtaining or refreshing the access token.}
+\item{user_params}{Named list holding endpoint specific parameters to pass to
+the server when posting the request for obtaining or refreshing the
+access token.}
 
 \item{type}{content type used to override incorrect server response}
 

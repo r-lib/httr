@@ -4,7 +4,7 @@
 \alias{jwt_signature}
 \title{Generate a JWT signature given credentials.}
 \usage{
-jwt_signature(credentials, scope, duration = 60 * 60)
+jwt_signature(credentials, scope, aud, duration = 60L * 60L)
 }
 \arguments{
 \item{credentials}{Parsed contents of the credentials file.}

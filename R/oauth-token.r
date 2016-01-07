@@ -283,8 +283,7 @@ TokenServiceAccount <- R6::R6Class("TokenServiceAccount", inherit = Token2.0, li
     TRUE
   },
   refresh = function() {
-    self$credentials <- init_oauth_service_account(self$endpoint, self$secrets,
-      self$params$scope)
+    self$credentials <- init_oauth_service_account(self$secrets, self$params$scope)
     self
   },
   sign = function(method, url) {
