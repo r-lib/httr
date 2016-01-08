@@ -14,7 +14,7 @@ oauth2.0_errors <- c(
 
 # This implements error checking according to the OAuth2.0
 # specification: https://tools.ietf.org/html/rfc6749#section-5.2
-has_oauth2.0_error <- function(response) {
+known_oauth2.0_error <- function(response) {
   if (status_code(response) %in% oauth2.0_error_codes) {
     content <- content(response)
     if (content$error %in% oauth2.0_errors) {

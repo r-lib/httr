@@ -19,7 +19,8 @@ refresh_oauth2.0 <- function(endpoint, app, credentials, user_params = NULL) {
   }
 
   response <- POST(refresh_url, body = body, encode = "form")
-  if (has_oauth2.0_error(response)) {
+  if (known_oauth2.0_error(response)) {
+    warning("Unable to refresh token", call. = FALSE)
     return(NULL)
   }
   stop_for_status(response)
