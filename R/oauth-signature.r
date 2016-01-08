@@ -80,7 +80,7 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
   if (signature_method == "HMAC-SHA1") {
     private_key <- paste0(oauth_encode(app$secret), "&", oauth_encode(token_secret))
   }
-  oauth$oauth_signature <- sha1_hash(key, base_string, signature_method)
+  oauth$oauth_signature <- sha1_hash(private_key, base_string, signature_method)
 
   sort_names(oauth)
 }
