@@ -15,7 +15,7 @@ sha1_hash <- function(key, string, method = "HMAC-SHA1") {
     key <- charToRaw(paste(key, collapse = "\n"))
 
   if (!method %in% c("HMAC-SHA1", "RSA-SHA1")) {
-    stop(paste0("Unsupported hashing method: ", method), .call = TRUE)
+    stop(paste0("Unsupported hashing method: ", method), call. = FALSE)
   }
 
   if (method == "HMAC-SHA1") {
@@ -31,7 +31,7 @@ sha1_hash <- function(key, string, method = "HMAC-SHA1") {
 #'
 #' As described in \url{http://tools.ietf.org/html/rfc3447}.
 #'
-#' @param key private key
+#' @param key secret key
 #' @param string data to securely hash
 #' @keywords internal
 #' @export

@@ -7,7 +7,7 @@
 hmac_sha1(key, string)
 }
 \arguments{
-\item{key}{private key}
+\item{key}{secret key}
 
 \item{string}{data to securely hash}
 }
