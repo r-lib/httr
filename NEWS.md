@@ -2,6 +2,9 @@
 
 * Add RSA-SHA1 signature support for OAuth1.0. (@nathangoulding, #316)
 
+* `refresh_oauth2.0()` now checks for known OAuth2.0 errors and clears the
+  locally cached token in the presense of any (@nathangoulding, #315)
+
 * Tweak regexp in `parse_url()` so urls like `file:///a/b/c` work (#309).
 
 * `oauth2.0_token()` accepts the optional named list parameter `user_params`

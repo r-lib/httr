@@ -65,6 +65,14 @@ fetch_cached_token <- function(hash, cache_path) {
   load_cache(cache_path)[[hash]]
 }
 
+remove_cached_token <- function(token) {
+  if (is.null(token$cache_path)) return()
+
+  tokens <- load_cache(token$cache_path)
+  tokens[[token$hash()]] <- NULL
+  saveRDS(tokens, token$cache_path)
+}
+
 load_cache <- function(cache_path) {
   if (!file.exists(cache_path)) {
     list()
