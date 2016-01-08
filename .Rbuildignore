@@ -7,3 +7,4 @@
 ^cran-comments.md$
 ^revdep$
 ^cran-comments\.md$
+^demo/service-account\.json$

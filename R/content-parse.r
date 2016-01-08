@@ -42,8 +42,6 @@ parse_auto <- function(content, type = NULL, encoding = NULL, ...) {
       call. = FALSE)
   }
 
-  encoding <- guess_encoding(encoding, type)
-
   parser(content, type = type, encoding = encoding, ...)
 }
 
@@ -65,13 +63,11 @@ parsers <- new.env(parent = emptyenv())
 # Binary formats ---------------------------------------------------------------
 
 # http://www.ietf.org/rfc/rfc4627.txt - section 3. (encoding)
-parsers$`application/json` <- function(x, type = NULL, encoding = NULL,
-                                       simplifyVector = FALSE, ...) {
+parsers$`application/json` <- function(x, type = NULL, simplifyVector = FALSE, ...) {
   jsonlite::fromJSON(parse_text(x, encoding = "UTF-8"),
     simplifyVector = simplifyVector, ...)
 }
-parsers$`application/x-www-form-urlencoded` <- function(x, type = NULL,
-                                                        encoding = NULL, ...) {
+parsers$`application/x-www-form-urlencoded` <- function(x, type = NULL, ...) {
   parse_query(parse_text(x, encoding = "UTF-8"))
 }
 
@@ -81,36 +77,47 @@ parsers$`image/jpeg` <- function(x, type = NULL, encoding = NULL, ...) {
   jpeg::readJPEG(x)
 }
 
-parsers$`image/png` <- function(x, type = NULL, encoding = NULL, ...) {
+parsers$`image/png` <- function(x, type = NULL, ...) {
   need_package("png")
   png::readPNG(x)
 }
 
 parsers$`text/plain` <- function(x, type = NULL, encoding = NULL, ...) {
+  encoding <- guess_encoding(encoding, type)
   parse_text(x, type = type, encoding = encoding)
 }
 
 parsers$`text/html` <- function(x, type = NULL, encoding = NULL, ...) {
   need_package("xml2")
+
+  encoding <- guess_encoding(encoding, type)
   xml2::read_html(x, encoding = encoding, ...)
 }
 
 parsers$`application/xml` <- function(x, type = NULL, encoding = NULL, ...) {
   need_package("xml2")
+
+  encoding <- guess_encoding(encoding, type)
   xml2::read_xml(x, encoding = encoding, ...)
 }
 
 parsers$`text/xml` <- function(x, type = NULL, encoding = NULL, ...) {
   need_package("xml2")
+
+  encoding <- guess_encoding(encoding, type)
   xml2::read_xml(x, encoding = encoding, ...)
 }
 
 parsers$`text/csv` <- function(x, type = NULL, encoding = NULL, ...) {
   need_package("readr")
+
+  encoding <- guess_encoding(encoding, type)
   readr::read_csv(x, readr::locale(encoding = encoding), ...)
 }
 
 parsers$`text/tab-separated-values` <- function(x, type = NULL, encoding = NULL, ...) {
   need_package("readr")
+
+  encoding <- guess_encoding(encoding, type)
   readr::read_tsv(x, readr::locale(encoding = encoding), ...)
 }

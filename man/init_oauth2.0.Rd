@@ -4,8 +4,9 @@
 \alias{init_oauth2.0}
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
-init_oauth2.0(endpoint, app, scope = NULL, type = NULL,
-  use_oob = getOption("httr_oob_default"), is_interactive = interactive())
+init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
+  type = NULL, use_oob = getOption("httr_oob_default"),
+  is_interactive = interactive(), use_basic_auth = FALSE)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -15,6 +16,10 @@ init_oauth2.0(endpoint, app, scope = NULL, type = NULL,
 
 \item{scope}{a character vector of scopes to request.}
 
+\item{user_params}{Named list holding endpoint specific parameters to pass to
+the server when posting the request for obtaining or refreshing the
+access token.}
+
 \item{type}{content type used to override incorrect server response}
 
 \item{use_oob}{if FALSE, use a local webserver for the OAuth dance.
@@ -23,6 +28,11 @@ code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
 
 \item{is_interactive}{Is the current environment interactive?}
+
+\item{use_basic_auth}{if \code{TRUE} use http basic authentication to
+retrieve the token. Some authorization servers require this.
+If \code{FALSE}, the default, retrieve the token by including the
+app key and secret in the request body.}
 }
 \description{
 See demos for use.

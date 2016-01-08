@@ -60,7 +60,7 @@ print.oauth_endpoint <- function(x, ...) {
 #' Provides some common OAuth endpoints.
 #'
 #' @param name One of the following endpoints: linkedin, twitter,
-#'   vimeo, google, facebook, github.
+#'   vimeo, google, facebook, github, azure.
 #' @export
 #' @examples
 #' oauth_endpoints("twitter")
@@ -111,6 +111,11 @@ oauth_endpoints <- function(name) {
       request = NULL,
       authorize = "authorize",
       access = "access_token"
+    ),
+    azure = oauth_endpoint(
+      base_url = "https://login.windows.net/common/oauth2",
+      authorize = "authorize",
+      access = "token"
     ),
     stop("Unknown endpoint", call. = FALSE)
   )
