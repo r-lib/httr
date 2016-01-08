@@ -5,7 +5,7 @@
 \title{Generate an oauth1.0 token.}
 \usage{
 oauth1.0_token(endpoint, app, permission = NULL, as_header = TRUE,
-  cache = getOption("httr_oauth_cache"))
+  private_key = NULL, cache = getOption("httr_oauth_cache"))
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
