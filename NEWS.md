@@ -2,6 +2,9 @@
 
 * Add RSA-SHA1 signature support for OAuth1.0. (@nathangoulding, #316)
 
+* `refresh_oauth2.0()` now checks for known OAuth2.0 errors and clears the
+  locally cached token in the presense of any (@nathangoulding, #315)
+
 * Tweak regexp in `parse_url()` so urls like `file:///a/b/c` work (#309).
 
 * `oauth2.0_token()` accepts the optional named list parameter `user_params`
@@ -21,9 +24,9 @@
   openssl. This bundle is only used a last-resort on windows with R <3.2.0.
 
 * `stop_for_status()`, `warn_for_status()` and (new) `message_for_status()`
-  have expanded `message` argument which can either be a character vector
-  or a named list. This allows API wrappers to provide more informative
-  error messages on failure (#277)
+  replace `message` argument with new `task` argument that optionally describes
+  the current task. This allows API wrappers to provide more informative
+  error messages on failure (#277, #302).
 
 * `oauth2_init()` throws an error if it fails to get an access token (#250).
 

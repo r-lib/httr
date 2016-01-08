@@ -4,7 +4,7 @@
 \alias{http_condition}
 \title{Generate a classed http condition.}
 \usage{
-http_condition(x, type, message = NULL, call = sys.call(-1))
+http_condition(x, type, task = NULL, call = sys.call(-1))
 }
 \arguments{
 \item{x}{a response, or numeric http code (or other object with
@@ -13,12 +13,9 @@ http_condition(x, type, message = NULL, call = sys.call(-1))
 \item{type}{type of condition to generate. Must be one of error,
 warning or message.}
 
-\item{message}{The text of the message: either \code{NULL}, a character
-  vector or a list.
-
-  If \code{NULL}, the default, will use \code{\link{http_status}} to generate
-  the message. If a character vector, all elements will be pasted together.
-  If a list, it will be indexed in by the status code.}
+\item{task}{The text of the message: either \code{NULL} or a
+character vector. If non-\code{NULL}, the error message will finish with
+"Failed to \code{task}".}
 
 \item{call}{The call stored in the condition object.}
 }

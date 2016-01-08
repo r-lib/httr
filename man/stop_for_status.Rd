@@ -6,22 +6,19 @@
 \alias{warn_for_status}
 \title{Take action on http error.}
 \usage{
-stop_for_status(x, message = NULL)
+stop_for_status(x, task = NULL)
 
-warn_for_status(x, message = NULL)
+warn_for_status(x, task = NULL)
 
-message_for_status(x, message = NULL)
+message_for_status(x, task = NULL)
 }
 \arguments{
 \item{x}{a response, or numeric http code (or other object with
 \code{status_code} method)}
 
-\item{message}{The text of the message: either \code{NULL}, a character
-  vector or a list.
-
-  If \code{NULL}, the default, will use \code{\link{http_status}} to generate
-  the message. If a character vector, all elements will be pasted together.
-  If a list, it will be indexed in by the status code.}
+\item{task}{The text of the message: either \code{NULL} or a
+character vector. If non-\code{NULL}, the error message will finish with
+"Failed to \code{task}".}
 }
 \value{
 If request was successful, the response (invisibly. Otherwise,
@@ -49,12 +46,9 @@ x <- GET("http://httpbin.org/status/404")
 warn_for_status(x)
 message_for_status(x)
 
-# You can provide more information with the message argumgnet
-message_for_status(x, "Spreadsheet not found")
-message_for_status(x, list(
-  "404" = "Spreadsheet not found",
-  "403" = "Invalid username/password"
-))
+# You can provide more information with the task argumgnet
+warn_for_status(x, "download spreadsheet")
+message_for_status(x, "download spreadsheet")
 
 }
 \seealso{
