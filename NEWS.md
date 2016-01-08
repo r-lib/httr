@@ -3,12 +3,17 @@
 * `refresh_oauth2.0()` now checks for known OAuth2.0 errors and clears the
   locally cached token in the presense of any (@nathangoulding, #315)
 
+* Tweak regexp in `parse_url()` so urls like `file:///a/b/c` work (#309).
+
 * `oauth2.0_token()` accepts the optional named list parameter `user_params`
   which can be used to pass additional parameters to the token access endpoint
   when acquiring or refreshing a token, if required by the endpoint protocol.
   (@cornf4ke, #312)
 
 * New demo `oauth2-azure`.
+
+* `oauth2.0_token()` gains a `use_basic_auth` argument which allows you to pick 
+  the type of http authentication used to retrieve the token (#310, @grahamrp).
 
 * `oauth_service_token()` checks that its arguments are the correct types 
   (#282).

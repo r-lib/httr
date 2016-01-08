@@ -72,6 +72,10 @@ test_that("parse_url pulls off domain correctly given query without trailing '/'
    expect_equal(url, "http://google.com/?a=1&b=2")
 })
 
+test_that("parse_url preserves leading / in path", {
+  url <- parse_url("file:///tmp/foobar")
+  expect_equal(url$path, "/tmp/foobar")
+})
 
 # compose_query -----------------------------------------------------------
 
