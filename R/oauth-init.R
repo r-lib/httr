@@ -111,7 +111,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
     req <- POST(endpoint$access, encode = "form", body = req_params,
       authenticate(app$key, app$secret, type = "basic"))
   } else {
-    body$client_secret <- app$secret
+    req_params$client_secret <- app$secret
     req <- POST(endpoint$access, encode = "form", body = req_params)
   }
 
