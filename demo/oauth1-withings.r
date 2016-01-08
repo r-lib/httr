@@ -27,4 +27,4 @@ req <- GET("http://wbsapi.withings.net/measure",
 )
 
 stop_for_status(req)
-content(req)
+content(req, type = "application/json")
