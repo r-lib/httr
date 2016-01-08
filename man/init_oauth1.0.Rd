@@ -5,7 +5,7 @@
 \title{Retrieve OAuth 1.0 access token.}
 \usage{
 init_oauth1.0(endpoint, app, permission = NULL,
-  is_interactive = interactive())
+  is_interactive = interactive(), private_key = NULL)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}

@@ -40,7 +40,13 @@ sign_oauth2.0 <- function(access_token, as_header = TRUE) {
 #' @keywords internal
 #' @return A list of oauth parameters.
 oauth_signature <- function(url, method = "GET", app, token = NULL,
-                            token_secret = NULL, ...) {
+                            token_secret = NULL,
+                            private_key = NULL, ...) {
+  if (!is.null(private_key)) {
+    signature_method <- "RSA-SHA1"
+  } else {
+    signature_method <- "HMAC-SHA1"
+  }
   method <- toupper(method)
 
   url <- parse_url(url)
@@ -49,7 +55,7 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
   oauth <- compact(list(
     oauth_consumer_key = app$key,
     oauth_nonce = nonce(),
-    oauth_signature_method = "HMAC-SHA1",
+    oauth_signature_method = signature_method,
     oauth_timestamp = as.integer(Sys.time()),
     oauth_version = "1.0",
     oauth_token = token
@@ -67,11 +73,14 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
   params_srt <- sort_names(params_esc)
   params_str <- paste0(names(params_srt), "=", params_srt, collapse = "&")
 
-  # Generate hmac signature
-  key <- paste0(oauth_encode(app$secret), "&", oauth_encode(token_secret))
   base_string <- paste0(method, "&", oauth_encode(base_url), "&",
    oauth_encode(params_str))
-  oauth$oauth_signature <- hmac_sha1(key, base_string)
+
+  # Generate signature
+  if (signature_method == "HMAC-SHA1") {
+    private_key <- paste0(oauth_encode(app$secret), "&", oauth_encode(token_secret))
+  }
+  oauth$oauth_signature <- sha1_hash(private_key, base_string, signature_method)
 
   sort_names(oauth)
 }

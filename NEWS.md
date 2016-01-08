@@ -1,5 +1,7 @@
 # httr 1.0.0.9000
 
+* Add RSA-SHA1 signature support for OAuth1.0. (@nathangoulding, #316)
+
 * Tweak regexp in `parse_url()` so urls like `file:///a/b/c` work (#309).
 
 * `oauth2.0_token()` accepts the optional named list parameter `user_params`
