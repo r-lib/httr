@@ -11,6 +11,6 @@ rsa_sha1 <- function(key, string) {
     string <- charToRaw(paste(string, collapse = "\n"))
   if (is.character(key))
     key <- charToRaw(paste(key, collapse = "\n"))
-  hash <- PKI::PKI.sign(string, key, "SHA1")
-  openssl::base64_encode(hash)
+  sig <- openssl::signature_create(string, openssl::sha1, key = key)
+  openssl::base64_encode(sig)
 }

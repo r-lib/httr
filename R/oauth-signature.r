@@ -74,7 +74,7 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
   params_str <- paste0(names(params_srt), "=", params_srt, collapse = "&")
 
   base_string <- paste0(method, "&", oauth_encode(base_url), "&",
-                        oauth_encode(params_str))
+   oauth_encode(params_str))
 
   # Generate signature
   if (signature_method == "HMAC-SHA1") {
