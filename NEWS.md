@@ -19,9 +19,9 @@
   openssl. This bundle is only used a last-resort on windows with R <3.2.0.
 
 * `stop_for_status()`, `warn_for_status()` and (new) `message_for_status()`
-  have expanded `message` argument which can either be a character vector
-  or a named list. This allows API wrappers to provide more informative
-  error messages on failure (#277)
+  replace `message` argument with new `task` argument that optionally describes
+  the current task. This allows API wrappers to provide more informative
+  error messages on failure (#277, #302).
 
 * `oauth2_init()` throws an error if it fails to get an access token (#250).
 

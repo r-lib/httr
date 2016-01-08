@@ -228,37 +228,34 @@ url_ok <- function(x, ...) {
 #' warn_for_status(x)
 #' message_for_status(x)
 #'
-#' # You can provide more information with the message argumgnet
-#' message_for_status(x, "Spreadsheet not found")
-#' message_for_status(x, list(
-#'   "404" = "Spreadsheet not found",
-#'   "403" = "Invalid username/password"
-#' ))
+#' # You can provide more information with the task argumgnet
+#' warn_for_status(x, "download spreadsheet")
+#' message_for_status(x, "download spreadsheet")
 #'
 #' @export
-stop_for_status <- function(x, message = NULL) {
+stop_for_status <- function(x, task = NULL) {
   if (status_code(x) < 300)
     return(invisible(x))
 
   call <- sys.call(-1)
-  stop(http_condition(x, "error", message, call = call))
+  stop(http_condition(x, "error", task = task, call = call))
 }
 
 #' @rdname stop_for_status
 #' @export
-warn_for_status <- function(x, message = NULL) {
+warn_for_status <- function(x, task = NULL) {
   if (status_code(x) < 300)
     return(invisible(x))
 
   call <- sys.call(-1)
-  warning(http_condition(x, "warning", message, call = call))
+  warning(http_condition(x, "warning", task = task, call = call))
 }
 
 #' @rdname stop_for_status
 #' @export
-message_for_status <- function(x, message = NULL) {
+message_for_status <- function(x, task = NULL) {
   call <- sys.call(-1)
-  message(http_condition(x, "message", message, call = call))
+  message(http_condition(x, "message", task = task, call = call))
 }
 
 
@@ -276,12 +273,9 @@ message_for_status <- function(x, message = NULL) {
 #'   \code{status_code} method)
 #' @param type type of condition to generate. Must be one of error,
 #'   warning or message.
-#' @param message The text of the message: either \code{NULL}, a character
-#'   vector or a list.
-#'
-#'   If \code{NULL}, the default, will use \code{\link{http_status}} to generate
-#'   the message. If a character vector, all elements will be pasted together.
-#'   If a list, it will be indexed in by the status code.
+#' @param task The text of the message: either \code{NULL} or a
+#'   character vector. If non-\code{NULL}, the error message will finish with
+#'   "Failed to \code{task}".
 #' @param call The call stored in the condition object.
 #' @seealso
 #'   \url{http://adv-r.had.co.nz/Exceptions-Debugging.html#condition-handling}
@@ -303,27 +297,23 @@ message_for_status <- function(x, message = NULL) {
 #' f("http://httpbin.org/status/404")
 #' f("http://httpbin.org/status/403")
 #' f("http://httpbin.org/status/505")
-http_condition <- function(x, type, message = NULL, call = sys.call(-1)) {
-  status <- status_code(x)
-  status_type <- (status %/% 100) * 100
-
+http_condition <- function(x, type, task = NULL, call = sys.call(-1)) {
   type <- match.arg(type, c("error", "warning", "message"))
 
-  if (is.null(message)) {
-    message <- http_status(status)$reason
-  } else if (is.character(message)) {
-    message <- paste0(message, collapse = "")
-  } else if (is.list(message)) {
-    message <- message[[as.character(status)]] %||%
-      message[[as.character(status_type)]] %||%
-      http_status(status)$reason
+  if (is.null(task)) {
+    task <- ""
+  } else if (is.character(task)) {
+    task <- paste0(" Failed to ", task, ".")
   } else {
-    stop("`message` must be NULL, a character vector, or a named list.",
-      call. = FALSE)
+    stop("`task` must be NULL or a character vector", call. = FALSE)
   }
 
-  message <- sprintf("%s (HTTP %d)", message, status)
+  status <- status_code(x)
+  reason <- http_status(status)$reason
 
+  message <- sprintf("%s (HTTP %d).%s", reason, status, task)
+
+  status_type <- (status %/% 100) * 100
   http_class <- paste0("http_", unique(c(status, status_type, "error")))
 
   structure(
