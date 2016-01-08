@@ -2,7 +2,7 @@
 % Please edit documentation in R/sha1.r
 \name{hmac_sha1}
 \alias{hmac_sha1}
-\title{RSA SHA1}
+\title{HMAC SHA1}
 \usage{
 hmac_sha1(key, string)
 }
@@ -12,7 +12,7 @@ hmac_sha1(key, string)
 \item{string}{data to securely hash}
 }
 \description{
-As described in \url{http://tools.ietf.org/html/rfc3447}.
+As described in \url{http://datatracker.ietf.org/doc/rfc2104/}.
 }
 \keyword{internal}
 

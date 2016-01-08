@@ -27,9 +27,9 @@ sha1_hash <- function(key, string, method = "HMAC-SHA1") {
   openssl::base64_encode(hash)
 }
 
-#' RSA SHA1
+#' HMAC SHA1
 #'
-#' As described in \url{http://tools.ietf.org/html/rfc3447}.
+#' As described in \url{http://datatracker.ietf.org/doc/rfc2104/}.
 #'
 #' @param key secret key
 #' @param string data to securely hash

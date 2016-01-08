@@ -27,4 +27,4 @@ Suggests:
 VignetteBuilder: knitr
 License: MIT + file LICENSE
 URL: https://github.com/hadley/httr
-RoxygenNote: 5.0.1
+RoxygenNote: 5.0.1.9000
