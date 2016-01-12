@@ -7,6 +7,7 @@
 #'    \code{\link{oauth_app}}
 #' @param permission optional, a string of permissions to ask for.
 #' @param is_interactive Is the current environment interactive?
+#' @param private_key optional, the key provided by openssl::read_key
 #' @export
 #' @keywords internal
 init_oauth1.0 <- function(endpoint, app, permission = NULL,
