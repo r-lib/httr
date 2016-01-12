@@ -219,8 +219,8 @@ And then use `eval = NOT_CRAN` as needed as a chunk option.
 If your package supports an authentication workflow based on an API key or token, encourage users to store it in an environment variable. We illustrate this using the [`github` R package](https://github.com/cscheid/rgithub), which wraps the Github v3 API. Tailor this template to your API + package and include in `README.md` or a vignette.
 
 1.  Create a personal access token in the 
-    [Applications area](https://github.com/settings/applications) of your GitHub
-    personal settings. Copy token to the clipboard.
+    [Personal access tokens area](https://github.com/settings/tokens) of your
+    GitHub personal settings. Copy token to the clipboard.
 
 1.  Identify your home directory. Not sure? Enter `normalizePath("~/")` in 
     the R console.
