@@ -16,6 +16,9 @@ init_oauth1.0(endpoint, app, permission = NULL,
 \item{permission}{optional, a string of permissions to ask for.}
 
 \item{is_interactive}{Is the current environment interactive?}
+
+\item{private_key}{Optional, a key provided by \code{\linl[openssl]{read_key}}.
+Used for signed OAuth 1.0.}
 }
 \description{
 See demos for use.
