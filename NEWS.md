@@ -1,59 +1,63 @@
 # httr 1.0.0.9000
 
-* Add RSA-SHA1 signature support for OAuth1.0. (@nathangoulding, #316)
-
-* `refresh_oauth2.0()` now checks for known OAuth2.0 errors and clears the
-  locally cached token in the presense of any (@nathangoulding, #315)
-
-* Tweak regexp in `parse_url()` so urls like `file:///a/b/c` work (#309).
-
-* `oauth2.0_token()` accepts the optional named list parameter `user_params`
-  which can be used to pass additional parameters to the token access endpoint
-  when acquiring or refreshing a token, if required by the endpoint protocol.
-  (@cornf4ke, #312)
-
-* New demo `oauth2-azure`.
-
-* `oauth2.0_token()` gains a `use_basic_auth` argument which allows you to pick 
-  the type of http authentication used to retrieve the token (#310, @grahamrp).
-
-* `oauth_service_token()` checks that its arguments are the correct types 
-  (#282).
-
-* httr no longer bundles `cacert.pem`, and instead it relies on the bundle in 
-  openssl. This bundle is only used a last-resort on windows with R <3.2.0.
+## New features
 
 * `stop_for_status()`, `warn_for_status()` and (new) `message_for_status()`
   replace `message` argument with new `task` argument that optionally describes
   the current task. This allows API wrappers to provide more informative
-  error messages on failure (#277, #302).
-
-* `oauth2_init()` throws an error if it fails to get an access token (#250).
+  error messages on failure (#277, #302). `stop_for_status()` and
+  `warn_for_status()` return the response if there were no errors. This 
+  makes them easier to use in pipelines (#278).
 
 * `url_ok()` and `url_successful()` have been deprecated in favour of the more
   flexible `http_error()`, which works with urls, responses and integer status
   codes (#299).
 
-* `stop_for_status()` and `warn_for_status()` now return the response if
-  there were no errors. This makes them easier to use in pipelines (#278).
+## OAuth
 
-* `content(x)` now uses xml2 for XML documents and readr for csv and tsv.
+* `oauth1.0_token()` gains RSA-SHA1 signature support with the `private_key`
+  argument (@nathangoulding, #316).
 
-* Default encoding is now UTF-8.
+* `oauth2.0_token()` throws an error if it fails to get an access token (#250)
+  and gains two new arguments:
 
-* `has_content()` correctly tests for the presence/absence of body content (#91).
+    * `user_params` allows you to pass arbitrary additional parameters to the 
+      token access endpoint when acquiring or refreshing a token 
+      (@cornf4ke, #312)
+    
+    * `use_basic_auth` allows you to pick use http authentication when
+      getting a token (#310, @grahamrp).
+
+* `oauth_service_token()` checks that its arguments are the correct types 
+  (#282) and anways returns a `request` object (#313, @nathangoulding).
+
+* `refresh_oauth2.0()` checks for known OAuth2.0 errors and clears the
+  locally cached token in the presense of any (@nathangoulding, #315).
+
+## Bug fixes and minor improvements
+
+* httr no longer bundles `cacert.pem`, and instead it relies on the bundle in 
+  openssl. This bundle is only used a last-resort on windows with R <3.2.0.
 
 * Switch to 'openssl' package for hashing, hmac, signatures, and base64.
 
-* Remove the stringr dependency (#285, @jimhester).
+* httr no longer depends on stringr (#285, @jimhester).
 
-* Fix for 'progress callback must return boolean' warning
+* `build_url()` collapses vector `path` with `/` (#280, @artemklevtsov).
 
-* Support for uploading large binaries by using postfieldsize_large
+* `content(x)` uses xml2 for XML documents and readr for csv and tsv.
 
-* `build_url()` now collapses vector `path` with `/` (#280, @artemklevtsov).
+* `content(, type = "text")` defaults to UTF-8 encoding if not otherwise
+  specified.
 
-* Ensure that OAuth token `sign()` returns a `request` (#313, @nathangoulding).
+* `has_content()` correctly tests for the presence/absence of body content (#91).
+
+* `parse_url()` correctly parses urls like `file:///a/b/c` work (#309).
+
+* `progress()` returns `TRUE` to fix for 'progress callback must return boolean' 
+  warning (@jeroenooms, #252).
+
+* `upload_file()` supports very large files (> 2.5 Gb) (@jeroenooms, #257).
 
 # httr 1.0.0
 
