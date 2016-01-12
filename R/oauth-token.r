@@ -220,7 +220,7 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   },
   refresh = function() {
     cred <- refresh_oauth2.0(self$endpoint, self$app,
-        self$credentials, self$params$user_params)
+        self$credentials, self$params$user_params, self$params$use_basic_auth)
     if (is.null(cred)) {
       remove_cached_token(self)
     } else {

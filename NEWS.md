@@ -1,5 +1,7 @@
 # httr 1.1.0.9000
 
+* When `use_basic_auth` option is used to obtain a token, token refreshes will now use basic authentication too.
+
 * Suppress unhelpful "No encoding supplied: defaulting to UTF-8." when 
   printing a response (#327).
 
