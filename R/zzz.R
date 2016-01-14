@@ -7,6 +7,12 @@
   toset <- !(names(op.dplyr) %in% names(op))
   if(any(toset)) options(op.dplyr[toset])
 
+  versions <- c(
+    libcurl = curl::curl_version()$version,
+    `r-curl` = as.character(packageVersion("curl")),
+    httr = as.character(packageVersion("httr")))
+  default_ua <<- paste0(names(versions), "/", versions, collapse = " ")
+
   invisible()
 }
 

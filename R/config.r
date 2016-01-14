@@ -129,14 +129,8 @@ curl_docs <- function(x) {
   BROWSE(url)
 }
 
-default_ua <- function() {
-  versions <- c(
-    libcurl = curl::curl_version()$version,
-    `r-curl` = as.character(packageVersion("curl")),
-    httr = as.character(packageVersion("httr"))
-  )
-  paste0(names(versions), "/", versions, collapse = " ")
-}
+# This is defined in .onLoad()
+default_ua <- NULL
 
 #' Set (and reset) global httr configuration.
 #'
