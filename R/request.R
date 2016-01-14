@@ -31,7 +31,7 @@ request_default <- function() {
   c(
     request(
       options = list(
-        useragent = default_ua(),
+        useragent = default_ua,
         cainfo = find_cert_bundle()
       ),
       headers = c(Accept = "application/json, text/xml, application/xml, */*"),
