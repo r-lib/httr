@@ -158,7 +158,7 @@ modify_url <- function(url, scheme = NULL, hostname = NULL, port = NULL,
     query = query, params = params, fragment = fragment,
     username = username, password = password))
 
-  build_url(modifyList(old, new))
+  build_url(utils::modifyList(old, new))
 }
 
 

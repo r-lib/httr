@@ -45,12 +45,12 @@ progress_bar <- function(type) {
       }
       cat("\rDownloading: ", bytes(now, digits = 2), "     ", sep = "")
       if (now == total) cat("\n")
-      flush.console()
+      utils::flush.console()
     } else {
       if (is.null(bar)) {
-        bar <<- txtProgressBar(max = total, style = 3)
+        bar <<- utils::txtProgressBar(max = total, style = 3)
       }
-      setTxtProgressBar(bar, now)
+      utils::setTxtProgressBar(bar, now)
     }
 
     TRUE

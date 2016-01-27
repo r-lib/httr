@@ -106,7 +106,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
     code = code)
 
   if (!is.null(user_params)) {
-    req_params <- modifyList(user_params, req_params)
+    req_params <- utils::modifyList(user_params, req_params)
   }
 
   if (isTRUE(use_basic_auth)) {

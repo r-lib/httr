@@ -132,8 +132,8 @@ curl_docs <- function(x) {
 default_ua <- function() {
   versions <- c(
     libcurl = curl::curl_version()$version,
-    `r-curl` = as.character(packageVersion("curl")),
-    httr = as.character(packageVersion("httr"))
+    `r-curl` = as.character(utils::packageVersion("curl")),
+    httr = as.character(utils::packageVersion("httr"))
   )
   paste0(names(versions), "/", versions, collapse = " ")
 }

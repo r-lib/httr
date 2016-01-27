@@ -15,5 +15,5 @@
 BROWSE <- function(url = NULL, config = list(), ..., handle = NULL) {
   if (!interactive()) return()
   hu <- handle_url(handle, url, ...)
-  browseURL(hu$url)
+  utils::browseURL(hu$url)
 }

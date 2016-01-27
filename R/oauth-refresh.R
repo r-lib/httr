@@ -15,7 +15,7 @@ refresh_oauth2.0 <- function(endpoint, app, credentials, user_params = NULL) {
       client_secret = app$secret,
       grant_type = "refresh_token")
   if (! is.null(user_params)) {
-    body <- modifyList(user_params, body);
+    body <- utils::modifyList(user_params, body);
   }
 
   response <- POST(refresh_url, body = body, encode = "form")
@@ -26,5 +26,5 @@ refresh_oauth2.0 <- function(endpoint, app, credentials, user_params = NULL) {
   stop_for_status(response)
 
   refresh_data <- content(response)
-  modifyList(credentials, refresh_data)
+  utils::modifyList(credentials, refresh_data)
 }

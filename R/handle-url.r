@@ -10,7 +10,7 @@ handle_url <- function(handle = NULL, url = NULL, ...) {
   new <- named(list(...))
   if (length(new) > 0 || is.url(url)) {
     old <- parse_url(url)
-    url <- build_url(modifyList(old, new))
+    url <- build_url(utils::modifyList(old, new))
   }
 
   list(handle = handle, url = url)

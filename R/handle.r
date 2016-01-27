@@ -51,7 +51,7 @@ print.handle <- function(x, ...) {
 }
 
 ref <- function(x) {
-  str_extract(capture.output(print(x))[1], "0x[0-9a-f]*")
+  str_extract(utils::capture.output(print(x))[1], "0x[0-9a-f]*")
 }
 
 is.handle <- function(x) inherits(x, "handle")

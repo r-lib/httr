@@ -23,7 +23,7 @@ guess_cache <- function() {
   if (!interactive()) return(FALSE)
 
   cat("Use a local file to cache OAuth access credentials between R sessions?")
-  menu(c("Yes", "No")) == 1
+  utils::menu(c("Yes", "No")) == 1
 }
 
 protect_cache <- function() {
