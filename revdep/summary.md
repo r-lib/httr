@@ -6,23 +6,23 @@
 |:--------|:----------------------------|
 |version  |R version 3.2.2 (2015-08-14) |
 |system   |x86_64, darwin13.4.0         |
-|ui       |RStudio (0.99.830)           |
+|ui       |RStudio (0.99.863)           |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
-|date     |2016-01-08                   |
+|date     |2016-01-27                   |
 
 ## Packages
 
 |package  |*  |version |date       |source         |
 |:--------|:--|:-------|:----------|:--------------|
-|curl     |   |0.9.4   |2015-11-20 |CRAN (R 3.2.2) |
+|curl     |   |0.9.5   |2016-01-23 |CRAN (R 3.2.3) |
 |httpuv   |   |1.3.3   |2015-08-04 |CRAN (R 3.2.0) |
 |jpeg     |   |0.1-8   |2014-01-23 |CRAN (R 3.2.0) |
 |jsonlite |   |0.9.19  |2015-11-28 |CRAN (R 3.2.2) |
-|knitr    |   |1.11    |2015-08-14 |CRAN (R 3.2.3) |
+|knitr    |   |1.12.3  |2016-01-22 |CRAN (R 3.2.3) |
 |mime     |   |0.4     |2015-09-03 |CRAN (R 3.2.0) |
-|openssl  |   |0.8     |2015-12-15 |CRAN (R 3.2.3) |
+|openssl  |   |0.9.1   |2016-01-18 |CRAN (R 3.2.3) |
 |png      |   |0.1-7   |2013-12-03 |CRAN (R 3.2.0) |
 |R6       |   |2.1.1   |2015-08-19 |CRAN (R 3.2.0) |
 |readr    |   |0.2.2   |2015-10-22 |CRAN (R 3.2.0) |
@@ -30,7 +30,7 @@
 |xml2     |   |0.1.2   |2015-09-01 |CRAN (R 3.2.0) |
 
 # Check results
-177 checked out of 180 dependencies 
+180 checked out of 182 dependencies 
 
 ## abbyyR (0.2.3)
 Maintainer: Gaurav Sood <gsood07@gmail.com>  
@@ -51,7 +51,7 @@ Bug reports: http://www.github.com/ropensci/alm/issues
 checking whether package ‘alm’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: replacing previous import by ‘grid::unit’ when loading ‘alm’
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/alm.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/alm.Rcheck/00install.out’ for details.
 ```
 ```
 checking files in ‘vignettes’ ... NOTE
@@ -219,7 +219,7 @@ Maintainer: Niall McGearailt <niall@dukeanalytics.com>
 
 __OK__
 
-## devtools (1.9.1)
+## devtools (1.10.0)
 Maintainer: Hadley Wickham <hadley@rstudio.com>  
 Bug reports: https://github.com/hadley/devtools/issues
 
@@ -269,40 +269,7 @@ __OK__
 ## ecb (0.1)
 Maintainer: Eric Persson <expersso5@gmail.com>
 
-```
-checking examples ... ERROR
-Running examples in ‘ecb-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: convert_dates
-> ### Title: Format date variable retrieved from the SDW into a proper date
-> ###   variable
-> ### Aliases: convert_dates
-> 
-> ### ** Examples
-> 
-> hicp <- get_data("ICP.M.U2.N.000000.4.ANR")
-Error in curl::curl_fetch_memory(url, handle = handle) : 
-  Timeout was reached
-Calls: get_data ... request_fetch -> request_fetch.write_memory -> <Anonymous> -> .Call
-Execution halted
-```
-```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-Warning: package 'ggplot2' was built under R version 3.2.3
-Quitting from lines 29-46 (ecb_sdw.Rmd) 
-Error: processing vignette 'ecb_sdw.Rmd' failed with diagnostics:
-Timeout was reached
-Execution halted
-
-```
-```
-DONE
-Status: 1 ERROR, 1 NOTE
-```
+__OK__
 
 ## ecoengine (1.9.1)
 Maintainer: Karthik Ram <karthik.ram@gmail.com>  
@@ -507,7 +474,7 @@ Maintainer: Cory Nissen <corynissen@gmail.com>
 
 __OK__
 
-## fulltext (0.1.4)
+## fulltext (0.1.6)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/fulltext/issues
 
@@ -543,86 +510,17 @@ Maintainer: Cory Nissen <corynissen@gmail.com>
 
 __OK__
 
-## geojsonio (0.1.4)
+## geojsonio (0.1.6)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: http://www.github.com/ropensci/geojsonio/issues
 
-```
-checking tests ... ERROR
-Running the tests in ‘tests/test-all.R’ failed.
-Last 13 lines of output:
-  2: eval(code, new_test_environment)
-  3: eval(expr, envir, enclos)
-  4: suppressMessages(file_to_geojson(input = file, method = "web", output = "kml_web")) at test-file_to_geojson.R:6
-  5: withCallingHandlers(expr, message = function(c) invokeRestart("muffleMessage"))
-  6: file_to_geojson(input = file, method = "web", output = "kml_web")
-  7: httr::stop_for_status(tt)
-  
-  testthat results ================================================================
-  OK: 166 SKIPPED: 16 FAILED: 1
-  1. Error: file_to_geojson works w/ kml input, web method, output file 
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
-```
-DONE
-Status: 1 ERROR
-```
+__OK__
 
-## geoknife (1.0.0)
+## geoknife (1.1.3)
 Maintainer: Jordan Read <jread@usgs.gov>  
 Bug reports: https://github.com/USGS-R/geoknife/issues
 
-```
-checking examples ... ERROR
-Running examples in ‘geoknife-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: XML
-> ### Title: XML from set of objects
-> ### Aliases: XML XML,ANY,webdata,webprocess-method XML,webgeom-method
-> 
-> ### ** Examples
-> 
-> wd <- webdata('prism',times = as.POSIXct(c('2001-01-01','2002-02-05')))
-> wg <- webgeom('state::Wisconsin')
-Error: Please install xml2 package
-Execution halted
-```
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  16: initialize(value, ...)
-  17: .local(.Object, ...)
-  18: `values<-`(`*tmp*`, value = "09020306")
-  19: `values<-`(`*tmp*`, value = "09020306")
-  20: fetchGML_IDs(.Object)
-  21: content(response)
-  22: parse_auto(raw, type, encoding, ...) at /Users/hadley/Documents/web/httr/R/content.r:81
-  23: parser(content, type = type, encoding = encoding, ...) at /Users/hadley/Documents/web/httr/R/content-parse.r:45
-  24: need_package("xml2") at /Users/hadley/Documents/web/httr/R/content-parse.r:105
-  25: stop("Please install ", pkg, " package", call. = FALSE) at /Users/hadley/Documents/web/httr/R/utils.r:41
-  
-  Error: Please install xml2 package
-  Execution halted
-```
-```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-Quitting from lines 91-93 (geoknife.Rmd) 
-Error: processing vignette 'geoknife.Rmd' failed with diagnostics:
-no applicable method for 'xpathApply' applied to an object of class "c('xml_document', 'xml_node')"
-Execution halted
-
-```
-```
-DONE
-Status: 2 ERRORs, 1 NOTE
-```
+__OK__
 
 ## gistr (0.3.6)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
@@ -630,10 +528,11 @@ Bug reports: http://www.github.com/ropensci/gistr/issues
 
 __OK__
 
-## gitlabr (0.5.1)
+## gitlabr (0.6.2)
 Maintainer: Jirka Lewandowski <jirka.lewandowski@wzb.eu>  
 Bug reports: 
-        http://gitlab.points-of-interest.cc/points-of-interest/gitlabr/issues/
+        http://gitlab.points-of-interest.cc/points-of-interest/gitlabr/
+        issues/
 
 __OK__
 
@@ -651,7 +550,7 @@ Bug reports: https://github.com/gmum/gmum.r/issues
 checking whether package ‘gmum.r’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘ggplot2’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/gmum.r.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/gmum.r.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -795,10 +694,52 @@ Bug reports: https://github.com/ManifestoProject/manifestoR/issues
 
 __OK__
 
-## markmyassignment (0.3.0)
+## markmyassignment (0.4.0)
 Maintainer: Mans Magnusson <mons.magnusson@gmail.com>
 
-__OK__
+```
+checking examples ... ERROR
+Running examples in ‘markmyassignment-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: mark_my_file
+> ### Title: Mark assignment file
+> ### Aliases: mark_my_file
+> 
+> ### ** Examples
+> 
+> assignment_path <- 
++   paste0(system.file(package = "markmyassignment"), "/extdata/example_assignment01.yml")
+> file_path <- paste0(system.file(package = "markmyassignment"), "/extdata/example_lab_file.R")
+> mark_my_file(mark_file = file_path, assignment_path = assignment_path)
+Error in mark_my_file(mark_file = file_path, assignment_path = assignment_path) : 
+  Error in check_assignment_file(assignment) : 
+  Not all tasks in assignments have working urls.
+Execution halted
+```
+```
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  
+  3. Failure (at test-mark_my_file.R#36): Load packages before running mark_my_file() 
+  mark_my_file(mark_file = source_file, assignment_path = assignment_file) does not match 'The following packages need to be installed and then loaded'. Actual value: "Error in mark_my_file(mark_file = source_file, assignment_path = assignment_file) : \n  Error in check_assignment_file(assignment) : \n  Not all tasks in assignments have working urls.\n\n"
+  
+  testthat results ================================================================
+  OK: 51 SKIPPED: 0 FAILED: 3
+  1. Failure (at test-mark_my_assignment.R#49): mark_my_dir() 
+  2. Error: mark_my_file() 
+  3. Failure (at test-mark_my_file.R#36): Load packages before running mark_my_file() 
+  
+  Error: testthat unit tests failed
+  In addition: There were 50 or more warnings (use warnings() to see the first 50)
+  Execution halted
+```
+```
+DONE
+Status: 2 ERRORs
+```
 
 ## miniCRAN (0.2.4)
 Maintainer: Andrie de
@@ -815,7 +756,7 @@ Bug reports: https://github.com/jefferis/nat/issues
 checking whether package ‘nat’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘rgl’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/nat.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/nat.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -828,7 +769,7 @@ Bug reports: https://github.com/sckott/oai/issues
 
 __OK__
 
-## OECD (0.2.0)
+## OECD (0.2.2)
 Maintainer: Eric Persson <expersso5@gmail.com>  
 Bug reports: https://www.github.com/expersso/OECD/issues
 
@@ -846,6 +787,12 @@ Package suggested but not available for checking: ‘RAppArmor’
 DONE
 Status: 1 NOTE
 ```
+
+## ores (0.1.0)
+Maintainer: Oliver Keyes <ironholds@gmail.com>  
+Bug reports: https://github.com/Ironholds/ores/issues
+
+__OK__
 
 ## packagetrackr (0.1.1)
 Maintainer: Jirka Lewandowski <jirka.lewandowski@wzb.eu>  
@@ -867,7 +814,7 @@ DONE
 Status: 1 NOTE
 ```
 
-## pageviews (0.1.1)
+## pageviews (0.2.0)
 Maintainer: Oliver Keyes <ironholds@gmail.com>  
 Bug reports: https://github.com/ironholds/pageviews
 
@@ -887,7 +834,29 @@ __OK__
 ## pinnacle.API (1.90)
 Maintainer: Marco Blume <marco.blume@pinnaclesports.com>
 
-__OK__
+```
+checking examples ... ERROR
+Running examples in ‘pinnacle.API-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: GetBetsList
+> ### Title: Get a list of running/settled bets
+> ### Aliases: GetBetsList
+> 
+> ### ** Examples
+> 
+> ## No test: 
+> SetCredentials("TESTAPI","APITEST")
+> AcceptTermsAndConditions(accepted=TRUE)
+> GetBetsList()
+Error: Required package plyr not found. Please run: install.packages('plyr')
+Execution halted
+```
+```
+DONE
+Status: 1 ERROR
+```
 
 ## plotly (2.0.16)
 Maintainer: Carson Sievert <cpsievert1@gmail.com>  
@@ -897,7 +866,7 @@ Bug reports: https://github.com/ropensci/plotly/issues
 checking whether package ‘plotly’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘ggplot2’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/plotly.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/plotly.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -910,40 +879,18 @@ Bug reports: https://github.com/rOpenGov/pollstR/issues
 
 __OK__
 
-## primerTree (1.0.1)
+## primerTree (1.0.3)
 Maintainer: Jim Hester <james.f.hester@gmail.com>
 
 ```
 checking whether package ‘primerTree’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘directlabels’ was built under R version 3.2.3
-  Warning: replacing previous import by ‘grid::arrow’ when loading ‘primerTree’
-  Warning: replacing previous import by ‘grid::unit’ when loading ‘primerTree’
-  Warning: replacing previous import by ‘scales::alpha’ when loading ‘primerTree’
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/primerTree.Rcheck/00install.out’ for details.
-```
-```
-checking examples ... ERROR
-Running examples in ‘primerTree-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: plot.primerTree
-> ### Title: plot function for a primerTree object, calls plot_tree_ranks
-> ### Aliases: plot.primerTree
-> 
-> ### ** Examples
-> 
-> library(gridExtra)
-> library(directlabels)
-> #plot with all common ranks
-> plot(mammals_16S)
-Error: Unknown parameters: vjust
-Execution halted
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/primerTree.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
-Status: 1 ERROR, 1 WARNING
+Status: 1 WARNING
 ```
 
 ## prism (0.0.7)
@@ -1009,6 +956,12 @@ Bug reports: https://github.com/jhollist/quickmapr/issues
 
 __OK__
 
+## randNames (0.2.1)
+Maintainer: Karthik Ram <karthik.ram@gmail.com>  
+Bug reports: https://github.com/karthik/randNames/issues
+
+__OK__
+
 ## rbhl (0.2.0)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rbhl/issues
@@ -1042,7 +995,7 @@ Bug reports: https://github.com/jburkhardt/RCriteo/issues
 
 __OK__
 
-## rcrossref (0.3.4)
+## rcrossref (0.5.0)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/rcrossref/issues
 
@@ -1121,7 +1074,7 @@ Bug reports: https://github.com/sckott/request/issues
 
 __OK__
 
-## rerddap (0.3.0)
+## rerddap (0.3.4)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: http://www.github.com/ropensci/rerddap/issues
 
@@ -1227,7 +1180,7 @@ Bug reports: https://github.com/Tatvic/RGoogleAnalytics/issues
 checking whether package ‘RGoogleAnalytics’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘lubridate’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/RGoogleAnalytics.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/RGoogleAnalytics.Rcheck/00install.out’ for details.
 ```
 ```
 checking DESCRIPTION meta-information ... NOTE
@@ -1245,7 +1198,7 @@ Maintainer: Jalpa Joshi Dave <jalpa@tatvic.com>
 checking whether package ‘RGoogleAnalyticsPremium’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘lubridate’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/RGoogleAnalyticsPremium.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/RGoogleAnalyticsPremium.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -1271,7 +1224,7 @@ DONE
 Status: 1 NOTE
 ```
 
-## ridigbio (0.3.2)
+## ridigbio (0.3.3)
 Maintainer: Matthew Collins <mcollins@acis.ufl.edu>  
 Bug reports: https://github.com/iDigBio/ridigbio/issues
 
@@ -1299,7 +1252,7 @@ Bug reports: https://github.com/ropensci/rnbn/issues
 
 __OK__
 
-## RNeo4j (1.6.1)
+## RNeo4j (1.6.2)
 Maintainer: Nicole White <nicole@neo4j.com>  
 Bug reports: https://github.com/nicolewhite/RNeo4j/issues
 
@@ -1317,45 +1270,14 @@ Packages suggested but not available for checking: ‘rrdf’ ‘Sxslt’
 checking whether package ‘RNeXML’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘ape’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/RNeXML.Rcheck/00install.out’ for details.
-```
-```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-
-
-Retrieving data for taxon 'Trachypithecus_pileatus'
-
-
-Retrieving data for taxon 'Trachypithecus_vetulus'
-
-
-Retrieving data for taxon 'Varecia_variegata'
-
-Warning: package 'phytools' was built under R version 3.2.3
-Loading required package: maps
-Warning: package 'maps' was built under R version 3.2.3
-
- # ATTENTION: maps v3.0 has an updated 'world' map.        #
- # Many country borders and names have changed since 1990. #
- # Type '?world' or 'news(package="maps")'. See README_v3. #
-
-
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
-  there is no package called 'Biostrings'
-Quitting from lines 148-150 (simmap.Rmd) 
-Error: processing vignette 'simmap.Rmd' failed with diagnostics:
-package or namespace load failed for 'phytools'
-Execution halted
-
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/RNeXML.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
-Status: 1 WARNING, 2 NOTEs
+Status: 1 WARNING, 1 NOTE
 ```
 
-## rnoaa (0.5.0)
+## rnoaa (0.5.2)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: http://www.github.com/ropensci/rnoaa/issues
 
@@ -1377,7 +1299,20 @@ __OK__
 Maintainer: Francois Michonneau <francois.michonneau@gmail.com>  
 Bug reports: https://github.com/ropensci/rotl/issues
 
-__OK__
+```
+checking re-building of vignette outputs ... NOTE
+Error in re-building vignettes:
+  ...
+Quitting from lines 48-50 (data_mashups.Rmd) 
+Error: processing vignette 'data_mashups.Rmd' failed with diagnostics:
+Message: Mandatory argument "names" not supplied.
+Execution halted
+
+```
+```
+DONE
+Status: 1 NOTE
+```
 
 ## rplos (0.5.4)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
@@ -1387,7 +1322,7 @@ Bug reports: https://github.com/ropensci/rplos/issues
 checking whether package ‘rplos’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘ggplot2’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/rplos.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/rplos.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -1397,6 +1332,12 @@ Status: 1 WARNING
 ## RPublica (0.1.3)
 Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>  
 Bug reports: https://github.com/rOpenGov/RPublica/issues
+
+__OK__
+
+## rredlist (0.1.0)
+Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
+Bug reports: https://github.com/ropenscilabs/rredlist/issues
 
 __OK__
 
@@ -1442,11 +1383,11 @@ Execution halted
 checking tests ... ERROR
 Running the tests in ‘tests/testthat.R’ failed.
 Last 13 lines of output:
-  8. Error: API Conflict 
   9. Error: readAPIConflictHumanReadable 
   1. Error: incorrect API Query 
   2. Error: incorrect API Query Human Readable 
-  3. ...
+  3. Failure (at test-all.R#186): List datasets available from a Socrata domain 
+  4. ...
   
   Error: testthat unit tests failed
   In addition: Warning messages:
@@ -1515,7 +1456,59 @@ __OK__
 ## rvest (0.3.1)
 Maintainer: Hadley Wickham <hadley@rstudio.com>
 
-__OK__
+```
+checking examples ... ERROR
+Running examples in ‘rvest-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: encoding
+> ### Title: Guess and repair faulty character encoding.
+> ### Aliases: encoding guess_encoding repair_encoding
+> 
+> ### ** Examples
+> 
+> ## No test: 
+> # This page claims to be in iso-8859-1:
+> url <- 'http://www.elections.ca/content.aspx?section=res&dir=cir/list&document=index&lang=e#list'
+> elections <- read_html(url)
+> x <- elections %>% html_nodes("table") %>% .[[2]] %>% html_table() %>% .$TO
+> # But something looks wrong:
+> x
+[1] "Bonavista–Gander–Grand Falls–Windsor"
+[2] "St. John's East"                     
+[3] "St. John's South–Mount Pearl"        
+> 
+> # It's acutally UTF-8!
+> guess_encoding(x)
+      encoding language confidence
+1        UTF-8                1.00
+2 windows-1252       en       0.22
+3 windows-1250       cs       0.15
+4     UTF-16BE                0.10
+5     UTF-16LE                0.10
+6    Shift_JIS       ja       0.10
+7      GB18030       zh       0.10
+8         Big5       zh       0.10
+9 windows-1254       tr       0.03
+> 
+> # We can repair this vector:
+> repair_encoding(x)
+Best guess: UTF-8 (100% confident)
+[1] "Bonavista–Gander–Grand Falls–Windsor"
+[2] "St. John's East"                     
+[3] "St. John's South–Mount Pearl"        
+> 
+> # But it's better to start from scratch with correctly encoded file
+> elections <- read_html(url, encoding = "UTF-8")
+Error: Input is not proper UTF-8, indicate encoding !
+Bytes: 0xA0 0x3C 0x2F 0x74 [9]
+Execution halted
+```
+```
+DONE
+Status: 1 ERROR
+```
 
 ## rWBclimate (0.1.3)
 Maintainer: Edmund Hart <edmund.m.hart@gmail.com>  
@@ -1555,7 +1548,7 @@ Bug reports: https://github.com/hrbrmstr/slackr/issues
 checking whether package ‘slackr’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘ggplot2’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/slackr.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/slackr.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -1570,7 +1563,7 @@ checking whether package ‘SmarterPoland’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘ggplot2’ was built under R version 3.2.3
   Warning: package ‘htmltools’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/SmarterPoland.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/SmarterPoland.Rcheck/00install.out’ for details.
 ```
 ```
 checking data for non-ASCII characters ... NOTE
@@ -1586,7 +1579,7 @@ Maintainer: Timothy Graham <timothy.graham3@uq.net.au>
 
 __OK__
 
-## SocialMediaMineR (0.1)
+## SocialMediaMineR (0.2)
 Maintainer: Marco Toledo Bastos <marco@toledobastos.com>
 
 __OK__
@@ -1602,7 +1595,7 @@ Package suggested but not available for checking: ‘RODBC’
 checking whether package ‘soilDB’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘aqp’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/soilDB.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/soilDB.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -1639,7 +1632,7 @@ Bug reports: https://github.com/metacran/spareserver/issues
 
 __OK__
 
-## spocc (0.4.0)
+## spocc (0.4.4)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
 Bug reports: https://github.com/ropensci/spocc/issues
 
@@ -1654,7 +1647,7 @@ checking whether package ‘spoccutils’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘ggplot2’ was built under R version 3.2.3
   Warning: replacing previous import by ‘grid::unit’ when loading ‘spoccutils’
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/spoccutils.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/spoccutils.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -1666,7 +1659,7 @@ Maintainer: Margaret E. Roberts <meroberts@ucsd.edu>
 
 __OK__
 
-## stplanr (0.0.2)
+## stplanr (0.1.1)
 Maintainer: Robin Lovelace <rob00x@gmail.com>  
 Bug reports: https://github.com/ropensci/stplanr/issues
 
@@ -1714,7 +1707,7 @@ Bug reports: https://github.com/fawda123/SWMPr/issues
 checking whether package ‘SWMPr’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: package ‘ggplot2’ was built under R version 3.2.3
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/SWMPr.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/SWMPr.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -1739,7 +1732,7 @@ Maintainer: Kyle Walker <kyle.walker@tcu.edu>
 checking whether package ‘tigris’ can be installed ... WARNING
 Found the following significant warnings:
   Warning: replacing previous import by ‘sp::nowrapSpatialLines’ when loading ‘tigris’
-See ‘/private/tmp/RtmpLKKH1Z/check_cran4f7a68f23cc/tigris.Rcheck/00install.out’ for details.
+See ‘/private/tmp/Rtmp6ul5RI/check_cran94d44a2e1fa6/tigris.Rcheck/00install.out’ for details.
 ```
 ```
 DONE
@@ -1767,7 +1760,7 @@ Maintainer: Christopher Lucas <clucas@fas.harvard.edu>
 
 __OK__
 
-## tuber (0.1)
+## tuber (0.2)
 Maintainer: Gaurav Sood <gsood07@gmail.com>  
 Bug reports: http://github.com/soodoku/tuber/issues
 
@@ -1792,79 +1785,7 @@ __OK__
 ## vegdata (0.8.6)
 Maintainer: Florian Jansen <jansen@uni-greifswald.de>
 
-```
-checking examples ... ERROR
-Running examples in ‘vegdata-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: isc
-> ### Title: Indicate site conditions with community weighted mean values of
-> ###   traits or with mode of gradient classes (sum of species amplitudes).
-> ### Aliases: isc showindiplot
-> ### Keywords: misc
-> 
-> ### ** Examples
-> 
-> db <- 'elbaue'
-> veg <- tv.veg(db, cover.transform='sqrt', check.critical = FALSE)
-
-No Turbowin installation path found. 
-
-############################################################
-Turboveg root directory is set to "/tmp/RtmpJjBRc8"
-If you want to change this use: options(tv_home="<path_to_your_Turbowin_root>")
-############################################################
-Taxonomic reference list:  GermanSL 1.3 
-Original number of names: 53 
-Taxonomic reference list file /tmp/RtmpJjBRc8/Species/GermanSL 1.3/tax.dbf does not exist.
-
-Taxonomic list (tax.dbf) of reflist (version) GermanSL 1.3 not available.
-
-
-trying URL 'http://geobot.botanik.uni-greifswald.de/download/GermanSL/version1.3/GermanSL.zip'
-Warning in download.file(paste("http://geobot.botanik.uni-greifswald.de/download/GermanSL",  :
-  unable to resolve 'geobot.botanik.uni-greifswald.de'
-Error in load.taxlist(refl = refl, detailed = TRUE, ...) : 
-  Reference list file /tmp/RtmpJjBRc8/Species/GermanSL 1.3/tax.dbf does not exist.
-Calls: tv.veg -> taxval -> load.taxlist
-Execution halted
-```
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  1. Error: latest reference list 
-  2. Error: correct Taxa 
-  3. Error: taxval function tests 1 
-  
-  Error: testthat unit tests failed
-  In addition: Warning messages:
-  1: In download.file(paste("http://geobot.botanik.uni-greifswald.de/download/GermanSL",  :
-    unable to resolve 'geobot.botanik.uni-greifswald.de'
-  2: In download.file(paste("http://geobot.botanik.uni-greifswald.de/download/GermanSL",  :
-    unable to resolve 'geobot.botanik.uni-greifswald.de'
-  3: In download.file(paste("http://geobot.botanik.uni-greifswald.de/download/GermanSL",  :
-    unable to resolve 'geobot.botanik.uni-greifswald.de'
-  Execution halted
-```
-```
-checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-trying URL 'http://geobot.botanik.uni-greifswald.de/download/GermanSL/version1.3/GermanSL.zip'
-Warning in download.file(paste("http://geobot.botanik.uni-greifswald.de/download/GermanSL",  :
-  unable to resolve 'geobot.botanik.uni-greifswald.de'
-Quitting from lines 125-126 (vegdata.Rnw) 
-Error: processing vignette 'vegdata.Rnw' failed with diagnostics:
-Reference list file /tmp/RtmpIyqXJP/Species/GermanSL 1.3/species.dbf does not exist.
-Execution halted
-
-```
-```
-DONE
-Status: 2 ERRORs, 1 NOTE
-```
+__OK__
 
 ## viridis (0.3.2)
 Maintainer: Simon Garnier <garnier@njit.edu>  
@@ -1904,7 +1825,7 @@ The error most likely occurred in:
 +                      site=siteID, variable=variableID,
 +                      methodID=methodID, sourceID=sourceID,
 +                      qualityControl=qualityID, values=my_values)
-[1] "{\n \"user\": \"admin\",\n\"password\": \"password\",\n\"SiteID\":    170,\n\"VariableID\":     43,\n\"MethodID\":     10,\n\"SourceID\":     15,\n\"values\": [ [ \"2016-01-08 17:15:08\", \"90.8207789994776\" ],\n[ \"2016-01-08 17:16:12\", \"20.1681931037456\" ],\n[ \"2016-01-08 17:18:13\", \"89.8389684967697\" ] ] \n}"
+[1] "{\n \"user\": \"admin\",\n\"password\": \"password\",\n\"SiteID\":    170,\n\"VariableID\":     43,\n\"MethodID\":     10,\n\"SourceID\":     15,\n\"values\": [ [ \"2016-01-26 18:27:56\", \"90.8207789994776\" ],\n[ \"2016-01-26 18:29:00\", \"20.1681931037456\" ],\n[ \"2016-01-26 18:31:01\", \"89.8389684967697\" ] ] \n}"
 Error: Please install xml2 package
 Execution halted
 ```
@@ -1940,8 +1861,9 @@ Maintainer: Oliver Keyes <ironholds@gmail.com>
 
 __OK__
 
-## WikidataR (1.0.0)
-Maintainer: Oliver Keyes <ironholds@gmail.com>
+## WikidataR (1.0.1)
+Maintainer: Oliver Keyes <ironholds@gmail.com>  
+Bug reports: https://github.com/Ironholds/WikidataR/issues
 
 __OK__
 
@@ -1959,7 +1881,7 @@ DONE
 Status: 1 NOTE
 ```
 
-## WikipediR (1.2.0)
+## WikipediR (1.3.0)
 Maintainer: Oliver Keyes <ironholds@gmail.com>  
 Bug reports: https://github.com/Ironholds/WikipediR/issues
 

@@ -4,12 +4,15 @@
 * win-builder (devel and release)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs. 
+0 errors | 0 warnings | 0 notes
 
 ## Downstream dependencies
 
 * I ran `R CMD check` on all 180 reverse dependencies.
 
 * Results at https://github.com/hadley/httr/tree/master/revdep/summary.md.
+
+  * rvest failed, but I re-ran locally and it seems ok. Intermittent error?
+  * WaterML failed, but author just submitted updated version.
 
 * Authors were notified Jan 12.
