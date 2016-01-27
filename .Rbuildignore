@@ -2,7 +2,6 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^\.httr-oauth$
-^NEWS\.md$
 ^\.Rprofile$
 ^cran-comments.md$
 ^revdep$

@@ -4,7 +4,9 @@
 * win-builder (devel and release)
 
 ## R CMD check results
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 notes
+
+* httr uses the MIT license + license file template.
 
 ## Downstream dependencies
 

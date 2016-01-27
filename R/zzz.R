@@ -12,7 +12,6 @@
 
 release_questions <- function() {
   c(
-    "Have you run all the OAuth demos?",
-    "Is inst/cacert.pem up to date?"
+    "Have you run all the OAuth demos?"
   )
 }
