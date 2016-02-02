@@ -112,12 +112,12 @@ parsers$`text/csv` <- function(x, type = NULL, encoding = NULL, ...) {
   need_package("readr")
 
   encoding <- guess_encoding(encoding, type)
-  readr::read_csv(x, readr::locale(encoding = encoding), ...)
+  readr::read_csv(x, locale = readr::locale(encoding = encoding), ...)
 }
 
 parsers$`text/tab-separated-values` <- function(x, type = NULL, encoding = NULL, ...) {
   need_package("readr")
 
   encoding <- guess_encoding(encoding, type)
-  readr::read_tsv(x, readr::locale(encoding = encoding), ...)
+  readr::read_tsv(x, locale = readr::locale(encoding = encoding), ...)
 }
