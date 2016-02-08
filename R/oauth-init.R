@@ -117,6 +117,6 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
     req <- POST(endpoint$access, encode = "form", body = req_params)
   }
 
-  stop_for_status(req)
+  stop_for_status(req, task = "get an access token")
   content(req, type = type)
 }
