@@ -16,9 +16,13 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
       config(
         post = TRUE,
         readfunction = function(nbytes, ...) {
+          if(is.null(con))
+            return(raw())
           bin <- readBin(con, "raw", nbytes)
-          if (!length(bin))
+          if (length(bin) < nbytes){
             close(con)
+            con <<- NULL
+          }
           bin
         },
         postfieldsize_large = size

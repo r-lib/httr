@@ -1,5 +1,7 @@
 # httr 1.1.0.9000
 
+* Fix in readfunction to close connection when done.
+
 # httr 1.1.0
 
 ## New features
