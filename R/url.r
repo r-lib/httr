@@ -110,7 +110,7 @@ build_url <- function(url) {
     port <- NULL
   }
 
-  path <- paste(url$path, collapse = "/")
+  path <- paste(gsub("^/", "", url$path), collapse = "/")
 
   if (!is.null(url$params)) {
     params <- paste0(";", url$params)
@@ -160,6 +160,5 @@ modify_url <- function(url, scheme = NULL, hostname = NULL, port = NULL,
 
   build_url(utils::modifyList(old, new))
 }
-
 
 compact <- function(x) Filter(Negate(is.null), x)
