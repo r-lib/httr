@@ -14,7 +14,7 @@ modify_url(url, scheme = NULL, hostname = NULL, port = NULL,
 \item{scheme, hostname, port, path, query, params, fragment, username, password}{components of the url to change}
 }
 \description{
-Modify a url by first parsing and it then replacing components with
+Modify a url by first parsing it and then replacing components with
 the non-NULL arguments of this function.
 }
 

@@ -141,7 +141,7 @@ build_url <- function(url) {
 
 #' Modify a url.
 #'
-#' Modify a url by first parsing and it then replacing components with
+#' Modify a url by first parsing it and then replacing components with
 #' the non-NULL arguments of this function.
 #'
 #' @export
