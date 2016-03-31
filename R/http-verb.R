@@ -16,11 +16,12 @@
 #' VERB("POST", url = "http://httpbin.org/post")
 #' VERB("POST", url = "http://httpbin.org/post", body = "foobar")
 VERB <- function(verb, url = NULL, config = list(), ..., body = NULL,
-                 encode = c("multipart", "form", "json"), handle = NULL) {
+                 encode = c("multipart", "form", "json"), handle = NULL,
+                 json.NA = c("null", "string")) {
 
   encode <- match.arg(encode)
 
   hu <- handle_url(handle, url, ...)
-  req <- request_build(verb, hu$url, body_config(body, encode), config, ...)
+  req <- request_build(verb, hu$url, body_config(body, encode, json.NA = json.NA), config, ...)
   request_perform(req, hu$handle$handle)
 }

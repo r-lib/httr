@@ -42,7 +42,8 @@
 #' POST(b2, body = "", verbose())
 POST <- function(url = NULL, config = list(), ..., body = NULL,
                  encode = c("multipart", "form", "json"),
-                 multipart = TRUE, handle = NULL) {
+                 multipart = TRUE, handle = NULL,
+                 json.NA = c("null", "string")) {
   if (!missing(multipart)) {
     warning("multipart is deprecated, please use encode argument instead",
       call. = FALSE)
@@ -51,6 +52,6 @@ POST <- function(url = NULL, config = list(), ..., body = NULL,
   encode <- match.arg(encode)
 
   hu <- handle_url(handle, url, ...)
-  req <- request_build("POST", hu$url, body_config(body, encode), config, ...)
+  req <- request_build("POST", hu$url, body_config(body, encode, json.NA = json.NA), config, ...)
   request_perform(req, hu$handle$handle)
 }
