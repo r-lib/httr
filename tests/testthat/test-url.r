@@ -61,6 +61,11 @@ test_that("build_url collapse path", {
   expect_equal(url, "http://google.com/one/two")
 })
 
+test_that("build_url drops leading / in path", {
+  url <- modify_url("http://google.com", path = "/one")
+  expect_equal(url, "http://google.com/one")
+})
+
 test_that("build_url drops null query", {
   url <- modify_url("http://google.com", query = list(a = 1, b = NULL))
   expect_equal(url, "http://google.com/?a=1")
