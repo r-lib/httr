@@ -28,7 +28,7 @@
 #'   \code{FALSE} = {encode = "form"}.
 #'   Files can not be uploaded when \code{FALSE}.
 #' @param json.NA When encoding to JSON, this parameter tells the jsonlite
-#'   package how to handle NA values. Must be "string" or "null"
+#'   package how to handle NA values. Must be "string" or "null".
 #' @export
 #' @family http methods
 #' @examples

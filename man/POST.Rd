@@ -6,7 +6,7 @@
 \usage{
 POST(url = NULL, config = list(), ..., body = NULL,
   encode = c("multipart", "form", "json"), multipart = TRUE,
-  handle = NULL)
+  handle = NULL, json.NA = c("null", "string"))
 }
 \arguments{
 \item{url}{the url of the page to retrieve}
@@ -56,6 +56,9 @@ requests to the same scheme/host/port combo. This substantially reduces
 connection time, and ensures that cookies are maintained over multiple
 requests to the same host. See \code{\link{handle_pool}} for more
 details.}
+
+\item{json.NA}{When encoding to JSON, this parameter tells the jsonlite
+package how to handle NA values. Must be "string" or "null".}
 }
 \description{
 POST file to a server.
