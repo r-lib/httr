@@ -3,3 +3,4 @@
 .RData
 .httr-oauth
 .Rprofile
+inst/doc

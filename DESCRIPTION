@@ -23,7 +23,8 @@ Suggests:
     png,
     testthat (>= 0.8.0),
     readr,
-    xml2
+    xml2,
+    rmarkdown
 VignetteBuilder: knitr
 License: MIT + file LICENSE
 URL: https://github.com/hadley/httr
