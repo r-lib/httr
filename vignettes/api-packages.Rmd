@@ -165,6 +165,7 @@ github_api <- function(path) {
   
   resp
 }
+resp <- github_api("/repos/hadley/httr")
 ```
 
 NB: some poorly written APIs will say the content is type A, but it will actually be type B. In this case you should complain to the API authors, and until they fix the problem, simply drop the check for content type.
@@ -187,7 +188,7 @@ github_api <- function(path) {
   
   parsed
 }
-github_api("/user/hadley")
+x <- github_api("/users/hadley")
 ```
 
 ### Return a helpful object
@@ -221,7 +222,7 @@ print.github_api <- function(x, ...) {
   invisible(x)
 }
 
-github_api("/user/hadley")
+github_api("/users/hadley")
 ```
 
 The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.
@@ -265,11 +266,12 @@ github_api <- function(path) {
     list(
       content = parsed,
       path = path,
-      response = response
+      response = resp
     ),
     class = "github_api"
   )
 }
+github_api("/users/hadley")
 github_api("/user/hadley")
 ```
 
@@ -314,12 +316,12 @@ github_api <- function(path) {
     list(
       content = parsed,
       path = path,
-      response = response
+      response = resp
     ),
     class = "github_api"
   )
 }
-
+github_api("/users/hadley")
 ```
 
 ### Authentication
@@ -463,30 +465,24 @@ For example, we could implement a `rate_limit()` function that tells you how man
 
 ```{r}
 rate_limit <- function() {
-  req <- github_GET("rate_limit")
-  github_parse(req)
+  github_api("/rate_limit")
 }
-
-if (has_pat()) {
-  str(rate_limit())
-}
+rate_limit()
 ```
 
 After getting the first version getting working, you'll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.
 
-```{r}
+```{r, eval = FALSE}
 rate_limit <- function() {
-  req <- github_GET("rate_limit")
-  core <- github_parse(req)$resources$core
+  req <- github_api("/rate_limit")
+  core <- req$content$resources$core
 
   reset <- as.POSIXct(core$reset, origin = "1970-01-01")
   cat(core$remaining, " / ", core$limit,
     " (Reset ", strftime(reset, "%H:%M:%S"), ")\n", sep = "")
 }
 
-if (has_pat()) {
-  rate_limit()
-}
+rate_limit()
 ```
 
 You should also provide a function that exposes the rate limiting information to the user. 
