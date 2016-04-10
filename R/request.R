@@ -99,7 +99,14 @@ print.request <- function(x, ...) {
 
 request_prepare <- function(req) {
   req <- request_combine(request_default(), req)
-  req$options$customrequest <- req$method
+  switch(req$method,
+         "POST" = {
+           req$options$post <- TRUE},
+         "PUT" = {
+           req$options$put <- TRUE},
+         "GET" = {
+           req$options$httpget <- TRUE},
+         {req$options$customrequest <- req$method})
 
   # Sign request, if needed
   token <- req$auth_token
