@@ -46,7 +46,7 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
   if (encode == "form") {
     body_raw(compose_query(body), "application/x-www-form-urlencoded")
   } else if (encode == "json") {
-    body_raw(jsonlite::toJSON(body, auto_unbox = TRUE), "application/json")
+    body_raw(jsonlite::toJSON(body, auto_unbox = TRUE, digits = getOption('httr.digits', 4), "application/json")
   } else if (encode == "multipart") {
     if (!all(has_name(body)))
       stop("All components of body must be named", call. = FALSE)
