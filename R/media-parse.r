@@ -37,8 +37,18 @@ parse_media <- function(x) {
   type <- tolower(types[1])
   subtype <- tolower(types[2])
 
-  param_pieces <- str_split_fixed(pieces[-1], "=", 2)
-  params <- stats::setNames(as.list(param_pieces[, 2]), param_pieces[, 1])
+  if (length(pieces) == 1) {
+    param_pieces <- str_split_fixed(pieces[-1], "=", 2)
+    params <- stats::setNames(as.list(param_pieces[, 2]), param_pieces[, 1])
+  } else {
+    params <- list()
+    for (i in 2:length(pieces)) {
+      param_pieces <- str_split_fixed(pieces[i], "=", 2)
+      params <- c(params,
+                  stats::setNames(as.list(param_pieces[, 2]),
+                                  param_pieces[, 1]))
+    }
+  }
 
   list(
     complete = paste(type, "/", subtype, sep = ""),
