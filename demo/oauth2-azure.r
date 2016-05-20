@@ -1,10 +1,10 @@
 # !!! The special redirect URI "urn:ietf:wg:oauth:2.0:oob used
-# !!! by httr in case httuv is not installed is currently not 
+# !!! by httr in case httuv is not installed is currently not
 # !!! supported by Azure Active Directory (AAD).
 # !!! Therefore it is required to install httpuv to make this work.
 
 # 1. Register an app app in AAD, e.g. as a "Native app", with
-#    redirect URI <http://localhost:1410>.
+#    redirect URI <http://localhost:1410/>.
 # 2. Insert the App name:
 app_name <- 'myapp' # not important for authorization grant flow
 # 3. Insert the created apps client ID which was issued after app creation:

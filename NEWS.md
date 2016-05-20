@@ -1,5 +1,7 @@
 # httr 1.1.0.9000
 
+* `oauth_callback()` gains trailing slash for facebook compatibility (#324).
+
 * All auto parser functions now have consistent arguments. This fixes problem
   where `...` is pass on to another function (#330).
 

@@ -5,7 +5,7 @@ library(httr)
 oauth_endpoints("twitter")
 
 # 2. Register an application at https://apps.twitter.com/
-#    Make sure to set callback url to "http://127.0.0.1:1410"
+#    Make sure to set callback url to "http://127.0.0.1:1410/"
 #
 #    Replace key and secret below
 myapp <- oauth_app("twitter",
