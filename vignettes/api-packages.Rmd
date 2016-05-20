@@ -328,7 +328,7 @@ github_api("/users/hadley")
 
 
 
-## Buidling the request
+## Building the request
 
 Once you have working low-level wrappers for the API, you simply need to write higher-level, user-visible functions that will implement the features of the API within R. Most APIs work by executing an HTTP method on a specified URL with or without some additional parameters. These parameters can be specified in a number of ways, including in the URL path, in URL query arguments, in HTTP headers, and in the request body itself.  These parameters can be controlled using httr functions:
 
