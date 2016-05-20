@@ -24,9 +24,6 @@
 #'   parameters are automatically "unboxed" (i.e. length 1 vectors are
 #'   converted to scalars). To preserve a length 1 vector as a vector,
 #'   wrap in \code{I()}.
-#' @param multipart Deprecated. \code{TRUE} = \code{encode = "multipart"},
-#'   \code{FALSE} = {encode = "form"}.
-#'   Files can not be uploaded when \code{FALSE}.
 #' @export
 #' @family http methods
 #' @examples
@@ -42,12 +39,7 @@
 #' POST(b2, body = "", verbose())
 POST <- function(url = NULL, config = list(), ..., body = NULL,
                  encode = c("multipart", "form", "json"),
-                 multipart = TRUE, handle = NULL) {
-  if (!missing(multipart)) {
-    warning("multipart is deprecated, please use encode argument instead",
-      call. = FALSE)
-    encode <- if (multipart) "multipart" else "form"
-  }
+                 handle = NULL) {
   encode <- match.arg(encode)
 
   hu <- handle_url(handle, url, ...)

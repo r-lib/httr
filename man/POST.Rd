@@ -5,8 +5,7 @@
 \title{POST file to a server.}
 \usage{
 POST(url = NULL, config = list(), ..., body = NULL,
-  encode = c("multipart", "form", "json"), multipart = TRUE,
-  handle = NULL)
+  encode = c("multipart", "form", "json"), handle = NULL)
 }
 \arguments{
 \item{url}{the url of the page to retrieve}
@@ -44,10 +43,6 @@ with \code{\link{config}}.}
   parameters are automatically "unboxed" (i.e. length 1 vectors are
   converted to scalars). To preserve a length 1 vector as a vector,
   wrap in \code{I()}.}
-
-\item{multipart}{Deprecated. \code{TRUE} = \code{encode = "multipart"},
-\code{FALSE} = {encode = "form"}.
-Files can not be uploaded when \code{FALSE}.}
 
 \item{handle}{The handle to use with this request. If not
 supplied, will be retrieved and reused from the \code{\link{handle_pool}}

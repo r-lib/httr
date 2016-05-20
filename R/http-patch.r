@@ -6,13 +6,7 @@
 #' @export
 PATCH <- function(url = NULL, config = list(), ..., body = NULL,
                   encode = c("multipart", "form", "json"),
-                  multipart = TRUE, handle = NULL) {
-
-  if (!missing(multipart)) {
-    warning("multipart is deprecated, please use encode argument instead",
-      call. = FALSE)
-    encode <- if (multipart) "multipart" else "form"
-  }
+                  handle = NULL) {
   encode <- match.arg(encode)
 
   hu <- handle_url(handle, url, ...)

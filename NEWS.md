@@ -1,5 +1,8 @@
 # httr 1.1.0.9000
 
+* Long deprecated `multipart` argument to `POST()`, `PUT()` and `PATCH()`
+  has been deleted.
+
 * `DELETE()` gains a body parameter (#326).
 
 * `parse_media()` can once again parse multiple parameters (#362, #366).
