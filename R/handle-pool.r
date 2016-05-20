@@ -31,5 +31,7 @@ handle_find <- function(url) {
 #' @rdname handle_pool
 handle_reset <- function(url) {
   name <- handle_name(url)
-  rm(list = name, envir = handle_pool)
+  if (exists(name, envir = handle_pool)) {
+    rm(list = name, envir = handle_pool)
+  }
 }
