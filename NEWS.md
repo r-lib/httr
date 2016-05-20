@@ -1,5 +1,7 @@
 # httr 1.1.0.9000
 
+* Correct cast `config` in `POST()`.
+
 * New `http_type()` returns the content/mime type of a request, sans parameters.
 
 * Fix in readfunction to close connection when done.
