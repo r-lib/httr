@@ -91,3 +91,9 @@ test_that("I() prevents escaping", {
 test_that("null elements are dropped", {
   expect_equal(compose_query(list(x = 1, y = NULL)), "x=1")
 })
+
+# https://github.com/hadley/httr/issues/335
+test_that("'+' becomes '%20' in the query part", {
+  url <- "http://google.com/?q=saint+paul+mn"
+  expect_equal(url, build_url(parse_url(url)))
+})

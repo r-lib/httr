@@ -44,7 +44,8 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
 
   # Deal with three ways to encode: form, multipart & json
   if (encode == "form") {
-    body_raw(compose_query(body), "application/x-www-form-urlencoded")
+    body_raw(compose_query(body, part = "other"),
+             "application/x-www-form-urlencoded")
   } else if (encode == "json") {
     body_raw(jsonlite::toJSON(body, auto_unbox = TRUE), "application/json")
   } else if (encode == "multipart") {

@@ -7,23 +7,27 @@ parse_query <- function(query) {
   values
 }
 
-compose_query <- function(elements) {
+compose_query <- function(elements, part = c("query", "other")) {
   if (length(elements) == 0)
     return("")
 
   if (!all(has_name(elements)))
     stop("All components of query must be named", call. = FALSE)
 
+  part <- match.arg(part)
+
   stopifnot(is.list(elements))
   elements <- compact(elements)
 
   names <- curl::curl_escape(names(elements))
 
-  encode <- function(x) {
+  encode <- function(x, part) {
     if (inherits(x, "AsIs")) return(x)
-    curl::curl_escape(x)
+    switch(part,
+           query = URLencode(enc2utf8(as.character(x))),
+           other = curl::curl_escape(x))
   }
-  values <- vapply(elements, encode, character(1))
+  values <- vapply(elements, encode, character(1), part = part)
 
   paste0(names, "=", values, collapse = "&")
 }
