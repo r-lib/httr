@@ -7,5 +7,6 @@ oauth2-azure        Using Azure apis with OAuth 2.0
 oauth2-facebook     Using the facebook api with OAuth 2.0
 oauth2-github       Using the github api with OAuth 2.0
 oauth2-google       Using the google api with OAuth 2.0
+oauth2-reddit       Using the reddit api with OAuth 2.0
 oauth2-linkedin     Using linkedin api with OAuth 1.0
 service-account     Using Google service account
