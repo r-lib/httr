@@ -9,8 +9,7 @@ write_stream(f)
 \arguments{
 \item{f}{Callback function. It should have a single argument, a raw
 vector containing the bytes recieved from the server. This will usually
-be 16k or less. It should return the length of bytes processed - if
-this is less than the input length, the function will terminate.}
+be 16k or less. The return value of the function is ignored.}
 }
 \description{
 This is the most general way of processing the response from the server -
