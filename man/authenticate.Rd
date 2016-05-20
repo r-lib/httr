@@ -13,7 +13,7 @@ authenticate(user, password, type = "basic")
 
 \item{type}{type of HTTP authentication.  Should be one of the following
 types supported by Curl: basic, digest, digest_ie, gssnegotiate,
-ntlm, ntlm_vn, any.  It defaults to "basic", the most common type.}
+ntlm, any.  It defaults to "basic", the most common type.}
 }
 \description{
 It's not obvious how to turn authentication off after using it, so

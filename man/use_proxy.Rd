@@ -13,7 +13,7 @@ use_proxy(url, port = NULL, username = NULL, password = NULL,
 \item{username, password}{login details for proxy, if needed}
 
 \item{auth}{type of HTTP authentication to use. Should be one of the
-following: basic, digest, digest_ie, gssnegotiate, ntlm, ntlm_vn, any.}
+following: basic, digest, digest_ie, gssnegotiate, ntlm, any.}
 }
 \description{
 Use a proxy to connect to the internet.

@@ -3,7 +3,7 @@
 #' @param url,port location of proxy
 #' @param username,password login details for proxy, if needed
 #' @param auth type of HTTP authentication to use. Should be one of the
-#'   following: basic, digest, digest_ie, gssnegotiate, ntlm, ntlm_vn, any.
+#'   following: basic, digest, digest_ie, gssnegotiate, ntlm, any.
 #' @family config
 #' @export
 #' @examples
