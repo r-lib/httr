@@ -1,5 +1,8 @@
 # httr 1.1.0.9000
 
+* All auto parser functions now have consistent arguments. This fixes problem
+  where `...` is pass on to another function (#330).
+
 * `progress()` gains `con` argument to control where progress bar is rendered
   (#359).
 

@@ -42,7 +42,7 @@ parse_auto <- function(content, type = NULL, encoding = NULL, ...) {
       call. = FALSE)
   }
 
-  parser(content, type = type, encoding = encoding, ...)
+  parser(x = content, type = type, encoding = encoding, ...)
 }
 
 parseability <- function(type) {
@@ -63,11 +63,13 @@ parsers <- new.env(parent = emptyenv())
 # Binary formats ---------------------------------------------------------------
 
 # http://www.ietf.org/rfc/rfc4627.txt - section 3. (encoding)
-parsers$`application/json` <- function(x, type = NULL, simplifyVector = FALSE, ...) {
+parsers$`application/json` <- function(x, type = NULL, encoding = NULL,
+                                       simplifyVector = FALSE, ...) {
   jsonlite::fromJSON(parse_text(x, encoding = "UTF-8"),
     simplifyVector = simplifyVector, ...)
 }
-parsers$`application/x-www-form-urlencoded` <- function(x, type = NULL, ...) {
+parsers$`application/x-www-form-urlencoded` <- function(x, encoding = NULL,
+                                                        type = NULL, ...) {
   parse_query(parse_text(x, encoding = "UTF-8"))
 }
 
@@ -77,7 +79,7 @@ parsers$`image/jpeg` <- function(x, type = NULL, encoding = NULL, ...) {
   jpeg::readJPEG(x)
 }
 
-parsers$`image/png` <- function(x, type = NULL, ...) {
+parsers$`image/png` <- function(x, type = NULL, encoding = NULL, ...) {
   need_package("png")
   png::readPNG(x)
 }
