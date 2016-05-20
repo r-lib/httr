@@ -1,5 +1,7 @@
 # httr 1.1.0.9000
 
+* `parse_media()` can once again parse multiple parameters (#362, #366).
+
 * Correct cast `config` in `POST()`.
 
 * New `http_type()` returns the content/mime type of a request, sans parameters.
