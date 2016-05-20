@@ -1,5 +1,8 @@
 # httr 1.1.0.9000
 
+* Suppress unhelpful "No encoding supplied: defaulting to UTF-8." when 
+  printing a response (#327).
+
 * `oauth_callback()` gains trailing slash for facebook compatibility (#324).
 
 * All auto parser functions now have consistent arguments. This fixes problem
