@@ -1,5 +1,8 @@
 # httr 1.1.0.9000
 
+* `progress()` gains `con` argument to control where progress bar is rendered
+  (#359).
+
 * All `print()` methods now invisibly return `x` (#355).
 
 * Long deprecated `multipart` argument to `POST()`, `PUT()` and `PATCH()`

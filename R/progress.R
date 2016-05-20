@@ -2,6 +2,8 @@
 #'
 #' @param type Type of progress to display: either number of bytes uploaded
 #'   or downloaded.
+#' @param con Connection to send output too. Usually \code{stdout()} or
+#'    \code{stderr}.
 #' @export
 #' @examples
 #' \donttest{
@@ -10,16 +12,16 @@
 #' # Otherwise you get the number of bytes downloaded:
 #' x <- GET("http://httpbin.org/drip?numbytes=4000&duration=3", progress())
 #' }
-progress <- function(type = c("down", "up")) {
+progress <- function(type = c("down", "up"), con = stdout()) {
   type <- match.arg(type)
 
   request(options = list(
     noprogress = FALSE,
-    progressfunction = progress_bar(type)
+    progressfunction = progress_bar(type, con)
   ))
 }
 
-progress_bar <- function(type) {
+progress_bar <- function(type, con) {
   bar <- NULL
   first <- TRUE
 
@@ -43,12 +45,12 @@ progress_bar <- function(type) {
       if (first) {
         first <<- FALSE
       }
-      cat("\rDownloading: ", bytes(now, digits = 2), "     ", sep = "")
-      if (now == total) cat("\n")
+      cat("\rDownloading: ", bytes(now, digits = 2), "     ", sep = "", file = con)
+      if (now == total) cat("\n", file = con)
       utils::flush.console()
     } else {
       if (is.null(bar)) {
-        bar <<- utils::txtProgressBar(max = total, style = 3)
+        bar <<- utils::txtProgressBar(max = total, style = 3, file = con)
       }
       utils::setTxtProgressBar(bar, now)
     }

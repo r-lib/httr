@@ -4,11 +4,14 @@
 \alias{progress}
 \title{Add a progress bar.}
 \usage{
-progress(type = c("down", "up"))
+progress(type = c("down", "up"), con = stdout())
 }
 \arguments{
 \item{type}{Type of progress to display: either number of bytes uploaded
 or downloaded.}
+
+\item{con}{Connection to send output too. Usually \code{stdout()} or
+\code{stderr}.}
 }
 \description{
 Add a progress bar.
