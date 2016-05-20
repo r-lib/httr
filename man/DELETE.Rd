@@ -4,7 +4,8 @@
 \alias{DELETE}
 \title{Send a DELETE request.}
 \usage{
-DELETE(url = NULL, config = list(), ..., handle = NULL)
+DELETE(url = NULL, config = list(), ..., body = NULL,
+  encode = c("multipart", "form", "json"), handle = NULL)
 }
 \arguments{
 \item{url}{the url of the page to retrieve}
@@ -17,6 +18,31 @@ See \code{\link{config}} for full details and list of helpers.}
 \item{...}{Further named parameters, such as \code{query}, \code{path}, etc,
 passed on to \code{\link{modify_url}}. Unnamed parameters will be combined
 with \code{\link{config}}.}
+
+\item{body}{One of the following:
+\itemize{
+  \item \code{FALSE}: No body
+  \item \code{NULL}: An empty body
+  \item \code{""}: A length 0 body
+  \item \code{upload_file("path/")}: The contents of a file.  The mime
+    type will be guessed from the extension, or can be supplied explicitly
+    as the second argument to \code{upload_file()}
+  \item A character or raw vector: sent as is in body. Use
+    \code{\link{content_type}} to tell the server what sort of data
+    you are sending.
+  \item A named list: See details for encode.
+}}
+
+\item{encode}{If the body is a named list, how should it be encoded? Can be
+  one of form (application/x-www-form-urlencoded), multipart,
+  (multipart/form-data), or json (application/json).
+
+  For "multipart", list elements can be strings or objects created by
+  \code{\link{upload_file}}. For "form", elements are coerced to strings
+  and escaped, use \code{I()} to prevent double-escaping. For "json",
+  parameters are automatically "unboxed" (i.e. length 1 vectors are
+  converted to scalars). To preserve a length 1 vector as a vector,
+  wrap in \code{I()}.}
 
 \item{handle}{The handle to use with this request. If not
 supplied, will be retrieved and reused from the \code{\link{handle_pool}}

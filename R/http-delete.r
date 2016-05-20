@@ -21,13 +21,19 @@
 #' Responses to this method are not cacheable.
 #'
 #' @inheritParams GET
+#' @inheritParams POST
 #' @family http methods
 #' @export
 #' @examples
 #' DELETE("http://httpbin.org/delete")
 #' POST("http://httpbin.org/delete")
-DELETE <- function(url = NULL, config = list(), ..., handle = NULL) {
+DELETE <- function(url = NULL, config = list(), ...,
+                   body = NULL, encode = c("multipart", "form", "json"),
+                   handle = NULL) {
+  encode <- match.arg(encode)
+
   hu <- handle_url(handle, url, ...)
-  req <- request_build("DELETE", hu$url, config, ...)
+  req <- request_build("DELETE", hu$url, body_config(body, encode),
+    as.request(config), ...)
   request_perform(req, hu$handle$handle)
 }
