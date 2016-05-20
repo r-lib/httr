@@ -65,6 +65,8 @@ print.response <- function(x, ..., max.lines = 10, width = getOption("width")) {
 
   cat(lines, sep = "\n")
   if (max.lines < length(breaks)) cat("...\n")
+
+  invisible(x)
 }
 
 is_text <- function(type) {

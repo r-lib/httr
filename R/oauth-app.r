@@ -52,4 +52,5 @@ print.oauth_app <- function(x, ...) {
   cat("  key:    ", x$key, "\n", sep = "")
   secret <- if (is.null(x$secret)) "<not supplied>" else "<hidden>"
   cat("  secret: ", secret, "\n", sep = "")
+  invisible(x)
 }

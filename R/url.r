@@ -91,6 +91,7 @@ parse_url <- function(url) {
 is.url <- function(x) inherits(x, "url")
 print.url <- function(x, ...) {
   cat("Url: ", build_url(x), "\n", sep = "")
+  invisible(x)
 }
 "[.url" <- function(x, ...) {
   structure(NextMethod(), class = "url")

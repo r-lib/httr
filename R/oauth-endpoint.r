@@ -53,6 +53,7 @@ print.oauth_endpoint <- function(x, ...) {
   cat("<oauth_endpoint>\n")
   cat(paste0(" ", format(paste0(names(x), ": ")), unlist(x), collapse = "\n"))
   cat("\n")
+  invisible(x)
 }
 
 #' Popular oauth endpoints.

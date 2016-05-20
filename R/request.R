@@ -95,6 +95,7 @@ print.request <- function(x, ...) {
     cat("Auth token: ", class(x$auth_token)[[1]], "\n", sep = "")
   }
 
+  invisible(x)
 }
 
 request_prepare <- function(req) {

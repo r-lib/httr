@@ -48,6 +48,7 @@ handle <- function(url, cookies = TRUE) {
 #' @export
 print.handle <- function(x, ...) {
   cat("Host: ", x$url , " <", ref(x$handle), ">\n", sep = "")
+  invisible(x)
 }
 
 ref <- function(x) {

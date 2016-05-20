@@ -90,6 +90,7 @@ print.cache_info <- function(x, ...) {
   }
   cat("  Last-Modified: ", http_date(x$modified), "\n", sep = "")
   cat("  Etag:          ", x$etag, "\n", sep = "")
+  invisible(x)
 }
 
 parse_cache_control <- function(x) {

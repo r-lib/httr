@@ -106,6 +106,7 @@ curl_option_types <- function(opts = curl::curl_options()) {
 #' @export
 print.opts_list <- function(x, ...) {
   cat(paste0(format(names(x)), ": ", x, collapse = "\n"), "\n", sep = "")
+  invisible(x)
 }
 
 translate_curl <- function(x) {
