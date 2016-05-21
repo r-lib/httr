@@ -1,5 +1,9 @@
 # httr 1.1.0.9000
 
+* Don't use custom requests anymore for standard `POST`, `GET` and `PUT` requests
+  (issue #356, fix #357). This has the side-effect of properly following redirects
+  after `POST`, fixing usual login issues (eg hadley/rvest#133).
+
 * New `http_type()` returns the content/mime type of a request, sans parameters.
 
 * Fix in readfunction to close connection when done.
