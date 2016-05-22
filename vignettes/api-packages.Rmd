@@ -18,7 +18,9 @@ So you want to write an R client for a web API? This document walks through the 
 
 ## Overall design
 
-APIs vary widely. Before starting to code, it is important to understand how the API you are working with handles these issues so that you can implement a complete and coherent R client for the API. The key features of any API are the structure of the requests and the structure of the responses. An HTTP request consists of the following parts:
+APIs vary widely. Before starting to code, it is important to understand how the API you are working with handles important issues so that you can implement a complete and coherent R client for the API. 
+
+The key features of any API are the structure of the requests and the structure of the responses. An HTTP request consists of the following parts:
 
 1. HTTP verb (`GET`, `POST`, `DELETE`, etc.)
 1. The base URL for the API
@@ -27,7 +29,9 @@ APIs vary widely. Before starting to code, it is important to understand how the
 1. Optional headers
 1. An optional request body
 
-An API package needs to be able to generate these components in order to authenticate, and perform the desired API call. For example, to request that the GitHub API provides a list of all issues for the httr repo, we send an HTTP request that looks like:
+An API package needs to be able to generate these components in order to perform the desired API call, which will typically involve some sort of authentication. 
+
+For example, to request that the GitHub API provides a list of all issues for the httr repo, we send an HTTP request that looks like:
 
 ```
 -> GET /repos/hadley/httr HTTP/1.1
@@ -37,14 +41,14 @@ An API package needs to be able to generate these components in order to authent
 
 Here we're using a `GET` request to the host `api.github.com`. The url is `/repos/hadley/httr`, and we send an accept header that tells GitHub what sort of data we want.
 
-In response to this request, the API will return some form of response that includes:
+In response to this request, the API will return an HTTP response that includes:
 
-1. An HTTP status code
-1. Headers
-1. A response body typically consisting of XML, JSON, plain text, HTML, 
+1. An HTTP status code.
+1. Headers, key-value pairs.
+1. A body typically consisting of XML, JSON, plain text, HTML, 
    or some kind of binary representation. 
    
-An API client needs to parse these responses, turn API errors into R errors, and return a useful object to the end user. For the previous HTTP request, GitHub returns:
+An API client needs to parse these responses, turning API errors into R errors, and return a useful object to the end user. For the previous HTTP request, GitHub returns:
 
 ```
 <- HTTP/1.1 200 OK
@@ -136,14 +140,18 @@ github_api("/repos/hadley/httr")
 
 ### Parse the response
 
-Next, you need to take the response returned by the API and turn it into a useful object. Any API will return an HTTP response that consists of headers and a body. While the response can come in a multiple a forms (see above), two of the most common structured formats are XML and JSON. Most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:
+Next, you need to take the response returned by the API and turn it into a useful object. Any API will return an HTTP response that consists of headers and a body. While the response can come in a multiple a forms (see above), two of the most common structured formats are XML and JSON. 
+
+Note that while most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:
 
 ```{r}
 GET("http://www.colourlovers.com/api/color/6B4106?format=xml")
 GET("http://www.colourlovers.com/api/color/6B4106?format=json")
 ```
 
-Others use [content negotiation](http://en.wikipedia.org/wiki/Content_negotiation) to determine whats sort of data to send back. If the API you're wrapping does this, then you'll need to include one of `accept_json()` and `accept_xml()` in your request.
+Others use [content negotiation](http://en.wikipedia.org/wiki/Content_negotiation) to determine whats sort of data to send back. If the API you're wrapping does this, then you'll need to include one of `accept_json()` and `accept_xml()` in your request. 
+
+If you have a choice, choose json: it's usually much easier to work with than xml.
 
 Most APIs will return most or all useful information in the response body, which can be accessed using `content()`. To determine what type of information is returned, you can use `http_type()`
 
@@ -184,9 +192,7 @@ github_api <- function(path) {
     stop("API did not return json", call. = FALSE)
   }
   
-  parsed <- jsonlite::fromJSON(content(resp, "text"), simplifyVector = FALSE)
-  
-  parsed
+  jsonlite::fromJSON(content(resp, "text"), simplifyVector = FALSE)
 }
 x <- github_api("/users/hadley")
 ```
@@ -229,15 +235,15 @@ The API might return invalid data, but this should be rare, so you can just rely
 
 ### Turn API errors into R errors
 
-Next, you need to make sure that your API wrapper throws an error if the request failed.
-
-Using a web API introduces additional possible points of failure into R code aside from those occuring in R itself. These include:
+Next, you need to make sure that your API wrapper throws an error if the request failed. Using a web API introduces additional possible points of failure into R code aside from those occuring in R itself. These include:
 
 - Client-side exceptions
 - Network / communication exceptions
 - Server-side exceptions
 
-You can do this by checking the `status_code()`: if it's 200, the request succeeded, otherwise it failed and you need to throw an error. Often the API will information about the error in the body of the response: you should use this where available.
+You need to make sure these are all converted into regular R errors. You can figure out if there's a problem with `http_error()`, which checks the HTTP status code. Status codes in the 400 range usually mean that you've done something wrong. Status codes in the 500 range typically mean that something has gone wrong on the server side.
+
+Often the API will information about the error in the body of the response: you should use this where available. If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are [rate limited](https://developer.github.com/v3/#rate-limiting) you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).
 
 ```{r, error = TRUE}
 github_api <- function(path) {
@@ -250,7 +256,7 @@ github_api <- function(path) {
   
   parsed <- jsonlite::fromJSON(content(resp, "text"), simplifyVector = FALSE)
   
-  if (status_code(resp) != 200) {
+  if (http_error(resp)) {
     stop(
       sprintf(
         "GitHub API request failed [%s]\n%s\n<%s>", 
@@ -280,9 +286,11 @@ github_api("/user/hadley")
 > need to make your request function check the `status_code()` before parsing 
 > the response.
 
+For many APIs, the common approach is to retry API calls that return something in the 500 range. However, when doing this, it's **extremely** important to make sure to do this with some form of exponential backoff: if something's wrong on the server-side, hammering the server with retries may make things worse, and may lead to you exhausting quota (or hitting other sorts of rate limits). A common policy is to retry up to 5 times, starting at 1s, and each time doubling and adding a small amount of jitter (plus or minus up to, say, 5% of the current wait time). 
+
 ### Set a user agent
 
-While we're in this function, there's one important header that you should set for every API wrapper: the user agent. The user agent is a string used to identify the client. This is most useful for the API owner as it allows them to see who is using the API. It's also useful if you have a contact on the inside as it often makes it easier for them to pull your requests from their logs and see what's going wrong. If you're hitting a commercial API, this also makes it easier for internal R advocates to see how many people are using their API via R and hopefully assign more resources.
+While we're in this function, there's one important header that you should set for every API wrapper: the user agent. The user agent is a string used to identify the client. This is most useful for the API owner as it allows them to see who is using the API. It's also useful for you if you have a contact on the inside as it often makes it easier for them to pull your requests from their logs and see what's going wrong. If you're hitting a commercial API, this also makes it easier for internal R advocates to see how many people are using their API via R and hopefully assign more resources.
 
 A good default for an R API package wrapper is to make it the URL to your GitHub repo:
 
@@ -324,13 +332,9 @@ github_api <- function(path) {
 github_api("/users/hadley")
 ```
 
-### Authentication
+### Passing parameters
 
-
-
-## Building the request
-
-Once you have working low-level wrappers for the API, you simply need to write higher-level, user-visible functions that will implement the features of the API within R. Most APIs work by executing an HTTP method on a specified URL with or without some additional parameters. These parameters can be specified in a number of ways, including in the URL path, in URL query arguments, in HTTP headers, and in the request body itself.  These parameters can be controlled using httr functions:
+Most APIs work by executing an HTTP method on a specified URL with some additional parameters. These parameters can be specified in a number of ways, including in the URL path, in URL query arguments, in HTTP headers, and in the request body itself.  These parameters can be controlled using httr functions:
 
 1. URL path: `modify_url()`
 2. Query arguments: The `query` argument to `GET()`, `POST()`, etc.
@@ -339,7 +343,7 @@ Once you have working low-level wrappers for the API, you simply need to write h
 
 [RESTful APIs](https://en.wikipedia.org/wiki/Representational_state_transfer) also use the HTTP verb to communicate arguments (e.g,., `GET` retrieves a file, `POST` adds a file, `DELETE` removes a file, etc.). We can use the helpful [httpbin service](http://httpbin.org) to show how to send arguments in each of these ways.
 
-```r
+```R
 # modify_url
 POST(modify_url("https://httpbin.org", path = "/post"))
 
@@ -367,7 +371,7 @@ f <- function(x = c("apple", "banana", "orange")) {
 f("a")
 ```
 
-It is  good practice to explicitly set default values for arguments that are not required to `NULL`. If there is a default value, it should be the first one listed in the vector of allowed arguments. 
+It is good practice to explicitly set default values for arguments that are not required to `NULL`. If there is a default value, it should be the first one listed in the vector of allowed arguments. 
 
 ## Authentication
 
@@ -391,13 +395,14 @@ Many APIs can be called without any authentication (just as if you called them i
     authentication token to use in subsequent requests. (An early standard, 
     OAuth 1.0, is not terribly common any more. See `oauth1.0_token()` for 
     details.) The current OAuth 2.0 standard is very common in modern web apps. 
-    
     It involves a round trip between the client and server to establish if the 
     API client has the authority to access the data. See `oauth2.0_token()`. 
     It's ok to publish the app ID and app "secret" - these are not actually
     important for security of user data. 
 
-NB: Some APIs describe their authentication processes inaccurately, so care needs to be taken to understand the true authentication mechanism regardless of the label used in the API docs.
+> Some APIs describe their authentication processes inaccurately, so
+> care needs to be taken to understand the true authentication mechanism
+> regardless of the label used in the API docs.
 
 It is possible to specify the key(s) or token(s) required for basic or OAuth authentication in a number of different ways (see Appendix for a detailed discussion). You may also need some way to preserve user credentials between function calls so that end users do not need to specify them each time. Here is an example of how to write a function that checks for the presence of a GitHub personal access token and errors otherwise:
 
@@ -445,21 +450,10 @@ These values can then be used to make further requests. This will either involve
 
 The choice of which to use depends on your needs and goals and the rate limits of the API.
 
-## Exception handling
-
-First, check the HTTP status code. Status codes in the 400 range usually mean that you've done something wrong. Status codes in the 500 range typically mean that something has gone wrong on the server side. This however, might be that you sent the server something badly formed.
-
-If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are [rate limited](https://developer.github.com/v3/#rate-limiting) you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).
-
-For many APIs, the common approach is to retry API calls that return something in the 500 range. However, when doing this, it's **extremely** important to make sure to do this with some form of exponential backoff: if something's wrong on the server-side, hammering the server with retries may make things worse, and may lead to you exhausting quota (or hitting other sorts of rate limits). A common policy is to retry up to 5 times, starting at 1s, and each time doubling and adding a small amount of jitter (plus or minus up to, say, 5% of the current wait time). 
-
-Need to make sure that when parsing the body, you use `tryCatch()` or similar to gracefully respond to the server returning invalid responses. Note that it's not uncommon for the server to claim that the response is one type in the `Content-type` while actually being something else (e.g. the content type say that's it XML, but it's actually json)
 
 ### Rate limiting
 
-Many APIs are rate limited, which means that you can only send a certain number of requests per hour. 
-
-Often if your request is rate limited, the error message will tell you how long you should wait before performing another request. You might want to expose this to the user, or even include a wall to `Sys.sleep()` that waits long enough.
+Many APIs are rate limited, which means that you can only send a certain number of requests per hour. Often if your request is rate limited, the error message will tell you how long you should wait before performing another request. You might want to expose this to the user, or even include a wall to `Sys.sleep()` that waits long enough.
 
 For example, we could implement a `rate_limit()` function that tells you how many calls against the github API are available to you.
 
@@ -487,7 +481,7 @@ rate_limit()
 
 You should also provide a function that exposes the rate limiting information to the user. 
 
-## Packaging you code
+## Packaging youe code
 
 ### Documentation
 
