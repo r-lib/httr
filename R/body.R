@@ -1,4 +1,6 @@
-body_config <- function(body = NULL, encode = "form", type = NULL)  {
+body_config <- function(body = NULL,
+                        encode = c("form", "json", "multipart", "raw"),
+                        type = NULL)  {
   # No body
   if (identical(body, FALSE))
     return(config(post = TRUE, nobody = TRUE))
@@ -43,7 +45,10 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
   body <- compact(body)
 
   # Deal with three ways to encode: form, multipart & json
-  if (encode == "form") {
+  encode <- match.arg(encode)
+  if (encode == "raw") {
+    body_raw(body)
+  } else if (encode == "form") {
     body_raw(compose_query(body), "application/x-www-form-urlencoded")
   } else if (encode == "json") {
     body_raw(jsonlite::toJSON(body, auto_unbox = TRUE), "application/json")
@@ -51,9 +56,6 @@ body_config <- function(body = NULL, encode = "form", type = NULL)  {
     if (!all(has_name(body)))
       stop("All components of body must be named", call. = FALSE)
     request(fields = lapply(body, as.character))
-  } else {
-    stop("Unknown `encoding`: must be 'form', 'json' or 'multipart'.",
-      call. = FALSE)
   }
 }
 
@@ -61,6 +63,7 @@ body_raw <- function(body, type = NULL) {
   if (is.character(body)) {
     body <- charToRaw(paste(body, collapse = "\n"))
   }
+  stopifnot(is.raw(body))
 
   c(
     config(

@@ -15,12 +15,10 @@
 #'
 #' VERB("POST", url = "http://httpbin.org/post")
 #' VERB("POST", url = "http://httpbin.org/post", body = "foobar")
-VERB <- function(verb, url = NULL, config = list(), ..., body = NULL,
-                 encode = c("multipart", "form", "json"), handle = NULL) {
-
-  encode <- match.arg(encode)
-
+VERB <- function(verb, url = NULL, config = list(), ...,
+                 body = NULL, encode = c("multipart", "form", "json", "raw"),
+                 handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  req <- request_build(verb, hu$url, body_config(body, encode), config, ...)
+  req <- request_build(verb, hu$url, body_config(body, match.arg(encode)), config, ...)
   request_perform(req, hu$handle$handle)
 }

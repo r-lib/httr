@@ -59,6 +59,11 @@ test_that("named list matches form results (encode = 'json')", {
   expect_equal(out$json$b[[1]], 2)
 })
 
+test_that("can do own encoding", {
+  out <- round_trip(body = '{"a":1,"b":2}', content_type_json(), encode = "raw")
+  expect_equal(out$json, list(a = 1, b = 2))
+})
+
 test_that("NULL elements are automatically dropped", {
   out <- round_trip(body = list(x = 1, y = NULL), encode = "form")
   expect_equal(out$form, list(x = "1"))

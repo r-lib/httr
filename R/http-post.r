@@ -3,7 +3,9 @@
 #' @inheritParams GET
 #' @param body One of the following:
 #'   \itemize{
-#'     \item \code{FALSE}: No body
+#'     \item \code{FALSE}: No body. This is typically not used with \code{POST},
+#'       \code{PUT}, or \code{PATCH}, but can be useful if you need to send a
+#'       bodyless request (like \code{GET}) with \code{VERB()}.
 #'     \item \code{NULL}: An empty body
 #'     \item \code{""}: A length 0 body
 #'     \item \code{upload_file("path/")}: The contents of a file.  The mime
@@ -23,7 +25,8 @@
 #'   and escaped, use \code{I()} to prevent double-escaping. For "json",
 #'   parameters are automatically "unboxed" (i.e. length 1 vectors are
 #'   converted to scalars). To preserve a length 1 vector as a vector,
-#'   wrap in \code{I()}.
+#'   wrap in \code{I()}. For "raw", either a character or raw vector. You'll
+#'   need to make sure to set the \code{\link{content_type}()} yourself.
 #' @export
 #' @family http methods
 #' @examples
@@ -38,11 +41,11 @@
 #' POST(b2, body = FALSE, verbose())
 #' POST(b2, body = "", verbose())
 POST <- function(url = NULL, config = list(), ..., body = NULL,
-                 encode = c("multipart", "form", "json"),
+                 encode = c("multipart", "form", "json", "raw"),
                  handle = NULL) {
   encode <- match.arg(encode)
 
   hu <- handle_url(handle, url, ...)
-  req <- request_build("POST", hu$url, body_config(body, encode), as.request(config), ...)
+  req <- request_build("POST", hu$url, body_config(body, match.arg(encode)), as.request(config), ...)
   request_perform(req, hu$handle$handle)
 }

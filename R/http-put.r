@@ -12,12 +12,10 @@
 #' PUT(b2, body = list(x = "A simple text string"))
 #' PUT(b2, body = list(y = upload_file(system.file("CITATION"))))
 #' PUT(b2, body = list(x = "A simple text string"), encode = "json")
-PUT <- function(url = NULL, config = list(), ..., body = NULL,
-                  encode = c("multipart", "form", "json"),
-                  handle = NULL) {
-  encode <- match.arg(encode)
-
+PUT <- function(url = NULL, config = list(), ...,
+                body = NULL, encode = c("multipart", "form", "json", "raw"),
+                handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  req <- request_build("PUT", hu$url, body_config(body, encode), config, ...)
+  req <- request_build("PUT", hu$url, body_config(body, match.arg(encode)), config, ...)
   request_perform(req, hu$handle$handle)
 }

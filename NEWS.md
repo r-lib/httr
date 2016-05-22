@@ -1,5 +1,8 @@
 # httr 1.1.0.9000
 
+* New `encode = "raw"` allows you to do your own encoding for requests with
+  bodies.
+
 * Suppress unhelpful "No encoding supplied: defaulting to UTF-8." when 
   printing a response (#327).
 

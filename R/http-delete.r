@@ -28,12 +28,10 @@
 #' DELETE("http://httpbin.org/delete")
 #' POST("http://httpbin.org/delete")
 DELETE <- function(url = NULL, config = list(), ...,
-                   body = NULL, encode = c("multipart", "form", "json"),
+                   body = NULL, encode = c("multipart", "form", "json", "raw"),
                    handle = NULL) {
-  encode <- match.arg(encode)
-
   hu <- handle_url(handle, url, ...)
-  req <- request_build("DELETE", hu$url, body_config(body, encode),
+  req <- request_build("DELETE", hu$url, body_config(body, match.arg(encode)),
     as.request(config), ...)
   request_perform(req, hu$handle$handle)
 }
