@@ -1,5 +1,8 @@
 # httr 1.1.0.9000
 
+* The cross-session OAuth cache is now created with permission 0600, and should
+  give a better error if it can't be created (#365).
+
 * The default user agent string is now computed once and cached. This 
   is a small performance improvement, but important for local connections
   (#322, @richfitz).
