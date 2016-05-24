@@ -9,31 +9,45 @@ use_cache <- function(cache = getOption("httr_oauth_cache")) {
   # If it's a character, then it's a file path, so use it
   if (is.character(cache)) return(cache)
 
+  # If missing, see if it's ok to use one, and cache the results of
+  # that check in a global option.
   if (is.na(cache)) {
-    cache <- guess_cache()
-    if (cache) protect_cache()
+    cache <- can_use_cache()
     options("httr_oauth_cache" = cache)
   }
 
   if (cache) ".httr-oauth" else NULL
 }
 
-guess_cache <- function() {
-  if (file.exists(".httr-oauth")) return(TRUE)
+can_use_cache <- function(path = ".httr-oauth") {
+  file.exists(path) || (should_cache(path) && create_cache(path))
+}
+
+should_cache <- function(path = ".httr-oauth") {
   if (!interactive()) return(FALSE)
 
-  cat("Use a local file to cache OAuth access credentials between R sessions?")
+  cat("Use a local file ('", path, "'), to cache OAuth access credentials ",
+    "between R sessions?\n", sep = "")
   utils::menu(c("Yes", "No")) == 1
 }
 
-protect_cache <- function() {
-  if (file.exists("DESCRIPTION")) {
-    add_line(".Rbuildignore", "^\\.httr-oauth$")
+create_cache <- function(path = ".httr-oauth") {
+  file.create(path, showWarnings = FALSE)
+  if (!file.exists(path)) {
+    stop("Failed to create local cache ('", path, "')", call. = FALSE)
   }
 
-  add_line(".gitignore", ".httr-oauth")
-  invisible(TRUE)
+  # Protect cache as much as possible
+  Sys.chmod(path, "0600")
+
+  if (file.exists("DESCRIPTION")) {
+    add_line(".Rbuildignore", paste0("^", gsub("\\.", "\\\\.", path), "$"))
+  }
+  add_line(".gitignore", path)
+
+  TRUE
 }
+
 
 add_line <- function(path, line, quiet = FALSE) {
   if (file.exists(path)) {
