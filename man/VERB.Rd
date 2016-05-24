@@ -23,7 +23,9 @@ with \code{\link{config}}.}
 
 \item{body}{One of the following:
 \itemize{
-  \item \code{FALSE}: No body
+  \item \code{FALSE}: No body. This is typically not used with \code{POST},
+    \code{PUT}, or \code{PATCH}, but can be useful if you need to send a
+    bodyless request (like \code{GET}) with \code{VERB()}.
   \item \code{NULL}: An empty body
   \item \code{""}: A length 0 body
   \item \code{upload_file("path/")}: The contents of a file.  The mime
