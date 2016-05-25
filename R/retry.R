@@ -24,7 +24,7 @@
 #' # Succeeds straight away
 #' RETRY("GET", "http://httpbin.org/status/200")
 #' # Never succeeds
-#' RETRY("GET", "http://httpbin.org/status/404")
+#' RETRY("GET", "http://httpbin.org/status/500")
 RETRY <- function(verb, url = NULL, config = list(), ...,
                   body = NULL, encode = c("multipart", "form", "json", "raw"),
                   times = 3, pause_base = 1, pause_cap = 60,
@@ -39,7 +39,7 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
 
   i <- 1
   while (i < times && http_error(resp)) {
-    backoff_full_jitter(i, pause_base, pause_cap, quiet = quiet)
+    backoff_full_jitter(i, status_code(resp), pause_base, pause_cap, quiet = quiet)
 
     i <- i + 1
     resp <- request_perform(req, hu$handle$handle)
@@ -48,10 +48,10 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
   resp
 }
 
-backoff_full_jitter <- function(i, pause_base = 1, pause_cap = 60, quiet = FALSE) {
+backoff_full_jitter <- function(i, status, pause_base = 1, pause_cap = 60, quiet = FALSE) {
   length <- ceiling(stats::runif(1, max = min(pause_cap, pause_base * (2 ^ i))))
   if (!quiet) {
-    message("Retrying in ", length, " seconds")
+    message("Request failed [", status, "]. Retrying in ", length, " seconds...")
   }
   Sys.sleep(length)
 }
