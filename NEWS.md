@@ -1,5 +1,25 @@
 # httr 1.1.0.9000
 
+## New features
+
+* All `print()` methods now invisibly return `x` (#355).
+
+* `DELETE()` gains a body parameter (#326).
+
+* New `encode = "raw"` allows you to do your own encoding for requests with
+  bodies.
+
+* New `http_type()` returns the content/mime type of a request, sans parameters.
+
+## Bug fixes and minor improvements
+
+*   No longer uses use custom requests for standard `POST`, `GET` and `PUT` 
+    requests (#356, #357). This has the side-effect of properly following 
+    redirects after `POST`, fixing some login issues (eg hadley/rvest#133).
+  
+    Long deprecated `multipart` argument to `POST()`, `PUT()` and `PATCH()`
+    has been removed.
+
 * The cross-session OAuth cache is now created with permission 0600, and should
   give a better error if it can't be created (#365).
 
@@ -7,8 +27,10 @@
   is a small performance improvement, but important for local connections
   (#322, @richfitz).
 
-* New `encode = "raw"` allows you to do your own encoding for requests with
-  bodies.
+* `oauth_callback()` gains trailing slash for facebook compatibility (#324).
+
+* `progress()` gains `con` argument to control where progress bar is rendered
+  (#359).
 
 * When `use_basic_auth` option is used to obtain a token, token refreshes 
   will now use basic authentication too.
@@ -16,30 +38,12 @@
 * Suppress unhelpful "No encoding supplied: defaulting to UTF-8." when 
   printing a response (#327).
 
-* `oauth_callback()` gains trailing slash for facebook compatibility (#324).
-
 * All auto parser functions now have consistent arguments. This fixes problem
   where `...` is pass on to another function (#330).
 
-* `progress()` gains `con` argument to control where progress bar is rendered
-  (#359).
-
-* All `print()` methods now invisibly return `x` (#355).
-
-* Long deprecated `multipart` argument to `POST()`, `PUT()` and `PATCH()`
-  has been deleted.
-
-* `DELETE()` gains a body parameter (#326).
-
 * `parse_media()` can once again parse multiple parameters (#362, #366).
 
-* Correct cast `config` in `POST()`.
-
-* Don't use custom requests anymore for standard `POST`, `GET` and `PUT` requests
-  (issue #356, fix #357). This has the side-effect of properly following redirects
-  after `POST`, fixing usual login issues (eg hadley/rvest#133).
-
-* New `http_type()` returns the content/mime type of a request, sans parameters.
+* Correctly cast `config` in `POST()`.
 
 * Fix in readfunction to close connection when done.
 
