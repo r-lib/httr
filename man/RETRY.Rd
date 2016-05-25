@@ -52,7 +52,7 @@ with \code{\link{config}}.}
 
 \item{times}{Maximum number of requests to attempt.}
 
-\item{pause_base, pause_cap}{This method uses exponential back-off of with
+\item{pause_base, pause_cap}{This method uses exponential back-off with
 full jitter - this means that each request will randomly wait between 0
 and \code{pause_base * 2 ^ attempt} seconds, up to a maximum of
 \code{pause_cap} seconds.}

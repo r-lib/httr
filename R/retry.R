@@ -10,7 +10,7 @@
 #' @inheritParams GET
 #' @inheritParams POST
 #' @param times Maximum number of requests to attempt.
-#' @param pause_base,pause_cap This method uses exponential back-off of with
+#' @param pause_base,pause_cap This method uses exponential back-off with
 #'   full jitter - this means that each request will randomly wait between 0
 #'   and \code{pause_base * 2 ^ attempt} seconds, up to a maximum of
 #'   \code{pause_cap} seconds.
@@ -30,6 +30,8 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
                   times = 3, pause_base = 1, pause_cap = 60,
                   handle = NULL, quiet = FALSE) {
   stopifnot(is.numeric(times), length(times) == 1L)
+  stopifnot(is.numeric(pause_base), length(pause_base) == 1L)
+  stopifnot(is.numeric(pause_cap), length(pause_cap) == 1L)
 
   hu <- handle_url(handle, url, ...)
   req <- request_build(verb, hu$url, body_config(body, match.arg(encode)), config, ...)
@@ -37,19 +39,16 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
 
   i <- 1
   while (i < times && http_error(resp)) {
-    resp <- request_perform(req, hu$handle$handle)
-
     backoff_full_jitter(i, pause_base, pause_cap, quiet = quiet)
+
     i <- i + 1
+    resp <- request_perform(req, hu$handle$handle)
   }
 
   resp
 }
 
 backoff_full_jitter <- function(i, pause_base = 1, pause_cap = 60, quiet = FALSE) {
-  stopifnot(is.numeric(pause_base), length(pause_base) == 1L)
-  stopifnot(is.numeric(pause_cap), length(pause_cap) == 1L)
-
   length <- ceiling(stats::runif(1, max = min(pause_cap, pause_base * (2 ^ i))))
   if (!quiet) {
     message("Retrying in ", length, " seconds")
