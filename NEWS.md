@@ -23,6 +23,9 @@
 * The cross-session OAuth cache is now created with permission 0600, and should
   give a better error if it can't be created (#365).
 
+* New `RETRY()` function allows you to retry a request multiple times until
+  it succeeds (#353).
+
 * The default user agent string is now computed once and cached. This 
   is a small performance improvement, but important for local connections
   (#322, @richfitz).
