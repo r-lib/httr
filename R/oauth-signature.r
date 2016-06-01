@@ -33,15 +33,14 @@ sign_oauth2.0 <- function(access_token, as_header = TRUE) {
 #' @param url,method Url and http method of request.
 #' @param app \code{\link{oauth_app}} object representing application.
 #' @param token,token_secret OAuth token and secret.
-#' @param ... Named argument providing additional oauth parameters
-#'   (e.g. \code{oauth_callback} or \code{oauth_body_hash}). Names should
-#'   not include the "oauth_" prefix - this will be automatically included.
+#' @param other_params Named argument providing additional parameters
+#'   (e.g. \code{oauth_callback} or \code{oauth_body_hash}).
 #' @export
 #' @keywords internal
 #' @return A list of oauth parameters.
 oauth_signature <- function(url, method = "GET", app, token = NULL,
                             token_secret = NULL,
-                            private_key = NULL, ...) {
+                            private_key = NULL, other_params = NULL) {
   if (!is.null(private_key)) {
     signature_method <- "RSA-SHA1"
   } else {
@@ -61,9 +60,7 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
     oauth_token = token
   ))
 
-  other_params <- list(...)
   if (length(other_params) > 0) {
-    names(other_params) <- paste0("oauth_", names(other_params))
     oauth <- c(oauth, other_params)
   }
 

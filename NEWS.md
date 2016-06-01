@@ -2,6 +2,9 @@
 
 ## New features
 
+* `oauth_signature()` no longer prepends 'oauth\_'  to additional parameters.
+  (@jimhester, #373)
+
 * All `print()` methods now invisibly return `x` (#355).
 
 * `DELETE()` gains a body parameter (#326).

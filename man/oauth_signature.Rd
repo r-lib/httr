@@ -6,7 +6,7 @@
 \title{Generate oauth signature.}
 \usage{
 oauth_signature(url, method = "GET", app, token = NULL,
-  token_secret = NULL, private_key = NULL, ...)
+  token_secret = NULL, private_key = NULL, other_params = NULL)
 
 oauth_header(info)
 }
@@ -17,9 +17,8 @@ oauth_header(info)
 
 \item{token, token_secret}{OAuth token and secret.}
 
-\item{...}{Named argument providing additional oauth parameters
-(e.g. \code{oauth_callback} or \code{oauth_body_hash}). Names should
-not include the "oauth_" prefix - this will be automatically included.}
+\item{other_params}{Named argument providing additional parameters
+(e.g. \code{oauth_callback} or \code{oauth_body_hash}).}
 }
 \value{
 A list of oauth parameters.
