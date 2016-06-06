@@ -16,8 +16,8 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
                           private_key = NULL) {
 
   oauth_sig <- function(url, method, token = NULL, token_secret = NULL, private_key = NULL, ...) {
-    oauth_header(oauth_signature(url, method, app, token, token_secret, private_key, ...,
-      callback = oauth_callback()))
+    oauth_header(oauth_signature(url, method, app, token, token_secret, private_key,
+        other_params = c(list(...), oauth_callback = oauth_callback())))
   }
 
   # 1. Get an unauthorized request token
@@ -31,11 +31,12 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
   authorize_url <- modify_url(endpoint$authorize, query = list(
     oauth_token = token,
     permission = "read"))
-  verifier <- oauth_listener(authorize_url, is_interactive)[[1]]
+  verifier <- oauth_listener(authorize_url, is_interactive)
+  verifier <- verifier$oauth_verifier %||% verifier[[1]]
 
   # 3. Request access token
   response <- POST(endpoint$access,
-    oauth_sig(endpoint$access, "POST", token, secret, verifier = verifier, private_key = private_key),
+    oauth_sig(endpoint$access, "POST", token, secret, oauth_verifier = verifier, private_key = private_key),
     body = ""
   )
   stop_for_status(response)
