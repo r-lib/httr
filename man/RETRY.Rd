@@ -84,6 +84,6 @@ backoff with jitter, using the approach outlined in
 # Succeeds straight away
 RETRY("GET", "http://httpbin.org/status/200")
 # Never succeeds
-RETRY("GET", "http://httpbin.org/status/404")
+RETRY("GET", "http://httpbin.org/status/500")
 }
 
