@@ -78,7 +78,7 @@ Safely retry a request until it succeeds (returns an HTTP status code
 below 400). It is designed to be kind to the server: after each failure
 randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in
-\url{https://www.awsarchitectureblog.com/2015/03/backoff.html.})
+\url{https://www.awsarchitectureblog.com/2015/03/backoff.html}.)
 }
 \examples{
 # Succeeds straight away
