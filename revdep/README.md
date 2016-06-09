@@ -6,33 +6,33 @@
 |:--------|:----------------------------|
 |version  |R version 3.3.0 (2016-05-03) |
 |system   |x86_64, darwin13.4.0         |
-|ui       |RStudio (0.99.1186)          |
+|ui       |X11                          |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
-|date     |2016-05-25                   |
+|date     |2016-06-09                   |
 
 ## Packages
 
-|package   |*  |version    |date       |source              |
-|:---------|:--|:----------|:----------|:-------------------|
-|curl      |   |0.9.7      |2016-04-10 |CRAN (R 3.3.0)      |
-|httpuv    |   |1.3.3      |2015-08-04 |CRAN (R 3.3.0)      |
-|httr      |   |1.1.0.9000 |2016-05-25 |local (hadley/httr) |
-|jpeg      |   |0.1-8      |2014-01-23 |CRAN (R 3.3.0)      |
-|jsonlite  |   |0.9.20     |2016-05-10 |CRAN (R 3.3.0)      |
-|knitr     |   |1.13       |2016-05-09 |CRAN (R 3.3.0)      |
-|mime      |   |0.4        |2015-09-03 |CRAN (R 3.3.0)      |
-|openssl   |   |0.9.3      |2016-05-04 |CRAN (R 3.3.0)      |
-|png       |   |0.1-7      |2013-12-03 |CRAN (R 3.3.0)      |
-|R6        |   |2.1.2      |2016-01-26 |CRAN (R 3.3.0)      |
-|readr     |   |0.2.2      |2015-10-22 |CRAN (R 3.3.0)      |
-|rmarkdown |   |0.9.6      |2016-05-01 |CRAN (R 3.3.0)      |
-|testthat  |*  |1.0.2      |2016-04-23 |CRAN (R 3.3.0)      |
-|xml2      |   |0.1.2      |2015-09-01 |CRAN (R 3.3.0)      |
+|package   |*  |version    |date       |source                   |
+|:---------|:--|:----------|:----------|:------------------------|
+|curl      |   |0.9.7      |2016-04-10 |CRAN (R 3.3.0)           |
+|httpuv    |   |1.3.3      |2015-08-04 |CRAN (R 3.3.0)           |
+|httr      |   |1.1.0.9000 |2016-06-09 |local (hadley/httr@NA)   |
+|jpeg      |   |0.1-8      |2014-01-23 |CRAN (R 3.3.0)           |
+|jsonlite  |   |0.9.21     |2016-06-04 |cran (@0.9.21)           |
+|knitr     |   |1.13       |2016-05-09 |CRAN (R 3.3.0)           |
+|mime      |   |0.4        |2015-09-03 |CRAN (R 3.3.0)           |
+|openssl   |   |0.9.4      |2016-05-25 |CRAN (R 3.3.0)           |
+|png       |   |0.1-7      |2013-12-03 |CRAN (R 3.3.0)           |
+|R6        |   |2.1.2      |2016-01-26 |CRAN (R 3.3.0)           |
+|readr     |   |0.2.2      |2015-10-22 |CRAN (R 3.3.0)           |
+|rmarkdown |   |0.9.6      |2016-05-01 |CRAN (R 3.3.0)           |
+|testthat  |*  |1.0.2.9000 |2016-06-09 |github (hadley/testthat) |
+|xml2      |   |0.1.2      |2015-09-01 |CRAN (R 3.3.0)           |
 
 # Check results
-229 packages
+239 packages
 
 ## abbyyR (0.4.0)
 Maintainer: Gaurav Sood <gsood07@gmail.com>  
@@ -145,6 +145,11 @@ Consider adding
 to your NAMESPACE file.
 ```
 
+## aws.alexa (0.1.2)
+Maintainer: Gaurav Sood <gsood07@gmail.com>
+
+0 errors | 0 warnings | 0 notes
+
 ## backblazer (0.1.0)
 Maintainer: Phill Clarke <phill@starkingdom.co.uk>  
 Bug reports: http://www.github.com/phillc73/backblazer/issues
@@ -240,6 +245,11 @@ Bug reports: http://www.github.com/ropensci/ckanr/issues
 
 0 errors | 0 warnings | 0 notes
 
+## CopulaDTA (0.0.3)
+Maintainer: Victoria N Nyaga <victoria.nyaga@outlook.com>
+
+0 errors | 0 warnings | 0 notes
+
 ## couchDB (1.3.0)
 Maintainer: Aleksander Dietrichson <sasha@xrrch.com>
 
@@ -283,6 +293,12 @@ Maintainer: Bob Rudis <bob@rudis.net>
 ## dataonderivatives (0.2.1)
 Maintainer: Imanuel Costigan <i.costigan@me.com>  
 Bug reports: https://github.com/imanuelcostigan/dataonderivatives/issues
+
+0 errors | 0 warnings | 0 notes
+
+## dataone (2.0.0)
+Maintainer: Matthew B. Jones <jones@nceas.ucsb.edu>  
+Bug reports: https://github.com/DataONEorg/rdataone/issues
 
 0 errors | 0 warnings | 0 notes
 
@@ -487,56 +503,7 @@ Bug reports: http://www.github.com/ropensci/geojsonio/issues
 Maintainer: Jordan Read <jread@usgs.gov>  
 Bug reports: https://github.com/USGS-R/geoknife/issues
 
-2 errors | 1 warning  | 0 notes
-
-```
-checking examples ... ERROR
-Running examples in ‘geoknife-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: XML
-> ### Title: XML from set of objects
-> ### Aliases: XML XML,ANY,webdata,webprocess-method XML,webgeom-method
-> 
-> ### ** Examples
-> 
-> wd <- webdata('prism',times = as.POSIXct(c('2001-01-01','2002-02-05')))
-> wg <- webgeom('state::Wisconsin')
-StartTag: invalid element name
-Extra content at the end of the document
-Error: 1: StartTag: invalid element name
-2: Extra content at the end of the document
-Execution halted
-
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  StartTag: invalid element name
-  Extra content at the end of the document
-  StartTag: invalid element name
-  Extra content at the end of the document
-  StartTag: invalid element name
-  Extra content at the end of the document
-  testthat results ================================================================
-  OK: 48 SKIPPED: 45 FAILED: 2
-  1. Error: multi-args work with shorthand knife (@test-knife_shorthand.R#23) 
-  2. Error: show webprocess (@test-show_object.R#35) 
-  
-  Error: testthat unit tests failed
-  Execution halted
-
-checking re-building of vignette outputs ... WARNING
-Error in re-building vignettes:
-  ...
-StartTag: invalid element name
-Extra content at the end of the document
-Quitting from lines 393-409 (geoknife.Rmd) 
-Error: processing vignette 'geoknife.Rmd' failed with diagnostics:
-http://cida.usgs.gov/gdp/process/WebProcessingService does not seem to be a valid Web Processing Service url.
-Execution halted
-
-```
+0 errors | 0 warnings | 0 notes
 
 ## gistr (0.3.6)
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
@@ -562,15 +529,7 @@ Bug reports: https://github.com/jimhester/gmailr/issues
 Maintainer: Stanislaw Jastrzebski <staszek.jastrzebski@gmail.com>  
 Bug reports: https://github.com/gmum/gmum.r/issues
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking package dependencies ... ERROR
-Packages required but not available: ‘RcppArmadillo’ ‘BH’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
-```
+0 errors | 0 warnings | 0 notes
 
 ## googleAuthR (0.3.0)
 Maintainer: Mark Edmondson <m@sunholo.com>  
@@ -601,35 +560,27 @@ Bug reports: https://github.com/expersso/hdr
 
 0 errors | 0 warnings | 0 notes
 
+## HIBPwned (0.1.0.0)
+Maintainer: Steph Locke <stephanie.g.locke@gmail.com>  
+Bug reports: https://github.com/censornet/HIBPwned/issues
+
+0 errors | 0 warnings | 0 notes
+
+## hkex.api (0.1)
+Maintainer: Kimman Lui <cskmlui@comp.polyu.edu.hk>
+
+0 errors | 0 warnings | 0 notes
+
 ## hoardeR (0.1)
 Maintainer: Daniel Fischer <daniel.fischer@luke.fi>
 
 0 errors | 0 warnings | 0 notes
 
-## htmltab (0.6.0)
+## htmltab (0.7.0)
 Maintainer: Christian Rubba <christian.rubba@gmail.com>  
 Bug reports: https://github.com/crubba/htmltab/issues
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-         which = "//table[5]")
-  3: httr::GET(doc)
-  4: request_perform(req, hu$handle$handle) at /Users/hadley/Documents/web/httr/R/http-get.r:67
-  5: request_fetch(req$output, req$url, handle) at /Users/hadley/Documents/web/httr/R/request.R:135
-  6: request_fetch.write_memory(req$output, req$url, handle) at /Users/hadley/Documents/web/httr/R/write-function.R:74
-  7: curl::curl_fetch_memory(url, handle = handle) at /Users/hadley/Documents/web/httr/R/write-function.R:76
-  
-  testthat results ================================================================
-  OK: 118 SKIPPED: 0 FAILED: 1
-  1. Error: check_type produces class output (@test_inputs.R#9) 
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
+0 errors | 0 warnings | 0 notes
 
 ## httpcache (0.1.4)
 Maintainer: Neal Richardson <neal.p.richardson@gmail.com>  
@@ -666,7 +617,7 @@ Bug reports: https://github.com/ropensci/internetarchive/issues
 
 0 errors | 0 warnings | 0 notes
 
-## jsonlite (0.9.20)
+## jsonlite (0.9.21)
 Maintainer: Jeroen Ooms <jeroen.ooms@stat.ucla.edu>  
 Bug reports: http://github.com/jeroenooms/jsonlite/issues
 
@@ -718,20 +669,12 @@ Bug reports: https://github.com/leeper/lumendb/issues
 
 0 errors | 0 warnings | 0 notes
 
-## Luminescence (0.5.1)
+## Luminescence (0.6.0)
 Maintainer: Sebastian Kreutzer <sebastian.kreutzer@u-bordeaux-montaigne.fr>
 
-1 error  | 0 warnings | 0 notes
+0 errors | 0 warnings | 0 notes
 
-```
-checking package dependencies ... ERROR
-Package required but not available: ‘RcppArmadillo’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
-```
-
-## machina (0.1.3)
+## machina (0.1.4)
 Maintainer: Norton Tim <tnorton@machi.na>
 
 0 errors | 0 warnings | 0 notes
@@ -760,16 +703,11 @@ Bug reports: https://github.com/RevolutionAnalytics/miniCRAN/issues
 
 0 errors | 0 warnings | 0 notes
 
-## move (1.6.541)
-Maintainer: Bart Kranstauber <bart.kranstauber@uni-konstanz.de>
+## move (2.0.0)
+Maintainer: Bart Kranstauber <bart.kranstauber@ieu.uzh.ch>  
+Bug reports: https://gitlab.com/bartk/move/issues
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking whether package ‘move’ can be installed ... ERROR
-Installation failed.
-See ‘/Users/hadley/Documents/web/httr/revdep/checks/move.Rcheck/00install.out’ for details.
-```
+0 errors | 0 warnings | 0 notes
 
 ## mscsweblm4r (0.1.1)
 Maintainer: Phil Ferriere <pferriere@hotmail.com>  
@@ -849,8 +787,9 @@ Bug reports: https://github.com/ropenscilabs/originr/issues
 
 0 errors | 0 warnings | 0 notes
 
-## osmplotr (0.2.0)
-Maintainer: Mark Padgham <mark.padgham@email.com>
+## osmplotr (0.2.1)
+Maintainer: Mark Padgham <mark.padgham@email.com>  
+Bug reports: https://github.com/ropenscilabs/osmplotr/issues
 
 0 errors | 0 warnings | 0 notes
 
@@ -897,6 +836,12 @@ Bug reports: https://www.github.com/expersso/pdftables/issues
 
 ## pinnacle.API (1.90)
 Maintainer: Marco Blume <marco.blume@pinnaclesports.com>
+
+0 errors | 0 warnings | 0 notes
+
+## pkgcopier (0.0.1)
+Maintainer: Hao Zhu <haozhu233@gmail.com>  
+Bug reports: https://github.com/haozhu233/pkgcopier/issues
 
 0 errors | 0 warnings | 0 notes
 
@@ -1177,7 +1122,26 @@ Bug reports: https://github.com/pablobarbera/Rfacebook/issues
 Maintainer: Dmitry A. Grechka <dmitryg@itis.cs.msu.ru>  
 Bug reports: https://github.com/dgrechka/RFc/issues
 
-0 errors | 0 warnings | 0 notes
+1 error  | 0 warnings | 0 notes
+
+```
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  
+  Execution halted
+```
 
 ## rfigshare (0.3.7)
 Maintainer: Carl Boettiger <cboettig@gmail.com>  
@@ -1216,12 +1180,12 @@ Bug reports: https://github.com/mstellwa/rfml/issues
 
 0 errors | 0 warnings | 0 notes
 
-## rfoaas (0.1.8)
+## rfoaas (0.1.9)
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 
 0 errors | 0 warnings | 0 notes
 
-## RForcecom (0.8)
+## RForcecom (0.9)
 Maintainer: Takekatsu Hiramura <thira@plavox.info>  
 Bug reports: https://github.com/hiratake55/RForcecom/issues
 
@@ -1291,6 +1255,18 @@ Maintainer: Matthew Collins <mcollins@acis.ufl.edu>
 Bug reports: https://github.com/iDigBio/ridigbio/issues
 
 0 errors | 0 warnings | 0 notes
+
+## riem (0.1.0)
+Maintainer: Maëlle Salmon <maelle.salmon@yahoo.se>  
+Bug reports: http://github.com/ropenscilabs/riem/issues
+
+0 errors | 0 warnings | 1 note 
+
+```
+checking DESCRIPTION meta-information ... NOTE
+Authors@R field gives persons with no valid roles:
+  Brooke Anderson [rev] (Brooke Anderson reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/39.)
+```
 
 ## rinat (0.1.4)
 Maintainer: Edmund Hart <edmund.m.hart@gmail.com>
@@ -1394,6 +1370,11 @@ Maintainer: Andrew Kane <andrew@chartkick.com>
 
 0 errors | 0 warnings | 0 notes
 
+## ROpenFIGI (0.2.8)
+Maintainer: Ruokun Huang <hruokun.2008@gmail.com>
+
+0 errors | 0 warnings | 0 notes
+
 ## ROpenWeatherMap (1.1)
 Maintainer: Mukul Chaware <mukul.chaware13@gmail.com>
 
@@ -1493,10 +1474,10 @@ Bug reports: https://github.com/Chicago/RSocrata/issues
 checking tests ... ERROR
 Running the tests in ‘tests/testthat.R’ failed.
 Last 13 lines of output:
-  [2]  261 - -344 ==  605
-  [3]  891 -   65 ==  826
-  [4] -108 -  680 == -788
-  [5] -416 -   16 == -432
+  [2] 141 -  390 == -249
+  [3] 240 -  432 == -192
+  [4] 906 - -769 == 1675
+  [5] 195 -  805 == -610
   
   
   testthat results ================================================================
@@ -1673,19 +1654,11 @@ Maintainer: Margaret E. Roberts <meroberts@ucsd.edu>
 
 0 errors | 0 warnings | 0 notes
 
-## stplanr (0.1.1)
+## stplanr (0.1.2)
 Maintainer: Robin Lovelace <rob00x@gmail.com>  
 Bug reports: https://github.com/ropensci/stplanr/issues
 
-1 error  | 0 warnings | 0 notes
-
-```
-checking package dependencies ... ERROR
-Package required but not available: ‘RcppArmadillo’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
-```
+0 errors | 0 warnings | 0 notes
 
 ## stringgaussnet (1.1)
 Maintainer: Emmanuel Chaplais <emmanuel.chaplais@inserm.fr>
@@ -1827,9 +1800,21 @@ Maintainer: Florian Jansen <jansen@uni-greifswald.de>
 
 0 errors | 0 warnings | 0 notes
 
+## vembedr (0.1.0)
+Maintainer: Ian Lyttle <ian.lyttle@schneider-electric.com>  
+Bug reports: https://github.com/ijlyttle/vembedr/issues
+
+0 errors | 0 warnings | 0 notes
+
 ## viridis (0.3.4)
 Maintainer: Simon Garnier <garnier@njit.edu>  
 Bug reports: https://github.com/sjmgarnier/viridis/issues
+
+0 errors | 0 warnings | 0 notes
+
+## virustotal (0.1.0)
+Maintainer: Gaurav Sood <gsood07@gmail.com>  
+Bug reports: http://github.com/soodoku/virustotal/issues
 
 0 errors | 0 warnings | 0 notes
 

@@ -6,33 +6,33 @@
 |:--------|:----------------------------|
 |version  |R version 3.3.0 (2016-05-03) |
 |system   |x86_64, darwin13.4.0         |
-|ui       |RStudio (0.99.1186)          |
+|ui       |X11                          |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
-|date     |2016-05-25                   |
+|date     |2016-06-09                   |
 
 ## Packages
 
-|package   |*  |version    |date       |source              |
-|:---------|:--|:----------|:----------|:-------------------|
-|curl      |   |0.9.7      |2016-04-10 |CRAN (R 3.3.0)      |
-|httpuv    |   |1.3.3      |2015-08-04 |CRAN (R 3.3.0)      |
-|httr      |   |1.1.0.9000 |2016-05-25 |local (hadley/httr) |
-|jpeg      |   |0.1-8      |2014-01-23 |CRAN (R 3.3.0)      |
-|jsonlite  |   |0.9.20     |2016-05-10 |CRAN (R 3.3.0)      |
-|knitr     |   |1.13       |2016-05-09 |CRAN (R 3.3.0)      |
-|mime      |   |0.4        |2015-09-03 |CRAN (R 3.3.0)      |
-|openssl   |   |0.9.3      |2016-05-04 |CRAN (R 3.3.0)      |
-|png       |   |0.1-7      |2013-12-03 |CRAN (R 3.3.0)      |
-|R6        |   |2.1.2      |2016-01-26 |CRAN (R 3.3.0)      |
-|readr     |   |0.2.2      |2015-10-22 |CRAN (R 3.3.0)      |
-|rmarkdown |   |0.9.6      |2016-05-01 |CRAN (R 3.3.0)      |
-|testthat  |*  |1.0.2      |2016-04-23 |CRAN (R 3.3.0)      |
-|xml2      |   |0.1.2      |2015-09-01 |CRAN (R 3.3.0)      |
+|package   |*  |version    |date       |source                   |
+|:---------|:--|:----------|:----------|:------------------------|
+|curl      |   |0.9.7      |2016-04-10 |CRAN (R 3.3.0)           |
+|httpuv    |   |1.3.3      |2015-08-04 |CRAN (R 3.3.0)           |
+|httr      |   |1.1.0.9000 |2016-06-09 |local (hadley/httr@NA)   |
+|jpeg      |   |0.1-8      |2014-01-23 |CRAN (R 3.3.0)           |
+|jsonlite  |   |0.9.21     |2016-06-04 |cran (@0.9.21)           |
+|knitr     |   |1.13       |2016-05-09 |CRAN (R 3.3.0)           |
+|mime      |   |0.4        |2015-09-03 |CRAN (R 3.3.0)           |
+|openssl   |   |0.9.4      |2016-05-25 |CRAN (R 3.3.0)           |
+|png       |   |0.1-7      |2013-12-03 |CRAN (R 3.3.0)           |
+|R6        |   |2.1.2      |2016-01-26 |CRAN (R 3.3.0)           |
+|readr     |   |0.2.2      |2015-10-22 |CRAN (R 3.3.0)           |
+|rmarkdown |   |0.9.6      |2016-05-01 |CRAN (R 3.3.0)           |
+|testthat  |*  |1.0.2.9000 |2016-06-09 |github (hadley/testthat) |
+|xml2      |   |0.1.2      |2015-09-01 |CRAN (R 3.3.0)           |
 
 # Check results
-12 packages with problems
+7 packages with problems
 
 ## biomartr (0.0.3)
 Maintainer: Hajk-Georg Drost <hgd23@cam.ac.uk>  
@@ -62,124 +62,6 @@ Error: processing vignette 'fitbitScraper-examples.Rmd' failed with diagnostics:
 Value for option cookie (10022) must be length-1 string
 Execution halted
 
-```
-
-## geoknife (1.3.0)
-Maintainer: Jordan Read <jread@usgs.gov>  
-Bug reports: https://github.com/USGS-R/geoknife/issues
-
-2 errors | 1 warning  | 0 notes
-
-```
-checking examples ... ERROR
-Running examples in ‘geoknife-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: XML
-> ### Title: XML from set of objects
-> ### Aliases: XML XML,ANY,webdata,webprocess-method XML,webgeom-method
-> 
-> ### ** Examples
-> 
-> wd <- webdata('prism',times = as.POSIXct(c('2001-01-01','2002-02-05')))
-> wg <- webgeom('state::Wisconsin')
-StartTag: invalid element name
-Extra content at the end of the document
-Error: 1: StartTag: invalid element name
-2: Extra content at the end of the document
-Execution halted
-
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  StartTag: invalid element name
-  Extra content at the end of the document
-  StartTag: invalid element name
-  Extra content at the end of the document
-  StartTag: invalid element name
-  Extra content at the end of the document
-  testthat results ================================================================
-  OK: 48 SKIPPED: 45 FAILED: 2
-  1. Error: multi-args work with shorthand knife (@test-knife_shorthand.R#23) 
-  2. Error: show webprocess (@test-show_object.R#35) 
-  
-  Error: testthat unit tests failed
-  Execution halted
-
-checking re-building of vignette outputs ... WARNING
-Error in re-building vignettes:
-  ...
-StartTag: invalid element name
-Extra content at the end of the document
-Quitting from lines 393-409 (geoknife.Rmd) 
-Error: processing vignette 'geoknife.Rmd' failed with diagnostics:
-http://cida.usgs.gov/gdp/process/WebProcessingService does not seem to be a valid Web Processing Service url.
-Execution halted
-
-```
-
-## gmum.r (0.2.1)
-Maintainer: Stanislaw Jastrzebski <staszek.jastrzebski@gmail.com>  
-Bug reports: https://github.com/gmum/gmum.r/issues
-
-1 error  | 0 warnings | 0 notes
-
-```
-checking package dependencies ... ERROR
-Packages required but not available: ‘RcppArmadillo’ ‘BH’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
-```
-
-## htmltab (0.6.0)
-Maintainer: Christian Rubba <christian.rubba@gmail.com>  
-Bug reports: https://github.com/crubba/htmltab/issues
-
-1 error  | 0 warnings | 0 notes
-
-```
-checking tests ... ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-         which = "//table[5]")
-  3: httr::GET(doc)
-  4: request_perform(req, hu$handle$handle) at /Users/hadley/Documents/web/httr/R/http-get.r:67
-  5: request_fetch(req$output, req$url, handle) at /Users/hadley/Documents/web/httr/R/request.R:135
-  6: request_fetch.write_memory(req$output, req$url, handle) at /Users/hadley/Documents/web/httr/R/write-function.R:74
-  7: curl::curl_fetch_memory(url, handle = handle) at /Users/hadley/Documents/web/httr/R/write-function.R:76
-  
-  testthat results ================================================================
-  OK: 118 SKIPPED: 0 FAILED: 1
-  1. Error: check_type produces class output (@test_inputs.R#9) 
-  
-  Error: testthat unit tests failed
-  Execution halted
-```
-
-## Luminescence (0.5.1)
-Maintainer: Sebastian Kreutzer <sebastian.kreutzer@u-bordeaux-montaigne.fr>
-
-1 error  | 0 warnings | 0 notes
-
-```
-checking package dependencies ... ERROR
-Package required but not available: ‘RcppArmadillo’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
-```
-
-## move (1.6.541)
-Maintainer: Bart Kranstauber <bart.kranstauber@uni-konstanz.de>
-
-1 error  | 0 warnings | 0 notes
-
-```
-checking whether package ‘move’ can be installed ... ERROR
-Installation failed.
-See ‘/Users/hadley/Documents/web/httr/revdep/checks/move.Rcheck/00install.out’ for details.
 ```
 
 ## nat (1.8.1)
@@ -235,6 +117,31 @@ checking package dependencies ... NOTE
 Package suggested but not available for checking: ‘RODBC’
 ```
 
+## RFc (0.1-1)
+Maintainer: Dmitry A. Grechka <dmitryg@itis.cs.msu.ru>  
+Bug reports: https://github.com/dgrechka/RFc/issues
+
+1 error  | 0 warnings | 0 notes
+
+```
+checking tests ... ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  [1] "pending=1; hash=27155a5e75b3a127a407efa73f33e9205011b399"
+  
+  Execution halted
+```
+
 ## RSocrata (1.7.0-14)
 Maintainer: "Tom Schenk Jr." <developers@cityofchicago.org>  
 Bug reports: https://github.com/Chicago/RSocrata/issues
@@ -245,10 +152,10 @@ Bug reports: https://github.com/Chicago/RSocrata/issues
 checking tests ... ERROR
 Running the tests in ‘tests/testthat.R’ failed.
 Last 13 lines of output:
-  [2]  261 - -344 ==  605
-  [3]  891 -   65 ==  826
-  [4] -108 -  680 == -788
-  [5] -416 -   16 == -432
+  [2] 141 -  390 == -249
+  [3] 240 -  432 == -192
+  [4] 906 - -769 == 1675
+  [5] 195 -  805 == -610
   
   
   testthat results ================================================================
@@ -258,20 +165,6 @@ Last 13 lines of output:
   
   Error: testthat unit tests failed
   Execution halted
-```
-
-## stplanr (0.1.1)
-Maintainer: Robin Lovelace <rob00x@gmail.com>  
-Bug reports: https://github.com/ropensci/stplanr/issues
-
-1 error  | 0 warnings | 0 notes
-
-```
-checking package dependencies ... ERROR
-Package required but not available: ‘RcppArmadillo’
-
-See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-manual.
 ```
 
 ## stringgaussnet (1.1)

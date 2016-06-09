@@ -1,5 +1,6 @@
 library("devtools")
 
-res <- revdep_check()
+res <- revdep_check(threads = 6)
 revdep_check_save_summary()
-revdep_email(date = "June 8", only_problems = TRUE)
+revdep_check_print_problems()
+revdep_email(date = "June 9", only_problems = TRUE, draft = FALSE)
