@@ -16,12 +16,12 @@
 
 ## Bug fixes and minor improvements
 
-*   No longer uses use custom requests for standard `POST`, `GET` and `PUT` 
-    requests (#356, #357). This has the side-effect of properly following 
-    redirects after `POST`, fixing some login issues (eg hadley/rvest#133).
+* No longer uses use custom requests for standard `POST` requests (#356, 
+  #357). This has the side-effect of properly following redirects after 
+  `POST`, fixing some login issues (eg hadley/rvest#133).
   
-    Long deprecated `multipart` argument to `POST()`, `PUT()` and `PATCH()`
-    has been removed.
+* Long deprecated `multipart` argument to `POST()`, `PUT()` and `PATCH()`
+  has been removed.
 
 * The cross-session OAuth cache is now created with permission 0600, and should
   give a better error if it can't be created (#365).

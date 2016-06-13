@@ -101,13 +101,11 @@ print.request <- function(x, ...) {
 request_prepare <- function(req) {
   req <- request_combine(request_default(), req)
 
-  # Use the appropriate cURL method when available. This is important
-  # because simply setting CUSTOMREQUEST does not preserve (e.g.) the
-  # POST behaviour with redirects.
+  # Use specific options for GET and POST; otherwise, perform a custom request.
+  # The PUT/UPLOAD options don't appear to work, instead hanging forever.
   switch(req$method,
-    POST = req$options$post <- TRUE,
-    PUT =  req$options$put <- TRUE,
     GET =  req$options$httpget <- TRUE,
+    POST = req$options$post <- TRUE,
     req$options$customrequest <- req$method
   )
 
