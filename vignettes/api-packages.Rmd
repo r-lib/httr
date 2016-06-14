@@ -81,47 +81,6 @@ An API client needs to parse these responses, turning API errors into R errors, 
 
 Designing a good API client requires identifying how each of these API features is used to compose a request and what type of response is expected for each. It's best practice to insulate the end user from *how* the API works so they only need to understand how to use an R function, not the details of how APIs work. It's your job to suffer so that others don't have to!
 
-## Getting started
-
-It is best to start with some helper functions to capture the common conventions of the API in one place. This allows some someone who is familiar with the API (i.e. you), to generate HTTP requests and turn the response into a useful R object.
-
-These functions should capture information like:
-
-- the base URL for all API requests.
-- how data passed to the API
-- how the API returns data
-- how authentication works
-- how errors are signalled
-
-The following example shows how you might write these functions for the github API. Note that I've used lots of small function to avoid repeating code as much as possible. This is important when writing code that talks to APIs because APIs change all too frequently and you only want to have to change important facts in one place.
-
-These need some additional infrastructure to authenticate, check the responses and give useful error messages and parse responses:
-
-```{r}
-github_auth <- function(pat = github_pat()) {
-  authenticate(pat, "x-oauth-basic", "basic")
-}
-
-github_check <- function(req) {
-  if (req$status_code < 400) return(invisible())
-
-  message <- github_parse(req)$message
-  stop("HTTP failure: ", req$status_code, "\n", message, call. = FALSE)
-}
-
-github_parse <- function(req) {
-  text <- content(req, as = "text")
-  if (identical(text, "")) stop("No output to parse", call. = FALSE)
-  jsonlite::fromJSON(text, simplifyVector = FALSE)
-}
-
-github_pat <- function() {
-  Sys.getenv('GITHUB_PAT')
-}
-
-has_pat <- function() !identical(github_pat(), "")
-```
-
 ## First steps
 
 ### Send a simple request
@@ -135,7 +94,8 @@ github_api <- function(path) {
   GET(url)
 }
 
-github_api("/repos/hadley/httr")
+resp <- github_api("/repos/hadley/httr")
+resp
 ```
 
 ### Parse the response
@@ -156,7 +116,6 @@ If you have a choice, choose json: it's usually much easier to work with than xm
 Most APIs will return most or all useful information in the response body, which can be accessed using `content()`. To determine what type of information is returned, you can use `http_type()`
 
 ```{r}
-resp <- github_api("/repos/hadley/httr")
 http_type(resp)
 ```
 
@@ -173,7 +132,6 @@ github_api <- function(path) {
   
   resp
 }
-resp <- github_api("/repos/hadley/httr")
 ```
 
 NB: some poorly written APIs will say the content is type A, but it will actually be type B. In this case you should complain to the API authors, and until they fix the problem, simply drop the check for content type.
@@ -194,7 +152,6 @@ github_api <- function(path) {
   
   jsonlite::fromJSON(content(resp, "text"), simplifyVector = FALSE)
 }
-x <- github_api("/users/hadley")
 ```
 
 ### Return a helpful object
@@ -277,7 +234,6 @@ github_api <- function(path) {
     class = "github_api"
   )
 }
-github_api("/users/hadley")
 github_api("/user/hadley")
 ```
 
@@ -329,7 +285,6 @@ github_api <- function(path) {
     class = "github_api"
   )
 }
-github_api("/users/hadley")
 ```
 
 ### Passing parameters
@@ -343,7 +298,7 @@ Most APIs work by executing an HTTP method on a specified URL with some addition
 
 [RESTful APIs](https://en.wikipedia.org/wiki/Representational_state_transfer) also use the HTTP verb to communicate arguments (e.g,., `GET` retrieves a file, `POST` adds a file, `DELETE` removes a file, etc.). We can use the helpful [httpbin service](http://httpbin.org) to show how to send arguments in each of these ways.
 
-```R
+```{r, eval = FALSE}
 # modify_url
 POST(modify_url("https://httpbin.org", path = "/post"))
 
@@ -404,28 +359,15 @@ Many APIs can be called without any authentication (just as if you called them i
 > care needs to be taken to understand the true authentication mechanism
 > regardless of the label used in the API docs.
 
-It is possible to specify the key(s) or token(s) required for basic or OAuth authentication in a number of different ways (see Appendix for a detailed discussion). You may also need some way to preserve user credentials between function calls so that end users do not need to specify them each time. Here is an example of how to write a function that checks for the presence of a GitHub personal access token and errors otherwise:
+It is possible to specify the key(s) or token(s) required for basic or OAuth authentication in a number of different ways (see Appendix for a detailed discussion). You may also need some way to preserve user credentials between function calls so that end users do not need to specify them each time. A good start is to use an environment variable. Here is an example of how to write a function that checks for the presence of a GitHub personal access token and errors otherwise:
 
 ```{r}
-github_pat <- function(force = FALSE) {
-  env <- Sys.getenv('GITHUB_PAT')
-  if (!identical(env, "") && !force) return(env)
-
-  if (!interactive()) {
+github_pat <- function() {
+  pat <- Sys.getenv('GITHUB_PAT')
+  if (identical(pat, "")) {
     stop("Please set env var GITHUB_PAT to your github personal access token",
       call. = FALSE)
   }
-
-  message("Couldn't find env var GITHUB_PAT. See ?github_pat for more details.")
-  message("Please enter your PAT and press enter:")
-  pat <- readline(": ")
-
-  if (identical(pat, "")) {
-    stop("Github personal access token entry failed", call. = FALSE)
-  }
-
-  message("Updating GITHUB_PAT env var to PAT")
-  Sys.setenv(GITHUB_PAT = pat)
 
   pat
 }
@@ -450,7 +392,6 @@ These values can then be used to make further requests. This will either involve
 
 The choice of which to use depends on your needs and goals and the rate limits of the API.
 
-
 ### Rate limiting
 
 Many APIs are rate limited, which means that you can only send a certain number of requests per hour. Often if your request is rate limited, the error message will tell you how long you should wait before performing another request. You might want to expose this to the user, or even include a wall to `Sys.sleep()` that waits long enough.
@@ -466,20 +407,18 @@ rate_limit()
 
 After getting the first version getting working, you'll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.
 
-```{r, eval = FALSE}
+```{r}
 rate_limit <- function() {
   req <- github_api("/rate_limit")
   core <- req$content$resources$core
 
   reset <- as.POSIXct(core$reset, origin = "1970-01-01")
   cat(core$remaining, " / ", core$limit,
-    " (Reset ", strftime(reset, "%H:%M:%S"), ")\n", sep = "")
+    " (Resets at ", strftime(reset, "%H:%M:%S"), ")\n", sep = "")
 }
 
 rate_limit()
 ```
-
-You should also provide a function that exposes the rate limiting information to the user. 
 
 ## Packaging youe code
 
@@ -506,7 +445,7 @@ And then use `eval = NOT_CRAN` as needed as a chunk option.
 
 The same issues and solutions can also be applied to test suites for API clients that require authenticated credentials. For these packages, you may want to have a test suite that is only run locally but not on CRAN. Another solution is to use a continuous integration service such as Travis-CI or Appveyor, which allows the inclusion of encrypted environment variables or encrypted token files. This enables continuous testing in a relatively secure way.
 
-# Appendix: Storing API Authentication Keys/Tokens
+## Appendix: Storing API Authentication Keys/Tokens
 
 If your package supports an authentication workflow based on an API key or token, encourage users to store it in an environment variable. We illustrate this using the [`github` R package](https://github.com/cscheid/rgithub), which wraps the Github v3 API. Tailor this template to your API + package and include in `README.md` or a vignette.
 
