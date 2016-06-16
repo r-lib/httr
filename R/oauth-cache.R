@@ -88,9 +88,11 @@ remove_cached_token <- function(token) {
 }
 
 load_cache <- function(cache_path) {
-  if (!file.exists(cache_path)) {
+  if (!file.exists(cache_path) || file_size(cache_path) == 0) {
     list()
   } else {
     readRDS(cache_path)
   }
 }
+
+file_size <- function(x) file.info(x, extra_cols = FALSE)$size
