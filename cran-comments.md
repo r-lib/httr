@@ -1,4 +1,4 @@
-This is a minor update to the previous submission which fixes a problem with PUT requests hanging on windows.
+This is a minor update to the previous version which fixed a bug that only occurs in interactive code.
 
 ---
 
