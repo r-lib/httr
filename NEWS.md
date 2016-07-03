@@ -1,3 +1,5 @@
+# httr 1.2.1.9000
+
 # httr 1.2.1
 
 * Fix bug with new cache creation code: need to check that 
