@@ -58,7 +58,7 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
 backoff_full_jitter <- function(i, status, pause_base = 1, pause_cap = 60,
                                 pause_min = 1, pause_min_warning = TRUE,
                                 quiet = FALSE) {
-  if (pause_min_warning < 1) {
+  if (pause_min_warning && pause_min < 1) {
     warning("Delaying less than 1 second is hard on the server and is likely to still fail")
   }
   length <- max(pause_min, stats::runif(1, max = min(pause_cap, pause_base * (2 ^ i))))
