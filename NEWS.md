@@ -23,6 +23,9 @@
 
 ## Bug fixes and minor improvements
 
+* Added `pause_min` to `RETRY` requests, allowing for sub-second
+  delays. (Use with caution! Generally the default is preferred.)
+
 * No longer uses use custom requests for standard `POST` requests (#356, 
   #357). This has the side-effect of properly following redirects after 
   `POST`, fixing some login issues (eg hadley/rvest#133).

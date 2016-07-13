@@ -14,6 +14,9 @@
 #'   full jitter - this means that each request will randomly wait between 0
 #'   and \code{pause_base * 2 ^ attempt} seconds, up to a maximum of
 #'   \code{pause_cap} seconds.
+#' @param pause_min Minimum time to with in the backoff; generally
+#'   only necessary if you need pauses less than one second (which may
+#'   not be kind to the server, use with caution!).
 #' @param quiet If \code{FALSE}, will print a message displaying how long
 #'   until the next request.
 #' @return The last response. Note that if the request doesn't succeed after
@@ -27,7 +30,7 @@
 #' RETRY("GET", "http://httpbin.org/status/500")
 RETRY <- function(verb, url = NULL, config = list(), ...,
                   body = NULL, encode = c("multipart", "form", "json", "raw"),
-                  times = 3, pause_base = 1, pause_cap = 60,
+                  times = 3, pause_base = 1, pause_cap = 60, pause_min = 1,
                   handle = NULL, quiet = FALSE) {
   stopifnot(is.numeric(times), length(times) == 1L)
   stopifnot(is.numeric(pause_base), length(pause_base) == 1L)
@@ -39,7 +42,8 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
 
   i <- 1
   while (i < times && http_error(resp)) {
-    backoff_full_jitter(i, status_code(resp), pause_base, pause_cap, quiet = quiet)
+    backoff_full_jitter(i, status_code(resp), pause_base, pause_cap, pause_min,
+                        quiet = quiet)
 
     i <- i + 1
     resp <- request_perform(req, hu$handle$handle)
@@ -48,10 +52,11 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
   resp
 }
 
-backoff_full_jitter <- function(i, status, pause_base = 1, pause_cap = 60, quiet = FALSE) {
-  length <- ceiling(stats::runif(1, max = min(pause_cap, pause_base * (2 ^ i))))
+backoff_full_jitter <- function(i, status, pause_base = 1, pause_cap = 60, pause_min = 1,
+                                quiet = FALSE) {
+  length <- max(pause_min, stats::runif(1, max = min(pause_cap, pause_base * (2 ^ i))))
   if (!quiet) {
-    message("Request failed [", status, "]. Retrying in ", length, " seconds...")
+    message("Request failed [", status, "]. Retrying in ", round(length, 1L), " seconds...")
   }
   Sys.sleep(length)
 }
