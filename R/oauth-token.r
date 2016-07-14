@@ -197,6 +197,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            type = NULL, use_oob = getOption("httr_oob_default"),
                            as_header = TRUE,
                            use_basic_auth = FALSE,
+                           without_auth_req = FALSE,
                            cache = getOption("httr_oauth_cache")) {
   params <- list(scope = scope, user_params = user_params, type = type,
       use_oob = use_oob, as_header = as_header,
