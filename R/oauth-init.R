@@ -64,12 +64,16 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'     app key and secret in the request body.
 #' @param config_init Additional configuration settings sent to
 #'     \code{\link{POST}}, e.g. \code{\link{user_agent}}.
+#' @param client_credentials default to \code{FALSE}. Set to \code{TRUE} to use
+#'   \emph{Client Credentials Grant} instead of \emph{Authorization
+#'   Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
                           type = NULL, use_oob = getOption("httr_oob_default"),
                           is_interactive = interactive(),
-                          use_basic_auth = FALSE, config_init = list()) {
+                          use_basic_auth = FALSE, config_init = list(),
+                          client_credentials = FALSE) {
 
   scope <- check_scope(scope)
   use_oob <- check_oob(use_oob)
@@ -82,28 +86,35 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
     state <- nonce()
   }
 
-  authorize_url <- modify_url(endpoint$authorize, query = compact(list(
-    client_id = app$key,
-    scope = scope,
-    redirect_uri = redirect_uri,
-    response_type = "code",
-    state = state)))
-
-  if (use_oob) {
-    code <- oauth_exchanger(authorize_url)$code
+  # Some Oauth2 grant type not required an authorization request and code
+  # (see https://tools.ietf.org/html/rfc6749#section-4.4)
+  if(client_credentials) {
+    code <- NULL
   } else {
-    code <- oauth_listener(authorize_url, is_interactive)$code
-  }
+    authorize_url <- modify_url(endpoint$authorize, query = compact(list(
+      client_id = app$key,
+      scope = scope_arg,
+      redirect_uri = redirect_uri,
+      response_type = "code",
+      state = state)))
 
+    if (use_oob) {
+      code <- oauth_exchanger(authorize_url)$code
+    } else {
+      code <- oauth_listener(authorize_url, is_interactive)$code
+    }
+  }
   # Use authorisation code to get (temporary) access token
 
   # Send credentials using HTTP Basic or as parameters in the request body
   # See https://tools.ietf.org/html/rfc6749#section-2.3 (Client Authentication)
+
   req_params <- list(
     client_id = app$key,
-    redirect_uri = redirect_uri,
-    grant_type = "authorization_code",
-    code = code)
+    redirect_uri = if (client_credentials) NULL else redirect_uri,
+    grant_type = if (client_credentials) "client_credentials" else "authorization_code",
+    code = code
+  )
 
   if (!is.null(user_params)) {
     req_params <- utils::modifyList(user_params, req_params)
