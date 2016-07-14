@@ -6,7 +6,8 @@
 \usage{
 oauth2.0_token(endpoint, app, scope = NULL, user_params = NULL,
   type = NULL, use_oob = getOption("httr_oob_default"), as_header = TRUE,
-  use_basic_auth = FALSE, cache = getOption("httr_oauth_cache"))
+  use_basic_auth = FALSE, without_auth_req = FALSE,
+  cache = getOption("httr_oauth_cache"))
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -36,6 +37,13 @@ requests.}
 retrieve the token. Some authorization servers require this.
 If \code{FALSE}, the default, retrieve the token by including the
 app key and secret in the request body.}
+
+\item{without_auth_req}{if \code{TRUE}, no authorization request is send
+before token access request. It is suitable for the \emph{Client Credential
+Grant} as described in
+\url{https://tools.ietf.org/html/rfc6749#section-4.4}. If \code{FALSE}, the
+default, authorization request is then token request is send included the
+authorization code.}
 
 \item{cache}{A logical value or a string. \code{TRUE} means to cache
 using the default cache file \code{.httr-oauth}, \code{FALSE} means
