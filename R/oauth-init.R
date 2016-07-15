@@ -105,18 +105,26 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
     } else {
       code <- oauth_listener(authorize_url, is_interactive)$code
     }
-  } else
+  }
   # Use authorisation code to get (temporary) access token
 
   # Send credentials using HTTP Basic or as parameters in the request body
   # See https://tools.ietf.org/html/rfc6749#section-2.3 (Client Authentication)
-  req_params <- list(
-    client_id = app$key,
-    redirect_uri = redirect_uri,
-    grant_type = "authorization_code",
-    code = code)
 
-  if(without_auth_req) req_params <- NULL
+
+  if(without_auth_req) {
+    req_params <- list(
+      client_id = app$key,
+      client_secret = app$secret,
+      # redirect_uri = redirect_uri,
+      grant_type = "client_credentials")
+  } else {
+    req_params <- list(
+      client_id = app$key,
+      redirect_uri = redirect_uri,
+      grant_type = "authorization_code",
+      code = code)
+  }
 
   if (!is.null(user_params)) {
     req_params <- utils::modifyList(user_params, req_params)
