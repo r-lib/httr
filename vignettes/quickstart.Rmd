@@ -227,7 +227,7 @@ POST(url, body = body, encode = "form", verbose())
 POST(url, body = body, encode = "json", verbose())
 ```
 
-`PUT()` and `PATCH()` can also have request bodies, and they identically to `POST()`.
+`PUT()` and `PATCH()` can also have request bodies, and they take arguments identically to `POST()`.
 
 You can also send files off disk:
 
