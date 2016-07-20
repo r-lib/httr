@@ -451,7 +451,7 @@ If your package supports an authentication workflow based on an API key or token
 
 1.  Create a personal access token in the  [Personal access tokens area](https://github.com/settings/tokens) of your GitHub personal settings. Copy token to the clipboard.
 2.  Identify your home directory. Not sure? Enter `normalizePath("~/")` in  the R console. 
-3.  Create a new text file. If in RStudio, do *File > New File > Text file.*
+3.  Create a new text file. If in RStudio, do *File > New File > Text File.*
 4.  Create a line like this:
 
 ```bash
