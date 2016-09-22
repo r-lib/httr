@@ -141,8 +141,8 @@ Token <- R6::R6Class("Token", list(
 oauth1.0_token <- function(endpoint, app, permission = NULL,
                            as_header = TRUE,
                            private_key = NULL,
-                           cache = getOption("httr_oauth_cache")) {
-  params <- list(permission = permission, as_header = as_header)
+                           cache = getOption("httr_oauth_cache"), use_oob = getOption("httr_oob_default")) {
+  params <- list(permission = permission, as_header = as_header, use_oob = use_oob)
 
   Token1.0$new(app = app, endpoint = endpoint, params = params,
     private_key = private_key, cache_path = cache)
@@ -153,7 +153,7 @@ oauth1.0_token <- function(endpoint, app, permission = NULL,
 Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
   init_credentials = function(force = FALSE) {
     self$credentials <- init_oauth1.0(self$endpoint, self$app,
-      permission = self$params$permission, private_key = self$private_key)
+      permission = self$params$permission, private_key = self$private_key, use_oob = self$params$use_oob)
   },
   can_refresh = function() {
     FALSE
