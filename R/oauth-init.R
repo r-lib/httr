@@ -38,7 +38,14 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
   authorize_url <- modify_url(endpoint$authorize, query = list(
     oauth_token = token,
     permission = "read"))
-  verifier <- oauth_listener(authorize_url, is_interactive)
+  
+  if (isTRUE(use_oob)) {
+    verifier <- oauth_exchanger(authorize_url)
+  } else {
+    verifier <- oauth_listener(authorize_url, is_interactive)
+  }
+  
+  #verifier <- oauth_listener(authorize_url, is_interactive)
   verifier <- verifier$oauth_verifier %||% verifier[[1]]
 
   # 3. Request access token
