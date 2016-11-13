@@ -122,7 +122,11 @@ request_prepare <- function(req) {
 
 request_perform <- function(req, handle, refresh = TRUE) {
   stopifnot(is.request(req), inherits(handle, "curl_handle"))
+
   req <- request_prepare(req)
+
+  ## This callback can cancel the request
+  if (!is.null(res <- perform_callback("request", req = req))) return(res)
 
   curl::handle_setopt(handle, .list = req$options)
   if (!is.null(req$fields))
@@ -149,7 +153,7 @@ request_perform <- function(req, handle, refresh = TRUE) {
     date <- Sys.time()
   }
 
-  response(
+  res <- response(
     url = resp$url,
     status_code = resp$status_code,
     headers = headers,
@@ -161,5 +165,12 @@ request_perform <- function(req, handle, refresh = TRUE) {
     request = req,
     handle = handle
   )
+
+  ## If the callback provides a result, we return that
+  if (!is.null(cbres <- perform_callback("response", req, res))) {
+    return(cbres)
+  }
+
+  res
 }
 
