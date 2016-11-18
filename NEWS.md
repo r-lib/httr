@@ -1,5 +1,9 @@
 # httr 1.2.1.9000
 
+* New functions `set_callback()` and `get_callback()` set and query
+  callback functions that are called right before and after performing an
+  HTTP request (@gaborcsardi #409)
+
 # httr 1.2.1
 
 * Fix bug with new cache creation code: need to check that 
