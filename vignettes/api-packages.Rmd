@@ -200,7 +200,7 @@ Next, you need to make sure that your API wrapper throws an error if the request
 
 You need to make sure these are all converted into regular R errors. You can figure out if there's a problem with `http_error()`, which checks the HTTP status code. Status codes in the 400 range usually mean that you've done something wrong. Status codes in the 500 range typically mean that something has gone wrong on the server side.
 
-Often the API will information about the error in the body of the response: you should use this where available. If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are [rate limited](https://developer.github.com/v3/#rate-limiting) you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).
+Often the API will provide information about the error in the body of the response: you should use this where available. If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are [rate limited](https://developer.github.com/v3/#rate-limiting) you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).
 
 ```{r, error = TRUE}
 github_api <- function(path) {
