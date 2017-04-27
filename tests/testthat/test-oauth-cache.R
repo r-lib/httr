@@ -53,3 +53,30 @@ test_that("token saved to and restored from cache", {
   expect_equal(token_b$endpoint, token_a$endpoint)
   expect_equal(token_b$credentials, token_a$credentials)
 })
+
+test_that("new caches are Rbuildignored and gitignored", {
+  owd <- setwd(tmp_dir())
+  on.exit(setwd(owd))
+  old <- options()
+  on.exit(options(old), add = TRUE)
+  file.create("DESCRIPTION")
+
+  ## default: options("httr_oauth_cache" = NA)
+  ## not tested
+  ## if cache does not exist, will not be created if !interactive()
+
+  options("httr_oauth_cache" = TRUE)
+  use_cache()
+  expect_true(file.exists(".Rbuildignore"))
+  expect_identical(readLines(".Rbuildignore"), "^\\.httr-oauth$")
+  expect_true(file.exists(".gitignore"))
+  expect_identical(readLines(".gitignore"), ".httr-oauth")
+
+  unlink(c(".httr-oauth", ".Rbuildignore", ".gitignore"))
+
+  use_cache("xyz")
+  expect_true(file.exists(".Rbuildignore"))
+  expect_identical(readLines(".Rbuildignore"), "^xyz$")
+  expect_true(file.exists(".gitignore"))
+  expect_identical(readLines(".gitignore"), "xyz")
+})
