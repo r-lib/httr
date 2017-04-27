@@ -6,21 +6,30 @@ use_cache <- function(cache = getOption("httr_oauth_cache")) {
     stop("Cache must either be logical or string (file path)")
   }
 
-  # If it's a character, then it's a file path, so use it
-  if (is.character(cache)) return(cache)
-
   # If missing, see if it's ok to use one, and cache the results of
   # that check in a global option.
   if (is.na(cache)) {
     cache <- can_use_cache()
     options("httr_oauth_cache" = cache)
   }
+  ## cache is now TRUE, FALSE or path
 
-  if (cache) ".httr-oauth" else NULL
+  if (isFALSE(cache)) {
+    return(NULL)
+  }
+
+  if (isTRUE(cache)) {
+    cache <- ".httr-oauth"
+  }
+
+  if (!file.exists(cache)) {
+    create_cache(cache)
+  }
+  return(cache)
 }
 
 can_use_cache <- function(path = ".httr-oauth") {
-  file.exists(path) || (should_cache(path) && create_cache(path))
+  file.exists(path) || should_cache(path)
 }
 
 should_cache <- function(path = ".httr-oauth") {
