@@ -1,6 +1,17 @@
 context("OAuth cache")
 
+tmp_dir <- function() {
+  x <- tempfile()
+  dir.create(x)
+  x
+}
+
 test_that("use_cache() returns NULL or filepath", {
+  old <- options()
+  on.exit(options(old))
+  owd <- setwd(tmp_dir())
+  on.exit(setwd(owd), add = TRUE)
+
   expect_equal(use_cache(FALSE), NULL)
   expect_equal(use_cache(TRUE), ".httr-oauth")
   expect_equal(use_cache("xyz"), "xyz")
@@ -9,6 +20,8 @@ test_that("use_cache() returns NULL or filepath", {
 test_that("use_cache() respects options", {
   old <- options()
   on.exit(options(old))
+  owd <- setwd(tmp_dir())
+  on.exit(setwd(owd), add = TRUE)
 
   options(httr_oauth_cache = FALSE)
   expect_equal(use_cache(), NULL)
@@ -18,7 +31,8 @@ test_that("use_cache() respects options", {
 })
 
 test_that("token saved to and restored from cache", {
-  on.exit(unlink(".tmp-cache"))
+  owd <- setwd(tmp_dir())
+  on.exit(setwd(owd))
 
   token_a <- Token2.0$new(
     app = oauth_app("x", "y", "z"),
