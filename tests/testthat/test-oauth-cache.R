@@ -57,15 +57,14 @@ test_that("token saved to and restored from cache", {
 test_that("new caches are Rbuildignored and gitignored", {
   owd <- setwd(tmp_dir())
   on.exit(setwd(owd))
-  old <- options()
-  on.exit(options(old), add = TRUE)
   file.create("DESCRIPTION")
 
   ## default: options("httr_oauth_cache" = NA)
   ## not tested
   ## if cache does not exist, will not be created if !interactive()
 
-  options("httr_oauth_cache" = TRUE)
+  old <- options("httr_oauth_cache" = TRUE)
+  on.exit(options(old), add = TRUE)
   use_cache()
   expect_true(file.exists(".Rbuildignore"))
   expect_identical(readLines(".Rbuildignore"), "^\\.httr-oauth$")
