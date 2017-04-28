@@ -1,5 +1,7 @@
 # httr 1.2.1.9000
 
+* New oauth cache files are always added to `.gitignore` and, if it exists, `.Rbuildignore`. Specifically, this now happens when option `httr_oauth_cache = TRUE` or user specifies cache file name explicitly. (@jennybc #436)
+
 * New functions `set_callback()` and `get_callback()` set and query
   callback functions that are called right before and after performing an
   HTTP request (@gaborcsardi #409)

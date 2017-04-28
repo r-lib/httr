@@ -84,3 +84,5 @@ find_cert_bundle <- function() {
   # Fall back to certificate bundle in openssl
   system.file("cacert.pem", package = "openssl")
 }
+
+isFALSE <- function(x) identical(x, FALSE)
