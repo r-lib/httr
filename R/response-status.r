@@ -57,6 +57,7 @@ http_status <- function(x) {
   message <- paste(status_type, ": (", status, ") ", status_desc, sep = "")
 
   list(
+    code = status,
     category = status_type,
     reason = status_desc,
     message = message
