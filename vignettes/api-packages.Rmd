@@ -420,7 +420,7 @@ rate_limit <- function() {
 rate_limit()
 ```
 
-## Packaging youe code
+## Packaging your code
 
 ### Documentation
 
