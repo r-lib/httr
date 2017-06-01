@@ -46,8 +46,10 @@ progress_bar <- function(type, con) {
         first <<- FALSE
       }
       cat("\rDownloading: ", bytes(now, digits = 2), "     ", sep = "", file = con)
-      if (now == total) cat("\n", file = con)
-      utils::flush.console()
+    }
+    
+    if (now == total) {
+      close(bar)
     } else {
       if (is.null(bar)) {
         bar <<- utils::txtProgressBar(max = total, style = 3, file = con)
