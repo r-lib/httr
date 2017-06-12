@@ -1,7 +1,7 @@
 # httr
 
-[![Build Status](https://travis-ci.org/hadley/httr.png?branch=master)](https://travis-ci.org/hadley/httr)
-[![Coverage Status](https://img.shields.io/codecov/c/github/hadley/httr/master.svg)](https://codecov.io/github/hadley/httr?branch=master)
+[![Build Status](https://travis-ci.org/r-lib/httr.svg?branch=master)](https://travis-ci.org/r-lib/httr)
+[![Coverage Status](https://img.shields.io/codecov/c/github/r-lib/httr/master.svg)](https://codecov.io/github/r-lib/httr?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/httr)](http://cran.r-project.org/package=httr)
 
 The aim of httr is to provide a wrapper for the [curl](https://cran.r-project.org/package=curl) package, customised to the demands of modern web APIs.
@@ -47,5 +47,5 @@ To get the current development version from github:
 
 ```R
 # install.packages("devtools")
-devtools::install_github("hadley/httr")
+devtools::install_github("r-lib/httr")
 ```
