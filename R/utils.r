@@ -47,9 +47,11 @@ last <- function(x) {
 }
 
 compact <- function(x) {
-  null <- vapply(x, is.null, logical(1))
-  x[!null]
+  empty <- vapply(x, is_empty, logical(1))
+  x[!empty]
 }
+
+is_empty <- function(x) length(x) == 0
 
 keep_last <- function(...) {
   x <- c(...)

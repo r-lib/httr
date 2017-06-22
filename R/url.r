@@ -161,5 +161,3 @@ modify_url <- function(url, scheme = NULL, hostname = NULL, port = NULL,
 
   build_url(utils::modifyList(old, new))
 }
-
-compact <- function(x) Filter(Negate(is.null), x)
