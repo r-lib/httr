@@ -9,6 +9,9 @@ r:
   - release
   - devel
 
+r_github_packages:
+  - jeroen/curl
+
 env:
   global:
     secure: Jhp65lhvVcvDzPmn56M/SFrREG6xPMbAH64m5q7qBt67ns8edO87xdhG+O3U5f6LFlWs4I8vkC4Ruo2XCEEnwo23lEPR+/u3fLEKC8KIYXwFyKXIrLxANKLxUF3LmxYAYGXQiJw+W6pPdDIHxlOZeE+qyuwQ67LjnuA5egGsc1Y=
