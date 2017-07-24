@@ -68,13 +68,11 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
                           type = NULL, use_oob = getOption("httr_oob_default"),
                           is_interactive = interactive(),
                           use_basic_auth = FALSE) {
-  if (!use_oob && !is_installed("httpuv")) {
-    message("httpuv not installed, defaulting to out-of-band authentication")
-    use_oob <- TRUE
-  }
 
-  if (isTRUE(use_oob)) {
-    stopifnot(interactive())
+  scope <- check_scope(scope)
+  use_oob <- check_oob(use_oob)
+
+  if (use_oob) {
     redirect_uri <- "urn:ietf:wg:oauth:2.0:oob"
     state <- NULL
   } else {
@@ -82,15 +80,14 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
     state <- nonce()
   }
 
-  scope_arg <- check_scope(scope)
-
   authorize_url <- modify_url(endpoint$authorize, query = compact(list(
     client_id = app$key,
-    scope = scope_arg,
+    scope = scope,
     redirect_uri = redirect_uri,
     response_type = "code",
     state = state)))
-  if (isTRUE(use_oob)) {
+
+  if (use_oob) {
     code <- oauth_exchanger(authorize_url)$code
   } else {
     code <- oauth_listener(authorize_url, is_interactive)$code
@@ -122,6 +119,9 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
   content(req, type = type)
 }
 
+
+# Parameter checking ------------------------------------------------------
+
 check_scope <- function(x) {
   if (is.null(x)) {
     return(NULL)
@@ -131,4 +131,26 @@ check_scope <- function(x) {
     stop("`scope` must be a character vector", call. = FALSE)
   }
   paste(x, collapse = ' ')
+}
+
+check_oob <- function(x) {
+  if (!is.logical(x) || length(x) != 1) {
+    stop("`use_oob` must be a length-1 logical vector", call. = FALSE)
+  }
+
+  if (!x && !is_installed("httpuv")) {
+    message("httpuv not installed, defaulting to out-of-band authentication")
+    x <- TRUE
+  }
+
+  if (x) {
+    if (!interactive()) {
+      stop(
+        "Can only use oob authentication in an interactive session",
+        call. = FALSE
+      )
+    }
+  }
+
+  x
 }

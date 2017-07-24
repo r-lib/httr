@@ -65,3 +65,12 @@ test_that("scope must be character or NULL", {
 test_that("multiple scopes collapsed with space", {
   expect_equal(check_scope(c("a", "b")), "a b")
 })
+
+test_that("oob must be a flag", {
+  expect_error(check_oob("a"), "logical vector")
+  expect_error(check_oob(c(FALSE, FALSE)), "logical vector")
+})
+
+test_that("can not use oob in non-interactive session", {
+  expect_error(check_oob(TRUE), "interactive")
+})
