@@ -94,7 +94,7 @@ oauth_encode <- function(x) vapply(x, oauth_encode1, character(1))
 
 # As described in http://tools.ietf.org/html/rfc5849#page-29
 oauth_encode1 <- function(x) {
-  encode <- function(x) paste0("%", toupper(as.character(charToRaw(x))))
+  encode <- function(x) paste0("%", toupper(as.character(charToRaw(x))), collapse = "")
 
   x <- as.character(x)
   chars <- strsplit(x, "")[[1]]

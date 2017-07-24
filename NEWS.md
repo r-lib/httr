@@ -6,6 +6,9 @@
   callback functions that are called right before and after performing an
   HTTP request (@gaborcsardi #409)
 
+* Fix bug for OAuth 1 process: `oauth_encode()` now handles UTF-8 characters correctly.
+  (@yutannihilation #424)
+
 # httr 1.2.1
 
 * Fix bug with new cache creation code: need to check that 
