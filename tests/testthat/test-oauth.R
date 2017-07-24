@@ -50,8 +50,5 @@ test_that("oauth_encode1 works", {
   restored_string <- URLdecode(oauth_encode1(orig_string))
   Encoding(restored_string) <- "UTF-8"
 
-  expect_equal(
-    orig_string,
-    restored_string
-  )
+  expect_equal(orig_string, restored_string)
 })
