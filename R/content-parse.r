@@ -110,11 +110,25 @@ parsers$`text/xml` <- function(x, type = NULL, encoding = NULL, ...) {
   xml2::read_xml(x, encoding = encoding, ...)
 }
 
+parsers$`text/delim` <- function(x, type = NULL, encoding = NULL, ...) {
+  need_package("readr")
+
+  encoding <- guess_encoding(encoding, type)
+  readr::read_delim(x, locale = readr::locale(encoding = encoding), ...)
+}
+
 parsers$`text/csv` <- function(x, type = NULL, encoding = NULL, ...) {
   need_package("readr")
 
   encoding <- guess_encoding(encoding, type)
   readr::read_csv(x, locale = readr::locale(encoding = encoding), ...)
+}
+
+parsers$`text/csv2` <- function(x, type = NULL, encoding = NULL, ...) {
+  need_package("readr")
+
+  encoding <- guess_encoding(encoding, type)
+  readr::read_csv2(x, locale = readr::locale(encoding = encoding), ...)
 }
 
 parsers$`text/tab-separated-values` <- function(x, type = NULL, encoding = NULL, ...) {
