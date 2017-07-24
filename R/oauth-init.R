@@ -62,12 +62,19 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'     retrieve the token. Some authorization servers require this.
 #'     If \code{FALSE}, the default, retrieve the token by including the
 #'     app key and secret in the request body.
+#' @param without_auth_req if \code{TRUE}, no authorization request is send
+#'   before token access request. It is suitable for the \emph{Client Credential
+#'   Grant} as described in
+#'   \url{https://tools.ietf.org/html/rfc6749#section-4.4}. If \code{FALSE}, the
+#'   default, authorization request is then token request is send included the
+#'   authorization code.
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
                           type = NULL, use_oob = getOption("httr_oob_default"),
                           is_interactive = interactive(),
-                          use_basic_auth = FALSE) {
+                          use_basic_auth = FALSE,
+                          without_auth_req = FALSE) {
   if (!use_oob && !is_installed("httpuv")) {
     message("httpuv not installed, defaulting to out-of-band authentication")
     use_oob <- TRUE
@@ -84,27 +91,40 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
 
   scope_arg <- paste(scope, collapse = ' ')
 
-  authorize_url <- modify_url(endpoint$authorize, query = compact(list(
-    client_id = app$key,
-    scope = scope_arg,
-    redirect_uri = redirect_uri,
-    response_type = "code",
-    state = state)))
-  if (isTRUE(use_oob)) {
-    code <- oauth_exchanger(authorize_url)$code
-  } else {
-    code <- oauth_listener(authorize_url, is_interactive)$code
+  # Some Oauth2 grant type not required an authentification request
+  # (see https://tools.ietf.org/html/rfc6749#section-4.4)
+  if(!without_auth_req) {
+    authorize_url <- modify_url(endpoint$authorize, query = compact(list(
+      client_id = app$key,
+      scope = scope_arg,
+      redirect_uri = redirect_uri,
+      response_type = "code",
+      state = state)))
+    if (isTRUE(use_oob)) {
+      code <- oauth_exchanger(authorize_url)$code
+    } else {
+      code <- oauth_listener(authorize_url, is_interactive)$code
+    }
   }
-
   # Use authorisation code to get (temporary) access token
 
   # Send credentials using HTTP Basic or as parameters in the request body
   # See https://tools.ietf.org/html/rfc6749#section-2.3 (Client Authentication)
-  req_params <- list(
-    client_id = app$key,
-    redirect_uri = redirect_uri,
-    grant_type = "authorization_code",
-    code = code)
+
+
+  if(without_auth_req) {
+    req_params <- list(
+      client_id = app$key,
+      client_secret = app$secret,
+      # redirect_uri = redirect_uri,
+      grant_type = "client_credentials")
+  } else {
+    req_params <- list(
+      client_id = app$key,
+      redirect_uri = redirect_uri,
+      grant_type = "authorization_code",
+      code = code)
+  }
 
   if (!is.null(user_params)) {
     req_params <- utils::modifyList(user_params, req_params)
