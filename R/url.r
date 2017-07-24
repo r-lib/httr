@@ -120,11 +120,11 @@ build_url <- function(url) {
   }
 
   if (is.list(url$query)) {
-    query <- compose_query(url$query)
+    query <- compose_query(compact(url$query))
   } else {
     query <- url$query
   }
-  if (!is.null(query)) {
+  if (!is.null(query) && nzchar(query)) {
     stopifnot(is.character(query), length(query) == 1)
     query <- paste0("?", query)
   }
@@ -161,5 +161,3 @@ modify_url <- function(url, scheme = NULL, hostname = NULL, port = NULL,
 
   build_url(utils::modifyList(old, new))
 }
-
-compact <- function(x) Filter(Negate(is.null), x)

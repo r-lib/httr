@@ -66,10 +66,13 @@ test_that("build_url drops leading / in path", {
   expect_equal(url, "http://google.com/one")
 })
 
-test_that("build_url drops null query", {
+test_that("build_url drops null or empty query", {
   url <- modify_url("http://google.com", query = list(a = 1, b = NULL))
   expect_equal(url, "http://google.com/?a=1")
-
+  url <- modify_url("http://google.com", query = list(a = NULL))
+  expect_equal(url, "http://google.com/")
+  url <- modify_url("http://google.com", query = list())
+  expect_equal(url, "http://google.com/")
 })
 
 test_that("parse_url pulls off domain correctly given query without trailing '/'", {
