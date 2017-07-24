@@ -6,7 +6,8 @@
 \usage{
 RETRY(verb, url = NULL, config = list(), ..., body = NULL,
   encode = c("multipart", "form", "json", "raw"), times = 3,
-  pause_base = 1, pause_cap = 60, handle = NULL, quiet = FALSE)
+  pause_base = 1, pause_cap = 60, handle = NULL, quiet = FALSE,
+  use_try = FALSE, safe_statuses = integer())
 }
 \arguments{
 \item{verb}{Name of verb to use.}
@@ -67,9 +68,17 @@ details.}
 
 \item{quiet}{If \code{FALSE}, will print a message displaying how long
 until the next request.}
+
+\item{use_try}{If \code{TRUE}, will wrap the request execution in a call to
+\code{\link[base]{try}()} in order to catch lower level errors in the
+request.}
+
+\item{safe_statuses}{Integer vector of status codes that should be considered
+safe and not cause a retry.}
 }
 \value{
-The last response. Note that if the request doesn't succeed after
+The last response or, if \code{use_try} was \code{TRUE}, an invisible
+  object of class \code{"try-error"}. Note that if the request doesn't succeed after
   \code{times} times this will be a failed request, i.e. you still need
   to use \code{\link{stop_for_status}()}.
 }
@@ -85,5 +94,6 @@ backoff with jitter, using the approach outlined in
 RETRY("GET", "http://httpbin.org/status/200")
 # Never succeeds
 RETRY("GET", "http://httpbin.org/status/500")
+# Returns immediately with a 404 response
+RETRY("GET", "http://httpbin.org/status/404", safe_statuses = 400L)
 }
-
