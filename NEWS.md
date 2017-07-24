@@ -1,5 +1,8 @@
 # httr 1.2.1.9000
 
+* `oauth_service_token()` gains a `sub` parameter so you can request
+  access on behalf of another user (#410).
+
 * With HTTP multipart encoding, you can now send lists containing 
   `curl::form_data()`. This makes it possible to specify the mime-type
   of individual components (#430).
