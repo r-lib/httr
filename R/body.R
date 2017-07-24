@@ -60,8 +60,11 @@ body_config <- function(body = NULL,
 }
 
 as_field <- function(x) UseMethod("as_field")
+#' @export
 as_field.numeric <- function(x) as.character(x)
+#' @export
 as_field.logical <- function(x) as.character(x)
+#' @export
 as_field.default <- function(x) x # assume curl will handle
 
 body_raw <- function(body, type = NULL) {
