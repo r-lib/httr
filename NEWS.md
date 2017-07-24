@@ -1,5 +1,9 @@
 # httr 1.2.1.9000
 
+* With HTTP multipart encoding, you can now send lists containing 
+  `curl::form_data()`. This makes it possible to specify the mime-type
+  of individual components (#430).
+
 * `oauth_service_token()` now accepts a character vector containing multiple
   scopes as described in the documentation (#389).
 

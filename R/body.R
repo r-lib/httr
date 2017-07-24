@@ -55,9 +55,14 @@ body_config <- function(body = NULL,
   } else if (encode == "multipart") {
     if (!all(has_name(body)))
       stop("All components of body must be named", call. = FALSE)
-    request(fields = lapply(body, as.character))
+    request(fields = lapply(body, as_field))
   }
 }
+
+as_field <- function(x) UseMethod("as_field")
+as_field.numeric <- function(x) as.character(x)
+as_field.logical <- function(x) as.character(x)
+as_field.default <- function(x) x # assume curl will handle
 
 body_raw <- function(body, type = NULL) {
   if (is.character(body)) {
