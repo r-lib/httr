@@ -1,5 +1,8 @@
 # httr 1.2.1.9000
 
+* `oauth_service_token()` now accepts a character vector containing multiple
+  scopes as described in the documentation (#389).
+
 * Don't export `length()` method for internal `path` class (#395)
 
 * New oauth cache files are always added to `.gitignore` and, if it exists, `.Rbuildignore`. Specifically, this now happens when option `httr_oauth_cache = TRUE` or user specifies cache file name explicitly. (@jennybc #436)

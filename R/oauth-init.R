@@ -82,7 +82,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
     state <- nonce()
   }
 
-  scope_arg <- paste(scope, collapse = ' ')
+  scope_arg <- check_scope(scope)
 
   authorize_url <- modify_url(endpoint$authorize, query = compact(list(
     client_id = app$key,
@@ -120,4 +120,15 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
 
   stop_for_status(req, task = "get an access token")
   content(req, type = type)
+}
+
+check_scope <- function(x) {
+  if (is.null(x)) {
+    return(NULL)
+  }
+
+  if (!is.character(x)) {
+    stop("`scope` must be a character vector", call. = FALSE)
+  }
+  paste(x, collapse = ' ')
 }

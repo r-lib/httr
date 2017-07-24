@@ -273,8 +273,8 @@ oauth_service_token <- function(endpoint, secrets, scope = NULL) {
     stop("`endpoint` must be an OAuth endpoint", call. = FALSE)
   if (!is.list(secrets))
     stop("`secrets` must be a list.", call. = FALSE)
-  if (!is.null(scope) && !(is.character(scope) && length(scope) == 1))
-    stop("`scope` must be a length 1 character vector.", call. = FALSE)
+
+  scope <- check_scope(scope)
 
   TokenServiceAccount$new(
     endpoint = endpoint,

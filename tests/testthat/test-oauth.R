@@ -52,3 +52,16 @@ test_that("oauth_encode1 works", {
 
   expect_equal(orig_string, restored_string)
 })
+
+
+# Parameter checking ------------------------------------------------------
+
+test_that("scope must be character or NULL", {
+  expect_equal(check_scope("a"), "a")
+  expect_equal(check_scope(NULL), NULL)
+  expect_error(check_scope(1), "character vector")
+})
+
+test_that("multiple scopes collapsed with space", {
+  expect_equal(check_scope(c("a", "b")), "a b")
+})
