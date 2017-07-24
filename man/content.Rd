@@ -2,8 +2,8 @@
 % Please edit documentation in R/content.r
 \name{content}
 \alias{content}
-\alias{parsed_content}
 \alias{text_content}
+\alias{parsed_content}
 \title{Extract content from a request.}
 \usage{
 content(x, as = NULL, type = NULL, encoding = NULL, ...)
@@ -69,6 +69,7 @@ Instead, check the mime-type is what you expect, and then parse yourself.
 This is safer, as you will fail informatively if the API changes, and
 you will protect yourself against changes to httr.
 }
+
 \examples{
 r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
 content(r) # automatically parses JSON
@@ -84,4 +85,3 @@ Other response methods: \code{\link{http_error}},
   \code{\link{http_status}}, \code{\link{response}},
   \code{\link{stop_for_status}}
 }
-

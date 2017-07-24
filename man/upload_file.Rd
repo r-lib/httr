@@ -20,4 +20,3 @@ citation <- upload_file(system.file("CITATION"))
 POST("http://httpbin.org/post", body = citation)
 POST("http://httpbin.org/post", body = list(y = citation))
 }
-

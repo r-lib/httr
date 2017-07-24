@@ -19,4 +19,3 @@ cookies(r)
 \seealso{
 \code{\link{set_cookies}()} to send cookies in request.
 }
-

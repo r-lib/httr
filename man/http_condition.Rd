@@ -51,4 +51,3 @@ f("http://httpbin.org/status/505")
   for more details about R's condition handling model
 }
 \keyword{internal}
-

@@ -12,4 +12,3 @@ status_code(x)
 \description{
 Extract status code from response.
 }
-

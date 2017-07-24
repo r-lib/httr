@@ -20,4 +20,3 @@ headers(r)
 \code{\link{add_headers}()} to send additional headers in a
   request
 }
-

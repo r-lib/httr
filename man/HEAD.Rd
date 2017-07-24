@@ -46,6 +46,7 @@ cached entity differs from the current entity (as would be indicated by a
 change in Content-Length, Content-MD5, ETag or Last-Modified), then the
 cache MUST treat the cache entry as stale.
 }
+
 \examples{
 HEAD("http://google.com")
 headers(HEAD("http://google.com"))
@@ -56,4 +57,3 @@ Other http methods: \code{\link{BROWSE}},
   \code{\link{PATCH}}, \code{\link{POST}},
   \code{\link{PUT}}, \code{\link{VERB}}
 }
-

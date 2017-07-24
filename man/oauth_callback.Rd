@@ -11,4 +11,3 @@ The url that \code{\link{oauth_listener}} expects that the client be
 referred to.
 }
 \keyword{internal}
-

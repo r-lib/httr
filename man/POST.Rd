@@ -76,4 +76,3 @@ Other http methods: \code{\link{BROWSE}},
   \code{\link{HEAD}}, \code{\link{PATCH}},
   \code{\link{PUT}}, \code{\link{VERB}}
 }
-

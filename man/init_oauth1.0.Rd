@@ -24,4 +24,3 @@ Used for signed OAuth 1.0.}
 See demos for use.
 }
 \keyword{internal}
-

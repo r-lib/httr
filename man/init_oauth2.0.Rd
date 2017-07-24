@@ -38,4 +38,3 @@ app key and secret in the request body.}
 See demos for use.
 }
 \keyword{internal}
-

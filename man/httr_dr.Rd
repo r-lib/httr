@@ -9,4 +9,3 @@ httr_dr()
 \description{
 Currently one check: that curl uses nss.
 }
-

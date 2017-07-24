@@ -29,4 +29,3 @@ Other config: \code{\link{add_headers}},
   \code{\link{set_cookies}}, \code{\link{timeout}},
   \code{\link{user_agent}}, \code{\link{verbose}}
 }
-

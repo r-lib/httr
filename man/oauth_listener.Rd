@@ -26,4 +26,3 @@ and \code{\link{oauth2.0_token}} for examples of both techniques.
 This function should not normally be called directly by the user.
 }
 \keyword{internal}
-

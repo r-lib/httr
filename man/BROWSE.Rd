@@ -40,4 +40,3 @@ Other http methods: \code{\link{DELETE}},
   \code{\link{PATCH}}, \code{\link{POST}},
   \code{\link{PUT}}, \code{\link{VERB}}
 }
-

@@ -24,4 +24,3 @@ x <- GET("http://courses.had.co.nz/12-oscon/slides.zip", progress())
 x <- GET("http://httpbin.org/drip?numbytes=4000&duration=3", progress())
 }
 }
-

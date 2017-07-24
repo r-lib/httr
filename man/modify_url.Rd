@@ -17,4 +17,3 @@ modify_url(url, scheme = NULL, hostname = NULL, port = NULL,
 Modify a url by first parsing it and then replacing components with
 the non-NULL arguments of this function.
 }
-

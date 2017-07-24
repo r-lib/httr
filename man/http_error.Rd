@@ -2,8 +2,8 @@
 % Please edit documentation in R/response-status.r
 \name{http_error}
 \alias{http_error}
-\alias{url_ok}
 \alias{url_success}
+\alias{url_ok}
 \title{Check for an http error.}
 \usage{
 http_error(x, ...)
@@ -40,4 +40,3 @@ Other response methods: \code{\link{content}},
   \code{\link{http_status}}, \code{\link{response}},
   \code{\link{stop_for_status}}
 }
-

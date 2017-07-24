@@ -22,4 +22,3 @@ Other config: \code{\link{add_headers}},
   \code{\link{set_cookies}}, \code{\link{timeout}},
   \code{\link{use_proxy}}, \code{\link{verbose}}
 }
-

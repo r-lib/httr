@@ -44,4 +44,3 @@ Other OAuth: \code{\link{oauth1.0_token}},
   \code{\link{oauth_endpoint}},
   \code{\link{oauth_service_token}}
 }
-

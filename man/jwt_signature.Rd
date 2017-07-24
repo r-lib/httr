@@ -25,4 +25,3 @@ jwt_signature(cred, "https://www.googleapis.com/auth/userinfo.profile")
 }
 }
 \keyword{internal}
-

@@ -17,4 +17,3 @@ sha1_hash(key, string, method = "HMAC-SHA1")
 Creates a SHA1 hash of data using either HMAC or RSA.
 }
 \keyword{internal}
-

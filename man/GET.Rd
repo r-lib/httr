@@ -53,6 +53,7 @@ The partial GET method is intended to reduce unnecessary network usage by
 allowing partially-retrieved entities to be completed without transferring
 data already held by the client.
 }
+
 \examples{
 GET("http://google.com/")
 GET("http://google.com/", path = "search")
@@ -79,4 +80,3 @@ Other http methods: \code{\link{BROWSE}},
   \code{\link{PATCH}}, \code{\link{POST}},
   \code{\link{PUT}}, \code{\link{VERB}}
 }
-
