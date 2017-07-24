@@ -5,10 +5,6 @@ body_config <- function(body = NULL,
   if (identical(body, FALSE))
     return(config(post = TRUE, nobody = TRUE))
 
-  # For character/raw, send raw bytes
-  if (is.character(body) || is.raw(body))
-    return(body_raw(body, type = type))
-
   # Send single file lazily
   if (inherits(body, "form_file")) {
     con <- file(body$path, "rb")
@@ -32,6 +28,10 @@ body_config <- function(body = NULL,
       content_type(body$type)
     ))
   }
+
+  # For character/raw, send raw bytes
+  if (is.character(body) || is.raw(body))
+    return(body_raw(body, type = type))
 
   # Post with empty body
   if (is.null(body))
