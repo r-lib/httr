@@ -6,7 +6,7 @@
 \usage{
 init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
   type = NULL, use_oob = getOption("httr_oob_default"),
-  is_interactive = interactive(), use_basic_auth = FALSE)
+  is_interactive = interactive(), use_basic_auth = FALSE, config = list())
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -33,6 +33,8 @@ or \code{TRUE} if \code{httpuv} is not installed.}
 retrieve the token. Some authorization servers require this.
 If \code{FALSE}, the default, retrieve the token by including the
 app key and secret in the request body.}
+
+\item{config}{Additional configuration settings sent to \code{\link{POST}}}
 }
 \description{
 See demos for use.
