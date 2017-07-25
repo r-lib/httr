@@ -81,7 +81,7 @@ find_cert_bundle <- function() {
 
   bundled <- file.path(R.home("etc"), "curl-ca-bundle.crt")
   if (file.exists(bundled))
-    bundled
+    return(bundled)
 
   # Fall back to certificate bundle in openssl
   system.file("cacert.pem", package = "openssl")

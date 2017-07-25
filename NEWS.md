@@ -1,5 +1,8 @@
 # httr 1.2.1.9000
 
+* Fix bug with cert bundle lookup: `find_cert_bundle()` will now return cert bundle
+  in "R_HOME/etc" (@jiwalker-usgs #386).
+
 * `oauth_service_token()` gains a `sub` parameter so you can request
   access on behalf of another user (#410).
 
