@@ -6,7 +6,8 @@
 \usage{
 RETRY(verb, url = NULL, config = list(), ..., body = NULL,
   encode = c("multipart", "form", "json", "raw"), times = 3,
-  pause_base = 1, pause_cap = 60, handle = NULL, quiet = FALSE)
+  pause_base = 1, pause_cap = 60, handle = NULL, quiet = FALSE,
+  terminate_on = NULL)
 }
 \arguments{
 \item{verb}{Name of verb to use.}
@@ -67,6 +68,11 @@ details.}
 
 \item{quiet}{If \code{FALSE}, will print a message displaying how long
 until the next request.}
+
+\item{terminate_on}{Optional vector of numeric or integer HTTP status codes
+that if found on the response will immediately stop the retries. If missing
+or NULL, will keep retrying while \code{\link{http_error}()} is \code{TRUE}
+for the response.}
 }
 \value{
 The last response. Note that if the request doesn't succeed after
@@ -74,8 +80,10 @@ The last response. Note that if the request doesn't succeed after
   to use \code{\link{stop_for_status}()}.
 }
 \description{
-Safely retry a request until it succeeds (returns an HTTP status code
-below 400). It is designed to be kind to the server: after each failure
+Safely retry a request until it succeeds, as defined by the \code{terminate_on}
+parameter, which by default means a response for which \code{\link{http_error}()}
+is \code{FALSE}. Will also retry on error conditions raised by the underlying curl code.
+It is designed to be kind to the server: after each failure
 randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in
 \url{https://www.awsarchitectureblog.com/2015/03/backoff.html}.)
@@ -85,4 +93,6 @@ backoff with jitter, using the approach outlined in
 RETRY("GET", "http://httpbin.org/status/200")
 # Never succeeds
 RETRY("GET", "http://httpbin.org/status/500")
+# Invalid hostname generates curl error condition and is retried
+RETRY("GET", "http://invalidhostname/")
 }
