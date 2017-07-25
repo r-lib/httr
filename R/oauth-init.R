@@ -62,21 +62,14 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'     retrieve the token. Some authorization servers require this.
 #'     If \code{FALSE}, the default, retrieve the token by including the
 #'     app key and secret in the request body.
-#' @param config Additional configuration settings sent to \code{\link{POST}}
+#' @param config_init Additional configuration settings sent to
+#' \code{\link{POST}}, e.g. \code{\link{user_agent}}.
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
                           type = NULL, use_oob = getOption("httr_oob_default"),
                           is_interactive = interactive(),
-<<<<<<< HEAD
-                          use_basic_auth = FALSE, config = list()) {
-  if (!use_oob && !is_installed("httpuv")) {
-    message("httpuv not installed, defaulting to out-of-band authentication")
-    use_oob <- TRUE
-  }
-=======
-                          use_basic_auth = FALSE) {
->>>>>>> upstream/master
+                          use_basic_auth = FALSE, config_init = list()) {
 
   scope <- check_scope(scope)
   use_oob <- check_oob(use_oob)
@@ -118,11 +111,11 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
 
   if (isTRUE(use_basic_auth)) {
     req <- POST(endpoint$access, encode = "form", body = req_params,
-      authenticate(app$key, app$secret, type = "basic"), config = config)
+      authenticate(app$key, app$secret, type = "basic"), config = config_init)
   } else {
     req_params$client_secret <- app$secret
     req <- POST(endpoint$access, encode = "form", body = req_params,
-                config = config)
+                config = config_init)
   }
 
   stop_for_status(req, task = "get an access token")

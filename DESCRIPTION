@@ -27,6 +27,6 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 License: MIT + file LICENSE
-RoxygenNote: 6.0.1
+RoxygenNote: 6.0.1.9000
 URL: https://github.com/r-lib/httr
 BugReports: https://github.com/r-lib/httr/issues
