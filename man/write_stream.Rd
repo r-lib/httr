@@ -24,4 +24,3 @@ GET("https://jeroenooms.github.io/data/diamonds.json",
  })
 )
 }
-

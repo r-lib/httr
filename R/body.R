@@ -5,10 +5,6 @@ body_config <- function(body = NULL,
   if (identical(body, FALSE))
     return(config(post = TRUE, nobody = TRUE))
 
-  # For character/raw, send raw bytes
-  if (is.character(body) || is.raw(body))
-    return(body_raw(body, type = type))
-
   # Send single file lazily
   if (inherits(body, "form_file")) {
     con <- file(body$path, "rb")
@@ -33,6 +29,10 @@ body_config <- function(body = NULL,
     ))
   }
 
+  # For character/raw, send raw bytes
+  if (is.character(body) || is.raw(body))
+    return(body_raw(body, type = type))
+
   # Post with empty body
   if (is.null(body))
     return(body_raw(raw()))
@@ -55,9 +55,17 @@ body_config <- function(body = NULL,
   } else if (encode == "multipart") {
     if (!all(has_name(body)))
       stop("All components of body must be named", call. = FALSE)
-    request(fields = lapply(body, as.character))
+    request(fields = lapply(body, as_field))
   }
 }
+
+as_field <- function(x) UseMethod("as_field")
+#' @export
+as_field.numeric <- function(x) as.character(x)
+#' @export
+as_field.logical <- function(x) as.character(x)
+#' @export
+as_field.default <- function(x) x # assume curl will handle
 
 body_raw <- function(body, type = NULL) {
   if (is.character(body)) {

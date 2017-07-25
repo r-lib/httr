@@ -36,4 +36,3 @@ with_verbose(GET("http://google.com"))
 Other ways to set configuration: \code{\link{config}},
   \code{\link{set_config}}
 }
-

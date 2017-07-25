@@ -16,4 +16,3 @@ Deprecated. Instead create a config object directly using
 \code{config(token = my_token)}.
 }
 \keyword{internal}
-

@@ -86,4 +86,3 @@ RETRY("GET", "http://httpbin.org/status/200")
 # Never succeeds
 RETRY("GET", "http://httpbin.org/status/500")
 }
-

@@ -13,4 +13,3 @@ safe_callback(f)
 Generate a safe R callback.
 }
 \keyword{deprecated}
-

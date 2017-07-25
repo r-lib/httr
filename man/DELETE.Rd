@@ -79,6 +79,7 @@ If the request passes through a cache and the Request-URI identifies one or
 more currently cached entities, those entries SHOULD be treated as stale.
 Responses to this method are not cacheable.
 }
+
 \examples{
 DELETE("http://httpbin.org/delete")
 POST("http://httpbin.org/delete")
@@ -89,4 +90,3 @@ Other http methods: \code{\link{BROWSE}},
   \code{\link{PATCH}}, \code{\link{POST}},
   \code{\link{PUT}}, \code{\link{VERB}}
 }
-

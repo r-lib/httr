@@ -38,6 +38,7 @@ different components of the http messages:
   \item \code{<*} ssl data received (in)
 }
 }
+
 \examples{
 GET("http://httpbin.org", verbose())
 GET("http://httpbin.org", verbose(info = TRUE))
@@ -69,4 +70,3 @@ Other config: \code{\link{add_headers}},
   \code{\link{set_cookies}}, \code{\link{timeout}},
   \code{\link{use_proxy}}, \code{\link{user_agent}}
 }
-

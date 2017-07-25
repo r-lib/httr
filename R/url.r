@@ -6,8 +6,9 @@
 #' See \url{http://tools.ietf.org/html/rfc1808.html} for details of parsing
 #' algorithm.
 #'
-#' @param url a character vector (of length 1) to parse into components,
-#'   or for \code{build_url} a url to turn back into a string.
+#' @param url For \code{parse_url} a character vector (of length 1) to parse
+#'   into components; for \code{build_url} a list of components to turn back
+#'   into a string.
 #' @return a list containing: \itemize{
 #'  \item scheme
 #'  \item hostname
@@ -25,7 +26,10 @@
 #' parse_url("http://google.com:80/")
 #' parse_url("http://google.com:80/?a=1&b=2")
 #'
-#' build_url(parse_url("http://google.com/"))
+#' url <- parse_url("http://google.com/")
+#' url$scheme <- "https"
+#' url$query <- list(q = "hello")
+#' build_url(url)
 parse_url <- function(url) {
   if (is.url(url)) return(url)
 
@@ -120,11 +124,11 @@ build_url <- function(url) {
   }
 
   if (is.list(url$query)) {
-    query <- compose_query(url$query)
+    query <- compose_query(compact(url$query))
   } else {
     query <- url$query
   }
-  if (!is.null(query)) {
+  if (!is.null(query) && nzchar(query)) {
     stopifnot(is.character(query), length(query) == 1)
     query <- paste0("?", query)
   }
@@ -161,5 +165,3 @@ modify_url <- function(url, scheme = NULL, hostname = NULL, port = NULL,
 
   build_url(utils::modifyList(old, new))
 }
-
-compact <- function(x) Filter(Negate(is.null), x)

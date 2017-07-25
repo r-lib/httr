@@ -16,4 +16,3 @@ Provides some common OAuth endpoints.
 \examples{
 oauth_endpoints("twitter")
 }
-

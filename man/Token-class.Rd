@@ -2,8 +2,8 @@
 % Please edit documentation in R/oauth-token.r
 \docType{class}
 \name{Token-class}
-\alias{Token}
 \alias{Token-class}
+\alias{Token}
 \alias{Token1.0}
 \alias{Token2.0}
 \alias{TokenServiceAccount}
@@ -54,6 +54,6 @@ The cache file should not be included in source code control or R packages
 (because it contains private information), so httr will automatically add
 the appropriate entries to `.gitignore` and `.Rbuildignore` if needed.
 }
+
 \keyword{datasets}
 \keyword{internal}
-

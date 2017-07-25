@@ -45,4 +45,3 @@ GET(handle = h, config = list(timeout(10), add_headers(Accept = "")))
 }
 
 }
-

@@ -14,4 +14,3 @@ has_content(POST("http://httpbin.org/post", body = FALSE))
 has_content(HEAD("http://httpbin.org/headers"))
 }
 \keyword{internal}
-

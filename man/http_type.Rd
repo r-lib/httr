@@ -25,4 +25,3 @@ r2 <- GET("http://httpbin.org/ip")
 http_type(r2)
 headers(r2)[["Content-Type"]]
 }
-

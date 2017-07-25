@@ -29,4 +29,3 @@ Other config: \code{\link{add_headers}},
   \code{\link{timeout}}, \code{\link{use_proxy}},
   \code{\link{user_agent}}, \code{\link{verbose}}
 }
-

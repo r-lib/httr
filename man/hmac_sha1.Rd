@@ -15,4 +15,3 @@ hmac_sha1(key, string)
 As described in \url{http://datatracker.ietf.org/doc/rfc2104/}.
 }
 \keyword{internal}
-

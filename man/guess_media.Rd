@@ -13,4 +13,3 @@ guess_media(x)
 DEPRECATED: please use \code{mime::guess_type} instead.
 }
 \keyword{internal}
-

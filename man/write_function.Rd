@@ -15,4 +15,3 @@ write_function(subclass, ...)
 This S3 object allows you to control how the response body is saved.
 }
 \keyword{internal}
-

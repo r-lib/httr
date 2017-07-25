@@ -47,9 +47,11 @@ last <- function(x) {
 }
 
 compact <- function(x) {
-  null <- vapply(x, is.null, logical(1))
-  x[!null]
+  empty <- vapply(x, is_empty, logical(1))
+  x[!empty]
 }
+
+is_empty <- function(x) length(x) == 0
 
 keep_last <- function(...) {
   x <- c(...)
@@ -79,8 +81,10 @@ find_cert_bundle <- function() {
 
   bundled <- file.path(R.home("etc"), "curl-ca-bundle.crt")
   if (file.exists(bundled))
-    bundled
+    return(bundled)
 
   # Fall back to certificate bundle in openssl
   system.file("cacert.pem", package = "openssl")
 }
+
+isFALSE <- function(x) identical(x, FALSE)

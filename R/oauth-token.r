@@ -260,6 +260,7 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
 #' that information is embedded in the account itself.
 #'
 #' @inheritParams oauth2.0_token
+#' @inheritParams jwt_signature
 #' @param secrets Secrets loaded from JSON file, downloaded from console.
 #' @family OAuth
 #' @export
@@ -271,18 +272,18 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
 #'
 #' token <- oauth_service_token(endpoint, secrets, scope)
 #' }
-oauth_service_token <- function(endpoint, secrets, scope = NULL) {
+oauth_service_token <- function(endpoint, secrets, scope = NULL, sub = NULL) {
   if (!is.oauth_endpoint(endpoint))
     stop("`endpoint` must be an OAuth endpoint", call. = FALSE)
   if (!is.list(secrets))
     stop("`secrets` must be a list.", call. = FALSE)
-  if (!is.null(scope) && !(is.character(scope) && length(scope) == 1))
-    stop("`scope` must be a length 1 character vector.", call. = FALSE)
+
+  scope <- check_scope(scope)
 
   TokenServiceAccount$new(
     endpoint = endpoint,
     secrets = secrets,
-    params = list(scope = scope)
+    params = list(scope = scope, sub = sub)
   )
 }
 
@@ -301,7 +302,11 @@ TokenServiceAccount <- R6::R6Class("TokenServiceAccount", inherit = Token2.0, li
     TRUE
   },
   refresh = function() {
-    self$credentials <- init_oauth_service_account(self$secrets, self$params$scope)
+    self$credentials <- init_oauth_service_account(
+      self$secrets,
+      scope = self$params$scope,
+      sub = self$params$sub
+    )
     self
   },
   sign = function(method, url) {

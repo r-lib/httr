@@ -21,4 +21,3 @@ when behind a firewall).
 This function should generally not be called directly by the user.
 }
 \keyword{internal}
-

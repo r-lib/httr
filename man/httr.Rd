@@ -30,4 +30,3 @@ httr supports OAuth 1.0 and 2.0. Use \code{\link{oauth1.0_token}} and
 requests. The demos directory has six demos of using OAuth: three for 1.0
 (linkedin, twitter and vimeo) and three for 2.0 (facebook, github, google).
 }
-

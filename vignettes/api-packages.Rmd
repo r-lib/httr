@@ -100,7 +100,7 @@ resp
 
 ### Parse the response
 
-Next, you need to take the response returned by the API and turn it into a useful object. Any API will return an HTTP response that consists of headers and a body. While the response can come in a multiple a forms (see above), two of the most common structured formats are XML and JSON. 
+Next, you need to take the response returned by the API and turn it into a useful object. Any API will return an HTTP response that consists of headers and a body. While the response can come in multiple forms (see above), two of the most common structured formats are XML and JSON. 
 
 Note that while most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:
 
@@ -109,7 +109,7 @@ GET("http://www.colourlovers.com/api/color/6B4106?format=xml")
 GET("http://www.colourlovers.com/api/color/6B4106?format=json")
 ```
 
-Others use [content negotiation](http://en.wikipedia.org/wiki/Content_negotiation) to determine whats sort of data to send back. If the API you're wrapping does this, then you'll need to include one of `accept_json()` and `accept_xml()` in your request. 
+Others use [content negotiation](http://en.wikipedia.org/wiki/Content_negotiation) to determine what sort of data to send back. If the API you're wrapping does this, then you'll need to include one of `accept_json()` and `accept_xml()` in your request. 
 
 If you have a choice, choose json: it's usually much easier to work with than xml.
 
@@ -192,7 +192,7 @@ The API might return invalid data, but this should be rare, so you can just rely
 
 ### Turn API errors into R errors
 
-Next, you need to make sure that your API wrapper throws an error if the request failed. Using a web API introduces additional possible points of failure into R code aside from those occuring in R itself. These include:
+Next, you need to make sure that your API wrapper throws an error if the request failed. Using a web API introduces additional possible points of failure into R code aside from those occurring in R itself. These include:
 
 - Client-side exceptions
 - Network / communication exceptions
@@ -200,7 +200,7 @@ Next, you need to make sure that your API wrapper throws an error if the request
 
 You need to make sure these are all converted into regular R errors. You can figure out if there's a problem with `http_error()`, which checks the HTTP status code. Status codes in the 400 range usually mean that you've done something wrong. Status codes in the 500 range typically mean that something has gone wrong on the server side.
 
-Often the API will information about the error in the body of the response: you should use this where available. If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are [rate limited](https://developer.github.com/v3/#rate-limiting) you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).
+Often the API will provide information about the error in the body of the response: you should use this where available. If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are [rate limited](https://developer.github.com/v3/#rate-limiting) you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).
 
 ```{r, error = TRUE}
 github_api <- function(path) {
@@ -296,7 +296,7 @@ Most APIs work by executing an HTTP method on a specified URL with some addition
 3. HTTP headers: `add_headers()` 
 4. Request body: The `body` argument to `GET()`, `POST()`, etc.
 
-[RESTful APIs](https://en.wikipedia.org/wiki/Representational_state_transfer) also use the HTTP verb to communicate arguments (e.g,., `GET` retrieves a file, `POST` adds a file, `DELETE` removes a file, etc.). We can use the helpful [httpbin service](http://httpbin.org) to show how to send arguments in each of these ways.
+[RESTful APIs](https://en.wikipedia.org/wiki/Representational_state_transfer) also use the HTTP verb to communicate arguments (e.g., `GET` retrieves a file, `POST` adds a file, `DELETE` removes a file, etc.). We can use the helpful [httpbin service](http://httpbin.org) to show how to send arguments in each of these ways.
 
 ```{r, eval = FALSE}
 # modify_url
@@ -317,7 +317,7 @@ POST("http://httpbin.org/post", body = list(foo = "bar"), encode = "json")
 
 Many APIs will use just one of these forms of argument passing, but others will use multiple of them in combination. Best practice is to insulate the user from how and where the various arguments are used by the API and instead simply expose relevant arguments via R function arguments, some of which might be used in the URL, in the headers, in the body, etc.
 
-If a parameter has a small fixed set of possible values that are allowed by the API, you can use list them in the default arguments and then use  `match.arg()` to ensure that the caller only supplies one of those values. (This also allows the user to supply the short unique prefixes.)
+If a parameter has a small fixed set of possible values that are allowed by the API, you can use list them in the default arguments and then use `match.arg()` to ensure that the caller only supplies one of those values. (This also allows the user to supply the short unique prefixes.)
 
 ```{r}
 f <- function(x = c("apple", "banana", "orange")) {
@@ -332,7 +332,7 @@ It is good practice to explicitly set default values for arguments that are not 
 
 Many APIs can be called without any authentication (just as if you called them in a web browser). However, others require authentication to perform particular requests or to avoid rate limits and other limitations. The most common forms of authentication are OAuth and HTTP basic authentication:
 
-1. *"Basic" authentication*: This  requires a username and password (or 
+1. *"Basic" authentication*: This requires a username and password (or 
     sometimes just a username). This is passed as part of the HTTP request. 
     In httr, you can do: 
     `GET("http://httpbin.org", authenticate("username", "password"))`
@@ -387,7 +387,7 @@ When a response is paginated, the API response will typically respond with a hea
 These values can then be used to make further requests. This will either involve specifying a specific page of responses or specifying a "next page token" that returns the next page of results. How to deal with pagination is a difficult question and a client could implement any of the following:
 
 1. Return one page only by default with an option to return additional specific pages
-2. Return a specified page (deafulting to 1) and require the end user to handle pagination
+2. Return a specified page (defaulting to 1) and require the end user to handle pagination
 3. Return all pages by writing an internal process of checking for further pages and combining the results
 
 The choice of which to use depends on your needs and goals and the rate limits of the API.
@@ -405,7 +405,7 @@ rate_limit <- function() {
 rate_limit()
 ```
 
-After getting the first version getting working, you'll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.
+After getting the first version working, you'll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.
 
 ```{r}
 rate_limit <- function() {
@@ -420,7 +420,7 @@ rate_limit <- function() {
 rate_limit()
 ```
 
-## Packaging youe code
+## Packaging your code
 
 ### Documentation
 
@@ -432,7 +432,7 @@ One other challenge unique to web API packages is the need to have documentation
 
 Vignettes pose additional challenges when an API requires authentication, because you don't want to bundle your own credentials with the package! However, you can take advantage of the fact that the vignette is built locally, and only checked by CRAN with this idea from Jenny Bryan:
 
-In an setup chunk, do:
+In a setup chunk, do:
 
 ```{r}
 NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")

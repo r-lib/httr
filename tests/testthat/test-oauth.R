@@ -44,3 +44,33 @@ test_that("partial OAuth1 flow works", {
   expect_equal(status_code(r), 200)
 })
 
+test_that("oauth_encode1 works", {
+  # chinese characters for "xaringan"
+  orig_string <- "\u5199\u8f6e\u773c"
+  restored_string <- URLdecode(oauth_encode1(orig_string))
+  Encoding(restored_string) <- "UTF-8"
+
+  expect_equal(orig_string, restored_string)
+})
+
+
+# Parameter checking ------------------------------------------------------
+
+test_that("scope must be character or NULL", {
+  expect_equal(check_scope("a"), "a")
+  expect_equal(check_scope(NULL), NULL)
+  expect_error(check_scope(1), "character vector")
+})
+
+test_that("multiple scopes collapsed with space", {
+  expect_equal(check_scope(c("a", "b")), "a b")
+})
+
+test_that("oob must be a flag", {
+  expect_error(check_oob("a"), "logical vector")
+  expect_error(check_oob(c(FALSE, FALSE)), "logical vector")
+})
+
+test_that("can not use oob in non-interactive session", {
+  expect_error(check_oob(TRUE), "interactive")
+})

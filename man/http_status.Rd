@@ -47,4 +47,3 @@ Other response methods: \code{\link{content}},
   \code{\link{http_error}}, \code{\link{response}},
   \code{\link{stop_for_status}}
 }
-

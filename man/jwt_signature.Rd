@@ -4,7 +4,9 @@
 \alias{jwt_signature}
 \title{Generate a JWT signature given credentials.}
 \usage{
-jwt_signature(credentials, scope, aud, duration = 60L * 60L)
+jwt_signature(credentials, scope, aud, sub = NULL,
+  iat = as.integer(Sys.time()), exp = iat + duration, duration = 60L *
+  60L)
 }
 \arguments{
 \item{credentials}{Parsed contents of the credentials file.}
@@ -12,7 +14,26 @@ jwt_signature(credentials, scope, aud, duration = 60L * 60L)
 \item{scope}{A space-delimited list of the permissions that the application
 requests.}
 
+\item{aud}{A descriptor of the intended target of the assertion. This
+typically comes from the service auth file.}
+
+\item{sub}{The email address of the user for which the application is
+requesting delegated access.}
+
+\item{iat}{The time the assertion was issued, measured in seconds since
+00:00:00 UTC, January 1, 1970.}
+
+\item{exp}{The expiration time of the assertion, measured in seconds since
+00:00:00 UTC, January 1, 1970. This value has a maximum of 1 hour from
+the issued time.}
+
 \item{duration}{Duration of token, in seconds.}
+
+\item{iss}{Email address of the client_id of the application making the
+access token request.}
+
+\item{scope}{A space-delimited list of the permissions that the application
+requests.}
 }
 \description{
 As described in
@@ -25,4 +46,3 @@ jwt_signature(cred, "https://www.googleapis.com/auth/userinfo.profile")
 }
 }
 \keyword{internal}
-

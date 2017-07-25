@@ -2,8 +2,8 @@
 % Please edit documentation in R/handle-pool.r
 \docType{data}
 \name{handle_pool}
-\alias{handle_find}
 \alias{handle_pool}
+\alias{handle_find}
 \alias{handle_reset}
 \title{Maintain a pool of handles.}
 \format{An environment.}
@@ -21,4 +21,3 @@ automatically reused, and cookies are maintained across requests to a site
 without user intervention.
 }
 \keyword{internal}
-

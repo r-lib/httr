@@ -1,8 +1,28 @@
 # httr 1.2.1.9000
 
+* Fix bug with cert bundle lookup: `find_cert_bundle()` will now return cert bundle
+  in "R_HOME/etc" (@jiwalker-usgs #386).
+
+* `oauth_service_token()` gains a `sub` parameter so you can request
+  access on behalf of another user (#410).
+
+* With HTTP multipart encoding, you can now send lists containing 
+  `curl::form_data()`. This makes it possible to specify the mime-type
+  of individual components (#430).
+
+* `oauth_service_token()` now accepts a character vector containing multiple
+  scopes as described in the documentation (#389).
+
+* Don't export `length()` method for internal `path` class (#395)
+
+* New oauth cache files are always added to `.gitignore` and, if it exists, `.Rbuildignore`. Specifically, this now happens when option `httr_oauth_cache = TRUE` or user specifies cache file name explicitly. (@jennybc #436)
+
 * New functions `set_callback()` and `get_callback()` set and query
   callback functions that are called right before and after performing an
   HTTP request (@gaborcsardi #409)
+
+* Fix bug for OAuth 1 process: `oauth_encode()` now handles UTF-8 characters correctly.
+  (@yutannihilation #424)
 
 # httr 1.2.1
 

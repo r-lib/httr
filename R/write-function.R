@@ -85,6 +85,5 @@ request_fetch.write_stream <- function(x, url, handle) {
 }
 
 path <- function(x) structure(x, class = "path")
-#' @export
 length.path <- function(x) file.info(x)$size
 is.path <- function(x) inherits(x, "path")
