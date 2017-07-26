@@ -70,8 +70,8 @@ details.}
 until the next request.}
 
 \item{terminate_on}{Optional vector of numeric HTTP status codes that if found
-on the response will terminate the retry process. If missing or NULL, will
-keep retrying while \code{\link{http_error}()} is \code{TRUE} for the response.}
+on the response will terminate the retry process. If \code{NULL}, will keep
+retrying while \code{\link{http_error}()} is \code{TRUE} for the response.}
 }
 \value{
 The last response. Note that if the request doesn't succeed after
