@@ -1,5 +1,9 @@
 # httr 1.2.1.9000
 
+* `RETRY()` gains a new parameter `terminate_on` that giver caller greater control
+  on which status codes make it stop retrying, and also now retries if an
+  error condition (i.e., a call to `stop()`) occurs during the request (@asieira #404)
+
 * Fix bug with cert bundle lookup: `find_cert_bundle()` will now return cert bundle
   in "R_HOME/etc" (@jiwalker-usgs #386).
 

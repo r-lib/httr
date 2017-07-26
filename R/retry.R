@@ -81,11 +81,13 @@ backoff_full_jitter <- function(i, resp, pause_base = 1, pause_cap = 60, quiet =
   length <- ceiling(stats::runif(1, max = min(pause_cap, pause_base * (2 ^ i))))
   if (!quiet) {
     if (inherits(resp, "error")) {
-      error_description <- gsub("[\n\r]+$", "", as.character(resp))
-      message(error_description, "\nRequest failed [ERROR]. Retrying in ", length, " seconds...")
+      error_description <- gsub("[\n\r]*$", "\n", as.character(resp))
+      status <- "ERROR"
     } else {
-      message("Request failed [", status_code(resp), "]. Retrying in ", length, " seconds...")
+      error_description <- ""
+      status <- status_code(resp)
     }
+    message(error_description, "Request failed [", status, "]. Retrying in ", length, " seconds...")
   }
   Sys.sleep(length)
 }
