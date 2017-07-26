@@ -83,7 +83,7 @@ Safely retry a request until it succeeds, as defined by the \code{terminate_on}
 parameter, which by default means a response for which \code{\link{http_error}()}
 is \code{FALSE}. Will also retry on error conditions raised by the underlying curl code,
 but if the last retry still raises one, \code{RETRY} will raise it again with
-\code{\link{stop}()} to maintain backwards compatibility.
+\code{\link{stop}()}.
 It is designed to be kind to the server: after each failure
 randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in
