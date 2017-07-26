@@ -63,7 +63,7 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'     If \code{FALSE}, the default, retrieve the token by including the
 #'     app key and secret in the request body.
 #' @param config_init Additional configuration settings sent to
-#' \code{\link{POST}}, e.g. \code{\link{user_agent}}.
+#'     \code{\link{POST}}, e.g. \code{\link{user_agent}}.
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
@@ -111,7 +111,8 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
 
   if (isTRUE(use_basic_auth)) {
     req <- POST(endpoint$access, encode = "form", body = req_params,
-      authenticate(app$key, app$secret, type = "basic"), config = config_init)
+      authenticate(app$key, app$secret, type = "basic"),
+      config = config_init)
   } else {
     req_params$client_secret <- app$secret
     req <- POST(endpoint$access, encode = "form", body = req_params,
