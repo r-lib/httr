@@ -2,8 +2,6 @@
 
 * Fix reddit demo where `user_agent` was being overloaded.  Now can pass `user_agent` using `config_init` to `init_oauth2.0` and `Token2.0$new()`  (@muschellij2 @hadley #363).
 
-* Changed example in `write_stream` from https://jeroenooms.github.io/data/diamonds.json to https://github.com/jeroen/data/raw/gh-pages/diamonds.json as this had moved (@muschellij2).
-
 * Fix bug with cert bundle lookup: `find_cert_bundle()` will now return cert bundle
   in "R_HOME/etc" (@jiwalker-usgs #386).
 
