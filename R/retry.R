@@ -21,7 +21,7 @@
 #' @param quiet If \code{FALSE}, will print a message displaying how long
 #'   until the next request.
 #' @param terminate_on Optional vector of numeric HTTP status codes that if found
-#'   on the response will immediately stop the retries. If missing or NULL, will
+#'   on the response will terminate the retry process. If missing or NULL, will
 #'   keep retrying while \code{\link{http_error}()} is \code{TRUE} for the response.
 #' @return The last response. Note that if the request doesn't succeed after
 #'   \code{times} times this will be a failed request, i.e. you still need
