@@ -74,7 +74,7 @@ retry_should_stop <- function(i, times, resp, terminate_on) {
   } else if (!is.null(terminate_on)) {
     return(status_code(resp) %in% terminate_on)
   } else {
-    return(http_error(resp))
+    return(!http_error(resp))
   }
 }
 
