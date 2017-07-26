@@ -39,7 +39,7 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
 
   i <- 1
   while (i < times && http_error(resp)) {
-    backoff_full_jitter(i, status_code(resp), pause_base, pause_cap, quiet = quiet)
+    backoff_full_jitter(i, status_code(resp), pause_base, pause_cap, quiet = quiet, resp = resp)
 
     i <- i + 1
     resp <- request_perform(req, hu$handle$handle)
@@ -48,8 +48,12 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
   resp
 }
 
-backoff_full_jitter <- function(i, status, pause_base = 1, pause_cap = 60, quiet = FALSE) {
+backoff_full_jitter <- function(i, status, pause_base = 1, pause_cap = 60, quiet = FALSE, resp) {
   length <- ceiling(stats::runif(1, max = min(pause_cap, pause_base * (2 ^ i))))
+  if (status == 429) {
+    length_429 <- as.numeric(resp$headers[["retry-after"]])
+    if (!is.null(length_429)) length <- length_429
+  }
   if (!quiet) {
     message("Request failed [", status, "]. Retrying in ", length, " seconds...")
   }
