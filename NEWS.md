@@ -27,6 +27,8 @@
 
 * Fix bug for OAuth 1 process: `oauth_encode()` now handles UTF-8 characters correctly.
   (@yutannihilation #424)
+  
+* More forms of empty query are recognized as such. Eliminates a source of spurious trailing `?` and `?=` in URLs produced by `modify_url()`. (@jennybc #452)
 
 # httr 1.2.1
 
