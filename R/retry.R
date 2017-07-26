@@ -20,10 +20,9 @@
 #'   \code{pause_cap} seconds.
 #' @param quiet If \code{FALSE}, will print a message displaying how long
 #'   until the next request.
-#' @param terminate_on Optional vector of numeric or integer HTTP status codes
-#'   that if found on the response will immediately stop the retries. If missing
-#'   or NULL, will keep retrying while \code{\link{http_error}()} is \code{TRUE}
-#'   for the response.
+#' @param terminate_on Optional vector of numeric HTTP status codes that if found
+#'   on the response will immediately stop the retries. If missing or NULL, will
+#'   keep retrying while \code{\link{http_error}()} is \code{TRUE} for the response.
 #' @return The last response. Note that if the request doesn't succeed after
 #'   \code{times} times this will be a failed request, i.e. you still need
 #'   to use \code{\link{stop_for_status}()}.
@@ -52,36 +51,36 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
   resp <- tryCatch(request_perform(req, hu$handle$handle), error = function(e) e)
 
   i <- 1
-  while (!retry_should_stop(i, times, resp, terminate_on)) {
+  while (!retry_should_terminate(i, times, resp, terminate_on)) {
     backoff_full_jitter(i, resp, pause_base, pause_cap, quiet = quiet)
 
     i <- i + 1
     resp <- tryCatch(request_perform(req, hu$handle$handle), error = function(e) e)
   }
 
-  if ("error" %in% class(resp)) {
+  if (inherits(resp, "error")) {
     stop(resp)
-  } else {
-    return(resp)
   }
+
+  resp
 }
 
-retry_should_stop <- function(i, times, resp, terminate_on) {
+retry_should_terminate <- function(i, times, resp, terminate_on) {
   if (i >= times) {
-    return(TRUE)
-  } else if ("error" %in% class(resp)) {
-    return(FALSE)
+    TRUE
+  } else if (inherits(resp, "error")) {
+    FALSE
   } else if (!is.null(terminate_on)) {
-    return(status_code(resp) %in% terminate_on)
+    status_code(resp) %in% terminate_on
   } else {
-    return(!http_error(resp))
+    !http_error(resp)
   }
 }
 
 backoff_full_jitter <- function(i, resp, pause_base = 1, pause_cap = 60, quiet = FALSE) {
   length <- ceiling(stats::runif(1, max = min(pause_cap, pause_base * (2 ^ i))))
   if (!quiet) {
-    status <- if ("error" %in% class(resp)) as.character(resp) else status_code(resp)
+    status <- if (inherits(resp, "error")) as.character(resp) else status_code(resp)
     message("Request failed [", status, "]. Retrying in ", length, " seconds...")
   }
   Sys.sleep(length)
