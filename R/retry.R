@@ -44,7 +44,7 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
   stopifnot(is.numeric(times), length(times) == 1L)
   stopifnot(is.numeric(pause_base), length(pause_base) == 1L)
   stopifnot(is.numeric(pause_cap), length(pause_cap) == 1L)
-  stopifnot(is.integer(terminate_on) || is.numeric(terminate_on) || is.null(terminate_on))
+  stopifnot(is.numeric(terminate_on) || is.null(terminate_on))
 
   hu <- handle_url(handle, url, ...)
   req <- request_build(verb, hu$url, body_config(body, match.arg(encode)), config, ...)
