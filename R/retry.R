@@ -80,8 +80,12 @@ retry_should_terminate <- function(i, times, resp, terminate_on) {
 backoff_full_jitter <- function(i, resp, pause_base = 1, pause_cap = 60, quiet = FALSE) {
   length <- ceiling(stats::runif(1, max = min(pause_cap, pause_base * (2 ^ i))))
   if (!quiet) {
-    status <- if (inherits(resp, "error")) as.character(resp) else status_code(resp)
-    message("Request failed [", status, "]. Retrying in ", length, " seconds...")
+    if (inherits(resp, "error")) {
+      error_description <- gsub("[\n\r]+$", "", as.character(resp))
+      message(error_description, "\nRequest failed [ERROR]. Retrying in ", length, " seconds...")
+    } else {
+      message("Request failed [", status_code(resp), "]. Retrying in ", length, " seconds...")
+    }
   }
   Sys.sleep(length)
 }
