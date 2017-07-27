@@ -1,9 +1,16 @@
 # httr 1.2.1.9000
 
-* Fix reddit demo where `user_agent` was being overloaded.  Now can pass `user_agent` using `config_init` to `init_oauth2.0` and `Token2.0$new()`  (@muschellij2 @hadley #363).
 
-* Fix bug with cert bundle lookup: `find_cert_bundle()` will now return cert bundle
-  in "R_HOME/etc" (@jiwalker-usgs #386).
+* Fix reddit demo where `user_agent` was being overloaded.  Now can pass 
+  `user_agent` using `config_init` to `init_oauth2.0` and `Token2.0$new()` 
+  (@muschellij2 @hadley #363).
+
+* `RETRY()` gains a new parameter `terminate_on` that gives caller greater 
+  control over which status codes make it stop retrying. It also retries 
+  if an error occurs during the request (@asieira, #404)
+
+* Fix bug with cert bundle lookup: `find_cert_bundle()` will now return cert 
+  bundle in "R_HOME/etc" (@jiwalker-usgs, #386).
 
 * `oauth_service_token()` gains a `sub` parameter so you can request
   access on behalf of another user (#410).
@@ -17,16 +24,21 @@
 
 * Don't export `length()` method for internal `path` class (#395)
 
-* New oauth cache files are always added to `.gitignore` and, if it exists, `.Rbuildignore`. Specifically, this now happens when option `httr_oauth_cache = TRUE` or user specifies cache file name explicitly. (@jennybc #436)
+* New oauth cache files are always added to `.gitignore` and, if it exists, 
+  `.Rbuildignore`. Specifically, this now happens when option 
+  `httr_oauth_cache = TRUE` or user specifies cache file name explicitly. 
+  (@jennybc, #436)
 
 * New functions `set_callback()` and `get_callback()` set and query
   callback functions that are called right before and after performing an
-  HTTP request (@gaborcsardi #409)
+  HTTP request (@gaborcsardi, #409)
 
-* Fix bug for OAuth 1 process: `oauth_encode()` now handles UTF-8 characters correctly.
-  (@yutannihilation #424)
+* Fix bug for OAuth 1 process: `oauth_encode()` now handles UTF-8 characters 
+  correctly. (@yutannihilation, #424)
   
-* More forms of empty query are recognized as such. Eliminates a source of spurious trailing `?` and `?=` in URLs produced by `modify_url()`. (@jennybc #452)
+* More forms of empty query are recognized as such. Eliminates a source of 
+  spurious trailing `?` and `?=` in URLs produced by `modify_url()`. 
+  (@jennybc, #452)
 
 # httr 1.2.1
 
