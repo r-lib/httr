@@ -1,9 +1,9 @@
 # httr 1.2.1.9000
 
 
-* Fix reddit demo where `user_agent` was being overloaded.  Now can pass 
-  `user_agent` using `config_init` to `init_oauth2.0` and `Token2.0$new()` 
-  (@muschellij2 @hadley #363).
+* `init_oauth2.0()` gains `config_init` which allows you to supply additional
+  config for the initial requests. This is needed for some APIs (e.g. reddit) 
+  which rate limit based on `user_agent` (@muschellij2, #363).
 
 * `RETRY()` gains a new parameter `terminate_on` that gives caller greater 
   control over which status codes make it stop retrying. It also retries 
