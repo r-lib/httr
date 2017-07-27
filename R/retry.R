@@ -21,8 +21,6 @@
 #' @param pause_min Minimum time to with in the backoff; generally
 #'   only necessary if you need pauses less than one second (which may
 #'   not be kind to the server, use with caution!).
-#' @param pause_min_warning Logical, whether to suppress the warning
-#'   when \code{pause_min} is below 1 second.
 #' @param quiet If \code{FALSE}, will print a message displaying how long
 #'   until the next request.
 #' @param terminate_on Optional vector of numeric HTTP status codes that if found
@@ -44,8 +42,7 @@
 #' }
 RETRY <- function(verb, url = NULL, config = list(), ...,
                   body = NULL, encode = c("multipart", "form", "json", "raw"),
-                  times = 3, pause_base = 1, pause_cap = 60,
-                  pause_min = 1, pause_min_warning = TRUE,
+                  times = 3, pause_base = 1, pause_cap = 60, pause_min = 1,
                   handle = NULL, quiet = FALSE, terminate_on = NULL) {
   stopifnot(is.numeric(times), length(times) == 1L)
   stopifnot(is.numeric(pause_base), length(pause_base) == 1L)
@@ -85,11 +82,7 @@ retry_should_terminate <- function(i, times, resp, terminate_on) {
 }
 
 backoff_full_jitter <- function(i, resp, pause_base = 1, pause_cap = 60,
-                                pause_min = 1, pause_min_warning = TRUE,
-                                quiet = FALSE) {
-  if (pause_min_warning && pause_min < 1) {
-    warning("Delaying less than 1 second is hard on the server and is likely to still fail")
-  }
+                                pause_min = 1, quiet = FALSE) {
   length <- max(pause_min, stats::runif(1, max = min(pause_cap, pause_base * (2 ^ i))))
   if (!quiet) {
     if (inherits(resp, "error")) {
