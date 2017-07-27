@@ -32,6 +32,6 @@ test_that("digest authentication works", {
 test_that("timeout enforced", {
   skip_on_cran()
   expect_error(GET("http://httpbin.org/delay/1", timeout(0.5)),
-    "Timeout was reached")
+    "(Timeout was reached)|(timed out)")
 })
 
