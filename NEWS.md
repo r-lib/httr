@@ -3,6 +3,10 @@
 * Added `pause_min` to `RETRY` requests, allowing for sub-second
   delays. (Use with caution! Generally the default is preferred.)
 
+* `init_oauth2.0()` gains `config_init` which allows you to supply additional
+  config for the initial requests. This is needed for some APIs (e.g. reddit) 
+  which rate limit based on `user_agent` (@muschellij2, #363).
+
 * `RETRY()` gains a new parameter `terminate_on` that gives caller greater 
   control over which status codes make it stop retrying. It also retries 
   if an error occurs during the request (@asieira, #404)
