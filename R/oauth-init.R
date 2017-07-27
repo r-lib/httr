@@ -110,13 +110,19 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
   }
 
   if (isTRUE(use_basic_auth)) {
-    req <- POST(endpoint$access, encode = "form", body = req_params,
+    req <- POST(endpoint$access,
+      encode = "form",
+      body = req_params,
       authenticate(app$key, app$secret, type = "basic"),
-      config = config_init)
+      config = config_init
+    )
   } else {
     req_params$client_secret <- app$secret
-    req <- POST(endpoint$access, encode = "form", body = req_params,
-                config = config_init)
+    req <- POST(endpoint$access,
+      encode = "form",
+      body = req_params,
+      config = config_init
+    )
   }
 
   stop_for_status(req, task = "get an access token")
