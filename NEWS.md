@@ -1,5 +1,8 @@
 # httr 1.2.1.9000
 
+* Added `pause_min` to `RETRY` requests, allowing for sub-second
+  delays. (Use with caution! Generally the default is preferred.)
+
 * `RETRY()` gains a new parameter `terminate_on` that gives caller greater 
   control over which status codes make it stop retrying. It also retries 
   if an error occurs during the request (@asieira, #404)

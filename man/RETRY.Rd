@@ -6,8 +6,8 @@
 \usage{
 RETRY(verb, url = NULL, config = list(), ..., body = NULL,
   encode = c("multipart", "form", "json", "raw"), times = 3,
-  pause_base = 1, pause_cap = 60, handle = NULL, quiet = FALSE,
-  terminate_on = NULL)
+  pause_base = 1, pause_cap = 60, pause_min = 1,
+  handle = NULL, quiet = FALSE, terminate_on = NULL)
 }
 \arguments{
 \item{verb}{Name of verb to use.}
@@ -57,6 +57,10 @@ with \code{\link{config}}.}
 full jitter - this means that each request will randomly wait between 0
 and \code{pause_base * 2 ^ attempt} seconds, up to a maximum of
 \code{pause_cap} seconds.}
+
+\item{pause_min}{Minimum time to with in the backoff; generally
+only necessary if you need pauses less than one second (which may
+not be kind to the server, use with caution!).}
 
 \item{handle}{The handle to use with this request. If not
 supplied, will be retrieved and reused from the \code{\link{handle_pool}}
