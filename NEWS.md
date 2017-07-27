@@ -1,5 +1,8 @@
 # httr 1.2.1.9000
 
+* Added `pause_min` to `RETRY` requests, allowing for sub-second
+  delays. (Use with caution! Generally the default is preferred.)
+
 * `RETRY()` gains a new parameter `terminate_on` that gives caller greater 
   control over which status codes make it stop retrying. It also retries 
   if an error occurs during the request (@asieira, #404)
@@ -57,9 +60,6 @@
 * New `http_type()` returns the content/mime type of a request, sans parameters.
 
 ## Bug fixes and minor improvements
-
-* Added `pause_min` to `RETRY` requests, allowing for sub-second
-  delays. (Use with caution! Generally the default is preferred.)
 
 * No longer uses use custom requests for standard `POST` requests (#356, 
   #357). This has the side-effect of properly following redirects after 
