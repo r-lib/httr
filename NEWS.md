@@ -1,5 +1,7 @@
 # httr 1.2.1.9000
 
+* Added `pause_min` to `RETRY` requests, allowing for sub-second
+  delays. (Use with caution! Generally the default is preferred.) (@r2evans)
 
 * `init_oauth2.0()` gains `config_init` which allows you to supply additional
   config for the initial requests. This is needed for some APIs (e.g. reddit) 
