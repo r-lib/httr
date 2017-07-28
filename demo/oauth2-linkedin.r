@@ -21,7 +21,7 @@ TokenLinkedIn <- R6::R6Class("TokenLinkedIn", inherit = Token2.0, list(
   sign = function(method, url) {
     url <- parse_url(url)
     url$query$oauth2_access_token <- self$credentials$access_token
-    list(url = build_url(url), config = config())
+    request(url = build_url(url))
   },
   can_refresh = function() {
     TRUE
