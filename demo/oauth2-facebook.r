@@ -12,8 +12,7 @@ myapp <- oauth_app("facebook", "353609681364760", "1777c63343eba28359537764fab99
 # 3. Get OAuth credentials
 facebook_token <- oauth2.0_token(
   oauth_endpoints("facebook"),
-  myapp,
-  type = "application/x-www-form-urlencoded"
+  myapp
 )
 
 # 4. Use API
