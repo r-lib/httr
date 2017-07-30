@@ -1,5 +1,11 @@
 # httr 1.2.1.9000
 
+* `init_oauth2.0()` gains `client_credentials`, defaulting to `FALSE`, which 
+  allows you to use Oauth2 dance with some APIs (e.g yelp) that required 
+  *Client Credential Grant* instead of *Authorization Code Grant* for 
+  obtaining authorization. See [RFC 6749](https://tools.ietf.org/html/rfc6749#section-4).
+  (@cderv, #384)
+
 * Added `pause_min` to `RETRY` requests, allowing for sub-second
   delays. (Use with caution! Generally the default is preferred.) (@r2evans)
 
