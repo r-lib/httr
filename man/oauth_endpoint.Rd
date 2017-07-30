@@ -10,7 +10,8 @@ oauth_endpoint(request = NULL, authorize, access, ..., base_url = NULL)
 \item{request}{url used to request initial (unauthenticated) token.
 If using OAuth2.0, leave as \code{NULL}.}
 
-\item{authorize}{url to send client to for authorisation}
+\item{authorize}{url to send client to for authorisation. Set as \code{NULL}
+if not needed}
 
 \item{access}{url used to exchange unauthenticated for authenticated token.}
 
