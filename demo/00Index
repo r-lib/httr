@@ -9,4 +9,5 @@ oauth2-github       Using the github api with OAuth 2.0
 oauth2-google       Using the google api with OAuth 2.0
 oauth2-reddit       Using the reddit api with OAuth 2.0
 oauth2-linkedin     Using linkedin api with OAuth 1.0
+oauth2-yelp         Using yelp api with OAuth 2.0 and Client Credentials Grant
 service-account     Using Google service account
