@@ -64,7 +64,7 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'     app key and secret in the request body.
 #' @param config_init Additional configuration settings sent to
 #'     \code{\link{POST}}, e.g. \code{\link{user_agent}}.
-#' @param client_credentials default to \code{FALSE}. Set to \code{TRUE} to use
+#' @param client_credentials Default to \code{FALSE}. Set to \code{TRUE} to use
 #'   \emph{Client Credentials Grant} instead of \emph{Authorization
 #'   Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.
 #' @export
