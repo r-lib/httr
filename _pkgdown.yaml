@@ -40,7 +40,6 @@ reference:
   - http_status
   - http_type
   - http_date
-  - response
   - status_code
   - stop_for_status
 
