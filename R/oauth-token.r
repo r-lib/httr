@@ -221,7 +221,8 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
     use_oob = use_oob,
     as_header = as_header,
     use_basic_auth = use_basic_auth,
-    config_init = config_init
+    config_init = config_init,
+    client_credentials = client_credentials
   )
 
   Token2.0$new(
