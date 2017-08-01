@@ -6,11 +6,13 @@
 #'    \code{stderr}.
 #' @export
 #' @examples
+#' cap_speed <- config(max_recv_speed_large = 10000)
+#'
 #' \donttest{
 #' # If file size is known, you get a progress bar:
-#' x <- GET("http://courses.had.co.nz/12-oscon/slides.zip", progress())
+#' x <- GET("http://httpbin.org/bytes/102400", progress(), cap_speed)
 #' # Otherwise you get the number of bytes downloaded:
-#' x <- GET("http://httpbin.org/drip?numbytes=4000&duration=3", progress())
+#' x <- GET("http://httpbin.org/stream-bytes/102400", progress(), cap_speed)
 #' }
 progress <- function(type = c("down", "up"), con = stdout()) {
   type <- match.arg(type)
@@ -23,7 +25,6 @@ progress <- function(type = c("down", "up"), con = stdout()) {
 
 progress_bar <- function(type, con) {
   bar <- NULL
-  first <- TRUE
 
   show_progress <- function(down, up) {
     if (type == "down") {
@@ -34,25 +35,20 @@ progress_bar <- function(type, con) {
       now <- up[[2]]
     }
 
-    # First progress request on new file
     if (total == 0 && now == 0) {
+      # Reset progress bar when seeing first byte
       bar <<- NULL
-      first <<- TRUE
-      return(TRUE)
-    }
-
-    if (total == 0) {
-      if (first) {
-        first <<- FALSE
-      }
+    } else if (total == 0) {
       cat("\rDownloading: ", bytes(now, digits = 2), "     ", sep = "", file = con)
-      if (now == total) cat("\n", file = con)
       utils::flush.console()
+      # Can't automatically add newline on completion because there's no
+      # way to tell when then the file has finished downloading
     } else {
       if (is.null(bar)) {
         bar <<- utils::txtProgressBar(max = total, style = 3, file = con)
       }
       utils::setTxtProgressBar(bar, now)
+      if (now == total) close(bar)
     }
 
     TRUE
