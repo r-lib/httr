@@ -1,0 +1,21 @@
+navbar:
+  title: httr
+  type: default
+  left:
+  - icon: fa-home fa-lg
+    href: /index.html
+  - text: Intro
+    href: articles/quickstart.html
+  - text: Reference
+    href: reference/index.html
+  - text: Articles
+    menu:
+    - text: Managing secrets
+      href: articles/secrets.html
+    - text: Best practices for API packages
+      href: articles/api-packages.html
+  right:
+  - text: News
+    href: news/index.html
+  - icon: fa-github fa-lg
+    href: https://github.com/r-lib/httr
