@@ -175,28 +175,30 @@ data already held by the client.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 10.4 kB
+#&gt;   Size: 11.5 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
+#&gt; google.ojsr=function(a){google.erd.jsr=a;l=void 0};google.rjsr=function(){goo...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/webhp]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 10.4 kB
+#&gt;   Size: 11.5 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
+#&gt; google.ojsr=function(a){google.erd.jsr=a;l=void 0};google.rjsr=function(){goo...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>, <span class='kw'>query</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>q</span> <span class='kw'>=</span> <span class='st'>"ham"</span>))</div><div class='output co'>#&gt; Response [http://www.google.com/search?q=ham]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 53 kB
+#&gt;   Size: 52.9 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/SearchResultsPa...
 #&gt; goin&amp;#39; &lt;b&gt;HAM&lt;/b&gt; on dem fools. Holla, I&amp;#39;m about to go get &lt;b&gt;HAM&lt;/b&gt; ...
 #&gt; was traditionally made only from the hind leg of swine, and referred to that&amp;...
@@ -209,7 +211,7 @@ data already held by the client.</p>
 <span class='co'># See what GET is doing with httpbin.org</span>
 <span class='no'>url</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/get"</span>
 <span class='fu'>GET</span>(<span class='no'>url</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 358 B
@@ -224,7 +226,7 @@ data already held by the client.</p>
 #&gt;     "User-Agent": "libcurl/7.54.0 r-curl/2.8.1 httr/1.2.1.9000"
 #&gt;   }, 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 388 B
@@ -239,7 +241,7 @@ data already held by the client.</p>
 #&gt;     "Cookie": "a=1; b=2", 
 #&gt;     "Host": "httpbin.org", 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 367 B
@@ -254,7 +256,7 @@ data already held by the client.</p>
 #&gt;     "User-Agent": "libcurl/7.54.0 r-curl/2.8.1 httr/1.2.1.9000"
 #&gt;   }, 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 397 B
@@ -269,7 +271,7 @@ data already held by the client.</p>
 #&gt;     "Cookie": "a=1; b=2; a=1;b=2", 
 #&gt;     "Host": "httpbin.org", 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='authenticate.html'>authenticate</a></span>(<span class='st'>"username"</span>, <span class='st'>"password"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 414 B
@@ -284,7 +286,7 @@ data already held by the client.</p>
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.54.0 r-curl/2.8.1 httr/1.2.1.9000"
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 358 B
@@ -303,23 +305,21 @@ data already held by the client.</p>
 <span class='co'># independent logins to the same website.</span>
 <span class='no'>google</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='handle.html'>handle</a></span>(<span class='st'>"http://google.com"</span>)
 <span class='fu'>GET</span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>google</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"/"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.6 kB
+#&gt;   Size: 10.4 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
-#&gt; google.ojsr=function(a){google.erd.jsr=a;l=void 0};google.rjsr=function(){goo...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div><div class='input'><span class='fu'>GET</span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>google</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/webhp]
-#&gt;   Date: 2017-08-01 19:41
+#&gt;   Date: 2017-08-01 19:59
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.5 kB
+#&gt;   Size: 10.4 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
-#&gt; google.ojsr=function(a){google.erd.jsr=a;l=void 0};google.rjsr=function(){goo...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div></pre>

@@ -110,6 +110,7 @@
 <h1 class="hasAnchor">
 <a href="#httr-1-2-1-9000" class="anchor"></a>httr 1.2.1.9000</h1>
 <ul>
+<li><p>Deprecated <code>safe_callback()</code> has been removed.</p></li>
 <li><p><code><a href="../reference/init_oauth2.0.html">init_oauth2.0()</a></code> gains <code>client_credentials</code>, defaulting to <code>FALSE</code>, which allows you to use Oauth2 dance with some APIs (e.g yelp) that required <em>Client Credential Grant</em> instead of <em>Authorization Code Grant</em> for obtaining authorization. See <a href="https://tools.ietf.org/html/rfc6749#section-4">RFC 6749</a>. (@cderv, #384)</p></li>
 <li><p><code>BROWSER()</code> prints a message telling you to browse to the URL if called in a non-interactive session.</p></li>
 <li><p><code>is_interactive</code> argument to <code><a href="../reference/init_oauth1.0.html">init_oauth1.0()</a></code>, <code><a href="../reference/init_oauth2.0.html">init_oauth2.0()</a></code> and <code><a href="../reference/oauth_listener.html">oauth_listener()</a></code> has been deprecated, as the R session does not need to be interactive.</p></li>
@@ -232,7 +233,7 @@
 <li><p><code>context(type = "auto")</code> uses a better strategy for text based formats (#209). This should allow the <code>encoding</code> argument to work more reliably.</p></li>
 <li><p><code><a href="../reference/config.html">config()</a></code> now cleans up duplicated options (#213).</p></li>
 <li><p>Uses <code>CURL_CA_BUNDLE</code> environment variable to look for cert bundle on Windows (#223).</p></li>
-<li><p><code><a href="../reference/safe_callback.html">safe_callback()</a></code> is deprecated - it’s no longer needed with curl.</p></li>
+<li><p><code>safe_callback()</code> is deprecated - it’s no longer needed with curl.</p></li>
 <li><p><code><a href="../reference/POST.html">POST()</a></code> and <code><a href="../reference/PUT.html">PUT()</a></code> now clean up after themselves when uploading a single file (@mtmorgan).</p></li>
 <li><p><code>proxy()</code> gains an <code>auth</code> argument which allows you to pick the type of http authentication used by the proxy (#216).</p></li>
 <li><p><code><a href="../reference/VERB.html">VERB()</a></code> gains <code>body</code> and <code>encode</code> arguments so you can generate arbitrary requests with a body.</p></li>
@@ -278,7 +279,7 @@
 <li><p>Correctly parse http headers when field name is followed by any amount (including none) of white space.</p></li>
 <li><p>Default “Accepts” header set to <code>application/json, text/xml, application/xml, */*</code>: this should slightly increase the likelihood of getting xml back. <code>application/xml</code> is correctly converted to text before being parsed to <code><a href="http://www.rdocumentation.org/packages/XML/topics/xmlTreeParse">XML::xmlParse()</a></code> (#160).</p></li>
 <li><p>Make it again possible to override the content type set up by <code><a href="../reference/POST.html">POST()</a></code> when sending data (#140).</p></li>
-<li><p>New <code><a href="../reference/safe_callback.html">safe_callback()</a></code> function operator that makes R functions safe for use as RCurl callbacks (#144).</p></li>
+<li><p>New <code>safe_callback()</code> function operator that makes R functions safe for use as RCurl callbacks (#144).</p></li>
 <li><p>Added support for passing oauth1 tokens in URL instead of the headers (#145, @bogstag).</p></li>
 <li><p>Default to out-of-band credential exchange when <code>httpuv</code> isn’t installed. (#168)</p></li>
 </ul>

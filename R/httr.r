@@ -23,6 +23,5 @@
 #' requests. The demos directory has six demos of using OAuth: three for 1.0
 #' (linkedin, twitter and vimeo) and three for 2.0 (facebook, github, google).
 #'
-#' @name httr
-#' @docType package
-NULL
+#' @keywords internal
+"_PACKAGE"

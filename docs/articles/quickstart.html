@@ -100,7 +100,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html"
 <p>This gives you a response object. Printing a response object gives you some useful information: the actual url used (after any redirects), the http status, the file (content) type, the size, and if it’s a text file, the first few lines of output.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r
 <span class="co">#&gt; Response [http://httpbin.org/get]</span>
-<span class="co">#&gt;   Date: 2017-08-01 19:42</span>
+<span class="co">#&gt;   Date: 2017-08-01 20:01</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json</span>
 <span class="co">#&gt;   Size: 331 B</span>
@@ -126,7 +126,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html"
 <span class="co">#&gt; [1] "meinheld/0.6.1"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $date</span>
-<span class="co">#&gt; [1] "Tue, 01 Aug 2017 19:42:24 GMT"</span>
+<span class="co">#&gt; [1] "Tue, 01 Aug 2017 20:01:05 GMT"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-type`</span>
 <span class="co">#&gt; [1] "application/json"</span>
@@ -141,7 +141,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html"
 <span class="co">#&gt; [1] "Flask"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`x-processed-time`</span>
-<span class="co">#&gt; [1] "0.000654935836792"</span>
+<span class="co">#&gt; [1] "0.000647068023682"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-length`</span>
 <span class="co">#&gt; [1] "331"</span>
@@ -262,7 +262,7 @@ r<span class="op">$</span>status_code
 <span class="co">#&gt; [1] "meinheld/0.6.1"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $date</span>
-<span class="co">#&gt; [1] "Tue, 01 Aug 2017 19:42:26 GMT"</span>
+<span class="co">#&gt; [1] "Tue, 01 Aug 2017 20:01:06 GMT"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-type`</span>
 <span class="co">#&gt; [1] "application/json"</span>
@@ -277,7 +277,7 @@ r<span class="op">$</span>status_code
 <span class="co">#&gt; [1] "Flask"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`x-processed-time`</span>
-<span class="co">#&gt; [1] "0.00124216079712"</span>
+<span class="co">#&gt; [1] "0.00113606452942"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-length`</span>
 <span class="co">#&gt; [1] "331"</span>
@@ -289,9 +289,9 @@ r<span class="op">$</span>status_code
 <span class="co">#&gt; [1] "insensitive" "list"</span></code></pre></div>
 <p>This is basically a named list, but because http headers are case insensitive, indexing this object ignores case:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/headers.html">headers</a></span>(r)<span class="op">$</span>date
-<span class="co">#&gt; [1] "Tue, 01 Aug 2017 19:42:26 GMT"</span>
+<span class="co">#&gt; [1] "Tue, 01 Aug 2017 20:01:06 GMT"</span>
 <span class="kw"><a href="../reference/headers.html">headers</a></span>(r)<span class="op">$</span>DATE
-<span class="co">#&gt; [1] "Tue, 01 Aug 2017 19:42:26 GMT"</span></code></pre></div>
+<span class="co">#&gt; [1] "Tue, 01 Aug 2017 20:01:06 GMT"</span></code></pre></div>
 </div>
 <div id="cookies" class="section level3">
 <h3 class="hasAnchor">

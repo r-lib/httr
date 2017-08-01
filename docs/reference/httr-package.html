@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Generate a safe R callback. — safe_callback • httr</title>
+<title><span class="pkg">httr</span> makes http easy. — httr-package • httr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -101,31 +101,62 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Generate a safe R callback.</h1>
+    <h1><span class="pkg">httr</span> makes http easy.</h1>
     </div>
 
     
-    <p>Generate a safe R callback.</p>
+    <p><code>httr</code> is organised around the five most common http verbs:
+<code><a href='GET.html'>GET</a></code>, <code><a href='PATCH.html'>PATCH</a></code>,
+<code><a href='POST.html'>POST</a></code>, <code><a href='HEAD.html'>HEAD</a></code>,
+<code><a href='PUT.html'>PUT</a></code>, and <code><a href='DELETE.html'>DELETE</a></code>.</p>
     
 
-    <pre class="usage"><span class='fu'>safe_callback</span>(<span class='no'>f</span>)</pre>
+        
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Each request returns a <code><a href='response.html'>response</a></code> object which provides
+easy access to status code, cookies, headers, timings, and other useful
+info.  The content of the request is available as a raw vector
+(<code><a href='content.html'>content</a></code>), character vector (<code><a href='content.html'>text_content</a></code>),
+or parsed into an R object (<code><a href='content.html'>parsed_content</a></code>), currently for
+html, xml, json, png and jpeg).</p>
+<p>Requests can be modified by various config options like
+<code><a href='set_cookies.html'>set_cookies</a></code>, <code><a href='add_headers.html'>add_headers</a></code>,
+<code><a href='authenticate.html'>authenticate</a></code>, <code><a href='use_proxy.html'>use_proxy</a></code>,
+<code><a href='verbose.html'>verbose</a></code>, and <code><a href='timeout.html'>timeout</a></code></p>
+<p>httr supports OAuth 1.0 and 2.0. Use <code><a href='oauth1.0_token.html'>oauth1.0_token</a></code> and
+<code><a href='oauth2.0_token.html'>oauth2.0_token</a></code> to get user tokens, and
+<code><a href='sign_oauth.html'>sign_oauth1.0</a></code> and <code><a href='sign_oauth.html'>sign_oauth2.0</a></code> to sign
+requests. The demos directory has six demos of using OAuth: three for 1.0
+(linkedin, twitter and vimeo) and three for 2.0 (facebook, github, google).</p>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>f</th>
-      <td><p>A function.</p></td>
-    </tr>
-    </table>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p>Useful links:</p><ul>
+<li><p><a href='https://github.com/r-lib/httr'>https://github.com/r-lib/httr</a></p></li>
+<li><p>Report bugs at <a href='https://github.com/r-lib/httr/issues'>https://github.com/r-lib/httr/issues</a></p></li>
+</ul>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
+
+    <h2>Author</h2>
+    
+<strong>Maintainer</strong>: Hadley Wickham <a href='mailto:hadley@rstudio.com'>hadley@rstudio.com</a>
+
+Other contributors:
+<ul>
+<li><p>RStudio [copyright holder]</p></li>
+</ul>
+
 
   </div>
 </div>
