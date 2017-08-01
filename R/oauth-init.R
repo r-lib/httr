@@ -88,15 +88,19 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
 
   # Some Oauth2 grant type not required an authorization request and code
   # (see https://tools.ietf.org/html/rfc6749#section-4.4)
-  if(client_credentials) {
+  if (client_credentials) {
     code <- NULL
   } else {
-    authorize_url <- modify_url(endpoint$authorize, query = compact(list(
-      client_id = app$key,
-      scope = scope_arg,
-      redirect_uri = redirect_uri,
-      response_type = "code",
-      state = state)))
+    authorize_url <- modify_url(
+      url = endpoint$authorize,
+      query = compact(list(
+        client_id = app$key,
+        scope = scope_arg,
+        redirect_uri = redirect_uri,
+        response_type = "code",
+        state = state)
+      )
+    )
 
     if (use_oob) {
       code <- oauth_exchanger(authorize_url)$code

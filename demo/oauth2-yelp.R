@@ -31,9 +31,11 @@ yelp_token <- oauth2.0_token(
 url <- modify_url(
   url = "https://api.yelp.com",
   path = c("v3", "businesses", "search"),
-  query = list(term = "coffee",
-               location = "Vancouver, BC",
-               limit = 3)
+  query = list(
+    term = "coffee",
+    location = "Vancouver, BC",
+    limit = 3
+  )
 )
 
 req <- GET(url, config(token = token))
