@@ -113,12 +113,12 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
   # Send credentials using HTTP Basic or as parameters in the request body
   # See https://tools.ietf.org/html/rfc6749#section-2.3 (Client Authentication)
 
-  req_params <- list(
+  req_params <- compact(list(
     client_id = app$key,
     redirect_uri = if (client_credentials) NULL else redirect_uri,
     grant_type = if (client_credentials) "client_credentials" else "authorization_code",
     code = code
-  )
+  ))
 
   if (!is.null(user_params)) {
     req_params <- utils::modifyList(user_params, req_params)
