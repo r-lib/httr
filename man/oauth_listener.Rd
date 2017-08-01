@@ -9,7 +9,7 @@ oauth_listener(request_url, is_interactive = interactive())
 \arguments{
 \item{request_url}{the url to send the browser to}
 
-\item{is_interactive}{Is an interactive environment available?}
+\item{is_interactive}{DEPRECATED}
 
 \item{host}{ip address for the listener}
 

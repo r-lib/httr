@@ -15,7 +15,7 @@ init_oauth1.0(endpoint, app, permission = NULL,
 
 \item{permission}{optional, a string of permissions to ask for.}
 
-\item{is_interactive}{Is the current environment interactive?}
+\item{is_interactive}{DEPRECATED}
 
 \item{private_key}{Optional, a key provided by \code{\link[openssl]{read_key}}.
 Used for signed OAuth 1.0.}

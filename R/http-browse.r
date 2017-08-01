@@ -13,7 +13,11 @@
 #' BROWSE("http://google.com")
 #' BROWSE("http://had.co.nz")
 BROWSE <- function(url = NULL, config = list(), ..., handle = NULL) {
-  if (!interactive()) return()
   hu <- handle_url(handle, url, ...)
-  utils::browseURL(hu$url)
+  if (interactive()) {
+    utils::browseURL(hu$url)
+  } else {
+    message("Please point your browser to the following url: ")
+    message(hu$url)
+  }
 }

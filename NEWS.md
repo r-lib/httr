@@ -1,5 +1,12 @@
 # httr 1.2.1.9000
 
+* `BROWSER()` prints a message telling you to browse to the URL if called
+  in a non-interactive session.
+
+* `is_interactive` argument to `init_oauth1.0()`, `init_oauth2.0()` and 
+  `oauth_listener()` has been deprecated, as the R session does not need
+  to be interactive.
+
 * Changed example in `write_stream` from 
   https://jeroenooms.github.io/data/diamonds.json to 
   https://github.com/jeroen/data/raw/gh-pages/diamonds.json

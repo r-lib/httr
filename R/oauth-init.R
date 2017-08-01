@@ -6,7 +6,7 @@
 #' @param app An OAuth consumer application, created by
 #'    \code{\link{oauth_app}}
 #' @param permission optional, a string of permissions to ask for.
-#' @param is_interactive Is the current environment interactive?
+#' @param is_interactive DEPRECATED
 #' @param private_key Optional, a key provided by \code{\link[openssl]{read_key}}.
 #'   Used for signed OAuth 1.0.
 #' @export
@@ -48,28 +48,31 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #' See demos for use.
 #'
 #' @inheritParams init_oauth1.0
-#' @param type content type used to override incorrect server response
 #' @param scope a character vector of scopes to request.
 #' @param user_params Named list holding endpoint specific parameters to pass to
-#'     the server when posting the request for obtaining or refreshing the
-#'     access token.
+#'   the server when posting the request for obtaining or refreshing the
+#'   access token.
+#' @param type content type used to override incorrect server response
 #' @param use_oob if FALSE, use a local webserver for the OAuth dance.
-#'     Otherwise, provide a URL to the user and prompt for a validation
-#'     code. Defaults to the of the \code{"httr_oob_default"} default,
-#'     or \code{TRUE} if \code{httpuv} is not installed.
-#' @param is_interactive Is the current environment interactive?
+#'   Otherwise, provide a URL to the user and prompt for a validation
+#'   code. Defaults to the of the \code{"httr_oob_default"} default,
+#'   or \code{TRUE} if \code{httpuv} is not installed.
 #' @param use_basic_auth if \code{TRUE} use http basic authentication to
-#'     retrieve the token. Some authorization servers require this.
-#'     If \code{FALSE}, the default, retrieve the token by including the
-#'     app key and secret in the request body.
+#'   retrieve the token. Some authorization servers require this.
+#'   If \code{FALSE}, the default, retrieve the token by including the
+#'   app key and secret in the request body.
 #' @param config_init Additional configuration settings sent to
-#'     \code{\link{POST}}, e.g. \code{\link{user_agent}}.
+#'   \code{\link{POST}}, e.g. \code{\link{user_agent}}.
 #' @export
 #' @keywords internal
-init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
-                          type = NULL, use_oob = getOption("httr_oob_default"),
+init_oauth2.0 <- function(endpoint, app, scope = NULL,
+                          user_params = NULL,
+                          type = NULL,
+                          use_oob = getOption("httr_oob_default"),
                           is_interactive = interactive(),
-                          use_basic_auth = FALSE, config_init = list()) {
+                          use_basic_auth = FALSE,
+                          config_init = list()
+                          ) {
 
   scope <- check_scope(scope)
   use_oob <- check_oob(use_oob)
@@ -87,13 +90,10 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
     scope = scope,
     redirect_uri = redirect_uri,
     response_type = "code",
-    state = state)))
+    state = state)
+  ))
 
-  if (use_oob) {
-    code <- oauth_exchanger(authorize_url)$code
-  } else {
-    code <- oauth_listener(authorize_url, is_interactive)$code
-  }
+  code <- oauth_authorize(authorize_url, use_oob)
 
   # Use authorisation code to get (temporary) access token
 
@@ -103,7 +103,8 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, user_params = NULL,
     client_id = app$key,
     redirect_uri = redirect_uri,
     grant_type = "authorization_code",
-    code = code)
+    code = code
+  )
 
   if (!is.null(user_params)) {
     req_params <- utils::modifyList(user_params, req_params)
@@ -163,4 +164,13 @@ check_oob <- function(x) {
   }
 
   x
+}
+
+
+oauth_authorize <- function(url, oob = FALSE) {
+  if (oob) {
+    oauth_exchanger(url)$code
+  } else {
+    oauth_listener(url)$code
+  }
 }
