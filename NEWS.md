@@ -1,5 +1,10 @@
 # httr 1.2.1.9000
 
+* Changed example in `write_stream` from 
+  https://jeroenooms.github.io/data/diamonds.json to 
+  https://github.com/jeroen/data/raw/gh-pages/diamonds.json
+  in example code as the link was changed (@muschellij2).
+
 * Added `pause_min` to `RETRY` requests, allowing for sub-second
   delays. (Use with caution! Generally the default is preferred.) (@r2evans)
 

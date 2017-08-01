@@ -58,7 +58,7 @@ write_memory <- function() {
 #'   vector containing the bytes recieved from the server. This will usually
 #'   be 16k or less. The return value of the function is ignored.
 #' @examples
-#' GET("https://jeroenooms.github.io/data/diamonds.json",
+#' GET("https://github.com/jeroen/data/raw/gh-pages/diamonds.json",
 #'   write_stream(function(x) {
 #'    print(length(x))
 #'    length(x)
