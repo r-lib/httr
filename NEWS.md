@@ -1,5 +1,6 @@
 # httr 1.2.1.9000
 
+* Deprecated `safe_callback()` has been removed.
 
 * `init_oauth2.0()` gains `client_credentials`, defaulting to `FALSE`, which 
   allows you to use Oauth2 dance with some APIs (e.g yelp) that required 
