@@ -13,13 +13,20 @@
 #' @keywords internal
 init_oauth1.0 <- function(endpoint, app, permission = NULL,
                           is_interactive = interactive(),
-                          private_key = NULL) {
+                          private_key = NULL, use_oob = getOption("httr_oob_default")) {
 
+  if (isTRUE(use_oob)) {
+    stopifnot(interactive())
+    redirect_uri <- "oob"
+  } else {
+    redirect_uri <- oauth_callback()
+  }
+  
   oauth_sig <- function(url, method, token = NULL, token_secret = NULL, private_key = NULL, ...) {
     oauth_header(oauth_signature(url, method, app, token, token_secret, private_key,
-        other_params = c(list(...), oauth_callback = oauth_callback())))
+        other_params = c(list(...), oauth_callback = redirect_uri)))
   }
-
+  
   # 1. Get an unauthorized request token
   response <- POST(endpoint$request, oauth_sig(endpoint$request, "POST", private_key = private_key))
   stop_for_status(response)
@@ -31,7 +38,14 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
   authorize_url <- modify_url(endpoint$authorize, query = list(
     oauth_token = token,
     permission = "read"))
-  verifier <- oauth_listener(authorize_url, is_interactive)
+  
+  if (isTRUE(use_oob)) {
+    verifier <- oauth_exchanger(authorize_url)
+  } else {
+    verifier <- oauth_listener(authorize_url, is_interactive)
+  }
+  
+  #verifier <- oauth_listener(authorize_url, is_interactive)
   verifier <- verifier$oauth_verifier %||% verifier[[1]]
 
   # 3. Request access token
