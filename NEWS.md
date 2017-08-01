@@ -1,10 +1,23 @@
 # httr 1.2.1.9000
 
+
 * `init_oauth2.0()` gains `client_credentials`, defaulting to `FALSE`, which 
   allows you to use Oauth2 dance with some APIs (e.g yelp) that required 
   *Client Credential Grant* instead of *Authorization Code Grant* for 
   obtaining authorization. See [RFC 6749](https://tools.ietf.org/html/rfc6749#section-4).
   (@cderv, #384)
+
+* `BROWSER()` prints a message telling you to browse to the URL if called
+  in a non-interactive session.
+
+* `is_interactive` argument to `init_oauth1.0()`, `init_oauth2.0()` and 
+  `oauth_listener()` has been deprecated, as the R session does not need
+  to be interactive.
+
+* Changed example in `write_stream` from 
+  https://jeroenooms.github.io/data/diamonds.json to 
+  https://github.com/jeroen/data/raw/gh-pages/diamonds.json
+  in example code as the link was changed (@muschellij2).
 
 * Added `pause_min` to `RETRY` requests, allowing for sub-second
   delays. (Use with caution! Generally the default is preferred.) (@r2evans)

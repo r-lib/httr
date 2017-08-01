@@ -28,7 +28,7 @@ Otherwise, provide a URL to the user and prompt for a validation
 code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
 
-\item{is_interactive}{Is the current environment interactive?}
+\item{is_interactive}{DEPRECATED}
 
 \item{use_basic_auth}{if \code{TRUE} use http basic authentication to
 retrieve the token. Some authorization servers require this.

@@ -142,18 +142,30 @@ oauth1.0_token <- function(endpoint, app, permission = NULL,
                            as_header = TRUE,
                            private_key = NULL,
                            cache = getOption("httr_oauth_cache")) {
-  params <- list(permission = permission, as_header = as_header)
+  params <- list(
+    permission = permission,
+    as_header = as_header
+  )
 
-  Token1.0$new(app = app, endpoint = endpoint, params = params,
-    private_key = private_key, cache_path = cache)
+  Token1.0$new(
+    app = app,
+    endpoint = endpoint,
+    params = params,
+    private_key = private_key,
+    cache_path = cache
+  )
 }
 
 #' @export
 #' @rdname Token-class
 Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
   init_credentials = function(force = FALSE) {
-    self$credentials <- init_oauth1.0(self$endpoint, self$app,
-      permission = self$params$permission, private_key = self$private_key)
+    self$credentials <- init_oauth1.0(
+      self$endpoint, self$app,
+      permission = self$params$permission,
+      private_key = self$private_key,
+      use_oob = self$params$use_oob
+    )
   },
   can_refresh = function() {
     FALSE
@@ -194,20 +206,30 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 #' @family OAuth
 #' @export
 oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
-                           type = NULL, use_oob = getOption("httr_oob_default"),
+                           type = NULL,
+                           use_oob = getOption("httr_oob_default"),
                            as_header = TRUE,
                            use_basic_auth = FALSE,
                            cache = getOption("httr_oauth_cache"),
                            config_init = list(),
-                           client_credentials = FALSE) {
-  params <- list(scope = scope, user_params = user_params, type = type,
-      use_oob = use_oob, as_header = as_header,
-      use_basic_auth = use_basic_auth,
-      config_init = config_init,
-      client_credentials = client_credentials)
+                           client_credentials = FALSE
+                          ) {
+  params <- list(
+    scope = scope,
+    user_params = user_params,
+    type = type,
+    use_oob = use_oob,
+    as_header = as_header,
+    use_basic_auth = use_basic_auth,
+    config_init = config_init
+  )
 
-  Token2.0$new(app = app, endpoint = endpoint, params = params,
-    cache_path = cache)
+  Token2.0$new(
+    app = app,
+    endpoint = endpoint,
+    params = params,
+    cache_path = cache
+  )
 }
 
 #' @export

@@ -17,10 +17,12 @@ or downloaded.}
 Add a progress bar.
 }
 \examples{
+cap_speed <- config(max_recv_speed_large = 10000)
+
 \donttest{
 # If file size is known, you get a progress bar:
-x <- GET("http://courses.had.co.nz/12-oscon/slides.zip", progress())
+x <- GET("http://httpbin.org/bytes/102400", progress(), cap_speed)
 # Otherwise you get the number of bytes downloaded:
-x <- GET("http://httpbin.org/drip?numbytes=4000&duration=3", progress())
+x <- GET("http://httpbin.org/stream-bytes/102400", progress(), cap_speed)
 }
 }
