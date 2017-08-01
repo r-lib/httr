@@ -211,7 +211,9 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            as_header = TRUE,
                            use_basic_auth = FALSE,
                            cache = getOption("httr_oauth_cache"),
-                           config_init = list()) {
+                           config_init = list(),
+                           client_credentials = FALSE
+                          ) {
   params <- list(
     scope = scope,
     user_params = user_params,
@@ -238,7 +240,8 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
       scope = self$params$scope, user_params = self$params$user_params,
       type = self$params$type, use_oob = self$params$use_oob,
       use_basic_auth = self$params$use_basic_auth,
-      config_init = self$params$config_init)
+      config_init = self$params$config_init,
+      client_credentials = self$params$client_credentials)
   },
   can_refresh = function() {
     !is.null(self$credentials$refresh_token)

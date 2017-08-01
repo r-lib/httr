@@ -5,7 +5,8 @@
 #'
 #' @param request url used to request initial (unauthenticated) token.
 #'   If using OAuth2.0, leave as \code{NULL}.
-#' @param authorize url to send client to for authorisation
+#' @param authorize url to send client to for authorisation. Set to \code{NULL}
+#'   if not needed
 #' @param access url used to exchange unauthenticated for authenticated token.
 #' @param ... other additional endpoints.
 #' @param base_url option url to use as base for \code{request},

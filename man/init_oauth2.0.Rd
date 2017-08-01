@@ -7,7 +7,7 @@
 init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
   type = NULL, use_oob = getOption("httr_oob_default"),
   is_interactive = interactive(), use_basic_auth = FALSE,
-  config_init = list())
+  config_init = list(), client_credentials = FALSE)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -37,6 +37,10 @@ app key and secret in the request body.}
 
 \item{config_init}{Additional configuration settings sent to
 \code{\link{POST}}, e.g. \code{\link{user_agent}}.}
+
+\item{client_credentials}{Default to \code{FALSE}. Set to \code{TRUE} to use
+\emph{Client Credentials Grant} instead of \emph{Authorization
+Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
 }
 \description{
 See demos for use.
