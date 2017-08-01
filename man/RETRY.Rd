@@ -6,8 +6,8 @@
 \usage{
 RETRY(verb, url = NULL, config = list(), ..., body = NULL,
   encode = c("multipart", "form", "json", "raw"), times = 3,
-  pause_base = 1, pause_cap = 60, pause_min = 1, 
-  handle = NULL,  quiet = FALSE, terminate_on = NULL)
+  pause_base = 1, pause_cap = 60, pause_min = 1, handle = NULL,
+  quiet = FALSE, terminate_on = NULL)
 }
 \arguments{
 \item{verb}{Name of verb to use.}
