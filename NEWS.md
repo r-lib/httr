@@ -1,5 +1,8 @@
 # httr 1.2.1.9000
 
+* `oauth_signature()` now normalises the URL as described in the OAuth1.0a
+  spec (@leeper, #435)
+
 * Deprecated `safe_callback()` has been removed.
 
 * `init_oauth2.0()` gains `client_credentials`, defaulting to `FALSE`, which 

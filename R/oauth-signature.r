@@ -46,19 +46,8 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
   } else {
     signature_method <- "HMAC-SHA1"
   }
-  method <- toupper(method)
 
-  url <- parse_url(url)
-  if (!is.null(url$port)) {
-    if (url$scheme == "http" && url$port == "80") {
-      url$port <- NULL
-    } else if (url$scheme == "https" && url$port == "443") {
-      url$port <- NULL
-    }
-  }
-  base_url <- build_url(url[c("scheme", "hostname", "port", "url", "path")])
-
-  oauth <- compact(list(
+  oauth_params <- compact(list(
     oauth_consumer_key = app$key,
     oauth_nonce = nonce(),
     oauth_signature_method = signature_method,
@@ -66,27 +55,26 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
     oauth_version = "1.0",
     oauth_token = token
   ))
-
   if (length(other_params) > 0) {
-    oauth <- c(oauth, other_params)
+    oauth_params <- c(oauth_params, other_params)
   }
 
-  # Collect params, oauth_encode, sort and concatenated into a single string
-  params <- c(url$query, oauth)
-  params_esc <- stats::setNames(oauth_encode(params), oauth_encode(names(params)))
-  params_srt <- sort_names(params_esc)
-  params_str <- paste0(names(params_srt), "=", params_srt, collapse = "&")
-
-  base_string <- paste0(method, "&", oauth_encode(base_url), "&",
-   oauth_encode(params_str))
+  norm_method <- toupper(method)
+  norm_url <- oauth_normalise_url(url)
+  norm_params <- oauth_normalize_params(url, oauth_params)
+  norm_req <- paste0(
+    norm_method, "&",
+    oauth_encode(norm_url), "&",
+    oauth_encode(norm_params)
+  )
 
   # Generate signature
   if (signature_method == "HMAC-SHA1") {
     private_key <- paste0(oauth_encode(app$secret), "&", oauth_encode(token_secret))
   }
-  oauth$oauth_signature <- sha1_hash(private_key, base_string, signature_method)
+  oauth_params$oauth_signature <- sha1_hash(private_key, norm_req, signature_method)
 
-  sort_names(oauth)
+  sort_names(oauth_params)
 }
 
 #' @rdname oauth_signature
@@ -111,4 +99,34 @@ oauth_encode1 <- function(x) {
 
   chars[!ok] <- unlist(lapply(chars[!ok], encode))
   paste0(chars, collapse = "")
+}
+
+oauth_normalise_url <- function(url) {
+  url <- parse_url(url)
+
+  # > Unless specified, URL scheme and authority MUST be lowercase and include
+  # > the port number; http default port 80 and https default port 443 MUST be
+  # > excluded.
+  # > --- https://oauth.net/core/1.0/#anchor14
+  url$scheme <- tolower(url$scheme)
+
+  if (url$scheme == "http" && identical(url$port, "80")) {
+    url$port <- NULL
+  } else if (url$scheme == "https" && identical(url$port, "443")) {
+    url$port <- NULL
+  }
+
+  build_url(url[c("scheme", "hostname", "port", "url", "path")])
+}
+
+oauth_normalize_params <- function(url, extra) {
+  # Collect params, encode, sort and concatenate into a single string
+  url <- parse_url(url)
+
+  params <- c(url$query, extra)
+  params_esc <- stats::setNames(oauth_encode(params), oauth_encode(names(params)))
+  params_srt <- sort_names(params_esc)
+  params_str <- paste0(names(params_srt), "=", params_srt, collapse = "&")
+
+  params_str
 }
