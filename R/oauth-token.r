@@ -163,8 +163,7 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
     self$credentials <- init_oauth1.0(
       self$endpoint, self$app,
       permission = self$params$permission,
-      private_key = self$private_key,
-      use_oob = self$params$use_oob
+      private_key = self$private_key
     )
   },
   can_refresh = function() {
