@@ -49,6 +49,13 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
   method <- toupper(method)
 
   url <- parse_url(url)
+  if (!is.null(url$port)) {
+    if (url$scheme == "http" && url$port == "80") {
+      url$port <- NULL
+    } else if (url$scheme == "https" && url$port == "443") {
+      url$port <- NULL
+    }
+  }
   base_url <- build_url(url[c("scheme", "hostname", "port", "url", "path")])
 
   oauth <- compact(list(
