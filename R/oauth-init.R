@@ -73,7 +73,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
                           type = NULL,
                           use_oob = getOption("httr_oob_default"),
                           is_interactive = interactive(),
-                          use_basic_auth = FALSE, 
+                          use_basic_auth = FALSE,
                           config_init = list(),
                           client_credentials = FALSE
                          ) {
@@ -85,7 +85,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
     redirect_uri <- "urn:ietf:wg:oauth:2.0:oob"
     state <- NULL
   } else {
-    redirect_uri <- oauth_callback()
+    redirect_uri <- app$redirect_uri
     state <- nonce()
   }
 
@@ -94,20 +94,56 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
   if (client_credentials) {
     code <- NULL
   } else {
-    authorize_url <- modify_url(endpoint$authorize, query = compact(list(
-      client_id = app$key,
+    authorize_url <- oauth2.0_authorize_url(
+      endpoint,
+      app,
       scope = scope,
       redirect_uri = redirect_uri,
-      response_type = "code",
-      state = state)
-    ))
-    
+      state = state
+    )
     code <- oauth_authorize(authorize_url, use_oob)
   }
-  # Use authorisation code to get (temporary) access token
 
-  # Send credentials using HTTP Basic or as parameters in the request body
-  # See https://tools.ietf.org/html/rfc6749#section-2.3 (Client Authentication)
+  # Use authorisation code to get (temporary) access token
+  oauth2.0_access_token(
+    endpoint,
+    app,
+    code = code,
+    user_params = user_params,
+    type = type,
+    redirect_uri = redirect_uri,
+    client_credentials = client_credentials,
+    config = config_init
+  )
+}
+
+#' @export
+#' @rdname init_oauth2.0
+oauth2.0_authorize_url <- function(endpoint, app, scope,
+                                   redirect_uri = app$redirect_uri,
+                                   state = nonce()
+                                   ) {
+  modify_url(endpoint$authorize, query = compact(list(
+    client_id = app$key,
+    scope = scope,
+    redirect_uri = redirect_uri,
+    response_type = "code",
+    state = state)
+  ))
+}
+
+#' @export
+#' @rdname init_oauth2.0
+oauth2.0_access_token <- function(endpoint,
+                                  app,
+                                  code,
+                                  user_params = NULL,
+                                  type = NULL,
+                                  use_basic_auth = FALSE,
+                                  redirect_uri = app$redirect_uri,
+                                  client_credentials = FALSE,
+                                  config = list()
+                                  ) {
 
   req_params <- compact(list(
     client_id = app$key,
@@ -120,19 +156,21 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
     req_params <- utils::modifyList(user_params, req_params)
   }
 
+  # Send credentials using HTTP Basic or as parameters in the request body
+  # See https://tools.ietf.org/html/rfc6749#section-2.3 (Client Authentication)
   if (isTRUE(use_basic_auth)) {
     req <- POST(endpoint$access,
       encode = "form",
       body = req_params,
       authenticate(app$key, app$secret, type = "basic"),
-      config = config_init
+      config = config
     )
   } else {
     req_params$client_secret <- app$secret
     req <- POST(endpoint$access,
       encode = "form",
       body = req_params,
-      config = config_init
+      config = config
     )
   }
 

@@ -200,6 +200,8 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 #'   itself to the bearer header of subsequent requests. If \code{FALSE},
 #'   configures the token to add itself as a url parameter of subsequent
 #'   requests.
+#' @param credentials Advanced use only: allows you to completely customise
+#'   token generation.
 #' @inheritParams oauth1.0_token
 #' @return A \code{Token2.0} reference class (RC) object.
 #' @family OAuth
@@ -211,7 +213,8 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            use_basic_auth = FALSE,
                            cache = getOption("httr_oauth_cache"),
                            config_init = list(),
-                           client_credentials = FALSE
+                           client_credentials = FALSE,
+                           credentials = NULL
                           ) {
   params <- list(
     scope = scope,
@@ -228,7 +231,8 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
     app = app,
     endpoint = endpoint,
     params = params,
-    cache_path = cache
+    credentials = credentials,
+    cache_path = FALSE
   )
 }
 

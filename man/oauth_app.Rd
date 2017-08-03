@@ -4,7 +4,7 @@
 \alias{oauth_app}
 \title{Create an OAuth application.}
 \usage{
-oauth_app(appname, key, secret = NULL)
+oauth_app(appname, key, secret = NULL, redirect_uri = oauth_callback())
 }
 \arguments{
 \item{appname}{name of the application.  This is not used for OAuth, but
@@ -19,6 +19,10 @@ provide a consistent way of storing secrets in environment variables.}
 
   Use \code{NULL} to not store a secret: this is useful if you're relying on
   cached OAuth tokens.}
+
+\item{redirect_uri}{The URL that user will be redirected to after
+authorisation is complete. You should generally leave this as the default
+unless you're using a non-standard auth flow (like with shiny).}
 }
 \description{
 The OAuth framework doesn't match perfectly to use from R. Each user of the

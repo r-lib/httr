@@ -7,7 +7,7 @@
 oauth2.0_token(endpoint, app, scope = NULL, user_params = NULL,
   type = NULL, use_oob = getOption("httr_oob_default"), as_header = TRUE,
   use_basic_auth = FALSE, cache = getOption("httr_oauth_cache"),
-  config_init = list(), client_credentials = FALSE)
+  config_init = list(), client_credentials = FALSE, credentials = NULL)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -49,6 +49,9 @@ A string mean use the specified path as the cache file.}
 \item{client_credentials}{Default to \code{FALSE}. Set to \code{TRUE} to use
 \emph{Client Credentials Grant} instead of \emph{Authorization
 Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
+
+\item{credentials}{Advanced use only: allows you to completely customise
+token generation.}
 }
 \value{
 A \code{Token2.0} reference class (RC) object.

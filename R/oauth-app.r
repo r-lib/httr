@@ -15,6 +15,9 @@
 #'
 #'   Use \code{NULL} to not store a secret: this is useful if you're relying on
 #'   cached OAuth tokens.
+#' @param redirect_uri The URL that user will be redirected to after
+#'   authorisation is complete. You should generally leave this as the default
+#'   unless you're using a non-standard auth flow (like with shiny).
 #' @export
 #' @family OAuth
 #' @examples
@@ -28,7 +31,10 @@
 #' # suppress the warning message
 #' oauth_app("my_app", "mykey")
 #' oauth_app("my_app", "mykey", NULL)
-oauth_app <- function(appname, key, secret = NULL) {
+oauth_app <- function(appname,
+                      key,
+                      secret = NULL,
+                      redirect_uri = oauth_callback()) {
   if (missing(secret)) {
     env_name <- paste0(toupper(appname), "_CONSUMER_SECRET")
     secret <- Sys.getenv(env_name)
@@ -40,8 +46,15 @@ oauth_app <- function(appname, key, secret = NULL) {
       message("Using secret stored in environment variable ", env_name)
     }
   }
-  structure(list(appname = appname, secret = secret, key = key),
-    class = "oauth_app")
+  structure(
+    list(
+      appname = appname,
+      secret = secret,
+      key = key,
+      redirect_uri = redirect_uri
+    ),
+    class = "oauth_app"
+  )
 }
 
 is.oauth_app <- function(x) inherits(x, "oauth_app")

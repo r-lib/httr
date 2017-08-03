@@ -1,5 +1,12 @@
 # httr 1.2.1.9000
 
+* `oauth_app()` allows you to specify the `redirect_url` if you need to 
+  customise it. `oauth2.0_token()` gains a `credentials` argument that 
+  allows you to further customise the auth flow. New `oauth2.0_authorize_url()`
+  and `oauth2.0_access_token()` functions pull out parts of the OAuth 
+  process so you can call yourself. All these changes are in the service
+  of making it easier to use OAuth from shiny (#457).
+
 * `oauth_signature()` now normalises the URL as described in the OAuth1.0a
   spec (@leeper, #435)
 
