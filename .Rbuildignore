@@ -8,5 +8,5 @@
 ^cran-comments\.md$
 ^demo/service-account\.json$
 ^docs$
-^pkgdown\.yaml$
+^_pkgdown\.yaml$
 ^codecov\.yml$
