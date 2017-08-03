@@ -24,7 +24,8 @@ Suggests:
     testthat (>= 0.8.0),
     readr,
     xml2,
-    rmarkdown
+    rmarkdown,
+    covr
 VignetteBuilder: knitr
 License: MIT + file LICENSE
 RoxygenNote: 6.0.1

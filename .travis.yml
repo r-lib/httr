@@ -13,3 +13,6 @@ env:
   global:
     secure: Jhp65lhvVcvDzPmn56M/SFrREG6xPMbAH64m5q7qBt67ns8edO87xdhG+O3U5f6LFlWs4I8vkC4Ruo2XCEEnwo23lEPR+/u3fLEKC8KIYXwFyKXIrLxANKLxUF3LmxYAYGXQiJw+W6pPdDIHxlOZeE+qyuwQ67LjnuA5egGsc1Y=
     secure: "WrC+MSH71qz/MdmJrQaGYlYrn9FMjbDWhbf6ypQkxh7A0qX6jEPYUm5XwtLdwBoTfOQ35/KkHMxY6wA  YK6FS+BN2eRqXSuhtPPwEMkkDCbgpNL3psPbPCnlJZywODkRXmqA4fD3LFVOeJbrgfcsJqalDjHZ0w7WnpwoMxVY5foc="
+
+after_success:
+  - Rscript -e 'covr::codecov()'

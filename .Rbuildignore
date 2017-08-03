@@ -9,3 +9,4 @@
 ^demo/service-account\.json$
 ^docs$
 ^pkgdown\.yaml$
+^codecov\.yml$
