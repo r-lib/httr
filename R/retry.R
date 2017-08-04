@@ -91,6 +91,10 @@ backoff_full_jitter <- function(i, resp, pause_base = 1, pause_cap = 60,
       error_description <- ""
       status <- status_code(resp)
     }
+    if (status == 429) {
+      length_429 <- as.numeric(resp$headers[["retry-after"]])
+      if (!is.null(length_429) && length_429 >= pause_min) length <- length_429
+    }
     message(error_description, "Request failed [", status, "]. Retrying in ", round(length, 1), " seconds...")
   }
   Sys.sleep(length)
