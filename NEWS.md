@@ -71,6 +71,10 @@
 * More forms of empty query are recognized as such. Eliminates a source of 
   spurious trailing `?` and `?=` in URLs produced by `modify_url()`. 
   (@jennybc, #452)
+  
+* If the server returns HTTP status code 429 and specifies a `retry-after` 
+  value, that value will now be used instead of exponential backoff with 
+  jitter, unless it's smaller than `pause_min`. (@nielsoledam, #472)
 
 # httr 1.2.1
 

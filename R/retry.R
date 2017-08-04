@@ -9,6 +9,8 @@
 #' randomly waits up to twice as long. (Technically it uses exponential
 #' backoff with jitter, using the approach outlined in
 #' \url{https://www.awsarchitectureblog.com/2015/03/backoff.html}.)
+#' If the server returns status code 429 and specifies a \code{retry-after} value, that
+#' value will be used instead, unless it's smaller than \code{pause_min}.
 #'
 #' @inheritParams VERB
 #' @inheritParams GET
@@ -90,6 +92,12 @@ backoff_full_jitter <- function(i, resp, pause_base = 1, pause_cap = 60,
     } else {
       error_description <- ""
       status <- status_code(resp)
+    }
+    if (status == 429) {
+      retry_after <- resp$headers[["retry-after"]]
+      if (!is.null(retry_after)) {
+        length <- max(pause_min, as.numeric(retry_after))
+      }
     }
     message(error_description, "Request failed [", status, "]. Retrying in ", round(length, 1), " seconds...")
   }
