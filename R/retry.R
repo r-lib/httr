@@ -95,7 +95,9 @@ backoff_full_jitter <- function(i, resp, pause_base = 1, pause_cap = 60,
     }
     if (status == 429) {
       retry_after <- resp$headers[["retry-after"]]
-      if (!is.null(retry_after)) length <- max(pause_min, as.numeric(retry_after))
+      if (!is.null(retry_after)) {
+        length <- max(pause_min, as.numeric(retry_after))
+      }
     }
     message(error_description, "Request failed [", status, "]. Retrying in ", round(length, 1), " seconds...")
   }
