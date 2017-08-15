@@ -92,6 +92,8 @@ It is designed to be kind to the server: after each failure
 randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in
 \url{https://www.awsarchitectureblog.com/2015/03/backoff.html}.)
+If the server returns status code 429 and specifies a \code{retry-after} value, that
+value will be used instead, unless it's smaller than \code{pause_min}.
 }
 \examples{
 # Succeeds straight away

@@ -1,4 +1,4 @@
-# httr 1.2.1.9000
+# httr 1.3.0
 
 ## API changes
 
