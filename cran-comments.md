@@ -1,10 +1,6 @@
-This is a minor update to the previous version which fixed a bug that only occurs in interactive code.
-
----
-
 ## Test environments
-* local OS X install, R 3.3.0
-* ubuntu 12.04 (on travis-ci), R 3.3.0
+* local OS X install, R 3.4.1
+* ubuntu 12.04 (on travis-ci), R 3.4.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -12,29 +8,42 @@ This is a minor update to the previous version which fixed a bug that only occur
 
 * httr uses the MIT license + license file template.
 
-## Downstream dependencies
+## Revdepcheck results
 
-I ran `R CMD check` on all 239 reverse dependencies (results at https://github.com/hadley/httr/tree/master/revdep/)
+(This is a new semi-automated report from the revdepcheck package. Please let me know if there is anything I can to do improve it.)
 
-Problems:
+We checked 424 reverse dependencies (395 from CRAN + 29 from BioConductor) by running R CMD check twice, once with the CRAN version installed, and once with this version installed. We saw 5 new problems. We failed to check 12 packages. Issues are summarised below.
 
-* Failed to install dependencies for: biomartr, stringgaussnet
+### New problems
 
-* fitbitScraper: checking re-building of vignette outputs ... WARNING
-  Appears to be error caught by stricter check in curl package.
+Due to the nature of httr's dependencies, I believe that these new errors are due to random network/server failures. I informed all package maintainers about the problems on August 4, and ask them to double check.
 
-* nat: checking tests ... ERROR
-  Appears to be lingering failure from testthat update.
+* censusr
+  checking examples ... ERROR
 
-* REDCapR: checking tests ... ERROR
-  Seems to be standard REDCapR unrealiability.
+* dataonderivatives
+  checking tests ...
 
-* RFc: checking tests ... ERROR
-  I had problems checking this package - I think it's depending on an 
-  unreliable web API.
+* oai
+  checking tests ...
 
-* RSocrata: checking tests ... ERROR
-  No idea - appears to be returning totally different values than 
-  expected
+* RSocrata
+  checking tests ...
 
-I notified all authors about problem on May 25 and again today.
+* sparklyr
+  checking tests ...
+
+### Failed to check
+
+* ALA4R         (check timed out)
+* biomartr      (check timed out)
+* dataRetrieval (check timed out)
+* dynamichazard (failed to install)
+* GA4GHclient   (check timed out)
+* gmum.r        (failed to install)
+* googleAuthR   (check timed out)
+* hansard       (check timed out)
+* junr          (check timed out)
+* paxtoolsr     (failed to install)
+* rols          (check timed out)
+* TCGAbiolinks  (check timed out)

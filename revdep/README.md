@@ -9,7 +9,7 @@
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |America/Chicago              |
-|date     |2017-08-09                   |
+|date     |2017-08-14                   |
 
 # Dependencies
 
@@ -24,43 +24,38 @@
 
 # Revdeps
 
-## Couldn't check (14)
+## Couldn't check (12)
 
 |package                                    |version |error     |warning |note |
 |:------------------------------------------|:-------|:---------|:-------|:----|
 |[ALA4R](problems.md#ala4r)                 |1.5.6   |1         |        |     |
-|AnnotationForge                            |?       |          |        |     |
 |[biomartr](problems.md#biomartr)           |0.5.1   |1         |        |     |
 |[dataRetrieval](problems.md#dataretrieval) |2.7.2   |1         |        |     |
 |[dynamichazard](problems.md#dynamichazard) |0.3.5   |1         |        |     |
 |[GA4GHclient](problems.md#ga4ghclient)     |1.0.0   |1         |        |     |
 |[gmum.r](problems.md#gmum.r)               |0.2.1   |1         |        |     |
 |[googleAuthR](problems.md#googleauthr)     |0.5.1   |-1 __+1__ |        |1    |
-|[hansard](problems.md#hansard)             |0.5.0   |1         |        |     |
-|[junr](problems.md#junr)                   |0.1.1   |1         |        |     |
-|[metavizr](problems.md#metavizr)           |1.0.2   |1         |        |     |
+|[hansard](problems.md#hansard)             |0.5.2   |1         |        |     |
+|[junr](problems.md#junr)                   |0.1.2   |1         |        |     |
+|[paxtoolsr](problems.md#paxtoolsr)         |1.10.0  |1         |        |     |
 |[rols](problems.md#rols)                   |2.4.0   |1         |        |     |
-|[SpidermiR](problems.md#spidermir)         |1.6.3   |1         |        |1    |
-|[TCGAbiolinks](problems.md#tcgabiolinks)   |2.4.6   |1         |        |2    |
+|[TCGAbiolinks](problems.md#tcgabiolinks)   |2.5.7   |1         |        |2    |
 
-## Broken (8)
+## Broken (5)
 
 |package                                            |version |error  |warning |note |
 |:--------------------------------------------------|:-------|:------|:-------|:----|
-|[banR](problems.md#banr)                           |0.2.0   |__+1__ |        |1    |
+|[censusr](problems.md#censusr)                     |0.0.3   |__+1__ |        |     |
 |[dataonderivatives](problems.md#dataonderivatives) |0.3.0   |__+1__ |        |1    |
-|[gistr](problems.md#gistr)                         |0.4.0   |__+1__ |        |     |
-|[mregions](problems.md#mregions)                   |0.1.4   |__+1__ |        |1    |
 |[oai](problems.md#oai)                             |0.2.2   |__+1__ |        |     |
-|[REDCapR](problems.md#redcapr)                     |0.9.8   |__+1__ |        |     |
 |[RSocrata](problems.md#rsocrata)                   |1.7.3-2 |__+1__ |        |     |
-|[sparklyr](problems.md#sparklyr)                   |0.6.1   |__+1__ |        |     |
+|[sparklyr](problems.md#sparklyr)                   |0.6.2   |__+1__ |        |     |
 
-## All (425)
+## All (424)
 
 |package                                                |version  |error     |warning |note |
 |:------------------------------------------------------|:--------|:---------|:-------|:----|
-|abbyyR                                                 |0.5.1    |          |        |     |
+|[abbyyR](problems.md#abbyyr)                           |0.5.1    |1         |        |     |
 |[abjutils](problems.md#abjutils)                       |0.0.1    |1         |        |1    |
 |acs                                                    |2.1.1    |          |        |     |
 |aemo                                                   |0.2.0    |          |        |     |
@@ -68,12 +63,12 @@
 |[algorithmia](problems.md#algorithmia)                 |0.0.2    |          |        |1    |
 |alterryx                                               |0.2.0    |          |        |     |
 |analogsea                                              |0.5.0    |          |        |     |
-|AnnotationForge                                        |?        |          |        |     |
+|[AnnotationForge](problems.md#annotationforge)         |1.18.1   |1         |        |1    |
 |[AnnotationHub](problems.md#annotationhub)             |2.8.2    |          |        |3    |
 |[AntWeb](problems.md#antweb)                           |0.7      |          |        |1    |
 |[archivist](problems.md#archivist)                     |2.1.2    |          |        |2    |
 |archivist.github                                       |0.2.2    |          |        |     |
-|aRxiv                                                  |0.5.16   |          |        |     |
+|aRxiv                                                  |0.5.16   |-1        |        |     |
 |[atsd](problems.md#atsd)                               |1.0.8441 |          |        |1    |
 |AutoDeskR                                              |0.1.3    |          |        |     |
 |aws.alexa                                              |0.1.4    |          |        |     |
@@ -86,7 +81,7 @@
 |aws.sns                                                |0.1.7    |          |        |     |
 |aws.sqs                                                |0.1.10   |          |        |     |
 |backblazer                                             |0.1.0    |          |        |     |
-|[banR](problems.md#banr)                               |0.2.0    |__+1__    |        |1    |
+|[banR](problems.md#banr)                               |0.2.0    |          |        |1    |
 |[bea.R](problems.md#bea.r)                             |1.0.2    |          |        |1    |
 |benchmarkme                                            |0.4.0    |          |        |     |
 |[bigQueryR](problems.md#bigqueryr)                     |0.3.1    |1         |        |1    |
@@ -109,22 +104,22 @@
 |camsRad                                                |0.3.0    |          |        |     |
 |[ccafs](problems.md#ccafs)                             |0.1.0    |1         |        |     |
 |cdcfluview                                             |0.5.1    |          |        |     |
-|[cellbaseR](problems.md#cellbaser)                     |1.0.0    |          |1       |     |
+|[cellbaseR](problems.md#cellbaser)                     |1.0.0    |1         |1       |     |
 |[censusapi](problems.md#censusapi)                     |0.2.1    |          |1       |     |
-|censusr                                                |0.0.3    |          |        |     |
+|[censusr](problems.md#censusr)                         |0.0.3    |__+1__    |        |     |
 |[censys](problems.md#censys)                           |0.1.0    |1         |        |     |
 |[cepR](problems.md#cepr)                               |0.1.0    |          |        |1    |
 |chillR                                                 |0.66     |          |        |     |
 |[chromer](problems.md#chromer)                         |0.1      |          |        |2    |
 |ckanr                                                  |0.1.0    |          |        |     |
-|[comtradr](problems.md#comtradr)                       |0.0.2    |1         |        |     |
+|comtradr                                               |0.0.2    |-1        |        |     |
 |[congressbr](problems.md#congressbr)                   |0.1.1    |          |        |1    |
 |CopulaDTA                                              |0.0.5    |          |        |     |
 |couchDB                                                |1.4.1    |          |        |     |
 |[covr](problems.md#covr)                               |3.0.0    |1         |        |     |
 |cranlogs                                               |2.1.0    |          |        |     |
 |crunch                                                 |1.17.0   |          |        |     |
-|CytobankAPI                                            |1.0.1.1  |          |        |     |
+|CytobankAPI                                            |1.1.0    |          |        |     |
 |[darksky](problems.md#darksky)                         |1.0.0    |1         |        |     |
 |data.world                                             |1.1.1    |          |        |     |
 |datadogr                                               |0.1.1    |          |        |     |
@@ -158,8 +153,8 @@
 |epxToR                                                 |0.2-0    |          |        |     |
 |estatapi                                               |0.3.0    |          |        |     |
 |etseed                                                 |0.1.0    |          |        |     |
-|[europepmc](problems.md#europepmc)                     |0.1.4    |          |1       |     |
-|[eurostat](problems.md#eurostat)                       |3.1.1    |          |1       |     |
+|europepmc                                              |0.1.4    |          |        |     |
+|eurostat                                               |3.1.5    |          |        |     |
 |[EventStudy](problems.md#eventstudy)                   |0.32     |          |        |2    |
 |[ExperimentHubData](problems.md#experimenthubdata)     |1.2.0    |          |        |1    |
 |ExpressionAtlas                                        |1.4.0    |          |        |     |
@@ -194,7 +189,7 @@
 |gfer                                                   |0.1.7    |          |        |     |
 |gh                                                     |1.0.1    |          |        |     |
 |giphyr                                                 |0.1.1    |          |        |     |
-|[gistr](problems.md#gistr)                             |0.4.0    |__+1__    |        |     |
+|gistr                                                  |0.4.0    |-1        |        |     |
 |githubinstall                                          |0.2.1    |          |        |     |
 |gitlabr                                                |0.9      |          |        |     |
 |gmailr                                                 |0.7.1    |          |        |     |
@@ -207,11 +202,11 @@
 |[googlesheets](problems.md#googlesheets)               |0.2.2    |1         |1       |     |
 |gsheet                                                 |0.4.2    |          |        |     |
 |gym                                                    |0.1.0    |          |        |     |
-|[hansard](problems.md#hansard)                         |0.5.0    |1         |        |     |
+|[hansard](problems.md#hansard)                         |0.5.2    |1         |        |     |
 |haploR                                                 |1.5.1    |          |        |     |
 |HARtools                                               |0.0.5    |          |        |     |
 |hdr                                                    |0.1      |          |        |     |
-|[HIBPwned](problems.md#hibpwned)                       |0.1.6    |-1        |        |1    |
+|[HIBPwned](problems.md#hibpwned)                       |0.1.6    |          |        |1    |
 |[highcharter](problems.md#highcharter)                 |0.5.0    |1         |        |1    |
 |hkex.api                                               |0.1      |          |        |     |
 |hoardeR                                                |0.9.2    |          |        |     |
@@ -219,7 +214,7 @@
 |htmltidy                                               |0.3.1    |          |        |     |
 |[httpcache](problems.md#httpcache)                     |1.0.0    |          |        |1    |
 |[httping](problems.md#httping)                         |0.1.0    |1         |        |     |
-|httptest                                               |2.1.2    |-1        |        |     |
+|httptest                                               |2.1.2    |          |        |     |
 |hypothesisr                                            |0.1.1    |          |        |     |
 |icesSAG                                                |1.3-2    |          |        |     |
 |icpsrdata                                              |0.3.0    |          |        |     |
@@ -232,9 +227,9 @@
 |[internetarchive](problems.md#internetarchive)         |0.1.6    |1         |        |     |
 |[issueReporter](problems.md#issuereporter)             |0.1.0    |1         |        |     |
 |[jsonlite](problems.md#jsonlite)                       |1.5      |          |        |1    |
-|[junr](problems.md#junr)                               |0.1.1    |1         |        |     |
+|[junr](problems.md#junr)                               |0.1.2    |1         |        |     |
 |KEGGlincs                                              |1.2.0    |          |        |     |
-|[KEGGREST](problems.md#keggrest)                       |1.16.0   |          |        |2    |
+|[KEGGREST](problems.md#keggrest)                       |1.16.1   |          |        |2    |
 |knitcitations                                          |1.0.8    |          |        |     |
 |kntnr                                                  |0.4.0    |          |        |     |
 |[kokudosuuchi](problems.md#kokudosuuchi)               |0.2.0    |          |        |1    |
@@ -242,7 +237,7 @@
 |leafletR                                               |0.4-0    |          |        |     |
 |LendingClub                                            |1.0.3    |          |        |     |
 |LightningR                                             |1.0.2    |          |        |     |
-|lintr                                                  |1.0.0    |          |        |     |
+|lintr                                                  |1.0.1    |          |        |     |
 |longurl                                                |0.3.0    |          |        |     |
 |lucr                                                   |0.2.0    |          |        |     |
 |lumendb                                                |0.2.2    |          |        |     |
@@ -251,15 +246,15 @@
 |manifestoR                                             |1.2.4    |          |        |     |
 |[markmyassignment](problems.md#markmyassignment)       |0.6.1    |          |        |1    |
 |memoise                                                |1.1.0    |          |        |     |
-|[metavizr](problems.md#metavizr)                       |1.0.2    |1         |        |     |
+|metavizr                                               |1.0.2    |          |        |     |
 |miniCRAN                                               |0.2.9    |          |        |     |
 |[miRLAB](problems.md#mirlab)                           |1.6.0    |          |        |1    |
 |mljar                                                  |0.1.1    |          |        |     |
 |[mnis](problems.md#mnis)                               |0.2.7    |1         |        |     |
-|[MODIStsp](problems.md#modistsp)                       |1.3.2    |1         |        |     |
+|[MODIStsp](problems.md#modistsp)                       |1.3.3    |1         |        |     |
 |[monkeylearn](problems.md#monkeylearn)                 |0.1.3    |1         |        |     |
 |move                                                   |2.1.0    |          |        |     |
-|[mregions](problems.md#mregions)                       |0.1.4    |__+1__    |        |1    |
+|[mregions](problems.md#mregions)                       |0.1.4    |          |        |1    |
 |[mscstexta4r](problems.md#mscstexta4r)                 |0.1.2    |1         |        |     |
 |[mscsweblm4r](problems.md#mscsweblm4r)                 |0.1.2    |1         |        |     |
 |[mygene](problems.md#mygene)                           |1.12.0   |          |        |2    |
@@ -273,21 +268,21 @@
 |oasis                                                  |2.1      |          |        |     |
 |OECD                                                   |0.2.2    |          |        |     |
 |[opencage](problems.md#opencage)                       |0.1.2    |1         |1       |     |
-|OpenML                                                 |1.4      |          |        |     |
+|OpenML                                                 |1.6      |          |        |     |
 |[openwindfarm](problems.md#openwindfarm)               |0.1.0    |          |1       |     |
 |ores                                                   |0.3.0    |          |        |     |
 |originr                                                |0.2.0    |          |        |     |
 |osi                                                    |0.1.0    |          |        |     |
-|[osmdata](problems.md#osmdata)                         |0.0.4    |1         |        |     |
+|osmdata                                                |0.0.5    |          |        |     |
 |[osmplotr](problems.md#osmplotr)                       |0.3.0    |          |        |1    |
 |owmr                                                   |0.7.2    |          |        |     |
 |packagetrackr                                          |0.1.1    |          |        |     |
 |[packrat](problems.md#packrat)                         |0.4.8-1  |1         |        |1    |
 |pageviews                                              |0.3.0    |          |        |     |
 |[pangaear](problems.md#pangaear)                       |0.3.0    |1         |        |     |
-|[parlitools](problems.md#parlitools)                   |0.1.0    |          |1       |1    |
+|[parlitools](problems.md#parlitools)                   |0.2.0    |          |        |1    |
 |patentsview                                            |0.1.0    |          |        |     |
-|[paxtoolsr](problems.md#paxtoolsr)                     |1.10.0   |          |        |3    |
+|[paxtoolsr](problems.md#paxtoolsr)                     |1.10.0   |1         |        |     |
 |pdfetch                                                |0.2.2    |          |        |     |
 |pdftables                                              |0.1      |          |        |     |
 |pewdata                                                |0.2.0    |          |        |     |
@@ -322,19 +317,18 @@
 |RCriteo                                                |1.0.2    |          |        |     |
 |[RCy3](problems.md#rcy3)                               |1.6.0    |          |1       |1    |
 |rdefra                                                 |0.3.4    |          |        |     |
-|[rDGIdb](problems.md#rdgidb)                           |1.2.0    |1         |        |     |
+|rDGIdb                                                 |1.2.1    |          |        |     |
 |rdian                                                  |0.1.1    |          |        |     |
 |rdnb                                                   |0.1-1    |          |        |     |
 |RDocumentation                                         |0.8.0    |          |        |     |
 |[RDota2](problems.md#rdota2)                           |0.1.6    |1         |1       |     |
-|[rdpla](problems.md#rdpla)                             |0.1.0    |1         |        |     |
 |rdrop2                                                 |0.7.0    |          |        |     |
 |[rdryad](problems.md#rdryad)                           |0.2.0    |1         |        |     |
 |[readtext](problems.md#readtext)                       |0.50     |          |        |1    |
 |rebird                                                 |0.4.0    |          |        |     |
 |rechonest                                              |1.2      |          |        |     |
 |[redcapAPI](problems.md#redcapapi)                     |1.3      |          |        |1    |
-|[REDCapR](problems.md#redcapr)                         |0.9.8    |__+1__    |        |     |
+|REDCapR                                                |0.9.8    |-1        |        |     |
 |[refimpact](problems.md#refimpact)                     |1.0.0    |          |        |2    |
 |RefManageR                                             |0.14.12  |          |        |     |
 |rentrez                                                |1.1.0    |          |        |     |
@@ -364,6 +358,7 @@
 |rinat                                                  |0.1.5    |          |        |     |
 |[ritis](problems.md#ritis)                             |0.5.4    |1         |        |     |
 |Rlinkedin                                              |0.2      |          |        |     |
+|[rmapzen](problems.md#rmapzen)                         |0.3.3    |1         |        |1    |
 |[rnaturalearth](problems.md#rnaturalearth)             |0.1.0    |          |        |2    |
 |RNeo4j                                                 |1.6.4    |          |        |     |
 |[RNeXML](problems.md#rnexml)                           |2.0.7    |          |        |1    |
@@ -388,14 +383,13 @@
 |rrefine                                                |1.0      |          |        |     |
 |[RSauceLabs](problems.md#rsaucelabs)                   |0.1.6    |1         |        |     |
 |rscopus                                                |0.4.6    |          |        |     |
-|[RSelenium](problems.md#rselenium)                     |1.7.1    |1         |1       |2    |
+|[RSelenium](problems.md#rselenium)                     |1.7.1    |1         |        |2    |
 |[RSiteCatalyst](problems.md#rsitecatalyst)             |1.4.13   |1         |        |     |
 |[rsnps](problems.md#rsnps)                             |0.2.0    |1         |        |     |
 |[RSocrata](problems.md#rsocrata)                       |1.7.3-2  |__+1__    |        |     |
 |rstatscn                                               |1.1.1    |          |        |     |
 |RStripe                                                |0.1      |          |        |     |
 |[rsunlight](problems.md#rsunlight)                     |0.4.2    |1         |        |1    |
-|[rtimes](problems.md#rtimes)                           |0.4.0    |1         |        |     |
 |[rtweet](problems.md#rtweet)                           |0.4.0    |1         |        |     |
 |rtypeform                                              |0.3.1    |          |        |     |
 |rusda                                                  |1.0.8    |          |        |     |
@@ -406,7 +400,7 @@
 |rwunderground                                          |0.1.6    |          |        |     |
 |RYandexTranslate                                       |1.0      |          |        |     |
 |RZabbix                                                |0.1.0    |          |        |     |
-|sbtools                                                |1.1.6    |          |        |     |
+|[sbtools](problems.md#sbtools)                         |1.1.6    |2         |        |     |
 |scholar                                                |0.1.4    |          |        |     |
 |[seleniumPipes](problems.md#seleniumpipes)             |0.3.7    |1         |        |     |
 |[sergeant](problems.md#sergeant)                       |0.5.2    |1         |        |     |
@@ -425,22 +419,22 @@
 |solvebio                                               |2.0.1    |          |        |     |
 |[SpaDES](problems.md#spades)                           |1.3.1    |1         |        |2    |
 |spareserver                                            |1.0.1    |          |        |     |
-|[sparklyr](problems.md#sparklyr)                       |0.6.1    |__+1__    |        |     |
-|[SpidermiR](problems.md#spidermir)                     |1.6.3    |1         |        |1    |
+|[sparklyr](problems.md#sparklyr)                       |0.6.2    |__+1__    |        |     |
+|[SpidermiR](problems.md#spidermir)                     |1.6.3    |          |        |1    |
 |[statsgrokse](problems.md#statsgrokse)                 |0.1.4    |1         |        |     |
 |stmBrowser                                             |1.0      |          |        |     |
-|[stplanr](problems.md#stplanr)                         |0.1.9    |          |1       |     |
+|stplanr                                                |0.1.9    |          |        |     |
 |stringgaussnet                                         |1.1      |          |        |     |
 |stubthat                                               |1.2.0    |          |        |     |
 |swirl                                                  |2.4.3    |          |        |     |
 |SWMPr                                                  |2.2.0    |          |        |     |
 |[taxize](problems.md#taxize)                           |0.8.9    |1         |        |     |
-|[TCGAbiolinks](problems.md#tcgabiolinks)               |2.4.6    |1         |        |2    |
+|[TCGAbiolinks](problems.md#tcgabiolinks)               |2.5.7    |1         |        |2    |
 |TCGAretriever                                          |1.3      |          |        |     |
 |telegram                                               |0.6.0    |          |        |     |
 |[threewords](problems.md#threewords)                   |0.1.0    |1         |        |     |
-|tidycensus                                             |0.1.2    |          |        |     |
-|[tidyquant](problems.md#tidyquant)                     |0.5.3    |          |        |1    |
+|tidycensus                                             |0.2      |          |        |     |
+|[tidyquant](problems.md#tidyquant)                     |0.5.3    |1         |1       |1    |
 |tidyRSS                                                |1.2.1    |          |        |     |
 |tidyverse                                              |1.1.1    |          |        |     |
 |tigris                                                 |0.5.3    |          |        |     |

@@ -1,3 +1,31 @@
+# abbyyR
+
+Version: 0.5.1
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      2: getTaskStatus(taskId, ...)
+      3: abbyy_GET("getTaskStatus", query = querylist, ...)
+      4: abbyy_check(res)
+      5: stop("HTTP failure: ", req$status_code, "\n", call. = FALSE)
+      
+      Status of the task:  1 
+      Task ID:  1 
+      Status of the task:  1 
+      Task ID:  1 
+      testthat results ================================================================
+      OK: 7 SKIPPED: 0 FAILED: 1
+      1. Error: listTasks happens successfully (@test-list-tasks.R#21) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
 # abjutils
 
 Version: 0.0.1
@@ -53,6 +81,42 @@ Version: 0.0.2
     Namespaces in Imports field not imported from:
       ‘rjson’ ‘xml2’
       All declared Imports should be used.
+    ```
+
+# AnnotationForge
+
+Version: 1.18.1
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/AnnotationForge_unit_tests.R’ failed.
+    Last 13 lines of output:
+      Loading required package: IRanges
+      Loading required package: S4Vectors
+      
+      Attaching package: 'S4Vectors'
+      
+      The following object is masked from 'package:base':
+      
+          expand.grid
+      
+      [1] TRUE
+      > AnnotationForge:::.test()
+      Error in library("RUnit", quietly = TRUE) : 
+        there is no package called 'RUnit'
+      Calls: <Anonymous> -> <Anonymous> -> library
+      Execution halted
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.6Mb
+      sub-directories of 1Mb or more:
+        AnnDbPkg-templates   1.3Mb
+        extdata              3.3Mb
     ```
 
 # AnnotationHub
@@ -129,34 +193,6 @@ Version: 1.0.8441
 # banR
 
 Version: 0.2.0
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    ...
-    > ### Name: reverse_geocode_tbl
-    > ### Title: Reverse geocode tbl
-    > ### Aliases: reverse_geocode_tbl
-    > 
-    > ### ** Examples
-    > 
-    > 
-    > table_reverse <- tibble::tibble(
-    + x = c(2.279092, 2.375933,2.308332), 
-    + y = c(48.84683, 48.84255, 48.85032), 
-    + z = rnorm(3)
-    + )
-    > 
-    > reverse_geocode_tbl(tbl = table_reverse, longitude = x, latitude = y)
-    Writing tempfile to.../tmp/RtmpZMBAyG/fileee766b362c1d.csv
-    If file is larger than 8 MB, it must be splitted
-    Size is : 73 bytes
-    Server errorService UnavailableServer error: (503) Service Unavailable
-    Error in reverse_geocode_tbl(tbl = table_reverse, longitude = x, latitude = y) : 
-      The API sent back an error 503
-    Execution halted
-    ```
 
 ## In both
 
@@ -409,30 +445,39 @@ Version: 1.0.0
 
 ## In both
 
-*   checking examples ... WARNING
+*   checking examples ... ERROR
     ```
-    ...
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-      Warning: 'rbind.pages' is deprecated.
-    Deprecated functions may be defunct as soon as of the next release of
-    R.
-    See ?Deprecated.
+    Running examples in ‘cellbaseR-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: AnnotateVcf,CellBaseR-method
+    > ### Title: AnnotateVcf
+    > ### Aliases: AnnotateVcf,CellBaseR-method AnnotateVcf
+    > 
+    > ### ** Examples
+    > 
+    > cb <- CellBaseR()
+    > fl <- system.file("extdata", "hapmap_exome_chr22_500.vcf.gz",
+    +                   package = "cellbaseR" )
+    > res <- AnnotateVcf(object=cb, file=fl, BPPARAM = bpparam(workers=2))
+    Error: BiocParallel errors
+      element index: 1, 2
+      first error: lexical error: invalid char in json text.
+                                           <html><body><h1>504 Gateway Tim
+                         (right here) ------^
+    Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 58-68 (cellbaseR.Rmd) 
+    Error: processing vignette 'cellbaseR.Rmd' failed with diagnostics:
+    lexical error: invalid char in json text.
+                                           <html><body><h1>504 Gateway Tim
+                         (right here) ------^
+    Execution halted
     ```
 
 # censusapi
@@ -456,6 +501,33 @@ Version: 0.2.1
     Error: processing vignette 'getting-started.Rmd' failed with diagnostics:
     'key' argument is missing. A Census API key is required and can be requested at https://api.census.gov/data/key_signup.html.
     Please add your Census key to your .Renviron - see instructions at https://github.com/hrecht/censusapi#api-key-setup
+    Execution halted
+    ```
+
+# censusr
+
+Version: 0.0.3
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘censusr-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: append_geoid
+    > ### Title: Retrieve GEOID from the Census Geocoder by address
+    > ### Aliases: append_geoid
+    > 
+    > ### ** Examples
+    > 
+    > airports <- dplyr::data_frame(
+    +   street = "700 Catalina Dr", city = "Daytona Beach", state = "FL"
+    + )
+    > append_geoid(airports, 'tr')
+    Error in call_geolocator(as.character(address$street[i]), as.character(address$city[i]),  : 
+      Internal Server Error (HTTP 500).
+    Calls: append_geoid -> call_geolocator -> <Anonymous>
     Execution halted
     ```
 
@@ -517,34 +589,6 @@ Version: 0.1
     Consider adding
       importFrom("stats", "na.omit")
     to your NAMESPACE file.
-    ```
-
-# comtradr
-
-Version: 0.0.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      
-      testthat results ================================================================
-      OK: 47 SKIPPED: 0 FAILED: 8
-      1. Failure: search return values are correct, and fail when expected (@test-ct_search.R#62) 
-      2. Failure: search return values are correct, and fail when expected (@test-ct_search.R#65) 
-      3. Failure: search return values are correct, and fail when expected (@test-ct_search.R#68) 
-      4. Failure: search return values are correct, and fail when expected (@test-ct_search.R#71) 
-      5. Failure: search return values are correct, and fail when expected (@test-ct_search.R#74) 
-      6. Failure: search return values are correct, and fail when expected (@test-ct_search.R#77) 
-      7. Failure: search return values are correct, and fail when expected (@test-ct_search.R#80) 
-      8. Failure: search return values are correct, and fail when expected (@test-ct_search.R#83) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # congressbr
@@ -625,18 +669,18 @@ Version: 0.3.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      `df2` inherits from `NULL` not `data.frame`.
       
       
-      3. Failure: BSDR API accesible (@test-bsdr.R#9) --------------------------------
-      nrow(df1) <= nrow(df2) isn't true.
+      4. Failure: CME SDR file parses (@test-cme.R#22) -------------------------------
+      nrow(cme(lubridate::ymd(20161213), "FX")) > 0 isn't true.
       
       
       testthat results ================================================================
-      OK: 24 SKIPPED: 0 FAILED: 3
+      OK: 23 SKIPPED: 0 FAILED: 4
       1. Failure: BSDR API accesible (@test-bsdr.R#6) 
       2. Failure: BSDR API accesible (@test-bsdr.R#8) 
       3. Failure: BSDR API accesible (@test-bsdr.R#9) 
+      4. Failure: CME SDR file parses (@test-cme.R#22) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -961,70 +1005,6 @@ Version: 2.2.0
       Note: found 771 marked UTF-8 strings
     ```
 
-# europepmc
-
-Version: 0.1.4
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
-    18 records found. Returning 18
-    Warning: 'jsonlite::rbind.pages' is deprecated.
-    Use 'rbind_pages' instead.
-    See help("Deprecated")
-    10 records found. Returning 10
-    Warning: 'jsonlite::rbind.pages' is deprecated.
-    Use 'rbind_pages' instead.
-    See help("Deprecated")
-    17 records found. Returning 17
-    Warning: 'jsonlite::rbind.pages' is deprecated.
-    Use 'rbind_pages' instead.
-    See help("Deprecated")
-    Retrieving page 1
-    Warning: 'jsonlite::rbind.pages' is deprecated.
-    Use 'rbind_pages' instead.
-    See help("Deprecated")
-    pandoc: Could not fetch https://europepmc.org/wicket/resource/uk.bl.ukpmc.web.pages.faq.Help/images/EuropePMCContent-ver-4BB17F003F8F38DF2D3BBE48AB5896C6.png
-    TlsException (HandshakeFailed (Error_Protocol ("expecting server hello, got alert : [(AlertLevel_Fatal,HandshakeFailure)]",True,HandshakeFailure)))
-    Error: processing vignette 'introducing-europepmc.Rmd' failed with diagnostics:
-    pandoc document conversion failed with error 67
-    Execution halted
-    ```
-
-# eurostat
-
-Version: 3.1.1
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
-        filter, lag
-    
-    The following objects are masked from 'package:base':
-    
-        intersect, setdiff, setequal, union
-    
-    trying URL 'http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?sort=1&file=data%2Ften00081.tsv.gz'
-    Content type 'application/octet-stream;charset=UTF-8' length 13546 bytes (13 KB)
-    ==================================================
-    downloaded 13 KB
-    
-    Table ten00081 cached at /tmp/Rtmpcc5pdU/eurostat/ten00081_date_code_TF.rds
-    trying URL 'http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?sort=1&file=data%2Ftgs00026.tsv.gz'
-    Content type 'application/octet-stream;charset=UTF-8' length 6193 bytes
-    ==================================================
-    downloaded 6193 bytes
-    
-    Quitting from lines 310-336 (eurostat_tutorial.Rmd) 
-    Error: processing vignette 'eurostat_tutorial.Rmd' failed with diagnostics:
-    Evaluation error: 'breaks' are not unique.
-    Execution halted
-    ```
-
 # EventStudy
 
 Version: 0.32
@@ -1184,18 +1164,18 @@ Version: 0.4.4
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
+      
+      
       testthat results ================================================================
-      OK: 49 SKIPPED: 0 FAILED: 10
-      1.  Failure: output of summary cran results (@test-foghorn.R#176) 
-      2.  Failure: output of summary cran results (@test-foghorn.R#178) 
-      3.  Failure: output of summary cran results (@test-foghorn.R#189) 
-      4.  Failure: output of summary cran results (@test-foghorn.R#201) 
-      5.  Failure: output of summary cran results (@test-foghorn.R#213) 
-      6.  Failure: output of summary cran results (@test-foghorn.R#226) 
-      7.  Failure: output of summary cran results (@test-foghorn.R#233) 
-      8.  Failure: output of summary cran results (@test-foghorn.R#239) 
-      9.  Failure: output of show cran results (@test-foghorn.R#264) 
-      10. Failure: output of show cran results (@test-foghorn.R#266) 
+      OK: 51 SKIPPED: 0 FAILED: 8
+      1. Failure: output of summary cran results (@test-foghorn.R#176) 
+      2. Failure: output of summary cran results (@test-foghorn.R#178) 
+      3. Failure: output of summary cran results (@test-foghorn.R#189) 
+      4. Failure: output of summary cran results (@test-foghorn.R#201) 
+      5. Failure: output of summary cran results (@test-foghorn.R#213) 
+      6. Failure: output of summary cran results (@test-foghorn.R#226) 
+      7. Failure: output of summary cran results (@test-foghorn.R#233) 
+      8. Failure: output of summary cran results (@test-foghorn.R#239) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -1301,18 +1281,18 @@ Version: 1.5.5
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-          url
+      16: stop("cannot find defined namespace(s) with prefix(es) ", paste(namespaces[i][is.na(idx)], 
+             collapse = ", "))
       
-      1. Failure: error on url (@test-geoknife_utils.R#15) ---------------------------
-      error$message does not match "Couldn't resolve host name".
-      Actual value: "Could not resolve host: bad.url.html"
-      
-      
-      XPath error : Undefined namespace prefix
-      XPath error : Invalid expression
       testthat results ================================================================
-      OK: 181 SKIPPED: 0 FAILED: 1
+      OK: 174 SKIPPED: 0 FAILED: 7
       1. Failure: error on url (@test-geoknife_utils.R#15) 
+      2. Error: webdata query returns a datagroup (@test-query_webdatasets.R#6) 
+      3. Error: webdata query returns a list (@test-query_webdatasets.R#12) 
+      4. Error: webdata title returns a title (@test-query_webdatasets.R#18) 
+      5. Error: webdata url returns a url (@test-query_webdatasets.R#23) 
+      6. Error: webdata abstract returns an abstract (@test-query_webdatasets.R#30) 
+      7. Error: show datagroup (@test-show_object.R#24) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -1367,20 +1347,20 @@ Version: 2.42.0
      ERROR
     Running the tests in ‘tests/runTests.R’ failed.
     Last 13 lines of output:
-           testShortGSE 
+      ERROR in testEmptyGSE: Error in file(con, "r") : cannot open the connection
       
-         test_SingleSampleGSE.R 
-           testSingleSampleGSE 
+      Test files with failing tests
       
-         test_SuppFileSupport.R 
-           testSuppFileSupport 
+         test_CaseMismatchedIDsGSE.R 
+           testCaseMismatchedIDsGSE 
       
-         test_getGPLFALSE.R 
-           testCaseGSEgetGPLFALSE 
+         test_EmptyGSE.R 
+           testEmptyGSE 
       
       
       Error in BiocGenerics:::testPackage("GEOquery") : 
         unit tests failed for package GEOquery
+      In addition: There were 50 or more warnings (use warnings() to see the first 50)
       Execution halted
     ```
 
@@ -1425,34 +1405,6 @@ Version: 2.42.0
     Consider adding
       importFrom("utils", "download.file", "read.delim", "read.table")
     to your NAMESPACE file.
-    ```
-
-# gistr
-
-Version: 0.4.0
-
-## Newly broken
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      9: withVisible(function_list[[k]](value))
-      10: function_list[[k]](value)
-      11: commits(., page = 454590788)
-      12: gist_GET(sprintf("%s/gists/%s/commits", ghbase(), gist$id), gist_auth(), ghead(), 
-             args, ...)
-      13: process(response)
-      14: stopstatus(x)
-      15: stop(res$message, "\n", errs, call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 82 SKIPPED: 0 FAILED: 1
-      1. Error: config options work (@test-commits.R#20) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # gmum.r
@@ -2686,7 +2638,7 @@ Version: 0.2.2
 
 # hansard
 
-Version: 0.5.0
+Version: 0.5.2
 
 ## In both
 
@@ -2696,29 +2648,6 @@ Version: 0.5.0
 # HIBPwned
 
 Version: 0.1.6
-
-## Newly fixed
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > library(testthat)
-      > library(HIBPwned)
-      > 
-      > test_check("HIBPwned")
-      1. Failure: account_breaches works for a single account (@test-account_breaches.R#14) 
-      ncol(res[[acct]]) is not strictly more than 1. Difference: 0
-      
-      
-      testthat results ================================================================
-      OK: 128 SKIPPED: 0 FAILED: 1
-      1. Failure: account_breaches works for a single account (@test-account_breaches.R#14) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 ## In both
 
@@ -2783,18 +2712,18 @@ Version: 0.1.0
      ERROR
     Running the tests in ‘tests/test-all.R’ failed.
     Last 13 lines of output:
-      7: withVisible(function_list[[k]](value))
-      8: function_list[[k]](value)
-      9: ping(., config = timeout(1))
-      10: verb(as.url(url)[[1]], ...)
-      11: request_perform(req, hu$handle$handle)
-      12: request_fetch(req$output, req$url, handle)
-      13: request_fetch.write_memory(req$output, req$url, handle)
-      14: curl::curl_fetch_memory(url, handle = handle)
+      Names of bb1$request$request$options ('useragent', 'timeout_ms', 'httpget') don't match 'useragent', 'timeout_ms', 'customrequest'
+      
+      
+      3. Failure: time - flood parameter works (@test-time.R#54) ---------------------
+      system.time(time(GET("http://httpbin.org/get/"), count = 3, verbose = FALSE))[[3]] is not strictly more than ...[[]]. Difference: -0.367
+      
       
       testthat results ================================================================
-      OK: 42 SKIPPED: 0 FAILED: 1
-      1. Error: ping works (@test-ping.R#8) 
+      OK: 47 SKIPPED: 0 FAILED: 3
+      1. Failure: ping works (@test-ping.R#14) 
+      2. Failure: ping works (@test-ping.R#19) 
+      3. Failure: time - flood parameter works (@test-time.R#54) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -2869,13 +2798,13 @@ Version: 0.1.0
     Last 13 lines of output:
       output file: tint.knit.md
       
-      /usr/local/bin/pandoc +RTS -K512m -RTS tint.utf8.md --to latex --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output /private/tmp/RtmpPKB4JY/ir15cf16eff5012.pdf --template /Users/hadley/Documents/web/httr/revdep/library/issueReporter/tint/rmarkdown/templates/pdf/resources/tintPdf-template.tex --highlight-style pygments --latex-engine /Library/TeX/texbin/pdflatex --variable 'documentclass:tufte-handout' 
+      /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc +RTS -K512m -RTS tint.utf8.md --to latex --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output /private/tmp/Rtmp1FoC3a/ir40e20d65722.pdf --template /Users/hadley/Documents/web/httr/revdep/library/issueReporter/tint/rmarkdown/templates/pdf/resources/tintPdf-template.tex --highlight-style pygments --latex-engine /Library/TeX/texbin/pdflatex --variable 'documentclass:tufte-handout' 
       ! Undefined control sequence.
       \maketitle ...p \thispagestyle {plain}\tuftebreak 
                                                         \@afterindentfalse \@after...
       l.206 \maketitle
       
-      pandoc: Error producing PDF from TeX source
+      pandoc: Error producing PDF
       Error: pandoc document conversion failed with error 43
       In addition: Warning message:
       In block_exec(params) : failed to tidy R code in chunk <setup>
@@ -2902,7 +2831,7 @@ Version: 1.5
 
 # junr
 
-Version: 0.1.1
+Version: 0.1.2
 
 ## In both
 
@@ -2911,7 +2840,7 @@ Version: 0.1.1
 
 # KEGGREST
 
-Version: 1.16.0
+Version: 1.16.1
 
 ## In both
 
@@ -2959,7 +2888,7 @@ Version: 0.7.5
       
       
       [read_BIN2R()]
-      	 >> /tmp/RtmpgXkobK/read_BIN2R_FILE47da3724a26b
+      	 >> /tmp/Rtmp89fwtS/read_BIN2R_FILE7f4b3a996b48
       	 >> 2 records have been read successfully!
       
       testthat results ================================================================
@@ -2981,15 +2910,6 @@ Version: 0.6.1
     Namespace in Imports field not imported from: ‘lazyeval’
       All declared Imports should be used.
     ```
-
-# metavizr
-
-Version: 1.0.2
-
-## In both
-
-*   R CMD check timed out
-    
 
 # miRLAB
 
@@ -3039,7 +2959,7 @@ Version: 0.2.7
       > 
       > test_check("mnis", filter= "a")
       1. Failure: mnis_additional returns expected format (@test_additional.R#80) ----
-      `xi` has length 338, not length 285.
+      `xi` has length 349, not length 285.
       
       
       testthat results ================================================================
@@ -3052,7 +2972,7 @@ Version: 0.2.7
 
 # MODIStsp
 
-Version: 1.3.2
+Version: 1.3.3
 
 ## In both
 
@@ -3095,30 +3015,6 @@ Version: 0.1.3
 # mregions
 
 Version: 0.1.4
-
-## Newly broken
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      Loading required package: mregions
-      1. Error: mr_names works for fao data source (@test-mr_names.R#22) -------------
-      Region not found or no results found, try another search
-      1: mr_names("MarineRegions:fao") at testthat/test-mr_names.R:22
-      2: getter("http://geo.vliz.be/geoserver/MarineRegions/wfs", args, format = "text/xml; subtype=gml/3.2", 
-             ...)
-      3: err_handle(tt, format)
-      4: stop("Region not found or no results found, try another search", call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 53 SKIPPED: 0 FAILED: 1
-      1. Error: mr_names works for fao data source (@test-mr_names.R#22) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 ## In both
 
@@ -3346,34 +3242,6 @@ Version: 0.1.0
     Execution halted
     ```
 
-# osmdata
-
-Version: 0.0.4
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 148 SKIPPED: 0 FAILED: 20
-      1. Failure: sfc-point (@test-sf-construction.R#80) 
-      2. Failure: sf-point (@test-sf-construction.R#85) 
-      3. Failure: multiple-points (@test-sf-construction.R#106) 
-      4. Failure: sfc-line (@test-sf-construction.R#134) 
-      5. Failure: sfc-multiple-lines (@test-sf-construction.R#157) 
-      6. Failure: sf-multiple-lines-with-fields (@test-sf-construction.R#177) 
-      7. Failure: sf-multiple-lines-with-fields (@test-sf-construction.R#184) 
-      8. Failure: sfc-polygon (@test-sf-construction.R#202) 
-      9. Failure: sfc-multiple-polygons (@test-sf-construction.R#228) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # osmplotr
 
 Version: 0.3.0
@@ -3449,39 +3317,13 @@ Version: 0.3.0
 
 # parlitools
 
-Version: 0.1.0
+Version: 0.2.0
 
 ## In both
 
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
-    
-        filter, lag
-    
-    The following objects are masked from 'package:base':
-    
-        intersect, setdiff, setequal, union
-    
-    Downloading MP data
-    Downloading constituency data
-    Warning: Column `party_id` joining character vector and factor, coercing into character vector
-    Connecting to API
-    Retrieving page 1 of 2
-    Retrieving page 2 of 2
-    Connecting to API
-    Retrieving page 1 of 2
-    Retrieving page 2 of 2
-    pandoc: Could not fetch /Users/hadley/Documents/web/httr/revdep/library/parlitools/leaflet/htmlwidgets/lib/leaflet/#default#VML
-    /Users/hadley/Documents/web/httr/revdep/library/parlitools/leaflet/htmlwidgets/lib/leaflet/: openBinaryFile: inappropriate type (is a directory)
-    Error: processing vignette 'introduction.Rmd' failed with diagnostics:
-    pandoc document conversion failed with error 67
-    Execution halted
-    ```
-
 *   checking data for non-ASCII characters ... NOTE
     ```
-      Note: found 7 marked UTF-8 strings
+      Note: found 13 marked UTF-8 strings
     ```
 
 # paxtoolsr
@@ -3490,46 +3332,52 @@ Version: 1.10.0
 
 ## In both
 
-*   checking installed package size ... NOTE
+*   checking whether package ‘paxtoolsr’ can be installed ... ERROR
     ```
-      installed size is 30.8Mb
-      sub-directories of 1Mb or more:
-        extdata   5.6Mb
-        java     24.5Mb
+    Installation failed.
+    See ‘/Users/hadley/Documents/web/httr/revdep/checks/paxtoolsr/new/paxtoolsr.Rcheck/00install.out’ for details.
     ```
 
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘jsonlite’
-      All declared Imports should be used.
-    ```
+## Installation
 
-*   checking R code for possible problems ... NOTE
-    ```
-    ...
-    downloadFile: no visible global function definition for ‘URLencode’
-    downloadFile: no visible global function definition for ‘read.table’
-    downloadFile: no visible global function definition for ‘write.table’
-    downloadPc2: no visible global function definition for ‘select.list’
-    downloadSignedPC: no visible global function definition for
-      ‘read.table’
-    getPcRequest: no visible global function definition for ‘URLencode’
-    readSifnx: no visible global function definition for ‘read.table’
-    splitSifnxByPathway: no visible global function definition for
-      ‘txtProgressBar’
-    splitSifnxByPathway: no visible global function definition for
-      ‘%dopar%’
-    splitSifnxByPathway: no visible global function definition for
-      ‘setTxtProgressBar’
-    Undefined global functions or variables:
-      %dopar% URLencode read.table select.list setTxtProgressBar
-      txtProgressBar write.table
-    Consider adding
-      importFrom("utils", "URLencode", "read.table", "select.list",
-                 "setTxtProgressBar", "txtProgressBar", "write.table")
-    to your NAMESPACE file.
-    ```
+### Devel
 
+```
+* installing *source* package ‘paxtoolsr’ ...
+** R
+** inst
+** preparing package for lazy loading
+Error: package or namespace load failed for ‘rJava’:
+ .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so, 6): Library not loaded: @rpath/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so
+  Reason: image not found
+Error : package ‘rJava’ could not be loaded
+ERROR: lazy loading failed for package ‘paxtoolsr’
+* removing ‘/Users/hadley/Documents/web/httr/revdep/checks/paxtoolsr/new/paxtoolsr.Rcheck/paxtoolsr’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘paxtoolsr’ ...
+** R
+** inst
+** preparing package for lazy loading
+Error: package or namespace load failed for ‘rJava’:
+ .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so, 6): Library not loaded: @rpath/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so
+  Reason: image not found
+Error : package ‘rJava’ could not be loaded
+ERROR: lazy loading failed for package ‘paxtoolsr’
+* removing ‘/Users/hadley/Documents/web/httr/revdep/checks/paxtoolsr/old/paxtoolsr.Rcheck/paxtoolsr’
+
+```
 # prettymapr
 
 Version: 0.2.1
@@ -3759,34 +3607,6 @@ Version: 1.6.0
     contains 'methods').
     ```
 
-# rDGIdb
-
-Version: 1.2.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Querying DGIDB...done!
-      Querying DGIDB...done!
-      Querying DGIDB...done!
-      1. Failure: Query DGIdb works (@test.queryDGIdb.R#22) --------------------------
-      nrow(result@resultSummary) not equal to 17.
-      1/1 mismatches
-      [1] 68 - 17 == 51
-      
-      
-      testthat results ================================================================
-      OK: 14 SKIPPED: 0 FAILED: 1
-      1. Failure: Query DGIdb works (@test.queryDGIdb.R#22) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # RDota2
 
 Version: 0.1.6
@@ -3823,34 +3643,6 @@ Version: 0.1.6
     Error: processing vignette 'RDota2.Rmd' failed with diagnostics:
     The function cannot find an API key. Please register a key by using the RDota2::key_actions function. If you do not have a key you can obtain one by visiting https://steamcommunity.com/dev.
     Execution halted
-    ```
-
-# rdpla
-
-Version: 0.1.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 5 SKIPPED: 0 FAILED: 24
-      1. Error: dpla_collections basic functionality works (@test-dpla_collections.R#6) 
-      2. Error: dpla_items - pagination works (@test-dpla_collections.R#20) 
-      3. Error: dpla_items - fields requests work (@test-dpla_collections.R#35) 
-      4. Failure: dpla_items fails well (@test-dpla_collections.R#46) 
-      5. Failure: dpla_items fails well (@test-dpla_collections.R#49) 
-      6. Error: dpla_collections_ basic functionality works (@test-dpla_collections_.R#6) 
-      7. Error: dpla_items - pagination works (@test-dpla_collections_.R#22) 
-      8. Error: dpla_items - fields requests work (@test-dpla_collections_.R#37) 
-      9. Failure: dpla_items fails well (@test-dpla_collections_.R#48) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # rdryad
@@ -3924,34 +3716,6 @@ Version: 1.3
       importFrom("utils", "capture.output", "head", "read.csv", "tail",
                  "write.table")
     to your NAMESPACE file.
-    ```
-
-# REDCapR
-
-Version: 0.9.8
-
-## Newly broken
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      5: withCallingHandlers(code, message = function(condition) {
-             out$push(condition)
-             invokeRestart("muffleMessage")
-         })
-      6: redcap_download_file_oneshot(file_name = full_name, record = record, field = field, 
-             redcap_uri = start_clean_result$redcap_project$redcap_uri, token = start_clean_result$redcap_project$token)
-      
-      testthat results ================================================================
-      OK: 553 SKIPPED: 0 FAILED: 3
-      1. Failure: NameComesFromREDCap (@test-file-oneshot.R#15) 
-      2. Error: NameComesFromREDCap (@test-file-oneshot.R#30) 
-      3. Error: FullPathSpecified (@test-file-oneshot.R#81) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # refimpact
@@ -4057,7 +3821,7 @@ Version: 0.1.0
       
       Error: testthat unit tests failed
       In addition: Warning message:
-      In UseMethod("unique") :
+      In unique(unlist(lapply(elist, findLocals1, shadowed, cntxt))) :
         closing unused connection 3 (/Users/hadley/Documents/web/httr/revdep/checks/rfml/new/rfml.Rcheck/rfml/lib/rfmlUtilities.sjs)
       Execution halted
     ```
@@ -4121,6 +3885,39 @@ Version: 0.5.4
       Execution halted
     ```
 
+# rmapzen
+
+Version: 0.3.3
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      3: FUN(X[[i]], ...)
+      4: vector_url(x = tile_coordinates$x, y = tile_coordinates$y, z = tile_coordinates$z, 
+             layers = "all", format = "json")
+      5: structure(list(scheme = "https", hostname = "tile.mapzen.com", path = vector_path(layers, 
+             x, y, z, format), query = list(api_key = api_key)), class = "url")
+      6: mz_key()
+      7: stop("Set the MAPZEN_KEY environment variable")
+      
+      testthat results ================================================================
+      OK: 199 SKIPPED: 0 FAILED: 2
+      1. Error: single tiles can be pulled (@test-mz-vector-tiles.R#14) 
+      2. Error: multiple contiguous tiles can be pulled (@test-mz-vector-tiles.R#22) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 31 marked UTF-8 strings
+    ```
+
 # rnaturalearth
 
 Version: 0.1.0
@@ -4159,18 +3956,18 @@ Version: 0.7.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
+      
       testthat results ================================================================
-      OK: 163 SKIPPED: 1 FAILED: 10
-      1.  Error: check_response returns an error (@test-check_response.r#7) 
-      2.  Error: check_response returns the correct error messages (@test-check_response.r#26) 
-      3.  Error: homr works (@test-homr.R#9) 
-      4.  Error: ncdc returns the correct ... (@test-ncdc.r#8) 
-      5.  Error: ncdc_datacats returns the correct ... (@test-ncdc_datacats.r#7) 
-      6.  Error: ncdc_datasets returns the correct class (@test-ncdc_datasets.r#7) 
-      7.  Error: ncdc_datatypes returns the correct class (@test-ncdc_datatypes.r#7) 
-      8.  Error: ncdc_locs returns the correct class (@test-ncdc_locs.r#7) 
-      9.  Error: ncdc_locs_cats returns the correct ... (@test-ncdc_locs_cats.r#7) 
-      10. Error: ncdc_stations returns the correct... (@test-ncdc_stations.r#7) 
+      OK: 181 SKIPPED: 1 FAILED: 9
+      1. Error: check_response returns an error (@test-check_response.r#7) 
+      2. Error: check_response returns the correct error messages (@test-check_response.r#26) 
+      3. Error: ncdc returns the correct ... (@test-ncdc.r#8) 
+      4. Error: ncdc_datacats returns the correct ... (@test-ncdc_datacats.r#7) 
+      5. Error: ncdc_datasets returns the correct class (@test-ncdc_datasets.r#7) 
+      6. Error: ncdc_datatypes returns the correct class (@test-ncdc_datatypes.r#7) 
+      7. Error: ncdc_locs returns the correct class (@test-ncdc_locs.r#7) 
+      8. Error: ncdc_locs_cats returns the correct ... (@test-ncdc_locs_cats.r#7) 
+      9. Error: ncdc_stations returns the correct... (@test-ncdc_stations.r#7) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -4224,18 +4021,18 @@ Version: 0.3.0
      ERROR
     Running the tests in ‘tests/test-all.R’ failed.
     Last 13 lines of output:
-      grepl("G", bb) isn't true.
       
-      
-      2. Failure: orcid fails well (@test-orcid.R#60) --------------------------------
-      error$message does not match "500 - For input string: \"adsf\"".
-      Actual value: "400 - The start parameter for API users without credentials must be an integer between 0 and 10,000"
+      3. Failure: orcid_doi paging parameters works as expected (@test-orcid_doi.R#38) 
+      NROW(pg2[[1]]) not equal to 3.
+      1/1 mismatches
+      [1] 2 - 3 == -1
       
       
       testthat results ================================================================
-      OK: 100 SKIPPED: 0 FAILED: 2
+      OK: 99 SKIPPED: 0 FAILED: 3
       1. Failure: identifiers works with output from orcid() call (@test-identifiers.R#51) 
       2. Failure: orcid fails well (@test-orcid.R#60) 
+      3. Failure: orcid_doi paging parameters works as expected (@test-orcid_doi.R#38) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -4355,17 +4152,6 @@ Version: 1.7.1
       Execution halted
     ```
 
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    pandoc: Could not fetch https://dl.dropboxusercontent.com/u/38391057/RSelenium/basics/RProject.png
-    StatusCodeException (Status {statusCode = 404, statusMessage = "Not Found"}) [("Server","nginx"),("Date","Wed, 09 Aug 2017 00:29:42 GMT"),("Content-Type","text/html"),("Transfer-Encoding","chunked"),("Connection","keep-alive"),("Vary","Accept-Encoding"),("X-Dropbox-Request-Id","67d38be3572980502eb5e7b1818a9609"),("X-Robots-Tag","noindex, nofollow, noimageindex"),("Content-Encoding","gzip"),("X-Response-Body-Start","<!DOCTYPE html>\n<html>\n<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n<title>Dropbox - 404</title>\n<link href=\"https://cfl.dropboxstatic.com/static/css/error.css\" rel=\"stylesheet\" type=\"text/css\"/>\n<link rel=\"shortcut icon\" href=\"https://cfl.dropboxstatic.com/static/images/favicon.ico\"/>\n\n</head>\n<body>\n<div class=\"figure\">\n<img src=\"https://cfl.dropboxstatic.com/static/images/publicfoldersunset.svg\" alt=\"Error: 404\"/>\n</div>\n<div id=\"errorbox\">\n<div class=\"public-folder-404\"> <h1 class=\"error_message\">File not found</h1> <br> <div class=\"message_body\"> Sorry, that file doesn&rsquo;t live here anymore. It might have been moved or made private. </div> <br> <a class=\"c-btn c-btn--primary public-folder-link\" href=\"https://www.dropbox.com\">Learn about Dropbox</a> </div>\n</div>\n<section class=\"footer-row\"><footer id=\"homepage-footer\" class=\"twelve-column dropbox-footer clearfix\"><nav><ul class=\"o-nav\"><li class=\"o-nav__header\">Dropbox</li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/install\">Desktop app</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/mobile\">Mobile apps</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/plans?trigger=homepagefoot\">Plans</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/security\">Security</a></li></ul><ul class=\"o-nav\"><li class=\"o-nav__header\">Company</li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/about\">About us</a></li><li class=\"o-nav__item\"><a href=\"https://bit.ly/dbxdotcomapps\">Jobs</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/news\">Press</a></li><li class=\"o-nav__item\"><a href=\"https://blogs.dropbox.com/dropbox\">Blog</a></li></ul><ul class=\"o-nav\"><li class=\"o-nav__header\">Support</li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/help\">Help Center</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/contact\">Contact us</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/terms/cookies\">Cookies</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/privacy\">Privacy &amp; terms</a></li></ul><ul class=\"o-nav\"><li class=\"o-nav__header\">Community</li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/developers\">Developers</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/referrals\">Referrals</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropboxforum.com\">Forum</a></li></ul><ul class=\"o-nav\"><li class=\"o-nav__header\">Connect</li><li class=\"o-nav__item\"><a href=\"https://twitter.com/dropbox\">Twitter</a></li><li class=\"o-nav__item\"><a href=\"https://www.facebook.com/Dropbox\">Facebook</a></li><li class=\"o-nav__item\"><a href=\"https://plus.google.com/+Dropbox/posts\">Google+</a></li><li class=\"o-nav__item\"><a href=\"https://www.youtube.com/user/dropbox\">YouTube</a></li></ul><ul class=\"o-nav\"><li class=\"o-nav__header\">Products</li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/pro\">Plus</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/business\">Business</a></li><li class=\"o-nav__item\"><a href=\"https://www.dropbox.com/enterprise\">Enterprise</a></li></ul></nav><div class=\"react-locale-selector-wrapper\"><div id=\"component1937679262106323703\"><div class=\"react-stub\"></div></div></div></footer></section>\n</body>\n</html>\n"),("X-Request-URL","GET https://dl.dropboxusercontent.com:443/u/38391057/RSelenium/basics/RProject.png")] (CJ {expose = []})
-    Error: processing vignette 'RSelenium-basics.Rmd' failed with diagnostics:
-    pandoc document conversion failed with error 67
-    Execution halted
-    ```
-
 *   checking package dependencies ... NOTE
     ```
     Package suggested but not available for checking: ‘Rcompression’
@@ -4450,7 +4236,7 @@ Version: 1.7.3-2
       2. Failure: add a row to a dataset (@test-all.R#488) ---------------------------
       y value not equal to as.numeric(df_out_last_row$y).
       1/1 mismatches
-      [1] 527 - -354 == 881
+      [1] -869 - 166 == -1035
       
       
       testthat results ================================================================
@@ -4495,34 +4281,6 @@ Version: 0.4.2
     Package which this enhances but not available for checking: ‘ggplot2’
     ```
 
-# rtimes
-
-Version: 0.4.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      6: Filter(Negate(is.null), x)
-      7: unlist(lapply(x, f))
-      8: lapply(x, f)
-      9: check_key(key)
-      10: stop("need an API key for ", y, call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 2 SKIPPED: 0 FAILED: 4
-      1. Error: returns the correct stuff (@test-as_search.R#8) 
-      2. Error: returns the correct stuff (@test-geo_search.R#8) 
-      3. Failure: fails well (@test-geo_search.R#48) 
-      4. Error: fails well (@test-geo_search.R#50) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # rtweet
 
 Version: 0.4.0
@@ -4562,18 +4320,18 @@ Version: 0.5.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
+      
       testthat results ================================================================
-      OK: 95 SKIPPED: 0 FAILED: 10
-      1.  Failure: searchbyterm works correctly (@test-searchbyterm.R#15) 
-      2.  Failure: searchbyterm works correctly (@test-searchbyterm.R#20) 
-      3.  Failure: searchbyterm works correctly (@test-searchbyterm.R#26) 
-      4.  Failure: searchbyterm works correctly (@test-searchbyterm.R#29) 
-      5.  Failure: searchbyterm - state param works when using boolean's with > 1 state name (@test-searchbyterm.R#49) 
-      6.  Failure: searchbyterm multi-year param input works (@test-searchbyterm.R#78) 
-      7.  Failure: searchbyterm multi-year param input works (@test-searchbyterm.R#79) 
-      8.  Failure: spatialsearch works correctly (@test-spatialsearch.R#13) 
-      9.  Failure: vert_id works (@test-vert_id.R#12) 
-      10. Failure: vert_id works (@test-vert_id.R#28) 
+      OK: 96 SKIPPED: 0 FAILED: 9
+      1. Failure: searchbyterm works correctly (@test-searchbyterm.R#20) 
+      2. Failure: searchbyterm works correctly (@test-searchbyterm.R#26) 
+      3. Failure: searchbyterm works correctly (@test-searchbyterm.R#29) 
+      4. Failure: searchbyterm - state param works when using boolean's with > 1 state name (@test-searchbyterm.R#49) 
+      5. Failure: searchbyterm multi-year param input works (@test-searchbyterm.R#78) 
+      6. Failure: searchbyterm multi-year param input works (@test-searchbyterm.R#79) 
+      7. Failure: spatialsearch works correctly (@test-spatialsearch.R#13) 
+      8. Failure: vert_id works (@test-vert_id.R#12) 
+      9. Failure: vert_id works (@test-vert_id.R#28) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -4601,6 +4359,51 @@ Version: 0.1.3
     Consider adding
       importFrom("utils", "data", "tail")
     to your NAMESPACE file.
+    ```
+
+# sbtools
+
+Version: 1.1.6
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘sbtools-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: item_get
+    > ### Title: Retrieve SB item
+    > ### Aliases: item_get
+    > 
+    > ### ** Examples
+    > 
+    > # Get an item
+    > item_get("4f4e4b24e4b07f02db6aea14")
+    Error: GET failed to https://www.sciencebase.gov/catalog/item/4f4e4b24e4b07f02db6aea14. check authorization and/or content
+    Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      12: get_item(x, ...)
+      13: sbtools_GET(url = paste0(pkg.env$url_item, id), ..., query = list(type = "json"), 
+             session = session)
+      14: handle_errors(r, url, "GET", supported_types)
+      15: stop(method, " failed to ", url, ". check authorization and/or content", call. = FALSE)
+      
+      testthat results ================================================================
+      OK: 10 SKIPPED: 3 FAILED: 4
+      1. Failure: generic post fails w/o auth (@test-REST.R#5) 
+      2. Failure: generic post fails w/o auth (@test-REST.R#10) 
+      3. Failure: generic post fails w/o auth (@test-REST.R#14) 
+      4. Error: generic get w/ and w/o auth (@test-REST.R#29) 
+      
+      Error: testthat unit tests failed
+      Execution halted
     ```
 
 # seleniumPipes
@@ -4755,9 +4558,10 @@ Version: 0.4.0
      ERROR
     Running the tests in ‘tests/test-all.R’ failed.
     Last 13 lines of output:
+             url), call. = FALSE)
       
       testthat results ================================================================
-      OK: 196 SKIPPED: 0 FAILED: 9
+      OK: 208 SKIPPED: 0 FAILED: 8
       1. Error: core_create works (@test-core_create.R#6) 
       2. Error: ping works against (@test-ping.R#7) 
       3. Error: ping gives raw data correctly (@test-ping.R#20) 
@@ -4766,7 +4570,6 @@ Version: 0.4.0
       6. Error: schema fails well (@test-schema.R#32) 
       7. Error: solr_connect to local Solr server works (@test-solr_connect.R#19) 
       8. Error: solr_connect works with a proxy (@test-solr_connect.R#33) 
-      9. Error: solr_mlt works (@test-solr_mlt.r#9) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -4788,13 +4591,13 @@ Version: 1.3.1
      ERROR
     Running the tests in ‘tests/test-all.R’ failed.
     Last 13 lines of output:
-      sh: subl -w: command not found
-      sh: subl -w: command not found
-      sh: subl -w: command not found
-      sh: subl -w: command not found
-      sh: subl -w: command not found
-      sh: subl -w: command not found
-      sh: subl -w: command not found
+        adding: myModule/README.txt (deflated 23%)
+        adding: myModule/citation.bib (deflated 27%)
+        adding: myModule/data/CHECKSUMS.txt (stored 0%)
+        adding: myModule/myModule.R (deflated 70%)
+        adding: myModule/myModule.Rmd (deflated 52%)
+        adding: myModule/tests/testthat/test-template.R (deflated 64%)
+        adding: myModule/tests/unitTests.R (deflated 47%)
       testthat results ================================================================
       OK: 955 SKIPPED: 15 FAILED: 1
       1. Failure: downloadModule downloads and unzips a single module (@test-downloadModule.R#26) 
@@ -4818,7 +4621,7 @@ Version: 1.3.1
 
 # sparklyr
 
-Version: 0.6.1
+Version: 0.6.2
 
 ## Newly broken
 
@@ -4850,9 +4653,6 @@ Version: 1.6.3
 
 ## In both
 
-*   R CMD check timed out
-    
-
 *   checking R code for possible problems ... NOTE
     ```
     .SpidermiRvisualize_gene: possible error in simpleNetwork(NetworkData,
@@ -4878,7 +4678,7 @@ Version: 0.1.4
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
       Error in curl::curl_fetch_memory(url, handle = handle) : 
-        Timeout was reached: Connection timed out after 10007 milliseconds
+        Timeout was reached: Connection timed out after 10006 milliseconds
       4. Failure: normal usage (@test_usage.R#15) ------------------------------------
       all(dim(tmp) > 0) isn't true.
       
@@ -4892,23 +4692,6 @@ Version: 0.1.4
       
       Error: testthat unit tests failed
       Execution halted
-    ```
-
-# stplanr
-
-Version: 0.1.9
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    pandoc: Could not fetch /Users/hadley/Documents/web/httr/revdep/library/stplanr/leaflet/htmlwidgets/lib/leaflet/#default#VML
-    /Users/hadley/Documents/web/httr/revdep/library/stplanr/leaflet/htmlwidgets/lib/leaflet/: openBinaryFile: inappropriate type (is a directory)
-    Error: processing vignette 'introducing-stplanr.Rmd' failed with diagnostics:
-    pandoc document conversion failed with error 67
-    Execution halted
     ```
 
 # taxize
@@ -4941,7 +4724,7 @@ Version: 0.8.9
 
 # TCGAbiolinks
 
-Version: 2.4.6
+Version: 2.5.7
 
 ## In both
 
@@ -5016,6 +4799,54 @@ Version: 0.1.0
 Version: 0.5.3
 
 ## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      
+      testthat results ================================================================
+      OK: 182 SKIPPED: 0 FAILED: 9
+      1. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
+      2. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
+      3. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
+      4. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
+      5. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
+      6. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
+      7. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
+      8. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
+      9. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+      error: unable to load shared object '/Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so':
+      dlopen(/Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so, 6): Library not loaded: @rpath/libjvm.dylib
+      Referenced from: /Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so
+      Reason: image not found
+    
+    Getting data...
+    
+    Getting holdings for DOW
+    Warning in tq_index("DOW") :
+      Error at DOW during download. 
+    Error: .onLoad failed in loadNamespace() for 'rJava', details:
+      call: dyn.load(file, DLLpath = DLLpath, ...)
+      error: unable to load shared object '/Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so':
+      dlopen(/Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so, 6): Library not loaded: @rpath/libjvm.dylib
+      Referenced from: /Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so
+      Reason: image not found
+    
+    Quitting from lines 105-108 (TQ03-scaling-and-modeling-with-tidyquant.Rmd) 
+    Error: processing vignette 'TQ03-scaling-and-modeling-with-tidyquant.Rmd' failed with diagnostics:
+    subscript out of bounds
+    Execution halted
+    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -5349,9 +5180,9 @@ Version: 1.1.10
       
       
       Error in curl::curl_fetch_memory(url, handle = handle) : 
-        Timeout was reached: Connection timed out after 10005 milliseconds
+        Timeout was reached: Connection timed out after 10001 milliseconds
       Error in curl::curl_fetch_memory(url, handle = handle) : 
-        Timeout was reached: Connection timed out after 10006 milliseconds
+        Timeout was reached: Connection timed out after 10005 milliseconds
       testthat results ================================================================
       OK: 66 SKIPPED: 0 FAILED: 2
       1. Failure: normal usage (@test_caching_gathering.R#27) 
@@ -5366,19 +5197,19 @@ Version: 1.1.10
     ...
       The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
     Error in curl::curl_fetch_memory(url, handle = handle) : 
-      Timeout was reached: Connection timed out after 10006 milliseconds
+      Timeout was reached: Connection timed out after 10008 milliseconds
     http://stats.grok.se/json/en/201510/Main_page
     
     data from server was: Error in curl::curl_fetch_memory(url, handle = handle) : 
-      Timeout was reached: Connection timed out after 10006 milliseconds
+      Timeout was reached: Connection timed out after 10008 milliseconds
     
     
     Error in curl::curl_fetch_memory(url, handle = handle) : 
-      Timeout was reached: Connection timed out after 10001 milliseconds
+      Timeout was reached: Connection timed out after 10007 milliseconds
     http://stats.grok.se/json/en/201511/Main_page
     
     data from server was: Error in curl::curl_fetch_memory(url, handle = handle) : 
-      Timeout was reached: Connection timed out after 10001 milliseconds
+      Timeout was reached: Connection timed out after 10007 milliseconds
     
     
     Quitting from lines 108-112 (using-wikipediatrend.Rmd) 
