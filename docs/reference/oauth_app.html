@@ -111,7 +111,7 @@ application. See the demos for instructions on how to do this for
 linkedin, twitter, vimeo, facebook, github and google.</p>
     
 
-    <pre class="usage"><span class='fu'>oauth_app</span>(<span class='no'>appname</span>, <span class='no'>key</span>, <span class='kw'>secret</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>oauth_app</span>(<span class='no'>appname</span>, <span class='no'>key</span>, <span class='kw'>secret</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>redirect_uri</span> <span class='kw'>=</span> <span class='fu'><a href='oauth_callback.html'>oauth_callback</a></span>())</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -133,6 +133,12 @@ provide a consistent way of storing secrets in environment variables.</p></td>
   is fine to include this secret in your package code.</p>
 <p>Use <code>NULL</code> to not store a secret: this is useful if you're relying on
   cached OAuth tokens.</p></td>
+    </tr>
+    <tr>
+      <th>redirect_uri</th>
+      <td><p>The URL that user will be redirected to after
+authorisation is complete. You should generally leave this as the default
+unless you're using a non-standard auth flow (like with shiny).</p></td>
     </tr>
     </table>
     

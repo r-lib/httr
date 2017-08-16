@@ -156,7 +156,7 @@ github_api &lt;-<span class="st"> </span><span class="cf">function</span>(path) 
 resp &lt;-<span class="st"> </span><span class="kw">github_api</span>(<span class="st">"/repos/hadley/httr"</span>)
 resp
 <span class="co">#&gt; Response [https://api.github.com/repositories/2756403]</span>
-<span class="co">#&gt;   Date: 2017-08-01 20:01</span>
+<span class="co">#&gt;   Date: 2017-08-16 14:13</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span>
 <span class="co">#&gt;   Size: 5.71 kB</span>
@@ -179,12 +179,12 @@ resp
 <p>Note that while most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span>)
 <span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span>
-<span class="co">#&gt;   Date: 2017-08-01 20:01</span>
+<span class="co">#&gt;   Date: 2017-08-16 14:13</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: text/xml; charset=utf-8</span>
 <span class="co">#&gt;   Size: 970 B</span>
 <span class="co">#&gt; &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>
-<span class="co">#&gt; &lt;colors numResults="1" totalResults="9847595"&gt;</span>
+<span class="co">#&gt; &lt;colors numResults="1" totalResults="9853142"&gt;</span>
 <span class="co">#&gt;  &lt;color&gt;</span>
 <span class="co">#&gt;      &lt;id&gt;903893&lt;/id&gt;</span>
 <span class="co">#&gt;      &lt;title&gt;&lt;![CDATA[wet dirt]]&gt;&lt;/title&gt;</span>
@@ -196,7 +196,7 @@ resp
 <span class="co">#&gt; ...</span>
 <span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span>)
 <span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span>
-<span class="co">#&gt;   Date: 2017-08-01 20:01</span>
+<span class="co">#&gt;   Date: 2017-08-16 14:13</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span>
 <span class="co">#&gt;   Size: 569 B</span></code></pre></div>
@@ -290,12 +290,12 @@ print.github_api &lt;-<span class="st"> </span><span class="cf">function</span>(
 <span class="co">#&gt;  $ email              : NULL</span>
 <span class="co">#&gt;  $ hireable           : NULL</span>
 <span class="co">#&gt;  $ bio                : chr "Chief Scientist at @RStudio"</span>
-<span class="co">#&gt;  $ public_repos       : int 205</span>
-<span class="co">#&gt;  $ public_gists       : int 151</span>
-<span class="co">#&gt;  $ followers          : int 10324</span>
+<span class="co">#&gt;  $ public_repos       : int 206</span>
+<span class="co">#&gt;  $ public_gists       : int 160</span>
+<span class="co">#&gt;  $ followers          : int 10490</span>
 <span class="co">#&gt;  $ following          : int 7</span>
 <span class="co">#&gt;  $ created_at         : chr "2008-04-01T14:47:36Z"</span>
-<span class="co">#&gt;  $ updated_at         : chr "2017-07-27T18:43:54Z"</span></code></pre></div>
+<span class="co">#&gt;  $ updated_at         : chr "2017-08-14T19:03:52Z"</span></code></pre></div>
 <p>The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.</p>
 </div>
 <div id="turn-api-errors-into-r-errors" class="section level3">
@@ -487,20 +487,20 @@ github_api &lt;-<span class="st"> </span><span class="cf">function</span>(path) 
 <span class="co">#&gt;  $ resources:List of 3</span>
 <span class="co">#&gt;   ..$ core   :List of 3</span>
 <span class="co">#&gt;   .. ..$ limit    : int 60</span>
-<span class="co">#&gt;   .. ..$ remaining: int 16</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1501619325</span>
+<span class="co">#&gt;   .. ..$ remaining: int 56</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1502896436</span>
 <span class="co">#&gt;   ..$ search :List of 3</span>
 <span class="co">#&gt;   .. ..$ limit    : int 10</span>
 <span class="co">#&gt;   .. ..$ remaining: int 10</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1501617724</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1502892896</span>
 <span class="co">#&gt;   ..$ graphql:List of 3</span>
 <span class="co">#&gt;   .. ..$ limit    : int 0</span>
 <span class="co">#&gt;   .. ..$ remaining: int 0</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1501621264</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1502896436</span>
 <span class="co">#&gt;  $ rate     :List of 3</span>
 <span class="co">#&gt;   ..$ limit    : int 60</span>
-<span class="co">#&gt;   ..$ remaining: int 16</span>
-<span class="co">#&gt;   ..$ reset    : int 1501619325</span></code></pre></div>
+<span class="co">#&gt;   ..$ remaining: int 56</span>
+<span class="co">#&gt;   ..$ reset    : int 1502896436</span></code></pre></div>
 <p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rate_limit &lt;-<span class="st"> </span><span class="cf">function</span>() {
   req &lt;-<span class="st"> </span><span class="kw">github_api</span>(<span class="st">"/rate_limit"</span>)
@@ -512,7 +512,7 @@ github_api &lt;-<span class="st"> </span><span class="cf">function</span>(path) 
 }
 
 <span class="kw">rate_limit</span>()
-<span class="co">#&gt; 16 / 60 (Resets at 15:28:45)</span></code></pre></div>
+<span class="co">#&gt; 56 / 60 (Resets at 10:13:56)</span></code></pre></div>
 </div>
 </div>
 </div>

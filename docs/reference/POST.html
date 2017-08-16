@@ -184,10 +184,10 @@ details.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>b2</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/post"</span>
 <span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2017-08-01 19:59
+#&gt;   Date: 2017-08-16 14:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 471 B
+#&gt;   Size: 467 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "A simple text string", 
@@ -199,10 +199,10 @@ details.</p></td>
 #&gt;     "Connection": "close", 
 #&gt;     "Content-Length": "20", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2017-08-01 19:59
+#&gt;   Date: 2017-08-16 14:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 582 B
+#&gt;   Size: 578 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -214,7 +214,7 @@ details.</p></td>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='upload_file.html'>upload_file</a></span>(<span class='fu'>system.file</span>(<span class='st'>"CITATION"</span>))))</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2017-08-01 19:59
+#&gt;   Date: 2017-08-16 14:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 1.59 kB
@@ -229,10 +229,10 @@ details.</p></td>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>), <span class='kw'>encode</span> <span class='kw'>=</span> <span class='st'>"json"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2017-08-01 19:59
+#&gt;   Date: 2017-08-16 14:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 557 B
+#&gt;   Size: 553 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "{\"x\":\"A simple text string\"}", 
@@ -246,10 +246,10 @@ details.</p></td>
 #&gt; ...</div><div class='input'>
 <span class='co'># Various types of empty body:</span>
 <span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2017-08-01 19:59
+#&gt;   Date: 2017-08-16 14:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 450 B
+#&gt;   Size: 446 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -261,14 +261,14 @@ details.</p></td>
 #&gt;     "Connection": "close", 
 #&gt;     "Content-Length": "0", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2017-08-01 19:59
+#&gt;   Date: 2017-08-16 14:12
 #&gt;   Status: 405
 #&gt;   Content-Type: text/html
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2017-08-01 19:59
+#&gt;   Date: 2017-08-16 14:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 450 B
+#&gt;   Size: 446 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 

@@ -106,28 +106,61 @@
     </div>
 
     <div class="contents">
-    <div id="httr-1-2-1-9000" class="section level1">
+    <div id="httr-1-3-0" class="section level1">
 <h1 class="hasAnchor">
-<a href="#httr-1-2-1-9000" class="anchor"></a>httr 1.2.1.9000</h1>
+<a href="#httr-1-3-0" class="anchor"></a>httr 1.3.0</h1>
+<div id="api-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#api-changes" class="anchor"></a>API changes</h2>
 <ul>
 <li><p>Deprecated <code>safe_callback()</code> has been removed.</p></li>
-<li><p><code><a href="../reference/init_oauth2.0.html">init_oauth2.0()</a></code> gains <code>client_credentials</code>, defaulting to <code>FALSE</code>, which allows you to use Oauth2 dance with some APIs (e.g yelp) that required <em>Client Credential Grant</em> instead of <em>Authorization Code Grant</em> for obtaining authorization. See <a href="https://tools.ietf.org/html/rfc6749#section-4">RFC 6749</a>. (@cderv, #384)</p></li>
-<li><p><code>BROWSER()</code> prints a message telling you to browse to the URL if called in a non-interactive session.</p></li>
-<li><p><code>is_interactive</code> argument to <code><a href="../reference/init_oauth1.0.html">init_oauth1.0()</a></code>, <code><a href="../reference/init_oauth2.0.html">init_oauth2.0()</a></code> and <code><a href="../reference/oauth_listener.html">oauth_listener()</a></code> has been deprecated, as the R session does not need to be interactive.</p></li>
-<li><p>Changed example in <code>write_stream</code> from <a href="https://jeroenooms.github.io/data/diamonds.json" class="uri">https://jeroenooms.github.io/data/diamonds.json</a> to <a href="https://github.com/jeroen/data/raw/gh-pages/diamonds.json" class="uri">https://github.com/jeroen/data/raw/gh-pages/diamonds.json</a> in example code as the link was changed (@muschellij2).</p></li>
-<li><p>Added <code>pause_min</code> to <code>RETRY</code> requests, allowing for sub-second delays. (Use with caution! Generally the default is preferred.) (@r2evans)</p></li>
-<li><p><code><a href="../reference/init_oauth2.0.html">init_oauth2.0()</a></code> gains <code>config_init</code> which allows you to supply additional config for the initial requests. This is needed for some APIs (e.g. reddit) which rate limit based on <code>user_agent</code> (@muschellij2, #363).</p></li>
-<li><p><code><a href="../reference/RETRY.html">RETRY()</a></code> gains a new parameter <code>terminate_on</code> that gives caller greater control over which status codes make it stop retrying. It also retries if an error occurs during the request (@asieira, #404)</p></li>
-<li><p>Fix bug with cert bundle lookup: <code>find_cert_bundle()</code> will now return cert bundle in “R_HOME/etc” (@jiwalker-usgs, #386).</p></li>
-<li><p><code><a href="../reference/oauth_service_token.html">oauth_service_token()</a></code> gains a <code>sub</code> parameter so you can request access on behalf of another user (#410).</p></li>
-<li><p>With HTTP multipart encoding, you can now send lists containing <code><a href="http://www.rdocumentation.org/packages/curl/topics/multipart">curl::form_data()</a></code>. This makes it possible to specify the mime-type of individual components (#430).</p></li>
-<li><p><code><a href="../reference/oauth_service_token.html">oauth_service_token()</a></code> now accepts a character vector containing multiple scopes as described in the documentation (#389).</p></li>
-<li><p>Don’t export <code>length()</code> method for internal <code>path</code> class (#395)</p></li>
-<li><p>New oauth cache files are always added to <code>.gitignore</code> and, if it exists, <code>.Rbuildignore</code>. Specifically, this now happens when option <code>httr_oauth_cache = TRUE</code> or user specifies cache file name explicitly. (@jennybc, #436)</p></li>
-<li><p>New functions <code><a href="../reference/get_callback.html">set_callback()</a></code> and <code><a href="../reference/get_callback.html">get_callback()</a></code> set and query callback functions that are called right before and after performing an HTTP request (@gaborcsardi, #409)</p></li>
-<li><p>Fix bug for OAuth 1 process: <code>oauth_encode()</code> now handles UTF-8 characters correctly. (@yutannihilation, #424)</p></li>
-<li><p>More forms of empty query are recognized as such. Eliminates a source of spurious trailing <code>?</code> and <code>?=</code> in URLs produced by <code><a href="../reference/modify_url.html">modify_url()</a></code>. (@jennybc, #452)</p></li>
+<li><p><code>is_interactive</code> argument to <code><a href="../reference/init_oauth1.0.html">init_oauth1.0()</a></code>, <code><a href="../reference/init_oauth2.0.html">init_oauth2.0()</a></code> and <code><a href="../reference/oauth_listener.html">oauth_listener()</a></code> has been deprecated, as the R session does not actually need to be interactive.</p></li>
 </ul>
+</div>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li><p>New <code><a href="../reference/get_callback.html">set_callback()</a></code> and <code><a href="../reference/get_callback.html">get_callback()</a></code> set and query callback functions that are called right before and after performing an HTTP request (@gaborcsardi, #409)</p></li>
+<li><p><code><a href="../reference/RETRY.html">RETRY()</a></code> now retries if an error occurs during the request (@asieira, #404), and gains two new arguments:</p></li>
+<li><p><code>terminate_on</code> gives you greater control over which status codes should it stop retrying. (@asieira, #404)</p></li>
+<li><p><code>pause_min</code> allows for sub-second delays. (Use with caution! Generally the default is preferred.) (@r2evans)</p></li>
+<li><p>If the server returns HTTP status code 429 and specifies a <code>retry-after</code> value, that value will now be used instead of exponential backoff with jitter, unless it’s smaller than <code>pause_min</code>. (@nielsoledam, #472)</p></li>
+</ul>
+</div>
+<div id="oauth" class="section level2">
+<h2 class="hasAnchor">
+<a href="#oauth" class="anchor"></a>OAuth</h2>
+<ul>
+<li><p>New oauth cache files are always added to <code>.gitignore</code> and, if it exists, <code>.Rbuildignore</code>. Specifically, this now happens when option <code>httr_oauth_cache = TRUE</code> or user specifies cache file name explicitly. (@jennybc, #436)</p></li>
+<li><p><code>oauth_encode()</code> now handles UTF-8 characters correctly. (@yutannihilation, #424)</p></li>
+<li><p><code><a href="../reference/oauth_app.html">oauth_app()</a></code> allows you to specify the <code>redirect_url</code> if you need to customise it.</p></li>
+<li><p><code><a href="../reference/oauth_service_token.html">oauth_service_token()</a></code> gains a <code>sub</code> parameter so you can request access on behalf of another user (#410), and accepts a character vector of <code>scopes</code> as was described in the documentation (#389).</p></li>
+<li><p><code><a href="../reference/oauth_signature.html">oauth_signature()</a></code> now normalises the URL as described in the OAuth1.0a spec (@leeper, #435)</p></li>
+<li><p>New <code><a href="../reference/init_oauth2.0.html">oauth2.0_authorize_url()</a></code> and <code><a href="../reference/init_oauth2.0.html">oauth2.0_access_token()</a></code> functions pull out parts of the OAuth process for reuse elsewhere (#457).</p></li>
+<li>
+<p><code><a href="../reference/oauth2.0_token.html">oauth2.0_token()</a></code> gains three new arguments:</p>
+<ul>
+<li><p><code>config_init</code> allows you to supply additional config for the initial request. This is needed for some APIs (e.g. reddit) which rate limit based on <code>user_agent</code> (@muschellij2, #363).</p></li>
+<li><p><code>client_credentials</code>, allows you to use the OAauth2 <em>Client Credential Grant</em>. See <a href="https://tools.ietf.org/html/rfc6749#section-4">RFC 6749</a> for details. (@cderv, #384)</p></li>
+<li><p>A <code>credentials</code> argument that allows you to customise the auth flow. For advanced used only (#457)</p></li>
+</ul>
+</li>
+<li><p><code>is_interactive</code> argument to <code><a href="../reference/init_oauth1.0.html">init_oauth1.0()</a></code>, <code><a href="../reference/init_oauth2.0.html">init_oauth2.0()</a></code> and <code><a href="../reference/oauth_listener.html">oauth_listener()</a></code> has been deprecated, as the R session does not need to be interactive.</p></li>
+</ul>
+</div>
+<div id="minor-bug-fixes-and-improvements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-bug-fixes-and-improvements" class="anchor"></a>Minor bug fixes and improvements</h2>
+<ul>
+<li><p><code>BROWSER()</code> prints a message telling you to browse to the URL if called in a non-interactive session.</p></li>
+<li><p><code>find_cert_bundle()</code> will now correctly find cert bundle in “R_HOME/etc” (@jiwalker-usgs, #386).</p></li>
+<li><p>You can now send lists containing <code><a href="http://www.rdocumentation.org/packages/curl/topics/multipart">curl::form_data()</a></code> in the <code>body</code> of requests with `encoding = “multipart”. This makes it possible to specify the mime-type of individual components (#430).</p></li>
+<li><p><code><a href="../reference/modify_url.html">modify_url()</a></code> recognised more forms of empty queries. This eliminates a source of spurious trailing <code>?</code> and <code>?=</code> (@jennybc, #452)</p></li>
+<li><p>More forms of empty query are recognized as such. Eliminates a source of spurious trailing <code>?</code> and <code>?=</code> in URLs produced by <code><a href="../reference/modify_url.html">modify_url()</a></code>. (@jennybc, #452)</p></li>
+<li><p>The <code>length()</code> method of the internal <code>path</code> class is no longer exported (#395).</p></li>
+</ul>
+</div>
 </div>
     <div id="httr-1-2-1" class="section level1">
 <h1 class="hasAnchor">
@@ -139,9 +172,9 @@
     <div id="httr-1-2-0" class="section level1">
 <h1 class="hasAnchor">
 <a href="#httr-1-2-0" class="anchor"></a>httr 1.2.0</h1>
-<div id="new-features" class="section level2">
+<div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features" class="anchor"></a>New features</h2>
+<a href="#new-features-1" class="anchor"></a>New features</h2>
 <ul>
 <li><p><code><a href="../reference/oauth_signature.html">oauth_signature()</a></code> no longer prepends ‘oauth_’ to additional parameters. (@jimhester, #373)</p></li>
 <li><p>All <code>print()</code> methods now invisibly return <code>x</code> (#355).</p></li>
@@ -173,17 +206,17 @@
     <div id="httr-1-1-0" class="section level1">
 <h1 class="hasAnchor">
 <a href="#httr-1-1-0" class="anchor"></a>httr 1.1.0</h1>
-<div id="new-features-1" class="section level2">
+<div id="new-features-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-1" class="anchor"></a>New features</h2>
+<a href="#new-features-2" class="anchor"></a>New features</h2>
 <ul>
 <li><p><code><a href="../reference/stop_for_status.html">stop_for_status()</a></code>, <code><a href="../reference/stop_for_status.html">warn_for_status()</a></code> and (new) <code><a href="../reference/stop_for_status.html">message_for_status()</a></code> replace <code>message</code> argument with new <code>task</code> argument that optionally describes the current task. This allows API wrappers to provide more informative error messages on failure (#277, #302). <code><a href="../reference/stop_for_status.html">stop_for_status()</a></code> and <code><a href="../reference/stop_for_status.html">warn_for_status()</a></code> return the response if there were no errors. This makes them easier to use in pipelines (#278).</p></li>
 <li><p><code><a href="../reference/http_error.html">url_ok()</a></code> and <code>url_successful()</code> have been deprecated in favour of the more flexible <code><a href="../reference/http_error.html">http_error()</a></code>, which works with urls, responses and integer status codes (#299).</p></li>
 </ul>
 </div>
-<div id="oauth" class="section level2">
+<div id="oauth-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#oauth" class="anchor"></a>OAuth</h2>
+<a href="#oauth-1" class="anchor"></a>OAuth</h2>
 <ul>
 <li><p><code><a href="../reference/oauth1.0_token.html">oauth1.0_token()</a></code> gains RSA-SHA1 signature support with the <code>private_key</code> argument (@nathangoulding, #316).</p></li>
 <li>
@@ -254,9 +287,9 @@
     <div id="httr-0-6-0" class="section level1">
 <h1 class="hasAnchor">
 <a href="#httr-0-6-0" class="anchor"></a>httr 0.6.0</h1>
-<div id="new-features-2" class="section level2">
+<div id="new-features-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-2" class="anchor"></a>New features</h2>
+<a href="#new-features-3" class="anchor"></a>New features</h2>
 <ul>
 <li><p>New <code><a href="../reference/write_stream.html">write_stream()</a></code> allows you to process the response from a server as a stream of raw vectors (#143).</p></li>
 <li><p>Suport for Google OAuth2 <a href="https://developers.google.com/accounts/docs/OAuth2ServiceAccount">service accounts</a>. (#119, thanks to help from @siddharthab).</p></li>
@@ -330,9 +363,9 @@
     <div id="httr-0-4" class="section level1">
 <h1 class="hasAnchor">
 <a href="#httr-0-4" class="anchor"></a>httr 0.4</h1>
-<div id="new-features-3" class="section level2">
+<div id="new-features-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-3" class="anchor"></a>New features</h2>
+<a href="#new-features-4" class="anchor"></a>New features</h2>
 <ul>
 <li><p>New <code><a href="../reference/headers.html">headers()</a></code> and <code><a href="../reference/cookies.html">cookies()</a></code> functions to extract headers and cookies from responses. Previoulsy internal <code><a href="../reference/status_code.html">status_code()</a></code> function now exported to extract <code><a href="../reference/status_code.html">status_code()</a></code> from responses.</p></li>
 <li><p><code><a href="../reference/POST.html">POST()</a></code>, <code><a href="../reference/PUT.html">PUT()</a></code>, and <code><a href="../reference/PATCH.html">PATCH()</a></code> now use <code>encode</code> argument to determine how list inputs are encoded. Valid values are “multiple”, “form” or “json”. The <code>multipart</code> argument is now deprecated (#103). You can stream a single file from disk with <code><a href="../reference/upload_file.html">upload_file("path/")</a></code>. The mime type will be guessed from the extension, or can be supplied explicitly as the second argument to <code><a href="../reference/upload_file.html">upload_file()</a></code>.</p></li>
@@ -454,7 +487,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#httr-1-2-1-9000">1.2.1.9000</a></li>
+        <li><a href="#httr-1-3-0">1.3.0</a></li>
         <li><a href="#httr-1-2-1">1.2.1</a></li>
         <li><a href="#httr-1-2-0">1.2.0</a></li>
         <li><a href="#httr-1-1-0">1.1.0</a></li>

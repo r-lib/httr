@@ -100,10 +100,10 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html"
 <p>This gives you a response object. Printing a response object gives you some useful information: the actual url used (after any redirects), the http status, the file (content) type, the size, and if it’s a text file, the first few lines of output.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r
 <span class="co">#&gt; Response [http://httpbin.org/get]</span>
-<span class="co">#&gt;   Date: 2017-08-01 20:01</span>
+<span class="co">#&gt;   Date: 2017-08-16 14:13</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json</span>
-<span class="co">#&gt;   Size: 331 B</span>
+<span class="co">#&gt;   Size: 332 B</span>
 <span class="co">#&gt; {</span>
 <span class="co">#&gt;   "args": {}, </span>
 <span class="co">#&gt;   "headers": {</span>
@@ -113,7 +113,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html"
 <span class="co">#&gt;     "Host": "httpbin.org", </span>
 <span class="co">#&gt;     "User-Agent": "libcurl/7.54.0 r-curl/2.8.1 httr/1.2.1.9000"</span>
 <span class="co">#&gt;   }, </span>
-<span class="co">#&gt;   "origin": "73.166.89.65", </span>
+<span class="co">#&gt;   "origin": "98.201.156.69", </span>
 <span class="co">#&gt; ...</span></code></pre></div>
 <p>You can pull out important parts of the response with various helper methods, or dig directly into the object:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/status_code.html">status_code</a></span>(r)
@@ -126,7 +126,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html"
 <span class="co">#&gt; [1] "meinheld/0.6.1"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $date</span>
-<span class="co">#&gt; [1] "Tue, 01 Aug 2017 20:01:05 GMT"</span>
+<span class="co">#&gt; [1] "Wed, 16 Aug 2017 14:13:59 GMT"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-type`</span>
 <span class="co">#&gt; [1] "application/json"</span>
@@ -141,10 +141,10 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html"
 <span class="co">#&gt; [1] "Flask"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`x-processed-time`</span>
-<span class="co">#&gt; [1] "0.000647068023682"</span>
+<span class="co">#&gt; [1] "0.00076699256897"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-length`</span>
-<span class="co">#&gt; [1] "331"</span>
+<span class="co">#&gt; [1] "332"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $via</span>
 <span class="co">#&gt; [1] "1.1 vegur"</span>
@@ -160,7 +160,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html"
 <span class="co">#&gt;   ..$ Connection     : chr "close"</span>
 <span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span>
 <span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.54.0 r-curl/2.8.1 httr/1.2.1.9000"</span>
-<span class="co">#&gt;  $ origin : chr "73.166.89.65"</span>
+<span class="co">#&gt;  $ origin : chr "98.201.156.69"</span>
 <span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></code></pre></div>
 <p>I’ll use <code>httpbin.org</code> throughout this introduction. It accepts many types of http request and returns json that describes the data that it received. This makes it easy to see what httr is doing.</p>
 <p>As well as <code><a href="../reference/GET.html">GET()</a></code>, you can also use the <code><a href="../reference/HEAD.html">HEAD()</a></code>, <code><a href="../reference/POST.html">POST()</a></code>, <code><a href="../reference/PATCH.html">PATCH()</a></code>, <code><a href="../reference/PUT.html">PUT()</a></code> and <code><a href="../reference/DELETE.html">DELETE()</a></code> verbs. You’re probably most familiar with <code><a href="../reference/GET.html">GET()</a></code> and <code><a href="../reference/POST.html">POST()</a></code>: <code><a href="../reference/GET.html">GET()</a></code> is used by your browser when requesting a page, and <code><a href="../reference/POST.html">POST()</a></code> is (usually) used when submitting a form to a server. <code><a href="../reference/PUT.html">PUT()</a></code>, <code><a href="../reference/PATCH.html">PATCH()</a></code> and <code><a href="../reference/DELETE.html">DELETE()</a></code> are used most often by web APIs.</p>
@@ -204,7 +204,7 @@ r<span class="op">$</span>status_code
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>)
 <span class="kw"><a href="../reference/content.html">content</a></span>(r, <span class="st">"text"</span>)
 <span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span>
-<span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"gzip, deflate\", \n    \"Connection\": \"close\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.54.0 r-curl/2.8.1 httr/1.2.1.9000\"\n  }, \n  \"origin\": \"73.166.89.65\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></code></pre></div>
+<span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"gzip, deflate\", \n    \"Connection\": \"close\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.54.0 r-curl/2.8.1 httr/1.2.1.9000\"\n  }, \n  \"origin\": \"98.201.156.69\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></code></pre></div>
 <p>httr will automatically decode content from the server using the encoding supplied in the <code>content-type</code> HTTP header. Unfortunately you can’t always trust what the server tells you, so you can override encoding if needed:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/content.html">content</a></span>(r, <span class="st">"text"</span>, <span class="dt">encoding =</span> <span class="st">"ISO-8859-1"</span>)</code></pre></div>
 <p>If you’re having problems figuring out what the correct encoding should be, try <code><a href="http://www.rdocumentation.org/packages/stringi/topics/stri_enc_detect">stringi::stri_enc_detect(content(r, "raw"))</a></code>.</p>
@@ -224,9 +224,9 @@ r<span class="op">$</span>status_code
 <span class="co">#&gt; [208] 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f 37 2e 35 34 2e 30 20</span>
 <span class="co">#&gt; [231] 72 2d 63 75 72 6c 2f 32 2e 38 2e 31 20 68 74 74 72 2f 31 2e 32 2e 31</span>
 <span class="co">#&gt; [254] 2e 39 30 30 30 22 0a 20 20 7d 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22</span>
-<span class="co">#&gt; [277] 3a 20 22 37 33 2e 31 36 36 2e 38 39 2e 36 35 22 2c 20 0a 20 20 22 75</span>
-<span class="co">#&gt; [300] 72 6c 22 3a 20 22 68 74 74 70 3a 2f 2f 68 74 74 70 62 69 6e 2e 6f 72</span>
-<span class="co">#&gt; [323] 67 2f 67 65 74 22 0a 7d 0a</span></code></pre></div>
+<span class="co">#&gt; [277] 3a 20 22 39 38 2e 32 30 31 2e 31 35 36 2e 36 39 22 2c 20 0a 20 20 22</span>
+<span class="co">#&gt; [300] 75 72 6c 22 3a 20 22 68 74 74 70 3a 2f 2f 68 74 74 70 62 69 6e 2e 6f</span>
+<span class="co">#&gt; [323] 72 67 2f 67 65 74 22 0a 7d 0a</span></code></pre></div>
 <p>This is exactly the sequence of bytes that the web server sent, so this is the highest fidelity way of saving files to disk:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bin &lt;-<span class="st"> </span><span class="kw"><a href="../reference/content.html">content</a></span>(r, <span class="st">"raw"</span>)
 <span class="kw">writeBin</span>(bin, <span class="st">"myfile.txt"</span>)</code></pre></div>
@@ -243,7 +243,7 @@ r<span class="op">$</span>status_code
 <span class="co">#&gt;   ..$ Connection     : chr "close"</span>
 <span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span>
 <span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.54.0 r-curl/2.8.1 httr/1.2.1.9000"</span>
-<span class="co">#&gt;  $ origin : chr "73.166.89.65"</span>
+<span class="co">#&gt;  $ origin : chr "98.201.156.69"</span>
 <span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></code></pre></div>
 <p>See <code><a href="../reference/content.html">?content</a></code> for a complete list.</p>
 <p>These are convenient for interactive usage, but if you’re writing an API wrapper, it’s best to parse the text or raw content yourself and check it is as you expect. See the API wrappers vignette for more details.</p>
@@ -262,7 +262,7 @@ r<span class="op">$</span>status_code
 <span class="co">#&gt; [1] "meinheld/0.6.1"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $date</span>
-<span class="co">#&gt; [1] "Tue, 01 Aug 2017 20:01:06 GMT"</span>
+<span class="co">#&gt; [1] "Wed, 16 Aug 2017 14:13:59 GMT"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-type`</span>
 <span class="co">#&gt; [1] "application/json"</span>
@@ -277,10 +277,10 @@ r<span class="op">$</span>status_code
 <span class="co">#&gt; [1] "Flask"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`x-processed-time`</span>
-<span class="co">#&gt; [1] "0.00113606452942"</span>
+<span class="co">#&gt; [1] "0.00107383728027"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-length`</span>
-<span class="co">#&gt; [1] "331"</span>
+<span class="co">#&gt; [1] "332"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $via</span>
 <span class="co">#&gt; [1] "1.1 vegur"</span>
@@ -289,9 +289,9 @@ r<span class="op">$</span>status_code
 <span class="co">#&gt; [1] "insensitive" "list"</span></code></pre></div>
 <p>This is basically a named list, but because http headers are case insensitive, indexing this object ignores case:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/headers.html">headers</a></span>(r)<span class="op">$</span>date
-<span class="co">#&gt; [1] "Tue, 01 Aug 2017 20:01:06 GMT"</span>
+<span class="co">#&gt; [1] "Wed, 16 Aug 2017 14:13:59 GMT"</span>
 <span class="kw"><a href="../reference/headers.html">headers</a></span>(r)<span class="op">$</span>DATE
-<span class="co">#&gt; [1] "Tue, 01 Aug 2017 20:01:06 GMT"</span></code></pre></div>
+<span class="co">#&gt; [1] "Wed, 16 Aug 2017 14:13:59 GMT"</span></code></pre></div>
 </div>
 <div id="cookies" class="section level3">
 <h3 class="hasAnchor">
@@ -417,7 +417,7 @@ r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/POST.html
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
 <span class="co">#&gt;  [1] Rcpp_0.12.12    digest_0.6.12   rprojroot_1.2   R6_2.2.2       </span>
-<span class="co">#&gt;  [5] jsonlite_1.5    backports_1.1.0 magrittr_1.5    evaluate_0.10  </span>
+<span class="co">#&gt;  [5] jsonlite_1.5    backports_1.1.0 magrittr_1.5    evaluate_0.10.1</span>
 <span class="co">#&gt;  [9] stringi_1.1.5   curl_2.8.1      rmarkdown_1.6   tools_3.4.1    </span>
 <span class="co">#&gt; [13] stringr_1.2.0   yaml_2.1.14     compiler_3.4.1  htmltools_0.3.6</span>
 <span class="co">#&gt; [17] knitr_1.16</span></code></pre></div>

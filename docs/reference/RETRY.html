@@ -113,7 +113,9 @@ but if the last retry still raises one, <code>RETRY</code> will raise it again w
 It is designed to be kind to the server: after each failure
 randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in
-<a href='https://www.awsarchitectureblog.com/2015/03/backoff.html'>https://www.awsarchitectureblog.com/2015/03/backoff.html</a>.)</p>
+<a href='https://www.awsarchitectureblog.com/2015/03/backoff.html'>https://www.awsarchitectureblog.com/2015/03/backoff.html</a>.)
+If the server returns status code 429 and specifies a <code>retry-after</code> value, that
+value will be used instead, unless it's smaller than <code>pause_min</code>.</p>
     
 
     <pre class="usage"><span class='fu'>RETRY</span>(<span class='no'>verb</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='no'>...</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -225,19 +227,19 @@ retrying while <code><a href='http_error.html'>http_error</a>()</code> is <code>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Succeeds straight away</span>
 <span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/200"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/status/200]
-#&gt;   Date: 2017-08-01 20:00
+#&gt;   Date: 2017-08-16 14:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># Never succeeds</span>
 <span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/500"</span>)</div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 3.3 seconds...</span></div><div class='output co'>#&gt; Response [http://httpbin.org/status/500]
-#&gt;   Date: 2017-08-01 20:00
+#&gt;   Date: 2017-08-16 14:13
 #&gt;   Status: 500
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># Invalid hostname generates curl error condition and is retried but eventually</span>
 <span class='co'># raises an error condition.</span>
-<span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://invalidhostname/"</span>)</div><div class='output co'>#&gt; <span class='message'>Error in curl::curl_fetch_memory(url, handle = handle): Timeout was reached: Connection timed out after 10000 milliseconds</span>
-#&gt; <span class='message'>Request failed [ERROR]. Retrying in 1.2 seconds...</span></div><div class='output co'>#&gt; <span class='message'>Error in curl::curl_fetch_memory(url, handle = handle): Timeout was reached: Connection timed out after 10001 milliseconds</span>
-#&gt; <span class='message'>Request failed [ERROR]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='error'>Error in curl::curl_fetch_memory(url, handle = handle): Timeout was reached: Connection timed out after 10001 milliseconds</span></div></pre>
+<span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://invalidhostname/"</span>)</div><div class='output co'>#&gt; <span class='message'>Error in curl::curl_fetch_memory(url, handle = handle): Could not resolve host: invalidhostname</span>
+#&gt; <span class='message'>Request failed [ERROR]. Retrying in 1.2 seconds...</span></div><div class='output co'>#&gt; <span class='message'>Error in curl::curl_fetch_memory(url, handle = handle): Could not resolve host: invalidhostname</span>
+#&gt; <span class='message'>Request failed [ERROR]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='error'>Error in curl::curl_fetch_memory(url, handle = handle): Could not resolve host: invalidhostname</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

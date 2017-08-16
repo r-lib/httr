@@ -139,7 +139,7 @@ selection of the correct handle is taken care of when the user passes an url
     <pre class="examples"><div class='input'><span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Host: http://google.com &lt;NA&gt;</div><div class='input'><span class='fu'>handle</span>(<span class='st'>"https://google.com"</span>)</div><div class='output co'>#&gt; Host: https://google.com &lt;NA&gt;</div><div class='input'>
 <span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>)
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2017-08-01 19:59
+#&gt;   Date: 2017-08-16 14:12
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt;   Size: 10.4 kB
@@ -149,7 +149,7 @@ selection of the correct handle is taken care of when the user passes an url
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div><div class='input'><span class='co'># Should see cookies sent back to server</span>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2017-08-01 19:59
+#&gt;   Date: 2017-08-16 14:12
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt;   Size: 10.4 kB
@@ -159,9 +159,9 @@ selection of the correct handle is taken care of when the user passes an url
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div><div class='input'>
 <span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>, <span class='kw'>cookies</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Cookies argument is depcrated</span></div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>)$<span class='no'>cookies</span></div><div class='output co'>#&gt;                  domain flag path secure          expiration name
-#&gt; 1 #HttpOnly_.google.com TRUE    /  FALSE 2018-01-31 13:59:40  NID
+#&gt; 1 #HttpOnly_.google.com TRUE    /  FALSE 2018-02-15 08:12:20  NID
 #&gt;                                                                                                                                  value
-#&gt; 1 109=q5B5tT599Ug3XW7dwwXUqumy0_Jo3l-qg4yBrwq17RvDSQx8ZXG40nrVZZfeXzIdtPwlq3LMV6aS40W8tzCdXyNag225792g7OBU7SIxDf9XRys9Q-rDMufErVYAoSr6</div><div class='input'>
+#&gt; 1 110=OcHsKvj-zDz9gYfwDawnbJJ5HMRBzmpAR05lLiW6LP40w4PzYAJ_StQQ_ql9O0uxz7XPNr65MDfUdqISLnUnMUPAmyj_bpf56fc7AVtXAHaKbDkO6YJQHTWaC3rKKsxr</div><div class='input'>
 </div><span class='co'># NOT RUN {</span>
 <span class='co'># Using the preferred way of configuring the http methods</span>
 <span class='co'># will not work when using handle():</span>

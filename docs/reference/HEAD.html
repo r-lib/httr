@@ -169,11 +169,11 @@ cache MUST treat the cache entry as stale.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2017-08-01 19:59
+#&gt;   Date: 2017-08-16 14:12
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'><a href='headers.html'>headers</a></span>(<span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>))</div><div class='output co'>#&gt; $date
-#&gt; [1] "Tue, 01 Aug 2017 19:59:41 GMT"
+#&gt; [1] "Wed, 16 Aug 2017 14:12:22 GMT"
 #&gt; 
 #&gt; $expires
 #&gt; [1] "-1"
@@ -191,7 +191,7 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "gws"
 #&gt; 
 #&gt; $`content-length`
-#&gt; [1] "4953"
+#&gt; [1] "4526"
 #&gt; 
 #&gt; $`x-xss-protection`
 #&gt; [1] "1; mode=block"
