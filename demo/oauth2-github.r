@@ -4,8 +4,8 @@ library(httr)
 #    http://developer.github.com/v3/oauth/
 oauth_endpoints("github")
 
-# 2. To make your own application, register at at
-#    https://github.com/settings/applications. Use any URL for the homepage URL
+# 2. To make your own application, register at 
+#    https://github.com/settings/developers. Use any URL for the homepage URL
 #    (http://github.com is fine) and  http://localhost:1410 as the callback url
 #
 #    Replace your key and secret below.
