@@ -1,5 +1,7 @@
 # httr 1.3.0.9000
 
+* Re-enable on-disk caching (accidentally disabled in #457) (#475)
+
 # httr 1.3.0
 
 ## API changes

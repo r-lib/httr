@@ -232,7 +232,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
     endpoint = endpoint,
     params = params,
     credentials = credentials,
-    cache_path = FALSE
+    cache_path = if (is.null(credentials)) cache else FALSE
   )
 }
 
