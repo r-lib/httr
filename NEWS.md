@@ -1,3 +1,5 @@
+# httr 1.3.1.9000
+
 # httr 1.3.1
 
 * Re-enable on-disk caching (accidentally disabled in #457) (#475)
