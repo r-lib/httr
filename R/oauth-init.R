@@ -113,6 +113,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
     type = type,
     redirect_uri = redirect_uri,
     client_credentials = client_credentials,
+    use_basic_auth = use_basic_auth,
     config = config_init
   )
 }
