@@ -25,6 +25,34 @@ test_that("oauth2.0 signing works", {
   )
 })
 
+test_that("oauth2.0 basic auth on client credentials works", {
+  request_url <- "https://api.vimeo.com/oauth/verify"
+
+  endpoint <- oauth_endpoint(
+    authorize = NULL,
+    access    = "https://api.vimeo.com/oauth/authorize/client"
+  )
+
+  app <- oauth_app(
+    appname = "test",
+    key = "8c67fe2dad106641e0b95306038b241f06af0936",
+    secret = "Ao8RZxCnMql6URXng+zymNtzNcKAXZC4d/y0cIRGMVVKT+rOjw/yzUmGPRl10enSAY6k9vUA/aEoAlPChVCmFNnF5YfCouT77nKwN4yHV3j2StIGmiofIBlOS2KI77qb",
+  )
+
+  # Get OAuth credentials using client credential grant and basic authentication
+  token <-  oauth2.0_token(
+    endpoint = endpoint,
+    cache = FALSE,
+    as_header = T,
+    use_basic_auth = T,
+    app = app,
+    client_credentials = T
+  )
+
+  response <- GET(request_url, config(token = token))
+  expect_equal(response$status_code, 200)
+})
+
 test_that("partial OAuth1 flow works", {
   skip_on_cran()
   # From rfigshare
