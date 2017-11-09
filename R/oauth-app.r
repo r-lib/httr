@@ -1,17 +1,21 @@
 #' Create an OAuth application.
 #'
-#' The OAuth framework doesn't match perfectly to use from R. Each user of the
-#' package for a particular OAuth enabled site must create their own
-#' application. See the demos for instructions on how to do this for
-#' linkedin, twitter, vimeo, facebook, github and google.
+#' See the demos for instructions on how to create an OAuth app for linkedin,
+#' twitter, vimeo, facebook, github and google. When wrapping an API from a
+#' package, the author may want to include a default app to facilitate early
+#' and casual use and then provide a method for heavy or advanced users to
+#' supply their own app or key and secret.
 #'
-#' @param appname name of the application.  This is not used for OAuth, but
-#'   is used to make it easier to identify different applications and
-#'   provide a consistent way of storing secrets in environment variables.
-#' @param key consumer key (equivalent to a user name)
-#' @param secret consumer secret. This is not equivalent to a password, and
-#'   is not really a secret. If you are writing an API wrapper package, it
-#'   is fine to include this secret in your package code.
+#' @param appname name of the application.  This is not used for OAuth, but is
+#'   used to make it easier to identify different applications and provide a
+#'   consistent way of storing secrets in environment variables.
+#' @param key consumer key, also sometimes called the client ID
+#' @param secret consumer secret, also sometimes called the client secret.
+#'   Despite its name, this does not necessarily function like a password, i.e.
+#'   the user still has to authenticate themselves and grant the app permission
+#'   to use access resource on their behalf. For example, see Google's docs for
+#'   \href{https://developers.google.com/identity/protocols/OAuth2#installed}{OAuth2
+#'    for installed applications})
 #'
 #'   Use \code{NULL} to not store a secret: this is useful if you're relying on
 #'   cached OAuth tokens.
