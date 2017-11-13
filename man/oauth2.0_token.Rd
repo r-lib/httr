@@ -41,7 +41,7 @@ app key and secret in the request body.}
 \item{cache}{A logical value or a string. \code{TRUE} means to cache
 using the default cache file \code{.httr-oauth}, \code{FALSE} means
 don't cache, and \code{NA} means to guess using some sensible heuristics.
-A string mean use the specified path as the cache file.}
+A string means use the specified path as the cache file.}
 
 \item{config_init}{Additional configuration settings sent to
 \code{\link{POST}}, e.g. \code{\link{user_agent}}.}
