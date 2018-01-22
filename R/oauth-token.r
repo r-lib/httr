@@ -214,7 +214,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            cache = getOption("httr_oauth_cache"),
                            config_init = list(),
                            client_credentials = FALSE,
-                           credentials = NULL
+                           credentials = NULL,
                            auth_page_query_params = NULL
                           ) {
   params <- list(
