@@ -215,6 +215,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            config_init = list(),
                            client_credentials = FALSE,
                            credentials = NULL
+                           auth_page_query_params = NULL
                           ) {
   params <- list(
     scope = scope,
@@ -224,7 +225,8 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
     as_header = as_header,
     use_basic_auth = use_basic_auth,
     config_init = config_init,
-    client_credentials = client_credentials
+    client_credentials = client_credentials,
+    auth_page_query_params = auth_page_query_params
   )
 
   Token2.0$new(
@@ -245,7 +247,8 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
       type = self$params$type, use_oob = self$params$use_oob,
       use_basic_auth = self$params$use_basic_auth,
       config_init = self$params$config_init,
-      client_credentials = self$params$client_credentials)
+      client_credentials = self$params$client_credentials,
+      auth_page_query_params = self$params$auth_page_query_params)
   },
   can_refresh = function() {
     !is.null(self$credentials$refresh_token)
@@ -263,11 +266,14 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   },
   sign = function(method, url) {
     if (self$params$as_header) {
-      request(url = url, headers = c(
+      url <- parse_url(url)
+      url$query <- auth_page_query_params
+      request(url = build_url(url), headers = c(
         Authorization = paste('Bearer', self$credentials$access_token))
       )
     } else {
       url <- parse_url(url)
+      url$query <- auth_page_query_params
       url$query$access_token <- self$credentials$access_token
       request(url = build_url(url))
     }
