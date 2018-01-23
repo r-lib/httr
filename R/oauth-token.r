@@ -215,7 +215,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            config_init = list(),
                            client_credentials = FALSE,
                            credentials = NULL,
-                           auth_page_query_params = NULL
+                           auth_page_query_params = list()
                           ) {
   params <- list(
     scope = scope,

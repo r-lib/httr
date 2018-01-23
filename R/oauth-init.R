@@ -135,7 +135,7 @@ oauth2.0_authorize_url <- function(endpoint, app, scope,
                             														response_type = "code",
                             														state = state)
                             											     ),
-                        														auth_page_query_params
+                        														auth_page_query_params,
                             										 )
             )
 }
@@ -151,7 +151,7 @@ oauth2.0_access_token <- function(endpoint,
                                   redirect_uri = app$redirect_uri,
                                   client_credentials = FALSE,
                                   config = list(),
-                                  auth_page_query_params=NULL
+                                  auth_page_query_params=list()
                                   ) {
 
   req_params <- compact(list(
