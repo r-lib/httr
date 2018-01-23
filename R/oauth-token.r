@@ -266,14 +266,11 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   },
   sign = function(method, url) {
     if (self$params$as_header) {
-      url <- parse_url(url)
-      url$query <- auth_page_query_params
-      request(url = build_url(url), headers = c(
+      request(url = url, headers = c(
         Authorization = paste('Bearer', self$credentials$access_token))
       )
     } else {
       url <- parse_url(url)
-      url$query <- auth_page_query_params
       url$query$access_token <- self$credentials$access_token
       request(url = build_url(url))
     }
