@@ -75,7 +75,8 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
                           is_interactive = interactive(),
                           use_basic_auth = FALSE,
                           config_init = list(),
-                          client_credentials = FALSE
+                          client_credentials = FALSE,
+                          auth_page_query_params = NULL
                          ) {
 
   scope <- check_scope(scope)
@@ -99,7 +100,8 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
       app,
       scope = scope,
       redirect_uri = redirect_uri,
-      state = state
+      state = state,
+	    auth_page_query_params = auth_page_query_params
     )
     code <- oauth_authorize(authorize_url, use_oob)
   }
@@ -113,7 +115,8 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
     type = type,
     redirect_uri = redirect_uri,
     client_credentials = client_credentials,
-    config = config_init
+    config = config_init,
+    auth_page_query_params=auth_page_query_params
   )
 }
 
@@ -121,15 +124,20 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
 #' @rdname init_oauth2.0
 oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    redirect_uri = app$redirect_uri,
-                                   state = nonce()
+                                   state = nonce(),
+								                   auth_page_query_params = auth_page_query_params
                                    ) {
-  modify_url(endpoint$authorize, query = compact(list(
-    client_id = app$key,
-    scope = scope,
-    redirect_uri = redirect_uri,
-    response_type = "code",
-    state = state)
-  ))
+  #TODO might need to put some before and some after...
+  modify_url(endpoint$authorize, query = compact(c(list(
+                            														client_id = app$key,
+                            														scope = scope,
+                            														redirect_uri = redirect_uri,
+                            														response_type = "code",
+                            														state = state)
+                            											     ),
+                        														auth_page_query_params
+                            										 )
+            )
 }
 
 #' @export
@@ -142,7 +150,8 @@ oauth2.0_access_token <- function(endpoint,
                                   use_basic_auth = FALSE,
                                   redirect_uri = app$redirect_uri,
                                   client_credentials = FALSE,
-                                  config = list()
+                                  config = list(),
+                                  auth_page_query_params=NULL
                                   ) {
 
   req_params <- compact(list(
