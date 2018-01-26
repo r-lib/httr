@@ -66,6 +66,10 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #' @param client_credentials Default to \code{FALSE}. Set to \code{TRUE} to use
 #'   \emph{Client Credentials Grant} instead of \emph{Authorization
 #'   Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.
+#' @param auth_page_query_params Default to \code{list()}. Set to named list
+#'   holding query parameters to append to initial auth page query. Useful for
+#'   some APIs (e.g. Fitbit; see Authorization page URI parameters at
+#'   \url{https://dev.fitbit.com/build/reference/web-api/oauth2/}.)
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL,
@@ -76,7 +80,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
                           use_basic_auth = FALSE,
                           config_init = list(),
                           client_credentials = FALSE,
-                          auth_page_query_params = NULL
+                          auth_page_query_params = list()
                          ) {
 
   scope <- check_scope(scope)

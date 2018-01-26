@@ -202,6 +202,10 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 #'   requests.
 #' @param credentials Advanced use only: allows you to completely customise
 #'   token generation.
+#' @param auth_page_query_params Default to \code{list()}. Set to named list
+#'   holding query parameters to append to initial auth page query. Useful for
+#'   some APIs (e.g. Fitbit; see Authorization page URI parameters at
+#'   \url{https://dev.fitbit.com/build/reference/web-api/oauth2/}.)
 #' @inheritParams oauth1.0_token
 #' @return A \code{Token2.0} reference class (RC) object.
 #' @family OAuth

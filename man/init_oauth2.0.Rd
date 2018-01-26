@@ -9,14 +9,16 @@
 init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
   type = NULL, use_oob = getOption("httr_oob_default"),
   is_interactive = interactive(), use_basic_auth = FALSE,
-  config_init = list(), client_credentials = FALSE)
+  config_init = list(), client_credentials = FALSE,
+  auth_page_query_params = list())
 
 oauth2.0_authorize_url(endpoint, app, scope, redirect_uri = app$redirect_uri,
-  state = nonce())
+  state = nonce(), auth_page_query_params = auth_page_query_params)
 
 oauth2.0_access_token(endpoint, app, code, user_params = NULL, type = NULL,
   use_basic_auth = FALSE, redirect_uri = app$redirect_uri,
-  client_credentials = FALSE, config = list())
+  client_credentials = FALSE, config = list(),
+  auth_page_query_params = list())
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -50,6 +52,11 @@ app key and secret in the request body.}
 \item{client_credentials}{Default to \code{FALSE}. Set to \code{TRUE} to use
 \emph{Client Credentials Grant} instead of \emph{Authorization
 Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
+
+\item{auth_page_query_params}{Default to \code{list()}. Set to named list
+holding query parameters to append to initial auth page query. Useful for
+some APIs (e.g. Fitbit; see Authorization page URI parameters at
+\url{https://dev.fitbit.com/build/reference/web-api/oauth2/}.)}
 }
 \description{
 See demos for use.

@@ -7,7 +7,8 @@
 oauth2.0_token(endpoint, app, scope = NULL, user_params = NULL,
   type = NULL, use_oob = getOption("httr_oob_default"), as_header = TRUE,
   use_basic_auth = FALSE, cache = getOption("httr_oauth_cache"),
-  config_init = list(), client_credentials = FALSE, credentials = NULL)
+  config_init = list(), client_credentials = FALSE, credentials = NULL,
+  auth_page_query_params = list())
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -52,6 +53,11 @@ Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
 
 \item{credentials}{Advanced use only: allows you to completely customise
 token generation.}
+
+\item{auth_page_query_params}{Default to \code{list()}. Set to named list
+holding query parameters to append to initial auth page query. Useful for
+some APIs (e.g. Fitbit; see Authorization page URI parameters at
+\url{https://dev.fitbit.com/build/reference/web-api/oauth2/}.)}
 }
 \value{
 A \code{Token2.0} reference class (RC) object.
