@@ -72,7 +72,7 @@ keep_last <- function(...) {
 }
 
 find_cert_bundle <- function() {
-  if (.Platform$OS.type != "windows")
+  if (.Platform$OS.type == "windows")
     return()
 
   env <- Sys.getenv("CURL_CA_BUNDLE")
