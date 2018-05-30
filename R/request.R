@@ -147,9 +147,12 @@ request_perform <- function(req, handle, refresh = TRUE) {
 
   all_headers <- parse_headers(resp$headers)
   headers <- last(all_headers)$headers
+
   if (!is.null(headers$date)) {
     date <- parse_http_date(headers$Date)
-  } else {
+  }
+
+  if (is.null(headers$date) || is.na(date)) {
     date <- Sys.time()
   }
 
