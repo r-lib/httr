@@ -46,6 +46,7 @@ POST <- function(url = NULL, config = list(), ..., body = NULL,
   encode <- match.arg(encode)
 
   hu <- handle_url(handle, url, ...)
-  req <- request_build("POST", hu$url, body_config(body, match.arg(encode)), as.request(config), ...)
+  req <- request_build("POST", hu$url, body_config(body, match.arg(encode), ...),
+                       as.request(config), ...)
   request_perform(req, hu$handle$handle)
 }

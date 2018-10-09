@@ -4,7 +4,8 @@
 \alias{verbose}
 \title{Give verbose output.}
 \usage{
-verbose(data_out = TRUE, data_in = FALSE, info = FALSE, ssl = FALSE)
+verbose(data_out = TRUE, data_in = FALSE, info = FALSE,
+  ssl = FALSE)
 }
 \arguments{
 \item{data_out}{Show data sent to the server.}
@@ -70,3 +71,4 @@ Other config: \code{\link{add_headers}},
   \code{\link{set_cookies}}, \code{\link{timeout}},
   \code{\link{use_proxy}}, \code{\link{user_agent}}
 }
+\concept{config}

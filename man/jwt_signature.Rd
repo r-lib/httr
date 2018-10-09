@@ -5,8 +5,8 @@
 \title{Generate a JWT signature given credentials.}
 \usage{
 jwt_signature(credentials, scope, aud, sub = NULL,
-  iat = as.integer(Sys.time()), exp = iat + duration, duration = 60L *
-  60L)
+  iat = as.integer(Sys.time()), exp = iat + duration, duration = 60L
+  * 60L)
 }
 \arguments{
 \item{credentials}{Parsed contents of the credentials file.}
