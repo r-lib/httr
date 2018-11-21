@@ -36,3 +36,4 @@ Other OAuth: \code{\link{oauth1.0_token}},
   \code{\link{oauth2.0_token}}, \code{\link{oauth_app}},
   \code{\link{oauth_endpoint}}
 }
+\concept{OAuth}

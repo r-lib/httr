@@ -61,3 +61,5 @@ Other config: \code{\link{add_headers}},
 Other ways to set configuration: \code{\link{set_config}},
   \code{\link{with_config}}
 }
+\concept{config}
+\concept{ways to set configuration}
