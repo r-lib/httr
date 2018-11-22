@@ -7,8 +7,7 @@ cache: packages
 matrix:
   include:
   - r: release
-    after_success:
-    - Rscript -e 'covr::codecov()'
+    after_success: Rscript -e 'covr::codecov()'
     before_deploy: Rscript -e 'install.packages("pkgdown")'
     deploy:
       provider: script
