@@ -1,5 +1,7 @@
 # httr 1.3.1.9000
 
+* Scopes are de-duplicated, sorted, and stripped of names before being hashed. This eliminates a source of hash mismatch that causes new tokens to be requested, even when existing tokens have the necessary scope. (@jennybc, #495)
+
 * The default value of `failure` argument in `parse_http_date()` is set to `structure(NA_real_, class = "Date")` so that the reponse with a "failure" date can be printed out correctly. (@shrektan, #544)
 
 # httr 1.3.1
