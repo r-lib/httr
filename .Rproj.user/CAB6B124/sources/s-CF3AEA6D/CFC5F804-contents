@@ -1,1 +1,0 @@
-GET("http://httpbin.org/delay/1", timeout(2))

@@ -1,3 +1,0 @@
-url <- "https://raw.githubusercontent.com/r-lib/httr/1fc659856602f60ff75eb01903513244e3491ec2/R/cache.R"
-r <- GET(url)
-cache_info(r)
