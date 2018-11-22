@@ -5,9 +5,10 @@
 \title{Generate an oauth2.0 token.}
 \usage{
 oauth2.0_token(endpoint, app, scope = NULL, user_params = NULL,
-  type = NULL, use_oob = getOption("httr_oob_default"), as_header = TRUE,
-  use_basic_auth = FALSE, cache = getOption("httr_oauth_cache"),
-  config_init = list(), client_credentials = FALSE, credentials = NULL)
+  type = NULL, use_oob = getOption("httr_oob_default"),
+  as_header = TRUE, use_basic_auth = FALSE,
+  cache = getOption("httr_oauth_cache"), config_init = list(),
+  client_credentials = FALSE, credentials = NULL)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -41,7 +42,7 @@ app key and secret in the request body.}
 \item{cache}{A logical value or a string. \code{TRUE} means to cache
 using the default cache file \code{.httr-oauth}, \code{FALSE} means
 don't cache, and \code{NA} means to guess using some sensible heuristics.
-A string mean use the specified path as the cache file.}
+A string means use the specified path as the cache file.}
 
 \item{config_init}{Additional configuration settings sent to
 \code{\link{POST}}, e.g. \code{\link{user_agent}}.}
@@ -71,3 +72,4 @@ Other OAuth: \code{\link{oauth1.0_token}},
   \code{\link{oauth_app}}, \code{\link{oauth_endpoint}},
   \code{\link{oauth_service_token}}
 }
+\concept{OAuth}

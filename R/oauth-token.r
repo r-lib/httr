@@ -134,7 +134,7 @@ Token <- R6::R6Class("Token", list(
 #' @param cache A logical value or a string. \code{TRUE} means to cache
 #'   using the default cache file \code{.httr-oauth}, \code{FALSE} means
 #'   don't cache, and \code{NA} means to guess using some sensible heuristics.
-#'   A string mean use the specified path as the cache file.
+#'   A string means use the specified path as the cache file.
 #' @return A \code{Token1.0} reference class (RC) object.
 #' @family OAuth
 #' @export

@@ -38,3 +38,4 @@ Other config: \code{\link{authenticate}},
   \code{\link{timeout}}, \code{\link{use_proxy}},
   \code{\link{user_agent}}, \code{\link{verbose}}
 }
+\concept{config}
