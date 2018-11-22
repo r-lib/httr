@@ -126,6 +126,7 @@
 <a href="#httr-1-3-1-9000" class="anchor"></a>httr 1.3.1.9000<small> Unreleased </small>
 </h1>
 <ul>
+<li><p><code>HEAD</code> requests success in <code><a href="../reference/VERB.html">VERB()</a></code> and <code><a href="../reference/RETRY.html">RETRY()</a></code> (<a href='https://github.com/r-lib/httr/issues/478'>#478</a>, <a href='https://github.com/r-lib/httr/issues/499'>#499</a>)</p></li>
 <li><p>Scopes are de-duplicated, sorted, and stripped of names before being hashed. This eliminates a source of hash mismatch that causes new tokens to be requested, even when existing tokens have the necessary scope. (<a href='https://github.com/jennybc'>@jennybc</a>, <a href='https://github.com/r-lib/httr/issues/495'>#495</a>)</p></li>
 <li><p>The default value of <code>failure</code> argument in <code><a href="../reference/parse_http_date.html">parse_http_date()</a></code> is set to <code><a href="https://www.rdocumentation.org/packages/base/topics/structure">structure(NA_real_, class = "Date")</a></code> so that the reponse with a “failure” date can be printed out correctly. (<a href='https://github.com/shrektan'>@shrektan</a>, <a href='https://github.com/r-lib/httr/issues/544'>#544</a>)</p></li>
 </ul>
