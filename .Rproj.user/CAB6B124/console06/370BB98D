@@ -1,0 +1,271 @@
+gi]0;~/Documents/r-lib/httr[?1034h[Ghttr (master): git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+]0;~/Documents/r-lib/httr[Ghttr (master): /usr/bin/git
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+]0;~/Documents/r-lib/httr[Ghttr (master): xcrun
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+]0;~/Documents/r-lib/httr[Ghttr (master): xcode-select --install
+xcode-select: note: install requested for command line developer tools
+]0;~/Documents/r-lib/httr[?1034h[Ghttr (master): git checkout --orphan gh-pages
+Switched to a new branch 'gh-pages'
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): git rm -rf .
+rm '.Rbuildignore'
+rm '.gitignore'
+rm '.travis.yml'
+rm 'DESCRIPTION'
+rm 'LICENSE'
+rm 'NAMESPACE'
+rm 'NEWS.md'
+rm 'R/authenticate.r'
+rm 'R/body.R'
+rm 'R/cache.R'
+rm 'R/callback.R'
+rm 'R/config.r'
+rm 'R/content-parse.r'
+rm 'R/content.r'
+rm 'R/cookies.r'
+rm 'R/date.R'
+rm 'R/doctor.R'
+rm 'R/envvar.R'
+rm 'R/handle-pool.r'
+rm 'R/handle-url.r'
+rm 'R/handle.r'
+rm 'R/headers.r'
+rm 'R/http-browse.r'
+rm 'R/http-delete.r'
+rm 'R/http-get.r'
+rm 'R/http-head.r'
+rm 'R/http-patch.r'
+rm 'R/http-post.r'
+rm 'R/http-put.r'
+rm 'R/http-verb.R'
+rm 'R/httr.r'
+rm 'R/insensitive.r'
+rm 'R/media-guess.r'
+rm 'R/media-parse.r'
+rm 'R/oauth-app.r'
+rm 'R/oauth-cache.R'
+rm 'R/oauth-endpoint.r'
+rm 'R/oauth-error.r'
+rm 'R/oauth-exchanger.r'
+rm 'R/oauth-init.R'
+rm 'R/oauth-listener.r'
+rm 'R/oauth-refresh.R'
+rm 'R/oauth-server-side.R'
+rm 'R/oauth-signature.r'
+rm 'R/oauth-token-utils.R'
+rm 'R/oauth-token.r'
+rm 'R/progress.R'
+rm 'R/proxy.r'
+rm 'R/request.R'
+rm 'R/response-status.r'
+rm 'R/response-type.R'
+rm 'R/response.r'
+rm 'R/retry.R'
+rm 'R/sha1.r'
+rm 'R/str.R'
+rm 'R/timeout.r'
+rm 'R/upload-file.r'
+rm 'R/url-query.r'
+rm 'R/url.r'
+rm 'R/user-agent.r'
+rm 'R/utils.r'
+rm 'R/verbose.r'
+rm 'R/write-function.R'
+rm 'R/zzz.R'
+rm 'README.md'
+rm '_pkgdown.yml'
+rm 'codecov.yml'
+rm 'cran-comments.md'
+rm 'demo/.gitignore'
+rm 'demo/00Index'
+rm 'demo/connection-sharing.r'
+rm 'demo/oauth1-twitter.r'
+rm 'demo/oauth1-vimeo.r'
+rm 'demo/oauth1-withings.r'
+rm 'demo/oauth1-yahoo.r'
+rm 'demo/oauth2-azure.r'
+rm 'demo/oauth2-facebook.r'
+rm 'demo/oauth2-github.r'
+rm 'demo/oauth2-google.r'
+rm 'demo/oauth2-linkedin.r'
+rm 'demo/oauth2-reddit.R'
+rm 'demo/oauth2-yelp.R'
+rm 'demo/service-account.R'
+rm 'httr.Rproj'
+rm 'man/BROWSE.Rd'
+rm 'man/DELETE.Rd'
+rm 'man/GET.Rd'
+rm 'man/HEAD.Rd'
+rm 'man/PATCH.Rd'
+rm 'man/POST.Rd'
+rm 'man/PUT.Rd'
+rm 'man/RETRY.Rd'
+rm 'man/Token-class.Rd'
+rm 'man/VERB.Rd'
+rm 'man/add_headers.Rd'
+rm 'man/authenticate.Rd'
+rm 'man/cache_info.Rd'
+rm 'man/config.Rd'
+rm 'man/content.Rd'
+rm 'man/content_type.Rd'
+rm 'man/cookies.Rd'
+rm 'man/get_callback.Rd'
+rm 'man/guess_media.Rd'
+rm 'man/handle.Rd'
+rm 'man/handle_pool.Rd'
+rm 'man/has_content.Rd'
+rm 'man/headers.Rd'
+rm 'man/hmac_sha1.Rd'
+rm 'man/http_condition.Rd'
+rm 'man/http_error.Rd'
+rm 'man/http_status.Rd'
+rm 'man/http_type.Rd'
+rm 'man/httr-package.Rd'
+rm 'man/httr_dr.Rd'
+rm 'man/httr_options.Rd'
+rm 'man/init_oauth1.0.Rd'
+rm 'man/init_oauth2.0.Rd'
+rm 'man/insensitive.Rd'
+rm 'man/jwt_signature.Rd'
+rm 'man/modify_url.Rd'
+rm 'man/oauth1.0_token.Rd'
+rm 'man/oauth2.0_token.Rd'
+rm 'man/oauth_app.Rd'
+rm 'man/oauth_callback.Rd'
+rm 'man/oauth_endpoint.Rd'
+rm 'man/oauth_endpoints.Rd'
+rm 'man/oauth_exchanger.Rd'
+rm 'man/oauth_listener.Rd'
+rm 'man/oauth_service_token.Rd'
+rm 'man/oauth_signature.Rd'
+rm 'man/parse_http_date.Rd'
+rm 'man/parse_media.Rd'
+rm 'man/parse_url.Rd'
+rm 'man/progress.Rd'
+rm 'man/response.Rd'
+rm 'man/revoke_all.Rd'
+rm 'man/set_config.Rd'
+rm 'man/set_cookies.Rd'
+rm 'man/sha1_hash.Rd'
+rm 'man/sign_oauth.Rd'
+rm 'man/status_code.Rd'
+rm 'man/stop_for_status.Rd'
+rm 'man/timeout.Rd'
+rm 'man/upload_file.Rd'
+rm 'man/use_proxy.Rd'
+rm 'man/user_agent.Rd'
+rm 'man/verbose.Rd'
+rm 'man/with_config.Rd'
+rm 'man/write_disk.Rd'
+rm 'man/write_function.Rd'
+rm 'man/write_stream.Rd'
+rm 'revdep/.gitignore'
+rm 'revdep/README.md'
+rm 'revdep/data.sqlite'
+rm 'revdep/email.yml'
+rm 'revdep/problems.md'
+rm 'tests/testthat.R'
+rm 'tests/testthat/data.txt'
+rm 'tests/testthat/test-body.r'
+rm 'tests/testthat/test-callback.R'
+rm 'tests/testthat/test-config.r'
+rm 'tests/testthat/test-content.R'
+rm 'tests/testthat/test-encoding.R'
+rm 'tests/testthat/test-header.r'
+rm 'tests/testthat/test-http-condition.R'
+rm 'tests/testthat/test-http-error.R'
+rm 'tests/testthat/test-oauth-cache.R'
+rm 'tests/testthat/test-oauth-server-side.R'
+rm 'tests/testthat/test-oauth.R'
+rm 'tests/testthat/test-oauth_signature.R'
+rm 'tests/testthat/test-parse_media.R'
+rm 'tests/testthat/test-request.r'
+rm 'tests/testthat/test-response.r'
+rm 'tests/testthat/test-ssl.R'
+rm 'tests/testthat/test-url.r'
+rm 'vignettes/api-packages.Rmd'
+rm 'vignettes/quickstart.Rmd'
+rm 'vignettes/secrets.Rmd'
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): touch README.md
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): git add README.md
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): git commit -m 'initial gh-pages commit'
+[gh-pages (root-commit) c08173d] initial gh-pages commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): git push origin gh-pages
+Counting objects: 3, done.
+Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 217 bytes | 217.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+remote: 
+remote: Create a pull request for 'gh-pages' on GitHub by visiting:[K
+remote:      https://github.com/r-lib/httr/pull/new/gh-pages[K
+remote: 
+To github.com:r-lib/httr.git
+ * [new branch]      gh-pages -> gh-pages
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+]0;~/Documents/r-lib/httr[Ghttr (master): g[K[Ghttr (master): git checkout gh-pages
+Switched to branch 'gh-pages'
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): ls
+README.md [34mdocs[39;49m[0m
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): rm readmREADME.md 
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): rm 
+usage: rm [-f | -i] [-dPRrvW] file ...
+       unlink file
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): 
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): ls docs/
+CNAME             authors.html      index.html        pkgdown.css       [34mreference[39;49m[0m
+LICENSE-text.html docsearch.css     link.svg          pkgdown.js        sitemap.xml
+[34marticles[39;49m[0m          docsearch.js      [34mnews[39;49m[0m              pkgdown.yml
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): rm -rf docs/
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): ls
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): git st
+## [32mgh-pages[m
+ [31mD[m README.md
+[31m??[m .Rhistory
+[31m??[m .Rproj.user/
+[31m??[m .httr-oauth
+]0;~/Documents/r-lib/httr[Ghttr (gh-pages): gt [K[Kit add .

@@ -1,0 +1,84 @@
+reference:
+
+- title: HTTP verbs
+  contents:
+  - GET
+  - POST
+  - PUT
+  - DELETE
+  - PATCH
+  - HEAD
+  - VERB
+  - RETRY
+  - BROWSE
+
+- title: Request configuration
+  contents:
+  - config
+  - set_config
+  - with_config
+
+  - add_headers
+  - authenticate
+  - content_type
+  - progress
+  - set_cookies
+  - timeout
+  - upload_file
+  - use_proxy
+  - user_agent
+  - verbose
+  - write_disk
+  - write_stream
+
+- title: Response accessors
+  contents:
+  - content
+  - cookies
+  - headers
+  - http_error
+  - http_status
+  - http_type
+  - http_date
+  - status_code
+  - stop_for_status
+
+- title: Authentication
+  contents:
+  - contains("oauth")
+  - authenticate
+  - revoke_all
+
+- title: URLS
+  contents:
+  - contains("url")
+
+- title: Advanced
+  contents:
+  - cache_info
+  - handle
+  - httr_dr
+  - httr_options
+  - get_callback
+
+navbar:
+  title: httr
+  type: default
+  left:
+  - icon: fa-home fa-lg
+    href: /index.html
+  - text: Intro
+    href: articles/quickstart.html
+  - text: Reference
+    href: reference/index.html
+  - text: Articles
+    menu:
+    - text: Managing secrets
+      href: articles/secrets.html
+    - text: Best practices for API packages
+      href: articles/api-packages.html
+  right:
+  - text: News
+    href: news/index.html
+  - icon: fa-github fa-lg
+    href: https://github.com/r-lib/httr

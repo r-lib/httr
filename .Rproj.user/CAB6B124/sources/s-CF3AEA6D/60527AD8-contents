@@ -1,0 +1,39 @@
+Package: httr
+Title: Tools for Working with URLs and HTTP
+Version: 1.3.1
+Authors@R: 
+    c(person(given = "Hadley",
+             family = "Wickham",
+             role = c("aut", "cre"),
+             email = "hadley@rstudio.com"),
+      person(given = "RStudio",
+             role = "cph"))
+Description: Useful tools for working with HTTP organised by
+    HTTP verbs (GET(), POST(), etc). Configuration functions make it easy
+    to control additional request components (authenticate(),
+    add_headers() and so on).
+License: MIT + file LICENSE
+URL: https://github.com/r-lib/httr
+BugReports: https://github.com/r-lib/httr/issues
+Depends:
+    R (>= 3.1)
+Imports:
+    curl (>= 0.9.1),
+    jsonlite,
+    mime,
+    openssl (>= 0.8),
+    R6
+Suggests:
+    covr,
+    httpuv,
+    jpeg,
+    knitr,
+    png,
+    readr,
+    rmarkdown,
+    testthat (>= 0.8.0),
+    xml2
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+RoxygenNote: 6.1.1
