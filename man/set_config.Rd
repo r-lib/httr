@@ -33,3 +33,4 @@ GET("http://google.com")
 Other ways to set configuration: \code{\link{config}},
   \code{\link{with_config}}
 }
+\concept{ways to set configuration}
