@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">httr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.1.9000</span>
       </span>
     </div>
 
@@ -207,10 +207,10 @@ details.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>b2</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/post"</span>
 <span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-11-22 16:39
+#&gt;   Date: 2018-11-22 16:48
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 436 B
+#&gt;   Size: 440 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "A simple text string", 
@@ -222,10 +222,10 @@ details.</p></td>
 #&gt;     "Connection": "close", 
 #&gt;     "Content-Length": "20", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-11-22 16:39
+#&gt;   Date: 2018-11-22 16:48
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 547 B
+#&gt;   Size: 551 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -237,7 +237,7 @@ details.</p></td>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='upload_file.html'>upload_file</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"CITATION"</span>))))</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-11-22 16:39
+#&gt;   Date: 2018-11-22 16:48
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 1.56 kB
@@ -252,10 +252,10 @@ details.</p></td>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>), <span class='kw'>encode</span> <span class='kw'>=</span> <span class='st'>"json"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-11-22 16:39
+#&gt;   Date: 2018-11-22 16:48
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 522 B
+#&gt;   Size: 526 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "{\"x\":\"A simple text string\"}", 
@@ -269,10 +269,10 @@ details.</p></td>
 #&gt; ...</div><div class='input'>
 <span class='co'># Various types of empty body:</span>
 <span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-11-22 16:39
+#&gt;   Date: 2018-11-22 16:48
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 415 B
+#&gt;   Size: 419 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -284,14 +284,14 @@ details.</p></td>
 #&gt;     "Connection": "close", 
 #&gt;     "Content-Length": "0", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-11-22 16:39
+#&gt;   Date: 2018-11-22 16:48
 #&gt;   Status: 405
 #&gt;   Content-Type: text/html
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-11-22 16:39
+#&gt;   Date: 2018-11-22 16:48
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 415 B
+#&gt;   Size: 419 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
