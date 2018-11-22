@@ -1,0 +1,11 @@
+pandoc: '2.2'
+pkgdown: 1.2.0
+pkgdown_sha: ~
+articles:
+  api-packages: api-packages.html
+  quickstart: quickstart.html
+  secrets: secrets.html
+urls:
+  reference: https://httr.r-lib.org/reference
+  article: https://httr.r-lib.org/articles
+
