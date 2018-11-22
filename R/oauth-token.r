@@ -47,8 +47,8 @@ Token <- R6::R6Class("Token", list(
   private_key = NULL,
 
   initialize = function(app, endpoint, params = list(), credentials = NULL,
-                        private_key = NULL,
-                        cache_path = getOption("httr_oauth_cache")) {
+                          private_key = NULL,
+                          cache_path = getOption("httr_oauth_cache")) {
     stopifnot(
       is.oauth_endpoint(endpoint) || !is.null(credentials),
       is.oauth_app(app),
@@ -81,7 +81,8 @@ Token <- R6::R6Class("Token", list(
     print(self$endpoint)
     print(self$app)
     cat("<credentials> ", paste0(names(self$credentials), collapse = ", "), "\n",
-      sep = "")
+      sep = ""
+    )
     cat("---\n")
   },
   cache = function(path = self$cache_path) {
@@ -173,8 +174,10 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
     stop("Not implemented")
   },
   sign = function(method, url) {
-    oauth <- oauth_signature(url, method, self$app, self$credentials$oauth_token,
-      self$credentials$oauth_token_secret, self$private_key)
+    oauth <- oauth_signature(
+      url, method, self$app, self$credentials$oauth_token,
+      self$credentials$oauth_token_secret, self$private_key
+    )
     if (isTRUE(self$params$as_header)) {
       c(request(url = url), oauth_header(oauth))
     } else {
@@ -219,8 +222,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            config_init = list(),
                            client_credentials = FALSE,
                            credentials = NULL,
-                           auth_page_query_params = list()
-                          ) {
+                           auth_page_query_params = list()) {
   params <- list(
     scope = scope,
     user_params = user_params,
@@ -252,14 +254,17 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
       use_basic_auth = self$params$use_basic_auth,
       config_init = self$params$config_init,
       client_credentials = self$params$client_credentials,
-      auth_page_query_params = self$params$auth_page_query_params)
+      auth_page_query_params = self$params$auth_page_query_params
+    )
   },
   can_refresh = function() {
     !is.null(self$credentials$refresh_token)
   },
   refresh = function() {
-    cred <- refresh_oauth2.0(self$endpoint, self$app,
-        self$credentials, self$params$user_params, self$params$use_basic_auth)
+    cred <- refresh_oauth2.0(
+      self$endpoint, self$app,
+      self$credentials, self$params$user_params, self$params$use_basic_auth
+    )
     if (is.null(cred)) {
       remove_cached_token(self)
     } else {
@@ -271,8 +276,8 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
   sign = function(method, url) {
     if (self$params$as_header) {
       request(url = url, headers = c(
-        Authorization = paste('Bearer', self$credentials$access_token))
-      )
+        Authorization = paste("Bearer", self$credentials$access_token)
+      ))
     } else {
       url <- parse_url(url)
       url$query$access_token <- self$credentials$access_token
@@ -305,14 +310,16 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
 #' endpoint <- oauth_endpoints("google")
 #' secrets <- jsonlite::fromJSON("~/Desktop/httrtest-45693cbfac92.json")
 #' scope <- "https://www.googleapis.com/auth/bigquery.readonly"
-#'
+#' 
 #' token <- oauth_service_token(endpoint, secrets, scope)
 #' }
 oauth_service_token <- function(endpoint, secrets, scope = NULL, sub = NULL) {
-  if (!is.oauth_endpoint(endpoint))
+  if (!is.oauth_endpoint(endpoint)) {
     stop("`endpoint` must be an OAuth endpoint", call. = FALSE)
-  if (!is.list(secrets))
+  }
+  if (!is.list(secrets)) {
     stop("`secrets` must be a list.", call. = FALSE)
+  }
 
   scope <- check_scope(scope)
 
@@ -347,7 +354,7 @@ TokenServiceAccount <- R6::R6Class("TokenServiceAccount", inherit = Token2.0, li
   },
   sign = function(method, url) {
     config <- add_headers(
-      Authorization = paste('Bearer', self$credentials$access_token)
+      Authorization = paste("Bearer", self$credentials$access_token)
     )
     request_build(method = method, url = url, config)
   },
