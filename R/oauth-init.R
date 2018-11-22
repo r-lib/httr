@@ -129,7 +129,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
 oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    redirect_uri = app$redirect_uri,
                                    state = nonce(),
-								                   auth_page_query_params = auth_page_query_params
+                                   auth_page_query_params = auth_page_query_params
                                    ) {
   #TODO might need to put some before and some after...
 modify_url(endpoint$authorize, query = compact(c(
