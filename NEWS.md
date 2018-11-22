@@ -1,5 +1,8 @@
 # httr 1.3.1.9000
 
+* Encoding falls back to UTF-8 if not supplied and content-type parsing
+  fails (#500).
+
 * `HEAD` requests success in `VERB()` and `RETRY()` (#478, #499)
 
 * Scopes are de-duplicated, sorted, and stripped of names before being hashed. This eliminates a source of hash mismatch that causes new tokens to be requested, even when existing tokens have the necessary scope. (@jennybc, #495)

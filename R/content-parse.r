@@ -7,17 +7,21 @@ check_encoding <- function(x) {
 }
 
 guess_encoding <- function(encoding = NULL, type = NULL) {
-  if (!is.null(encoding))
-    return(check_encoding(encoding))
+  # Try extracting from media type
+  if (is.null(encoding)) {
+    encoding <- tryCatch(
+      error = function(err) NULL,
+      parse_media(type)$params$charset
+    )
+  }
 
-  charset <- if (!is.null(type)) parse_media(type)$params$charset
-
-  if (is.null(charset)) {
+  # Fall back to UTF-8
+  if (is.null(encoding)) {
     message("No encoding supplied: defaulting to UTF-8.")
     return("UTF-8")
   }
 
-  check_encoding(charset)
+  check_encoding(encoding)
 }
 
 parse_text <- function(content, type = NULL, encoding = NULL) {
