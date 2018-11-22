@@ -15,8 +15,9 @@ matrix:
       skip_cleanup: true
   - r: devel
   - r: oldrel
-  - r: 3.2
-  - r: 3.1
+  # Don't test because of readr issue
+  # - r: 3.2
+  # - r: 3.1
 
 env:
   global:
