@@ -63,4 +63,5 @@ test_that("oauth2.0 authorize url does not append empty query params", {
 
   testAuthorizeUrlWithEmptyInput(list())
   testAuthorizeUrlWithEmptyInput(NULL)
+  
 })
