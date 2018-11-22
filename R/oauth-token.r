@@ -252,7 +252,8 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
       use_basic_auth = self$params$use_basic_auth,
       config_init = self$params$config_init,
       client_credentials = self$params$client_credentials,
-      auth_page_query_params = self$params$auth_page_query_params)
+      auth_page_query_params = self$params$auth_page_query_params
+      )
   },
   can_refresh = function() {
     !is.null(self$credentials$refresh_token)

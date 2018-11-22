@@ -138,7 +138,8 @@ oauth2.0_authorize_url <- function(endpoint, app, scope,
                             														redirect_uri = redirect_uri,
                             														response_type = "code",
                             														state = state
-                            														), auth_page_query_params
+                            												)
+                            												, auth_page_query_params
                             											 )
                             										 )
             )
