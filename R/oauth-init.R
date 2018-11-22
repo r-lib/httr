@@ -133,14 +133,16 @@ oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    ) {
   #TODO might need to put some before and some after...
 modify_url(endpoint$authorize, query = compact(c(
-  list(
-    client_id = app$key,
-    scope = scope,
-    redirect_uri = redirect_uri,
-    response_type = "code",
-    state = state
-  ), auth_page_query_params
-)))
+                                                  list(
+                                                    client_id = app$key,
+                                                    scope = scope,
+                                                    redirect_uri = redirect_uri,
+                                                    response_type = "code",
+                                                    state = state
+                                                  ), auth_page_query_params
+                                                )
+                                               )
+           )
 }
 
 #' @export
