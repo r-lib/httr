@@ -354,5 +354,5 @@ TokenServiceAccount <- R6::R6Class("TokenServiceAccount", inherit = Token2.0, li
 ))
 
 normalize_scopes <- function(x) {
-  setNames(sort(unique(x)), NULL)
+  stats::setNames(sort(unique(x)), NULL)
 }
