@@ -1,5 +1,7 @@
 # httr 1.3.1.9000
 
+* More informative error message when token refresh fails (#516)
+
 * Encoding falls back to UTF-8 if not supplied and content-type parsing
   fails (#500).
 
