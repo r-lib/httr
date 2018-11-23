@@ -1,5 +1,9 @@
 # httr 1.3.1.9000
 
+* By default, `RETRY()` now terminates on any successful request, regardless
+  of the value of `terminate_on`. To return to the previous behaviour,
+  set `terminate_on_success = FALSE` (#522).
+
 * More informative error message when token refresh fails (#516)
 
 * Encoding falls back to UTF-8 if not supplied and content-type parsing

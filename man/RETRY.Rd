@@ -7,7 +7,7 @@
 RETRY(verb, url = NULL, config = list(), ..., body = NULL,
   encode = c("multipart", "form", "json", "raw"), times = 3,
   pause_base = 1, pause_cap = 60, pause_min = 1, handle = NULL,
-  quiet = FALSE, terminate_on = NULL)
+  quiet = FALSE, terminate_on = NULL, terminate_on_success = TRUE)
 }
 \arguments{
 \item{verb}{Name of verb to use.}
@@ -76,6 +76,10 @@ until the next request.}
 \item{terminate_on}{Optional vector of numeric HTTP status codes that if found
 on the response will terminate the retry process. If \code{NULL}, will keep
 retrying while \code{\link{http_error}()} is \code{TRUE} for the response.}
+
+\item{terminate_on_success}{If \code{TRUE}, the default, this will
+automatically terminate when the request is successful, regardless of the
+value of \code{terminate_on}.}
 }
 \value{
 The last response. Note that if the request doesn't succeed after
