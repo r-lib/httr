@@ -6,8 +6,9 @@ library(httr)
 # http://oauthbible.com/#oauth-10a-one-legged
 
 # 1. Register an application to get required keys:
-#    https://thenounproject.com/accounts/login/?next=/developers/apps/
-#    Here, they are put into environnement variables
+# https://thenounproject.com/accounts/login/?next=/developers/apps/
+# Add the below  environment variable to your session
+# (helper function : usethis::edit_r_environ())
 nouns_app <- oauth_app("noun_project",
                        key = Sys.getenv("NOUN_API_KEY"),
                        secret = Sys.getenv("NOUN_API_SECRET"))
