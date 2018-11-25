@@ -1,5 +1,8 @@
 # httr 1.3.1.9000
 
+* `cache_info()` now handles un-named flags, as illustrated by "private" when
+  the server returns "private, max-age = 0".
+
 * By default, `RETRY()` now terminates on any successful request, regardless
   of the value of `terminate_on`. To return to the previous behaviour,
   set `terminate_on_success = FALSE` (#522).
