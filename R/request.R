@@ -56,6 +56,10 @@ request_build <- function(method, url, ...) {
   extra <- list(...)
   extra[has_name(extra)] <- NULL
 
+  if (method == "HEAD") {
+    extra <- c(extra, list(config(nobody = TRUE)))
+  }
+
   req <- Reduce(request_combine, extra, init = request())
 
   req$method <- method

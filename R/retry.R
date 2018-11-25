@@ -28,6 +28,9 @@
 #' @param terminate_on Optional vector of numeric HTTP status codes that if found
 #'   on the response will terminate the retry process. If \code{NULL}, will keep
 #'   retrying while \code{\link{http_error}()} is \code{TRUE} for the response.
+#' @param terminate_on_success If \code{TRUE}, the default, this will
+#'   automatically terminate when the request is successful, regardless of the
+#'   value of \code{terminate_on}.
 #' @return The last response. Note that if the request doesn't succeed after
 #'   \code{times} times this will be a failed request, i.e. you still need
 #'   to use \code{\link{stop_for_status}()}.
@@ -45,18 +48,21 @@
 RETRY <- function(verb, url = NULL, config = list(), ...,
                   body = NULL, encode = c("multipart", "form", "json", "raw"),
                   times = 3, pause_base = 1, pause_cap = 60, pause_min = 1,
-                  handle = NULL, quiet = FALSE, terminate_on = NULL) {
+                  handle = NULL, quiet = FALSE,
+                  terminate_on = NULL,
+                  terminate_on_success = TRUE) {
   stopifnot(is.numeric(times), length(times) == 1L)
   stopifnot(is.numeric(pause_base), length(pause_base) == 1L)
   stopifnot(is.numeric(pause_cap), length(pause_cap) == 1L)
   stopifnot(is.numeric(terminate_on) || is.null(terminate_on))
+  stopifnot(is.logical(terminate_on_success), length(terminate_on_success) == 1)
 
   hu <- handle_url(handle, url, ...)
   req <- request_build(verb, hu$url, body_config(body, match.arg(encode)), config, ...)
   resp <- tryCatch(request_perform(req, hu$handle$handle), error = function(e) e)
 
   i <- 1
-  while (!retry_should_terminate(i, times, resp, terminate_on)) {
+  while (!retry_should_terminate(i, times, resp, terminate_on, terminate_on_success)) {
     backoff_full_jitter(i, resp, pause_base, pause_cap, pause_min, quiet = quiet)
 
     i <- i + 1
@@ -70,8 +76,10 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
   resp
 }
 
-retry_should_terminate <- function(i, times, resp, terminate_on) {
-  if (i >= times) {
+retry_should_terminate <- function(i, times, resp, terminate_on, terminate_on_success) {
+  if (terminate_on_success && !http_error(resp)) {
+    TRUE
+  } else if (i >= times) {
     TRUE
   } else if (inherits(resp, "error")) {
     FALSE

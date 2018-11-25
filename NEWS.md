@@ -1,5 +1,18 @@
 # httr 1.3.1.9000
 
+* By default, `RETRY()` now terminates on any successful request, regardless
+  of the value of `terminate_on`. To return to the previous behaviour,
+  set `terminate_on_success = FALSE` (#522).
+
+* Encoding falls back to UTF-8 if not supplied and content-type parsing
+  fails (#500).
+
+* `HEAD` requests success in `VERB()` and `RETRY()` (#478, #499)
+
+* Scopes are de-duplicated, sorted, and stripped of names before being hashed. This eliminates a source of hash mismatch that causes new tokens to be requested, even when existing tokens have the necessary scope. (@jennybc, #495)
+
+* The default value of `failure` argument in `parse_http_date()` is set to `structure(NA_real_, class = "Date")` so that the reponse with a "failure" date can be printed out correctly. (@shrektan, #544)
+
 # httr 1.3.1
 
 * Re-enable on-disk caching (accidentally disabled in #457) (#475)

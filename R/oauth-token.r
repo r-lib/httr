@@ -104,7 +104,10 @@ Token <- R6::R6Class("Token", list(
     # endpoint = which site
     # app = client identification
     # params = scope
-    msg <- serialize(list(self$endpoint, self$app, self$params$scope), NULL)
+    msg <- serialize(
+      list(self$endpoint, self$app, normalize_scopes(self$params$scope)),
+      NULL
+    )
 
     # for compatibility with digest::digest()
     paste(openssl::md5(msg[-(1:14)]), collapse = "")
@@ -349,3 +352,7 @@ TokenServiceAccount <- R6::R6Class("TokenServiceAccount", inherit = Token2.0, li
   cache = function(path) self,
   load_from_cache = function() self
 ))
+
+normalize_scopes <- function(x) {
+  stats::setNames(sort(unique(x)), NULL)
+}

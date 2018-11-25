@@ -60,3 +60,4 @@ Other response methods: \code{\link{content}},
   \code{\link{http_error}}, \code{\link{http_status}},
   \code{\link{response}}
 }
+\concept{response methods}

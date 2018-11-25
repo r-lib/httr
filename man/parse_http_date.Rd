@@ -5,7 +5,7 @@
 \alias{http_date}
 \title{Parse and print http dates.}
 \usage{
-parse_http_date(x, failure = NA)
+parse_http_date(x, failure = structure(NA_real_, class = "Date"))
 
 http_date(x)
 }

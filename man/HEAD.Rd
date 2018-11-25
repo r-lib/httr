@@ -57,3 +57,4 @@ Other http methods: \code{\link{BROWSE}},
   \code{\link{PATCH}}, \code{\link{POST}},
   \code{\link{PUT}}, \code{\link{VERB}}
 }
+\concept{http methods}

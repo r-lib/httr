@@ -24,7 +24,8 @@
 #' parse_media("text/plain; charset=\"utf-8\"")
 #' parse_media("text/plain; randomparam=\";=;=\"")
 parse_media <- function(x) {
-  stopifnot(!is.null(x))
+  stopifnot(is.character(x), length(x) == 1)
+
   # Use scan to deal with quoted strings. It loses the quotes, but it's
   # ok because the attribute can't be a quoted string so there's no ambiguity
   # about who the = belongs to.

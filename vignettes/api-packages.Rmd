@@ -357,7 +357,7 @@ Many APIs can be called without any authentication (just as if you called them i
 > care needs to be taken to understand the true authentication mechanism
 > regardless of the label used in the API docs.
 
-It is possible to specify the key(s) or token(s) required for basic or OAuth authentication in a number of different ways (see Appendix for a detailed discussion). You may also need some way to preserve user credentials between function calls so that end users do not need to specify them each time. A good start is to use an environment variable. Here is an example of how to write a function that checks for the presence of a GitHub personal access token and errors otherwise:
+It is possible to specify the key(s) or token(s) required for basic or OAuth authentication in a number of different ways. You may also need some way to preserve user credentials between function calls so that end users do not need to specify them each time. A good start is to use an environment variable. Here is an example of how to write a function that checks for the presence of a GitHub personal access token and errors otherwise:
 
 ```{r}
 github_pat <- function() {
@@ -392,7 +392,7 @@ The choice of which to use depends on your needs and goals and the rate limits o
 
 ### Rate limiting
 
-Many APIs are rate limited, which means that you can only send a certain number of requests per hour. Often if your request is rate limited, the error message will tell you how long you should wait before performing another request. You might want to expose this to the user, or even include a wall to `Sys.sleep()` that waits long enough.
+Many APIs are rate limited, which means that you can only send a certain number of requests per hour. Often if your request is rate limited, the error message will tell you how long you should wait before performing another request. You might want to expose this to the user, or even include a call to `Sys.sleep()` that waits long enough.
 
 For example, we could implement a `rate_limit()` function that tells you how many calls against the github API are available to you.
 

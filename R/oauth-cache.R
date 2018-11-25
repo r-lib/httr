@@ -70,7 +70,7 @@ add_line <- function(path, line, quiet = FALSE) {
   if (!quiet) message("Adding ", line, " to ", path)
 
   lines <- c(lines, line)
-  writeLines(lines, path)
+  try(writeLines(lines, path))
   TRUE
 }
 
