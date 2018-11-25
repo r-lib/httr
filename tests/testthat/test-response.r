@@ -55,3 +55,12 @@ test_that("application/json responses parsed as lists", {
   test_user_agent()
   test_user_agent("gunicorn-client/0.1")
 })
+
+test_that("non-http methods warn and return something for headers", {
+  expect_warning(
+    r <- GET("ftp://speedtest.tele2.net/1KB.zip"),
+    regexp = "Non-http(s) scheme used",
+    fixed = TRUE
+  )
+  expect_equal(names(r$headers), "text")
+})

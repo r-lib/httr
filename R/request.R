@@ -149,8 +149,15 @@ request_perform <- function(req, handle, refresh = TRUE) {
     return(request_perform(req, handle, refresh = FALSE))
   }
 
-  all_headers <- parse_headers(resp$headers)
-  headers <- last(all_headers)$headers
+  url_scheme <- parse_url(resp$url)$scheme
+  if (tolower(url_scheme) %in% c("http", "https")) {
+    all_headers <- parse_headers(resp$headers)
+    headers <- last(all_headers)$headers
+  } else {
+    warning("Non-http(s) scheme used (", url_scheme, "); headers and all_headers may not be interpretable.")
+    all_headers <- strsplit(rawToChar(resp$headers), "\r?\n")[[1]]
+    headers <- list(text = all_headers)
+  }
   if (!is.null(headers$date)) {
     date <- parse_http_date(headers$Date)
   } else {

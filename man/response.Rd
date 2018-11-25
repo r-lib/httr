@@ -20,6 +20,9 @@ fields:
   \item \code{time} request timing information
   \item \code{config} configuration for the request
 }
+
+For non-http(s) responses, some parts including the status and
+  header may not be interpretable the same way as http responses.
 }
 \seealso{
 Other response methods: \code{\link{content}},
