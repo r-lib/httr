@@ -63,7 +63,7 @@ test_that("oauth2.0 authorize url appends query params", {
     endpoint = oauth_endpoints("google"),
     app = app,
     scope = scope,
-    query_extra = query_extras
+    query_extra = query_extra
   )
   
   url <- parse_url(authURL)
