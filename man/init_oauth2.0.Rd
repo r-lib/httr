@@ -58,7 +58,7 @@ Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
 holding query parameters to append to initial auth page query. Useful for
 some APIs.}
 
-\item{query_extra}{See \code{\link{query_authorize_extra}}}
+\item{query_extra}{See \code{query_authorize_extra}}
 }
 \description{
 See demos for use.
