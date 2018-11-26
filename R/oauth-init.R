@@ -104,7 +104,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
       scope = scope,
       redirect_uri = redirect_uri,
       state = state,
-	    query_extra = query_authorize_extra
+      query_extra = query_authorize_extra
     )
     code <- oauth_authorize(authorize_url, use_oob)
   }
@@ -127,9 +127,15 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
 oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    redirect_uri = app$redirect_uri,
                                    state = nonce(),
-                                   query_extra = query_authorize_extra
+                                   query_extra
                                    ) {
-  #TODO might need to put some before and some after...
+  #TODO might need to put some params before and some after...
+  
+  if(is.null(query_extra))
+  {
+    query_extra <- list()
+  }
+  
   default_query <- list(
     client_id = app$key,
     scope = scope,
@@ -137,6 +143,7 @@ oauth2.0_authorize_url <- function(endpoint, app, scope,
     response_type = "code",
     state = state
   )
+    
   
   query <- modifyList(default_query, query_extra)
   query <- compact(query)
