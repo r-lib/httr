@@ -125,18 +125,19 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
 #' @export
 #' @importFrom utils modifyList
 #' @rdname init_oauth2.0
+#' @param query_extra See \code{\link{query_authorize_extra}}
 oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    redirect_uri = app$redirect_uri,
                                    state = nonce(),
-                                   query_extra
+                                   query_extra = list()
                                    ) {
   #TODO might need to put some params before and some after...
-  
+
   if(is.null(query_extra))
   {
     query_extra <- list()
   }
-  
+
   default_query <- list(
     client_id = app$key,
     scope = scope,
@@ -144,16 +145,16 @@ oauth2.0_authorize_url <- function(endpoint, app, scope,
     response_type = "code",
     state = state
   )
-    
-  
+
+
   query <- modifyList(default_query, query_extra)
   query <- compact(query)
-  
+
   url <- modify_url(
     endpoint$authorize,
     query = query
   )
-  
+
   return(url)
 }
 
