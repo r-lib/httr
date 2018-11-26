@@ -5,9 +5,10 @@
 \title{Generate an oauth2.0 token.}
 \usage{
 oauth2.0_token(endpoint, app, scope = NULL, user_params = NULL,
-  type = NULL, use_oob = getOption("httr_oob_default"), as_header = TRUE,
-  use_basic_auth = FALSE, cache = getOption("httr_oauth_cache"),
-  config_init = list(), client_credentials = FALSE, credentials = NULL,
+  type = NULL, use_oob = getOption("httr_oob_default"),
+  as_header = TRUE, use_basic_auth = FALSE,
+  cache = getOption("httr_oauth_cache"), config_init = list(),
+  client_credentials = FALSE, credentials = NULL,
   query_authorize_extra = list())
 }
 \arguments{
@@ -76,3 +77,4 @@ Other OAuth: \code{\link{oauth1.0_token}},
   \code{\link{oauth_app}}, \code{\link{oauth_endpoint}},
   \code{\link{oauth_service_token}}
 }
+\concept{OAuth}

@@ -12,12 +12,13 @@ init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
   config_init = list(), client_credentials = FALSE,
   query_authorize_extra = list())
 
-oauth2.0_authorize_url(endpoint, app, scope, redirect_uri = app$redirect_uri,
-  state = nonce(), query_extra)
+oauth2.0_authorize_url(endpoint, app, scope,
+  redirect_uri = app$redirect_uri, state = nonce(), query_extra)
 
-oauth2.0_access_token(endpoint, app, code, user_params = NULL, type = NULL,
-  use_basic_auth = FALSE, redirect_uri = app$redirect_uri,
-  client_credentials = FALSE, config = list())
+oauth2.0_access_token(endpoint, app, code, user_params = NULL,
+  type = NULL, use_basic_auth = FALSE,
+  redirect_uri = app$redirect_uri, client_credentials = FALSE,
+  config = list())
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -55,8 +56,6 @@ Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
 \item{query_authorize_extra}{Default to \code{list()}. Set to named list
 holding query parameters to append to initial auth page query. Useful for
 some APIs.}
-
-\item{query_extra}{See \code{\link{query_authorize_extra}}}
 }
 \description{
 See demos for use.

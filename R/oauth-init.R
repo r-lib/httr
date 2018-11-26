@@ -123,6 +123,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
 }
 
 #' @export
+#' @importFrom utils modifyList
 #' @rdname init_oauth2.0
 oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    redirect_uri = app$redirect_uri,
