@@ -149,11 +149,12 @@ oauth2.0_authorize_url <- function(endpoint, app, scope,
   query <- modifyList(default_query, query_extra)
   query <- compact(query)
   
-  modify_url(
+  url <- modify_url(
     endpoint$authorize,
     query = query
   )
   
+  return(url)
 }
 
 #' @export
