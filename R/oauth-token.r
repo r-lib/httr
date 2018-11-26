@@ -202,10 +202,9 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 #'   requests.
 #' @param credentials Advanced use only: allows you to completely customise
 #'   token generation.
-#' @param auth_page_query_params Default to \code{list()}. Set to named list
+#' @param query_authorize_extra Default to \code{list()}. Set to named list
 #'   holding query parameters to append to initial auth page query. Useful for
-#'   some APIs (e.g. Fitbit; see Authorization page URI parameters at
-#'   \url{https://dev.fitbit.com/build/reference/web-api/oauth2/}.)
+#'   some APIs.
 #' @inheritParams oauth1.0_token
 #' @return A \code{Token2.0} reference class (RC) object.
 #' @family OAuth
@@ -219,7 +218,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            config_init = list(),
                            client_credentials = FALSE,
                            credentials = NULL,
-                           auth_page_query_params = list()
+                           query_authorize_extra = list()
                           ) {
   params <- list(
     scope = scope,
@@ -230,7 +229,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
     use_basic_auth = use_basic_auth,
     config_init = config_init,
     client_credentials = client_credentials,
-    auth_page_query_params = auth_page_query_params
+    query_authorize_extra = query_authorize_extra
   )
 
   Token2.0$new(
@@ -252,7 +251,7 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
       use_basic_auth = self$params$use_basic_auth,
       config_init = self$params$config_init,
       client_credentials = self$params$client_credentials,
-      auth_page_query_params = self$params$auth_page_query_params
+      query_authorize_extra = self$params$query_authorize_extra
     )
   },
   can_refresh = function() {

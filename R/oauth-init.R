@@ -66,10 +66,9 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #' @param client_credentials Default to \code{FALSE}. Set to \code{TRUE} to use
 #'   \emph{Client Credentials Grant} instead of \emph{Authorization
 #'   Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.
-#' @param auth_page_query_params Default to \code{list()}. Set to named list
+#' @param query_authorize_extra Default to \code{list()}. Set to named list
 #'   holding query parameters to append to initial auth page query. Useful for
-#'   some APIs (e.g. Fitbit; see Authorization page URI parameters at
-#'   \url{https://dev.fitbit.com/build/reference/web-api/oauth2/}.)
+#'   some APIs.
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL,
@@ -80,7 +79,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
                           use_basic_auth = FALSE,
                           config_init = list(),
                           client_credentials = FALSE,
-                          auth_page_query_params = list()
+                          query_authorize_extra = list()
                          ) {
 
   scope <- check_scope(scope)
@@ -105,7 +104,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
       scope = scope,
       redirect_uri = redirect_uri,
       state = state,
-	    auth_page_query_params = auth_page_query_params
+	    query_extra = query_authorize_extra
     )
     code <- oauth_authorize(authorize_url, use_oob)
   }
@@ -119,8 +118,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
     type = type,
     redirect_uri = redirect_uri,
     client_credentials = client_credentials,
-    config = config_init,
-    auth_page_query_params=auth_page_query_params
+    config = config_init
   )
 }
 
@@ -129,21 +127,22 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
 oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    redirect_uri = app$redirect_uri,
                                    state = nonce(),
-                                   auth_page_query_params = auth_page_query_params
+                                   query_extra = query_authorize_extra
                                    ) {
   #TODO might need to put some before and some after...
+  default_query <- list(
+    client_id = app$key,
+    scope = scope,
+    redirect_uri = redirect_uri,
+    response_type = "code",
+    state = state
+  )
+  
+  query <- modifyList(default_query, query_extra)
+  query <- compact(query)
+  
   modify_url(endpoint$authorize,
-             query = compact(
-                              c(
-                                list(
-                                  client_id = app$key,
-                                  scope = scope,
-                                  redirect_uri = redirect_uri,
-                                  response_type = "code",
-                                  state = state
-                                ), auth_page_query_params
-                              )
-                     )
+             query = query)
   )
   
 }
@@ -158,8 +157,7 @@ oauth2.0_access_token <- function(endpoint,
                                   use_basic_auth = FALSE,
                                   redirect_uri = app$redirect_uri,
                                   client_credentials = FALSE,
-                                  config = list(),
-                                  auth_page_query_params=list()
+                                  config = list()
                                   ) {
 
   req_params <- compact(list(
