@@ -53,6 +53,30 @@ test_that("oauth_encode1 works", {
   expect_equal(orig_string, restored_string)
 })
 
+test_that("custom oob callback values can be provided", {
+  request_url <- "http://httpbin.org/get"
+
+  redirect_uri <- with_mock (
+    # Mock an interactive session to enable OOB
+    `httr:::is_interactive` = function() TRUE,
+    with_mock (
+      `httr::oauth2.0_access_token` = function(endpoint, app, code, user_params,
+                                               type, redirect_uri, client_credentials, config) redirect_uri,
+      with_mock (
+        `httr::oauth_authorize` = function(authorize_url, use_oob) 'code',
+        init_oauth2.0(
+          app = oauth_app("x", "y", "z"),
+          endpoint = oauth_endpoints("yahoo"),
+          use_oob = TRUE,
+          oob_value = "custom_value"
+        )
+      )
+    )
+  )
+
+  expect_equal("custom_value", redirect_uri)
+})
+
 
 # Parameter checking ------------------------------------------------------
 
@@ -73,4 +97,11 @@ test_that("oob must be a flag", {
 
 test_that("can not use oob in non-interactive session", {
   expect_error(check_oob(TRUE), "interactive")
+})
+
+test_that("can not use custom oob value without enabling oob", {
+  with_mock(
+    `httr:::is_interactive` = function() TRUE,
+    expect_error(check_oob(FALSE, "custom_value"), "custom oob value")
+  )
 })
