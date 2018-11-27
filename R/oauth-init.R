@@ -133,10 +133,7 @@ oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    ) {
   #TODO might need to put some params before and some after...
 
-  if(is.null(query_extra))
-  {
-    query_extra <- list()
-  }
+  query_extra <- query_extra %||% list() # i.e. make list if query_extra is null
 
   default_query <- list(
     client_id = app$key,
@@ -146,16 +143,12 @@ oauth2.0_authorize_url <- function(endpoint, app, scope,
     state = state
   )
 
+  query <- compact(modifyList(default_query, query_extra))
 
-  query <- modifyList(default_query, query_extra)
-  query <- compact(query)
-
-  url <- modify_url(
+  modify_url(
     endpoint$authorize,
     query = query
   )
-
-  return(url)
 }
 
 #' @export

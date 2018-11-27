@@ -65,61 +65,31 @@ test_that("oauth2.0 authorize url appends query params", {
     scope = scope,
     query_extra = query_extra
   )
-  
+
   url <- parse_url(authURL)
   expect_equal(url$query$foo, "bar")
 })
 
-test_that("oauth2.0 authorize url with empty input does not append empty query params", {
+test_that("oauth2.0 authorize url handles empty query_extra input", {
   # common constructor
-  authorize_url_with_extra <- function(query_extra)
+  authorize_url_extra_params <- function(extra_params)
   {
     app <- oauth_app("x", "y", "z")
     scope <- NULL
-    
+
     url_with_empty_input <- oauth2.0_authorize_url(
       endpoint = oauth_endpoints("google"),
       app = app,
       scope = scope,
       state = "testing-nonce",
-      query_extra = query_extra
+      query_extra = extra_params
     )
+    parse_url(url_with_empty_input)$query
   }
-  
-  test_authorize_url_with_empty_input <- function(empty_input) {
-    # N.B. we do a delta between a query with and without extra query params to test
-    
-    # need this later: empty named list
-    empty_named_list <- list()
-    attr(empty_named_list, "names") <- character(0)
-    
-    # sample query_extra params
-    extra_pars <- list(
-      foo = "bar"
-    )
-    
-    # create base/empty URL
-    url_with_empty_input <- authorize_url_with_extra(empty_input)
-    # create URL w/ extras
-    url_with_extra <- authorize_url_with_extra(extra_pars)
-    
-    # get respective query params
-    qry_pars_empty_input <- parse_url(url_with_empty_input)$query
-    qry_pars_extra <- parse_url(url_with_extra)$query
-    
-    # get extra params appended to extra_pars query (compared to empty_input)
-    appended_extras <- qry_pars_extra[!(qry_pars_extra %in% qry_pars_empty_input)]
-    
-    # get extra params appended to empty input query (compared to empty_input)
-    appended_empty <- qry_pars_empty_input[!(qry_pars_empty_input %in% qry_pars_extra)]
-    
-    expect_equal(appended_extras, extra_pars) # only extra_pars should be here
-    expect_equal(appended_empty, empty_named_list) # empty input query should be empty list
-  }
-  
-  test_authorize_url_with_empty_input(list())
-  test_authorize_url_with_empty_input(NULL)
-  
+
+  # expect NA (i.e. no) error
+  expect_error(authorize_url_extra_params(list()), NA) # with empty list
+  expect_error(authorize_url_extra_params(NULL), NA) # with NULL list
 })
 
 
