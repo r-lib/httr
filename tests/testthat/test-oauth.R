@@ -53,31 +53,6 @@ test_that("oauth_encode1 works", {
   expect_equal(orig_string, restored_string)
 })
 
-test_that("custom oob callback values can be provided", {
-  request_url <- "http://httpbin.org/get"
-
-  redirect_uri <- with_mock (
-    # Mock an interactive session to enable OOB
-    `httr:::is_interactive` = function() TRUE,
-    with_mock (
-      `httr::oauth2.0_access_token` = function(endpoint, app, code, user_params,
-                                               type, redirect_uri, client_credentials, config) redirect_uri,
-      with_mock (
-        `httr::oauth_authorize` = function(authorize_url, use_oob) 'code',
-        init_oauth2.0(
-          app = oauth_app("x", "y", "z"),
-          endpoint = oauth_endpoints("yahoo"),
-          use_oob = TRUE,
-          oob_value = "custom_value"
-        )
-      )
-    )
-  )
-
-  expect_equal("custom_value", redirect_uri)
-})
-
-
 # Parameter checking ------------------------------------------------------
 
 test_that("scope must be character or NULL", {

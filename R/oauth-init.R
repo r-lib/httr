@@ -57,7 +57,8 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'   Otherwise, provide a URL to the user and prompt for a validation
 #'   code. Defaults to the of the \code{"httr_oob_default"} default,
 #'   or \code{TRUE} if \code{httpuv} is not installed.
-#' @param oob_value if provided, is used as a custom oob callback value.
+#' @param oob_value if provided, specifies the value to use for the redirect_uri
+#'   parameter when retrieving an authorization URL. Defaults to "urn:ietf:wg:oauth:2.0:oob".
 #'   Requires \code{use_oob = TRUE}.
 #' @param use_basic_auth if \code{TRUE} use http basic authentication to
 #'   retrieve the token. Some authorization servers require this.
@@ -82,12 +83,9 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
                          ) {
 
   scope <- check_scope(scope)
-  use_oob <- check_oob(use_oob, oob_value = NULL)
+  use_oob <- check_oob(use_oob, oob_value)
   if (use_oob) {
-    redirect_uri <- if(!is.null(oob_value))
-                      oob_value
-                    else
-                      "urn:ietf:wg:oauth:2.0:oob"
+    redirect_uri <- ifelse(!is.null(oob_value), oob_value, "urn:ietf:wg:oauth:2.0:oob")
     state <- NULL
   } else {
     redirect_uri <- app$redirect_uri
