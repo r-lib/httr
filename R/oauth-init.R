@@ -85,7 +85,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
   scope <- check_scope(scope)
   use_oob <- check_oob(use_oob, oob_value)
   if (use_oob) {
-    redirect_uri <- ifelse(!is.null(oob_value), oob_value, "urn:ietf:wg:oauth:2.0:oob")
+    redirect_uri <- if (!is.null(oob_value)) oob_value else "urn:ietf:wg:oauth:2.0:oob"
     state <- NULL
   } else {
     redirect_uri <- app$redirect_uri
