@@ -133,8 +133,9 @@
 
     <pre class="usage"><span class='fu'>init_oauth2.0</span>(<span class='no'>endpoint</span>, <span class='no'>app</span>, <span class='kw'>scope</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>user_params</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>type</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>use_oob</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/options'>getOption</a></span>(<span class='st'>"httr_oob_default"</span>),
-  <span class='kw'>is_interactive</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>(), <span class='kw'>use_basic_auth</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>config_init</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='kw'>client_credentials</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+  <span class='kw'>oob_value</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>is_interactive</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>(),
+  <span class='kw'>use_basic_auth</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>config_init</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(),
+  <span class='kw'>client_credentials</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='fu'>oauth2.0_authorize_url</span>(<span class='no'>endpoint</span>, <span class='no'>app</span>, <span class='no'>scope</span>,
   <span class='kw'>redirect_uri</span> <span class='kw'>=</span> <span class='no'>app</span>$<span class='no'>redirect_uri</span>, <span class='kw'>state</span> <span class='kw'>=</span> <span class='fu'>nonce</span>())
@@ -176,6 +177,11 @@ access token.</p></td>
 Otherwise, provide a URL to the user and prompt for a validation
 code. Defaults to the of the <code>"httr_oob_default"</code> default,
 or <code>TRUE</code> if <code>httpuv</code> is not installed.</p></td>
+    </tr>
+    <tr>
+      <th>oob_value</th>
+      <td><p>if provided, is used as a custom oob callback value.
+Requires <code>use_oob = TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>is_interactive</th>

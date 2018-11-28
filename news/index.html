@@ -126,6 +126,8 @@
 <a href="#httr-1-3-1-9000" class="anchor"></a>httr 1.3.1.9000<small> Unreleased </small>
 </h1>
 <ul>
+<li><p>An <code>oob_value</code> argument has been added to <code><a href="../reference/oauth2.0_token.html">oauth2.0_token()</a></code> and <code><a href="../reference/init_oauth2.0.html">init_oauth2.0()</a></code>, enabling arbitrary values to be sent for the <code>request_uri</code> parameter during OOB flows (<a href='https://github.com/ctrombley'>@ctrombley</a>, <a href='https://github.com/r-lib/httr/issues/493'>#493</a>).</p></li>
+<li><p>Yahoo API endpoint base URL has been updated to match the Yahoo documentation for OAuth2 flows (<a href='https://github.com/ctrombley'>@ctrombley</a>, <a href='https://github.com/r-lib/httr/issues/493'>#493</a>).</p></li>
 <li><p>By default, <code><a href="../reference/RETRY.html">RETRY()</a></code> now terminates on any successful request, regardless of the value of <code>terminate_on</code>. To return to the previous behaviour, set <code>terminate_on_success = FALSE</code> (<a href='https://github.com/r-lib/httr/issues/522'>#522</a>).</p></li>
 <li><p>Encoding falls back to UTF-8 if not supplied and content-type parsing fails (<a href='https://github.com/r-lib/httr/issues/500'>#500</a>).</p></li>
 <li><p><code>HEAD</code> requests success in <code><a href="../reference/VERB.html">VERB()</a></code> and <code><a href="../reference/RETRY.html">RETRY()</a></code> (<a href='https://github.com/r-lib/httr/issues/478'>#478</a>, <a href='https://github.com/r-lib/httr/issues/499'>#499</a>)</p></li>
