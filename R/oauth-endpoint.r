@@ -86,7 +86,7 @@ oauth_endpoints <- function(name) {
       access = "access_token"
     ),
     yahoo = oauth_endpoint(
-      base_url = "https://api.login.yahoo.com/oauth/v2",
+      base_url = "https://api.login.yahoo.com/oauth2",
       request = "get_request_token",
       authorize = "request_auth",
       access = "get_token"
