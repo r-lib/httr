@@ -1,9 +1,8 @@
-# httr 1.3.2
+# httr 1.3.1.9000
+
 * An `oob_value` argument has been added to `oauth2.0_token()` and `init_oauth2.0()`, enabling arbitrary values to be sent for the `request_uri` parameter during OOB flows (@ctrombley, #493).
 
 * Yahoo API endpoint base URL has been updated to match the Yahoo documentation for OAuth2 flows (@ctrombley, #493).
-
-# httr 1.3.1.9000
 
 * By default, `RETRY()` now terminates on any successful request, regardless
   of the value of `terminate_on`. To return to the previous behaviour,
