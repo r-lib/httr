@@ -92,7 +92,6 @@ test_that("oauth2.0 authorize url handles empty query_extra input", {
   expect_error(authorize_url_extra_params(NULL), NA) # with NULL list
 })
 
-
 # Parameter checking ------------------------------------------------------
 
 test_that("scope must be character or NULL", {
@@ -112,4 +111,11 @@ test_that("oob must be a flag", {
 
 test_that("can not use oob in non-interactive session", {
   expect_error(check_oob(TRUE), "interactive")
+})
+
+test_that("can not use custom oob value without enabling oob", {
+  with_mock(
+    `httr:::is_interactive` = function() TRUE,
+    expect_error(check_oob(FALSE, "custom_value"), "custom oob value")
+  )
 })

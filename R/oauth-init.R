@@ -57,6 +57,9 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'   Otherwise, provide a URL to the user and prompt for a validation
 #'   code. Defaults to the of the \code{"httr_oob_default"} default,
 #'   or \code{TRUE} if \code{httpuv} is not installed.
+#' @param oob_value if provided, specifies the value to use for the redirect_uri
+#'   parameter when retrieving an authorization URL. Defaults to "urn:ietf:wg:oauth:2.0:oob".
+#'   Requires \code{use_oob = TRUE}.
 #' @param use_basic_auth if \code{TRUE} use http basic authentication to
 #'   retrieve the token. Some authorization servers require this.
 #'   If \code{FALSE}, the default, retrieve the token by including the
@@ -75,6 +78,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
                           user_params = NULL,
                           type = NULL,
                           use_oob = getOption("httr_oob_default"),
+                          oob_value = NULL,
                           is_interactive = interactive(),
                           use_basic_auth = FALSE,
                           config_init = list(),
@@ -83,10 +87,9 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
                          ) {
 
   scope <- check_scope(scope)
-  use_oob <- check_oob(use_oob)
-
+  use_oob <- check_oob(use_oob, oob_value)
   if (use_oob) {
-    redirect_uri <- "urn:ietf:wg:oauth:2.0:oob"
+    redirect_uri <- if (!is.null(oob_value)) oob_value else "urn:ietf:wg:oauth:2.0:oob"
     state <- NULL
   } else {
     redirect_uri <- app$redirect_uri
@@ -211,18 +214,21 @@ check_scope <- function(x) {
   paste(x, collapse = ' ')
 }
 
-check_oob <- function(x) {
-  if (!is.logical(x) || length(x) != 1) {
+# Wrap base::interactive in a non-primitive function so that the call can be mocked for testing
+is_interactive <- function() interactive()
+
+check_oob <- function(use_oob, oob_value = NULL) {
+  if (!is.logical(use_oob) || length(use_oob) != 1) {
     stop("`use_oob` must be a length-1 logical vector", call. = FALSE)
   }
 
-  if (!x && !is_installed("httpuv")) {
+  if (!use_oob && !is_installed("httpuv")) {
     message("httpuv not installed, defaulting to out-of-band authentication")
-    x <- TRUE
+    use_oob <- TRUE
   }
 
-  if (x) {
-    if (!interactive()) {
+  if (use_oob) {
+    if (!is_interactive()) {
       stop(
         "Can only use oob authentication in an interactive session",
         call. = FALSE
@@ -230,7 +236,16 @@ check_oob <- function(x) {
     }
   }
 
-  x
+  if (!is.null(oob_value)) {
+    if (!use_oob) {
+      stop(
+        "Can only use custom oob value if use_oob is enabled",
+        call. = FALSE
+      )
+    }
+  }
+
+  use_oob
 }
 
 

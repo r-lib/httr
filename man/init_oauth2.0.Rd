@@ -7,7 +7,7 @@
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
 init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
-  type = NULL, use_oob = getOption("httr_oob_default"),
+  type = NULL, use_oob = getOption("httr_oob_default"), oob_value = NULL,
   is_interactive = interactive(), use_basic_auth = FALSE,
   config_init = list(), client_credentials = FALSE,
   query_authorize_extra = list())
@@ -39,6 +39,9 @@ access token.}
 Otherwise, provide a URL to the user and prompt for a validation
 code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
+
+\item{oob_value}{if provided, is used as a custom oob callback value.
+Requires \code{use_oob = TRUE}.}
 
 \item{is_interactive}{DEPRECATED}
 

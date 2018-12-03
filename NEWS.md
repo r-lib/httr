@@ -1,5 +1,20 @@
 # httr 1.3.1.9000
 
+* An `oob_value` argument has been added to `oauth2.0_token()` and `init_oauth2.0()`, enabling arbitrary values to be sent for the `request_uri` parameter during OOB flows (@ctrombley, #493).
+
+* Yahoo API endpoint base URL has been updated to match the Yahoo documentation for OAuth2 flows (@ctrombley, #493).
+
+* By default, `RETRY()` now terminates on any successful request, regardless
+  of the value of `terminate_on`. To return to the previous behaviour,
+  set `terminate_on_success = FALSE` (#522).
+
+* Encoding falls back to UTF-8 if not supplied and content-type parsing
+  fails (#500).
+
+* `HEAD` requests success in `VERB()` and `RETRY()` (#478, #499)
+
+* Scopes are de-duplicated, sorted, and stripped of names before being hashed. This eliminates a source of hash mismatch that causes new tokens to be requested, even when existing tokens have the necessary scope. (@jennybc, #495)
+
 * The default value of `failure` argument in `parse_http_date()` is set to `structure(NA_real_, class = "Date")` so that the reponse with a "failure" date can be printed out correctly. (@shrektan, #544)
 
 * `oauth2.0_token` & `init_oauth2.0` (through the new `query_authorize_extra` parameter) as well as `oauth2.0_authorize_url()` (through new `query_extra` parameter) gain the ability to append extra user-specified URL query parameters (as named `list()`) to the oauth2.0 authorization URL used to initially request an oauth2.0 token from the authentication server; this is useful for some APIs (e.g. Fitbit) (@cosmomeese, #503).

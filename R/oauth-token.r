@@ -104,7 +104,10 @@ Token <- R6::R6Class("Token", list(
     # endpoint = which site
     # app = client identification
     # params = scope
-    msg <- serialize(list(self$endpoint, self$app, self$params$scope), NULL)
+    msg <- serialize(
+      list(self$endpoint, self$app, normalize_scopes(self$params$scope)),
+      NULL
+    )
 
     # for compatibility with digest::digest()
     paste(openssl::md5(msg[-(1:14)]), collapse = "")
@@ -209,6 +212,7 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            type = NULL,
                            use_oob = getOption("httr_oob_default"),
+                           oob_value = NULL,
                            as_header = TRUE,
                            use_basic_auth = FALSE,
                            cache = getOption("httr_oauth_cache"),
@@ -222,6 +226,7 @@ oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
     user_params = user_params,
     type = type,
     use_oob = use_oob,
+    oob_value = oob_value,
     as_header = as_header,
     use_basic_auth = use_basic_auth,
     config_init = config_init,
@@ -245,6 +250,7 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
     self$credentials <- init_oauth2.0(self$endpoint, self$app,
       scope = self$params$scope, user_params = self$params$user_params,
       type = self$params$type, use_oob = self$params$use_oob,
+      oob_value = self$params$oob_value,
       use_basic_auth = self$params$use_basic_auth,
       config_init = self$params$config_init,
       client_credentials = self$params$client_credentials,
@@ -353,3 +359,7 @@ TokenServiceAccount <- R6::R6Class("TokenServiceAccount", inherit = Token2.0, li
   cache = function(path) self,
   load_from_cache = function() self
 ))
+
+normalize_scopes <- function(x) {
+  stats::setNames(sort(unique(x)), NULL)
+}
