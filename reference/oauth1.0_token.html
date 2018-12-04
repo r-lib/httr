@@ -141,12 +141,12 @@ the endpoint, other parameters and the received credentials.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>endpoint</th>
-      <td><p>An OAuth endpoint, created by <code><a href='oauth_endpoint.html'>oauth_endpoint</a></code></p></td>
+      <td><p>An OAuth endpoint, created by <code><a href='oauth_endpoint.html'>oauth_endpoint()</a></code></p></td>
     </tr>
     <tr>
       <th>app</th>
       <td><p>An OAuth consumer application, created by
-<code><a href='oauth_app.html'>oauth_app</a></code></p></td>
+<code><a href='oauth_app.html'>oauth_app()</a></code></p></td>
     </tr>
     <tr>
       <th>permission</th>
@@ -159,7 +159,7 @@ If <code>FALSE</code>, adds as parameter to url.</p></td>
     </tr>
     <tr>
       <th>private_key</th>
-      <td><p>Optional, a key provided by <code><a href='https://www.rdocumentation.org/packages/openssl/topics/read_key'>read_key</a></code>.
+      <td><p>Optional, a key provided by <code><a href='https://www.rdocumentation.org/packages/openssl/topics/read_key'>openssl::read_key()</a></code>.
 Used for signed OAuth 1.0.</p></td>
     </tr>
     <tr>
@@ -177,7 +177,7 @@ A string means use the specified path as the cache file.</p></td>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>See <code><a href='Token-class.html'>Token</a></code> for full details about the token object, and the
+    <p>See <code><a href='Token-class.html'>Token()</a></code> for full details about the token object, and the
 caching policies used to store credentials across sessions.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>

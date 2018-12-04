@@ -148,20 +148,24 @@ is handled by the browser, not <span class="pkg">RCurl</span>.</p></td>
     <tr>
       <th>...</th>
       <td><p>Further named parameters, such as <code>query</code>, <code>path</code>, etc,
-passed on to <code><a href='modify_url.html'>modify_url</a></code>. Unnamed parameters will be combined
-with <code><a href='config.html'>config</a></code>.</p></td>
+passed on to <code><a href='modify_url.html'>modify_url()</a></code>. Unnamed parameters will be combined
+with <code><a href='config.html'>config()</a></code>.</p></td>
     </tr>
     <tr>
       <th>handle</th>
       <td><p>The handle to use with this request. If not
-supplied, will be retrieved and reused from the <code><a href='handle_pool.html'>handle_pool</a></code>
+supplied, will be retrieved and reused from the <code><a href='handle_pool.html'>handle_pool()</a></code>
 based on the scheme, hostname and port of the url. By default <span class="pkg">httr</span>
 requests to the same scheme/host/port combo. This substantially reduces
 connection time, and ensures that cookies are maintained over multiple
-requests to the same host. See <code><a href='handle_pool.html'>handle_pool</a></code> for more
+requests to the same host. See <code><a href='handle_pool.html'>handle_pool()</a></code> for more
 details.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A <code><a href='response.html'>response()</a></code> object.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -183,6 +187,8 @@ details.</p></td>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>

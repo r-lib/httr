@@ -134,19 +134,26 @@ http://pretty-rfc.herokuapp.com/RFC2616#media.types." />
     </div>
 
     <pre class="usage"><span class='fu'>parse_media</span>(<span class='no'>x</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>String to parse</p></td>
+    </tr>
+    </table>
+    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>A simplified minimal EBNF is:</p>
-<ul>
-<li><p>media-type     = type "/" subtype *( ";" parameter )</p></li>
-<li><p>type           = token</p></li>
-<li><p>subtype        = token</p></li>
-<li><p>parameter      = attribute "=" value</p></li>
-<li><p>attribute      = token</p></li>
-<li><p>value          = token | quoted-string</p></li>
-<li><p>token          = 1*&lt;any CHAR except CTLs or ()&lt;&gt;@,;:\"/[]?=</p></li>
-<li><p>quoted-string  = " *(any text except ", unless escaped with \) "</p></li>
+    <p>A simplified minimal EBNF is:</p><ul>
+<li><p>media-type     = <code>type "/" subtype *( ";" parameter )</code></p></li>
+<li><p>type           = <code>token</code></p></li>
+<li><p>subtype        = <code>token</code></p></li>
+<li><p>parameter      = <code>attribute "=" value</code></p></li>
+<li><p>attribute      = <code>token</code></p></li>
+<li><p>value          = <code>token | quoted-string</code></p></li>
+<li><p>token          = <code>1*&lt;any CHAR except CTLs or ()&lt;&gt;@,;:\"/[]?={}</code></p></li>
 </ul>
     
 
@@ -206,6 +213,7 @@ http://pretty-rfc.herokuapp.com/RFC2616#media.types." />
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
       

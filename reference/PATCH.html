@@ -144,57 +144,61 @@
     <tr>
       <th>config</th>
       <td><p>Additional configuration settings such as http
-authentication (<code><a href='authenticate.html'>authenticate</a></code>), additional headers
-(<code><a href='add_headers.html'>add_headers</a></code>), cookies (<code><a href='set_cookies.html'>set_cookies</a></code>) etc.
-See <code><a href='config.html'>config</a></code> for full details and list of helpers.</p></td>
+authentication (<code><a href='authenticate.html'>authenticate()</a></code>), additional headers
+(<code><a href='add_headers.html'>add_headers()</a></code>), cookies (<code><a href='set_cookies.html'>set_cookies()</a></code>) etc.
+See <code><a href='config.html'>config()</a></code> for full details and list of helpers.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>Further named parameters, such as <code>query</code>, <code>path</code>, etc,
-passed on to <code><a href='modify_url.html'>modify_url</a></code>. Unnamed parameters will be combined
-with <code><a href='config.html'>config</a></code>.</p></td>
+passed on to <code><a href='modify_url.html'>modify_url()</a></code>. Unnamed parameters will be combined
+with <code><a href='config.html'>config()</a></code>.</p></td>
     </tr>
     <tr>
       <th>body</th>
       <td><p>One of the following:</p><ul>
 <li><p><code>FALSE</code>: No body. This is typically not used with <code>POST</code>,
-    <code>PUT</code>, or <code>PATCH</code>, but can be useful if you need to send a
-    bodyless request (like <code>GET</code>) with <code><a href='VERB.html'>VERB()</a></code>.</p></li>
+<code>PUT</code>, or <code>PATCH</code>, but can be useful if you need to send a
+bodyless request (like <code>GET</code>) with <code><a href='VERB.html'>VERB()</a></code>.</p></li>
 <li><p><code>NULL</code>: An empty body</p></li>
 <li><p><code>""</code>: A length 0 body</p></li>
 <li><p><code><a href='upload_file.html'>upload_file("path/")</a></code>: The contents of a file.  The mime
-    type will be guessed from the extension, or can be supplied explicitly
-    as the second argument to <code><a href='upload_file.html'>upload_file()</a></code></p></li>
+type will be guessed from the extension, or can be supplied explicitly
+as the second argument to <code><a href='upload_file.html'>upload_file()</a></code></p></li>
 <li><p>A character or raw vector: sent as is in body. Use
-    <code><a href='content_type.html'>content_type</a></code> to tell the server what sort of data
-    you are sending.</p></li>
+<code><a href='content_type.html'>content_type()</a></code> to tell the server what sort of data
+you are sending.</p></li>
 <li><p>A named list: See details for encode.</p></li>
 </ul></td>
     </tr>
     <tr>
       <th>encode</th>
       <td><p>If the body is a named list, how should it be encoded? Can be
-  one of form (application/x-www-form-urlencoded), multipart,
-  (multipart/form-data), or json (application/json).</p>
+one of form (application/x-www-form-urlencoded), multipart,
+(multipart/form-data), or json (application/json).</p>
 <p>For "multipart", list elements can be strings or objects created by
-  <code><a href='upload_file.html'>upload_file</a></code>. For "form", elements are coerced to strings
-  and escaped, use <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code> to prevent double-escaping. For "json",
-  parameters are automatically "unboxed" (i.e. length 1 vectors are
-  converted to scalars). To preserve a length 1 vector as a vector,
-  wrap in <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code>. For "raw", either a character or raw vector. You'll
-  need to make sure to set the <code><a href='content_type.html'>content_type</a>()</code> yourself.</p></td>
+<code><a href='upload_file.html'>upload_file()</a></code>. For "form", elements are coerced to strings
+and escaped, use <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code> to prevent double-escaping. For "json",
+parameters are automatically "unboxed" (i.e. length 1 vectors are
+converted to scalars). To preserve a length 1 vector as a vector,
+wrap in <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code>. For "raw", either a character or raw vector. You'll
+need to make sure to set the <code><a href='content_type.html'>content_type()</a></code> yourself.</p></td>
     </tr>
     <tr>
       <th>handle</th>
       <td><p>The handle to use with this request. If not
-supplied, will be retrieved and reused from the <code><a href='handle_pool.html'>handle_pool</a></code>
+supplied, will be retrieved and reused from the <code><a href='handle_pool.html'>handle_pool()</a></code>
 based on the scheme, hostname and port of the url. By default <span class="pkg">httr</span>
 requests to the same scheme/host/port combo. This substantially reduces
 connection time, and ensures that cookies are maintained over multiple
-requests to the same host. See <code><a href='handle_pool.html'>handle_pool</a></code> for more
+requests to the same host. See <code><a href='handle_pool.html'>handle_pool()</a></code> for more
 details.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A <code><a href='response.html'>response()</a></code> object.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -210,6 +214,8 @@ details.</p></td>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#see-also">See also</a></li>
           </ul>
 

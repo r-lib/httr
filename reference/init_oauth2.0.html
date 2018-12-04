@@ -132,10 +132,10 @@
     </div>
 
     <pre class="usage"><span class='fu'>init_oauth2.0</span>(<span class='no'>endpoint</span>, <span class='no'>app</span>, <span class='kw'>scope</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>user_params</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>use_oob</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/options'>getOption</a></span>(<span class='st'>"httr_oob_default"</span>), <span class='kw'>oob_value</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>is_interactive</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>(), <span class='kw'>use_basic_auth</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>config_init</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='kw'>client_credentials</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>query_authorize_extra</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>())
+  <span class='kw'>type</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>use_oob</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/options'>getOption</a></span>(<span class='st'>"httr_oob_default"</span>),
+  <span class='kw'>oob_value</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>is_interactive</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>(),
+  <span class='kw'>use_basic_auth</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>config_init</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(),
+  <span class='kw'>client_credentials</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>query_authorize_extra</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>())
 
 <span class='fu'>oauth2.0_authorize_url</span>(<span class='no'>endpoint</span>, <span class='no'>app</span>, <span class='no'>scope</span>,
   <span class='kw'>redirect_uri</span> <span class='kw'>=</span> <span class='no'>app</span>$<span class='no'>redirect_uri</span>, <span class='kw'>state</span> <span class='kw'>=</span> <span class='fu'>nonce</span>(),
@@ -151,12 +151,12 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>endpoint</th>
-      <td><p>An OAuth endpoint, created by <code><a href='oauth_endpoint.html'>oauth_endpoint</a></code></p></td>
+      <td><p>An OAuth endpoint, created by <code><a href='oauth_endpoint.html'>oauth_endpoint()</a></code></p></td>
     </tr>
     <tr>
       <th>app</th>
       <td><p>An OAuth consumer application, created by
-<code><a href='oauth_app.html'>oauth_app</a></code></p></td>
+<code><a href='oauth_app.html'>oauth_app()</a></code></p></td>
     </tr>
     <tr>
       <th>scope</th>
@@ -181,7 +181,8 @@ or <code>TRUE</code> if <code>httpuv</code> is not installed.</p></td>
     </tr>
     <tr>
       <th>oob_value</th>
-      <td><p>if provided, is used as a custom oob callback value.
+      <td><p>if provided, specifies the value to use for the redirect_uri
+parameter when retrieving an authorization URL. Defaults to "urn:ietf:wg:oauth:2.0:oob".
 Requires <code>use_oob = TRUE</code>.</p></td>
     </tr>
     <tr>
@@ -198,7 +199,7 @@ app key and secret in the request body.</p></td>
     <tr>
       <th>config_init</th>
       <td><p>Additional configuration settings sent to
-<code><a href='POST.html'>POST</a></code>, e.g. <code><a href='user_agent.html'>user_agent</a></code>.</p></td>
+<code><a href='POST.html'>POST()</a></code>, e.g. <code><a href='user_agent.html'>user_agent()</a></code>.</p></td>
     </tr>
     <tr>
       <th>client_credentials</th>

@@ -162,8 +162,7 @@ for debugging https and auth problems, so is disabled by default.</p></td>
 
     
     <p><code>verbose()</code> uses the following prefixes to distinguish between
-different components of the http messages:</p>
-<ul>
+different components of the http messages:</p><ul>
 <li><p><code>*</code> informative curl messages</p></li>
 <li><p><code>-&gt;</code> headers sent (out)</p></li>
 <li><p><code>&gt;&gt;</code> data sent (out)</p></li>
@@ -175,8 +174,8 @@ different components of the http messages:</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='with_config.html'>with_verbose</a>()</code> makes it easier to use verbose mode
- even when the requests are buried inside another function call.</p>
+    <div class='dont-index'><p><code><a href='with_config.html'>with_verbose()</a></code> makes it easier to use verbose mode
+even when the requests are buried inside another function call.</p>
 <p>Other config: <code><a href='add_headers.html'>add_headers</a></code>,
   <code><a href='authenticate.html'>authenticate</a></code>, <code><a href='config.html'>config</a></code>,
   <code><a href='set_cookies.html'>set_cookies</a></code>, <code><a href='timeout.html'>timeout</a></code>,
@@ -185,7 +184,7 @@ different components of the http messages:</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2018-12-04 15:20
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 10.1 kB
@@ -200,7 +199,7 @@ different components of the http messages:</p>
 #&gt;     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagger-ui....
 #&gt;     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes="64x64...
 #&gt; ...</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span>(<span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2018-12-04 15:20
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 10.1 kB
@@ -219,7 +218,7 @@ different components of the http messages:</p>
   <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>)
 }
 <span class='fu'><a href='with_config.html'>with_verbose</a></span>(<span class='fu'>f</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2018-12-04 15:20
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 10.1 kB
@@ -234,7 +233,7 @@ different components of the http messages:</p>
 #&gt;     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagger-ui....
 #&gt;     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes="64x64...
 #&gt; ...</div><div class='input'><span class='fu'><a href='with_config.html'>with_verbose</a></span>(<span class='fu'>f</span>(), <span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2018-12-04 15:20
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 10.1 kB

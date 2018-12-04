@@ -34,8 +34,8 @@
 
 <meta property="og:description" content="These objects represent the complete set of data needed for OAuth access:
 an app, an endpoint, cached credentials and parameters. They should be
-created through their constructor functions oauth1.0_token
-and oauth2.0_token." />
+created through their constructor functions oauth1.0_token()
+and oauth2.0_token()." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -132,8 +132,8 @@ and oauth2.0_token." />
     
     <p>These objects represent the complete set of data needed for OAuth access:
 an app, an endpoint, cached credentials and parameters. They should be
-created through their constructor functions <code><a href='oauth1.0_token.html'>oauth1.0_token</a></code>
-and <code><a href='oauth2.0_token.html'>oauth2.0_token</a></code>.</p>
+created through their constructor functions <code><a href='oauth1.0_token.html'>oauth1.0_token()</a></code>
+and <code><a href='oauth2.0_token.html'>oauth2.0_token()</a></code>.</p>
     
     </div>
 
@@ -163,8 +163,7 @@ and <code><a href='oauth2.0_token.html'>oauth2.0_token</a></code>.</p>
 
     
     <p>OAuth tokens are cached on disk in a file called <code>.httr-oauth</code>
-saved in the current working directory.  Caching is enabled if:</p>
-<ul>
+saved in the current working directory.  Caching is enabled if:</p><ul>
 <li><p>The session is interactive, and the user agrees to it, OR</p></li>
 <li><p>The <code>.httr-oauth</code> file is already present, OR</p></li>
 <li><p><code><a href='https://www.rdocumentation.org/packages/base/topics/options'>getOption("httr_oauth_cache")</a></code> is <code>TRUE</code></p></li>
@@ -174,7 +173,7 @@ saved in the current working directory.  Caching is enabled if:</p>
 <p>Tokens are cached based on their endpoint and parameters.</p>
 <p>The cache file should not be included in source code control or R packages
 (because it contains private information), so httr will automatically add
-the appropriate entries to `.gitignore` and `.Rbuildignore` if needed.</p>
+the appropriate entries to <code>.gitignore</code> and <code>.Rbuildignore</code> if needed.</p>
     
 
   </div>

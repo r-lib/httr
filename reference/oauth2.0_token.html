@@ -149,12 +149,12 @@ reference class so that it can be seamlessly updated (e.g. using
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>endpoint</th>
-      <td><p>An OAuth endpoint, created by <code><a href='oauth_endpoint.html'>oauth_endpoint</a></code></p></td>
+      <td><p>An OAuth endpoint, created by <code><a href='oauth_endpoint.html'>oauth_endpoint()</a></code></p></td>
     </tr>
     <tr>
       <th>app</th>
       <td><p>An OAuth consumer application, created by
-<code><a href='oauth_app.html'>oauth_app</a></code></p></td>
+<code><a href='oauth_app.html'>oauth_app()</a></code></p></td>
     </tr>
     <tr>
       <th>scope</th>
@@ -179,7 +179,8 @@ or <code>TRUE</code> if <code>httpuv</code> is not installed.</p></td>
     </tr>
     <tr>
       <th>oob_value</th>
-      <td><p>if provided, is used as a custom oob callback value.
+      <td><p>if provided, specifies the value to use for the redirect_uri
+parameter when retrieving an authorization URL. Defaults to "urn:ietf:wg:oauth:2.0:oob".
 Requires <code>use_oob = TRUE</code>.</p></td>
     </tr>
     <tr>
@@ -206,7 +207,7 @@ A string means use the specified path as the cache file.</p></td>
     <tr>
       <th>config_init</th>
       <td><p>Additional configuration settings sent to
-<code><a href='POST.html'>POST</a></code>, e.g. <code><a href='user_agent.html'>user_agent</a></code>.</p></td>
+<code><a href='POST.html'>POST()</a></code>, e.g. <code><a href='user_agent.html'>user_agent()</a></code>.</p></td>
     </tr>
     <tr>
       <th>client_credentials</th>
@@ -233,7 +234,7 @@ some APIs.</p></td>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>See <code><a href='Token-class.html'>Token</a></code> for full details about the token object, and the
+    <p>See <code><a href='Token-class.html'>Token()</a></code> for full details about the token object, and the
 caching policies used to store credentials across sessions.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>

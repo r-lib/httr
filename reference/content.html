@@ -184,16 +184,15 @@ declares an incorrect encoding), <code>content()</code> will return <code>NA</co
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>content</code> currently knows about the following mime types:</p>
-<ul>
-<li><p><code>text/html</code>: <code><a href='https://www.rdocumentation.org/packages/xml2/topics/read_xml'>read_html</a></code></p></li>
-<li><p><code>text/xml</code>: <code><a href='https://www.rdocumentation.org/packages/xml2/topics/read_xml'>read_xml</a></code></p></li>
-<li><p><code>text/csv</code>: <code><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></code></p></li>
-<li><p><code>text/tab-separated-values</code>: <code><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_tsv</a></code></p></li>
-<li><p><code>application/json</code>: <code><a href='https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON'>fromJSON</a></code></p></li>
+    <p><code>content</code> currently knows about the following mime types:</p><ul>
+<li><p><code>text/html</code>: <code><a href='https://www.rdocumentation.org/packages/xml2/topics/read_xml'>xml2::read_html()</a></code></p></li>
+<li><p><code>text/xml</code>: <code><a href='https://www.rdocumentation.org/packages/xml2/topics/read_xml'>xml2::read_xml()</a></code></p></li>
+<li><p><code>text/csv</code>: <code><a href='https://readr.tidyverse.org/reference/read_delim.html'>readr::read_csv()</a></code></p></li>
+<li><p><code>text/tab-separated-values</code>: <code><a href='https://readr.tidyverse.org/reference/read_delim.html'>readr::read_tsv()</a></code></p></li>
+<li><p><code>application/json</code>: <code><a href='https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON'>jsonlite::fromJSON()</a></code></p></li>
 <li><p><code>application/x-www-form-urlencoded</code>: <code>parse_query</code></p></li>
-<li><p><code>image/jpeg</code>: <code><a href='https://www.rdocumentation.org/packages/jpeg/topics/readJPEG'>readJPEG</a></code></p></li>
-<li><p><code>image/png</code>: <code><a href='https://www.rdocumentation.org/packages/png/topics/readPNG'>readPNG</a></code></p></li>
+<li><p><code>image/jpeg</code>: <code><a href='https://www.rdocumentation.org/packages/jpeg/topics/readJPEG'>jpeg::readJPEG()</a></code></p></li>
+<li><p><code>image/png</code>: <code><a href='https://www.rdocumentation.org/packages/png/topics/readPNG'>png::readPNG()</a></code></p></li>
 </ul>
     <p><code>as = "parsed"</code> is provided as a convenience only: if the type you
 are trying to parse is not available, use <code>as = "text"</code> and parse
@@ -247,7 +246,7 @@ you will protect yourself against changes to httr.</p>
 #&gt; [1] "228"
 #&gt; 
 #&gt; $headers$`Content-Type`
-#&gt; [1] "multipart/form-data; boundary=------------------------4248ef3bc87af318"
+#&gt; [1] "multipart/form-data; boundary=------------------------def7f48256c5badf"
 #&gt; 
 #&gt; $headers$Host
 #&gt; [1] "httpbin.org"
@@ -260,7 +259,7 @@ you will protect yourself against changes to httr.</p>
 #&gt; NULL
 #&gt; 
 #&gt; $origin
-#&gt; [1] "52.45.185.117"
+#&gt; [1] "35.192.136.167"
 #&gt; 
 #&gt; $url
 #&gt; [1] "http://httpbin.org/post"
@@ -277,12 +276,12 @@ you will protect yourself against changes to httr.</p>
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt;     "Connection": "close", 
 #&gt;     "Content-Length": "228", 
-#&gt;     "Content-Type": "multipart/form-data; boundary=------------------------4248ef3bc87af318", 
+#&gt;     "Content-Type": "multipart/form-data; boundary=------------------------def7f48256c5badf", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.2 httr/1.3.1.9000"
 #&gt;   }, 
 #&gt;   "json": null, 
-#&gt;   "origin": "52.45.185.117", 
+#&gt;   "origin": "35.192.136.167", 
 #&gt;   "url": "http://httpbin.org/post"
 #&gt; }
 #&gt;  </div><div class='input'><span class='fu'>content</span>(<span class='no'>r</span>, <span class='st'>"raw"</span>) <span class='co'># raw bytes from server</span></div><div class='output co'>#&gt;   [1] 7b 0a 20 20 22 61 72 67 73 22 3a 20 7b 7d 2c 20 0a 20 20 22 64 61 74 61 22
@@ -299,14 +298,15 @@ you will protect yourself against changes to httr.</p>
 #&gt; [276] 20 20 20 20 22 43 6f 6e 74 65 6e 74 2d 54 79 70 65 22 3a 20 22 6d 75 6c 74
 #&gt; [301] 69 70 61 72 74 2f 66 6f 72 6d 2d 64 61 74 61 3b 20 62 6f 75 6e 64 61 72 79
 #&gt; [326] 3d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d
-#&gt; [351] 34 32 34 38 65 66 33 62 63 38 37 61 66 33 31 38 22 2c 20 0a 20 20 20 20 22
+#&gt; [351] 64 65 66 37 66 34 38 32 35 36 63 35 62 61 64 66 22 2c 20 0a 20 20 20 20 22
 #&gt; [376] 48 6f 73 74 22 3a 20 22 68 74 74 70 62 69 6e 2e 6f 72 67 22 2c 20 0a 20 20
 #&gt; [401] 20 20 22 55 73 65 72 2d 41 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f
 #&gt; [426] 37 2e 34 33 2e 30 20 72 2d 63 75 72 6c 2f 33 2e 32 20 68 74 74 72 2f 31 2e
 #&gt; [451] 33 2e 31 2e 39 30 30 30 22 0a 20 20 7d 2c 20 0a 20 20 22 6a 73 6f 6e 22 3a
-#&gt; [476] 20 6e 75 6c 6c 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 35 32 2e 34
-#&gt; [501] 35 2e 31 38 35 2e 31 31 37 22 2c 20 0a 20 20 22 75 72 6c 22 3a 20 22 68 74
-#&gt; [526] 74 70 3a 2f 2f 68 74 74 70 62 69 6e 2e 6f 72 67 2f 70 6f 73 74 22 0a 7d 0a</div><div class='input'>
+#&gt; [476] 20 6e 75 6c 6c 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 33 35 2e 31
+#&gt; [501] 39 32 2e 31 33 36 2e 31 36 37 22 2c 20 0a 20 20 22 75 72 6c 22 3a 20 22 68
+#&gt; [526] 74 74 70 3a 2f 2f 68 74 74 70 62 69 6e 2e 6f 72 67 2f 70 6f 73 74 22 0a 7d
+#&gt; [551] 0a</div><div class='input'>
 <span class='no'>rlogo</span> <span class='kw'>&lt;-</span> <span class='fu'>content</span>(<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://cran.r-project.org/Rlogo.jpg"</span>))
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='fl'>0</span>:<span class='fl'>1</span>, <span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"n"</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/rasterImage'>rasterImage</a></span>(<span class='no'>rlogo</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>)</div><div class='img'><img src='content-1.png' alt='' width='700' height='433' /></div></pre>
   </div>

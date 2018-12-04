@@ -143,27 +143,31 @@
     <tr>
       <th>config</th>
       <td><p>Additional configuration settings such as http
-authentication (<code><a href='authenticate.html'>authenticate</a></code>), additional headers
-(<code><a href='add_headers.html'>add_headers</a></code>), cookies (<code><a href='set_cookies.html'>set_cookies</a></code>) etc.
-See <code><a href='config.html'>config</a></code> for full details and list of helpers.</p></td>
+authentication (<code><a href='authenticate.html'>authenticate()</a></code>), additional headers
+(<code><a href='add_headers.html'>add_headers()</a></code>), cookies (<code><a href='set_cookies.html'>set_cookies()</a></code>) etc.
+See <code><a href='config.html'>config()</a></code> for full details and list of helpers.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>Further named parameters, such as <code>query</code>, <code>path</code>, etc,
-passed on to <code><a href='modify_url.html'>modify_url</a></code>. Unnamed parameters will be combined
-with <code><a href='config.html'>config</a></code>.</p></td>
+passed on to <code><a href='modify_url.html'>modify_url()</a></code>. Unnamed parameters will be combined
+with <code><a href='config.html'>config()</a></code>.</p></td>
     </tr>
     <tr>
       <th>handle</th>
       <td><p>The handle to use with this request. If not
-supplied, will be retrieved and reused from the <code><a href='handle_pool.html'>handle_pool</a></code>
+supplied, will be retrieved and reused from the <code><a href='handle_pool.html'>handle_pool()</a></code>
 based on the scheme, hostname and port of the url. By default <span class="pkg">httr</span>
 requests to the same scheme/host/port combo. This substantially reduces
 connection time, and ensures that cookies are maintained over multiple
-requests to the same host. See <code><a href='handle_pool.html'>handle_pool</a></code> for more
+requests to the same host. See <code><a href='handle_pool.html'>handle_pool()</a></code> for more
 details.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A <code><a href='response.html'>response()</a></code> object.</p>
     
     <h2 class="hasAnchor" id="rfc-"><a class="anchor" href="#rfc-"></a>RFC2616</h2>
 
@@ -192,11 +196,11 @@ cache MUST treat the cache entry as stale.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2018-12-04 15:19
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'><a href='headers.html'>headers</a></span>(<span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>))</div><div class='output co'>#&gt; $date
-#&gt; [1] "Tue, 04 Dec 2018 15:19:55 GMT"
+#&gt; [1] "Tue, 04 Dec 2018 17:44:17 GMT"
 #&gt; 
 #&gt; $expires
 #&gt; [1] "-1"
@@ -214,7 +218,7 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "gws"
 #&gt; 
 #&gt; $`content-length`
-#&gt; [1] "5330"
+#&gt; [1] "5299"
 #&gt; 
 #&gt; $`x-xss-protection`
 #&gt; [1] "1; mode=block"
@@ -223,7 +227,7 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "SAMEORIGIN"
 #&gt; 
 #&gt; $`set-cookie`
-#&gt; [1] "1P_JAR=2018-12-04-15; expires=Thu, 03-Jan-2019 15:19:55 GMT; path=/; domain=.google.com"
+#&gt; [1] "1P_JAR=2018-12-04-17; expires=Thu, 03-Jan-2019 17:44:17 GMT; path=/; domain=.google.com"
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "insensitive" "list"       </div></pre>
@@ -233,6 +237,8 @@ cache MUST treat the cache entry as stale.</p>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#rfc-">RFC2616</a></li>
 
       <li><a href="#see-also">See also</a></li>

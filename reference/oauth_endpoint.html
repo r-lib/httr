@@ -32,7 +32,7 @@
 
 <meta property="og:title" content="Describe an OAuth endpoint. — oauth_endpoint" />
 
-<meta property="og:description" content="See oauth_endpoints for a list of popular OAuth endpoints
+<meta property="og:description" content="See oauth_endpoints() for a list of popular OAuth endpoints
 baked into httr." />
 <meta name="twitter:card" content="summary" />
 
@@ -128,7 +128,7 @@ baked into httr." />
 
     <div class="ref-description">
     
-    <p>See <code><a href='oauth_endpoints.html'>oauth_endpoints</a></code> for a list of popular OAuth endpoints
+    <p>See <code><a href='oauth_endpoints.html'>oauth_endpoints()</a></code> for a list of popular OAuth endpoints
 baked into httr.</p>
     
     </div>
@@ -172,12 +172,15 @@ if not needed</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>linkedin</span> <span class='kw'>&lt;-</span> <span class='fu'>oauth_endpoint</span>(<span class='st'>"requestToken"</span>, <span class='st'>"authorize"</span>, <span class='st'>"accessToken"</span>,
-  <span class='kw'>base_url</span> <span class='kw'>=</span> <span class='st'>"https://api.linkedin.com/uas/oauth"</span>)
+  <span class='kw'>base_url</span> <span class='kw'>=</span> <span class='st'>"https://api.linkedin.com/uas/oauth"</span>
+)
 <span class='no'>github</span> <span class='kw'>&lt;-</span> <span class='fu'>oauth_endpoint</span>(<span class='kw'>NULL</span>, <span class='st'>"authorize"</span>, <span class='st'>"access_token"</span>,
-  <span class='kw'>base_url</span> <span class='kw'>=</span> <span class='st'>"https://github.com/login/oauth"</span>)
+  <span class='kw'>base_url</span> <span class='kw'>=</span> <span class='st'>"https://github.com/login/oauth"</span>
+)
 <span class='no'>facebook</span> <span class='kw'>&lt;-</span> <span class='fu'>oauth_endpoint</span>(
   <span class='kw'>authorize</span> <span class='kw'>=</span> <span class='st'>"https://www.facebook.com/dialog/oauth"</span>,
-  <span class='kw'>access</span> <span class='kw'>=</span> <span class='st'>"https://graph.facebook.com/oauth/access_token"</span>)
+  <span class='kw'>access</span> <span class='kw'>=</span> <span class='st'>"https://graph.facebook.com/oauth/access_token"</span>
+)
 
 <span class='no'>oauth_endpoints</span></div><div class='output co'>#&gt; function(name) {
 #&gt;   switch(name,
@@ -193,7 +196,7 @@ if not needed</p></td>
 #&gt;       access = "access_token"
 #&gt;     ),
 #&gt;     vimeo = oauth_endpoint(
-#&gt;       base_url = "https://vimeo.com/oauth",
+#&gt;       base_url = "https://api.vimeo.com/oauth",
 #&gt;       request = "request_token",
 #&gt;       authorize = "authorize",
 #&gt;       access = "access_token"

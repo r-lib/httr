@@ -33,9 +33,9 @@
 <meta property="og:title" content="<span class="pkg">httr</span> makes http easy. — httr-package" />
 
 <meta property="og:description" content="httr is organised around the six most common http verbs:
-GET, PATCH,
-POST, HEAD,
-PUT, and DELETE." />
+GET(), PATCH(),
+POST(), HEAD(),
+PUT(), and DELETE()." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -131,30 +131,31 @@ PUT, and DELETE." />
     <div class="ref-description">
     
     <p><code>httr</code> is organised around the six most common http verbs:
-<code><a href='GET.html'>GET</a></code>, <code><a href='PATCH.html'>PATCH</a></code>,
-<code><a href='POST.html'>POST</a></code>, <code><a href='HEAD.html'>HEAD</a></code>,
-<code><a href='PUT.html'>PUT</a></code>, and <code><a href='DELETE.html'>DELETE</a></code>.</p>
+<code><a href='GET.html'>GET()</a></code>, <code><a href='PATCH.html'>PATCH()</a></code>,
+<code><a href='POST.html'>POST()</a></code>, <code><a href='HEAD.html'>HEAD()</a></code>,
+<code><a href='PUT.html'>PUT()</a></code>, and <code><a href='DELETE.html'>DELETE()</a></code>.</p>
     
     </div>
 
         
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Each request returns a <code><a href='response.html'>response</a></code> object which provides
+    <p>Each request returns a <code><a href='response.html'>response()</a></code> object which provides
 easy access to status code, cookies, headers, timings, and other useful
 info.  The content of the request is available as a raw vector
-(<code><a href='content.html'>content</a></code>), character vector (<code><a href='content.html'>text_content</a></code>),
-or parsed into an R object (<code><a href='content.html'>parsed_content</a></code>), currently for
+(<code><a href='content.html'>content()</a></code>), character vector (<code><a href='content.html'>text_content()</a></code>),
+or parsed into an R object (<code><a href='content.html'>parsed_content()</a></code>), currently for
 html, xml, json, png and jpeg).</p>
 <p>Requests can be modified by various config options like
-<code><a href='set_cookies.html'>set_cookies</a></code>, <code><a href='add_headers.html'>add_headers</a></code>,
-<code><a href='authenticate.html'>authenticate</a></code>, <code><a href='use_proxy.html'>use_proxy</a></code>,
-<code><a href='verbose.html'>verbose</a></code>, and <code><a href='timeout.html'>timeout</a></code></p>
-<p>httr supports OAuth 1.0 and 2.0. Use <code><a href='oauth1.0_token.html'>oauth1.0_token</a></code> and
-<code><a href='oauth2.0_token.html'>oauth2.0_token</a></code> to get user tokens, and
-<code><a href='sign_oauth.html'>sign_oauth1.0</a></code> and <code><a href='sign_oauth.html'>sign_oauth2.0</a></code> to sign
+<code><a href='set_cookies.html'>set_cookies()</a></code>, <code><a href='add_headers.html'>add_headers()</a></code>,
+<code><a href='authenticate.html'>authenticate()</a></code>, <code><a href='use_proxy.html'>use_proxy()</a></code>,
+<code><a href='verbose.html'>verbose()</a></code>, and <code><a href='timeout.html'>timeout()</a></code></p>
+<p>httr supports OAuth 1.0 and 2.0. Use <code><a href='oauth1.0_token.html'>oauth1.0_token()</a></code> and
+<code><a href='oauth2.0_token.html'>oauth2.0_token()</a></code> to get user tokens, and
+<code><a href='sign_oauth.html'>sign_oauth1.0()</a></code> and <code><a href='sign_oauth.html'>sign_oauth2.0()</a></code> to sign
 requests. The demos directory has twelve demos of using OAuth: four for 1.0
-(linkedin, twitter, vimeo, and yahoo) and eight for 2.0 (azure, facebook,</p>
+(linkedin, twitter, vimeo, and yahoo) and eight for 2.0 (azure, facebook,
+github, google, linkedin, reddit, yahoo, and yelp).</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

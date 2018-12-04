@@ -144,54 +144,54 @@
     <tr>
       <th>config</th>
       <td><p>Additional configuration settings such as http
-authentication (<code><a href='authenticate.html'>authenticate</a></code>), additional headers
-(<code><a href='add_headers.html'>add_headers</a></code>), cookies (<code><a href='set_cookies.html'>set_cookies</a></code>) etc.
-See <code><a href='config.html'>config</a></code> for full details and list of helpers.</p></td>
+authentication (<code><a href='authenticate.html'>authenticate()</a></code>), additional headers
+(<code><a href='add_headers.html'>add_headers()</a></code>), cookies (<code><a href='set_cookies.html'>set_cookies()</a></code>) etc.
+See <code><a href='config.html'>config()</a></code> for full details and list of helpers.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>Further named parameters, such as <code>query</code>, <code>path</code>, etc,
-passed on to <code><a href='modify_url.html'>modify_url</a></code>. Unnamed parameters will be combined
-with <code><a href='config.html'>config</a></code>.</p></td>
+passed on to <code><a href='modify_url.html'>modify_url()</a></code>. Unnamed parameters will be combined
+with <code><a href='config.html'>config()</a></code>.</p></td>
     </tr>
     <tr>
       <th>body</th>
       <td><p>One of the following:</p><ul>
 <li><p><code>FALSE</code>: No body. This is typically not used with <code>POST</code>,
-    <code>PUT</code>, or <code>PATCH</code>, but can be useful if you need to send a
-    bodyless request (like <code>GET</code>) with <code><a href='VERB.html'>VERB()</a></code>.</p></li>
+<code>PUT</code>, or <code>PATCH</code>, but can be useful if you need to send a
+bodyless request (like <code>GET</code>) with <code><a href='VERB.html'>VERB()</a></code>.</p></li>
 <li><p><code>NULL</code>: An empty body</p></li>
 <li><p><code>""</code>: A length 0 body</p></li>
 <li><p><code><a href='upload_file.html'>upload_file("path/")</a></code>: The contents of a file.  The mime
-    type will be guessed from the extension, or can be supplied explicitly
-    as the second argument to <code><a href='upload_file.html'>upload_file()</a></code></p></li>
+type will be guessed from the extension, or can be supplied explicitly
+as the second argument to <code><a href='upload_file.html'>upload_file()</a></code></p></li>
 <li><p>A character or raw vector: sent as is in body. Use
-    <code><a href='content_type.html'>content_type</a></code> to tell the server what sort of data
-    you are sending.</p></li>
+<code><a href='content_type.html'>content_type()</a></code> to tell the server what sort of data
+you are sending.</p></li>
 <li><p>A named list: See details for encode.</p></li>
 </ul></td>
     </tr>
     <tr>
       <th>encode</th>
       <td><p>If the body is a named list, how should it be encoded? Can be
-  one of form (application/x-www-form-urlencoded), multipart,
-  (multipart/form-data), or json (application/json).</p>
+one of form (application/x-www-form-urlencoded), multipart,
+(multipart/form-data), or json (application/json).</p>
 <p>For "multipart", list elements can be strings or objects created by
-  <code><a href='upload_file.html'>upload_file</a></code>. For "form", elements are coerced to strings
-  and escaped, use <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code> to prevent double-escaping. For "json",
-  parameters are automatically "unboxed" (i.e. length 1 vectors are
-  converted to scalars). To preserve a length 1 vector as a vector,
-  wrap in <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code>. For "raw", either a character or raw vector. You'll
-  need to make sure to set the <code><a href='content_type.html'>content_type</a>()</code> yourself.</p></td>
+<code><a href='upload_file.html'>upload_file()</a></code>. For "form", elements are coerced to strings
+and escaped, use <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code> to prevent double-escaping. For "json",
+parameters are automatically "unboxed" (i.e. length 1 vectors are
+converted to scalars). To preserve a length 1 vector as a vector,
+wrap in <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code>. For "raw", either a character or raw vector. You'll
+need to make sure to set the <code><a href='content_type.html'>content_type()</a></code> yourself.</p></td>
     </tr>
     <tr>
       <th>handle</th>
       <td><p>The handle to use with this request. If not
-supplied, will be retrieved and reused from the <code><a href='handle_pool.html'>handle_pool</a></code>
+supplied, will be retrieved and reused from the <code><a href='handle_pool.html'>handle_pool()</a></code>
 based on the scheme, hostname and port of the url. By default <span class="pkg">httr</span>
 requests to the same scheme/host/port combo. This substantially reduces
 connection time, and ensures that cookies are maintained over multiple
-requests to the same host. See <code><a href='handle_pool.html'>handle_pool</a></code> for more
+requests to the same host. See <code><a href='handle_pool.html'>handle_pool()</a></code> for more
 details.</p></td>
     </tr>
     </table>
@@ -206,7 +206,7 @@ details.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='POST.html'>POST</a></span>(<span class='st'>"http://httpbin.org/put"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2018-12-04 15:19
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 405
 #&gt;   Content-Type: text/html
 #&gt;   Size: 178 B
@@ -214,10 +214,10 @@ details.</p></td>
 #&gt; &lt;title&gt;405 Method Not Allowed&lt;/title&gt;
 #&gt; &lt;h1&gt;Method Not Allowed&lt;/h1&gt;
 #&gt; &lt;p&gt;The method is not allowed for the requested URL.&lt;/p&gt;</div><div class='input'><span class='fu'>PUT</span>(<span class='st'>"http://httpbin.org/put"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2018-12-04 15:19
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 421 B
+#&gt;   Size: 422 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -231,10 +231,10 @@ details.</p></td>
 #&gt; ...</div><div class='input'>
 <span class='no'>b2</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/put"</span>
 <span class='fu'>PUT</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2018-12-04 15:19
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 442 B
+#&gt;   Size: 443 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "A simple text string", 
@@ -246,10 +246,10 @@ details.</p></td>
 #&gt;     "Connection": "close", 
 #&gt;     "Content-Length": "20", 
 #&gt; ...</div><div class='input'><span class='fu'>PUT</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2018-12-04 15:19
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 553 B
+#&gt;   Size: 554 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -261,7 +261,7 @@ details.</p></td>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt; ...</div><div class='input'><span class='fu'>PUT</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='upload_file.html'>upload_file</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"CITATION"</span>))))</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2018-12-04 15:19
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 1.56 kB
@@ -276,10 +276,10 @@ details.</p></td>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt; ...</div><div class='input'><span class='fu'>PUT</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>), <span class='kw'>encode</span> <span class='kw'>=</span> <span class='st'>"json"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2018-12-04 15:19
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 528 B
+#&gt;   Size: 529 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "{\"x\":\"A simple text string\"}", 

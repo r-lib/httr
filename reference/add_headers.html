@@ -151,8 +151,8 @@ set, pass an empty string: <code>""</code>.</p></td>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='content_type.html'>accept</a></code> and <code><a href='content_type.html'>content_type</a></code> for
-  convenience functions for setting accept and content-type headers.</p>
+    <div class='dont-index'><p><code><a href='content_type.html'>accept()</a></code> and <code><a href='content_type.html'>content_type()</a></code> for
+convenience functions for setting accept and content-type headers.</p>
 <p>Other config: <code><a href='authenticate.html'>authenticate</a></code>,
   <code><a href='config.html'>config</a></code>, <code><a href='set_cookies.html'>set_cookies</a></code>,
   <code><a href='timeout.html'>timeout</a></code>, <code><a href='use_proxy.html'>use_proxy</a></code>,
@@ -168,7 +168,7 @@ set, pass an empty string: <code>""</code>.</p></td>
 #&gt; * a: 1
 #&gt; * b: 2</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2018-12-04 15:20
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 249 B
@@ -182,9 +182,11 @@ set, pass an empty string: <code>""</code>.</p></td>
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='co'># Add arbitrary headers</span>
-<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>,
- <span class='fu'>add_headers</span>(<span class='kw'>version</span> <span class='kw'>=</span> <span class='no'>version</span>$<span class='no'>version.string</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2018-12-04 15:20
+<span class='fu'><a href='GET.html'>GET</a></span>(
+  <span class='st'>"http://httpbin.org/headers"</span>,
+  <span class='fu'>add_headers</span>(<span class='kw'>version</span> <span class='kw'>=</span> <span class='no'>version</span>$<span class='no'>version.string</span>)
+)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 297 B
@@ -200,7 +202,7 @@ set, pass an empty string: <code>""</code>.</p></td>
 #&gt; }</div><div class='input'>
 <span class='co'># Override default headers with empty strings</span>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>add_headers</span>(<span class='kw'>Accept</span> <span class='kw'>=</span> <span class='st'>""</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2018-12-04 15:20
+#&gt;   Date: 2018-12-04 17:44
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 182 B

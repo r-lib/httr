@@ -153,7 +153,7 @@ three valid formats:</p><ul>
     <tr>
       <th>x</th>
       <td><p>For <code>parse_http_date</code>, a character vector of strings to parse.
-  All elements must be of the same type.</p>
+All elements must be of the same type.</p>
 <p>For <code>http_date</code>, a <code>POSIXt</code> vector.</p></td>
     </tr>
     <tr>
@@ -169,7 +169,7 @@ three valid formats:</p><ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>parse_http_date</span>(<span class='st'>"Sun, 06 Nov 1994 08:49:37 GMT"</span>)</div><div class='output co'>#&gt; [1] "1994-11-06 08:49:37 GMT"</div><div class='input'><span class='fu'>parse_http_date</span>(<span class='st'>"Sunday, 06-Nov-94 08:49:37 GMT"</span>)</div><div class='output co'>#&gt; [1] "1994-11-06 08:49:37 GMT"</div><div class='input'><span class='fu'>parse_http_date</span>(<span class='st'>"Sun Nov  6 08:49:37 1994"</span>)</div><div class='output co'>#&gt; [1] "1994-11-06 08:49:37 GMT"</div><div class='input'>
-<span class='fu'>http_date</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Sys.time'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] "Tue, 04 Dec 2018 15:20:23 GMT"</div></pre>
+<span class='fu'>http_date</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Sys.time'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] "Tue, 04 Dec 2018 17:44:34 GMT"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

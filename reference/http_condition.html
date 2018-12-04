@@ -33,8 +33,8 @@
 <meta property="og:title" content="Generate a classed http condition. — http_condition" />
 
 <meta property="og:description" content="This function generate S3 condition objects which are passed to
-stop or warning to generate classes warnings
-and error. These can be used in conjunction with tryCatch
+stop() or warning() to generate classes warnings
+and error. These can be used in conjunction with tryCatch()
 to respond differently to different type of failure." />
 <meta name="twitter:card" content="summary" />
 
@@ -131,8 +131,8 @@ to respond differently to different type of failure." />
     <div class="ref-description">
     
     <p>This function generate S3 condition objects which are passed to
-<code><a href='https://www.rdocumentation.org/packages/base/topics/stop'>stop</a></code> or <code><a href='https://www.rdocumentation.org/packages/base/topics/warning'>warning</a></code> to generate classes warnings
-and error. These can be used in conjunction with <code><a href='https://www.rdocumentation.org/packages/base/topics/conditions'>tryCatch</a></code>
+<code><a href='https://www.rdocumentation.org/packages/base/topics/stop'>stop()</a></code> or <code><a href='https://www.rdocumentation.org/packages/base/topics/warning'>warning()</a></code> to generate classes warnings
+and error. These can be used in conjunction with <code><a href='https://www.rdocumentation.org/packages/base/topics/conditions'>tryCatch()</a></code>
 to respond differently to different type of failure.</p>
     
     </div>
@@ -167,12 +167,12 @@ character vector. If non-<code>NULL</code>, the error message will finish with
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>An S3 object that inherits from (e.g.) condition, <code>type</code>,
-  http_error, http_400 and http_404.</p>
+http_error, http_400 and http_404.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><a href='http://adv-r.had.co.nz/Exceptions-Debugging.html#condition-handling'>http://adv-r.had.co.nz/Exceptions-Debugging.html#condition-handling</a>
-  for more details about R's condition handling model</p></div>
+for more details about R's condition handling model</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

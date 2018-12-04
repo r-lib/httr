@@ -34,16 +34,16 @@
 
 <meta property="og:description" content="Supported callback functions:
 &amp;#8216;request&amp;#8217;This callback is called before an HTTP request
-  is performed, with the request object as an argument.
-  If the callback returns a value other than NULL, the HTTP
-  request is not performed at all, and the return value of the callback
-  is returned. This mechanism can be used to replay previously
-  recorded HTTP responses.
+is performed, with the request object as an argument.
+If the callback returns a value other than NULL, the HTTP
+request is not performed at all, and the return value of the callback
+is returned. This mechanism can be used to replay previously
+recorded HTTP responses.
 &amp;#8216;response&amp;#8217;This callback is called after an HTTP request
-  is performed. The callback is called with two arguments: the
-  request object and the response object of the HTTP
-  request. If this callback returns a value other than NULL,
-  then this value is returned by httr.
+is performed. The callback is called with two arguments: the
+request object and the response object of the HTTP
+request. If this callback returns a value other than NULL,
+then this value is returned by httr.
 " />
 <meta name="twitter:card" content="summary" />
 
@@ -141,16 +141,16 @@
     
     <p>Supported callback functions:</p><dl class='dl-horizontal'>
 <dt>&#8216;request&#8217;</dt><dd><p>This callback is called before an HTTP request
-  is performed, with the <code>request</code> object as an argument.
-  If the callback returns a value other than <code>NULL</code>, the HTTP
-  request is not performed at all, and the return value of the callback
-  is returned. This mechanism can be used to replay previously
-  recorded HTTP responses.</p></dd>
+is performed, with the <code>request</code> object as an argument.
+If the callback returns a value other than <code>NULL</code>, the HTTP
+request is not performed at all, and the return value of the callback
+is returned. This mechanism can be used to replay previously
+recorded HTTP responses.</p></dd>
 <dt>&#8216;response&#8217;</dt><dd><p>This callback is called after an HTTP request
-  is performed. The callback is called with two arguments: the
-  <code>request</code> object and the <code>response</code> object of the HTTP
-  request. If this callback returns a value other than <code>NULL</code>,
-  then this value is returned by <code>httr</code>.</p></dd>
+is performed. The callback is called with two arguments: the
+<code>request</code> object and the <code>response</code> object of the HTTP
+request. If this callback returns a value other than <code>NULL</code>,
+then this value is returned by <code>httr</code>.</p></dd>
 </dl>
     
     </div>
@@ -176,9 +176,9 @@ or <code>NULL</code> to remove the currently installed callback (if any).</p></t
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>get_callback</code> returns the currently installed
-  callback, or <code>NULL</code> if none is installed.</p>
+callback, or <code>NULL</code> if none is installed.</p>
 <p><code>set_callback</code> returns the previously installed callback,
-  or <code>NULL</code> if none was installed.</p>
+or <code>NULL</code> if none was installed.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -225,7 +225,8 @@ callbacks.</p>
 <span class='no'>grec</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"https://httpbin.org"</span>)
 <span class='no'>grec</span>$<span class='no'>date</span> <span class='kw'>==</span> <span class='no'>g3</span>$<span class='no'>date</span>
 <span class='fu'>set_callback</span>(<span class='st'>"request"</span>, <span class='no'>old_req</span>)
-<span class='co'># }</span></pre>
+<span class='co'># }</span><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
