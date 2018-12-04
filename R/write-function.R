@@ -24,14 +24,16 @@ write_function <- function(subclass, ...) {
 #' tmp <- tempfile()
 #' r1 <- GET("https://www.google.com", write_disk(tmp))
 #' readLines(tmp)
-#'
+#' 
 #' # The default
 #' r2 <- GET("https://www.google.com", write_memory())
-#'
+#' 
 #' # Save a very large file
 #' \dontrun{
-#' GET("http://www2.census.gov/acs2011_5yr/pums/csv_pus.zip",
-#'   write_disk("csv_pus.zip"), progress())
+#' GET(
+#'   "http://www2.census.gov/acs2011_5yr/pums/csv_pus.zip",
+#'   write_disk("csv_pus.zip"), progress()
+#' )
 #' }
 write_disk <- function(path, overwrite = FALSE) {
   if (!overwrite && file.exists(path)) {
@@ -58,11 +60,12 @@ write_memory <- function() {
 #'   vector containing the bytes recieved from the server. This will usually
 #'   be 16k or less. The return value of the function is ignored.
 #' @examples
-#' GET("https://github.com/jeroen/data/raw/gh-pages/diamonds.json",
+#' GET(
+#'   "https://github.com/jeroen/data/raw/gh-pages/diamonds.json",
 #'   write_stream(function(x) {
-#'    print(length(x))
-#'    length(x)
-#'  })
+#'     print(length(x))
+#'     length(x)
+#'   })
 #' )
 #' @export
 write_stream <- function(f) {

@@ -29,13 +29,15 @@ headers.response <- function(x) {
 #' @examples
 #' add_headers(a = 1, b = 2)
 #' add_headers(.headers = c(a = "1", b = "2"))
-#'
+#' 
 #' GET("http://httpbin.org/headers")
-#'
+#' 
 #' # Add arbitrary headers
-#' GET("http://httpbin.org/headers",
-#'  add_headers(version = version$version.string))
-#'
+#' GET(
+#'   "http://httpbin.org/headers",
+#'   add_headers(version = version$version.string)
+#' )
+#' 
 #' # Override default headers with empty strings
 #' GET("http://httpbin.org/headers", add_headers(Accept = ""))
 add_headers <- function(..., .headers = character()) {
@@ -56,11 +58,11 @@ add_headers <- function(..., .headers = character()) {
 #' @export
 #' @examples
 #' GET("http://httpbin.org/headers")
-#'
+#' 
 #' GET("http://httpbin.org/headers", accept_json())
 #' GET("http://httpbin.org/headers", accept("text/csv"))
 #' GET("http://httpbin.org/headers", accept(".doc"))
-#'
+#' 
 #' GET("http://httpbin.org/headers", content_type_xml())
 #' GET("http://httpbin.org/headers", content_type("text/csv"))
 #' GET("http://httpbin.org/headers", content_type(".xml"))
@@ -91,7 +93,6 @@ accept <- function(type) {
     type <- mime::guess_type(type, empty = NULL)
   }
   add_headers("Accept" = type)
-
 }
 
 #' @export

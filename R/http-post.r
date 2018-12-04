@@ -34,7 +34,7 @@
 #' POST(b2, body = list(x = "A simple text string"))
 #' POST(b2, body = list(y = upload_file(system.file("CITATION"))))
 #' POST(b2, body = list(x = "A simple text string"), encode = "json")
-#'
+#' 
 #' # Various types of empty body:
 #' POST(b2, body = NULL, verbose())
 #' POST(b2, body = FALSE, verbose())

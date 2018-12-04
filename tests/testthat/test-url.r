@@ -1,7 +1,6 @@
 context("URL parsing and building")
 
 test_that("parse_url works as expected", {
-
   urls <- list(
     "http://google.com/",
     "http://google.com/path",
@@ -14,9 +13,10 @@ test_that("parse_url works as expected", {
     "svn+ssh://my.svn.server/repo/trunk"
   )
 
-  expect_equal(lapply(urls, function(u) build_url(parse_url(u))),
-               urls)
-
+  expect_equal(
+    lapply(urls, function(u) build_url(parse_url(u))),
+    urls
+  )
 })
 
 
@@ -76,8 +76,8 @@ test_that("build_url drops null or empty query", {
 })
 
 test_that("parse_url pulls off domain correctly given query without trailing '/'", {
-   url <- modify_url('http://google.com?a=1', query = list(b = 2))
-   expect_equal(url, "http://google.com/?a=1&b=2")
+  url <- modify_url("http://google.com?a=1", query = list(b = 2))
+  expect_equal(url, "http://google.com/?a=1&b=2")
 })
 
 test_that("parse_url preserves leading / in path", {

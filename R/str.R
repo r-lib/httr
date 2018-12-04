@@ -16,7 +16,8 @@ str_split_fixed <- function(string, pattern, n) {
     starts <- c(1, m_ends + 1L)[seq_len(n)]
     ends <- c((m_starts - 1L)[seq_len(n - 1)], nchar(string))
     res <- lapply(string, function(x)
-                  unlist(Map(substr, x, starts, ends, USE.NAMES = FALSE)))
+      unlist(Map(substr, x, starts, ends, USE.NAMES = FALSE))
+    )
   }
 
   mat <- matrix("", nrow = length(res), ncol = n, byrow = TRUE)
@@ -39,9 +40,13 @@ str_detect <- function(string, pattern) {
 
 str_match <- function(string, pattern) {
   m <- regexpr(pattern, string, perl = TRUE)
-  cbind(substr(string, m, attr(m, "match.length") + m - 1L),
-        substr(string, attr(m, "capture.start"),
-               attr(m, "capture.length") + attr(m, "capture.start") - 1L))
+  cbind(
+    substr(string, m, attr(m, "match.length") + m - 1L),
+    substr(
+      string, attr(m, "capture.start"),
+      attr(m, "capture.length") + attr(m, "capture.start") - 1L
+    )
+  )
 }
 
 str_replace <- function(string, pattern, replace) {

@@ -1,6 +1,7 @@
 check_encoding <- function(x) {
-  if ((tolower(x) %in% tolower(iconvlist())))
+  if ((tolower(x) %in% tolower(iconvlist()))) {
     return(x)
+  }
 
   message("Invalid encoding ", x, ": defaulting to UTF-8.")
   "UTF-8"
@@ -36,14 +37,17 @@ parse_auto <- function(content, type = NULL, encoding = NULL, ...) {
 
   if (is.null(type)) {
     stop("Unknown mime type: can't parse automatically. Use the `type` ",
-      "argument to specify manually.", call. = FALSE)
+      "argument to specify manually.",
+      call. = FALSE
+    )
   }
 
   mt <- parse_media(type)
   parser <- parsers[[mt$complete]]
   if (is.null(parser)) {
     stop("No automatic parser available for ", mt$complete, ".",
-      call. = FALSE)
+      call. = FALSE
+    )
   }
 
   parser(x = content, type = type, encoding = encoding, ...)
@@ -70,7 +74,8 @@ parsers <- new.env(parent = emptyenv())
 parsers$`application/json` <- function(x, type = NULL, encoding = NULL,
                                        simplifyVector = FALSE, ...) {
   jsonlite::fromJSON(parse_text(x, encoding = "UTF-8"),
-    simplifyVector = simplifyVector, ...)
+    simplifyVector = simplifyVector, ...
+  )
 }
 parsers$`application/x-www-form-urlencoded` <- function(x, encoding = NULL,
                                                         type = NULL, ...) {

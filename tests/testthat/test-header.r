@@ -41,7 +41,6 @@ test_that("Invalid header raises error", {
 test_that("http status line only needs two components", {
   headers <- parse_http_headers(charToRaw("HTTP/1.1 200"))
   expect_equal(headers[[1]]$status, 200L)
-
 })
 
 test_that("Key/value parsing tolerates multiple ':'", {
@@ -57,11 +56,11 @@ test_that("Key/value parsing tolerates multiple ':'", {
 })
 
 test_that("cache_info() handles flagless cache control", {
-    response <- list(flags = "private", `max-age` = "0", `max-stale` = "0")
-    expect_equal(response[1], parse_cache_control("private"))
-    expect_equal(response[2], parse_cache_control("max-age=0"))
-    expect_equal(response[1:2], parse_cache_control("private, max-age=0"))
-    expect_equal(
-        response, parse_cache_control("private, max-age=0, max-stale=0")
-    )
+  response <- list(flags = "private", `max-age` = "0", `max-stale` = "0")
+  expect_equal(response[1], parse_cache_control("private"))
+  expect_equal(response[2], parse_cache_control("max-age=0"))
+  expect_equal(response[1:2], parse_cache_control("private, max-age=0"))
+  expect_equal(
+    response, parse_cache_control("private, max-age=0, max-stale=0")
+  )
 })

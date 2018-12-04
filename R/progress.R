@@ -7,7 +7,6 @@
 #' @export
 #' @examples
 #' cap_speed <- config(max_recv_speed_large = 10000)
-#'
 #' \donttest{
 #' # If file size is known, you get a progress bar:
 #' x <- GET("http://httpbin.org/bytes/102400", progress(), cap_speed)
@@ -64,11 +63,13 @@ bytes <- function(x, digits = 3, ...) {
     unit <- "B"
   } else {
     unit <- c("kB", "MB", "GB", "TB")[[power]]
-    x <- x / (1000 ^ power)
+    x <- x / (1000^power)
   }
 
-  formatted <- format(signif(x, digits = digits), big.mark = ",",
-    scientific = FALSE)
+  formatted <- format(signif(x, digits = digits),
+    big.mark = ",",
+    scientific = FALSE
+  )
 
   paste0(formatted, " ", unit)
 }

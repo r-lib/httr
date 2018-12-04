@@ -14,7 +14,7 @@
 #' \dontrun{
 #' # Set locally
 #' set_envvar("HTTR", "true")
-#'
+#' 
 #' # Set for every new session (and this session)
 #' set_envvar("HTTR", "false", "user")
 #' # Update existing value
@@ -32,8 +32,9 @@ set_envvar <- function(name, value, scope = c("session", "user", "site")) {
     site = Sys.getenv("R_ENVIRON", file.path(R.home("etc"), "Renviron.site"))
   )
   set_envvar_local(name, value)
-  if (scope != "session")
+  if (scope != "session") {
     set_envvar_renviron(name, value, path)
+  }
 
   invisible(old)
 }

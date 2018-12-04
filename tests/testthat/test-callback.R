@@ -1,7 +1,6 @@
 context("Callback")
 
 test_that("request callback", {
-
   f <- function(req) req$url
   old <- set_callback("request", f)
   on.exit(set_callback("request", old))

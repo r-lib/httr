@@ -23,10 +23,10 @@
 #' # There are a number of ways to modify the configuration of a request
 #' # * you can add directly to a request
 #' HEAD("https://www.google.com", verbose())
-#'
+#' 
 #' # * you can wrap with with_config()
 #' with_config(verbose(), HEAD("https://www.google.com"))
-#'
+#' 
 #' # * you can set global with set_config()
 #' old <- set_config(verbose())
 #' HEAD("https://www.google.com")
@@ -36,7 +36,7 @@
 #' # or
 #' reset_config()
 #' HEAD("https://www.google.com")
-#'
+#' 
 #' # If available, you should use a friendly httr wrapper over RCurl
 #' # options. But you can pass Curl options (as listed in httr_options())
 #' # in config
@@ -68,13 +68,12 @@ config <- function(..., token = NULL) {
 #' @examples
 #' httr_options()
 #' httr_options("post")
-#'
+#' 
 #' # Use curl_docs to read the curl documentation for each option.
 #' # You can use either the httr or curl option name.
 #' curl_docs("userpwd")
 #' curl_docs("CURLOPT_USERPWD")
 httr_options <- function(matches) {
-
   constants <- curl::curl_options()
   constants <- constants[order(names(constants))]
 
@@ -138,7 +137,8 @@ default_ua <- function() {
     versions <- c(
       libcurl = curl::curl_version()$version,
       `r-curl` = as.character(utils::packageVersion("curl")),
-      httr = as.character(utils::packageVersion("httr")))
+      httr = as.character(utils::packageVersion("httr"))
+    )
     cache$default_ua <- paste0(names(versions), "/", versions, collapse = " ")
   }
   cache$default_ua
@@ -183,7 +183,7 @@ reset_config <- function() set_config(config(), TRUE)
 #'   GET("http://had.co.nz")
 #'   GET("http://google.com")
 #' })
-#'
+#' 
 #' # Or even easier:
 #' with_verbose(GET("http://google.com"))
 with_config <- function(config = config(), expr, override = FALSE) {

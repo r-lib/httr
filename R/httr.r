@@ -22,7 +22,7 @@
 #' [sign_oauth1.0()] and [sign_oauth2.0()] to sign
 #' requests. The demos directory has twelve demos of using OAuth: four for 1.0
 #' (linkedin, twitter, vimeo, and yahoo) and eight for 2.0 (azure, facebook,
-#` github, google, linkedin, reddit, yahoo, and yelp).
+#' github, google, linkedin, reddit, yahoo, and yelp).
 #'
 #' @keywords internal
 "_PACKAGE"

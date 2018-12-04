@@ -35,10 +35,12 @@ test_that("partial OAuth1 flow works", {
   )
   myapp <- oauth_app("rfigshare",
     key = "Kazwg91wCdBB9ggypFVVJg",
-    secret = "izgO06p1ymfgZTsdsZQbcA")
+    secret = "izgO06p1ymfgZTsdsZQbcA"
+  )
   sig <- sign_oauth1.0(myapp,
     token = "xdBjcKOiunwjiovwkfTF2QjGhROeLMw0y0nSCSgvg3YQxdBjcKOiunwjiovwkfTF2Q",
-    token_secret = "4mdM3pfekNGO16X4hsvZdg")
+    token_secret = "4mdM3pfekNGO16X4hsvZdg"
+  )
 
   r <- GET("http://api.figshare.com/v1/my_data/articles", sig)
   expect_equal(status_code(r), 200)
@@ -72,8 +74,7 @@ test_that("oauth2.0 authorize url appends query params", {
 
 test_that("oauth2.0 authorize url handles empty query_extra input", {
   # common constructor
-  authorize_url_extra_params <- function(extra_params)
-  {
+  authorize_url_extra_params <- function(extra_params) {
     app <- oauth_app("x", "y", "z")
     scope <- NULL
 

@@ -11,17 +11,20 @@ refresh_oauth2.0 <- function(endpoint, app, credentials, user_params = NULL,
 
   refresh_url <- endpoint$access
   req_params <- list(
-      refresh_token = credentials$refresh_token,
-      client_id = app$key,
-      grant_type = "refresh_token")
+    refresh_token = credentials$refresh_token,
+    client_id = app$key,
+    grant_type = "refresh_token"
+  )
 
-  if (! is.null(user_params)) {
+  if (!is.null(user_params)) {
     req_params <- utils::modifyList(user_params, req_params)
   }
 
   if (isTRUE(use_basic_auth)) {
-    response <- POST(refresh_url, body = req_params, encode = "form",
-      authenticate(app$key, app$secret, type = "basic"))
+    response <- POST(refresh_url,
+      body = req_params, encode = "form",
+      authenticate(app$key, app$secret, type = "basic")
+    )
   } else {
     req_params$client_secret <- app$secret
     response <- POST(refresh_url, body = req_params, encode = "form")

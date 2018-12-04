@@ -30,16 +30,18 @@ status_code.numeric <- function(x) x
 #' @examples
 #' http_status(100)
 #' http_status(404)
-#'
+#' 
 #' x <- GET("http://httpbin.org/status/200")
 #' http_status(x)
-#'
+#' 
 #' http_status(GET("http://httpbin.org/status/300"))
 #' http_status(GET("http://httpbin.org/status/301"))
 #' http_status(GET("http://httpbin.org/status/404"))
-#'
+#' 
 #' # errors out on unknown status
-#' \dontrun{http_status(GET("http://httpbin.org/status/320"))}
+#' \dontrun{
+#' http_status(GET("http://httpbin.org/status/320"))
+#' }
 #' @export
 http_status <- function(x) {
   status <- status_code(x)
@@ -49,8 +51,10 @@ http_status <- function(x) {
     stop("Unknown http status code: ", status, call. = FALSE)
   }
 
-  status_types <- c("Information", "Success", "Redirection", "Client error",
-    "Server error")
+  status_types <- c(
+    "Information", "Success", "Redirection", "Client error",
+    "Server error"
+  )
   status_type <- status_types[[status %/% 100]]
 
   # create the final information message
@@ -150,11 +154,11 @@ http_statuses <- c(
 #' # You can pass a url:
 #' http_error("http://www.google.com")
 #' http_error("http://httpbin.org/status/404")
-#'
+#' 
 #' # Or a request
 #' r <- GET("http://httpbin.org/status/201")
 #' http_error(r)
-#'
+#' 
 #' # Or an (integer) status code
 #' http_error(200L)
 #' http_error(404L)
@@ -217,25 +221,29 @@ url_ok <- function(x, ...) {
 #' stop_for_status(x) # nothing happens
 #' warn_for_status(x)
 #' message_for_status(x)
-#'
+#' 
 #' x <- GET("http://httpbin.org/status/300")
-#' \dontrun{stop_for_status(x)}
+#' \dontrun{
+#' stop_for_status(x)
+#' }
 #' warn_for_status(x)
 #' message_for_status(x)
-#'
+#' 
 #' x <- GET("http://httpbin.org/status/404")
-#' \dontrun{stop_for_status(x)}
+#' \dontrun{
+#' stop_for_status(x)
+#' }
 #' warn_for_status(x)
 #' message_for_status(x)
-#'
+#' 
 #' # You can provide more information with the task argument
 #' warn_for_status(x, "download spreadsheet")
 #' message_for_status(x, "download spreadsheet")
-#'
 #' @export
 stop_for_status <- function(x, task = NULL) {
-  if (status_code(x) < 300)
+  if (status_code(x) < 300) {
     return(invisible(x))
+  }
 
   call <- sys.call(-1)
   stop(http_condition(x, "error", task = task, call = call))
@@ -244,8 +252,9 @@ stop_for_status <- function(x, task = NULL) {
 #' @rdname stop_for_status
 #' @export
 warn_for_status <- function(x, task = NULL) {
-  if (status_code(x) < 300)
+  if (status_code(x) < 300) {
     return(invisible(x))
+  }
 
   call <- sys.call(-1)
   warning(http_condition(x, "warning", task = task, call = call))

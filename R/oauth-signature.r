@@ -14,8 +14,10 @@ sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL,
   params <- list(as_header = as_header)
 
   credentials <- list(oauth_token = token, oauth_token_secret = token_secret)
-  token <- Token1.0$new(endpoint = NULL, params = params, app = app,
-    credentials = credentials)
+  token <- Token1.0$new(
+    endpoint = NULL, params = params, app = app,
+    credentials = credentials
+  )
   request(auth_token = token)
 }
 
@@ -80,8 +82,13 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
 #' @rdname oauth_signature
 #' @export
 oauth_header <- function(info) {
-  oauth <- paste0("OAuth ", paste0(
-    oauth_encode(names(info)), "=\"", oauth_encode(info), "\"", collapse = ", "))
+  oauth <- paste0(
+    "OAuth ",
+    paste0(
+      oauth_encode(names(info)), "=\"", oauth_encode(info), "\"",
+      collapse = ", "
+    )
+  )
   add_headers(Authorization = oauth)
 }
 

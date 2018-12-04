@@ -54,8 +54,7 @@ jwt_signature <- function(credentials,
                           sub = NULL,
                           iat = as.integer(Sys.time()),
                           exp = iat + duration,
-                          duration = 60L * 60L
-                          ) {
+                          duration = 60L * 60L) {
   cs <- compact(list(
     iss = credentials$client_email,
     scope = scope,
@@ -92,6 +91,6 @@ base64url <- function(x) {
   if (is.character(x)) {
     x <- charToRaw(x)
   }
-  out <- chartr('+/', '-_', openssl::base64_encode(x))
+  out <- chartr("+/", "-_", openssl::base64_encode(x))
   gsub("=+$", "", out)
 }

@@ -25,8 +25,8 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
       return(list(
         status = 404L,
         headers = list("Content-Type" = "text/plain"),
-        body = "Not found")
-      )
+        body = "Not found"
+      ))
     }
 
     query <- env$QUERY_STRING
@@ -49,7 +49,7 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
   message("Waiting for authentication in browser...")
   message("Press Esc/Ctrl + C to abort")
   BROWSE(request_url)
-  while(is.null(info)) {
+  while (is.null(info)) {
     httpuv::service()
     Sys.sleep(0.001)
   }
@@ -81,6 +81,8 @@ oauth_callback <- function() {
 }
 
 listener_endpoint <- function() {
-  list(host = Sys.getenv("HTTR_LOCALHOST", "127.0.0.1"),
-       port = as.integer(Sys.getenv("HTTR_PORT", "1410")))
+  list(
+    host = Sys.getenv("HTTR_LOCALHOST", "127.0.0.1"),
+    port = as.integer(Sys.getenv("HTTR_PORT", "1410"))
+  )
 }

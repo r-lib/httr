@@ -14,10 +14,10 @@
 init_oauth1.0 <- function(endpoint, app, permission = NULL,
                           is_interactive = interactive(),
                           private_key = NULL) {
-
   oauth_sig <- function(url, method, token = NULL, token_secret = NULL, private_key = NULL, ...) {
     oauth_header(oauth_signature(url, method, app, token, token_secret, private_key,
-        other_params = c(list(...), oauth_callback = oauth_callback())))
+      other_params = c(list(...), oauth_callback = oauth_callback())
+    ))
   }
 
   # 1. Get an unauthorized request token
@@ -30,7 +30,8 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
   # 2. Authorize the token
   authorize_url <- modify_url(endpoint$authorize, query = list(
     oauth_token = token,
-    permission = "read"))
+    permission = "read"
+  ))
   verifier <- oauth_listener(authorize_url, is_interactive)
   verifier <- verifier$oauth_verifier %||% verifier[[1]]
 
@@ -83,9 +84,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
                           use_basic_auth = FALSE,
                           config_init = list(),
                           client_credentials = FALSE,
-                          query_authorize_extra = list()
-                         ) {
-
+                          query_authorize_extra = list()) {
   scope <- check_scope(scope)
   use_oob <- check_oob(use_oob, oob_value)
   if (use_oob) {
@@ -133,9 +132,8 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
 oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    redirect_uri = app$redirect_uri,
                                    state = nonce(),
-                                   query_extra = list()
-                                   ) {
-  #TODO might need to put some params before and some after...
+                                   query_extra = list()) {
+  # TODO might need to put some params before and some after...
 
   query_extra <- query_extra %||% list() # i.e. make list if query_extra is null
 
@@ -165,9 +163,7 @@ oauth2.0_access_token <- function(endpoint,
                                   use_basic_auth = FALSE,
                                   redirect_uri = app$redirect_uri,
                                   client_credentials = FALSE,
-                                  config = list()
-                                  ) {
-
+                                  config = list()) {
   req_params <- compact(list(
     client_id = app$key,
     redirect_uri = if (client_credentials) NULL else redirect_uri,
@@ -212,7 +208,7 @@ check_scope <- function(x) {
   if (!is.character(x)) {
     stop("`scope` must be a character vector", call. = FALSE)
   }
-  paste(x, collapse = ' ')
+  paste(x, collapse = " ")
 }
 
 # Wrap base::interactive in a non-primitive function so that the call can be mocked for testing

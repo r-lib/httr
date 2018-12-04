@@ -5,7 +5,7 @@
     httr_oauth_cache = NA
   )
   toset <- !(names(op.dplyr) %in% names(op))
-  if(any(toset)) options(op.dplyr[toset])
+  if (any(toset)) options(op.dplyr[toset])
 
   invisible()
 }

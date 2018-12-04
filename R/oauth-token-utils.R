@@ -16,15 +16,19 @@ revoke_all <- function(cache_path = NA) {
 
   tokens <- load_cache(cache_path)
 
-  cant_revoke <- vapply(tokens, function(x) is.null(x$endpoint$revoke),
-    logical(1))
+  cant_revoke <- vapply(
+    tokens, function(x) is.null(x$endpoint$revoke),
+    logical(1)
+  )
   if (any(cant_revoke)) {
     manual <- tokens[cant_revoke]
     apps <- vapply(manual, function(x) {
       paste0(x$app$appname, " (", x$app$key, ")")
     }, character(1), USE.NAMES = FALSE)
     warning("Can't revoke the following tokens automatically: ",
-      paste0(apps, collapse = ", "), call. = FALSE)
+      paste0(apps, collapse = ", "),
+      call. = FALSE
+    )
   }
 
   lapply(tokens, function(x) try(revoke_oauth2.0(x)))
@@ -37,7 +41,8 @@ revoke_oauth2.0 <- function(endpoint, credentials) {
   }
 
   url <- modify_url(endpoint$revoke,
-    query = list(token = credentials$access_token))
+    query = list(token = credentials$access_token)
+  )
   response <- GET(url, accept_json())
   stop_for_status(response)
 
@@ -67,4 +72,3 @@ endpoint_validation_url <- function(endpoint, credentials) {
   url$query$access_token <- credentials$access_token
   build_url(url)
 }
-

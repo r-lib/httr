@@ -12,8 +12,10 @@
 #' @family config
 #' @examples
 #' GET("http://httpbin.org/basic-auth/user/passwd")
-#' GET("http://httpbin.org/basic-auth/user/passwd",
-#'   authenticate("user", "passwd"))
+#' GET(
+#'   "http://httpbin.org/basic-auth/user/passwd",
+#'   authenticate("user", "passwd")
+#' )
 authenticate <- function(user, password, type = "basic") {
   stopifnot(is.character(user), length(user) == 1)
   stopifnot(is.character(password), length(password) == 1)
@@ -23,8 +25,14 @@ authenticate <- function(user, password, type = "basic") {
 }
 
 auth_flags <- function(x = "basic") {
-  constants <- c(basic = 1, digest = 2, gssnegotiate = 4, ntlm = 8,
-    digest_ie = 16, any = -17)
+  constants <- c(
+    basic = 1,
+    digest = 2,
+    gssnegotiate = 4,
+    ntlm = 8,
+    digest_ie = 16,
+    any = -17
+  )
   x <- match.arg(x, names(constants))
 
   constants[[x]]
