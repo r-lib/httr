@@ -10,8 +10,9 @@ library(httr)
 # Add the below  environment variable to your session
 # (helper function : usethis::edit_r_environ())
 nouns_app <- oauth_app("noun_project",
-                       key = Sys.getenv("NOUN_API_KEY"),
-                       secret = Sys.getenv("NOUN_API_SECRET"))
+  key = Sys.getenv("NOUN_API_KEY"),
+  secret = Sys.getenv("NOUN_API_SECRET")
+)
 
 # 2. Each request must be signed using the app key and secret
 #    see ?oauth_signature for more information on signature
@@ -39,6 +40,6 @@ content(res)
 # example, you must take it into account.
 url <- "http://api.thenounproject.com/notify/publish?test=1"
 signature <- oauth_signature(url, method = "POST", app = nouns_app)
-res <- POST(url, oauth_header(signature), body = list(icons = 15), encode = 'json')
+res <- POST(url, oauth_header(signature), body = list(icons = 15), encode = "json")
 stop_for_status(res)
 content(res)

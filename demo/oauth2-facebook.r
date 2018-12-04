@@ -49,7 +49,7 @@ token <- content(resp)$access_token
 # 3. Use API
 req <- GET("https://graph.facebook.com/v2.3/me", query = list(
   fields = "name,picture",
-  access_token = token)
-)
+  access_token = token
+))
 stop_for_status(req)
 str(content(req))
