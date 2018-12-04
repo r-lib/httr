@@ -1,4 +1,5 @@
 connection-sharing  Demonstration of how connection sharing saves time
+oauth1-nounproject  Using noun project api with OAuth 1.0 one-legged
 oauth1-twitter      Using twitter api with OAuth 1.0
 oauth1-yahoo        Using yahoo api with OAuth 1.0
 oauth1-withings     Using withings api with OAuth 1.0
