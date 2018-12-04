@@ -132,13 +132,14 @@
     </div>
 
     <pre class="usage"><span class='fu'>init_oauth2.0</span>(<span class='no'>endpoint</span>, <span class='no'>app</span>, <span class='kw'>scope</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>user_params</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>use_oob</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/options'>getOption</a></span>(<span class='st'>"httr_oob_default"</span>),
-  <span class='kw'>oob_value</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>is_interactive</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>(),
-  <span class='kw'>use_basic_auth</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>config_init</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(),
-  <span class='kw'>client_credentials</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+  <span class='kw'>type</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>use_oob</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/options'>getOption</a></span>(<span class='st'>"httr_oob_default"</span>), <span class='kw'>oob_value</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>is_interactive</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>(), <span class='kw'>use_basic_auth</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>config_init</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='kw'>client_credentials</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>query_authorize_extra</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>())
 
 <span class='fu'>oauth2.0_authorize_url</span>(<span class='no'>endpoint</span>, <span class='no'>app</span>, <span class='no'>scope</span>,
-  <span class='kw'>redirect_uri</span> <span class='kw'>=</span> <span class='no'>app</span>$<span class='no'>redirect_uri</span>, <span class='kw'>state</span> <span class='kw'>=</span> <span class='fu'>nonce</span>())
+  <span class='kw'>redirect_uri</span> <span class='kw'>=</span> <span class='no'>app</span>$<span class='no'>redirect_uri</span>, <span class='kw'>state</span> <span class='kw'>=</span> <span class='fu'>nonce</span>(),
+  <span class='kw'>query_extra</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>())
 
 <span class='fu'>oauth2.0_access_token</span>(<span class='no'>endpoint</span>, <span class='no'>app</span>, <span class='no'>code</span>, <span class='kw'>user_params</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>type</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>use_basic_auth</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
@@ -204,6 +205,16 @@ app key and secret in the request body.</p></td>
       <td><p>Default to <code>FALSE</code>. Set to <code>TRUE</code> to use
 <em>Client Credentials Grant</em> instead of <em>Authorization
 Code Grant</em>. See <a href='https://tools.ietf.org/html/rfc6749#section-4.4'>https://tools.ietf.org/html/rfc6749#section-4.4</a>.</p></td>
+    </tr>
+    <tr>
+      <th>query_authorize_extra</th>
+      <td><p>Default to <code><a href='https://www.rdocumentation.org/packages/base/topics/list'>list()</a></code>. Set to named list
+holding query parameters to append to initial auth page query. Useful for
+some APIs.</p></td>
+    </tr>
+    <tr>
+      <th>query_extra</th>
+      <td><p>See <code>query_authorize_extra</code></p></td>
     </tr>
     </table>
     
