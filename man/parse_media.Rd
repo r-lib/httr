@@ -6,22 +6,23 @@
 \usage{
 parse_media(x)
 }
+\arguments{
+\item{x}{String to parse}
+}
 \description{
 Parsed according to RFC 2616, as at
 \url{http://pretty-rfc.herokuapp.com/RFC2616#media.types}.
 }
 \details{
 A simplified minimal EBNF is:
-
 \itemize{
- \item media-type     = type "/" subtype *( ";" parameter )
- \item type           = token
- \item subtype        = token
- \item parameter      = attribute "=" value
- \item attribute      = token
- \item value          = token | quoted-string
- \item token          = 1*<any CHAR except CTLs or ()<>@,;:\"/[]?={}
- \item quoted-string  = " *(any text except ", unless escaped with \) "
+\item media-type     = \code{type "/" subtype *( ";" parameter )}
+\item type           = \code{token}
+\item subtype        = \code{token}
+\item parameter      = \code{attribute "=" value}
+\item attribute      = \code{token}
+\item value          = \code{token | quoted-string}
+\item token          = \code{1*<any CHAR except CTLs or ()<>@,;:\"/[]?=\{\}}
 }
 }
 \examples{

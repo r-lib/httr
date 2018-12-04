@@ -11,9 +11,9 @@ http_status(x)
 }
 \value{
 If the status code does not match a known status, an error.
- Otherwise, a list with components
- \item{category}{the broad category of the status}
- \item{message}{the meaning of the status code}
+Otherwise, a list with components
+\item{category}{the broad category of the status}
+\item{message}{the meaning of the status code}
 }
 \description{
 Extract the http status code and convert it into a human readable message.
@@ -40,7 +40,9 @@ http_status(GET("http://httpbin.org/status/301"))
 http_status(GET("http://httpbin.org/status/404"))
 
 # errors out on unknown status
-\dontrun{http_status(GET("http://httpbin.org/status/320"))}
+\dontrun{
+http_status(GET("http://httpbin.org/status/320"))
+}
 }
 \seealso{
 Other response methods: \code{\link{content}},

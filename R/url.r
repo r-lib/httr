@@ -3,29 +3,28 @@
 
 #' Parse and build urls according to RFC1808.
 #'
-#' See \url{http://tools.ietf.org/html/rfc1808.html} for details of parsing
+#' See <http://tools.ietf.org/html/rfc1808.html> for details of parsing
 #' algorithm.
 #'
-#' @param url For \code{parse_url} a character vector (of length 1) to parse
-#'   into components; for \code{build_url} a list of components to turn back
+#' @param url For `parse_url` a character vector (of length 1) to parse
+#'   into components; for `build_url` a list of components to turn back
 #'   into a string.
-#' @return a list containing: \itemize{
-#'  \item scheme
-#'  \item hostname
-#'  \item port
-#'  \item path
-#'  \item params
-#'  \item fragment
-#'  \item query, a list
-#'  \item username
-#'  \item password
-#' }
+#' @return a list containing:
+#' * scheme
+#' * hostname
+#' * port
+#' * path
+#' * params
+#' * fragment
+#' * query, a list
+#' * username
+#' * password
 #' @export
 #' @examples
 #' parse_url("http://google.com/")
 #' parse_url("http://google.com:80/")
 #' parse_url("http://google.com:80/?a=1&b=2")
-#'
+#' 
 #' url <- parse_url("http://google.com/")
 #' url$scheme <- "https"
 #' url$query <- list(q = "hello")
@@ -53,7 +52,6 @@ parse_url <- function(url) {
     url <- paste0("/", url)
     port <- username <- password <- hostname <- NULL
   } else if (!is.null(netloc)) {
-
     pieces <- strsplit(netloc, "@")[[1]]
     if (length(pieces) == 1) {
       username <- NULL
@@ -86,10 +84,12 @@ parse_url <- function(url) {
   params <- pull_off(";(.*)$")
 
   structure(list(
-      scheme = scheme, hostname = hostname, port = port, path = url,
-      query = query, params = params, fragment = fragment,
-      username = username, password = password),
-    class = "url")
+    scheme = scheme, hostname = hostname, port = port, path = url,
+    query = query, params = params, fragment = fragment,
+    username = username, password = password
+  ),
+  class = "url"
+  )
 }
 
 is.url <- function(x) inherits(x, "url")
@@ -137,11 +137,13 @@ build_url <- function(url) {
     stop("Cannot set password without username")
   }
 
-  paste0(scheme, "://",
-        url$username, if (!is.null(url$password)) ":", url$password,
-        if (!is.null(url$username)) "@",
-        hostname, port, "/", path, params, query,
-        if (!is.null(url$fragment)) "#", url$fragment)
+  paste0(
+    scheme, "://",
+    url$username, if (!is.null(url$password)) ":", url$password,
+    if (!is.null(url$username)) "@",
+    hostname, port, "/", path, params, query,
+    if (!is.null(url$fragment)) "#", url$fragment
+  )
 }
 
 #' Modify a url.
@@ -156,12 +158,12 @@ build_url <- function(url) {
 modify_url <- function(url, scheme = NULL, hostname = NULL, port = NULL,
                        path = NULL, query = NULL, params = NULL, fragment = NULL,
                        username = NULL, password = NULL) {
-
   old <- parse_url(url)
   new <- compact(list(
     scheme = scheme, hostname = hostname, port = port, path = path,
     query = query, params = params, fragment = fragment,
-    username = username, password = password))
+    username = username, password = password
+  ))
 
   build_url(utils::modifyList(old, new))
 }

@@ -36,7 +36,9 @@ should_cache <- function(path = ".httr-oauth") {
   if (!interactive()) return(FALSE)
 
   cat("Use a local file ('", path, "'), to cache OAuth access credentials ",
-    "between R sessions?\n", sep = "")
+    "between R sessions?\n",
+    sep = ""
+  )
   utils::menu(c("Yes", "No")) == 1
 }
 

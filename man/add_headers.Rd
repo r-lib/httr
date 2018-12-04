@@ -23,15 +23,17 @@ add_headers(.headers = c(a = "1", b = "2"))
 GET("http://httpbin.org/headers")
 
 # Add arbitrary headers
-GET("http://httpbin.org/headers",
- add_headers(version = version$version.string))
+GET(
+  "http://httpbin.org/headers",
+  add_headers(version = version$version.string)
+)
 
 # Override default headers with empty strings
 GET("http://httpbin.org/headers", add_headers(Accept = ""))
 }
 \seealso{
-\code{\link{accept}} and \code{\link{content_type}} for
-  convenience functions for setting accept and content-type headers.
+\code{\link[=accept]{accept()}} and \code{\link[=content_type]{content_type()}} for
+convenience functions for setting accept and content-type headers.
 
 Other config: \code{\link{authenticate}},
   \code{\link{config}}, \code{\link{set_cookies}},

@@ -14,11 +14,11 @@ config(..., token = NULL)
 \description{
 Generally you should only need to use this function to set CURL options
 directly if there isn't already a helpful wrapper function, like
-\code{\link{set_cookies}}, \code{\link{add_headers}} or
-\code{\link{authenticate}}. To use this function effectively requires
-some knowledge of CURL, and CURL options. Use \code{\link{httr_options}} to
+\code{\link[=set_cookies]{set_cookies()}}, \code{\link[=add_headers]{add_headers()}} or
+\code{\link[=authenticate]{authenticate()}}. To use this function effectively requires
+some knowledge of CURL, and CURL options. Use \code{\link[=httr_options]{httr_options()}} to
 see a complete list of available options. To see the libcurl documentation
-for a given option, use \code{\link{curl_docs}}.
+for a given option, use \code{\link[=curl_docs]{curl_docs()}}.
 }
 \details{
 Unlike Curl (and RCurl), all configuration options are per request, not
@@ -48,10 +48,10 @@ HEAD("https://www.google.com")
 HEAD("https://www.google.com/", config(verbose = TRUE))
 }
 \seealso{
-\code{\link{set_config}} to set global config defaults, and
- \code{\link{with_config}} to temporarily run code with set options.
+\code{\link[=set_config]{set_config()}} to set global config defaults, and
+\code{\link[=with_config]{with_config()}} to temporarily run code with set options.
 
-All known available options are listed in \code{\link{httr_options}}
+All known available options are listed in \code{\link[=httr_options]{httr_options()}}
 
 Other config: \code{\link{add_headers}},
   \code{\link{authenticate}}, \code{\link{set_cookies}},

@@ -15,41 +15,41 @@ RETRY(verb, url = NULL, config = list(), ..., body = NULL,
 \item{url}{the url of the page to retrieve}
 
 \item{config}{Additional configuration settings such as http
-authentication (\code{\link{authenticate}}), additional headers
-(\code{\link{add_headers}}), cookies (\code{\link{set_cookies}}) etc.
-See \code{\link{config}} for full details and list of helpers.}
+authentication (\code{\link[=authenticate]{authenticate()}}), additional headers
+(\code{\link[=add_headers]{add_headers()}}), cookies (\code{\link[=set_cookies]{set_cookies()}}) etc.
+See \code{\link[=config]{config()}} for full details and list of helpers.}
 
 \item{...}{Further named parameters, such as \code{query}, \code{path}, etc,
-passed on to \code{\link{modify_url}}. Unnamed parameters will be combined
-with \code{\link{config}}.}
+passed on to \code{\link[=modify_url]{modify_url()}}. Unnamed parameters will be combined
+with \code{\link[=config]{config()}}.}
 
 \item{body}{One of the following:
 \itemize{
-  \item \code{FALSE}: No body. This is typically not used with \code{POST},
-    \code{PUT}, or \code{PATCH}, but can be useful if you need to send a
-    bodyless request (like \code{GET}) with \code{VERB()}.
-  \item \code{NULL}: An empty body
-  \item \code{""}: A length 0 body
-  \item \code{upload_file("path/")}: The contents of a file.  The mime
-    type will be guessed from the extension, or can be supplied explicitly
-    as the second argument to \code{upload_file()}
-  \item A character or raw vector: sent as is in body. Use
-    \code{\link{content_type}} to tell the server what sort of data
-    you are sending.
-  \item A named list: See details for encode.
+\item \code{FALSE}: No body. This is typically not used with \code{POST},
+\code{PUT}, or \code{PATCH}, but can be useful if you need to send a
+bodyless request (like \code{GET}) with \code{VERB()}.
+\item \code{NULL}: An empty body
+\item \code{""}: A length 0 body
+\item \code{upload_file("path/")}: The contents of a file.  The mime
+type will be guessed from the extension, or can be supplied explicitly
+as the second argument to \code{upload_file()}
+\item A character or raw vector: sent as is in body. Use
+\code{\link[=content_type]{content_type()}} to tell the server what sort of data
+you are sending.
+\item A named list: See details for encode.
 }}
 
 \item{encode}{If the body is a named list, how should it be encoded? Can be
-  one of form (application/x-www-form-urlencoded), multipart,
-  (multipart/form-data), or json (application/json).
+one of form (application/x-www-form-urlencoded), multipart,
+(multipart/form-data), or json (application/json).
 
-  For "multipart", list elements can be strings or objects created by
-  \code{\link{upload_file}}. For "form", elements are coerced to strings
-  and escaped, use \code{I()} to prevent double-escaping. For "json",
-  parameters are automatically "unboxed" (i.e. length 1 vectors are
-  converted to scalars). To preserve a length 1 vector as a vector,
-  wrap in \code{I()}. For "raw", either a character or raw vector. You'll
-  need to make sure to set the \code{\link{content_type}()} yourself.}
+For "multipart", list elements can be strings or objects created by
+\code{\link[=upload_file]{upload_file()}}. For "form", elements are coerced to strings
+and escaped, use \code{I()} to prevent double-escaping. For "json",
+parameters are automatically "unboxed" (i.e. length 1 vectors are
+converted to scalars). To preserve a length 1 vector as a vector,
+wrap in \code{I()}. For "raw", either a character or raw vector. You'll
+need to make sure to set the \code{\link[=content_type]{content_type()}} yourself.}
 
 \item{times}{Maximum number of requests to attempt.}
 
@@ -63,11 +63,11 @@ only necessary if you need pauses less than one second (which may
 not be kind to the server, use with caution!).}
 
 \item{handle}{The handle to use with this request. If not
-supplied, will be retrieved and reused from the \code{\link{handle_pool}}
+supplied, will be retrieved and reused from the \code{\link[=handle_pool]{handle_pool()}}
 based on the scheme, hostname and port of the url. By default \pkg{httr}
 requests to the same scheme/host/port combo. This substantially reduces
 connection time, and ensures that cookies are maintained over multiple
-requests to the same host. See \code{\link{handle_pool}} for more
+requests to the same host. See \code{\link[=handle_pool]{handle_pool()}} for more
 details.}
 
 \item{quiet}{If \code{FALSE}, will print a message displaying how long
@@ -75,7 +75,7 @@ until the next request.}
 
 \item{terminate_on}{Optional vector of numeric HTTP status codes that if found
 on the response will terminate the retry process. If \code{NULL}, will keep
-retrying while \code{\link{http_error}()} is \code{TRUE} for the response.}
+retrying while \code{\link[=http_error]{http_error()}} is \code{TRUE} for the response.}
 
 \item{terminate_on_success}{If \code{TRUE}, the default, this will
 automatically terminate when the request is successful, regardless of the
@@ -83,15 +83,15 @@ value of \code{terminate_on}.}
 }
 \value{
 The last response. Note that if the request doesn't succeed after
-  \code{times} times this will be a failed request, i.e. you still need
-  to use \code{\link{stop_for_status}()}.
+\code{times} times this will be a failed request, i.e. you still need
+to use \code{\link[=stop_for_status]{stop_for_status()}}.
 }
 \description{
 Safely retry a request until it succeeds, as defined by the \code{terminate_on}
-parameter, which by default means a response for which \code{\link{http_error}()}
+parameter, which by default means a response for which \code{\link[=http_error]{http_error()}}
 is \code{FALSE}. Will also retry on error conditions raised by the underlying curl code,
 but if the last retry still raises one, \code{RETRY} will raise it again with
-\code{\link{stop}()}.
+\code{\link[=stop]{stop()}}.
 It is designed to be kind to the server: after each failure
 randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in

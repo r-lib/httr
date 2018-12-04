@@ -6,15 +6,16 @@
 \usage{
 oauth2.0_token(endpoint, app, scope = NULL, user_params = NULL,
   type = NULL, use_oob = getOption("httr_oob_default"),
-  as_header = TRUE, use_basic_auth = FALSE,
+  oob_value = NULL, as_header = TRUE, use_basic_auth = FALSE,
   cache = getOption("httr_oauth_cache"), config_init = list(),
-  client_credentials = FALSE, credentials = NULL)
+  client_credentials = FALSE, credentials = NULL,
+  query_authorize_extra = list())
 }
 \arguments{
-\item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
+\item{endpoint}{An OAuth endpoint, created by \code{\link[=oauth_endpoint]{oauth_endpoint()}}}
 
 \item{app}{An OAuth consumer application, created by
-\code{\link{oauth_app}}}
+\code{\link[=oauth_app]{oauth_app()}}}
 
 \item{scope}{a character vector of scopes to request.}
 
@@ -28,6 +29,10 @@ access token.}
 Otherwise, provide a URL to the user and prompt for a validation
 code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
+
+\item{oob_value}{if provided, specifies the value to use for the redirect_uri
+parameter when retrieving an authorization URL. Defaults to "urn:ietf:wg:oauth:2.0:oob".
+Requires \code{use_oob = TRUE}.}
 
 \item{as_header}{If \code{TRUE}, the default, configures the token to add
 itself to the bearer header of subsequent requests. If \code{FALSE},
@@ -45,7 +50,7 @@ don't cache, and \code{NA} means to guess using some sensible heuristics.
 A string means use the specified path as the cache file.}
 
 \item{config_init}{Additional configuration settings sent to
-\code{\link{POST}}, e.g. \code{\link{user_agent}}.}
+\code{\link[=POST]{POST()}}, e.g. \code{\link[=user_agent]{user_agent()}}.}
 
 \item{client_credentials}{Default to \code{FALSE}. Set to \code{TRUE} to use
 \emph{Client Credentials Grant} instead of \emph{Authorization
@@ -53,6 +58,10 @@ Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
 
 \item{credentials}{Advanced use only: allows you to completely customise
 token generation.}
+
+\item{query_authorize_extra}{Default to \code{list()}. Set to named list
+holding query parameters to append to initial auth page query. Useful for
+some APIs.}
 }
 \value{
 A \code{Token2.0} reference class (RC) object.
@@ -64,7 +73,7 @@ reference class so that it can be seamlessly updated (e.g. using
 \code{$refresh()}) when access expires.
 }
 \details{
-See \code{\link{Token}} for full details about the token object, and the
+See \code{\link[=Token]{Token()}} for full details about the token object, and the
 caching policies used to store credentials across sessions.
 }
 \seealso{

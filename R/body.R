@@ -1,9 +1,10 @@
 body_config <- function(body = NULL,
                         encode = c("form", "json", "multipart", "raw"),
-                        type = NULL)  {
+                        type = NULL) {
   # No body
-  if (identical(body, FALSE))
+  if (identical(body, FALSE)) {
     return(config(post = TRUE, nobody = TRUE))
+  }
 
   # Send single file lazily
   if (inherits(body, "form_file")) {
@@ -14,10 +15,11 @@ body_config <- function(body = NULL,
       config(
         post = TRUE,
         readfunction = function(nbytes, ...) {
-          if(is.null(con))
+          if (is.null(con)) {
             return(raw())
+          }
           bin <- readBin(con, "raw", nbytes)
-          if (length(bin) < nbytes){
+          if (length(bin) < nbytes) {
             close(con)
             con <<- NULL
           }
@@ -30,16 +32,19 @@ body_config <- function(body = NULL,
   }
 
   # For character/raw, send raw bytes
-  if (is.character(body) || is.raw(body))
+  if (is.character(body) || is.raw(body)) {
     return(body_raw(body, type = type))
+  }
 
   # Post with empty body
-  if (is.null(body))
+  if (is.null(body)) {
     return(body_raw(raw()))
+  }
 
   if (!is.list(body)) {
     stop("Unknown type of `body`: must be NULL, FALSE, character, raw or list",
-      call. = FALSE)
+      call. = FALSE
+    )
   }
 
   body <- compact(body)
@@ -51,10 +56,14 @@ body_config <- function(body = NULL,
   } else if (encode == "form") {
     body_raw(compose_query(body), "application/x-www-form-urlencoded")
   } else if (encode == "json") {
-    body_raw(jsonlite::toJSON(body, auto_unbox = TRUE), "application/json")
+    body_raw(
+      jsonlite::toJSON(body, auto_unbox = TRUE, digits = 22),
+      "application/json"
+    )
   } else if (encode == "multipart") {
-    if (!all(has_name(body)))
+    if (!all(has_name(body))) {
       stop("All components of body must be named", call. = FALSE)
+    }
     request(fields = lapply(body, as_field))
   }
 }

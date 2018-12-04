@@ -10,7 +10,8 @@ sort_names <- function(x) x[order(names(x))]
 
 nonce <- function(length = 10) {
   paste(sample(c(letters, LETTERS, 0:9), length, replace = TRUE),
-    collapse = "")
+    collapse = ""
+  )
 }
 
 has_env_var <- function(x) !identical(Sys.getenv(x), "")
@@ -20,8 +21,9 @@ unnamed <- function(x) x[!has_name(x)]
 
 has_name <- function(x) {
   nms <- names(x)
-  if (is.null(nms))
+  if (is.null(nms)) {
     return(rep(FALSE, length(x)))
+  }
 
   !is.na(nms) & nms != ""
 }
@@ -72,16 +74,19 @@ keep_last <- function(...) {
 }
 
 find_cert_bundle <- function() {
-  if (.Platform$OS.type != "windows")
+  if (.Platform$OS.type != "windows") {
     return()
+  }
 
   env <- Sys.getenv("CURL_CA_BUNDLE")
-  if (!identical(env, ""))
+  if (!identical(env, "")) {
     return(env)
+  }
 
   bundled <- file.path(R.home("etc"), "curl-ca-bundle.crt")
-  if (file.exists(bundled))
+  if (file.exists(bundled)) {
     return(bundled)
+  }
 
   # Fall back to certificate bundle in openssl
   system.file("cacert.pem", package = "openssl")

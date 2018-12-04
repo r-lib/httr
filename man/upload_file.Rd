@@ -2,7 +2,7 @@
 % Please edit documentation in R/upload-file.r
 \name{upload_file}
 \alias{upload_file}
-\title{Upload a file with \code{\link{POST}} or \code{\link{PUT}}.}
+\title{Upload a file with \code{\link[=POST]{POST()}} or \code{\link[=PUT]{PUT()}}.}
 \usage{
 upload_file(path, type = NULL)
 }
@@ -10,10 +10,10 @@ upload_file(path, type = NULL)
 \item{path}{path to file}
 
 \item{type}{mime type of path. If not supplied, will be guess by
-\code{\link[mime]{guess_type}} when needed.}
+\code{\link[mime:guess_type]{mime::guess_type()}} when needed.}
 }
 \description{
-Upload a file with \code{\link{POST}} or \code{\link{PUT}}.
+Upload a file with \code{\link[=POST]{POST()}} or \code{\link[=PUT]{PUT()}}.
 }
 \examples{
 citation <- upload_file(system.file("CITATION"))

@@ -7,7 +7,7 @@
 oauth_service_token(endpoint, secrets, scope = NULL, sub = NULL)
 }
 \arguments{
-\item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
+\item{endpoint}{An OAuth endpoint, created by \code{\link[=oauth_endpoint]{oauth_endpoint()}}}
 
 \item{secrets}{Secrets loaded from JSON file, downloaded from console.}
 

@@ -1,7 +1,6 @@
 connection-sharing  Demonstration of how connection sharing saves time
 oauth1-nounproject  Using noun project api with OAuth 1.0 one-legged
 oauth1-twitter      Using twitter api with OAuth 1.0
-oauth1-vimeo        Using vimeo api with OAuth 1.0
 oauth1-yahoo        Using yahoo api with OAuth 1.0
 oauth1-withings     Using withings api with OAuth 1.0
 oauth2-azure        Using Azure apis with OAuth 2.0
@@ -10,5 +9,7 @@ oauth2-github       Using the github api with OAuth 2.0
 oauth2-google       Using the google api with OAuth 2.0
 oauth2-reddit       Using the reddit api with OAuth 2.0
 oauth2-linkedin     Using linkedin api with OAuth 1.0
+oauth2-vimeo        Using vimeo api with OAuth 2.0
+oauth2-yahoo        Using yahoo api with OAuth 2.0 and custom OOB redirect URI
 oauth2-yelp         Using yelp api with OAuth 2.0 and Client Credentials Grant
 service-account     Using Google service account

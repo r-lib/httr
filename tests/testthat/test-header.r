@@ -25,7 +25,7 @@ test_that("All headers captures headers from redirects", {
 
 test_that("Trailing line breaks removed", {
   header <- charToRaw("HTTP/1.1 200 OK\r\nA: B\r\n")
-  expect_equal(parse_headers(header)[[1]]$headers$A, "B")
+  expect_equal(parse_http_headers(header)[[1]]$headers$A, "B")
 })
 
 test_that("Invalid header raises error", {
@@ -35,13 +35,12 @@ test_that("Invalid header raises error", {
     "Invalid"
   )
   header <- charToRaw(paste(lines, collapse = "\n"))
-  expect_warning(parse_headers(header), "Failed to parse headers")
+  expect_warning(parse_http_headers(header), "Failed to parse headers")
 })
 
 test_that("http status line only needs two components", {
-  headers <- parse_headers(charToRaw("HTTP/1.1 200"))
+  headers <- parse_http_headers(charToRaw("HTTP/1.1 200"))
   expect_equal(headers[[1]]$status, 200L)
-
 })
 
 test_that("Key/value parsing tolerates multiple ':'", {
@@ -52,6 +51,16 @@ test_that("Key/value parsing tolerates multiple ':'", {
   )
   header <- charToRaw(paste(lines, collapse = "\n"))
 
-  expect_equal(parse_headers(header)[[1]]$headers$A, "B:C")
-  expect_equal(parse_headers(header)[[1]]$headers$D, "E:F")
+  expect_equal(parse_http_headers(header)[[1]]$headers$A, "B:C")
+  expect_equal(parse_http_headers(header)[[1]]$headers$D, "E:F")
+})
+
+test_that("cache_info() handles flagless cache control", {
+  response <- list(flags = "private", `max-age` = "0", `max-stale` = "0")
+  expect_equal(response[1], parse_cache_control("private"))
+  expect_equal(response[2], parse_cache_control("max-age=0"))
+  expect_equal(response[1:2], parse_cache_control("private, max-age=0"))
+  expect_equal(
+    response, parse_cache_control("private, max-age=0, max-stale=0")
+  )
 })

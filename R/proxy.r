@@ -27,4 +27,3 @@ use_proxy <- function(url, port = NULL, username = NULL, password = NULL,
     proxyauth = auth_flags(auth)
   )
 }
-

@@ -8,11 +8,13 @@
 \usage{
 init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
   type = NULL, use_oob = getOption("httr_oob_default"),
-  is_interactive = interactive(), use_basic_auth = FALSE,
-  config_init = list(), client_credentials = FALSE)
+  oob_value = NULL, is_interactive = interactive(),
+  use_basic_auth = FALSE, config_init = list(),
+  client_credentials = FALSE, query_authorize_extra = list())
 
 oauth2.0_authorize_url(endpoint, app, scope,
-  redirect_uri = app$redirect_uri, state = nonce())
+  redirect_uri = app$redirect_uri, state = nonce(),
+  query_extra = list())
 
 oauth2.0_access_token(endpoint, app, code, user_params = NULL,
   type = NULL, use_basic_auth = FALSE,
@@ -20,10 +22,10 @@ oauth2.0_access_token(endpoint, app, code, user_params = NULL,
   config = list())
 }
 \arguments{
-\item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
+\item{endpoint}{An OAuth endpoint, created by \code{\link[=oauth_endpoint]{oauth_endpoint()}}}
 
 \item{app}{An OAuth consumer application, created by
-\code{\link{oauth_app}}}
+\code{\link[=oauth_app]{oauth_app()}}}
 
 \item{scope}{a character vector of scopes to request.}
 
@@ -38,6 +40,10 @@ Otherwise, provide a URL to the user and prompt for a validation
 code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
 
+\item{oob_value}{if provided, specifies the value to use for the redirect_uri
+parameter when retrieving an authorization URL. Defaults to "urn:ietf:wg:oauth:2.0:oob".
+Requires \code{use_oob = TRUE}.}
+
 \item{is_interactive}{DEPRECATED}
 
 \item{use_basic_auth}{if \code{TRUE} use http basic authentication to
@@ -46,11 +52,17 @@ If \code{FALSE}, the default, retrieve the token by including the
 app key and secret in the request body.}
 
 \item{config_init}{Additional configuration settings sent to
-\code{\link{POST}}, e.g. \code{\link{user_agent}}.}
+\code{\link[=POST]{POST()}}, e.g. \code{\link[=user_agent]{user_agent()}}.}
 
 \item{client_credentials}{Default to \code{FALSE}. Set to \code{TRUE} to use
 \emph{Client Credentials Grant} instead of \emph{Authorization
 Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
+
+\item{query_authorize_extra}{Default to \code{list()}. Set to named list
+holding query parameters to append to initial auth page query. Useful for
+some APIs.}
+
+\item{query_extra}{See \code{query_authorize_extra}}
 }
 \description{
 See demos for use.

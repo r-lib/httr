@@ -11,7 +11,7 @@ http_type(x)
 }
 \value{
 A string giving the complete mime type, with all parameters
-  stripped off.
+stripped off.
 }
 \description{
 Extract the content type of a response

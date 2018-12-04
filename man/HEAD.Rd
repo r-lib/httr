@@ -10,21 +10,24 @@ HEAD(url = NULL, config = list(), ..., handle = NULL)
 \item{url}{the url of the page to retrieve}
 
 \item{config}{Additional configuration settings such as http
-authentication (\code{\link{authenticate}}), additional headers
-(\code{\link{add_headers}}), cookies (\code{\link{set_cookies}}) etc.
-See \code{\link{config}} for full details and list of helpers.}
+authentication (\code{\link[=authenticate]{authenticate()}}), additional headers
+(\code{\link[=add_headers]{add_headers()}}), cookies (\code{\link[=set_cookies]{set_cookies()}}) etc.
+See \code{\link[=config]{config()}} for full details and list of helpers.}
 
 \item{...}{Further named parameters, such as \code{query}, \code{path}, etc,
-passed on to \code{\link{modify_url}}. Unnamed parameters will be combined
-with \code{\link{config}}.}
+passed on to \code{\link[=modify_url]{modify_url()}}. Unnamed parameters will be combined
+with \code{\link[=config]{config()}}.}
 
 \item{handle}{The handle to use with this request. If not
-supplied, will be retrieved and reused from the \code{\link{handle_pool}}
+supplied, will be retrieved and reused from the \code{\link[=handle_pool]{handle_pool()}}
 based on the scheme, hostname and port of the url. By default \pkg{httr}
 requests to the same scheme/host/port combo. This substantially reduces
 connection time, and ensures that cookies are maintained over multiple
-requests to the same host. See \code{\link{handle_pool}} for more
+requests to the same host. See \code{\link[=handle_pool]{handle_pool()}} for more
 details.}
+}
+\value{
+A \code{\link[=response]{response()}} object.
 }
 \description{
 Get url HEADers.

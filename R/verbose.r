@@ -5,20 +5,16 @@
 #'
 #' @section Prefixes:
 #'
-#' \code{verbose()} uses the following prefixes to distinguish between
+#' `verbose()` uses the following prefixes to distinguish between
 #' different components of the http messages:
 #'
-#' \itemize{
-#'   \item \code{*} informative curl messages
-#'
-#'   \item \code{->} headers sent (out)
-#'   \item \code{>>} data sent (out)
-#'   \item \code{*>} ssl data sent (out)
-#'
-#'   \item \code{<-} headers received (in)
-#'   \item \code{<<} data received (in)
-#'   \item \code{<*} ssl data received (in)
-#' }
+#' * `*` informative curl messages
+#' * `->` headers sent (out)
+#' * `>>` data sent (out)
+#' * `*>` ssl data sent (out)
+#' * `<-` headers received (in)
+#' * `<<` data received (in)
+#' * `<*` ssl data received (in)
 #'
 #' @family config
 #' @param data_out Show data sent to the server.
@@ -26,19 +22,19 @@
 #'   for debugging https and auth problems, so is disabled by default.
 #' @param data_in Show data recieved from the server.
 #' @param ssl Show even data sent/recieved over SSL connections?
-#' @seealso \code{\link{with_verbose}()} makes it easier to use verbose mode
+#' @seealso [with_verbose()] makes it easier to use verbose mode
 #'  even when the requests are buried inside another function call.
 #' @export
 #' @examples
 #' GET("http://httpbin.org", verbose())
 #' GET("http://httpbin.org", verbose(info = TRUE))
-#'
+#' 
 #' f <- function() {
 #'   GET("http://httpbin.org")
 #' }
 #' with_verbose(f())
 #' with_verbose(f(), info = TRUE)
-#'
+#' 
 #' # verbose() makes it easy to see exactly what POST requests send
 #' POST_verbose <- function(body, ...) {
 #'   POST("https://httpbin.org/post", body = body, verbose(), ...)

@@ -3,9 +3,9 @@
 #' This is a bad idea because it will leave it on the history
 #'
 #' @param Name of environment variable.
-#' @param Value of environment variable. Use \code{NA} to unset.
+#' @param Value of environment variable. Use `NA` to unset.
 #' @param Scope of change. If "session", the change is ephemeral and will
-#'   disappear when you restart R. If "user", modifies your \code{~/.Renviron}
+#'   disappear when you restart R. If "user", modifies your `~/.Renviron`
 #'   so that it affects every project. If "site", modifies the site .Renviron
 #'   so that it affects every user.
 #' @return Invisibly, the previous value of the environment variable.
@@ -14,7 +14,7 @@
 #' \dontrun{
 #' # Set locally
 #' set_envvar("HTTR", "true")
-#'
+#' 
 #' # Set for every new session (and this session)
 #' set_envvar("HTTR", "false", "user")
 #' # Update existing value
@@ -32,8 +32,9 @@ set_envvar <- function(name, value, scope = c("session", "user", "site")) {
     site = Sys.getenv("R_ENVIRON", file.path(R.home("etc"), "Renviron.site"))
   )
   set_envvar_local(name, value)
-  if (scope != "session")
+  if (scope != "session") {
     set_envvar_renviron(name, value, path)
+  }
 
   invisible(old)
 }

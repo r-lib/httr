@@ -18,7 +18,6 @@ Add a progress bar.
 }
 \examples{
 cap_speed <- config(max_recv_speed_large = 10000)
-
 \donttest{
 # If file size is known, you get a progress bar:
 x <- GET("http://httpbin.org/bytes/102400", progress(), cap_speed)

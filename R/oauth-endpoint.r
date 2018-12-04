@@ -1,27 +1,30 @@
 #' Describe an OAuth endpoint.
 #'
-#' See \code{\link{oauth_endpoints}} for a list of popular OAuth endpoints
+#' See [oauth_endpoints()] for a list of popular OAuth endpoints
 #' baked into httr.
 #'
 #' @param request url used to request initial (unauthenticated) token.
-#'   If using OAuth2.0, leave as \code{NULL}.
-#' @param authorize url to send client to for authorisation. Set to \code{NULL}
+#'   If using OAuth2.0, leave as `NULL`.
+#' @param authorize url to send client to for authorisation. Set to `NULL`
 #'   if not needed
 #' @param access url used to exchange unauthenticated for authenticated token.
 #' @param ... other additional endpoints.
-#' @param base_url option url to use as base for \code{request},
-#'   \code{authorize} and \code{access} urls.
+#' @param base_url option url to use as base for `request`,
+#'   `authorize` and `access` urls.
 #' @family OAuth
 #' @export
 #' @examples
 #' linkedin <- oauth_endpoint("requestToken", "authorize", "accessToken",
-#'   base_url = "https://api.linkedin.com/uas/oauth")
+#'   base_url = "https://api.linkedin.com/uas/oauth"
+#' )
 #' github <- oauth_endpoint(NULL, "authorize", "access_token",
-#'   base_url = "https://github.com/login/oauth")
+#'   base_url = "https://github.com/login/oauth"
+#' )
 #' facebook <- oauth_endpoint(
 #'   authorize = "https://www.facebook.com/dialog/oauth",
-#'   access = "https://graph.facebook.com/oauth/access_token")
-#'
+#'   access = "https://graph.facebook.com/oauth/access_token"
+#' )
+#' 
 #' oauth_endpoints
 oauth_endpoint <- function(request = NULL, authorize, access, ...,
                            base_url = NULL) {
@@ -43,7 +46,8 @@ oauth_endpoint <- function(request = NULL, authorize, access, ...,
 }
 endpoint <- function(request, authorize, access, ...) {
   structure(list(request = request, authorize = authorize, access = access, ...),
-    class = "oauth_endpoint")
+    class = "oauth_endpoint"
+  )
 }
 
 is.oauth_endpoint <- function(x) inherits(x, "oauth_endpoint")
@@ -80,13 +84,13 @@ oauth_endpoints <- function(name) {
       access = "access_token"
     ),
     vimeo = oauth_endpoint(
-      base_url = "https://vimeo.com/oauth",
+      base_url = "https://api.vimeo.com/oauth",
       request = "request_token",
       authorize = "authorize",
       access = "access_token"
     ),
     yahoo = oauth_endpoint(
-      base_url = "https://api.login.yahoo.com/oauth/v2",
+      base_url = "https://api.login.yahoo.com/oauth2",
       request = "get_request_token",
       authorize = "request_auth",
       access = "get_token"

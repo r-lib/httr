@@ -1,7 +1,7 @@
 #' Compute caching information for a response.
 #'
-#' \code{cache_info()} gives details of cacheability of a response,
-#' \code{rerequest()} re-performs the original request doing as little work
+#' `cache_info()` gives details of cacheability of a response,
+#' `rerequest()` re-performs the original request doing as little work
 #' as possible (if not expired, returns response as is, or performs
 #' revalidation if Etag or Last-Modified headers are present).
 #'
@@ -13,19 +13,19 @@
 #' cache_info(r1)
 #' r1$date
 #' rerequest(r1)$date
-#'
+#' 
 #' # Expires in a year
 #' r2 <- GET("https://www.google.com/images/srpr/logo11w.png")
 #' cache_info(r2)
 #' r2$date
 #' rerequest(r2)$date
-#'
+#' 
 #' # Has last-modified and etag, so does revalidation
 #' r3 <- GET("http://httpbin.org/cache")
 #' cache_info(r3)
 #' r3$date
 #' rerequest(r3)$date
-#'
+#' 
 #' # Expires after 5 seconds
 #' \dontrun{
 #' r4 <- GET("http://httpbin.org/cache/5")
@@ -59,7 +59,7 @@ cache_info <- function(r) {
   cacheable <- r$request$method %in% c("GET", "HEAD") &&
     status_code(r) %in% c(200L, 203L, 300L, 301L, 410L) &&
     (!is.null(expires) || !is.null(r$headers$etag) ||
-        !is.null(r$headers$`last-modified`)) &&
+      !is.null(r$headers$`last-modified`)) &&
     !any(c("no-store", "no-cache") %in% control$flags)
   # What impact should any(c("public", "private") %in% control$flags) have?
 
@@ -104,7 +104,7 @@ parse_cache_control <- function(x) {
   flags <- pieces[!is_value]
 
   keyvalues <- strsplit(pieces[is_value], "\\s*=\\s*")
-  keys <- c("flags", lapply(keyvalues, "[[", 1))
+  keys <- c(rep("flags", length(flags)), lapply(keyvalues, "[[", 1))
   values <- c(flags, lapply(keyvalues, "[[", 2))
 
   stats::setNames(values, keys)
@@ -124,7 +124,8 @@ rerequest <- function(r) {
   }
 
   # Requires validation
-  req <- c(r$request,
+  req <- c(
+    r$request,
     request(headers = c(
       `If-Modified-Since` = http_date(x$modified),
       `If-None-Match` = x$etag

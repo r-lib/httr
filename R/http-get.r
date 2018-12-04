@@ -18,27 +18,29 @@
 #'
 #' The semantics of the GET method change to a "partial GET" if the request
 #' message includes a Range header field. A partial GET requests that only
-#' part of the entity be transferred, as described in \url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35}
+#' part of the entity be transferred, as described in <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35>
 #' The partial GET method is intended to reduce unnecessary network usage by
 #' allowing partially-retrieved entities to be completed without transferring
 #' data already held by the client.
 #'
 #' @param url the url of the page to retrieve
-#' @param ... Further named parameters, such as \code{query}, \code{path}, etc,
-#'   passed on to \code{\link{modify_url}}. Unnamed parameters will be combined
-#'   with \code{\link{config}}.
+#' @param ... Further named parameters, such as `query`, `path`, etc,
+#'   passed on to [modify_url()]. Unnamed parameters will be combined
+#'   with [config()].
 #' @param config Additional configuration settings such as http
-#'   authentication (\code{\link{authenticate}}), additional headers
-#'   (\code{\link{add_headers}}), cookies (\code{\link{set_cookies}}) etc.
-#'   See \code{\link{config}} for full details and list of helpers.
+#'   authentication ([authenticate()]), additional headers
+#'   ([add_headers()]), cookies ([set_cookies()]) etc.
+#'   See [config()] for full details and list of helpers.
 #' @param handle The handle to use with this request. If not
-#'   supplied, will be retrieved and reused from the \code{\link{handle_pool}}
+#'   supplied, will be retrieved and reused from the [handle_pool()]
 #'   based on the scheme, hostname and port of the url. By default \pkg{httr}
 #    automatically reuses the same http connection (aka handle) for mulitple
 #'   requests to the same scheme/host/port combo. This substantially reduces
 #'   connection time, and ensures that cookies are maintained over multiple
-#'   requests to the same host. See \code{\link{handle_pool}} for more
+#'   requests to the same host. See [handle_pool()] for more
 #'   details.
+#'
+#' @return A [response()] object.
 #'
 #' @family http methods
 #' @export
@@ -46,7 +48,7 @@
 #' GET("http://google.com/")
 #' GET("http://google.com/", path = "search")
 #' GET("http://google.com/", path = "search", query = list(q = "ham"))
-#'
+#' 
 #' # See what GET is doing with httpbin.org
 #' url <- "http://httpbin.org/get"
 #' GET(url)
@@ -55,7 +57,7 @@
 #' GET(url, add_headers(a = 1, b = 2), set_cookies(a = 1, b = 2))
 #' GET(url, authenticate("username", "password"))
 #' GET(url, verbose())
-#'
+#' 
 #' # You might want to manually specify the handle so you can have multiple
 #' # independent logins to the same website.
 #' google <- handle("http://google.com")

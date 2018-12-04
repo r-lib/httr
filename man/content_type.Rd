@@ -23,10 +23,10 @@ accept_xml()
 }
 \arguments{
 \item{type}{A mime type or a file extension. If a file extension (i.e. starts
-with \code{.}) will guess the mime type using \code{\link[mime]{guess_type}}.}
+with \code{.}) will guess the mime type using \code{\link[mime:guess_type]{mime::guess_type()}}.}
 }
 \description{
-These are convenient wrappers aroud \code{\link{add_headers}}.
+These are convenient wrappers aroud \code{\link[=add_headers]{add_headers()}}.
 }
 \details{
 \code{accept_json}/\code{accept_xml} and

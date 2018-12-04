@@ -19,5 +19,3 @@ test_that("reference claimset yields expected base64", {
 
   expect_equal(jwt_base64(cs), expected)
 })
-
-

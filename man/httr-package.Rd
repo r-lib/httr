@@ -7,28 +7,29 @@
 \title{\pkg{httr} makes http easy.}
 \description{
 \code{httr} is organised around the six most common http verbs:
-\code{\link{GET}}, \code{\link{PATCH}},
-\code{\link{POST}}, \code{\link{HEAD}},
-\code{\link{PUT}}, and \code{\link{DELETE}}.
+\code{\link[=GET]{GET()}}, \code{\link[=PATCH]{PATCH()}},
+\code{\link[=POST]{POST()}}, \code{\link[=HEAD]{HEAD()}},
+\code{\link[=PUT]{PUT()}}, and \code{\link[=DELETE]{DELETE()}}.
 }
 \details{
-Each request returns a \code{\link{response}} object which provides
+Each request returns a \code{\link[=response]{response()}} object which provides
 easy access to status code, cookies, headers, timings, and other useful
 info.  The content of the request is available as a raw vector
-(\code{\link{content}}), character vector (\code{\link{text_content}}),
-or parsed into an R object (\code{\link{parsed_content}}), currently for
+(\code{\link[=content]{content()}}), character vector (\code{\link[=text_content]{text_content()}}),
+or parsed into an R object (\code{\link[=parsed_content]{parsed_content()}}), currently for
 html, xml, json, png and jpeg).
 
 Requests can be modified by various config options like
-\code{\link{set_cookies}}, \code{\link{add_headers}},
-\code{\link{authenticate}}, \code{\link{use_proxy}},
-\code{\link{verbose}}, and \code{\link{timeout}}
+\code{\link[=set_cookies]{set_cookies()}}, \code{\link[=add_headers]{add_headers()}},
+\code{\link[=authenticate]{authenticate()}}, \code{\link[=use_proxy]{use_proxy()}},
+\code{\link[=verbose]{verbose()}}, and \code{\link[=timeout]{timeout()}}
 
-httr supports OAuth 1.0 and 2.0. Use \code{\link{oauth1.0_token}} and
-\code{\link{oauth2.0_token}} to get user tokens, and
-\code{\link{sign_oauth1.0}} and \code{\link{sign_oauth2.0}} to sign
-requests. The demos directory has six demos of using OAuth: three for 1.0
-(linkedin, twitter and vimeo) and three for 2.0 (facebook, github, google).
+httr supports OAuth 1.0 and 2.0. Use \code{\link[=oauth1.0_token]{oauth1.0_token()}} and
+\code{\link[=oauth2.0_token]{oauth2.0_token()}} to get user tokens, and
+\code{\link[=sign_oauth1.0]{sign_oauth1.0()}} and \code{\link[=sign_oauth2.0]{sign_oauth2.0()}} to sign
+requests. The demos directory has twelve demos of using OAuth: four for 1.0
+(linkedin, twitter, vimeo, and yahoo) and eight for 2.0 (azure, facebook,
+github, google, linkedin, reddit, yahoo, and yelp).
 }
 \seealso{
 Useful links:

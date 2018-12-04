@@ -8,14 +8,20 @@ oauth_endpoints("vimeo")
 #    Replace key and secret below.
 myapp <- oauth_app("vimeo",
   key = "bd535bc38ed5caccd79330ff33075eb9",
-  secret = "51ab8cb2cbb8b7eb")
+  secret = "51ab8cb2cbb8b7eb"
+)
 
 # 3. Get OAuth credentials
-vimeo_token <- oauth1.0_token(oauth_endpoints("vimeo"), myapp)
+vimeo_token <- oauth2.0_token(
+  oauth_endpoints("vimeo"), myapp,
+  as_header = TRUE,
+  use_basic_auth = TRUE
+)
 
 # 4. Use API
-req <- GET("https://vimeo.com/api/rest/v2",
-  query = list(method = "vimeo.videos.getAll", format = "json"),
-  config(token = vimeo_token))
+req <- GET(
+  "https://api.vimeo.com/me/videos",
+  config(token = vimeo_token)
+)
 stop_for_status(req)
-str(content(req))
+str(jsonlite::fromJSON(content(req, "text")))

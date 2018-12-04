@@ -28,8 +28,10 @@ test_that("string/raw in body gives same string in data element", {
 test_that("string/raw in body doesn't lose content type", {
   body <- charToRaw("test")
   content_type <- "application/awesome"
-  response <- content(POST("http://httpbin.org/post", body = body,
-                           add_headers("Content-Type" = content_type)))
+  response <- content(POST("http://httpbin.org/post",
+    body = body,
+    add_headers("Content-Type" = content_type)
+  ))
   expect_equal(response$headers$`Content-Type`, content_type)
 })
 
@@ -57,6 +59,14 @@ test_that("named list matches form results (encode = 'json')", {
   out <- round_trip(body = list(a = 1, b = 2), encode = "json")
   expect_equal(out$json$a[[1]], 1)
   expect_equal(out$json$b[[1]], 2)
+})
+
+test_that("decimal precision is preserved (encode = 'json')", {
+  out <- round_trip(
+    body = list(a = 0.8675309867530986753098675309),
+    encode = "json"
+  )
+  expect_equal(out$data, "{\"a\":0.867530986753099}")
 })
 
 test_that("can do own encoding", {
@@ -92,4 +102,3 @@ test_that("explicit content type overrides defaults", {
 
   expect_equal(out$headers$`Content-Type`, "application/json")
 })
-

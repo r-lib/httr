@@ -1,7 +1,7 @@
 #' Sign an OAuth request
 #'
 #' Deprecated. Instead create a config object directly using
-#' \code{config(token = my_token)}.
+#' `config(token = my_token)`.
 #'
 #' @keywords internal
 #' @name sign_oauth
@@ -14,8 +14,10 @@ sign_oauth1.0 <- function(app, token = NULL, token_secret = NULL,
   params <- list(as_header = as_header)
 
   credentials <- list(oauth_token = token, oauth_token_secret = token_secret)
-  token <- Token1.0$new(endpoint = NULL, params = params, app = app,
-    credentials = credentials)
+  token <- Token1.0$new(
+    endpoint = NULL, params = params, app = app,
+    credentials = credentials
+  )
   request(auth_token = token)
 }
 
@@ -31,10 +33,10 @@ sign_oauth2.0 <- function(access_token, as_header = TRUE) {
 #' components of the OAuth spec, but not all of them (e.g. 2-legged oauth)
 #'
 #' @param url,method Url and http method of request.
-#' @param app \code{\link{oauth_app}} object representing application.
+#' @param app [oauth_app()] object representing application.
 #' @param token,token_secret OAuth token and secret.
 #' @param other_params Named argument providing additional parameters
-#'   (e.g. \code{oauth_callback} or \code{oauth_body_hash}).
+#'   (e.g. `oauth_callback` or `oauth_body_hash`).
 #' @export
 #' @keywords internal
 #' @return A list of oauth parameters.
@@ -80,8 +82,13 @@ oauth_signature <- function(url, method = "GET", app, token = NULL,
 #' @rdname oauth_signature
 #' @export
 oauth_header <- function(info) {
-  oauth <- paste0("OAuth ", paste0(
-    oauth_encode(names(info)), "=\"", oauth_encode(info), "\"", collapse = ", "))
+  oauth <- paste0(
+    "OAuth ",
+    paste0(
+      oauth_encode(names(info)), "=\"", oauth_encode(info), "\"",
+      collapse = ", "
+    )
+  )
   add_headers(Authorization = oauth)
 }
 

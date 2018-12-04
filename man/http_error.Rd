@@ -10,14 +10,14 @@ http_error(x, ...)
 }
 \arguments{
 \item{x}{Object to check. Default methods are provided for strings
-(which perform an \code{\link{HEAD}} request), responses, and
+(which perform an \code{\link[=HEAD]{HEAD()}} request), responses, and
 integer status codes.}
 
 \item{...}{Other arguments passed on to methods.}
 }
 \value{
 \code{TRUE} if the request fails (status code 400 or above),
-  otherwise \code{FALSE}.
+otherwise \code{FALSE}.
 }
 \description{
 Check for an http error.

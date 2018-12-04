@@ -1,16 +1,21 @@
 request <- function(method = NULL, url = NULL, headers = NULL,
                     fields = NULL, options = NULL, auth_token = NULL,
                     output = NULL) {
-  if (!is.null(method))
+  if (!is.null(method)) {
     stopifnot(is.character(method), length(method) == 1)
-  if (!is.null(url))
+  }
+  if (!is.null(url)) {
     stopifnot(is.character(url), length(url) == 1)
-  if (!is.null(headers))
+  }
+  if (!is.null(headers)) {
     stopifnot(is.character(headers))
-  if (!is.null(fields))
+  }
+  if (!is.null(fields)) {
     stopifnot(is.list(fields))
-  if (!is.null(output))
+  }
+  if (!is.null(output)) {
     stopifnot(inherits(output, "write_function"))
+  }
 
   structure(
     list(
@@ -75,23 +80,25 @@ request_combine <- function(x, y) {
   stopifnot(is.request(x), is.request(y))
 
   request(
-    method =     y$method %||% x$method,
-    url =        y$url %||% x$url,
-    headers =    keep_last(x$headers, y$headers),
-    fields =     c(x$fields, y$fields),
-    options =    keep_last(x$options, y$options),
+    method = y$method %||% x$method,
+    url = y$url %||% x$url,
+    headers = keep_last(x$headers, y$headers),
+    fields = c(x$fields, y$fields),
+    options = keep_last(x$options, y$options),
     auth_token = y$auth_token %||% x$auth_token,
-    output =     y$output %||% x$output
+    output = y$output %||% x$output
   )
 }
 
 #' @export
 print.request <- function(x, ...) {
   cat("<request>\n")
-  if (!is.null(x$method) && !is.null(x$url))
+  if (!is.null(x$method) && !is.null(x$url)) {
     cat(toupper(x$method), " ", x$url, "\n", sep = "")
-  if (!is.null(x$output))
+  }
+  if (!is.null(x$output)) {
     cat("Output: ", class(x$output)[[1]], "\n", sep = "")
+  }
   named_vector("Options", x$options)
   named_vector("Headers", x$headers)
   named_vector("Fields", x$fields)
@@ -108,7 +115,7 @@ request_prepare <- function(req) {
   # Use specific options for GET and POST; otherwise, perform a custom request.
   # The PUT/UPLOAD options don't appear to work, instead hanging forever.
   switch(req$method,
-    GET =  req$options$httpget <- TRUE,
+    GET = req$options$httpget <- TRUE,
     POST = req$options$post <- TRUE,
     req$options$customrequest <- req$method
   )
@@ -133,12 +140,15 @@ request_perform <- function(req, handle, refresh = TRUE) {
   if (!is.null(res <- perform_callback("request", req = req))) return(res)
 
   curl::handle_setopt(handle, .list = req$options)
-  if (!is.null(req$fields))
+  if (!is.null(req$fields)) {
     curl::handle_setform(handle, .list = req$fields)
+  }
   curl::handle_setheaders(handle, .list = req$headers)
   on.exit(curl::handle_reset(handle), add = TRUE)
 
   resp <- request_fetch(req$output, req$url, handle)
+
+  browser()
 
   # If return 401 and have auth token, refresh it and then try again
   needs_refresh <- refresh && resp$status_code == 401L &&
@@ -149,9 +159,17 @@ request_perform <- function(req, handle, refresh = TRUE) {
     return(request_perform(req, handle, refresh = FALSE))
   }
 
-  all_headers <- parse_headers(resp$headers)
-  headers <- last(all_headers)$headers
-  if (!is.null(headers$date)) {
+  url_scheme <- parse_url(resp$url)$scheme
+  is_http <- tolower(url_scheme) %in% c("http", "https")
+  if (is_http) {
+    all_headers <- parse_http_headers(resp$headers)
+    headers <- last(all_headers)$headers
+  } else {
+    all_headers <- NULL
+    headers <- resp$headers
+  }
+
+  if (is_http && !is.null(headers$date)) {
     date <- parse_http_date(headers$Date)
   } else {
     date <- Sys.time()
@@ -177,4 +195,3 @@ request_perform <- function(req, handle, refresh = TRUE) {
 
   res
 }
-

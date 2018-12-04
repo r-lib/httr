@@ -20,7 +20,7 @@
 #' more currently cached entities, those entries SHOULD be treated as stale.
 #' Responses to this method are not cacheable.
 #'
-#' @inheritParams GET
+#' @inherit GET params return
 #' @inheritParams POST
 #' @family http methods
 #' @export
@@ -31,7 +31,9 @@ DELETE <- function(url = NULL, config = list(), ...,
                    body = NULL, encode = c("multipart", "form", "json", "raw"),
                    handle = NULL) {
   hu <- handle_url(handle, url, ...)
-  req <- request_build("DELETE", hu$url, body_config(body, match.arg(encode)),
-    as.request(config), ...)
+  req <- request_build(
+    "DELETE", hu$url, body_config(body, match.arg(encode)),
+    as.request(config), ...
+  )
   request_perform(req, hu$handle$handle)
 }

@@ -8,8 +8,10 @@ test_that("basic authentication works", {
   r <- GET(path = path, handle = h)
   expect_equal(r$status_code, 401)
 
-  r <- GET(path = path, handle = h,
-    config = authenticate("user", "passwd", "basic"))
+  r <- GET(
+    path = path, handle = h,
+    config = authenticate("user", "passwd", "basic")
+  )
   expect_equal(r$status_code, 200)
 
   # Authentication shouldn't persist
@@ -24,14 +26,17 @@ test_that("digest authentication works", {
   r <- GET(path = path, handle = h)
   expect_equal(r$status_code, 401)
 
-  r <- GET(path = path, handle = h,
-    config = authenticate("user", "passwd", "digest"))
+  r <- GET(
+    path = path, handle = h,
+    config = authenticate("user", "passwd", "digest")
+  )
   expect_equal(r$status_code, 200)
 })
 
 test_that("timeout enforced", {
   skip_on_cran()
-  expect_error(GET("http://httpbin.org/delay/1", timeout(0.5)),
-    "(Timeout was reached)|(timed out)")
+  expect_error(
+    GET("http://httpbin.org/delay/1", timeout(0.5)),
+    "(Timeout was reached)|(timed out)"
+  )
 })
-

@@ -13,7 +13,7 @@ oauth_header(info)
 \arguments{
 \item{url, method}{Url and http method of request.}
 
-\item{app}{\code{\link{oauth_app}} object representing application.}
+\item{app}{\code{\link[=oauth_app]{oauth_app()}} object representing application.}
 
 \item{token, token_secret}{OAuth token and secret.}
 

@@ -17,7 +17,9 @@ myapp <- oauth_app("twitter",
 twitter_token <- oauth1.0_token(oauth_endpoints("twitter"), myapp)
 
 # 4. Use API
-req <- GET("https://api.twitter.com/1.1/statuses/home_timeline.json",
-  config(token = twitter_token))
+req <- GET(
+  "https://api.twitter.com/1.1/statuses/home_timeline.json",
+  config(token = twitter_token)
+)
 stop_for_status(req)
 content(req)

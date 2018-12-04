@@ -1,6 +1,6 @@
 #' Guess the media type of a path from its extension.
 #'
-#' DEPRECATED: please use \code{mime::guess_type} instead.
+#' DEPRECATED: please use `mime::guess_type` instead.
 #'
 #' @param x path to file
 #' @keywords internal

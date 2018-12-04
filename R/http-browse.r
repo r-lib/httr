@@ -6,7 +6,7 @@
 #'
 #' @param config All configuration options are ignored because the request
 #'   is handled by the browser, not \pkg{RCurl}.
-#' @inheritParams GET
+#' @inherit GET params return
 #' @family http methods
 #' @export
 #' @examples

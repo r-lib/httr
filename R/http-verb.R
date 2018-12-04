@@ -2,17 +2,19 @@
 #'
 #' Use an arbitrary verb.
 #'
-#' @inheritParams GET
+#' @inherit GET params return
 #' @inheritParams POST
 #' @param verb Name of verb to use.
 #' @family http methods
 #' @export
 #' @examples
-#' r <- VERB("PROPFIND", "http://svn.r-project.org/R/tags/",
-#'   add_headers(depth = 1), verbose())
+#' r <- VERB(
+#'   "PROPFIND", "http://svn.r-project.org/R/tags/",
+#'   add_headers(depth = 1), verbose()
+#' )
 #' stop_for_status(r)
 #' content(r)
-#'
+#' 
 #' VERB("POST", url = "http://httpbin.org/post")
 #' VERB("POST", url = "http://httpbin.org/post", body = "foobar")
 VERB <- function(verb, url = NULL, config = list(), ...,

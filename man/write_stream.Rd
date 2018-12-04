@@ -17,10 +17,11 @@ you receive the raw bytes as they come in, and you can do whatever you want
 with them.
 }
 \examples{
-GET("https://github.com/jeroen/data/raw/gh-pages/diamonds.json",
+GET(
+  "https://github.com/jeroen/data/raw/gh-pages/diamonds.json",
   write_stream(function(x) {
-   print(length(x))
-   length(x)
- })
+    print(length(x))
+    length(x)
+  })
 )
 }

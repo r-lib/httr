@@ -23,7 +23,7 @@ init_oauth_service_account <- function(secrets, scope = NULL, sub = NULL) {
 #' Generate a JWT signature given credentials.
 #'
 #' As described in
-#' \url{https://developers.google.com/accounts/docs/OAuth2ServiceAccount}
+#' <https://developers.google.com/accounts/docs/OAuth2ServiceAccount>
 #'
 #' @param credentials Parsed contents of the credentials file.
 #' @param scope A space-delimited list of the permissions that the application
@@ -54,8 +54,7 @@ jwt_signature <- function(credentials,
                           sub = NULL,
                           iat = as.integer(Sys.time()),
                           exp = iat + duration,
-                          duration = 60L * 60L
-                          ) {
+                          duration = 60L * 60L) {
   cs <- compact(list(
     iss = credentials$client_email,
     scope = scope,
@@ -92,6 +91,6 @@ base64url <- function(x) {
   if (is.character(x)) {
     x <- charToRaw(x)
   }
-  out <- chartr('+/', '-_', openssl::base64_encode(x))
+  out <- chartr("+/", "-_", openssl::base64_encode(x))
   gsub("=+$", "", out)
 }

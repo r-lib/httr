@@ -3,7 +3,7 @@
 #' This S3 object allows you to control how the response body is saved.
 #'
 #' @param subclass,... Class name and fields. Used in class constructors.
-#' @param x A \code{write_function} object to process.
+#' @param x A `write_function` object to process.
 #' @keywords internal
 #' @export
 write_function <- function(subclass, ...) {
@@ -12,26 +12,28 @@ write_function <- function(subclass, ...) {
 
 #' Control where the response body is written.
 #'
-#' The default behaviour is to use \code{write_memory()}, which caches
+#' The default behaviour is to use `write_memory()`, which caches
 #' the response locally in memory. This is useful when talking to APIs as
 #' it avoids a round-trip to disk. If you want to save a file that's bigger
-#' than memory, use \code{write_disk()} to save it to a known path.
+#' than memory, use `write_disk()` to save it to a known path.
 #'
 #' @param path Path to content to.
-#' @param overwrite Will only overwrite existing \code{path} if TRUE.
+#' @param overwrite Will only overwrite existing `path` if TRUE.
 #' @export
 #' @examples
 #' tmp <- tempfile()
 #' r1 <- GET("https://www.google.com", write_disk(tmp))
 #' readLines(tmp)
-#'
+#' 
 #' # The default
 #' r2 <- GET("https://www.google.com", write_memory())
-#'
+#' 
 #' # Save a very large file
 #' \dontrun{
-#' GET("http://www2.census.gov/acs2011_5yr/pums/csv_pus.zip",
-#'   write_disk("csv_pus.zip"), progress())
+#' GET(
+#'   "http://www2.census.gov/acs2011_5yr/pums/csv_pus.zip",
+#'   write_disk("csv_pus.zip"), progress()
+#' )
 #' }
 write_disk <- function(path, overwrite = FALSE) {
   if (!overwrite && file.exists(path)) {
@@ -58,11 +60,12 @@ write_memory <- function() {
 #'   vector containing the bytes recieved from the server. This will usually
 #'   be 16k or less. The return value of the function is ignored.
 #' @examples
-#' GET("https://github.com/jeroen/data/raw/gh-pages/diamonds.json",
+#' GET(
+#'   "https://github.com/jeroen/data/raw/gh-pages/diamonds.json",
 #'   write_stream(function(x) {
-#'    print(length(x))
-#'    length(x)
-#'  })
+#'     print(length(x))
+#'     length(x)
+#'   })
 #' )
 #' @export
 write_stream <- function(f) {

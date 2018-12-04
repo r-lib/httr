@@ -37,7 +37,8 @@ oauth_app <- function(appname,
     secret <- Sys.getenv(env_name)
     if (secret == "") {
       warning("Couldn't find secret in environment variable ", env_name,
-        call. = FALSE)
+        call. = FALSE
+      )
       secret <- NULL
     } else {
       message("Using secret stored in environment variable ", env_name)

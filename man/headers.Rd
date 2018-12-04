@@ -17,6 +17,6 @@ r <- GET("http://httpbin.org/get")
 headers(r)
 }
 \seealso{
-\code{\link{add_headers}()} to send additional headers in a
-  request
+\code{\link[=add_headers]{add_headers()}} to send additional headers in a
+request
 }

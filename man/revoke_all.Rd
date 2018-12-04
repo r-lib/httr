@@ -7,7 +7,7 @@
 revoke_all(cache_path = NA)
 }
 \arguments{
-\item{cache_path}{Path to cache file. Defaults to `.httr-oauth` in
+\item{cache_path}{Path to cache file. Defaults to \code{.httr-oauth} in
 current directory.}
 }
 \description{

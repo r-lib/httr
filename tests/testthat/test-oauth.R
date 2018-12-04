@@ -35,10 +35,12 @@ test_that("partial OAuth1 flow works", {
   )
   myapp <- oauth_app("rfigshare",
     key = "Kazwg91wCdBB9ggypFVVJg",
-    secret = "izgO06p1ymfgZTsdsZQbcA")
+    secret = "izgO06p1ymfgZTsdsZQbcA"
+  )
   sig <- sign_oauth1.0(myapp,
     token = "xdBjcKOiunwjiovwkfTF2QjGhROeLMw0y0nSCSgvg3YQxdBjcKOiunwjiovwkfTF2Q",
-    token_secret = "4mdM3pfekNGO16X4hsvZdg")
+    token_secret = "4mdM3pfekNGO16X4hsvZdg"
+  )
 
   r <- GET("http://api.figshare.com/v1/my_data/articles", sig)
   expect_equal(status_code(r), 200)
@@ -53,6 +55,43 @@ test_that("oauth_encode1 works", {
   expect_equal(orig_string, restored_string)
 })
 
+test_that("oauth2.0 authorize url appends query params", {
+  app <- oauth_app("x", "y", "z")
+  scope <- NULL
+  query_extra <- list(
+    foo = "bar"
+  )
+  authURL <- oauth2.0_authorize_url(
+    endpoint = oauth_endpoints("google"),
+    app = app,
+    scope = scope,
+    query_extra = query_extra
+  )
+
+  url <- parse_url(authURL)
+  expect_equal(url$query$foo, "bar")
+})
+
+test_that("oauth2.0 authorize url handles empty query_extra input", {
+  # common constructor
+  authorize_url_extra_params <- function(extra_params) {
+    app <- oauth_app("x", "y", "z")
+    scope <- NULL
+
+    url_with_empty_input <- oauth2.0_authorize_url(
+      endpoint = oauth_endpoints("google"),
+      app = app,
+      scope = scope,
+      state = "testing-nonce",
+      query_extra = extra_params
+    )
+    parse_url(url_with_empty_input)$query
+  }
+
+  # expect NA (i.e. no) error
+  expect_error(authorize_url_extra_params(list()), NA) # with empty list
+  expect_error(authorize_url_extra_params(NULL), NA) # with NULL list
+})
 
 # Parameter checking ------------------------------------------------------
 
@@ -73,4 +112,11 @@ test_that("oob must be a flag", {
 
 test_that("can not use oob in non-interactive session", {
   expect_error(check_oob(TRUE), "interactive")
+})
+
+test_that("can not use custom oob value without enabling oob", {
+  with_mock(
+    `httr:::is_interactive` = function() TRUE,
+    expect_error(check_oob(FALSE, "custom_value"), "custom oob value")
+  )
 })

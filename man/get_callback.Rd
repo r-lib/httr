@@ -17,25 +17,25 @@ or \code{NULL} to remove the currently installed callback (if any).}
 }
 \value{
 \code{get_callback} returns the currently installed
-  callback, or \code{NULL} if none is installed.
+callback, or \code{NULL} if none is installed.
 
-  \code{set_callback} returns the previously installed callback,
-  or \code{NULL} if none was installed.
+\code{set_callback} returns the previously installed callback,
+or \code{NULL} if none was installed.
 }
 \description{
 Supported callback functions: \describe{
 \item{\sQuote{request}}{This callback is called before an HTTP request
-  is performed, with the \code{request} object as an argument.
-  If the callback returns a value other than \code{NULL}, the HTTP
-  request is not performed at all, and the return value of the callback
-  is returned. This mechanism can be used to replay previously
-  recorded HTTP responses.
+is performed, with the \code{request} object as an argument.
+If the callback returns a value other than \code{NULL}, the HTTP
+request is not performed at all, and the return value of the callback
+is returned. This mechanism can be used to replay previously
+recorded HTTP responses.
 }
 \item{\sQuote{response}}{This callback is called after an HTTP request
-  is performed. The callback is called with two arguments: the
-  \code{request} object and the \code{response} object of the HTTP
-  request. If this callback returns a value other than \code{NULL},
-  then this value is returned by \code{httr}.}
+is performed. The callback is called with two arguments: the
+\code{request} object and the \code{response} object of the HTTP
+request. If this callback returns a value other than \code{NULL},
+then this value is returned by \code{httr}.}
 }
 }
 \details{
@@ -83,4 +83,5 @@ grec <- GET("https://httpbin.org")
 grec$date == g3$date
 set_callback("request", old_req)
 }
+
 }

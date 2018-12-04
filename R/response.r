@@ -1,20 +1,21 @@
 #' The response object.
 #'
+#' @description
 #' The response object captures all information from a request.  It includes
 #' fields:
 #'
-#' \itemize{
-#'   \item \code{url} the url the request was actually sent to
-#'     (after redirects)
-#'   \item \code{handle} the handle associated with the url
-#'   \item \code{status_code} the http status code
-#'   \item \code{header} a named list of headers returned by the server
-#'   \item \code{cookies} a named list of cookies returned by the server
-#'   \item \code{content} the body of the response, as raw vector. See
-#'      \code{\link{content}} for various ways to access the content.
-#'   \item \code{time} request timing information
-#'   \item \code{config} configuration for the request
-#' }
+#' * `url` the url the request was actually sent to (after redirects)
+#' * `handle` the handle associated with the url
+#' * `status_code` the http status code
+#' * `header` a named list of headers returned by the server
+#' * `cookies` a named list of cookies returned by the server
+#' * `content` the body of the response, as raw vector. See [content()] for various ways to access the content.
+#' * `time` request timing information
+#' * `config` configuration for the request
+#'
+#' @details For non-http(s) responses, some parts including the status and
+#'   header may not be interpretable the same way as http responses.
+#'
 #' @name response
 #' @family response methods
 NULL

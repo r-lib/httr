@@ -30,7 +30,9 @@ r2 <- GET("https://www.google.com", write_memory())
 
 # Save a very large file
 \dontrun{
-GET("http://www2.census.gov/acs2011_5yr/pums/csv_pus.zip",
-  write_disk("csv_pus.zip"), progress())
+GET(
+  "http://www2.census.gov/acs2011_5yr/pums/csv_pus.zip",
+  write_disk("csv_pus.zip"), progress()
+)
 }
 }

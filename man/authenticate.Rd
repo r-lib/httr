@@ -21,8 +21,10 @@ I recommend using custom handles with authentication.
 }
 \examples{
 GET("http://httpbin.org/basic-auth/user/passwd")
-GET("http://httpbin.org/basic-auth/user/passwd",
-  authenticate("user", "passwd"))
+GET(
+  "http://httpbin.org/basic-auth/user/passwd",
+  authenticate("user", "passwd")
+)
 }
 \seealso{
 Other config: \code{\link{add_headers}},

@@ -17,5 +17,5 @@ r <- GET("http://httpbin.org/cookies/set", query = list(a = 1, b = 2))
 cookies(r)
 }
 \seealso{
-\code{\link{set_cookies}()} to send cookies in request.
+\code{\link[=set_cookies]{set_cookies()}} to send cookies in request.
 }
