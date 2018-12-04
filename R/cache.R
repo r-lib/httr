@@ -104,7 +104,7 @@ parse_cache_control <- function(x) {
   flags <- pieces[!is_value]
 
   keyvalues <- strsplit(pieces[is_value], "\\s*=\\s*")
-  keys <- c("flags", lapply(keyvalues, "[[", 1))
+  keys <- c(rep("flags", length(flags)), lapply(keyvalues, "[[", 1))
   values <- c(flags, lapply(keyvalues, "[[", 2))
 
   stats::setNames(values, keys)

@@ -1,5 +1,8 @@
 # httr 1.3.1.9000
 
+* `cache_info()` now handles un-named flags, as illustrated by "private" when
+  the server returns "private, max-age = 0".
+
 * An `oob_value` argument has been added to `oauth2.0_token()` and `init_oauth2.0()`, enabling arbitrary values to be sent for the `request_uri` parameter during OOB flows (@ctrombley, #493).
 
 * Yahoo API endpoint base URL has been updated to match the Yahoo documentation for OAuth2 flows (@ctrombley, #493).
