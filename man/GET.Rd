@@ -26,6 +26,9 @@ connection time, and ensures that cookies are maintained over multiple
 requests to the same host. See \code{\link{handle_pool}} for more
 details.}
 }
+\value{
+A \code{\link{response}} object.
+}
 \description{
 GET a url.
 }
@@ -80,3 +83,4 @@ Other http methods: \code{\link{BROWSE}},
   \code{\link{PATCH}}, \code{\link{POST}},
   \code{\link{PUT}}, \code{\link{VERB}}
 }
+\concept{http methods}

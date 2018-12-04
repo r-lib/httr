@@ -102,12 +102,9 @@ accept_json <- function() accept("application/json")
 #' @rdname content_type
 accept_xml <- function() accept("application/xml")
 
-
-
-
 # Parses a header lines as recieved from libcurl. Multiple responses
 # will be intermingled, each separated by an http status line.
-parse_headers <- function(raw) {
+parse_http_headers <- function(raw) {
   lines <- strsplit(rawToChar(raw), "\r?\n")[[1]]
 
   new_response <- grepl("^HTTP", lines)

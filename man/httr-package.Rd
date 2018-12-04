@@ -6,7 +6,7 @@
 \alias{httr-package}
 \title{\pkg{httr} makes http easy.}
 \description{
-\code{httr} is organised around the five most common http verbs:
+\code{httr} is organised around the six most common http verbs:
 \code{\link{GET}}, \code{\link{PATCH}},
 \code{\link{POST}}, \code{\link{HEAD}},
 \code{\link{PUT}}, and \code{\link{DELETE}}.
@@ -27,8 +27,8 @@ Requests can be modified by various config options like
 httr supports OAuth 1.0 and 2.0. Use \code{\link{oauth1.0_token}} and
 \code{\link{oauth2.0_token}} to get user tokens, and
 \code{\link{sign_oauth1.0}} and \code{\link{sign_oauth2.0}} to sign
-requests. The demos directory has six demos of using OAuth: three for 1.0
-(linkedin, twitter and vimeo) and three for 2.0 (facebook, github, google).
+requests. The demos directory has twelve demos of using OAuth: four for 1.0
+(linkedin, twitter, vimeo, and yahoo) and eight for 2.0 (azure, facebook,
 }
 \seealso{
 Useful links:

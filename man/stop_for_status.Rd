@@ -46,7 +46,7 @@ x <- GET("http://httpbin.org/status/404")
 warn_for_status(x)
 message_for_status(x)
 
-# You can provide more information with the task argumgnet
+# You can provide more information with the task argument
 warn_for_status(x, "download spreadsheet")
 message_for_status(x, "download spreadsheet")
 
@@ -60,3 +60,4 @@ Other response methods: \code{\link{content}},
   \code{\link{http_error}}, \code{\link{http_status}},
   \code{\link{response}}
 }
+\concept{response methods}

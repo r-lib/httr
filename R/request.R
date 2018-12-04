@@ -56,6 +56,10 @@ request_build <- function(method, url, ...) {
   extra <- list(...)
   extra[has_name(extra)] <- NULL
 
+  if (method == "HEAD") {
+    extra <- c(extra, list(config(nobody = TRUE)))
+  }
+
   req <- Reduce(request_combine, extra, init = request())
 
   req$method <- method
@@ -145,9 +149,17 @@ request_perform <- function(req, handle, refresh = TRUE) {
     return(request_perform(req, handle, refresh = FALSE))
   }
 
-  all_headers <- parse_headers(resp$headers)
-  headers <- last(all_headers)$headers
-  if (!is.null(headers$date)) {
+  url_scheme <- parse_url(resp$url)$scheme
+  is_http <- tolower(url_scheme) %in% c("http", "https")
+  if (is_http) {
+    all_headers <- parse_http_headers(resp$headers)
+    headers <- last(all_headers)$headers
+  } else {
+    all_headers <- NULL
+    headers <- resp$headers
+  }
+
+  if (is_http && !is.null(headers$date)) {
     date <- parse_http_date(headers$Date)
   } else {
     date <- Sys.time()

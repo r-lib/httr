@@ -64,3 +64,4 @@ Other http methods: \code{\link{BROWSE}},
   \code{\link{HEAD}}, \code{\link{POST}},
   \code{\link{PUT}}, \code{\link{VERB}}
 }
+\concept{http methods}
