@@ -1,5 +1,7 @@
 # httr 1.3.1.9000
 
+* Facebook OAuth demo updated to use device flow (#510). This allows you to
+  continue using the FB api from R under their new security policy.
 
 * More informative error message when token refresh fails (#516)
 
