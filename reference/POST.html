@@ -211,7 +211,7 @@ details.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>b2</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/post"</span>
 <span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-12-04 20:40
+#&gt;   Date: 2018-12-04 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 445 B
@@ -226,7 +226,7 @@ details.</p></td>
 #&gt;     "Connection": "close", 
 #&gt;     "Content-Length": "20", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-12-04 20:40
+#&gt;   Date: 2018-12-04 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 556 B
@@ -241,7 +241,7 @@ details.</p></td>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='upload_file.html'>upload_file</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"CITATION"</span>))))</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-12-04 20:40
+#&gt;   Date: 2018-12-04 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 1.56 kB
@@ -256,7 +256,7 @@ details.</p></td>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>), <span class='kw'>encode</span> <span class='kw'>=</span> <span class='st'>"json"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-12-04 20:40
+#&gt;   Date: 2018-12-04 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 531 B
@@ -273,7 +273,7 @@ details.</p></td>
 #&gt; ...</div><div class='input'>
 <span class='co'># Various types of empty body:</span>
 <span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-12-04 20:40
+#&gt;   Date: 2018-12-04 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 424 B
@@ -288,11 +288,11 @@ details.</p></td>
 #&gt;     "Connection": "close", 
 #&gt;     "Content-Length": "0", 
 #&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-12-04 20:40
+#&gt;   Date: 2018-12-04 21:12
 #&gt;   Status: 405
 #&gt;   Content-Type: text/html
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2018-12-04 20:40
+#&gt;   Date: 2018-12-04 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 424 B

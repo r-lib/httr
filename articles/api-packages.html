@@ -167,12 +167,12 @@
 <a class="sourceLine" id="cb3-7" data-line-number="7">resp &lt;-<span class="st"> </span><span class="kw">github_api</span>(<span class="st">"/repos/hadley/httr"</span>)</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">resp</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; Response [https://api.github.com/repos/hadley/httr]</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;   Date: 2018-12-04 20:41</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;   Date: 2018-12-04 21:13</span></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;   Status: 403</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;   Size: 257 B</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;   Size: 258 B</span></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; {</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;   "message": "API rate limit exceeded for 35.239.89.243. (But here's the...</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;   "message": "API rate limit exceeded for 35.192.136.167. (But here's th...</span></a>
 <a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;   "documentation_url": "https://developer.github.com/v3/#rate-limiting"</span></a>
 <a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; }</span></a></code></pre></div>
 </div>
@@ -183,7 +183,7 @@
 <p>Note that while most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span>)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   Date: 2018-12-04 20:41</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   Date: 2018-12-04 21:13</span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;   Content-Type: text/xml; charset=utf-8</span></a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;   Size: 1.79 kB</span></a>
@@ -200,7 +200,7 @@
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; ...</span></a>
 <a class="sourceLine" id="cb4-18" data-line-number="18"><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span>)</a>
 <a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;   Date: 2018-12-04 20:41</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;   Date: 2018-12-04 21:13</span></a>
 <a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></a>
 <a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt;   Size: 1.43 kB</span></a></code></pre></div>
@@ -270,7 +270,7 @@
 <a class="sourceLine" id="cb8-27" data-line-number="27"><span class="kw">github_api</span>(<span class="st">"/users/hadley"</span>)</a>
 <a class="sourceLine" id="cb8-28" data-line-number="28"><span class="co">#&gt; &lt;GitHub /users/hadley&gt;</span></a>
 <a class="sourceLine" id="cb8-29" data-line-number="29"><span class="co">#&gt; List of 2</span></a>
-<a class="sourceLine" id="cb8-30" data-line-number="30"><span class="co">#&gt;  $ message          : chr "API rate limit exceeded for 35.239.89.243. (But here's the good news: Authenticated requests get a higher rate "| __truncated__</span></a>
+<a class="sourceLine" id="cb8-30" data-line-number="30"><span class="co">#&gt;  $ message          : chr "API rate limit exceeded for 35.192.136.167. (But here's the good news: Authenticated requests get a higher rate"| __truncated__</span></a>
 <a class="sourceLine" id="cb8-31" data-line-number="31"><span class="co">#&gt;  $ documentation_url: chr "https://developer.github.com/v3/#rate-limiting"</span></a></code></pre></div>
 <p>The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.</p>
 </div>
@@ -318,7 +318,7 @@
 <a class="sourceLine" id="cb9-31" data-line-number="31">}</a>
 <a class="sourceLine" id="cb9-32" data-line-number="32"><span class="kw">github_api</span>(<span class="st">"/user/hadley"</span>)</a>
 <a class="sourceLine" id="cb9-33" data-line-number="33"><span class="co">#&gt; Error: GitHub API request failed [403]</span></a>
-<a class="sourceLine" id="cb9-34" data-line-number="34"><span class="co">#&gt; API rate limit exceeded for 35.239.89.243. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)</span></a>
+<a class="sourceLine" id="cb9-34" data-line-number="34"><span class="co">#&gt; API rate limit exceeded for 35.192.136.167. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)</span></a>
 <a class="sourceLine" id="cb9-35" data-line-number="35"><span class="co">#&gt; &lt;https://developer.github.com/v3/#rate-limiting&gt;</span></a></code></pre></div>
 <blockquote>
 <p>Some poorly written APIs will return different types of response based on whether or not the request succeeded or failed. If your API does this you’ll need to make your request function check the <code><a href="../reference/status_code.html">status_code()</a></code> before parsing the response.</p>
@@ -464,19 +464,19 @@
 <a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co">#&gt;   ..$ core   :List of 3</span></a>
 <a class="sourceLine" id="cb14-9" data-line-number="9"><span class="co">#&gt;   .. ..$ limit    : int 60</span></a>
 <a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt;   .. ..$ remaining: int 0</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt;   .. ..$ reset    : int 1543958035</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt;   .. ..$ reset    : int 1543960308</span></a>
 <a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co">#&gt;   ..$ search :List of 3</span></a>
 <a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co">#&gt;   .. ..$ limit    : int 10</span></a>
 <a class="sourceLine" id="cb14-14" data-line-number="14"><span class="co">#&gt;   .. ..$ remaining: int 10</span></a>
-<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">#&gt;   .. ..$ reset    : int 1543956146</span></a>
+<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">#&gt;   .. ..$ reset    : int 1543958081</span></a>
 <a class="sourceLine" id="cb14-16" data-line-number="16"><span class="co">#&gt;   ..$ graphql:List of 3</span></a>
 <a class="sourceLine" id="cb14-17" data-line-number="17"><span class="co">#&gt;   .. ..$ limit    : int 0</span></a>
 <a class="sourceLine" id="cb14-18" data-line-number="18"><span class="co">#&gt;   .. ..$ remaining: int 0</span></a>
-<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="co">#&gt;   .. ..$ reset    : int 1543959686</span></a>
+<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="co">#&gt;   .. ..$ reset    : int 1543961621</span></a>
 <a class="sourceLine" id="cb14-20" data-line-number="20"><span class="co">#&gt;  $ rate     :List of 3</span></a>
 <a class="sourceLine" id="cb14-21" data-line-number="21"><span class="co">#&gt;   ..$ limit    : int 60</span></a>
 <a class="sourceLine" id="cb14-22" data-line-number="22"><span class="co">#&gt;   ..$ remaining: int 0</span></a>
-<a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">#&gt;   ..$ reset    : int 1543958035</span></a></code></pre></div>
+<a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">#&gt;   ..$ reset    : int 1543960308</span></a></code></pre></div>
 <p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">rate_limit &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">  req &lt;-<span class="st"> </span><span class="kw">github_api</span>(<span class="st">"/rate_limit"</span>)</a>
@@ -488,7 +488,7 @@
 <a class="sourceLine" id="cb15-8" data-line-number="8">}</a>
 <a class="sourceLine" id="cb15-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb15-10" data-line-number="10"><span class="kw">rate_limit</span>()</a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; 0 / 60 (Resets at 21:13:55)</span></a></code></pre></div>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; 0 / 60 (Resets at 21:51:48)</span></a></code></pre></div>
 </div>
 </div>
   </div>
