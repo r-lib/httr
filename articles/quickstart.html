@@ -111,7 +111,7 @@
 <p>This gives you a response object. Printing a response object gives you some useful information: the actual url used (after any redirects), the http status, the file (content) type, the size, and if it’s a text file, the first few lines of output.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">r</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; Response [http://httpbin.org/get]</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;   Date: 2018-12-04 21:16</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;   Date: 2018-12-04 21:29</span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;   Content-Type: application/json</span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;   Size: 331 B</span></a>
@@ -137,7 +137,7 @@
 <a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; [1] "gunicorn/19.9.0"</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; $date</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; [1] "Tue, 04 Dec 2018 21:16:51 GMT"</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; [1] "Tue, 04 Dec 2018 21:29:54 GMT"</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; $`content-type`</span></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; [1] "application/json"</span></a>
@@ -267,7 +267,7 @@
 <a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; [1] "gunicorn/19.9.0"</span></a>
 <a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt; $date</span></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; [1] "Tue, 04 Dec 2018 21:16:52 GMT"</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; [1] "Tue, 04 Dec 2018 21:29:54 GMT"</span></a>
 <a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">#&gt; $`content-type`</span></a>
 <a class="sourceLine" id="cb11-12" data-line-number="12"><span class="co">#&gt; [1] "application/json"</span></a>
@@ -288,9 +288,9 @@
 <a class="sourceLine" id="cb11-27" data-line-number="27"><span class="co">#&gt; [1] "insensitive" "list"</span></a></code></pre></div>
 <p>This is basically a named list, but because http headers are case insensitive, indexing this object ignores case:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="../reference/headers.html">headers</a></span>(r)<span class="op">$</span>date</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co">#&gt; [1] "Tue, 04 Dec 2018 21:16:52 GMT"</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co">#&gt; [1] "Tue, 04 Dec 2018 21:29:54 GMT"</span></a>
 <a class="sourceLine" id="cb12-3" data-line-number="3"><span class="kw"><a href="../reference/headers.html">headers</a></span>(r)<span class="op">$</span>DATE</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co">#&gt; [1] "Tue, 04 Dec 2018 21:16:52 GMT"</span></a></code></pre></div>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co">#&gt; [1] "Tue, 04 Dec 2018 21:29:54 GMT"</span></a></code></pre></div>
 </div>
 <div id="cookies" class="section level3">
 <h3 class="hasAnchor">
