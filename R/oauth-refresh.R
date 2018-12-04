@@ -34,7 +34,7 @@ refresh_oauth2.0 <- function(endpoint, app, credentials, user_params = NULL,
       err$error_description,
       err$error_uri
     )
-    warning(paste(lines, collapse = "\n"))
+    warning(paste(lines, collapse = "\n"), call. = FALSE)
     return(NULL)
   }
 
