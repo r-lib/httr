@@ -11,9 +11,9 @@ http_date(x)
 }
 \arguments{
 \item{x}{For \code{parse_http_date}, a character vector of strings to parse.
-  All elements must be of the same type.
+All elements must be of the same type.
 
-  For \code{http_date}, a \code{POSIXt} vector.}
+For \code{http_date}, a \code{POSIXt} vector.}
 
 \item{failure}{What to return on failure?}
 }
@@ -25,9 +25,9 @@ As defined in RFC2616,
 \url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3}, there are
 three valid formats:
 \itemize{
- \item Sun, 06 Nov 1994 08:49:37 GMT  ; RFC 822, updated by RFC 1123
- \item Sunday, 06-Nov-94 08:49:37 GMT ; RFC 850, obsoleted by RFC 1036
- \item Sun Nov  6 08:49:37 1994       ; ANSI C's asctime() format
+\item Sun, 06 Nov 1994 08:49:37 GMT  ; RFC 822, updated by RFC 1123
+\item Sunday, 06-Nov-94 08:49:37 GMT ; RFC 850, obsoleted by RFC 1036
+\item Sun Nov  6 08:49:37 1994       ; ANSI C's asctime() format
 }
 }
 \examples{

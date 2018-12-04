@@ -8,16 +8,16 @@ init_oauth1.0(endpoint, app, permission = NULL,
   is_interactive = interactive(), private_key = NULL)
 }
 \arguments{
-\item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
+\item{endpoint}{An OAuth endpoint, created by \code{\link[=oauth_endpoint]{oauth_endpoint()}}}
 
 \item{app}{An OAuth consumer application, created by
-\code{\link{oauth_app}}}
+\code{\link[=oauth_app]{oauth_app()}}}
 
 \item{permission}{optional, a string of permissions to ask for.}
 
 \item{is_interactive}{DEPRECATED}
 
-\item{private_key}{Optional, a key provided by \code{\link[openssl]{read_key}}.
+\item{private_key}{Optional, a key provided by \code{\link[openssl:read_key]{openssl::read_key()}}.
 Used for signed OAuth 1.0.}
 }
 \description{

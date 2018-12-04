@@ -1,16 +1,16 @@
 #' Retry a request until it succeeds.
 #'
-#' Safely retry a request until it succeeds, as defined by the \code{terminate_on}
-#' parameter, which by default means a response for which \code{\link{http_error}()}
-#' is \code{FALSE}. Will also retry on error conditions raised by the underlying curl code,
-#' but if the last retry still raises one, \code{RETRY} will raise it again with
-#' \code{\link{stop}()}.
+#' Safely retry a request until it succeeds, as defined by the `terminate_on`
+#' parameter, which by default means a response for which [http_error()]
+#' is `FALSE`. Will also retry on error conditions raised by the underlying curl code,
+#' but if the last retry still raises one, `RETRY` will raise it again with
+#' [stop()].
 #' It is designed to be kind to the server: after each failure
 #' randomly waits up to twice as long. (Technically it uses exponential
 #' backoff with jitter, using the approach outlined in
-#' \url{https://www.awsarchitectureblog.com/2015/03/backoff.html}.)
-#' If the server returns status code 429 and specifies a \code{retry-after} value, that
-#' value will be used instead, unless it's smaller than \code{pause_min}.
+#' <https://www.awsarchitectureblog.com/2015/03/backoff.html>.)
+#' If the server returns status code 429 and specifies a `retry-after` value, that
+#' value will be used instead, unless it's smaller than `pause_min`.
 #'
 #' @inheritParams VERB
 #' @inheritParams GET
@@ -18,22 +18,22 @@
 #' @param times Maximum number of requests to attempt.
 #' @param pause_base,pause_cap This method uses exponential back-off with
 #'   full jitter - this means that each request will randomly wait between 0
-#'   and \code{pause_base * 2 ^ attempt} seconds, up to a maximum of
-#'   \code{pause_cap} seconds.
+#'   and `pause_base * 2 ^ attempt` seconds, up to a maximum of
+#'   `pause_cap` seconds.
 #' @param pause_min Minimum time to wait in the backoff; generally
 #'   only necessary if you need pauses less than one second (which may
 #'   not be kind to the server, use with caution!).
-#' @param quiet If \code{FALSE}, will print a message displaying how long
+#' @param quiet If `FALSE`, will print a message displaying how long
 #'   until the next request.
 #' @param terminate_on Optional vector of numeric HTTP status codes that if found
-#'   on the response will terminate the retry process. If \code{NULL}, will keep
-#'   retrying while \code{\link{http_error}()} is \code{TRUE} for the response.
-#' @param terminate_on_success If \code{TRUE}, the default, this will
+#'   on the response will terminate the retry process. If `NULL`, will keep
+#'   retrying while [http_error()] is `TRUE` for the response.
+#' @param terminate_on_success If `TRUE`, the default, this will
 #'   automatically terminate when the request is successful, regardless of the
-#'   value of \code{terminate_on}.
+#'   value of `terminate_on`.
 #' @return The last response. Note that if the request doesn't succeed after
-#'   \code{times} times this will be a failed request, i.e. you still need
-#'   to use \code{\link{stop_for_status}()}.
+#'   `times` times this will be a failed request, i.e. you still need
+#'   to use [stop_for_status()].
 #' @export
 #' @examples
 #' # Succeeds straight away

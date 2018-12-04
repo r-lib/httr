@@ -22,7 +22,7 @@ A data frame with three columns:
 \item{type}{The type of R object that the option accepts}
 }
 \description{
-This function lists all available options for \code{\link{config}()}.
+This function lists all available options for \code{\link[=config]{config()}}.
 It provides both the short R name which you use with httr, and the longer
 Curl name, which is useful when searching the documentation. \code{curl_doc}
 opens a link to the libcurl documentation for an option in your browser.

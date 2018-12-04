@@ -1,7 +1,7 @@
 #' Sign an OAuth request
 #'
 #' Deprecated. Instead create a config object directly using
-#' \code{config(token = my_token)}.
+#' `config(token = my_token)`.
 #'
 #' @keywords internal
 #' @name sign_oauth
@@ -31,10 +31,10 @@ sign_oauth2.0 <- function(access_token, as_header = TRUE) {
 #' components of the OAuth spec, but not all of them (e.g. 2-legged oauth)
 #'
 #' @param url,method Url and http method of request.
-#' @param app \code{\link{oauth_app}} object representing application.
+#' @param app [oauth_app()] object representing application.
 #' @param token,token_secret OAuth token and secret.
 #' @param other_params Named argument providing additional parameters
-#'   (e.g. \code{oauth_callback} or \code{oauth_body_hash}).
+#'   (e.g. `oauth_callback` or `oauth_body_hash`).
 #' @export
 #' @keywords internal
 #' @return A list of oauth parameters.

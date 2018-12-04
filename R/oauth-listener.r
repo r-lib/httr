@@ -1,10 +1,10 @@
 #' Create a webserver to listen for OAuth callback.
 #'
-#' This opens a web browser pointing to \code{request_url}, and opens a
+#' This opens a web browser pointing to `request_url`, and opens a
 #' webserver on port 1410 to listen to the reponse.  The redirect url should
 #' either be set previously (during the OAuth authentication dance) or
-#' supplied as a parameter to the url.  See \code{\link{oauth1.0_token}} and
-#' \code{\link{oauth2.0_token}} for examples of both techniques.
+#' supplied as a parameter to the url.  See [oauth1.0_token()] and
+#' [oauth2.0_token()] for examples of both techniques.
 #'
 #' This function should not normally be called directly by the user.
 #'
@@ -65,7 +65,7 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
 
 #' The oauth callback url.
 #'
-#' The url that \code{\link{oauth_listener}} expects that the client be
+#' The url that [oauth_listener()] expects that the client be
 #' referred to.
 #'
 #' @keywords internal

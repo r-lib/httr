@@ -1,8 +1,8 @@
-#' Upload a file with \code{\link{POST}} or \code{\link{PUT}}.
+#' Upload a file with [POST()] or [PUT()].
 #'
 #' @param path path to file
 #' @param type mime type of path. If not supplied, will be guess by
-#'   \code{\link[mime]{guess_type}} when needed.
+#'   [mime::guess_type()] when needed.
 #' @export
 #' @examples
 #' citation <- upload_file(system.file("CITATION"))

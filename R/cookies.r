@@ -4,7 +4,7 @@
 #' @param .cookies a named character vector
 #' @export
 #' @family config
-#' @seealso \code{\link{cookies}()} to see cookies in response.
+#' @seealso [cookies()] to see cookies in response.
 #' @examples
 #' set_cookies(a = 1, b = 2)
 #' set_cookies(.cookies = c(a = "1", b = "2"))
@@ -24,7 +24,7 @@ set_cookies <- function(..., .cookies = character(0)) {
 
 #' Access cookies in a response.
 #'
-#' @seealso \code{\link{set_cookies}()} to send cookies in request.
+#' @seealso [set_cookies()] to send cookies in request.
 #' @param x A response.
 #' @examples
 #' r <- GET("http://httpbin.org/cookies/set", query = list(a = 1, b = 2))

@@ -15,16 +15,17 @@ into components; for \code{build_url} a list of components to turn back
 into a string.}
 }
 \value{
-a list containing: \itemize{
- \item scheme
- \item hostname
- \item port
- \item path
- \item params
- \item fragment
- \item query, a list
- \item username
- \item password
+a list containing:
+\itemize{
+\item scheme
+\item hostname
+\item port
+\item path
+\item params
+\item fragment
+\item query, a list
+\item username
+\item password
 }
 }
 \description{

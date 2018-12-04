@@ -23,7 +23,7 @@ init_oauth_service_account <- function(secrets, scope = NULL, sub = NULL) {
 #' Generate a JWT signature given credentials.
 #'
 #' As described in
-#' \url{https://developers.google.com/accounts/docs/OAuth2ServiceAccount}
+#' <https://developers.google.com/accounts/docs/OAuth2ServiceAccount>
 #'
 #' @param credentials Parsed contents of the credentials file.
 #' @param scope A space-delimited list of the permissions that the application

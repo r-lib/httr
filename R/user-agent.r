@@ -1,6 +1,6 @@
 #' Set user agent.
 #'
-#' Override the default RCurl user agent of \code{NULL}
+#' Override the default RCurl user agent of `NULL`
 #'
 #' @param agent string giving user agent
 #' @export

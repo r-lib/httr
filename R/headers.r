@@ -1,7 +1,7 @@
 #' Extract the headers from a response
 #'
 #' @param x A request object
-#' @seealso \code{\link{add_headers}()} to send additional headers in a
+#' @seealso [add_headers()] to send additional headers in a
 #'   request
 #' @export
 #' @examples
@@ -17,13 +17,13 @@ headers.response <- function(x) {
 #' Add additional headers to a request.
 #'
 #' Wikipedia provides a useful list of common http headers:
-#' \url{http://en.wikipedia.org/wiki/List_of_HTTP_header_fields}.
+#' <http://en.wikipedia.org/wiki/List_of_HTTP_header_fields>.
 #'
 #' @param ... named header values.  To stop an existing header from being
-#'   set, pass an empty string: \code{""}.
+#'   set, pass an empty string: `""`.
 #' @param .headers a named character vector
 #' @export
-#' @seealso \code{\link{accept}} and \code{\link{content_type}} for
+#' @seealso [accept()] and [content_type()] for
 #'   convenience functions for setting accept and content-type headers.
 #' @family config
 #' @examples
@@ -45,14 +45,14 @@ add_headers <- function(..., .headers = character()) {
 
 #' Set content-type and accept headers.
 #'
-#' These are convenient wrappers aroud \code{\link{add_headers}}.
+#' These are convenient wrappers aroud [add_headers()].
 #'
-#' \code{accept_json}/\code{accept_xml} and
-#' \code{content_type_json}/\code{content_type_xml} are useful shortcuts to
+#' `accept_json`/`accept_xml` and
+#' `content_type_json`/`content_type_xml` are useful shortcuts to
 #' ask for json or xml responses or tell the server you are sending json/xml.
 #'
 #' @param type A mime type or a file extension. If a file extension (i.e. starts
-#'   with \code{.}) will guess the mime type using \code{\link[mime]{guess_type}}.
+#'   with `.`) will guess the mime type using [mime::guess_type()].
 #' @export
 #' @examples
 #' GET("http://httpbin.org/headers")

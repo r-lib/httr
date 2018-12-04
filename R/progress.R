@@ -2,8 +2,8 @@
 #'
 #' @param type Type of progress to display: either number of bytes uploaded
 #'   or downloaded.
-#' @param con Connection to send output too. Usually \code{stdout()} or
-#'    \code{stderr}.
+#' @param con Connection to send output too. Usually `stdout()` or
+#'    `stderr`.
 #' @export
 #' @examples
 #' cap_speed <- config(max_recv_speed_large = 10000)

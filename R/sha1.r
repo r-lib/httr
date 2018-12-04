@@ -29,7 +29,7 @@ sha1_hash <- function(key, string, method = "HMAC-SHA1") {
 
 #' HMAC SHA1
 #'
-#' As described in \url{http://datatracker.ietf.org/doc/rfc2104/}.
+#' As described in <http://datatracker.ietf.org/doc/rfc2104/>.
 #'
 #' @param key secret key
 #' @param string data to securely hash

@@ -3,23 +3,22 @@
 
 #' Parse and build urls according to RFC1808.
 #'
-#' See \url{http://tools.ietf.org/html/rfc1808.html} for details of parsing
+#' See <http://tools.ietf.org/html/rfc1808.html> for details of parsing
 #' algorithm.
 #'
-#' @param url For \code{parse_url} a character vector (of length 1) to parse
-#'   into components; for \code{build_url} a list of components to turn back
+#' @param url For `parse_url` a character vector (of length 1) to parse
+#'   into components; for `build_url` a list of components to turn back
 #'   into a string.
-#' @return a list containing: \itemize{
-#'  \item scheme
-#'  \item hostname
-#'  \item port
-#'  \item path
-#'  \item params
-#'  \item fragment
-#'  \item query, a list
-#'  \item username
-#'  \item password
-#' }
+#' @return a list containing:
+#' * scheme
+#' * hostname
+#' * port
+#' * path
+#' * params
+#' * fragment
+#' * query, a list
+#' * username
+#' * password
 #' @export
 #' @examples
 #' parse_url("http://google.com/")

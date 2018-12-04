@@ -1,16 +1,16 @@
 #' Describe an OAuth endpoint.
 #'
-#' See \code{\link{oauth_endpoints}} for a list of popular OAuth endpoints
+#' See [oauth_endpoints()] for a list of popular OAuth endpoints
 #' baked into httr.
 #'
 #' @param request url used to request initial (unauthenticated) token.
-#'   If using OAuth2.0, leave as \code{NULL}.
-#' @param authorize url to send client to for authorisation. Set to \code{NULL}
+#'   If using OAuth2.0, leave as `NULL`.
+#' @param authorize url to send client to for authorisation. Set to `NULL`
 #'   if not needed
 #' @param access url used to exchange unauthenticated for authenticated token.
 #' @param ... other additional endpoints.
-#' @param base_url option url to use as base for \code{request},
-#'   \code{authorize} and \code{access} urls.
+#' @param base_url option url to use as base for `request`,
+#'   `authorize` and `access` urls.
 #' @family OAuth
 #' @export
 #' @examples

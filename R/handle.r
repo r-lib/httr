@@ -9,11 +9,11 @@
 #' @export
 #' @note
 #' Because of the way argument dispatch works in R, using handle() in the
-#' http methods (See \code{\link{GET}}) will cause problems when trying to
+#' http methods (See [GET()]) will cause problems when trying to
 #' pass configuration arguments (See examples below). Directly specifying the
 #' handle when using http methods is not recommended in general, since the
 #' selection of the correct handle is taken care of when the user passes an url
-#' (See \code{\link{handle_pool}}).
+#' (See [handle_pool()]).
 #'
 #' @examples
 #' handle("http://google.com")

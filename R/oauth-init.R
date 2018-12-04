@@ -2,12 +2,12 @@
 #'
 #' See demos for use.
 #'
-#' @param endpoint An OAuth endpoint, created by \code{\link{oauth_endpoint}}
+#' @param endpoint An OAuth endpoint, created by [oauth_endpoint()]
 #' @param app An OAuth consumer application, created by
-#'    \code{\link{oauth_app}}
+#'    [oauth_app()]
 #' @param permission optional, a string of permissions to ask for.
 #' @param is_interactive DEPRECATED
-#' @param private_key Optional, a key provided by \code{\link[openssl]{read_key}}.
+#' @param private_key Optional, a key provided by [openssl::read_key()].
 #'   Used for signed OAuth 1.0.
 #' @export
 #' @keywords internal
@@ -55,21 +55,21 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #' @param type content type used to override incorrect server response
 #' @param use_oob if FALSE, use a local webserver for the OAuth dance.
 #'   Otherwise, provide a URL to the user and prompt for a validation
-#'   code. Defaults to the of the \code{"httr_oob_default"} default,
-#'   or \code{TRUE} if \code{httpuv} is not installed.
+#'   code. Defaults to the of the `"httr_oob_default"` default,
+#'   or `TRUE` if `httpuv` is not installed.
 #' @param oob_value if provided, specifies the value to use for the redirect_uri
 #'   parameter when retrieving an authorization URL. Defaults to "urn:ietf:wg:oauth:2.0:oob".
-#'   Requires \code{use_oob = TRUE}.
-#' @param use_basic_auth if \code{TRUE} use http basic authentication to
+#'   Requires `use_oob = TRUE`.
+#' @param use_basic_auth if `TRUE` use http basic authentication to
 #'   retrieve the token. Some authorization servers require this.
-#'   If \code{FALSE}, the default, retrieve the token by including the
+#'   If `FALSE`, the default, retrieve the token by including the
 #'   app key and secret in the request body.
 #' @param config_init Additional configuration settings sent to
-#'   \code{\link{POST}}, e.g. \code{\link{user_agent}}.
-#' @param client_credentials Default to \code{FALSE}. Set to \code{TRUE} to use
-#'   \emph{Client Credentials Grant} instead of \emph{Authorization
-#'   Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.
-#' @param query_authorize_extra Default to \code{list()}. Set to named list
+#'   [POST()], e.g. [user_agent()].
+#' @param client_credentials Default to `FALSE`. Set to `TRUE` to use
+#'   *Client Credentials Grant* instead of *Authorization
+#'   Code Grant*. See <https://tools.ietf.org/html/rfc6749#section-4.4>.
+#' @param query_authorize_extra Default to `list()`. Set to named list
 #'   holding query parameters to append to initial auth page query. Useful for
 #'   some APIs.
 #' @export
@@ -129,7 +129,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
 #' @export
 #' @importFrom utils modifyList
 #' @rdname init_oauth2.0
-#' @param query_extra See \code{query_authorize_extra}
+#' @param query_extra See `query_authorize_extra`
 oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    redirect_uri = app$redirect_uri,
                                    state = nonce(),

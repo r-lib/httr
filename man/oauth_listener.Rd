@@ -19,8 +19,8 @@ oauth_listener(request_url, is_interactive = interactive())
 This opens a web browser pointing to \code{request_url}, and opens a
 webserver on port 1410 to listen to the reponse.  The redirect url should
 either be set previously (during the OAuth authentication dance) or
-supplied as a parameter to the url.  See \code{\link{oauth1.0_token}} and
-\code{\link{oauth2.0_token}} for examples of both techniques.
+supplied as a parameter to the url.  See \code{\link[=oauth1.0_token]{oauth1.0_token()}} and
+\code{\link[=oauth2.0_token]{oauth2.0_token()}} for examples of both techniques.
 }
 \details{
 This function should not normally be called directly by the user.

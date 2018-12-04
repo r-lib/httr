@@ -22,10 +22,10 @@ oauth2.0_access_token(endpoint, app, code, user_params = NULL,
   config = list())
 }
 \arguments{
-\item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
+\item{endpoint}{An OAuth endpoint, created by \code{\link[=oauth_endpoint]{oauth_endpoint()}}}
 
 \item{app}{An OAuth consumer application, created by
-\code{\link{oauth_app}}}
+\code{\link[=oauth_app]{oauth_app()}}}
 
 \item{scope}{a character vector of scopes to request.}
 
@@ -52,7 +52,7 @@ If \code{FALSE}, the default, retrieve the token by including the
 app key and secret in the request body.}
 
 \item{config_init}{Additional configuration settings sent to
-\code{\link{POST}}, e.g. \code{\link{user_agent}}.}
+\code{\link[=POST]{POST()}}, e.g. \code{\link[=user_agent]{user_agent()}}.}
 
 \item{client_credentials}{Default to \code{FALSE}. Set to \code{TRUE} to use
 \emph{Client Credentials Grant} instead of \emph{Authorization

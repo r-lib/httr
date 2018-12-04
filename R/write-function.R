@@ -3,7 +3,7 @@
 #' This S3 object allows you to control how the response body is saved.
 #'
 #' @param subclass,... Class name and fields. Used in class constructors.
-#' @param x A \code{write_function} object to process.
+#' @param x A `write_function` object to process.
 #' @keywords internal
 #' @export
 write_function <- function(subclass, ...) {
@@ -12,13 +12,13 @@ write_function <- function(subclass, ...) {
 
 #' Control where the response body is written.
 #'
-#' The default behaviour is to use \code{write_memory()}, which caches
+#' The default behaviour is to use `write_memory()`, which caches
 #' the response locally in memory. This is useful when talking to APIs as
 #' it avoids a round-trip to disk. If you want to save a file that's bigger
-#' than memory, use \code{write_disk()} to save it to a known path.
+#' than memory, use `write_disk()` to save it to a known path.
 #'
 #' @param path Path to content to.
-#' @param overwrite Will only overwrite existing \code{path} if TRUE.
+#' @param overwrite Will only overwrite existing `path` if TRUE.
 #' @export
 #' @examples
 #' tmp <- tempfile()

@@ -2,29 +2,25 @@
 #'
 #' These objects represent the complete set of data needed for OAuth access:
 #' an app, an endpoint, cached credentials and parameters. They should be
-#' created through their constructor functions \code{\link{oauth1.0_token}}
-#' and \code{\link{oauth2.0_token}}.
+#' created through their constructor functions [oauth1.0_token()]
+#' and [oauth2.0_token()].
 #'
 #' @section Methods:
-#' \itemize{
-#'  \item \code{cache()}: caches token to disk
-#'  \item \code{sign(method, url)}: returns list of url and config
-#'  \item \code{refresh()}: refresh access token (if possible)
-#'  \item \code{validate()}: TRUE if the token is still valid, FALSE otherwise
-#' }
+#' * `cache()`: caches token to disk
+#' * `sign(method, url)`: returns list of url and config
+#' * `refresh()`: refresh access token (if possible)
+#' * `validate()`: TRUE if the token is still valid, FALSE otherwise
 #'
 #' @section Caching:
-#' OAuth tokens are cached on disk in a file called \code{.httr-oauth}
+#' OAuth tokens are cached on disk in a file called `.httr-oauth`
 #' saved in the current working directory.  Caching is enabled if:
 #'
-#' \itemize{
-#' \item The session is interactive, and the user agrees to it, OR
-#' \item The \code{.httr-oauth} file is already present, OR
-#' \item \code{getOption("httr_oauth_cache")} is \code{TRUE}
-#' }
+#' * The session is interactive, and the user agrees to it, OR
+#' * The `.httr-oauth` file is already present, OR
+#' * `getOption("httr_oauth_cache")` is `TRUE`
 #'
-#' You can suppress caching by setting the \code{httr_oauth_cache} option to
-#' \code{FALSE}.
+#' You can suppress caching by setting the `httr_oauth_cache` option to
+#' `FALSE`.
 #'
 #' Tokens are cached based on their endpoint and parameters.
 #'
@@ -128,17 +124,17 @@ Token <- R6::R6Class("Token", list(
 #' This is the final object in the OAuth dance - it encapsulates the app,
 #' the endpoint, other parameters and the received credentials.
 #'
-#' See \code{\link{Token}} for full details about the token object, and the
+#' See [Token()] for full details about the token object, and the
 #' caching policies used to store credentials across sessions.
 #'
 #' @inheritParams init_oauth1.0
-#' @param as_header If \code{TRUE}, the default, sends oauth in header.
-#'   If \code{FALSE}, adds as parameter to url.
-#' @param cache A logical value or a string. \code{TRUE} means to cache
-#'   using the default cache file \code{.httr-oauth}, \code{FALSE} means
-#'   don't cache, and \code{NA} means to guess using some sensible heuristics.
+#' @param as_header If `TRUE`, the default, sends oauth in header.
+#'   If `FALSE`, adds as parameter to url.
+#' @param cache A logical value or a string. `TRUE` means to cache
+#'   using the default cache file `.httr-oauth`, `FALSE` means
+#'   don't cache, and `NA` means to guess using some sensible heuristics.
 #'   A string means use the specified path as the cache file.
-#' @return A \code{Token1.0} reference class (RC) object.
+#' @return A `Token1.0` reference class (RC) object.
 #' @family OAuth
 #' @export
 oauth1.0_token <- function(endpoint, app, permission = NULL,
@@ -193,20 +189,20 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 #' This is the final object in the OAuth dance - it encapsulates the app,
 #' the endpoint, other parameters and the received credentials. It is a
 #' reference class so that it can be seamlessly updated (e.g. using
-#' \code{$refresh()}) when access expires.
+#' `$refresh()`) when access expires.
 #'
-#' See \code{\link{Token}} for full details about the token object, and the
+#' See [Token()] for full details about the token object, and the
 #' caching policies used to store credentials across sessions.
 #'
 #' @inheritParams init_oauth2.0
-#' @param as_header If \code{TRUE}, the default, configures the token to add
-#'   itself to the bearer header of subsequent requests. If \code{FALSE},
+#' @param as_header If `TRUE`, the default, configures the token to add
+#'   itself to the bearer header of subsequent requests. If `FALSE`,
 #'   configures the token to add itself as a url parameter of subsequent
 #'   requests.
 #' @param credentials Advanced use only: allows you to completely customise
 #'   token generation.
 #' @inheritParams oauth1.0_token
-#' @return A \code{Token2.0} reference class (RC) object.
+#' @return A `Token2.0` reference class (RC) object.
 #' @family OAuth
 #' @export
 oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,

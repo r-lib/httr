@@ -45,16 +45,15 @@ does its best to guess which output is most appropriate.
 }
 \details{
 \code{content} currently knows about the following mime types:
-
 \itemize{
- \item \code{text/html}: \code{\link[xml2]{read_html}}
- \item \code{text/xml}: \code{\link[xml2]{read_xml}}
- \item \code{text/csv}: \code{\link[readr]{read_csv}}
- \item \code{text/tab-separated-values}: \code{\link[readr]{read_tsv}}
- \item \code{application/json}: \code{\link[jsonlite]{fromJSON}}
- \item \code{application/x-www-form-urlencoded}: \code{parse_query}
- \item \code{image/jpeg}: \code{\link[jpeg]{readJPEG}}
- \item \code{image/png}: \code{\link[png]{readPNG}}
+\item \code{text/html}: \code{\link[xml2:read_html]{xml2::read_html()}}
+\item \code{text/xml}: \code{\link[xml2:read_xml]{xml2::read_xml()}}
+\item \code{text/csv}: \code{\link[readr:read_csv]{readr::read_csv()}}
+\item \code{text/tab-separated-values}: \code{\link[readr:read_tsv]{readr::read_tsv()}}
+\item \code{application/json}: \code{\link[jsonlite:fromJSON]{jsonlite::fromJSON()}}
+\item \code{application/x-www-form-urlencoded}: \code{parse_query}
+\item \code{image/jpeg}: \code{\link[jpeg:readJPEG]{jpeg::readJPEG()}}
+\item \code{image/png}: \code{\link[png:readPNG]{png::readPNG()}}
 }
 
 \code{as = "parsed"} is provided as a convenience only: if the type you

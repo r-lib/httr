@@ -10,7 +10,7 @@ oauth_exchanger(request_url)
 \item{request_url}{the url to provide to the user}
 }
 \description{
-This performs a similar function to \code{\link{oauth_listener}},
+This performs a similar function to \code{\link[=oauth_listener]{oauth_listener()}},
 but without running a local webserver.  This manual process can be useful
 in situations where the user is remotely accessing the machine outside a
 browser (say via ssh) or when it's not possible to successfully receive a

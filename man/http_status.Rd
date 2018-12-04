@@ -11,9 +11,9 @@ http_status(x)
 }
 \value{
 If the status code does not match a known status, an error.
- Otherwise, a list with components
- \item{category}{the broad category of the status}
- \item{message}{the meaning of the status code}
+Otherwise, a list with components
+\item{category}{the broad category of the status}
+\item{message}{the meaning of the status code}
 }
 \description{
 Extract the http status code and convert it into a human readable message.

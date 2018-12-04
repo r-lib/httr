@@ -7,36 +7,36 @@ callback_env$response <- NULL
 #'
 #' Supported callback functions: \describe{
 #' \item{\sQuote{request}}{This callback is called before an HTTP request
-#'   is performed, with the \code{request} object as an argument.
-#'   If the callback returns a value other than \code{NULL}, the HTTP
+#'   is performed, with the `request` object as an argument.
+#'   If the callback returns a value other than `NULL`, the HTTP
 #'   request is not performed at all, and the return value of the callback
 #'   is returned. This mechanism can be used to replay previously
 #'   recorded HTTP responses.
 #' }
 #' \item{\sQuote{response}}{This callback is called after an HTTP request
 #'   is performed. The callback is called with two arguments: the
-#'   \code{request} object and the \code{response} object of the HTTP
-#'   request. If this callback returns a value other than \code{NULL},
-#'   then this value is returned by \code{httr}.}
+#'   `request` object and the `response` object of the HTTP
+#'   request. If this callback returns a value other than `NULL`,
+#'   then this value is returned by `httr`.}
 #' }
 #'
 #' Note that it is not possible to install multiple callbacks of the same
 #' type. The installed callback overwrites the previously intalled one.
-#' To uninstall a callback function, set it to \code{NULL} with
-#' \code{set_callback()}.
+#' To uninstall a callback function, set it to `NULL` with
+#' `set_callback()`.
 #'
-#' See the \code{httrmock} package for a proper example that uses
+#' See the `httrmock` package for a proper example that uses
 #' callbacks.
 #'
 #' @param name Character scalar, name of the callback to query or set.
 #' @param new_callback The callback function to install, a function object;
-#'   or \code{NULL} to remove the currently installed callback (if any).
+#'   or `NULL` to remove the currently installed callback (if any).
 #'
-#' @return \code{get_callback} returns the currently installed
-#'   callback, or \code{NULL} if none is installed.
+#' @return `get_callback` returns the currently installed
+#'   callback, or `NULL` if none is installed.
 #'
-#'   \code{set_callback} returns the previously installed callback,
-#'   or \code{NULL} if none was installed.
+#'   `set_callback` returns the previously installed callback,
+#'   or `NULL` if none was installed.
 #'
 #' @export
 #' @examples

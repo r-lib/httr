@@ -21,12 +21,12 @@ character vector. If non-\code{NULL}, the error message will finish with
 }
 \value{
 An S3 object that inherits from (e.g.) condition, \code{type},
-  http_error, http_400 and http_404.
+http_error, http_400 and http_404.
 }
 \description{
 This function generate S3 condition objects which are passed to
-\code{\link{stop}} or \code{\link{warning}} to generate classes warnings
-and error. These can be used in conjunction with \code{\link{tryCatch}}
+\code{\link[=stop]{stop()}} or \code{\link[=warning]{warning()}} to generate classes warnings
+and error. These can be used in conjunction with \code{\link[=tryCatch]{tryCatch()}}
 to respond differently to different type of failure.
 }
 \examples{
@@ -48,6 +48,6 @@ f("http://httpbin.org/status/505")
 }
 \seealso{
 \url{http://adv-r.had.co.nz/Exceptions-Debugging.html#condition-handling}
-  for more details about R's condition handling model
+for more details about R's condition handling model
 }
 \keyword{internal}

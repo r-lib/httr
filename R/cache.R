@@ -1,7 +1,7 @@
 #' Compute caching information for a response.
 #'
-#' \code{cache_info()} gives details of cacheability of a response,
-#' \code{rerequest()} re-performs the original request doing as little work
+#' `cache_info()` gives details of cacheability of a response,
+#' `rerequest()` re-performs the original request doing as little work
 #' as possible (if not expired, returns response as is, or performs
 #' revalidation if Etag or Last-Modified headers are present).
 #'

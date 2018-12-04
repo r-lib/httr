@@ -3,9 +3,9 @@
 #' This is a bad idea because it will leave it on the history
 #'
 #' @param Name of environment variable.
-#' @param Value of environment variable. Use \code{NA} to unset.
+#' @param Value of environment variable. Use `NA` to unset.
 #' @param Scope of change. If "session", the change is ephemeral and will
-#'   disappear when you restart R. If "user", modifies your \code{~/.Renviron}
+#'   disappear when you restart R. If "user", modifies your `~/.Renviron`
 #'   so that it affects every project. If "site", modifies the site .Renviron
 #'   so that it affects every user.
 #' @return Invisibly, the previous value of the environment variable.

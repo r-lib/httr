@@ -13,15 +13,15 @@ BROWSE(url = NULL, config = list(), ..., handle = NULL)
 is handled by the browser, not \pkg{RCurl}.}
 
 \item{...}{Further named parameters, such as \code{query}, \code{path}, etc,
-passed on to \code{\link{modify_url}}. Unnamed parameters will be combined
-with \code{\link{config}}.}
+passed on to \code{\link[=modify_url]{modify_url()}}. Unnamed parameters will be combined
+with \code{\link[=config]{config()}}.}
 
 \item{handle}{The handle to use with this request. If not
-supplied, will be retrieved and reused from the \code{\link{handle_pool}}
+supplied, will be retrieved and reused from the \code{\link[=handle_pool]{handle_pool()}}
 based on the scheme, hostname and port of the url. By default \pkg{httr}
 requests to the same scheme/host/port combo. This substantially reduces
 connection time, and ensures that cookies are maintained over multiple
-requests to the same host. See \code{\link{handle_pool}} for more
+requests to the same host. See \code{\link[=handle_pool]{handle_pool()}} for more
 details.}
 }
 \description{
