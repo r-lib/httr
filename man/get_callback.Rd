@@ -83,4 +83,5 @@ grec <- GET("https://httpbin.org")
 grec$date == g3$date
 set_callback("request", old_req)
 }
+
 }

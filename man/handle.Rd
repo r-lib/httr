@@ -35,7 +35,6 @@ GET(handle = h, config = verbose())
 
 h <- handle("http://google.com", cookies = FALSE)
 GET(handle = h)$cookies
-
 \dontrun{
 # Using the preferred way of configuring the http methods
 # will not work when using handle():

@@ -40,7 +40,9 @@ http_status(GET("http://httpbin.org/status/301"))
 http_status(GET("http://httpbin.org/status/404"))
 
 # errors out on unknown status
-\dontrun{http_status(GET("http://httpbin.org/status/320"))}
+\dontrun{
+http_status(GET("http://httpbin.org/status/320"))
+}
 }
 \seealso{
 Other response methods: \code{\link{content}},

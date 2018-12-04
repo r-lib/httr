@@ -23,8 +23,10 @@ add_headers(.headers = c(a = "1", b = "2"))
 GET("http://httpbin.org/headers")
 
 # Add arbitrary headers
-GET("http://httpbin.org/headers",
- add_headers(version = version$version.string))
+GET(
+  "http://httpbin.org/headers",
+  add_headers(version = version$version.string)
+)
 
 # Override default headers with empty strings
 GET("http://httpbin.org/headers", add_headers(Accept = ""))

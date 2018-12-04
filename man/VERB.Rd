@@ -64,8 +64,10 @@ A \code{\link[=response]{response()}} object.
 Use an arbitrary verb.
 }
 \examples{
-r <- VERB("PROPFIND", "http://svn.r-project.org/R/tags/",
-  add_headers(depth = 1), verbose())
+r <- VERB(
+  "PROPFIND", "http://svn.r-project.org/R/tags/",
+  add_headers(depth = 1), verbose()
+)
 stop_for_status(r)
 content(r)
 

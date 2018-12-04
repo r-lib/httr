@@ -29,6 +29,7 @@ httr supports OAuth 1.0 and 2.0. Use \code{\link[=oauth1.0_token]{oauth1.0_token
 \code{\link[=sign_oauth1.0]{sign_oauth1.0()}} and \code{\link[=sign_oauth2.0]{sign_oauth2.0()}} to sign
 requests. The demos directory has twelve demos of using OAuth: four for 1.0
 (linkedin, twitter, vimeo, and yahoo) and eight for 2.0 (azure, facebook,
+github, google, linkedin, reddit, yahoo, and yelp).
 }
 \seealso{
 Useful links:
