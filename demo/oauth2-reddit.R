@@ -4,7 +4,7 @@ library(httr)
 #    https://github.com/reddit/reddit/wiki/OAuth2
 reddit <- oauth_endpoint(
   authorize = "https://www.reddit.com/api/v1/authorize",
-  access =    "https://www.reddit.com/api/v1/access_token"
+  access = "https://www.reddit.com/api/v1/access_token"
 )
 
 # 2. Register an application at https://www.reddit.com/prefs/apps

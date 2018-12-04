@@ -15,4 +15,5 @@ myapp <- oauth_app("yahoo",
 #    For OOB flows, Yahoo requires a value of "oob" for the callback:
 #    https://developer.yahoo.com/oauth2/guide/flows_authcode/#step-2-get-an-authorization-url-and-authorize-access=
 yahoo_token <- oauth2.0_token(oauth_endpoints("yahoo"), myapp,
-                              use_oob = TRUE, oob_value = "oob")
+  use_oob = TRUE, oob_value = "oob"
+)

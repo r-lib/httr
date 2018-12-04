@@ -8,7 +8,8 @@ oauth_endpoints("vimeo")
 #    Replace key and secret below.
 myapp <- oauth_app("vimeo",
   key = "bd535bc38ed5caccd79330ff33075eb9",
-  secret = "51ab8cb2cbb8b7eb")
+  secret = "51ab8cb2cbb8b7eb"
+)
 
 # 3. Get OAuth credentials
 vimeo_token <- oauth2.0_token(
@@ -18,7 +19,8 @@ vimeo_token <- oauth2.0_token(
 )
 
 # 4. Use API
-req <- GET("https://api.vimeo.com/me/videos",
+req <- GET(
+  "https://api.vimeo.com/me/videos",
   config(token = vimeo_token)
 )
 stop_for_status(req)

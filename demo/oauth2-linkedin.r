@@ -11,7 +11,8 @@ endpoints <- oauth_endpoints("linkedin")
 #    Replace key and secret below.
 myapp <- oauth_app("linkedin",
   key = "outmkw3859gy",
-  secret = "n7vBr3lokGOCDKCd")
+  secret = "n7vBr3lokGOCDKCd"
+)
 
 # 3. Get OAuth credentials
 token <- oauth2.0_token(endpoints, myapp)
