@@ -1,5 +1,9 @@
 # httr 1.3.1.9000
 
+* By default, `RETRY()` now terminates on any successful request, regardless
+  of the value of `terminate_on`. To return to the previous behaviour,
+  set `terminate_on_success = FALSE` (#522).
+
 * More informative error message when token refresh fails (#516)
 
 * An `oob_value` argument has been added to `oauth2.0_token()` and `init_oauth2.0()`, enabling arbitrary values to be sent for the `request_uri` parameter during OOB flows (@ctrombley, #493).
