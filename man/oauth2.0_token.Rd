@@ -6,9 +6,10 @@
 \usage{
 oauth2.0_token(endpoint, app, scope = NULL, user_params = NULL,
   type = NULL, use_oob = getOption("httr_oob_default"),
-  as_header = TRUE, use_basic_auth = FALSE,
+  oob_value = NULL, as_header = TRUE, use_basic_auth = FALSE,
   cache = getOption("httr_oauth_cache"), config_init = list(),
-  client_credentials = FALSE, credentials = NULL)
+  client_credentials = FALSE, credentials = NULL,
+  query_authorize_extra = list())
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -28,6 +29,10 @@ access token.}
 Otherwise, provide a URL to the user and prompt for a validation
 code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
+
+\item{oob_value}{if provided, specifies the value to use for the redirect_uri
+parameter when retrieving an authorization URL. Defaults to "urn:ietf:wg:oauth:2.0:oob".
+Requires \code{use_oob = TRUE}.}
 
 \item{as_header}{If \code{TRUE}, the default, configures the token to add
 itself to the bearer header of subsequent requests. If \code{FALSE},
@@ -53,6 +58,10 @@ Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
 
 \item{credentials}{Advanced use only: allows you to completely customise
 token generation.}
+
+\item{query_authorize_extra}{Default to \code{list()}. Set to named list
+holding query parameters to append to initial auth page query. Useful for
+some APIs.}
 }
 \value{
 A \code{Token2.0} reference class (RC) object.

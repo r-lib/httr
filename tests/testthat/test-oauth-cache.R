@@ -30,13 +30,14 @@ test_that("use_cache() respects options", {
   expect_equal(use_cache(), ".httr-oauth")
 })
 
-test_that("token saved to and restored from cache", {
+test_that("token saved to and restored from cache, scopes normalized in hash", {
   owd <- setwd(tmp_dir())
   on.exit(setwd(owd))
 
   token_a <- Token2.0$new(
     app = oauth_app("x", "y", "z"),
     endpoint = oauth_endpoints("google"),
+    params = list(scope = c(a = "a", "b")),
     cache_path = ".tmp-cache",
     credentials = list(a = 1)
   )
@@ -45,6 +46,7 @@ test_that("token saved to and restored from cache", {
   token_b <- Token2.0$new(
     app = oauth_app("x", "y", "z"),
     endpoint = oauth_endpoints("google"),
+    params = list(scope = c(b = "b", "a")),
     cache_path = ".tmp-cache"
   )
 
