@@ -1,5 +1,8 @@
 # httr 1.3.1.9000
 
+
+* More informative error message when token refresh fails (#516)
+
 * The Vimeo demo (and `oauth_endpoints()`) have been updated to use OAuth 2.0
   (#491).
 
