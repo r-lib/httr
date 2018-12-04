@@ -53,6 +53,45 @@ test_that("oauth_encode1 works", {
   expect_equal(orig_string, restored_string)
 })
 
+test_that("oauth2.0 authorize url appends query params", {
+  app <- oauth_app("x", "y", "z")
+  scope <- NULL
+  query_extra <- list(
+    foo = "bar"
+  )
+  authURL <- oauth2.0_authorize_url(
+    endpoint = oauth_endpoints("google"),
+    app = app,
+    scope = scope,
+    query_extra = query_extra
+  )
+
+  url <- parse_url(authURL)
+  expect_equal(url$query$foo, "bar")
+})
+
+test_that("oauth2.0 authorize url handles empty query_extra input", {
+  # common constructor
+  authorize_url_extra_params <- function(extra_params)
+  {
+    app <- oauth_app("x", "y", "z")
+    scope <- NULL
+
+    url_with_empty_input <- oauth2.0_authorize_url(
+      endpoint = oauth_endpoints("google"),
+      app = app,
+      scope = scope,
+      state = "testing-nonce",
+      query_extra = extra_params
+    )
+    parse_url(url_with_empty_input)$query
+  }
+
+  # expect NA (i.e. no) error
+  expect_error(authorize_url_extra_params(list()), NA) # with empty list
+  expect_error(authorize_url_extra_params(NULL), NA) # with NULL list
+})
+
 # Parameter checking ------------------------------------------------------
 
 test_that("scope must be character or NULL", {

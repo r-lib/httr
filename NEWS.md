@@ -17,6 +17,8 @@
 
 * The default value of `failure` argument in `parse_http_date()` is set to `structure(NA_real_, class = "Date")` so that the reponse with a "failure" date can be printed out correctly. (@shrektan, #544)
 
+* `oauth2.0_token` & `init_oauth2.0` (through the new `query_authorize_extra` parameter) as well as `oauth2.0_authorize_url()` (through new `query_extra` parameter) gain the ability to append extra user-specified URL query parameters (as named `list()`) to the oauth2.0 authorization URL used to initially request an oauth2.0 token from the authentication server; this is useful for some APIs (e.g. Fitbit) (@cosmomeese, #503).
+
 # httr 1.3.1
 
 * Re-enable on-disk caching (accidentally disabled in #457) (#475)

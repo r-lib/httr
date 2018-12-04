@@ -69,6 +69,9 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #' @param client_credentials Default to \code{FALSE}. Set to \code{TRUE} to use
 #'   \emph{Client Credentials Grant} instead of \emph{Authorization
 #'   Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.
+#' @param query_authorize_extra Default to \code{list()}. Set to named list
+#'   holding query parameters to append to initial auth page query. Useful for
+#'   some APIs.
 #' @export
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL,
@@ -79,7 +82,8 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
                           is_interactive = interactive(),
                           use_basic_auth = FALSE,
                           config_init = list(),
-                          client_credentials = FALSE
+                          client_credentials = FALSE,
+                          query_authorize_extra = list()
                          ) {
 
   scope <- check_scope(scope)
@@ -102,7 +106,8 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
       app,
       scope = scope,
       redirect_uri = redirect_uri,
-      state = state
+      state = state,
+      query_extra = query_authorize_extra
     )
     code <- oauth_authorize(authorize_url, use_oob)
   }
@@ -121,18 +126,32 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL,
 }
 
 #' @export
+#' @importFrom utils modifyList
 #' @rdname init_oauth2.0
+#' @param query_extra See \code{query_authorize_extra}
 oauth2.0_authorize_url <- function(endpoint, app, scope,
                                    redirect_uri = app$redirect_uri,
-                                   state = nonce()
+                                   state = nonce(),
+                                   query_extra = list()
                                    ) {
-  modify_url(endpoint$authorize, query = compact(list(
+  #TODO might need to put some params before and some after...
+
+  query_extra <- query_extra %||% list() # i.e. make list if query_extra is null
+
+  default_query <- list(
     client_id = app$key,
     scope = scope,
     redirect_uri = redirect_uri,
     response_type = "code",
-    state = state)
-  ))
+    state = state
+  )
+
+  query <- compact(modifyList(default_query, query_extra))
+
+  modify_url(
+    endpoint$authorize,
+    query = query
+  )
 }
 
 #' @export

@@ -7,13 +7,14 @@
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
 init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
-  type = NULL, use_oob = getOption("httr_oob_default"),
-  oob_value = NULL, is_interactive = interactive(),
-  use_basic_auth = FALSE, config_init = list(),
-  client_credentials = FALSE)
+  type = NULL, use_oob = getOption("httr_oob_default"), oob_value = NULL,
+  is_interactive = interactive(), use_basic_auth = FALSE,
+  config_init = list(), client_credentials = FALSE,
+  query_authorize_extra = list())
 
 oauth2.0_authorize_url(endpoint, app, scope,
-  redirect_uri = app$redirect_uri, state = nonce())
+  redirect_uri = app$redirect_uri, state = nonce(),
+  query_extra = list())
 
 oauth2.0_access_token(endpoint, app, code, user_params = NULL,
   type = NULL, use_basic_auth = FALSE,
@@ -55,6 +56,12 @@ app key and secret in the request body.}
 \item{client_credentials}{Default to \code{FALSE}. Set to \code{TRUE} to use
 \emph{Client Credentials Grant} instead of \emph{Authorization
 Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
+
+\item{query_authorize_extra}{Default to \code{list()}. Set to named list
+holding query parameters to append to initial auth page query. Useful for
+some APIs.}
+
+\item{query_extra}{See \code{query_authorize_extra}}
 }
 \description{
 See demos for use.

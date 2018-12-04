@@ -8,7 +8,8 @@ oauth2.0_token(endpoint, app, scope = NULL, user_params = NULL,
   type = NULL, use_oob = getOption("httr_oob_default"),
   oob_value = NULL, as_header = TRUE, use_basic_auth = FALSE,
   cache = getOption("httr_oauth_cache"), config_init = list(),
-  client_credentials = FALSE, credentials = NULL)
+  client_credentials = FALSE, credentials = NULL,
+  query_authorize_extra = list())
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link{oauth_endpoint}}}
@@ -56,6 +57,10 @@ Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
 
 \item{credentials}{Advanced use only: allows you to completely customise
 token generation.}
+
+\item{query_authorize_extra}{Default to \code{list()}. Set to named list
+holding query parameters to append to initial auth page query. Useful for
+some APIs.}
 }
 \value{
 A \code{Token2.0} reference class (RC) object.
