@@ -7,11 +7,9 @@ library(httr)
 
 # 1. Register an application to get required keys:
 # https://thenounproject.com/accounts/login/?next=/developers/apps/
-# Add the below  environment variable to your session
-# (helper function : usethis::edit_r_environ())
 nouns_app <- oauth_app("noun_project",
-  key = Sys.getenv("NOUN_API_KEY"),
-  secret = Sys.getenv("NOUN_API_SECRET")
+  key = rstudioapi::askForPassword(),
+  secret = rstudioapi::askForPassword()
 )
 
 # 2. Each request must be signed using the app key and secret
