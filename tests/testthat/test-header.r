@@ -55,3 +55,13 @@ test_that("Key/value parsing tolerates multiple ':'", {
   expect_equal(parse_http_headers(header)[[1]]$headers$A, "B:C")
   expect_equal(parse_http_headers(header)[[1]]$headers$D, "E:F")
 })
+
+test_that("cache_info() handles flagless cache control", {
+    response <- list(flags = "private", `max-age` = "0", `max-stale` = "0")
+    expect_equal(response[1], parse_cache_control("private"))
+    expect_equal(response[2], parse_cache_control("max-age=0"))
+    expect_equal(response[1:2], parse_cache_control("private, max-age=0"))
+    expect_equal(
+        response, parse_cache_control("private, max-age=0, max-stale=0")
+    )
+})
