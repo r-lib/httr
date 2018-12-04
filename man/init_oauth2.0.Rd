@@ -7,10 +7,10 @@
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
 init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
-  type = NULL, use_oob = getOption("httr_oob_default"), oob_value = NULL,
-  is_interactive = interactive(), use_basic_auth = FALSE,
-  config_init = list(), client_credentials = FALSE,
-  query_authorize_extra = list())
+  type = NULL, use_oob = getOption("httr_oob_default"),
+  oob_value = NULL, is_interactive = interactive(),
+  use_basic_auth = FALSE, config_init = list(),
+  client_credentials = FALSE, query_authorize_extra = list())
 
 oauth2.0_authorize_url(endpoint, app, scope,
   redirect_uri = app$redirect_uri, state = nonce(),
@@ -40,7 +40,8 @@ Otherwise, provide a URL to the user and prompt for a validation
 code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
 
-\item{oob_value}{if provided, is used as a custom oob callback value.
+\item{oob_value}{if provided, specifies the value to use for the redirect_uri
+parameter when retrieving an authorization URL. Defaults to "urn:ietf:wg:oauth:2.0:oob".
 Requires \code{use_oob = TRUE}.}
 
 \item{is_interactive}{DEPRECATED}
