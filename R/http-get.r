@@ -40,6 +40,8 @@
 #'   requests to the same host. See \code{\link{handle_pool}} for more
 #'   details.
 #'
+#' @return A \code{\link{response}} object.
+#'
 #' @family http methods
 #' @export
 #' @examples
