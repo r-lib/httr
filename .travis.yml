@@ -16,8 +16,9 @@ matrix:
   - r: devel
   - r: oldrel
   - r: 3.3
-  - r: 3.2
-  - r: 3.1
+  # Still failing due to readr installation
+  # - r: 3.2
+  # - r: 3.1
 
 env:
   global:
