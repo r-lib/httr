@@ -1,6 +1,13 @@
 # httr 1.3.1.9000
 
+
 * More informative error message when token refresh fails (#516)
+
+* The Vimeo demo (and `oauth_endpoints()`) have been updated to use OAuth 2.0
+  (#491).
+
+* `init_oauth2.0()` passes `use_basic_auth` onwards, enabling 
+   basic authentication for OAuth 2.0 (@peterhartman, #484).
 
 * `cache_info()` now handles un-named flags, as illustrated by "private" when
   the server returns "private, max-age = 0".
