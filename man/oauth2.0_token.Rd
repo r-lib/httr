@@ -30,7 +30,8 @@ Otherwise, provide a URL to the user and prompt for a validation
 code. Defaults to the of the \code{"httr_oob_default"} default,
 or \code{TRUE} if \code{httpuv} is not installed.}
 
-\item{oob_value}{if provided, is used as a custom oob callback value.
+\item{oob_value}{if provided, specifies the value to use for the redirect_uri
+parameter when retrieving an authorization URL. Defaults to "urn:ietf:wg:oauth:2.0:oob".
 Requires \code{use_oob = TRUE}.}
 
 \item{as_header}{If \code{TRUE}, the default, configures the token to add
