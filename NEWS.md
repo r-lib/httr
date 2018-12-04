@@ -20,7 +20,6 @@
 
 * Yahoo API endpoint base URL has been updated to match the Yahoo documentation for OAuth2 flows (@ctrombley, #493).
 
->>>>>>> master
 * By default, `RETRY()` now terminates on any successful request, regardless
   of the value of `terminate_on`. To return to the previous behaviour,
   set `terminate_on_success = FALSE` (#522).
