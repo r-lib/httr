@@ -266,12 +266,12 @@ to use <code><a href='stop_for_status.html'>stop_for_status()</a></code>.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Succeeds straight away</span>
 <span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/200"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/status/200]
-#&gt;   Date: 2018-12-04 19:28
+#&gt;   Date: 2018-12-04 20:40
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># Never succeeds</span>
 <span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/500"</span>)</div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 3.3 seconds...</span></div><div class='output co'>#&gt; Response [http://httpbin.org/status/500]
-#&gt;   Date: 2018-12-04 19:29
+#&gt;   Date: 2018-12-04 20:40
 #&gt;   Status: 500
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># Invalid hostname generates curl error condition and is retried but eventually</span>
