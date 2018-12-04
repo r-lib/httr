@@ -148,8 +148,6 @@ request_perform <- function(req, handle, refresh = TRUE) {
 
   resp <- request_fetch(req$output, req$url, handle)
 
-  browser()
-
   # If return 401 and have auth token, refresh it and then try again
   needs_refresh <- refresh && resp$status_code == 401L &&
     !is.null(req$auth_token) && req$auth_token$can_refresh()
