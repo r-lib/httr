@@ -29,6 +29,9 @@
 
 * The default value of `failure` argument in `parse_http_date()` is set to `structure(NA_real_, class = "Date")` so that the reponse with a "failure" date can be printed out correctly. (@shrektan, #544)
 
+* `POST()` now uses 22 digits of precision for `body` list elements by default 
+  (@jmwerner, #490)
+
 * No longer parse non-http(s) headers (@billdenney, #537). This makes it 
   possible to use httr with protocols other than http, although this is not 
   advised, and you're own your own.

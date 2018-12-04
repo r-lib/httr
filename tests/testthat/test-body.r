@@ -59,6 +59,12 @@ test_that("named list matches form results (encode = 'json')", {
   expect_equal(out$json$b[[1]], 2)
 })
 
+test_that("decimal precision is preserved (encode = 'json')", {
+  out <- round_trip(body = list(a = 0.8675309867530986753098675309), 
+    encode = "json")
+  expect_equal(out$data, "{\"a\":0.867530986753099}")
+})
+
 test_that("can do own encoding", {
   out <- round_trip(body = '{"a":1,"b":2}', content_type_json(), encode = "raw")
   expect_equal(out$json, list(a = 1, b = 2))
