@@ -2,47 +2,59 @@
 
 ## OAuth
 
-* New demo about OAuth1 One-legged using Noun Project API (@cderv, #548)
-
-* Facebook OAuth demo updated to use device flow (#510). This allows you to
-  continue using the FB api from R under their new security policy.
-
-* The Vimeo demo (and `oauth_endpoints()`) have been updated to use OAuth 2.0
-  (#491).
-
 * `init_oauth2.0()` passes `use_basic_auth` onwards, enabling 
    basic authentication for OAuth 2.0 (@peterhartman, #484).
 
-* More informative error message when token refresh fails (#516)
+* `oauth2.0_token()` (and `init_oauth2.0()`) gains a `oob_value` argument 
+  that been allows arbitrary values to be sent for the `request_uri` 
+  parameter during OOB flows (@ctrombley, #493).
 
-* An `oob_value` argument has been added to `oauth2.0_token()` and `init_oauth2.0()`, enabling arbitrary values to be sent for the `request_uri` parameter during OOB flows (@ctrombley, #493).
+* `oauth2.0_token()` (and `init_oauth2.0()`) gain a new 
+  `query_authorize_extra` parameter make it possible to add extra query
+  parameters to the authorization URL. This is needed some APIs (e.g. fitbit)
+  (@cosmomeese, #503).
 
-* Yahoo API endpoint base URL has been updated to match the Yahoo documentation for OAuth2 flows (@ctrombley, #493).
+* `oauth_endpoints()` contains updated urls for Yahoo (@ctrombley, #493)
+  and Vimeo (#491).
 
-* Scopes are de-duplicated, sorted, and stripped of names before being hashed. This eliminates a source of hash mismatch that causes new tokens to be requested, even when existing tokens have the necessary scope. (@jennybc, #495)
+* OAuth 2.0 token refresh gives a more informative error if it fails (#516).
 
-* `oauth2.0_token` & `init_oauth2.0` (through the new `query_authorize_extra` parameter) as well as `oauth2.0_authorize_url()` (through new `query_extra` parameter) gain the ability to append extra user-specified URL query parameters (as named `list()`) to the oauth2.0 authorization URL used to initially request an oauth2.0 token from the authentication server; this is useful for some APIs (e.g. Fitbit) (@cosmomeese, #503).
+* Prior to token retrieval from on-disk cache, scopes are de-duplicated, 
+  sorted, and stripped of names before being hashed. This eliminates a 
+  source of hash mismatch that causes new tokens to be requested, even when
+  existing tokens had the necessary scope. (@jennybc, #495)
+
+Updates to demos:
+
+* The Facebook OAuth demo now uses device flow (#510). This allows you to
+  continue using the FB api from R under their new security policy.
+
+* A new Noun Project demo shows how to use one-legged OAuth1 (@cderv, #548).
+
+* The Vimeo demo has been updated from OAuth 1.0 to 2.0 (#491).
 
 ## Minor changes and improvements
 
 * `cache_info()` now handles un-named flags, as illustrated by "private" when
   the server returns "private, max-age = 0".
 
-* By default, `RETRY()` now terminates on any successful request, regardless
-  of the value of `terminate_on`. To return to the previous behaviour,
-  set `terminate_on_success = FALSE` (#522).
-
-* Encoding falls back to UTF-8 if not supplied and content-type parsing
-  fails (#500).
-
-* `HEAD` requests success in `VERB()` and `RETRY()` (#478, #499)
-
-* The default value of `failure` argument in `parse_http_date()` is set to `structure(NA_real_, class = "Date")` so that the reponse with a "failure" date can be printed out correctly. (@shrektan, #544)
+* `parse_http_date()` gets a better default value for the `failure` argument 
+  so that reponses with unparseable dates can be printed without error
+  (@shrektan, #544).
 
 * `POST()` now uses 22 digits of precision for `body` list elements by default 
   (@jmwerner, #490)
 
-* No longer parse non-http(s) headers (@billdenney, #537). This makes it 
+* `RETRY()` now terminates on any successful request, regardless of the value 
+  of `terminate_on`. To return to the previous behaviour, set
+  `terminate_on_success = FALSE` (#522).
+
+* In `RETRY()` and `VERB()`, `HEAD` requests now succeed (#478, #499).
+
+* Encoding falls back to UTF-8 if not supplied and content-type parsing
+  fails (#500).
+
+* Non-http(s) headers are no longer parsed (@billdenney, #537). This makes it 
   possible to use httr with protocols other than http, although this is not 
   advised, and you're own your own.
 
