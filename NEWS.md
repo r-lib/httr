@@ -1,5 +1,7 @@
 # httr 1.3.1.9000
 
+* The Vimeo demo (and `oauth_endpoints()`) have been updated to use OAuth 2.0.
+
 * `init_oauth2.0()` passes `use_basic_auth` onwards, enabling 
    basic authentication for OAuth 2.0 (@peterhartman, #484).
 

@@ -80,7 +80,7 @@ oauth_endpoints <- function(name) {
       access = "access_token"
     ),
     vimeo = oauth_endpoint(
-      base_url = "https://vimeo.com/oauth",
+      base_url = "https://api.vimeo.com/oauth",
       request = "request_token",
       authorize = "authorize",
       access = "access_token"
