@@ -212,22 +212,26 @@ Token1.0 <- R6::R6Class("Token1.0", inherit = Token, list(
 oauth2.0_token <- function(endpoint, app, scope = NULL, user_params = NULL,
                            type = NULL,
                            use_oob = getOption("httr_oob_default"),
+                           oob_value = NULL,
                            as_header = TRUE,
                            use_basic_auth = FALSE,
                            cache = getOption("httr_oauth_cache"),
                            config_init = list(),
                            client_credentials = FALSE,
-                           credentials = NULL
+                           credentials = NULL,
+                           query_authorize_extra = list()
                           ) {
   params <- list(
     scope = scope,
     user_params = user_params,
     type = type,
     use_oob = use_oob,
+    oob_value = oob_value,
     as_header = as_header,
     use_basic_auth = use_basic_auth,
     config_init = config_init,
-    client_credentials = client_credentials
+    client_credentials = client_credentials,
+    query_authorize_extra = query_authorize_extra
   )
 
   Token2.0$new(
@@ -246,9 +250,12 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
     self$credentials <- init_oauth2.0(self$endpoint, self$app,
       scope = self$params$scope, user_params = self$params$user_params,
       type = self$params$type, use_oob = self$params$use_oob,
+      oob_value = self$params$oob_value,
       use_basic_auth = self$params$use_basic_auth,
       config_init = self$params$config_init,
-      client_credentials = self$params$client_credentials)
+      client_credentials = self$params$client_credentials,
+      query_authorize_extra = self$params$query_authorize_extra
+    )
   },
   can_refresh = function() {
     !is.null(self$credentials$refresh_token)
