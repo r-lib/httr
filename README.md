@@ -1,8 +1,10 @@
 # httr
 
-[![Build Status](https://travis-ci.org/r-lib/httr.svg?branch=master)](https://travis-ci.org/r-lib/httr)
-[![Coverage Status](https://img.shields.io/codecov/c/github/r-lib/httr/master.svg)](https://codecov.io/github/r-lib/httr?branch=master)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/httr)](https://cran.r-project.org/package=httr)
+<!-- badges: start -->
+[![Travis build status](https://travis-ci.org/r-lib/httr.svg?branch=master)](https://travis-ci.org/r-lib/httr)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/httr/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/httr?branch=master)
+[![CRAN status](https://www.r-pkg.org/badges/version/httr)](https://cran.r-project.org/package=httr)
+<!-- badges: end -->
 
 The aim of httr is to provide a wrapper for the [curl](https://cran.r-project.org/package=curl) package, customised to the demands of modern web APIs.
 
