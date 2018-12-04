@@ -1,5 +1,8 @@
 # httr 1.3.1.9000
 
+* `init_oauth2.0()` passes `use_basic_auth` onwards, enabling 
+   basic authentication for OAuth 2.0 (@peterhartman, #484).
+
 * `cache_info()` now handles un-named flags, as illustrated by "private" when
   the server returns "private, max-age = 0".
 
