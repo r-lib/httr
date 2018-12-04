@@ -20,7 +20,7 @@
 #' more currently cached entities, those entries SHOULD be treated as stale.
 #' Responses to this method are not cacheable.
 #'
-#' @inheritParams GET
+#' @inherit GET params return
 #' @inheritParams POST
 #' @family http methods
 #' @export

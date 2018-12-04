@@ -16,7 +16,7 @@
 #' change in Content-Length, Content-MD5, ETag or Last-Modified), then the
 #' cache MUST treat the cache entry as stale.
 #'
-#' @inheritParams GET
+#' @inherit GET params return
 #' @family http methods
 #' @export
 #' @examples

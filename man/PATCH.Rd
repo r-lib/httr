@@ -55,6 +55,9 @@ connection time, and ensures that cookies are maintained over multiple
 requests to the same host. See \code{\link[=handle_pool]{handle_pool()}} for more
 details.}
 }
+\value{
+A \code{\link[=response]{response()}} object.
+}
 \description{
 Send PATCH request to a server.
 }

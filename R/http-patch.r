@@ -1,6 +1,6 @@
 #' Send PATCH request to a server.
 #'
-#' @inheritParams GET
+#' @inherit GET params return
 #' @inheritParams POST
 #' @family http methods
 #' @export

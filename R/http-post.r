@@ -1,6 +1,6 @@
 #' POST file to a server.
 #'
-#' @inheritParams GET
+#' @inherit GET params return
 #' @param body One of the following:
 #'
 #'   * `FALSE`: No body. This is typically not used with `POST`,

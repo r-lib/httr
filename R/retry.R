@@ -13,7 +13,7 @@
 #' value will be used instead, unless it's smaller than `pause_min`.
 #'
 #' @inheritParams VERB
-#' @inheritParams GET
+#' @inherit GET params return
 #' @inheritParams POST
 #' @param times Maximum number of requests to attempt.
 #' @param pause_base,pause_cap This method uses exponential back-off with

@@ -2,7 +2,7 @@
 #'
 #' Use an arbitrary verb.
 #'
-#' @inheritParams GET
+#' @inherit GET params return
 #' @inheritParams POST
 #' @param verb Name of verb to use.
 #' @family http methods
