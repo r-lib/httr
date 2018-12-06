@@ -51,17 +51,19 @@ reference:
   - authenticate
   - revoke_all
 
-- title: URLS
+- title: Url parsing and manipulation
   contents:
-  - contains("url")
+  - modify_url
+  - parse_url
 
-- title: Advanced
+- title: Developer facing
   contents:
   - cache_info
   - handle
   - httr_dr
   - httr_options
   - get_callback
+  - response
 
 navbar:
   title: httr
