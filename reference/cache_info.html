@@ -156,22 +156,22 @@ revalidation if Etag or Last-Modified headers are present).</p>
 <span class='no'>r1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"https://www.google.com"</span>)
 <span class='fu'>cache_info</span>(<span class='no'>r1</span>)</div><div class='output co'>#&gt; &lt;cache_info&gt;  https://www.google.com/
 #&gt;   Cacheable:     TRUE
-#&gt;   Expires:       Thu, 06 Dec 2018 14:38:56 GMT &lt;expired&gt;
+#&gt;   Expires:       Thu, 06 Dec 2018 14:48:20 GMT &lt;expired&gt;
 #&gt;   Last-Modified: 
-#&gt;   Etag:          </div><div class='input'><span class='no'>r1</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:38:56 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r1</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:38:57 GMT"</div><div class='input'>
+#&gt;   Etag:          </div><div class='input'><span class='no'>r1</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:48:20 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r1</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:48:20 GMT"</div><div class='input'>
 <span class='co'># Expires in a year</span>
 <span class='no'>r2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"https://www.google.com/images/srpr/logo11w.png"</span>)
 <span class='fu'>cache_info</span>(<span class='no'>r2</span>)</div><div class='output co'>#&gt; &lt;cache_info&gt;  https://www.google.com/images/srpr/logo11w.png
 #&gt;   Cacheable:     TRUE
-#&gt;   Expires:       Fri, 06 Dec 2019 14:38:57 GMT
+#&gt;   Expires:       Fri, 06 Dec 2019 14:48:20 GMT
 #&gt;   Last-Modified: Fri, 16 Dec 2016 12:30:00 GMT
-#&gt;   Etag:          </div><div class='input'><span class='no'>r2</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:38:57 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r2</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:38:57 GMT"</div><div class='input'>
+#&gt;   Etag:          </div><div class='input'><span class='no'>r2</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:48:20 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r2</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:48:20 GMT"</div><div class='input'>
 <span class='co'># Has last-modified and etag, so does revalidation</span>
 <span class='no'>r3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/cache"</span>)
 <span class='fu'>cache_info</span>(<span class='no'>r3</span>)</div><div class='output co'>#&gt; &lt;cache_info&gt;  http://httpbin.org/cache
 #&gt;   Cacheable:     TRUE
-#&gt;   Last-Modified: Thu, 06 Dec 2018 14:38:57 GMT
-#&gt;   Etag:          13017c31c3f8482eaf697e8d8b15b5d2</div><div class='input'><span class='no'>r3</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:38:57 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r3</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:38:57 GMT"</div><div class='input'>
+#&gt;   Last-Modified: Thu, 06 Dec 2018 14:48:21 GMT
+#&gt;   Etag:          d7f1009282f9462fa100b2518240e7ba</div><div class='input'><span class='no'>r3</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:48:21 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r3</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2018-12-06 14:48:21 GMT"</div><div class='input'>
 # Expires after 5 seconds
 </div><span class='co'># NOT RUN {</span>
 <span class='no'>r4</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/cache/5"</span>)

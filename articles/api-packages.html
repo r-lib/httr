@@ -167,7 +167,7 @@
 <a class="sourceLine" id="cb3-7" data-line-number="7">resp &lt;-<span class="st"> </span><span class="kw">github_api</span>(<span class="st">"/repos/hadley/httr"</span>)</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">resp</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; Response [https://api.github.com/repositories/2756403]</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;   Date: 2018-12-06 14:39</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;   Date: 2018-12-06 14:48</span></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;   Size: 6.02 kB</span></a>
@@ -190,12 +190,12 @@
 <p>Note that while most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span>)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   Date: 2018-12-06 14:39</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   Date: 2018-12-06 14:48</span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;   Content-Type: text/xml; charset=utf-8</span></a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;   Size: 1.79 kB</span></a>
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; &lt;colors numResults="1" totalResults="9958728"&gt;</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; &lt;colors numResults="1" totalResults="9958729"&gt;</span></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  &lt;color&gt;</span></a>
 <a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;      &lt;id&gt;903893&lt;/id&gt;</span></a>
 <a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;      &lt;title&gt;&lt;![CDATA[wet dirt]]&gt;&lt;/title&gt;</span></a>
@@ -207,7 +207,7 @@
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; ...</span></a>
 <a class="sourceLine" id="cb4-18" data-line-number="18"><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span>)</a>
 <a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;   Date: 2018-12-06 14:39</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;   Date: 2018-12-06 14:48</span></a>
 <a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></a>
 <a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt;   Size: 1.43 kB</span></a></code></pre></div>
@@ -499,20 +499,20 @@
 <a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co">#&gt;  $ resources:List of 3</span></a>
 <a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co">#&gt;   ..$ core   :List of 3</span></a>
 <a class="sourceLine" id="cb14-9" data-line-number="9"><span class="co">#&gt;   .. ..$ limit    : int 60</span></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt;   .. ..$ remaining: int 22</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt;   .. ..$ reset    : int 1544109124</span></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt;   .. ..$ remaining: int 56</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt;   .. ..$ reset    : int 1544111334</span></a>
 <a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co">#&gt;   ..$ search :List of 3</span></a>
 <a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co">#&gt;   .. ..$ limit    : int 10</span></a>
 <a class="sourceLine" id="cb14-14" data-line-number="14"><span class="co">#&gt;   .. ..$ remaining: int 10</span></a>
-<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">#&gt;   .. ..$ reset    : int 1544107232</span></a>
+<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">#&gt;   .. ..$ reset    : int 1544107795</span></a>
 <a class="sourceLine" id="cb14-16" data-line-number="16"><span class="co">#&gt;   ..$ graphql:List of 3</span></a>
 <a class="sourceLine" id="cb14-17" data-line-number="17"><span class="co">#&gt;   .. ..$ limit    : int 0</span></a>
 <a class="sourceLine" id="cb14-18" data-line-number="18"><span class="co">#&gt;   .. ..$ remaining: int 0</span></a>
-<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="co">#&gt;   .. ..$ reset    : int 1544110772</span></a>
+<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="co">#&gt;   .. ..$ reset    : int 1544111335</span></a>
 <a class="sourceLine" id="cb14-20" data-line-number="20"><span class="co">#&gt;  $ rate     :List of 3</span></a>
 <a class="sourceLine" id="cb14-21" data-line-number="21"><span class="co">#&gt;   ..$ limit    : int 60</span></a>
-<a class="sourceLine" id="cb14-22" data-line-number="22"><span class="co">#&gt;   ..$ remaining: int 22</span></a>
-<a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">#&gt;   ..$ reset    : int 1544109124</span></a></code></pre></div>
+<a class="sourceLine" id="cb14-22" data-line-number="22"><span class="co">#&gt;   ..$ remaining: int 56</span></a>
+<a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">#&gt;   ..$ reset    : int 1544111334</span></a></code></pre></div>
 <p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">rate_limit &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">  req &lt;-<span class="st"> </span><span class="kw">github_api</span>(<span class="st">"/rate_limit"</span>)</a>
@@ -524,7 +524,7 @@
 <a class="sourceLine" id="cb15-8" data-line-number="8">}</a>
 <a class="sourceLine" id="cb15-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb15-10" data-line-number="10"><span class="kw">rate_limit</span>()</a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; 22 / 60 (Resets at 15:12:04)</span></a></code></pre></div>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; 56 / 60 (Resets at 15:48:54)</span></a></code></pre></div>
 </div>
 </div>
   </div>
