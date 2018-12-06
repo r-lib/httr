@@ -2,6 +2,8 @@
 
 ## OAuth
 
+OAuth2.0 has been made somewhat more flexible in order to support more websites:
+
 * `init_oauth2.0()` passes `use_basic_auth` onwards, enabling 
    basic authentication for OAuth 2.0 (@peterhartman, #484).
 
