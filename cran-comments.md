@@ -18,22 +18,16 @@ Issues with CRAN packages are summarised below.
 ### New problems
 (This reports the first line of each new failure)
 
-* biomartr
-  checking tests ...
-
-* boxoffice
-  checking tests ...
-
-* phenocamr
-  checking tests ...
-
 Random internet failure:
 
 * banR
 * bigrquery
+* biomartr
+* boxoffice
 * eurostat
 * geoparser
 * malariaAtlas
+* phenocamr
 * RSelenium
 
 Failure due to httptest:

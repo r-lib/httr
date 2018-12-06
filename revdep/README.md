@@ -10,7 +10,7 @@
 |collate  |en_US.UTF-8                  |
 |ctype    |en_US.UTF-8                  |
 |tz       |America/Chicago              |
-|date     |2018-12-05                   |
+|date     |2018-12-06                   |
 
 # Dependencies
 
@@ -42,32 +42,29 @@
 |[xml2](problems.md#xml2)                         |1.2.0   |1         |        |     |
 |rcongresso                                       |?       |          |        |     |
 
-## Broken (22)
+## Broken (19)
 
-|package                                              |version |error    |warning |note |
-|:----------------------------------------------------|:-------|:--------|:-------|:----|
-|[AlphaVantageClient](problems.md#alphavantageclient) |0.0.1   |__+1__   |        |     |
-|[banR](problems.md#banr)                             |0.2.0   |         |__+1__  |1    |
-|[bigrquery](problems.md#bigrquery)                   |1.0.0   |__+1__   |        |     |
-|[biomaRt](problems.md#biomart)                       |2.38.0  |__+1__   |        |1    |
-|[biomartr](problems.md#biomartr)                     |0.8.0   |1 __+1__ |        |1    |
-|[boxoffice](problems.md#boxoffice)                   |1.1.0   |__+1__   |        |     |
-|[cellbaseR](problems.md#cellbaser)                   |1.6.0   |         |__+1__  |     |
-|[crunch](problems.md#crunch)                         |1.24.0  |__+1__   |__+1__  |2    |
-|[dkanr](problems.md#dkanr)                           |0.1.2   |__+1__   |__+1__  |     |
-|[echor](problems.md#echor)                           |0.1.1   |         |__+1__  |     |
-|[edgarWebR](problems.md#edgarwebr)                   |1.0.0   |__+1__   |        |1    |
-|[eurostat](problems.md#eurostat)                     |3.3.1   |         |__+1__  |1    |
-|[geoparser](problems.md#geoparser)                   |0.1.1   |         |__+1__  |     |
-|[httpcache](problems.md#httpcache)                   |1.1.0   |__+1__   |        |     |
-|[httptest](problems.md#httptest)                     |3.2.0   |__+2__   |        |     |
-|[malariaAtlas](problems.md#malariaatlas)             |0.0.3   |         |__+1__  |1    |
-|[neurobase](problems.md#neurobase)                   |1.27.6  |         |__+1__  |     |
-|[phenocamr](problems.md#phenocamr)                   |1.1.1   |__+1__   |        |     |
-|[pivotaltrackR](problems.md#pivotaltrackr)           |0.1.0   |__+1__   |__+1__  |     |
-|[rGoodData](problems.md#rgooddata)                   |0.1.1   |__+1__   |        |     |
-|[rols](problems.md#rols)                             |2.10.0  |1 -1     |__+1__  |1    |
-|[RSelenium](problems.md#rselenium)                   |1.7.4   |         |__+1__  |2    |
+|package                                              |version |error  |warning |note |
+|:----------------------------------------------------|:-------|:------|:-------|:----|
+|[AlphaVantageClient](problems.md#alphavantageclient) |0.0.1   |__+1__ |        |     |
+|[banR](problems.md#banr)                             |0.2.0   |       |__+1__  |1    |
+|[bigrquery](problems.md#bigrquery)                   |1.0.0   |__+1__ |        |     |
+|[biomaRt](problems.md#biomart)                       |2.38.0  |__+1__ |        |1    |
+|[cellbaseR](problems.md#cellbaser)                   |1.6.0   |       |__+1__  |     |
+|[crunch](problems.md#crunch)                         |1.24.0  |__+1__ |__+1__  |2    |
+|[dkanr](problems.md#dkanr)                           |0.1.2   |__+1__ |__+1__  |     |
+|[echor](problems.md#echor)                           |0.1.1   |       |__+1__  |     |
+|[edgarWebR](problems.md#edgarwebr)                   |1.0.0   |__+1__ |        |1    |
+|[eurostat](problems.md#eurostat)                     |3.3.1   |       |__+1__  |1    |
+|[geoparser](problems.md#geoparser)                   |0.1.1   |       |__+1__  |     |
+|[httpcache](problems.md#httpcache)                   |1.1.0   |__+1__ |        |     |
+|[httptest](problems.md#httptest)                     |3.2.0   |__+2__ |        |     |
+|[malariaAtlas](problems.md#malariaatlas)             |0.0.3   |       |__+1__  |1    |
+|[neurobase](problems.md#neurobase)                   |1.27.6  |       |__+1__  |     |
+|[pivotaltrackR](problems.md#pivotaltrackr)           |0.1.0   |__+1__ |__+1__  |     |
+|[rGoodData](problems.md#rgooddata)                   |0.1.1   |__+1__ |        |     |
+|[rols](problems.md#rols)                             |2.10.0  |1 -1   |__+1__  |1    |
+|[RSelenium](problems.md#rselenium)                   |1.7.4   |       |__+1__  |2    |
 
 ## All (613)
 
@@ -136,7 +133,7 @@
 |bioimagetools                                            |1.1.3     |          |        |     |
 |biolink                                                  |0.1.6     |          |        |     |
 |[biomaRt](problems.md#biomart)                           |2.38.0    |__+1__    |        |1    |
-|[biomartr](problems.md#biomartr)                         |0.8.0     |1 __+1__  |        |1    |
+|[biomartr](problems.md#biomartr)                         |0.8.0     |2         |        |1    |
 |[BIOMASS](problems.md#biomass)                           |1.2       |          |        |1    |
 |birdnik                                                  |0.1.1     |          |        |     |
 |blastula                                                 |0.2.1     |          |        |     |
@@ -144,7 +141,7 @@
 |[blscrapeR](problems.md#blscraper)                       |3.1.2     |2         |        |     |
 |bomrang                                                  |0.4.0     |          |        |     |
 |BoSSA                                                    |3.6       |          |        |     |
-|[boxoffice](problems.md#boxoffice)                       |1.1.0     |__+1__    |        |     |
+|boxoffice                                                |1.1.0     |          |        |     |
 |boxr                                                     |0.3.4     |          |        |     |
 |brandwatchR                                              |0.3.0     |          |        |     |
 |calpassapi                                               |0.0.2     |          |        |     |
@@ -414,7 +411,7 @@
 |PetfindeR                                                |1.1.3     |          |        |     |
 |pewdata                                                  |0.2.0     |          |        |     |
 |[phantasus](problems.md#phantasus)                       |1.2.0     |1         |        |2    |
-|[phenocamr](problems.md#phenocamr)                       |1.1.1     |__+1__    |        |     |
+|phenocamr                                                |1.1.1     |-1        |        |     |
 |phuse                                                    |0.1.6     |          |        |     |
 |piggyback                                                |0.0.8     |          |        |     |
 |pinnacle.API                                             |2.3.3     |          |        |     |

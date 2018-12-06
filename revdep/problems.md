@@ -826,30 +826,6 @@ Version: 2.38.0
 
 Version: 0.8.0
 
-## Newly broken
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      4: jsonlite::fromJSON(rest_url) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/biomartr/new/biomartr.Rcheck/00_pkg_src/biomartr/R/get.ensemblgenome.info.R:46
-      5: fromJSON_string(txt = txt, simplifyVector = simplifyVector, simplifyDataFrame = simplifyDataFrame, simplifyMatrix = simplifyMatrix, 
-             flatten = flatten, ...)
-      6: parseJSON(txt, bigint_as_char)
-      7: parse_con(txt, bigint_as_char)
-      
-      trying URL 'ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/metagenomes/assembly_summary.txt'
-      Content type 'unknown' length 2921832 bytes (2.8 MB)
-      ==================================================
-      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
-      OK: 2 SKIPPED: 105 FAILED: 1
-      1. Error: The getENSEMBLGENOMESInfo() interface works properly.. (@test-getENSEMBLGENOMESInfo.R#6) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 ## In both
 
 *   checking examples ... ERROR
@@ -874,6 +850,28 @@ Version: 0.8.0
       Service Unavailable (HTTP 503).
     Calls: head -> getFilters -> <Anonymous>
     Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      4: jsonlite::fromJSON(rest_url) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/biomartr/new/biomartr.Rcheck/00_pkg_src/biomartr/R/get.ensemblgenome.info.R:46
+      5: fromJSON_string(txt = txt, simplifyVector = simplifyVector, simplifyDataFrame = simplifyDataFrame, 
+             simplifyMatrix = simplifyMatrix, flatten = flatten, ...)
+      6: parseJSON(txt, bigint_as_char)
+      7: parse_con(txt, bigint_as_char)
+      
+      trying URL 'ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/metagenomes/assembly_summary.txt'
+      Content type 'unknown' length 2921832 bytes (2.8 MB)
+      ==================================================
+      ══ testthat results  ═══════════════════════════════════════════════════════
+      OK: 2 SKIPPED: 105 FAILED: 1
+      1. Error: The getENSEMBLGENOMESInfo() interface works properly.. (@test-getENSEMBLGENOMESInfo.R#6) 
+      
+      Error: testthat unit tests failed
+      Execution halted
     ```
 
 *   checking package dependencies ... NOTE
@@ -937,34 +935,6 @@ Version: 3.1.2
       ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
       OK: 2 SKIPPED: 0 FAILED: 1
       1. Error: (unknown) (@test_qcew_api.R#8) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# boxoffice
-
-Version: 1.1.0
-
-## Newly broken
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      4: withCallingHandlers(code, message = function(condition) {
-             out$push(condition)
-             invokeRestart("muffleMessage")
-         })
-      5: eval_bare(get_expr(quo), get_env(quo))
-      6: boxoffice(dates = christmas, site = "mojo")
-      7: httr::content(page, "parsed", encoding = "UTF-8") at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/boxoffice/new/boxoffice.Rcheck/00_pkg_src/boxoffice/R/main_function.R:78
-      8: stopifnot(is.response(x)) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/content.r:65
-      
-      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
-      OK: 82 SKIPPED: 0 FAILED: 1
-      1. Error: returns warning (@test-errors-silent.R#20) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -3658,34 +3628,6 @@ Version: 1.2.0
       'GEOquery:::getDirListing' 'opencpu:::rookhandler'
       'opencpu:::tmp_root' 'opencpu:::win_or_mac'
       See the note in ?`:::` about the use of this operator.
-    ```
-
-# phenocamr
-
-Version: 1.1.1
-
-## Newly broken
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/run_tests.r’ failed.
-    Last 13 lines of output:
-      Downloading: harvard_DB_1000_3day.csv
-      Smoothing time series! 
-      Merging Daymet Data! 
-      Downloading: harvard_DB_1000_3day.csv
-      Contracting Data! 
-      Downloading: harvard_DB_1000_3day.csv
-      [31m──[39m [31m1. Failure: check download options (@test_download_function.r#69) [39m [31m────────────────────[39m
-      `check` isn't true.
-      
-      ══ testthat results  ═════════════════════════════════════════════════════════════════════
-      OK: 2 SKIPPED: 0 FAILED: 1
-      1. Failure: check download options (@test_download_function.r#69) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # pivotaltrackR
