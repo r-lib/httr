@@ -18,66 +18,37 @@ Issues with CRAN packages are summarised below.
 ### New problems
 (This reports the first line of each new failure)
 
-* AlphaVantageClient
-  checking tests ...
-
-* banR
-  checking re-building of vignette outputs ... WARNING
-
-* bigrquery
-  checking tests ...
-
 * biomartr
   checking tests ...
 
 * boxoffice
   checking tests ...
 
-* crunch
-  checking tests ...
-  checking re-building of vignette outputs ... WARNING
-
-* dkanr
-  checking tests ...
-  checking re-building of vignette outputs ... WARNING
-
-* echor
-  checking re-building of vignette outputs ... WARNING
-
-* edgarWebR
-  checking tests ...
-
-* eurostat
-  checking re-building of vignette outputs ... WARNING
-
-* geoparser
-  checking re-building of vignette outputs ... WARNING
-
-* httpcache
-  checking tests ...
-
-* httptest
-  checking examples ... ERROR
-  checking tests ...
-
-* malariaAtlas
-  checking re-building of vignette outputs ... WARNING
-
-* neurobase
-  checking re-building of vignette outputs ... WARNING
-
 * phenocamr
   checking tests ...
 
-* pivotaltrackR
-  checking tests ...
-  checking re-building of vignette outputs ... WARNING
+Random internet failure:
 
-* rGoodData
-  checking tests ...
-
+* banR
+* bigrquery
+* eurostat
+* geoparser
+* malariaAtlas
 * RSelenium
-  checking re-building of vignette outputs ... WARNING
+
+Failure due to httptest:
+
+* AlphaVantageClient
+* crunch
+* dkanr
+* echor
+* edgarWebR
+* httpcache
+* httptest
+* pivotaltrackR
+* rGoodData
+* neurobase
+
 
 ### Failed to check
 
