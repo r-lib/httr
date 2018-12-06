@@ -1,74 +1,27 @@
-# abbyyR
-
-Version: 0.5.1
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      2: getTaskStatus(taskId, ...)
-      3: abbyy_GET("getTaskStatus", query = querylist, ...)
-      4: abbyy_check(res)
-      5: stop("HTTP failure: ", req$status_code, "\n", call. = FALSE)
-      
-      Status of the task:  1 
-      Task ID:  1 
-      Status of the task:  1 
-      Task ID:  1 
-      testthat results ================================================================
-      OK: 7 SKIPPED: 0 FAILED: 1
-      1. Error: listTasks happens successfully (@test-list-tasks.R#21) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # abjutils
 
-Version: 0.0.1
+Version: 0.2.1
 
 ## In both
 
-*   checking tests ...
+*   checking package dependencies ... ERROR
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      rm_accent(umlaut) not equal to `nudeUmlaut`.
-      1/1 mismatches
-      x[1]: "\"a\"e\"i\"o\"u\"A\"E\"I\"O\"U\"y"
-      y[1]: "aeiouAEIOUy"
-      
-      
-      testthat results ================================================================
-      OK: 10 SKIPPED: 0 FAILED: 4
-      1. Failure: rm_accent is the converted version of a string with all non-ASCII characters removed. (@test-rm_accent.R#30) 
-      2. Failure: rm_accent is the converted version of a string with all non-ASCII characters removed. (@test-rm_accent.R#32) 
-      3. Failure: rm_accent is the converted version of a string with all non-ASCII characters removed. (@test-rm_accent.R#33) 
-      4. Failure: rm_accent is the converted version of a string with all non-ASCII characters removed. (@test-rm_accent.R#34) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘devtools’ ‘httr’
-      All declared Imports should be used.
-    ```
-
-# ALA4R
-
-Version: 1.5.6
-
-## In both
-
-*   R CMD check timed out
+    Package required but not available: ‘devtools’
     
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# aire.zmvm
+
+Version: 0.8.0
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 52 marked UTF-8 strings
+    ```
 
 # algorithmia
 
@@ -83,9 +36,51 @@ Version: 0.0.2
       All declared Imports should be used.
     ```
 
+# AlphaVantageClient
+
+Version: 0.0.1
+
+## Newly broken
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      [31m──[39m [31m1. Error: fetchSeries mocked (@test-fetch.R#13) [39m [31m──────────────────────────────────────────────────────────────────────[39m
+      argument 'x' must be a raw vector
+      1: fetchSeries(function_nm = "time_series_daily", symbol = "amzn", outputsize = "compact", datatype = "json") at testthat/test-fetch.R:13
+      2: httr::GET(url) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/AlphaVantageClient/new/AlphaVantageClient.Rcheck/00_pkg_src/AlphaVantageClient/R/fetch.R:18
+      3: request_perform(req, hu$handle$handle) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/http-get.r:69
+      4: parse_http_headers(resp$headers) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/request.R:163
+      5: strsplit(rawToChar(raw), "\r?\n") at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/headers.r:109
+      6: rawToChar(raw) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/headers.r:109
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 33 SKIPPED: 0 FAILED: 1
+      1. Error: fetchSeries mocked (@test-fetch.R#13) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+# alphavantager
+
+Version: 0.1.0
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
 # AnnotationForge
 
-Version: 1.18.1
+Version: 1.24.0
 
 ## In both
 
@@ -111,35 +106,48 @@ Version: 1.18.1
       Execution halted
     ```
 
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 54-57 (MakingNewAnnotationPackages.Rnw) 
+    Error: processing vignette 'MakingNewAnnotationPackages.Rnw' failed with diagnostics:
+    there is no package called 'Homo.sapiens'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘hgu95av2.db’ ‘human.db0’ ‘org.Hs.eg.db’ ‘Homo.sapiens’
+      ‘hom.Hs.inp.db’ ‘GO.db’
+    ```
+
 *   checking installed package size ... NOTE
     ```
-      installed size is  5.6Mb
+      installed size is  7.5Mb
       sub-directories of 1Mb or more:
         AnnDbPkg-templates   1.3Mb
+        R                    2.1Mb
         extdata              3.3Mb
     ```
 
 # AnnotationHub
 
-Version: 2.8.2
+Version: 2.14.1
 
 ## In both
+
+*   checking dependencies in R code ... WARNING
+    ```
+    '::' or ':::' import not declared from: ‘ensembldb’
+    Unexported object imported by a ':::' call: ‘BiocManager:::.version_bioc’
+      See the note in ?`:::` about the use of this operator.
+    ```
 
 *   checking package dependencies ... NOTE
     ```
     Package which this enhances but not available for checking: ‘AnnotationHubData’
-    ```
-
-*   checking R code for possible problems ... NOTE
-    ```
-    .get1,EnsDbResource: no visible global function definition for ‘EnsDb’
-    Undefined global functions or variables:
-      EnsDb
-    ```
-
-*   checking Rd files ... NOTE
-    ```
-    prepare_Rd: listResources.Rd:50-51: Dropping empty section \seealso
     ```
 
 # AntWeb
@@ -151,6 +159,7 @@ Version: 0.7
 *   checking R code for possible problems ... NOTE
     ```
     aw_map: no visible global function definition for ‘browseURL’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/AntWeb/new/AntWeb.Rcheck/00_pkg_src/AntWeb/R/aw_map.R:52)
     Undefined global functions or variables:
       browseURL
     Consider adding
@@ -158,14 +167,68 @@ Version: 0.7
     to your NAMESPACE file.
     ```
 
-# archivist
+# anyflights
 
-Version: 2.1.2
+Version: 0.1.0
 
 ## In both
 
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘tibble’
+      All declared Imports should be used.
+    ```
+
+# anyLib
+
+Version: 1.0.5
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# archivist
+
+Version: 2.3.1
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+    > createLocalRepo("ahistory_check", default = TRUE)
+    > library(dplyr)
+    
+    Attaching package: ‘dplyr’
+    
+    The following objects are masked from ‘package:stats’:
+    
+        filter, lag
+    
+    The following objects are masked from ‘package:base’:
+    
+        intersect, setdiff, setequal, union
+    
+    > iris %a%
+    + filter(Sepal.Length < 6) %a%
+    +  lm(Petal.Length~Species, data=.) %a%
+    +  summary() -> artifact
+    Error in saveToRepo(env[[nm]], archiveData = FALSE, artifactName = lhs_name) : 
+      devtools package required for archiveSessionInfo parameter
+    Calls: %a% ... eval -> %a% -> eval -> eval -> %a% -> paste0 -> saveToRepo
+    Execution halted
+    ```
+
 *   checking package dependencies ... NOTE
     ```
+    Package suggested but not available for checking: ‘devtools’
+    
     Package which this enhances but not available for checking: ‘archivist.github’
     ```
 
@@ -174,25 +237,93 @@ Version: 2.1.2
     Packages unavailable to check Rd xrefs: ‘rmarkdown’, ‘archivist.github’
     ```
 
-# atsd
+# aRxiv
 
-Version: 1.0.8441
+Version: 0.5.16
 
 ## In both
 
-*   checking R code for possible problems ... NOTE
+*   checking package dependencies ... NOTE
     ```
-    parse_response: no visible global function definition for ‘read.csv’
-    Undefined global functions or variables:
-      read.csv
-    Consider adding
-      importFrom("utils", "read.csv")
-    to your NAMESPACE file.
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# atlas
+
+Version: 1.0.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘testthat’
+      All declared Imports should be used.
+    ```
+
+# auk
+
+Version: 0.3.0
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 552 marked UTF-8 strings
+    ```
+
+# AzureRMR
+
+Version: 1.0.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘jsonlite’
+      All declared Imports should be used.
+    ```
+
+# BaMORC
+
+Version: 1.0
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# BANEScarparkinglite
+
+Version: 0.1.2
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘zoo’
+      All declared Imports should be used.
     ```
 
 # banR
 
 Version: 0.2.0
+
+## Newly broken
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 57-66 (geocode.Rmd) 
+    Error: processing vignette 'geocode.Rmd' failed with diagnostics:
+    The API sent back an error 503
+    Execution halted
+    ```
 
 ## In both
 
@@ -202,9 +333,20 @@ Version: 0.2.0
       All declared Imports should be used.
     ```
 
+# bcmaps
+
+Version: 0.17.1
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘bcmaps.rdata’
+    ```
+
 # bea.R
 
-Version: 1.0.2
+Version: 1.0.6
 
 ## In both
 
@@ -217,9 +359,20 @@ Version: 1.0.2
       All declared Imports should be used.
     ```
 
-# bigQueryR
+# BETS
 
-Version: 0.3.1
+Version: 0.4.9
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# bib2df
+
+Version: 1.0.1
 
 ## In both
 
@@ -228,22 +381,40 @@ Version: 0.3.1
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      testthat results ================================================================
-      OK: 13 SKIPPED: 0 FAILED: 12
-      1. Error: Can authenticate (@test_query.R#8) 
-      2. Error: Can upload test set (@test_query.R#39) 
-      3. Error: Can upload via Google Cloud Storage (@test_query.R#58) 
-      4. Error: Can list tables (@test_query.R#72) 
-      5. Error: Can query test set (@test_query.R#81) 
-      6. Error: Single query bug (@test_query.R#91) 
-      7. Error: Async query (@test_query.R#100) 
-      8. Error: Extract data to Google Cloud Storage, and download (@test_query.R#117) 
-      9. Error: Create a table (@test_query.R#142) 
-      1. ...
+      > library("testthat")
+      > library("bib2df")
+      > test_check("bib2df")
+      [31m──[39m [31m1. Failure: bib2df() throws error messages (@tests.R#70) [39m [31m─────────────────────────────────────────────────────────────[39m
+      `bib2df("https://www.example.com/data/x.bib")` threw an error with unexpected message.
+      Expected match: "Invalid URL: File is not readable."
+      Actual message: "Could not resolve host: www.example.com"
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 19 SKIPPED: 0 FAILED: 1
+      1. Failure: bib2df() throws error messages (@tests.R#70) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
+
+# BIGDAWG
+
+Version: 2.1
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘knitr’ ‘rmarkdown’
+      All declared Imports should be used.
+    ```
+
+# bigQueryR
+
+Version: 0.4.0
+
+## In both
 
 *   checking Rd cross-references ... NOTE
     ```
@@ -252,7 +423,35 @@ Version: 0.3.1
 
 # bigrquery
 
-Version: 0.4.1
+Version: 1.0.0
+
+## Newly broken
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      [31m──[39m [31m2. Error: can update dataset metadata (@bq-dataset.R#89) [39m [31m─────────────────────────────────────────────────────────────[39m
+      Not found: Dataset bigrquery-examples:TESTING_urvkoehyid [notFound]
+      1: bq_dataset_delete(ds)
+      2: bq_delete(url, query = query) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/bigrquery/new/bigrquery.Rcheck/00_pkg_src/bigrquery/R/bq-dataset.R:89
+      3: process_request(req) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/bigrquery/new/bigrquery.Rcheck/00_pkg_src/bigrquery/R/bq-request.R:114
+      4: bq_check_response(status, type, content) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/bigrquery/new/bigrquery.Rcheck/00_pkg_src/bigrquery/R/bq-request.R:171
+      5: signal_reason(json$error$errors[[1L]]$reason, json$error$message) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/bigrquery/new/bigrquery.Rcheck/00_pkg_src/bigrquery/R/bq-request.R:188
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 232 SKIPPED: 0 FAILED: 2
+      1. Error: can update dataset metadata (@test-bq-dataset.R#18) 
+      2. Error: can update dataset metadata (@bq-dataset.R#89) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+# binman
+
+Version: 0.1.1
 
 ## In both
 
@@ -261,56 +460,89 @@ Version: 0.4.1
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      4. Failure: DBItest: Connection: disconnect_invalid_connection 
-      5. Failure: DBItest: Connection: data_type_connection 
-      6. Failure: DBItest: Connection: data_type_connection 
-      7. Failure: DBItest: Connection: data_type_connection 
-      8. Failure: DBItest: Result: send_query_invalid_connection 
-      9. Failure: DBItest: Result: fetch_n_bad 
-      1. ...
+             httr::stop_for_status(res)
+             res
+         })(dir = dots[[1L]][[2L]], file = dots[[2L]][[2L]], url = dots[[3L]][[2L]])
+      7: httr::GET(url, wd) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/binman/new/binman.Rcheck/00_pkg_src/binman/R/download_files.R:41
+      8: request_perform(req, hu$handle$handle) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/http-get.r:69
+      9: request_fetch(req$output, req$url, handle) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/request.R:149
+      10: request_fetch.write_disk(req$output, req$url, handle) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/write-function.R:77
+      11: curl::curl_fetch_disk(url, x$path, handle = handle) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/write-function.R:82
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 30 SKIPPED: 0 FAILED: 1
+      1. Error: canDownloadFiles (@test-download_files.R#10) 
       
       Error: testthat unit tests failed
-      In addition: Warning messages:
-      1: Unused skip expressions: ^command_query$, ^data_logical_int.*, ^data_character_null_(above|below)$ 
-      2: Unused skip expressions: ^roundtrip_logical_int$, ^roundtrip_64_bit$, ^quote_identifier_not_vectorized$ 
-      3: Unused skip expressions: rows_affected 
-      4: Unused skip expressions: read_only 
       Execution halted
     ```
 
 # bio3d
 
-Version: 2.3-3
+Version: 2.3-4
 
 ## In both
 
-*   checking tests ...
+*   checking installed package size ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-           'Using fake e-mail address may result in your jobs being killed and your IP, Organisation or entire domain being black-listed.'
-      1: seqaln(seqs) at testthat/test-seqaln.R:18
-      2: stop(paste("You do not have ", prg, " installed/working locally on your machine.\n", 
-             "  We can attempt to use the EBI webserver if you provide an email address (required by the EBI).\n", 
-             "  Please note that the EBI states (see their Terms of Use):\n", "     'Using fake e-mail address may result in your jobs being killed and your IP, Organisation or entire domain being black-listed.'\n", 
-             sep = ""))
-      
-      testthat results ================================================================
-      OK: 4272 SKIPPED: 3 FAILED: 3
-      1. Error: aanma based eNMA works (@test-aanma.pdbs.R#22) 
-      2. Error: read.all() reads all/select PDB atoms properly (@test-read.all.R#12) 
-      3. Error: seqaln works (@test-seqaln.R#18) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      installed size is  6.9Mb
+      sub-directories of 1Mb or more:
+        R   4.0Mb
     ```
 
 # BiocCheck
 
-Version: 1.12.0
+Version: 1.18.0
 
 ## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+    > ###   guidelines
+    > ### Aliases: BiocCheck usage
+    > 
+    > ### ** Examples
+    > 
+    > packageDir <- system.file("testpackages", "testpkg0", package="BiocCheck")
+    > BiocCheck(packageDir, `quit-with-status`=FALSE)
+    This is BiocCheck version 1.18.0. BiocCheck is a work in progress.
+    Output and severity of issues may change. Installing package...
+      cmd: /Library/Frameworks/R.framework/Resources/bin/R
+      args: --vanilla CMD INSTALL --no-test-load --library=/tmp/RtmpL3WCh7/lib '/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocCheck/new/BiocCheck.Rcheck/BiocCheck/testpackages/testpkg0'
+      stderr:
+      ERROR: dependency ‘devtools’ is not available for package ‘testpkg0’
+      * removing ‘/private/tmp/RtmpL3WCh7/lib/testpkg0’
+        * ERROR:
+          /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocCheck/new/BiocCheck.Rcheck/BiocCheck/testpackages/testpkg0
+          must be installable.
+    Error in (function (package, help, pos = 2, lib.loc = NULL, character.only = FALSE,  : 
+      there is no package called ‘testpkg0’
+    Calls: BiocCheck ... suppressPackageStartupMessages -> withCallingHandlers -> do.call -> <Anonymous>
+    Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/runTests.R’ failed.
+    Last 13 lines of output:
+      
+       
+      1 Test Suite : 
+      BiocCheck RUnit Tests - 1 test function, 1 error, 0 failures
+      ERROR in /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocCheck/new/BiocCheck.Rcheck/BiocCheck/unitTests/test_BiocCheck.R: Error while sourcing  /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocCheck/new/BiocCheck.Rcheck/BiocCheck/unitTests/test_BiocCheck.R : Error in library(devtools) : there is no package called 'devtools'
+      
+      Test files with failing tests
+      
+         test_BiocCheck.R 
+           /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocCheck/new/BiocCheck.Rcheck/BiocCheck/unitTests/test_BiocCheck.R 
+      
+      
+      Error in BiocGenerics:::testPackage("BiocCheck") : 
+        unit tests failed for package BiocCheck
+      Execution halted
+    ```
 
 *   checking re-building of vignette outputs ... WARNING
     ```
@@ -323,86 +555,335 @@ Version: 1.12.0
 
 *   checking package dependencies ... NOTE
     ```
+    Package suggested but not available for checking: ‘devtools’
+    
     Package which this enhances but not available for checking: ‘codetoolsBioC’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.5Mb
+      sub-directories of 1Mb or more:
+        unitTests   4.1Mb
     ```
 
 *   checking dependencies in R code ... NOTE
     ```
     Unexported objects imported by ':::' calls:
-      ‘knitr:::detect_pattern’ ‘tools:::RdTags’
+      ‘BiocManager:::.version_bioc’ ‘knitr:::detect_pattern’
+      ‘tools:::RdTags’
       See the note in ?`:::` about the use of this operator.
     ```
 
-*   checking R code for possible problems ... NOTE
+# BiocFileCache
+
+Version: 1.6.0
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
     ```
-    checkValidDevelopmentURL: no visible global function definition for
-      ‘url.exists’
-    Undefined global functions or variables:
-      url.exists
+    Error in re-building vignettes:
+      ...
+    Loading required package: dbplyr
+    Quitting from lines 770-799 (BiocFileCache.Rmd) 
+    Error: processing vignette 'BiocFileCache.Rmd' failed with diagnostics:
+    reading GFF file: line 1416108 has less than 8 tab-separated columns
+    Execution halted
     ```
 
-# BiocWorkflowTools
+# BiocOncoTK
 
 Version: 1.2.0
 
 ## In both
 
-*   checking dependencies in R code ... NOTE
+*   checking examples ... ERROR
     ```
-    Unexported objects imported by ':::' calls:
-      ‘BiocStyle:::auth_affil_latex’ ‘BiocStyle:::modifyLines’
-      ‘rmarkdown:::flatten_latex_dependencies’
-      ‘rmarkdown:::has_latex_dependencies’
-      ‘rmarkdown:::latex_dependencies_as_text_file’
-      See the note in ?`:::` about the use of this operator.
+    Running examples in ‘BiocOncoTK-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: load_ccleNRAS
+    > ### Title: utilities for mock data (not involving internet access for
+    > ###   vignette)
+    > ### Aliases: load_ccleNRAS load_NRAS_AHR load_nrasdf
+    > 
+    > ### ** Examples
+    > 
+    > load_ccleNRAS()
+    Loading required package: pogos
+    Loading required package: rjson
+    Loading required package: httr
+    Error: package or namespace load failed for ‘pogos’ in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+     there is no package called ‘ontoProc’
+    Error in .requirePackage(package) : 
+      unable to find required package ‘pogos’
+    Calls: <Anonymous> ... getClass -> getClassDef -> .classEnv -> .requirePackage
+    Execution halted
     ```
-
-# biolink
-
-Version: 0.1.2
-
-## In both
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      tests/testthat/test-url.r:79:22: style: Only use double-quotes.
-         url <- modify_url('http://google.com?a=1', query = list(b = 2))
-                           ^~~~~~~~~~~~~~~~~~~~~~~
-      tests/testthat/test-url.r:85:27: warning: Do not use absolute paths.
-        expect_equal(url$path, "/tmp/foobar")
-                                ^~~~
+      Loading required package: BiocParallel
       
+      Attaching package: 'DelayedArray'
       
-      testthat results ================================================================
-      OK: 116 SKIPPED: 0 FAILED: 1
-      1. Failure: Package Style (@test-style.r#4) 
+      The following objects are masked from 'package:matrixStats':
+      
+          colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges
+      
+      The following objects are masked from 'package:base':
+      
+          aperm, apply
+      
+      Error: package or namespace load failed for 'restfulSE' in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+       there is no package called 'GO.db'
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 18-30 (BiocOncoTK.Rmd) 
+    Error: processing vignette 'BiocOncoTK.Rmd' failed with diagnostics:
+    package or namespace load failed for 'pogos' in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+     there is no package called 'ontoProc'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘org.Hs.eg.db’ ‘ontoProc’ ‘TxDb.Hsapiens.UCSC.hg19.knownGene’
+      ‘TxDb.Hsapiens.UCSC.hg18.knownGene’ ‘FDb.InfiniumMethylation.hg19’
+      ‘EnsDb.Hsapiens.v75’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.3Mb
+      sub-directories of 1Mb or more:
+        data   4.0Mb
+        doc    1.9Mb
+    ```
+
+*   checking DESCRIPTION meta-information ... NOTE
+    ```
+    Package listed in more than one of Depends, Imports, Suggests, Enhances:
+      ‘DBI’
+    A package should be listed in only one of these fields.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocOncoTK/new/BiocOncoTK.Rcheck/00_pkg_src/BiocOncoTK/R/mc3utils.R:118)
+    ggFeatureSegs: no visible binding for global variable ‘symbol’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocOncoTK/new/BiocOncoTK.Rcheck/00_pkg_src/BiocOncoTK/R/mc3utils.R:124-126)
+    ggMutDens : <anonymous>: no visible binding for global variable
+      ‘Consequence’
+    ggMutDens: no visible binding for global variable ‘project_short_name’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocOncoTK/new/BiocOncoTK.Rcheck/00_pkg_src/BiocOncoTK/R/mc3utils.R:67-68)
+    ggMutDens: no visible binding for global variable ‘project_short_name’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocOncoTK/new/BiocOncoTK.Rcheck/00_pkg_src/BiocOncoTK/R/mc3utils.R:70)
+    ggMutDens: no visible binding for global variable ‘project_short_name’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocOncoTK/new/BiocOncoTK.Rcheck/00_pkg_src/BiocOncoTK/R/mc3utils.R:71-73)
+    mc3toGR : <anonymous>: no visible binding for global variable
+      ‘Consequence’
+    rainfall: no visible global function definition for ‘genome’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocOncoTK/new/BiocOncoTK.Rcheck/00_pkg_src/BiocOncoTK/R/rainfall3.R:152)
+    tumNorSet : <anonymous>: no visible global function definition for
+      ‘pancan_SE’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocOncoTK/new/BiocOncoTK.Rcheck/00_pkg_src/BiocOncoTK/R/pancan.R:132-134)
+    Undefined global functions or variables:
+      BiocFileCache Consequence genes genome pancan_SE project_short_name
+      seqlengths symbol tfstart
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 46 marked UTF-8 strings
+    ```
+
+# BiocPkgTools
+
+Version: 1.0.1
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    Downloading package data...
+    Package data download complete
+    
+    Attaching package: 'igraph'
+    
+    The following objects are masked from 'package:dplyr':
+    
+        as_data_frame, groups, union
+    
+    The following objects are masked from 'package:stats':
+    
+        decompose, spectrum
+    
+    The following object is masked from 'package:base':
+    
+        union
+    
+    Quitting from lines 198-200 (BiocPkgTools.Rmd) 
+    Error: processing vignette 'BiocPkgTools.Rmd' failed with diagnostics:
+    there is no package called 'visNetwork'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘visNetwork’
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    process_data: no visible binding for global variable ‘biocViews’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:47-66)
+    process_data: no visible binding for global variable ‘Description’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:47-66)
+    process_data: no visible binding for global variable ‘downloads_month’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:47-66)
+    process_data: no visible binding for global variable ‘downloads_total’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:47-66)
+    summarise_dl_stats: no visible binding for global variable ‘Package’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:75-80)
+    summarise_dl_stats: no visible binding for global variable
+      ‘Nb_of_downloads’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/BiocPkgTools/new/BiocPkgTools.Rcheck/00_pkg_src/BiocPkgTools/R/getData.R:75-80)
+    Undefined global functions or variables:
+      Author Description License Nb_of_downloads Package V<- any_alnums
+      any_alphas any_blanks any_non_alnums any_of anything biocViews blank
+      capture digit downloads_month downloads_total except_any_of maybe
+      start tags
+    Consider adding
+      importFrom("stats", "start")
+    to your NAMESPACE file.
+    ```
+
+# BiocWorkflowTools
+
+Version: 1.8.0
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# biomaRt
+
+Version: 2.38.0
+
+## Newly broken
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      > 
+      > test_check("biomaRt", encoding = "UTF-8")
+      [31m──[39m [31m1. Error: Renaming columns - real data (@test_utilityFunctions.R#35) [39m [31m─────────────────────────────────────────────────[39m
+      invalid 'text' argument
+      1: useMart(biomart = "ensembl", host = "https://www.ensembl.org", dataset = "mmusculus_gene_ensembl", port = 443) at testthat/test_utilityFunctions.R:35
+      2: useDataset(mart = mart, dataset = dataset, verbose = verbose) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/biomaRt/new/biomaRt.Rcheck/00_pkg_src/biomaRt/R/biomaRt.R:258
+      3: bmAttrFilt("filters", mart, verbose = verbose) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/biomaRt/new/biomaRt.Rcheck/00_pkg_src/biomaRt/R/biomaRt.R:412
+      4: textConnection(attrfilt) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/biomaRt/new/biomaRt.Rcheck/00_pkg_src/biomaRt/R/biomaRt.R:332
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 56 SKIPPED: 0 FAILED: 1
+      1. Error: Renaming columns - real data (@test_utilityFunctions.R#35) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
+## In both
+
 *   checking dependencies in R code ... NOTE
     ```
-    Namespace in Imports field not imported from: ‘utils’
-      All declared Imports should be used.
+    Unexported object imported by a ':::' call: ‘AnnotationDbi:::smartKeys’
+      See the note in ?`:::` about the use of this operator.
     ```
 
 # biomartr
 
-Version: 0.5.1
+Version: 0.8.0
+
+## Newly broken
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      4: jsonlite::fromJSON(rest_url) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/biomartr/new/biomartr.Rcheck/00_pkg_src/biomartr/R/get.ensemblgenome.info.R:46
+      5: fromJSON_string(txt = txt, simplifyVector = simplifyVector, simplifyDataFrame = simplifyDataFrame, simplifyMatrix = simplifyMatrix, 
+             flatten = flatten, ...)
+      6: parseJSON(txt, bigint_as_char)
+      7: parse_con(txt, bigint_as_char)
+      
+      trying URL 'ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/metagenomes/assembly_summary.txt'
+      Content type 'unknown' length 2921832 bytes (2.8 MB)
+      ==================================================
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 2 SKIPPED: 105 FAILED: 1
+      1. Error: The getENSEMBLGENOMESInfo() interface works properly.. (@test-getENSEMBLGENOMESInfo.R#6) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
 
 ## In both
 
-*   R CMD check timed out
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘biomartr-Ex.R’ failed
+    The error most likely occurred in:
     
+    > ### Name: getFilters
+    > ### Title: Retrieve All Available Filters for a Specific Dataset
+    > ### Aliases: getFilters
+    > 
+    > ### ** Examples
+    > 
+    > # search for available datasets
+    > # getMarts()
+    > # choose database (mart): "ENSEMBL_MART_ENSEMBL"
+    > # head(getDatasets(mart = "ENSEMBL_MART_ENSEMBL"), 10)
+    > # choose dataset: "hsapiens_gene_ensembl"
+    > head(getFilters(mart = "ENSEMBL_MART_ENSEMBL", 
+    +                 dataset = "hsapiens_gene_ensembl") , 5)
+    Error in getFilters(mart = "ENSEMBL_MART_ENSEMBL", dataset = "hsapiens_gene_ensembl") : 
+      Service Unavailable (HTTP 503).
+    Calls: head -> getFilters -> <Anonymous>
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
 
 # BIOMASS
 
-Version: 1.1
+Version: 1.2
 
 ## In both
 
@@ -411,152 +892,139 @@ Version: 1.1
     Packages unavailable to check Rd xrefs: ‘lmfor’, ‘taxize’
     ```
 
-# ccafs
+# blscrapeR
 
-Version: 0.1.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      one or more files don't exist
-      1: cc_data_read(res[1]) at testthat/test-cc_data_read.R:11
-      2: cc_data_read.ccafs_files(res[1])
-      3: cc_data_read(unclass(x), unreadable)
-      4: cc_data_read.character(unclass(x), unreadable)
-      5: stop("one or more files don't exist", call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 29 SKIPPED: 0 FAILED: 3
-      1. Failure: cc_data_fetch works (@test-cc_data_fetch.R#13) 
-      2. Failure: cc_data_fetch works (@test-cc_data_fetch.R#14) 
-      3. Error: cc_data_read works (@test-cc_data_read.R#11) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# cellbaseR
-
-Version: 1.0.0
+Version: 3.1.2
 
 ## In both
 
 *   checking examples ... ERROR
     ```
-    Running examples in ‘cellbaseR-Ex.R’ failed
+    Running examples in ‘blscrapeR-Ex.R’ failed
     The error most likely occurred in:
     
-    > ### Name: AnnotateVcf,CellBaseR-method
-    > ### Title: AnnotateVcf
-    > ### Aliases: AnnotateVcf,CellBaseR-method AnnotateVcf
+    > ### Name: qcew_api
+    > ### Title: Request data from the Quarterly Census of Employment and Wages.
+    > ### Aliases: qcew_api
+    > ### Keywords: api bls cpi economics inflation unemployment
     > 
     > ### ** Examples
     > 
-    > cb <- CellBaseR()
-    > fl <- system.file("extdata", "hapmap_exome_chr22_500.vcf.gz",
-    +                   package = "cellbaseR" )
-    > res <- AnnotateVcf(object=cb, file=fl, BPPARAM = bpparam(workers=2))
-    Error: BiocParallel errors
-      element index: 1, 2
-      first error: lexical error: invalid char in json text.
-                                           <html><body><h1>504 Gateway Tim
-                         (right here) ------^
-    Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 58-68 (cellbaseR.Rmd) 
-    Error: processing vignette 'cellbaseR.Rmd' failed with diagnostics:
-    lexical error: invalid char in json text.
-                                           <html><body><h1>504 Gateway Tim
-                         (right here) ------^
-    Execution halted
-    ```
-
-# censusapi
-
-Version: 0.2.1
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    
-    Attaching package: 'censusapi'
-    
-    The following object is masked from 'package:methods':
-    
-        getFunction
-    
-    Quitting from lines 84-87 (getting-started.Rmd) 
-    Error: processing vignette 'getting-started.Rmd' failed with diagnostics:
-    'key' argument is missing. A Census API key is required and can be requested at https://api.census.gov/data/key_signup.html.
-    Please add your Census key to your .Renviron - see instructions at https://github.com/hrecht/censusapi#api-key-setup
-    Execution halted
-    ```
-
-# censusr
-
-Version: 0.0.3
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘censusr-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: append_geoid
-    > ### Title: Retrieve GEOID from the Census Geocoder by address
-    > ### Aliases: append_geoid
     > 
-    > ### ** Examples
-    > 
-    > airports <- dplyr::data_frame(
-    +   street = "700 Catalina Dr", city = "Daytona Beach", state = "FL"
-    + )
-    > append_geoid(airports, 'tr')
-    Error in call_geolocator(as.character(address$street[i]), as.character(address$city[i]),  : 
-      Internal Server Error (HTTP 500).
-    Calls: append_geoid -> call_geolocator -> <Anonymous>
+    > # A request for the employment levels and wages for NIACS 5112: Software Publishers.
+    > dat <- qcew_api(year=2015, qtr="A", slice="area", sliceCode="US000")
+    Please set a numeric year.
+    Trying BLS servers...
+    URL caused a warning. Please check your parameters and try again: https://data.bls.gov/cew/data/api/2015/A/area/US000.csv
+    Error in qcew_api(year = 2015, qtr = "A", slice = "area", sliceCode = "US000") : 
+      object 'qcewDat' not found
     Execution halted
     ```
-
-# censys
-
-Version: 0.1.0
-
-## In both
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      2: expect_compare(">=", object, expected, label = label, expected.label = expected.label)
-      3: stopifnot(is.numeric(actual), length(actual) == 1)
-      4: get_series()
-      5: httr::GET(CENSYS_API_URL %s+% "data", check_api())
-      6: request_build("GET", hu$url, as.request(config), ...)
-      7: as.request(config)
-      8: check_api()
-      9: stop("Both CENSYS_API_ID and CENSYS_API_SECRET must be present in the R environment.")
+      > library(testthat)
+      > library(blscrapeR)
+      > 
+      > test_check("blscrapeR")
+      [31m──[39m [31m1. Error: (unknown) (@test_qcew_api.R#8) [39m [31m─────────────────────────────────────────────────────────────────────────────[39m
+      cannot open URL 'https://data.bls.gov/cew/data/api/2013/1/industry/5112.csv'
+      1: download.file(url, temp, quiet = TRUE) at testthat/test_qcew_api.R:8
       
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 1
-      1. Error: we can do something (@test-censys.R#7) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 2 SKIPPED: 0 FAILED: 1
+      1. Error: (unknown) (@test_qcew_api.R#8) 
       
       Error: testthat unit tests failed
       Execution halted
+    ```
+
+# boxoffice
+
+Version: 1.1.0
+
+## Newly broken
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      4: withCallingHandlers(code, message = function(condition) {
+             out$push(condition)
+             invokeRestart("muffleMessage")
+         })
+      5: eval_bare(get_expr(quo), get_env(quo))
+      6: boxoffice(dates = christmas, site = "mojo")
+      7: httr::content(page, "parsed", encoding = "UTF-8") at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/boxoffice/new/boxoffice.Rcheck/00_pkg_src/boxoffice/R/main_function.R:78
+      8: stopifnot(is.response(x)) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/content.r:65
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 82 SKIPPED: 0 FAILED: 1
+      1. Error: returns warning (@test-errors-silent.R#20) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+# cdcfluview
+
+Version: 0.7.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘units’
+      All declared Imports should be used.
+    ```
+
+# CDECRetrieve
+
+Version: 0.1.2
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘lazyeval’ ‘purrr’ ‘roxygen2’
+      All declared Imports should be used.
+    ```
+
+# cellbaseR
+
+Version: 1.6.0
+
+## Newly broken
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    Attaching package: 'Biostrings'
+    
+    The following object is masked from 'package:DelayedArray':
+    
+        type
+    
+    The following object is masked from 'package:base':
+    
+        strsplit
+    
+    
+    Attaching package: 'VariantAnnotation'
+    
+    The following object is masked from 'package:base':
+    
+        tabulate
+    
+    Quitting from lines 153-163 (cellbaseR.Rmd) 
+    Error: processing vignette 'cellbaseR.Rmd' failed with diagnostics:
+    error writing to connection
+    Execution halted
     ```
 
 # cepR
@@ -584,6 +1052,7 @@ Version: 0.1
 *   checking R code for possible problems ... NOTE
     ```
     parse_counts: no visible global function definition for ‘na.omit’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/chromer/new/chromer.Rcheck/00_pkg_src/chromer/R/clean-data.R:77)
     Undefined global functions or variables:
       na.omit
     Consider adding
@@ -591,20 +1060,23 @@ Version: 0.1
     to your NAMESPACE file.
     ```
 
-# congressbr
+# civis
 
-Version: 0.1.1
+Version: 1.5.1
 
 ## In both
 
-*   checking data for non-ASCII characters ... NOTE
+*   checking package dependencies ... ERROR
     ```
-      Note: found 1 marked UTF-8 string
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
-# covr
+# classyfireR
 
-Version: 3.0.0
+Version: 0.1.1
 
 ## In both
 
@@ -613,54 +1085,144 @@ Version: 3.0.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      x[115]: S4.R<\\/a>\"],[38],[6],[6],[0],[\"2\"]],\"container\":\"<table class=\\\"d
-      x[115]: isplay\\\">\\n  <thead>\\n    <tr>\\n      <th>Coverage<\\/th>\\n      ...
-      y[115]: "          <script type=\"application/json\" data-for=\"htmlwidget-eaef49d
-      y[115]: 4a484bc22a8b4\">{\"x\":{\"filter\":\"none\",\"data\":[[\"<div class=\\\"co
-      y[115]: verage-box coverage-high\\\">100.00\\u003c/div>\"],[\"<a href=\\\"#\\\">R/
-      y[115]: TestS4.R\\u003c/a>\"],[38],[6],[6],[0],[\"2\"]],\"container\":\"<table cla
-      y[115]: ss=\\\"display\\\">\\n  <thead>\\n    <tr>\\n      <th>Coverage\\u003c/...
+      3: eval_bare(get_expr(quo), get_env(quo))
+      4: dplyr::is.tbl(retrieve_classification(inchi_sub$query_id))
+      5: retrieve_classification(inchi_sub$query_id)
+      6: jsonlite::fromJSON(text_content) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/classyfireR/new/classyfireR.Rcheck/00_pkg_src/classyfireR/R/retrieve_classification.R:27
+      7: fromJSON_string(txt = txt, simplifyVector = simplifyVector, simplifyDataFrame = simplifyDataFrame, simplifyMatrix = simplifyMatrix, 
+             flatten = flatten, ...)
+      8: parseJSON(txt, bigint_as_char)
+      9: parse_string(txt, bigint_as_char)
       
-      
-      testthat results ================================================================
-      OK: 239 SKIPPED: 0 FAILED: 1
-      1. Failure: it works with coverage objects (@test-report.R#28) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 10 SKIPPED: 0 FAILED: 1
+      1. Error: submit-classification (@test-submission.R#16) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-# darksky
+# ClusterJudge
 
-Version: 1.0.0
+Version: 1.4.0
 
 ## In both
 
-*   checking tests ...
+*   checking examples ... ERROR
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      + }
-      1. Error: the API call works (@test-darksky.R#4) -------------------------------
-      Please set env var DARKSKY_API_KEY to your Dark Sky API key
-      1: get_current_forecast(43.2672, -70.8617) at testthat/test-darksky.R:4
-      2: sprintf("https://api.darksky.net/forecast/%s/%s,%s", darksky_api_key(), latitude, 
-             longitude)
-      3: darksky_api_key()
-      4: stop("Please set env var DARKSKY_API_KEY to your Dark Sky API key", call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 1
-      1. Error: the API call works (@test-darksky.R#4) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Running examples in ‘ClusterJudge-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: clusterJudge
+    > ### Title: judges clustering using an entity.attribute table
+    > ### Aliases: clusterJudge
+    > ### Keywords: attribute_mut_inf consolidate_entity_attribute
+    > 
+    > ### ** Examples
+    > 
+    > 
+    > library('yeastExpData')
+    Error in library("yeastExpData") : 
+      there is no package called ‘yeastExpData’
+    Execution halted
     ```
 
-# dataonderivatives
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 61-62 (ClusterJudge-intro.Rmd) 
+    Error: processing vignette 'ClusterJudge-intro.Rmd' failed with diagnostics:
+    there is no package called 'devtools'
+    Execution halted
+    ```
 
-Version: 0.3.0
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘yeastExpData’ ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.4Mb
+      sub-directories of 1Mb or more:
+        data   5.0Mb
+    ```
+
+# congressbr
+
+Version: 0.1.3
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘congressbr-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: sen_bills
+    > ### Title: Downloads and tidies information on the legislation in the
+    > ###   Federal Senate
+    > ### Aliases: sen_bills
+    > 
+    > ### ** Examples
+    > 
+    > pls_5_2010 <- sen_bills(type = "PLS", number = 5, year = 2010)
+    Error: Column `bill_indexing` must be a 1d atomic vector or a list
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 187 marked UTF-8 strings
+    ```
+
+# cRegulome
+
+Version: 0.2.0
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    
+    Loading required package: IRanges
+    Loading required package: S4Vectors
+    
+    Attaching package: 'S4Vectors'
+    
+    The following object is masked from 'package:base':
+    
+        expand.grid
+    
+    
+    Attaching package: 'IRanges'
+    
+    The following object is masked from 'package:R.oo':
+    
+        trim
+    
+    Quitting from lines 32-41 (case_study.Rmd) 
+    Error: processing vignette 'case_study.Rmd' failed with diagnostics:
+    there is no package called 'org.Hs.eg.db'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘org.Hs.eg.db’
+    ```
+
+# crunch
+
+Version: 1.24.0
 
 ## Newly broken
 
@@ -669,43 +1231,153 @@ Version: 0.3.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      
-      
-      4. Failure: CME SDR file parses (@test-cme.R#22) -------------------------------
-      nrow(cme(lubridate::ymd(20161213), "FX")) > 0 isn't true.
-      
-      
-      testthat results ================================================================
-      OK: 23 SKIPPED: 0 FAILED: 4
-      1. Failure: BSDR API accesible (@test-bsdr.R#6) 
-      2. Failure: BSDR API accesible (@test-bsdr.R#8) 
-      3. Failure: BSDR API accesible (@test-bsdr.R#9) 
-      4. Failure: CME SDR file parses (@test-cme.R#22) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 958 SKIPPED: 1 FAILED: 112
+      1. Error: (unknown) (@test-active-filter.R#3) 
+      2. Error: (unknown) (@test-add-variable.R#287) 
+      3. Error: Deprecation warnings report to the user (@test-api.R#22) 
+      4. Error: But other kinds of warnings don't look like deprecations (@test-api.R#34) 
+      5. Error: crunch.debug logging if enabled (@test-api.R#54) 
+      6. Error: 503 on GET with Retry-After is handled (@test-api.R#71) 
+      7. Error: Checking feature flags (@test-api.R#79) 
+      8. Error: (unknown) (@test-append-subset.R#3) 
+      9. Error: (unknown) (@test-appending.R#18) 
+      1. ...
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    
+    You may need to restart R after upgrading.
+    
+    Attaching package: 'crunch'
+    
+    The following object is masked from 'package:stats':
+    
+        setNames
+    
+    The following object is masked from 'package:utils':
+    
+        write.csv
+    
+    The following object is masked from 'package:base':
+    
+        table
+    
+    Quitting from lines 18-21 (crunch.Rmd) 
+    Error: processing vignette 'crunch.Rmd' failed with diagnostics:
+    argument 'x' must be a raw vector
+    Execution halted
+    ```
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.9Mb
+      sub-directories of 1Mb or more:
+        R     4.1Mb
+        doc   1.1Mb
+    ```
+
+# CytobankAPI
+
+Version: 1.3.0
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.3Mb
+      sub-directories of 1Mb or more:
+        R     1.1Mb
+        doc   4.1Mb
+    ```
+
+# CytobankAPIstats
+
+Version: 2.0
+
+## In both
+
+*   checking whether package ‘CytobankAPIstats’ can be installed ... ERROR
+    ```
+    Installation failed.
+    See ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/CytobankAPIstats/new/CytobankAPIstats.Rcheck/00install.out’ for details.
+    ```
+
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘CytobankAPIstats’ ...
+** package ‘CytobankAPIstats’ successfully unpacked and MD5 sums checked
+** R
+** byte-compile and prepare package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/CytobankAPIstats/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/CytobankAPIstats/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/r-lib/httr/revdep/library.noindex/CytobankAPIstats/rJava/libs/rJava.so
+  Reason: image not found
+ERROR: lazy loading failed for package ‘CytobankAPIstats’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/CytobankAPIstats/new/CytobankAPIstats.Rcheck/CytobankAPIstats’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘CytobankAPIstats’ ...
+** package ‘CytobankAPIstats’ successfully unpacked and MD5 sums checked
+** R
+** byte-compile and prepare package for lazy loading
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/CytobankAPIstats/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/CytobankAPIstats/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/r-lib/httr/revdep/library.noindex/CytobankAPIstats/rJava/libs/rJava.so
+  Reason: image not found
+ERROR: lazy loading failed for package ‘CytobankAPIstats’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/CytobankAPIstats/old/CytobankAPIstats.Rcheck/CytobankAPIstats’
+
+```
+# d3r
+
+Version: 0.8.4
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages which this enhances but not available for checking:
+      ‘igraph’ ‘partykit’ ‘treemap’ ‘V8’
+    ```
+
+# datarobot
+
+Version: 2.10.0
+
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
-    Namespace in Imports field not imported from: ‘stats’
+    Namespace in Imports field not imported from: ‘curl’
       All declared Imports should be used.
     ```
 
-# dataRetrieval
-
-Version: 2.7.2
-
-## In both
-
-*   R CMD check timed out
-    
-
 # datasus
 
-Version: 0.4.0
+Version: 0.4.1
 
 ## In both
 
@@ -715,65 +1387,89 @@ Version: 0.4.0
       All declared Imports should be used.
     ```
 
-# discgolf
+# dkanr
 
-Version: 0.1.0
+Version: 0.1.2
 
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 6 SKIPPED: 0 FAILED: 17
-      1. Error: badges works as expected (@test-badges.R#6) 
-      2. Error: badges_user works as expected (@test-badges.R#23) 
-      3. Failure: badges_user fails well with no input (@test-badges.R#41) 
-      4. Failure: fails well with non-existent user (@test-badges.R#53) 
-      5. Error: categories works as expected (@test-categories.R#6) 
-      6. Error: category works as expected (@test-categories.R#20) 
-      7. Error: category_latest_topics works as expected (@test-categories.R#34) 
-      8. Failure: fails well with no input (@test-categories.R#48) 
-      9. Failure: fails well with no input (@test-categories.R#50) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# docuSignr
-
-Version: 0.0.2
-
-## In both
+## Newly broken
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 15
-      1. Failure: Environmental vars exist (@test-1-login.R#5) 
-      2. Failure: Environmental vars exist (@test-1-login.R#6) 
-      3. Failure: Environmental vars exist (@test-1-login.R#7) 
-      4. Error: Login works doesn't error (@test-1-login.R#12) 
-      5. Error: An actual account is returned (@test-1-login.R#17) 
-      6. Error: Retrieve envelope without error for signing (@test-2-signing.R#5) 
-      7. Error: envelopId is returned (@test-2-signing.R#24) 
-      8. Error: Embed doesn't error (@test-2-signing.R#29) 
-      9. Error: URL is legit (@test-2-signing.R#41) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════════════════════════════════════
+      OK: 52 SKIPPED: 0 FAILED: 25
+      1. Error: dkan_list class functions work as expected (@test-as-dkan_list.R#12) 
+      2. Error: dkan_node class functions work as expected (@test-as-dkan_node.R#12) 
+      3. Error: Connect system is working as expected (@test-connect_system.R#12) 
+      4. Error: Node is correctly created and returned (@test-create_node.R#24) 
+      5. Error: JSON is returned by default (@test-create_node.R#31) 
+      6. Error: JSON node is correctly returned (@test-dkan_REQUEST.R#15) 
+      7. Error: Logout is working as expected (@test-dkanr_logout.R#14) 
+      8. Failure: Errors from datastore API are handled correctly (@test-ds_err_handler.R#12) 
+      9. Error: Datastore status correctly detected (@test-ds_is_available.R#12) 
       1. ...
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+        is_null
+    
+    
+    Attaching package: 'dplyr'
+    
+    The following object is masked from 'package:testthat':
+    
+        matches
+    
+    The following objects are masked from 'package:stats':
+    
+        filter, lag
+    
+    The following objects are masked from 'package:base':
+    
+        intersect, setdiff, setequal, union
+    
+    Quitting from lines 64-71 (getting_started_with_dkanr.Rmd) 
+    Error: processing vignette 'getting_started_with_dkanr.Rmd' failed with diagnostics:
+    argument 'x' must be a raw vector
+    Execution halted
+    ```
+
+# Doscheda
+
+Version: 1.4.0
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.3Mb
+      sub-directories of 1Mb or more:
+        data             2.1Mb
+        doc              1.6Mb
+        shiny-examples   2.0Mb
+    ```
+
+# dpmr
+
+Version: 0.1.9
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
 # dwapi
 
-Version: 0.1.1
+Version: 0.1.3.1
 
 ## In both
 
@@ -785,14 +1481,14 @@ Version: 0.1.1
 
 # dynamichazard
 
-Version: 0.3.5
+Version: 0.6.1
 
 ## In both
 
 *   checking whether package ‘dynamichazard’ can be installed ... ERROR
     ```
     Installation failed.
-    See ‘/Users/hadley/Documents/web/httr/revdep/checks/dynamichazard/new/dynamichazard.Rcheck/00install.out’ for details.
+    See ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/dynamichazard/new/dynamichazard.Rcheck/00install.out’ for details.
     ```
 
 ## Installation
@@ -803,11 +1499,11 @@ Version: 0.3.5
 * installing *source* package ‘dynamichazard’ ...
 ** package ‘dynamichazard’ successfully unpacked and MD5 sums checked
 ** libs
-clang++ -std=gnu++11 -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/web/httr/revdep/library/dynamichazard/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/dynamichazard/RcppArmadillo/include" -I/usr/local/include    -fopenmp -fPIC  -Wall -g -O2 -c RcppExports.cpp -o RcppExports.o
+clang++ -std=gnu++11 -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/dynamichazard/Rcpp/include" -I"/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/dynamichazard/RcppArmadillo/include" -I/usr/local/include   -fopenmp -fPIC  -Wall -g -O2 -c PF/importance_samplers.cpp -o PF/importance_samplers.o
 clang: error: unsupported option '-fopenmp'
-make: *** [RcppExports.o] Error 1
+make: *** [PF/importance_samplers.o] Error 1
 ERROR: compilation failed for package ‘dynamichazard’
-* removing ‘/Users/hadley/Documents/web/httr/revdep/checks/dynamichazard/new/dynamichazard.Rcheck/dynamichazard’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/dynamichazard/new/dynamichazard.Rcheck/dynamichazard’
 
 ```
 ### CRAN
@@ -816,28 +1512,34 @@ ERROR: compilation failed for package ‘dynamichazard’
 * installing *source* package ‘dynamichazard’ ...
 ** package ‘dynamichazard’ successfully unpacked and MD5 sums checked
 ** libs
-clang++ -std=gnu++11 -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -I"/Users/hadley/Documents/web/httr/revdep/library/dynamichazard/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/dynamichazard/RcppArmadillo/include" -I/usr/local/include    -fopenmp -fPIC  -Wall -g -O2 -c RcppExports.cpp -o RcppExports.o
+clang++ -std=gnu++11 -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I"/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/dynamichazard/Rcpp/include" -I"/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/dynamichazard/RcppArmadillo/include" -I/usr/local/include   -fopenmp -fPIC  -Wall -g -O2 -c PF/importance_samplers.cpp -o PF/importance_samplers.o
 clang: error: unsupported option '-fopenmp'
-make: *** [RcppExports.o] Error 1
+make: *** [PF/importance_samplers.o] Error 1
 ERROR: compilation failed for package ‘dynamichazard’
-* removing ‘/Users/hadley/Documents/web/httr/revdep/checks/dynamichazard/old/dynamichazard.Rcheck/dynamichazard’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/dynamichazard/old/dynamichazard.Rcheck/dynamichazard’
 
 ```
+# echor
+
+Version: 0.1.1
+
+## Newly broken
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 92-95 (introduction.Rmd) 
+    Error: processing vignette 'introduction.Rmd' failed with diagnostics:
+    argument 'x' must be a raw vector
+    Execution halted
+    ```
+
 # ecoengine
 
-Version: 1.10.0
+Version: 1.11.0
 
 ## In both
-
-*   checking examples ... WARNING
-    ```
-    Found the following significant warnings:
-    
-      Warning: 'dplyr::rbind_all' is deprecated.
-    Deprecated functions may be defunct as soon as of the next release of
-    R.
-    See ?Deprecated.
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -845,131 +1547,52 @@ Version: 1.10.0
       All declared Imports should be used.
     ```
 
-# edpclient
+# edgarWebR
 
-Version: 0.1.0
+Version: 1.0.0
 
-## In both
+## Newly broken
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      testthat results ================================================================
-      OK: 53 SKIPPED: 1 FAILED: 15
-      1. Failure: source lints (@test_lint.R#7) 
-      2. Error: populations can be listed (@test_population.R#3) 
-      3. Error: population object utilities work (@test_population.R#12) 
-      4. Error: population model object utilities work (@test_population.R#21) 
-      5. Error: population models on a population can be listed (@test_population.R#33) 
-      6. Error: basic edp_session operations work (@test_session.R#3) 
-      7. Error: we can work with population models (@test_session.R#14) 
-      8. Error: we can select from yaxcatpeople (@test_session.R#27) 
-      9. Error: we can simulate from yaxcatpeople (@test_session.R#54) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 44 SKIPPED: 14 FAILED: 37
+      1. Failure: running  (@test_browse_edgar.R#5) 
+      2. Error: running  (@test_browse_edgar.R#7) 
+      3. Error: One Result (Cloudera) (@test_cik_search.R#5) 
+      4. Error: 100+ Results (Intel) (@test_cik_search.R#17) 
+      5. Error: No Results (@test_cik_search.R#24) 
+      6. Error: running (@test_company_details.R#6) 
+      7. Error: type filtering (@test_company_details.R#14) 
+      8. Error: running (@test_company_filings.R#6) 
+      9. Error: type filtering (@test_company_filings.R#15) 
       1. ...
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-# elastic
-
-Version: 0.7.8
-
 ## In both
 
-*   checking installed package size ... NOTE
+*   checking package dependencies ... NOTE
     ```
-      installed size is  5.0Mb
-      sub-directories of 1Mb or more:
-        examples   4.6Mb
-    ```
-
-# elasticsearchr
-
-Version: 0.2.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 25 SKIPPED: 0 FAILED: 16
-      1. Error: %index% correctly indexes a large (>10mb single chunk) data frame (@test-api.R#172) 
-      2. Error: %create% can create an index with a custom mapping (@test-api.R#199) 
-      3. Error: %delete% can delete all documents from an index (@test-api.R#218) 
-      4. Error: %delete% can delete all documents from a type (@test-api.R#238) 
-      5. Error: %delete% can delete selected documents from a type (@test-api.R#261) 
-      6. Error: we can query using the %search% operator and return all documents (@test-api.R#286) 
-      7. Error: we can query using the %search% operator on a subset of all documents (@test-api.R#308) 
-      8. Error: we can aggregate using the %search% operator (@test-api.R#331) 
-      9. Error: we can query + sort using the %search% operator (@test-api.R#353) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# elevatr
-
-Version: 0.1.3
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      2: gzfile(file, "rb")
-      
-      3. Error: proj_expand works (@test-internal.R#22) ------------------------------
-      cannot open the connection
-      1: readRDS("key_file.rds") at testthat/test-internal.R:22
-      2: gzfile(file, "rb")
-      
-      testthat results ================================================================
-      OK: 11 SKIPPED: 0 FAILED: 3
-      1. Error: get_elev_point returns correctly (@test-get_elev_point.R#15) 
-      2. Error: get_elev_raster returns correctly (@test-get_elev_raster.R#14) 
-      3. Error: proj_expand works (@test-internal.R#22) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 37-39 (introduction_to_elevatr.Rmd) 
-    Error: processing vignette 'introduction_to_elevatr.Rmd' failed with diagnostics:
-    cannot open the connection
-    Execution halted
-    ```
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘prettyunits’ ‘ratelimitr’ ‘rgdal’
-      All declared Imports should be used.
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # ENCODExplorer
 
-Version: 2.2.0
+Version: 2.8.0
 
 ## In both
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 73.6Mb
+      installed size is 74.0Mb
       sub-directories of 1Mb or more:
-        data     23.9Mb
+        data     24.1Mb
         doc       1.5Mb
         extdata  48.0Mb
     ```
@@ -977,16 +1600,16 @@ Version: 2.2.0
 *   checking R code for possible problems ... NOTE
     ```
     ...
-      ‘biosample_type’
-    step6_control: no visible binding for global variable ‘controls’
-    step6_date_released: no visible binding for global variable
-      ‘date_released’
-    step6_status: no visible binding for global variable ‘status’
     step6_target: no visible binding for global variable ‘target’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ENCODExplorer/new/ENCODExplorer.Rcheck/00_pkg_src/ENCODExplorer/R/prepare_data.R:354-355)
     step7: no visible binding for global variable ‘organism’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ENCODExplorer/new/ENCODExplorer.Rcheck/00_pkg_src/ENCODExplorer/R/prepare_data.R:424-425)
     step8: no visible binding for global variable ‘investigated_as’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ENCODExplorer/new/ENCODExplorer.Rcheck/00_pkg_src/ENCODExplorer/R/prepare_data.R:436-437)
     step8: no visible binding for global variable ‘target’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ENCODExplorer/new/ENCODExplorer.Rcheck/00_pkg_src/ENCODExplorer/R/prepare_data.R:439-440)
     step9: no visible binding for global variable ‘organism’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ENCODExplorer/new/ENCODExplorer.Rcheck/00_pkg_src/ENCODExplorer/R/prepare_data.R:449-450)
     Undefined global functions or variables:
       . Experiment Value accession antibody_caption
       antibody_characterization antibody_target assay
@@ -1005,15 +1628,75 @@ Version: 2.2.0
       Note: found 771 marked UTF-8 strings
     ```
 
+# ess
+
+Version: 0.1.1
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      
+      [31m──[39m [31m5. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#101[39m
+      show_country_rounds("Spain") not equal to 1:7.
+      Lengths differ: 9 is not 7
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 33 SKIPPED: 23 FAILED: 5
+      1. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#97) 
+      2. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#98) 
+      3. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#99) 
+      4. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#100) 
+      5. Failure: show_country_rounds returns correct rounds for countries (@test-show_.R#101) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘tibble’
+      All declared Imports should be used.
+    ```
+
+# eurostat
+
+Version: 3.3.1
+
+## Newly broken
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Loading required package: xml2
+    Warning in (function (con, what, n = 1L, size = NA_integer_, signed = TRUE,  :
+      URL 'https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?sort=1&downfile=table_of_contents_en.txt': status was 'Failure when receiving data from the peer'
+    Quitting from lines 58-68 (eurostat_tutorial.Rmd) 
+    Error: processing vignette 'eurostat_tutorial.Rmd' failed with diagnostics:
+    Evaluation error: cannot read from connection.
+    Execution halted
+    ```
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 595 marked UTF-8 strings
+    ```
+
 # EventStudy
 
-Version: 0.32
+Version: 0.34
 
 ## In both
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  6.4Mb
+      installed size is  6.9Mb
       sub-directories of 1Mb or more:
         doc   5.8Mb
     ```
@@ -1021,45 +1704,13 @@ Version: 0.32
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
-      ‘curl’ ‘stringr’
+      ‘curl’ ‘openxlsx’ ‘stringr’
       All declared Imports should be used.
-    ```
-
-# ExperimentHubData
-
-Version: 1.2.0
-
-## In both
-
-*   checking R code for possible problems ... NOTE
-    ```
-    ...
-    makeExperimentHubMetadata : <anonymous>: no visible binding for global
-      variable ‘Coordinate_1_based’
-    makeExperimentHubMetadata : <anonymous>: no visible binding for global
-      variable ‘DataProvider’
-    makeExperimentHubMetadata : <anonymous>: no visible binding for global
-      variable ‘Maintainer’
-    makeExperimentHubMetadata : <anonymous>: no visible binding for global
-      variable ‘RDataClass’
-    makeExperimentHubMetadata : <anonymous>: no visible binding for global
-      variable ‘RDataDateAdded’
-    makeExperimentHubMetadata : <anonymous>: no visible binding for global
-      variable ‘RDataPath’
-    makeExperimentHubMetadata : <anonymous>: no visible binding for global
-      variable ‘DispatchClass’
-    makeExperimentHubMetadata : <anonymous>: no visible binding for global
-      variable ‘PreparerClass’
-    Undefined global functions or variables:
-      BiocVersion Coordinate_1_based DataProvider Description DispatchClass
-      Genome Maintainer PreparerClass RDataClass RDataDateAdded RDataPath
-      SourceType SourceUrl SourceVersion Species TaxonomyId Title
-      selectSome
     ```
 
 # fauxpas
 
-Version: 0.1.0
+Version: 0.2.0
 
 ## In both
 
@@ -1109,32 +1760,82 @@ Version: 2.0
     contains 'methods').
     ```
 
-# finch
+# FedData
 
-Version: 0.1.0
+Version: 2.5.5
 
 ## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# fedreporter
+
+Version: 0.2.1
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘fedreporter-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: fe_projects
+    > ### Title: Federal RePORTER projects
+    > ### Aliases: fe_projects
+    > 
+    > ### ** Examples
+    > 
+    > res = fe_projects(project_number = "5R01MH092950-05")
+    GET command is:
+    Response [https://api.federalreporter.nih.gov/v1/Projects?projectNumber=5R01MH092950-05]
+      Date: 2018-12-05 16:29
+      Status: 500
+      Content-Type: <unknown>
+    <EMPTY BODY>
+    Error in fe_projects(project_number = "5R01MH092950-05") : 
+      Internal Server Error (HTTP 500).
+    Calls: fe_projects -> <Anonymous>
+    Execution halted
+    ```
 
 *   checking tests ...
     ```
      ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
+    Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      2. Error: dwca_get - works with a url - read=TRUE (@test-dwca_get.R#61) --------
-      argument is of length zero
-      1: dwca_read(url, read = TRUE) at testthat/test-dwca_get.R:61
-      2: parse_dwca(x)
-      3: data_paths(ff)
-      4: read_xml(grep("meta.xml", x, value = TRUE))
-      5: read_xml.character(grep("meta.xml", x, value = TRUE))
+        Date: 2018-12-05 16:29
+        Status: 500
+        Content-Type: <unknown>
+      <EMPTY BODY>
+      [31m──[39m [31m1. Error: Check projects (@test-projects.R#2) [39m [31m────────────────────────────────────────[39m
+      Internal Server Error (HTTP 500).
+      1: fe_projects(project_number = "5R01MH092950-05") at testthat/test-projects.R:2
+      2: httr::stop_for_status(res) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/fedreporter/new/fedreporter.Rcheck/00_pkg_src/fedreporter/R/fe_projects.R:51
       
-      testthat results ================================================================
-      OK: 37 SKIPPED: 0 FAILED: 2
-      1. Error: dwca_get - works with a url - read=FALSE (@test-dwca_get.R#39) 
-      2. Error: dwca_get - works with a url - read=TRUE (@test-dwca_get.R#61) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 0 SKIPPED: 0 FAILED: 1
+      1. Error: Check projects (@test-projects.R#2) 
       
       Error: testthat unit tests failed
       Execution halted
+    ```
+
+# fingertipsR
+
+Version: 0.2.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘purrr’
+      All declared Imports should be used.
     ```
 
 # fitbitScraper
@@ -1153,32 +1854,28 @@ Version: 0.1.8
     Execution halted
     ```
 
-# foghorn
+# flora
 
-Version: 0.4.4
+Version: 0.3.0
 
 ## In both
 
-*   checking tests ...
+*   checking installed package size ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      
-      testthat results ================================================================
-      OK: 51 SKIPPED: 0 FAILED: 8
-      1. Failure: output of summary cran results (@test-foghorn.R#176) 
-      2. Failure: output of summary cran results (@test-foghorn.R#178) 
-      3. Failure: output of summary cran results (@test-foghorn.R#189) 
-      4. Failure: output of summary cran results (@test-foghorn.R#201) 
-      5. Failure: output of summary cran results (@test-foghorn.R#213) 
-      6. Failure: output of summary cran results (@test-foghorn.R#226) 
-      7. Failure: output of summary cran results (@test-foghorn.R#233) 
-      8. Failure: output of summary cran results (@test-foghorn.R#239) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      installed size is  7.3Mb
+      sub-directories of 1Mb or more:
+        R   7.2Mb
+    ```
+
+# fredr
+
+Version: 1.0.0
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 1 marked UTF-8 string
     ```
 
 # ftDK
@@ -1192,18 +1889,104 @@ Version: 1.0
       Note: found 39 marked UTF-8 strings
     ```
 
-# GA4GHclient
+# fulltext
 
-Version: 1.0.0
+Version: 1.1.0
 
 ## In both
 
-*   R CMD check timed out
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.5Mb
+      sub-directories of 1Mb or more:
+        examples   4.2Mb
+    ```
+
+# GA4GHclient
+
+Version: 1.6.0
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 14 SKIPPED: 0 FAILED: 82
+      1. Error: getBiosample works (@test-getBiosample.R#6) 
+      2. Error: getCallSet works (@test-getCallSet.R#6) 
+      3. Error: getDataset works (@test-getDataset.R#6) 
+      4. Error: getExpressionLevel works (@test-getExpressionLevel.R#6) 
+      5. Error: getFeature works (@test-getFeature.R#6) 
+      6. Error: getFeatureSet works (@test-getFeatureSet.R#6) 
+      7. Error: getIndividual works (@test-getIndividual.R#6) 
+      8. Error: getReadGroupSet works (@test-getReadGroupSet.R#6) 
+      9. Error: getReference works (@test-getReference.R#6) 
+      1. ...
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    The following objects are masked from 'package:base':
     
+        Filter, Find, Map, Position, Reduce, anyDuplicated, append,
+        as.data.frame, basename, cbind, colMeans, colSums, colnames,
+        dirname, do.call, duplicated, eval, evalq, get, grep, grepl,
+        intersect, is.unsorted, lapply, lengths, mapply, match, mget,
+        order, paste, pmax, pmax.int, pmin, pmin.int, rank, rbind,
+        rowMeans, rowSums, rownames, sapply, setdiff, sort, table,
+        tapply, union, unique, unsplit, which, which.max, which.min
+    
+    
+    Attaching package: 'S4Vectors'
+    
+    The following object is masked from 'package:base':
+    
+        expand.grid
+    
+    Quitting from lines 129-133 (GA4GHclient.Rmd) 
+    Error: processing vignette 'GA4GHclient.Rmd' failed with diagnostics:
+    there is no package called 'org.Hs.eg.db'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘org.Hs.eg.db’ ‘TxDb.Hsapiens.UCSC.hg19.knownGene’
+    ```
+
+# ganalytics
+
+Version: 0.10.4
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# gdns
+
+Version: 0.3.1
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 1 marked UTF-8 string
+    ```
 
 # gender
 
-Version: 0.5.1
+Version: 0.5.2
 
 ## In both
 
@@ -1225,142 +2008,187 @@ Version: 2.0.0
 
 # GenomicDataCommons
 
-Version: 1.0.0
+Version: 1.6.0
 
 ## In both
 
-*   checking tests ...
+*   checking Rd \usage sections ... WARNING
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      6. Failure: legacy cases file manifest contains supplied file_ids (@test_legacy.R#89) 
-      all(files_legacy_ids %in% cres$id) isn't true.
-      
-      
-      testthat results ================================================================
-      OK: 37 SKIPPED: 0 FAILED: 6
-      1. Error: manifest cases (@test_data.R#7) 
-      2. Failure: legacy file ids found (@test_legacy.R#42) 
-      3. Failure: legacy manifest matches legacy ids (@test_legacy.R#53) 
-      4. Failure: legacy case ids found (@test_legacy.R#70) 
-      5. Failure: legacy case ids in default archive, also (@test_legacy.R#78) 
-      6. Failure: legacy cases file manifest contains supplied file_ids (@test_legacy.R#89) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Undocumented arguments in documentation object '.htseq_importer'
+      ‘fnames’
+    
+    Functions with \usage entries need to have the appropriate \alias
+    entries, and all their arguments documented.
+    The \usage entries must correspond to syntactically valid R code.
+    See chapter ‘Writing R documentation files’ in the ‘Writing R
+    Extensions’ manual.
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    Loading required package: magrittr
+    
+    Attaching package: 'GenomicDataCommons'
+    
+    The following object is masked from 'package:stats':
+    
+        filter
+    
+    Quitting from lines 145-146 (overview.Rmd) 
+    Error: processing vignette 'overview.Rmd' failed with diagnostics:
+    failed to rename downloaded file:
+    
+      from: '/Users/hadley/Library/Caches/GenomicDataCommons/1c710ed8-4e82-48ce-a559-71a5c790c2e5/.partial_download'
+      to: '/Users/hadley/Library/Caches/GenomicDataCommons/1c710ed8-4e82-48ce-a559-71a5c790c2e5/85fe5749-1fef-49a2-bbac-9200c3c5a1cb.htseq.counts.gz'
+      reason:
+        cannot rename file
+        '/Users/hadley/Library/Caches/GenomicDataCommons/1c710ed8-4e82-48ce-a559-71a5c790c2e5/.partial_download'
+        to
+        '/Users/hadley/Library/Caches/GenomicDataCommons/1c710ed8-4e82-48ce-a559-71a5c790c2e5/85fe5749-1fef-49a2-bbac-9200c3c5a1cb.htseq.counts.gz',
+        reason 'No such file or directory'
+    Execution halted
     ```
 
 *   checking R code for possible problems ... NOTE
     ```
     default_fields.character: no visible binding for global variable
       ‘defaults’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GenomicDataCommons/new/GenomicDataCommons.Rcheck/00_pkg_src/GenomicDataCommons/R/fields.R:51)
+    gdc_rnaseq: no visible binding for global variable ‘case_id’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GenomicDataCommons/new/GenomicDataCommons.Rcheck/00_pkg_src/GenomicDataCommons/R/gdc_rnaseq.R:106-107)
+    gdc_rnaseq: no visible binding for global variable ‘file_id’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GenomicDataCommons/new/GenomicDataCommons.Rcheck/00_pkg_src/GenomicDataCommons/R/gdc_rnaseq.R:106-107)
     Undefined global functions or variables:
-      defaults
+      case_id defaults file_id
     ```
 
-*   checking Rd \usage sections ... NOTE
-    ```
-    S3 methods shown with full name in documentation object 'as.data.frame.GDCResults':
-      ‘as.data.frame.GDCResults’
-    
-    The \usage entries for S3 methods should use the \method markup and not
-    their full name.
-    See chapter ‘Writing R documentation files’ in the ‘Writing R
-    Extensions’ manual.
-    ```
+# geojsonio
 
-# geoknife
-
-Version: 1.5.5
+Version: 0.6.0
 
 ## In both
 
-*   checking tests ...
+*   checking installed package size ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      16: stop("cannot find defined namespace(s) with prefix(es) ", paste(namespaces[i][is.na(idx)], 
-             collapse = ", "))
-      
-      testthat results ================================================================
-      OK: 174 SKIPPED: 0 FAILED: 7
-      1. Failure: error on url (@test-geoknife_utils.R#15) 
-      2. Error: webdata query returns a datagroup (@test-query_webdatasets.R#6) 
-      3. Error: webdata query returns a list (@test-query_webdatasets.R#12) 
-      4. Error: webdata title returns a title (@test-query_webdatasets.R#18) 
-      5. Error: webdata url returns a url (@test-query_webdatasets.R#23) 
-      6. Error: webdata abstract returns an abstract (@test-query_webdatasets.R#30) 
-      7. Error: show datagroup (@test-show_object.R#24) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      installed size is  5.4Mb
+      sub-directories of 1Mb or more:
+        doc        1.4Mb
+        examples   1.6Mb
+        vign       1.0Mb
     ```
 
 # geoparser
 
 Version: 0.1.1
 
+## Newly broken
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    Error in re-building vignettes:
+      ...
+    Could not fetch http://www.ropensci.org/public_images/github_footer.png
+    HttpExceptionRequest Request {
+      host                 = "www.ropensci.org"
+      port                 = 80
+      secure               = False
+      requestHeaders       = []
+      path                 = "/public_images/github_footer.png"
+      queryString          = ""
+      method               = "GET"
+      proxy                = Nothing
+      rawBody              = False
+      redirectCount        = 10
+      responseTimeout      = ResponseTimeoutDefault
+      requestVersion       = HTTP/1.1
+    }
+     ResponseTimeout
+    Error: processing vignette 'geoparser.Rmd' failed with diagnostics:
+    pandoc document conversion failed with error 61
+    Execution halted
+    ```
+
+# GEOquery
+
+Version: 2.50.0
+
+## Newly fixed
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    ..... ............... .................. ......... ............
+    See problems(...) for more details.
+    
+    Using locally cached version of GPL97 found here:
+    /tmp/RtmpDbMYdv/GPL97.annot.gz 
+    Warning: 68 parsing failures.
+      row             col           expected    actual         file
+    22578 Platform_SPOTID 1/0/T/F/TRUE/FALSE --Control literal data
+    22579 Platform_SPOTID 1/0/T/F/TRUE/FALSE --Control literal data
+    22580 Platform_SPOTID 1/0/T/F/TRUE/FALSE --Control literal data
+    22581 Platform_SPOTID 1/0/T/F/TRUE/FALSE --Control literal data
+    22582 Platform_SPOTID 1/0/T/F/TRUE/FALSE --Control literal data
+    ..... ............... .................. ......... ............
+    See problems(...) for more details.
+    
+    Warning in download.file(myurl, destfile, mode = mode, quiet = TRUE, method = getOption("download.file.method.GEOquery")) :
+      URL 'https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?targ=self&acc=GPL97&form=text&view=full': status was 'Failure when receiving data from the peer'
+    Quitting from lines 251-257 (GEOquery.Rmd) 
+    Error: processing vignette 'GEOquery.Rmd' failed with diagnostics:
+    download from 'https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?targ=self&acc=GPL97&form=text&view=full' failed
+    Execution halted
+    ```
+
 ## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+    
+    > ### Name: getGSEDataTables
+    > ### Title: Get GSE data tables from GEO into R data structures.
+    > ### Aliases: getGSEDataTables
+    > ### Keywords: IO
+    > 
+    > ### ** Examples
+    > 
+    > 
+    > dfl = getGSEDataTables("GSE3494")
+    Called from: FUN(X[[i]], ...)
+    Browse[1]> lapply(dfl,head)
+    Error in lapply(dfl, head) : object 'dfl' not found
+    Calls: getGSEDataTables -> sapply -> lapply -> FUN -> lapply
+    Browse[1]> 
+    debug at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GEOquery/new/GEOquery.Rcheck/00_pkg_src/GEOquery/R/getGSEDataTables.R#37: dTable = suppressWarnings(read_tsv(dTableText, col_names = FALSE))
+    Browse[2]> 
+    Error in read_tokens_(data, tokenizer, col_specs, col_names, locale_,  : 
+      attempt to set index 1000/326 in SET_STRING_ELT
+    Calls: getGSEDataTables -> sapply -> lapply -> FUN
+    Execution halted
+    ```
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      2. Error: no problems if no results (@test_query.R#26) -------------------------
-      HTTP failure: 401
-      1: geoparser_q(text_input = "no placename here") at testthat/test_query.R:26
-      2: lapply(text_input, total, key = key)
-      3: FUN(X[[i]], ...)
-      4: geoparser_check(temp)
-      5: stop("HTTP failure: ", status, call. = FALSE)
+      downloaded 3.3 MB
       
-      testthat results ================================================================
-      OK: 3 SKIPPED: 0 FAILED: 2
-      1. Error: query returns a list of data.frames (@test_query.R#4) 
-      2. Error: no problems if no results (@test_query.R#26) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 175 SKIPPED: 0 FAILED: 8
+      1. Error: generic GPL parsing works as expected (@test_GPL.R#5) 
+      2. Error: quoted GPL works (@test_GPL.R#17) 
+      3. Error: empty GSE is handled correctly (@test_GSE.R#6) 
+      4. Error: case-mismatched IDs in GSEs handled correctly (@test_GSE.R#15) 
+      5. Failure: short GSE handled correctly (@test_GSE.R#30) 
+      6. Failure: GSE with more than one value per characteristic handled (@test_GSE.R#49) 
+      7. Failure: GSE without GPL works (@test_fetch_GPL_false.R#9) 
+      8. Error: GSE Supplemental files downloading works (@test_supp_files.R#5) 
       
       Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 34-37 (geoparser.Rmd) 
-    Error: processing vignette 'geoparser.Rmd' failed with diagnostics:
-    HTTP failure: 401
-    Execution halted
-    ```
-
-# GEOquery
-
-Version: 2.42.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/runTests.R’ failed.
-    Last 13 lines of output:
-      ERROR in testEmptyGSE: Error in file(con, "r") : cannot open the connection
-      
-      Test files with failing tests
-      
-         test_CaseMismatchedIDsGSE.R 
-           testCaseMismatchedIDsGSE 
-      
-         test_EmptyGSE.R 
-           testEmptyGSE 
-      
-      
-      Error in BiocGenerics:::testPackage("GEOquery") : 
-        unit tests failed for package GEOquery
-      In addition: There were 50 or more warnings (use warnings() to see the first 50)
       Execution halted
     ```
 
@@ -1371,12 +2199,22 @@ Version: 2.42.0
         extdata  12.8Mb
     ```
 
+*   checking whether the namespace can be loaded with stated dependencies ... NOTE
+    ```
+    Warning: no function found corresponding to methods exports from ‘GEOquery’ for: ‘show’
+    
+    A namespace must be able to be loaded with just the base namespace
+    loaded: otherwise if the namespace gets loaded by a saved object, the
+    session will be unable to start.
+    
+    Probably some imports need to be declared in the NAMESPACE file.
+    ```
+
 *   checking dependencies in R code ... NOTE
     ```
-    'library' or 'require' call to ‘limma’ in package code.
-      Please use :: or requireNamespace() instead.
-      See section 'Suggested packages' in the 'Writing R Extensions' manual.
-    Package in Depends field not imported from: ‘Biobase’
+    Namespace in Imports field not imported from: ‘httr’
+      All declared Imports should be used.
+    Package in Depends field not imported from: ‘methods’
       These packages need to be imported from (in the NAMESPACE file)
       for when this namespace is loaded but not attached.
     ```
@@ -1384,1163 +2222,117 @@ Version: 2.42.0
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    
-    See section ‘Good practice’ in '?.onAttach'.
-    
-    GDS2MA: no visible binding for global variable ‘MA’
-    fastTabRead: no visible global function definition for ‘read.table’
-    fastTabRead: no visible global function definition for ‘read.delim’
-    getAndParseGSEMatrices: no visible global function definition for
-      ‘download.file’
-    getDirListing: no visible global function definition for ‘read.table’
-    getGEOSuppFiles: no visible global function definition for
-      ‘download.file’
-    getGEOfile: no visible global function definition for ‘download.file’
-    getGSEDataTables : <anonymous>: no visible global function definition
-      for ‘read.delim’
-    parseGSEMatrix: no visible global function definition for ‘read.table’
-    parseGSEMatrix: no visible global function definition for ‘read.delim’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GEOquery/new/GEOquery.Rcheck/00_pkg_src/GEOquery/R/parseGEO.R:531-539)
+    parseGSEMatrix: no visible binding for global variable ‘accession’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GEOquery/new/GEOquery.Rcheck/00_pkg_src/GEOquery/R/parseGEO.R:531-539)
+    parseGSEMatrix: no visible binding for global variable ‘accession’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GEOquery/new/GEOquery.Rcheck/00_pkg_src/GEOquery/R/parseGEO.R:541-542)
+    parseGSEMatrix: no visible global function definition for ‘new’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GEOquery/new/GEOquery.Rcheck/00_pkg_src/GEOquery/R/parseGEO.R:568)
+    parseGSEMatrix: no visible global function definition for ‘new’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GEOquery/new/GEOquery.Rcheck/00_pkg_src/GEOquery/R/parseGEO.R:590)
+    parseGSEMatrix: no visible global function definition for ‘new’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GEOquery/new/GEOquery.Rcheck/00_pkg_src/GEOquery/R/parseGEO.R:606-610)
+    parseGSEMatrix: no visible global function definition for ‘as’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GEOquery/new/GEOquery.Rcheck/00_pkg_src/GEOquery/R/parseGEO.R:606-610)
     Undefined global functions or variables:
-      MA download.file read.delim read.table
+      . MA accession as characteristics k kvpair new read.delim read.table
+      v
     Consider adding
-      importFrom("utils", "download.file", "read.delim", "read.table")
-    to your NAMESPACE file.
+      importFrom("methods", "as", "new")
+      importFrom("utils", "read.delim", "read.table")
+    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
+    contains 'methods').
     ```
 
-# gmum.r
+# getCRUCLdata
 
-Version: 0.2.1
+Version: 0.2.5
 
 ## In both
-
-*   checking whether package ‘gmum.r’ can be installed ... ERROR
-    ```
-    Installation failed.
-    See ‘/Users/hadley/Documents/web/httr/revdep/checks/gmum.r/new/gmum.r.Rcheck/00install.out’ for details.
-    ```
-
-## Installation
-
-### Devel
-
-```
-* installing *source* package ‘gmum.r’ ...
-** package ‘gmum.r’ successfully unpacked and MD5 sums checked
-** libs
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/libsvm_runner.cpp -o svm/libsvm_runner.o
-In file included from svm/libsvm_runner.cpp:18:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-svm/libsvm_runner.cpp:397:9: warning: unused variable 'print_func' [-Wunused-variable]
-        void (*print_func)(const char*) = NULL; // default printing to stdout
-               ^
-In file included from svm/libsvm_runner.cpp:18:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-6 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svm_client.cpp -o svm/svm_client.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svmlight_runner.cpp -o svm/svmlight_runner.o
-In file included from svm/svmlight_runner.cpp:20:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-svm/svmlight_runner.cpp:915:9: warning: variable 'll' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-    if (!use_gmumr) {
-        ^~~~~~~~~~
-svm/svmlight_runner.cpp:924:5: note: uninitialized use occurs here
-    ll+=2;
-    ^~
-svm/svmlight_runner.cpp:915:5: note: remove the 'if' if its condition is always true
-    if (!use_gmumr) {
-    ^~~~~~~~~~~~~~~~
-svm/svmlight_runner.cpp:907:27: note: initialize the variable 'll' to silence this warning
-    long max_words_doc, ll;
-                          ^
-                           = 0
-In file included from svm/svmlight_runner.cpp:20:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-6 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svm_wrapper_module.cpp -o svm/svm_wrapper_module.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/two_e_svm_pre.cpp -o svm/two_e_svm_pre.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svm_basic.cpp -o svm/svm_basic.o
-In file included from svm/svm_basic.cpp:3:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-svm/svm_basic.cpp:7:49: warning: field 'nSV' will be initialized after field 'libsvm_class_weights' [-Wreorder]
-SVMConfiguration::SVMConfiguration(): label(0), nSV(0),  libsvm_class_weights(0) {
-                                                ^
-In file included from svm/svm_basic.cpp:3:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-6 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svm.cpp -o svm/svm.o
-In file included from svm/svm.cpp:15:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-svm/svm.cpp:2706:24: warning: unused variable 'sv_coef' [-Wunused-variable]
-        const double * const *sv_coef = model->sv_coef;
-                              ^
-In file included from svm/svm.cpp:15:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-6 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svm_utils.cpp -o svm/svm_utils.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/two_e_svm_post.cpp -o svm/two_e_svm_post.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/validator_runner.cpp -o svm/validator_runner.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/assignment.cpp -o cec/assignment.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/cec.cpp -o cec/cec.o
-In file included from cec/cec.cpp:2:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-cec/cec.cpp:10:9: warning: 'M_E' macro redefined [-Wmacro-redefined]
-#define M_E 2.71828182845904523536
-        ^
-/usr/include/math.h:698:9: note: previous definition is here
-#define M_E         2.71828182845904523536028747135266250   /* e              */
-        ^
-cec/cec.cpp:11:9: warning: 'M_PI' macro redefined [-Wmacro-redefined]
-#define M_PI 3.14159265358979323846
-        ^
-/usr/include/math.h:703:9: note: previous definition is here
-#define M_PI        3.14159265358979323846264338327950288   /* pi             */
-        ^
-In file included from cec/cec.cpp:2:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-7 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/centroids_assignment.cpp -o cec/centroids_assignment.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/cluster_custom_function.cpp -o cec/cluster_custom_function.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/kmeanspp_assignment.cpp -o cec/kmeanspp_assignment.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/cec_configuration.cpp -o cec/cec_configuration.o
-In file included from cec/cec_configuration.cpp:8:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from cec/cec_configuration.cpp:8:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-5 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/cec_module.cpp -o cec/cec_module.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/cluster.cpp -o cec/cluster.o
-cec/cluster.cpp:5:9: warning: 'M_E' macro redefined [-Wmacro-redefined]
-#define M_E 2.71828182845904523536
-        ^
-/usr/include/math.h:698:9: note: previous definition is here
-#define M_E         2.71828182845904523536028747135266250   /* e              */
-        ^
-cec/cluster.cpp:6:9: warning: 'M_PI' macro redefined [-Wmacro-redefined]
-#define M_PI 3.14159265358979323846
-        ^
-/usr/include/math.h:703:9: note: previous definition is here
-#define M_PI        3.14159265358979323846264338327950288   /* pi             */
-        ^
-2 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/hartigan.cpp -o cec/hartigan.o
-In file included from cec/hartigan.cpp:3:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from cec/hartigan.cpp:3:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-5 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/random_assignment.cpp -o cec/random_assignment.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c utils/threading.cpp -o utils/threading.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c utils/tinythread.cpp -o utils/tinythread.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c utils/utils.cpp -o utils/utils.o
-In file included from utils/utils.cpp:4:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from utils/utils.cpp:4:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-5 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c gng/gng_algorithm.cpp -o gng/gng_algorithm.o
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:14:
-../inst/include/gng/gng_lazy_error_heap.h:67:4: warning: field 'm_buffer_size' will be initialized after base 'super' (aka 'Heap<gmum::ErrorNode>') [-Wreorder]
-                        m_buffer_size(0), super() {
-                        ^
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:15:
-In file included from ../inst/include/gng/uniform_grid.h:173:
-../inst/include/gng/uniform_grid.hpp:215:6: warning: unused variable 'size' [-Wunused-variable]
-        int size = SIZE(m_grid);
-            ^
-gng/gng_algorithm.cpp:85:12: warning: field 'g_db' will be initialized after field 'c' [-Wreorder]
-                m_g(*g), g_db(db), c(0), s(0), m_max_nodes(max_nodes), m_max_age(
-                         ^
-gng/gng_algorithm.cpp:85:22: warning: field 'c' will be initialized after field 's' [-Wreorder]
-                m_g(*g), g_db(db), c(0), s(0), m_max_nodes(max_nodes), m_max_age(
-                                   ^
-gng/gng_algorithm.cpp:85:28: warning: field 's' will be initialized after field 'm_max_nodes' [-Wreorder]
-                m_g(*g), g_db(db), c(0), s(0), m_max_nodes(max_nodes), m_max_age(
-                                         ^
-gng/gng_algorithm.cpp:85:34: warning: field 'm_max_nodes' will be initialized after field 'm_max_age' [-Wreorder]
-                m_g(*g), g_db(db), c(0), s(0), m_max_nodes(max_nodes), m_max_age(
-                                               ^
-gng/gng_algorithm.cpp:86:31: warning: field 'm_betha' will be initialized after field 'm_lambda' [-Wreorder]
-                                max_age), m_alpha(alpha), m_betha(betha), m_lambda(lambda), m_eps_w(
-                                                          ^
-gng/gng_algorithm.cpp:88:11: warning: field 'errorHeap' will be initialized after field 'dim' [-Wreorder]
-                                1.5), errorHeap(), dim(dim), m_toggle_uniformgrid(
-                                      ^
-gng/gng_algorithm.cpp:88:24: warning: field 'dim' will be initialized after field 'm_toggle_uniformgrid' [-Wreorder]
-                                1.5), errorHeap(), dim(dim), m_toggle_uniformgrid(
-                                                   ^
-gng/gng_algorithm.cpp:90:30: warning: field 'm_utility_option' will be initialized after field 'm_mean_error' [-Wreorder]
-                                lazyheap_optimization),  m_utility_option(
-                                                         ^
-gng/gng_algorithm.cpp:91:42: warning: field 'm_utility_k' will be initialized after field 'max_iter' [-Wreorder]
-                                utility_option), m_mean_error(1000), m_utility_k(utility_k), 
-                                                                     ^
-gng/gng_algorithm.cpp:92:37: warning: field 'm_logger' will be initialized after field 'm_iteration' [-Wreorder]
-                max_iter(max_iter), m_logger(
-                                    ^
-gng/gng_algorithm.cpp:374:7: warning: unused variable 'BYPASS' [-Wunused-variable]
-        bool BYPASS = false;
-             ^
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:15:
-In file included from ../inst/include/gng/uniform_grid.h:173:
-../inst/include/gng/uniform_grid.hpp:350:18: warning: field 'gng_dim' will be initialized after field 'm_density_threshold' [-Wreorder]
-                m_dist_fnc(0), gng_dim(gng_dim), m_density_threshold(
-                               ^
-gng/gng_algorithm.cpp:103:12: note: in instantiation of member function 'gmum::UniformGrid<std::__1::vector<std::__1::list<int, std::__1::allocator<int> >, std::__1::allocator<std::__1::list<int, std::__1::allocator<int> > > >, std::__1::list<int, std::__1::allocator<int> >, int>::UniformGrid' requested here
-                ug = new UniformGrid<std::vector<Node>, Node, int>(boundingbox_origin,
-                         ^
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: 'static' function '__double_rnd' declared in header file should be declared 'static inline' [-Wunneeded-internal-declaration]
-static double __double_rnd(double min, double max) {
-              ^
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:18:
-In file included from ../inst/include/gng/gng_graph.h:163:
-../inst/include/gng/gng_graph.hpp:511:20: warning: unused function 'writeToGraphML' [-Wunused-function]
-static std::string writeToGraphML(GNGGraph &g, string filename) {
-                   ^
-20 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c gng/gng_configuration.cpp -o gng/gng_configuration.o
-In file included from gng/gng_configuration.cpp:1:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from gng/gng_configuration.cpp:1:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-In file included from gng/gng_configuration.cpp:1:
-In file included from ../inst/include/gng/gng_configuration.h:18:
-In file included from ../inst/include/gng/gng_graph.h:163:
-../inst/include/gng/gng_graph.hpp:511:20: warning: unused function 'writeToGraphML' [-Wunused-function]
-static std::string writeToGraphML(GNGGraph &g, string filename) {
-                   ^
-6 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c gng/gng_module.cpp -o gng/gng_module.o
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-../inst/include/gng/gng_configuration.h:22:1: warning: 'GNGConfiguration' defined as a struct here but previously declared as a class [-Wmismatched-tags]
-struct GNGConfiguration {
-^
-gng/gng_module.cpp:13:1: note: did you mean struct here?
-RCPP_EXPOSED_CLASS(GNGConfiguration)
-^
-/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include/Rcpp/macros/module.h:70:3: note: expanded from macro 'RCPP_EXPOSED_CLASS'
-  class CLASS;                    \
-  ^
-gng/gng_module.cpp:10:1: note: did you mean struct here?
-class GNGConfiguration;
-^~~~~
-struct
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:14:
-../inst/include/gng/gng_lazy_error_heap.h:67:4: warning: field 'm_buffer_size' will be initialized after base 'super' (aka 'Heap<gmum::ErrorNode>') [-Wreorder]
-                        m_buffer_size(0), super() {
-                        ^
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:15:
-In file included from ../inst/include/gng/uniform_grid.h:173:
-../inst/include/gng/uniform_grid.hpp:215:6: warning: unused variable 'size' [-Wunused-variable]
-        int size = SIZE(m_grid);
-            ^
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: 'static' function '__double_rnd' declared in header file should be declared 'static inline' [-Wunneeded-internal-declaration]
-static double __double_rnd(double min, double max) {
-              ^
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:18:
-In file included from ../inst/include/gng/gng_graph.h:163:
-../inst/include/gng/gng_graph.hpp:511:20: warning: unused function 'writeToGraphML' [-Wunused-function]
-static std::string writeToGraphML(GNGGraph &g, string filename) {
-                   ^
-9 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c gng/gng_server.cpp -o gng/gng_server.o
-In file included from gng/gng_server.cpp:6:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:14:
-../inst/include/gng/gng_lazy_error_heap.h:67:4: warning: field 'm_buffer_size' will be initialized after base 'super' (aka 'Heap<gmum::ErrorNode>') [-Wreorder]
-                        m_buffer_size(0), super() {
-                        ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:15:
-In file included from ../inst/include/gng/uniform_grid.h:173:
-../inst/include/gng/uniform_grid.hpp:215:6: warning: unused variable 'size' [-Wunused-variable]
-        int size = SIZE(m_grid);
-            ^
-gng/gng_server.cpp:405:9: warning: unused variable 'max' [-Wunused-variable]
-                float max = arma::max(diff), min = arma::min(diff);
-                      ^
-gng/gng_server.cpp:405:32: warning: unused variable 'min' [-Wunused-variable]
-                float max = arma::max(diff), min = arma::min(diff);
-                                             ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-../inst/include/gng/gng_dataset.h:94:19: warning: field 'store_extra_' will be initialized after field 'dim_' [-Wreorder]
-                        mutex_(mutex), store_extra_(store_extra), dim_(dim), access_method_(
-                                       ^
-gng/gng_server.cpp:88:9: note: in instantiation of member function 'gmum::GNGDatasetSimple<double>::GNGDatasetSimple' requested here
-                                new GNGDatasetSimple<double>(&database_mutex,
-                                    ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-../inst/include/gng/gng_dataset.h:94:57: warning: field 'access_method_' will be initialized after field 'current_example_' [-Wreorder]
-                        mutex_(mutex), store_extra_(store_extra), dim_(dim), access_method_(
-                                                                             ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:18:
-In file included from ../inst/include/gng/gng_graph.h:163:
-../inst/include/gng/gng_graph.hpp:24:9: warning: field 'maximum_index' will be initialized after field 'mutex' [-Wreorder]
-        maximum_index(-1), mutex(mutex), gng_dim(dim), first_free(-1), nodes(0), dist_fnc(
-        ^
-gng/gng_server.cpp:125:11: note: in instantiation of member function 'gmum::RAMGNGGraph<GNGNode, GNGEdge, tthread::recursive_mutex>::RAMGNGGraph' requested here
-                                                new RAMGNGGraph<GNGNode, GNGEdge>(&grow_mutex,
-                                                    ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:18:
-In file included from ../inst/include/gng/gng_graph.h:163:
-../inst/include/gng/gng_graph.hpp:24:42: warning: field 'gng_dim' will be initialized after field 'first_free' [-Wreorder]
-        maximum_index(-1), mutex(mutex), gng_dim(dim), first_free(-1), nodes(0), dist_fnc(
-                                         ^
-../inst/include/gng/gng_graph.hpp:24:72: warning: field 'nodes' will be initialized after field 'dist_fnc' [-Wreorder]
-        maximum_index(-1), mutex(mutex), gng_dim(dim), first_free(-1), nodes(0), dist_fnc(
-                                                                       ^
-In file included from gng/gng_server.cpp:6:
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-12 warnings generated.
-ccache clang -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c svmlight/svm_common.c -o svmlight/svm_common.o
-ccache clang -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c svmlight/svm_hideo.c -o svmlight/svm_hideo.o
-ccache clang -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c svmlight/svm_learn.c -o svmlight/svm_learn.o
-svmlight/svm_learn.c:2800:24: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
-      if((unlabeled[i] == 2)) {
-          ~~~~~~~~~~~~~^~~~
-svmlight/svm_learn.c:2800:24: note: remove extraneous parentheses around the comparison to silence this warning
-      if((unlabeled[i] == 2)) {
-         ~             ^   ~
-svmlight/svm_learn.c:2800:24: note: use '=' to turn this equality comparison into an assignment
-      if((unlabeled[i] == 2)) {
-                       ^~
-                       =
-svmlight/svm_learn.c:2806:29: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
-      else if((unlabeled[i] == 3)) {
-               ~~~~~~~~~~~~~^~~~
-svmlight/svm_learn.c:2806:29: note: remove extraneous parentheses around the comparison to silence this warning
-      else if((unlabeled[i] == 3)) {
-              ~             ^   ~
-svmlight/svm_learn.c:2806:29: note: use '=' to turn this equality comparison into an assignment
-      else if((unlabeled[i] == 3)) {
-                            ^~
-                            =
-2 warnings generated.
-ccache clang++ -Qunused-arguments -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o gmum.r.so svm/libsvm_runner.o svm/svm_client.o svm/svmlight_runner.o svm/svm_wrapper_module.o svm/two_e_svm_pre.o svm/svm_basic.o svm/svm.o svm/svm_utils.o svm/two_e_svm_post.o svm/validator_runner.o cec/assignment.o cec/cec.o cec/centroids_assignment.o cec/cluster_custom_function.o cec/kmeanspp_assignment.o cec/cec_configuration.o cec/cec_module.o cec/cluster.o cec/hartigan.o cec/random_assignment.o utils/threading.o utils/tinythread.o utils/utils.o gng/gng_algorithm.o gng/gng_configuration.o gng/gng_module.o gng/gng_server.o svmlight/svm_common.o svmlight/svm_hideo.o svmlight/svm_learn.o -L/Library/Frameworks/R.framework/Resources/lib -lRlapack -L/Library/Frameworks/R.framework/Resources/lib -lRblas -fopenmp -L/usr/local/lib -F/Library/Frameworks/R.framework/.. -framework R -lpcre -llzma -lbz2 -lz -licucore -lm -liconv -L/usr/local/gfortran/lib/gcc/x86_64-apple-darwin15/6.1.0 -L/usr/local/gfortran/lib -lgfortran -lquadmath -lm -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
-clang: error: unsupported option '-fopenmp'
-make: *** [gmum.r.so] Error 1
-ERROR: compilation failed for package ‘gmum.r’
-* removing ‘/Users/hadley/Documents/web/httr/revdep/checks/gmum.r/new/gmum.r.Rcheck/gmum.r’
-
-```
-### CRAN
-
-```
-* installing *source* package ‘gmum.r’ ...
-** package ‘gmum.r’ successfully unpacked and MD5 sums checked
-** libs
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/libsvm_runner.cpp -o svm/libsvm_runner.o
-In file included from svm/libsvm_runner.cpp:18:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-svm/libsvm_runner.cpp:397:9: warning: unused variable 'print_func' [-Wunused-variable]
-        void (*print_func)(const char*) = NULL; // default printing to stdout
-               ^
-In file included from svm/libsvm_runner.cpp:18:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-6 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svm_client.cpp -o svm/svm_client.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svmlight_runner.cpp -o svm/svmlight_runner.o
-In file included from svm/svmlight_runner.cpp:20:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-svm/svmlight_runner.cpp:915:9: warning: variable 'll' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-    if (!use_gmumr) {
-        ^~~~~~~~~~
-svm/svmlight_runner.cpp:924:5: note: uninitialized use occurs here
-    ll+=2;
-    ^~
-svm/svmlight_runner.cpp:915:5: note: remove the 'if' if its condition is always true
-    if (!use_gmumr) {
-    ^~~~~~~~~~~~~~~~
-svm/svmlight_runner.cpp:907:27: note: initialize the variable 'll' to silence this warning
-    long max_words_doc, ll;
-                          ^
-                           = 0
-In file included from svm/svmlight_runner.cpp:20:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-6 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svm_wrapper_module.cpp -o svm/svm_wrapper_module.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/two_e_svm_pre.cpp -o svm/two_e_svm_pre.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svm_basic.cpp -o svm/svm_basic.o
-In file included from svm/svm_basic.cpp:3:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-svm/svm_basic.cpp:7:49: warning: field 'nSV' will be initialized after field 'libsvm_class_weights' [-Wreorder]
-SVMConfiguration::SVMConfiguration(): label(0), nSV(0),  libsvm_class_weights(0) {
-                                                ^
-In file included from svm/svm_basic.cpp:3:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-6 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svm.cpp -o svm/svm.o
-In file included from svm/svm.cpp:15:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-svm/svm.cpp:2706:24: warning: unused variable 'sv_coef' [-Wunused-variable]
-        const double * const *sv_coef = model->sv_coef;
-                              ^
-In file included from svm/svm.cpp:15:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-6 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/svm_utils.cpp -o svm/svm_utils.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/two_e_svm_post.cpp -o svm/two_e_svm_post.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c svm/validator_runner.cpp -o svm/validator_runner.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/assignment.cpp -o cec/assignment.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/cec.cpp -o cec/cec.o
-In file included from cec/cec.cpp:2:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-cec/cec.cpp:10:9: warning: 'M_E' macro redefined [-Wmacro-redefined]
-#define M_E 2.71828182845904523536
-        ^
-/usr/include/math.h:698:9: note: previous definition is here
-#define M_E         2.71828182845904523536028747135266250   /* e              */
-        ^
-cec/cec.cpp:11:9: warning: 'M_PI' macro redefined [-Wmacro-redefined]
-#define M_PI 3.14159265358979323846
-        ^
-/usr/include/math.h:703:9: note: previous definition is here
-#define M_PI        3.14159265358979323846264338327950288   /* pi             */
-        ^
-In file included from cec/cec.cpp:2:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-7 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/centroids_assignment.cpp -o cec/centroids_assignment.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/cluster_custom_function.cpp -o cec/cluster_custom_function.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/kmeanspp_assignment.cpp -o cec/kmeanspp_assignment.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/cec_configuration.cpp -o cec/cec_configuration.o
-In file included from cec/cec_configuration.cpp:8:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from cec/cec_configuration.cpp:8:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-5 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/cec_module.cpp -o cec/cec_module.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/cluster.cpp -o cec/cluster.o
-cec/cluster.cpp:5:9: warning: 'M_E' macro redefined [-Wmacro-redefined]
-#define M_E 2.71828182845904523536
-        ^
-/usr/include/math.h:698:9: note: previous definition is here
-#define M_E         2.71828182845904523536028747135266250   /* e              */
-        ^
-cec/cluster.cpp:6:9: warning: 'M_PI' macro redefined [-Wmacro-redefined]
-#define M_PI 3.14159265358979323846
-        ^
-/usr/include/math.h:703:9: note: previous definition is here
-#define M_PI        3.14159265358979323846264338327950288   /* pi             */
-        ^
-2 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/hartigan.cpp -o cec/hartigan.o
-In file included from cec/hartigan.cpp:3:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from cec/hartigan.cpp:3:
-In file included from ../inst/include/cec/hartigan.hpp:11:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-5 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c cec/random_assignment.cpp -o cec/random_assignment.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c utils/threading.cpp -o utils/threading.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c utils/tinythread.cpp -o utils/tinythread.o
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c utils/utils.cpp -o utils/utils.o
-In file included from utils/utils.cpp:4:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from utils/utils.cpp:4:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-5 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c gng/gng_algorithm.cpp -o gng/gng_algorithm.o
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:14:
-../inst/include/gng/gng_lazy_error_heap.h:67:4: warning: field 'm_buffer_size' will be initialized after base 'super' (aka 'Heap<gmum::ErrorNode>') [-Wreorder]
-                        m_buffer_size(0), super() {
-                        ^
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:15:
-In file included from ../inst/include/gng/uniform_grid.h:173:
-../inst/include/gng/uniform_grid.hpp:215:6: warning: unused variable 'size' [-Wunused-variable]
-        int size = SIZE(m_grid);
-            ^
-gng/gng_algorithm.cpp:85:12: warning: field 'g_db' will be initialized after field 'c' [-Wreorder]
-                m_g(*g), g_db(db), c(0), s(0), m_max_nodes(max_nodes), m_max_age(
-                         ^
-gng/gng_algorithm.cpp:85:22: warning: field 'c' will be initialized after field 's' [-Wreorder]
-                m_g(*g), g_db(db), c(0), s(0), m_max_nodes(max_nodes), m_max_age(
-                                   ^
-gng/gng_algorithm.cpp:85:28: warning: field 's' will be initialized after field 'm_max_nodes' [-Wreorder]
-                m_g(*g), g_db(db), c(0), s(0), m_max_nodes(max_nodes), m_max_age(
-                                         ^
-gng/gng_algorithm.cpp:85:34: warning: field 'm_max_nodes' will be initialized after field 'm_max_age' [-Wreorder]
-                m_g(*g), g_db(db), c(0), s(0), m_max_nodes(max_nodes), m_max_age(
-                                               ^
-gng/gng_algorithm.cpp:86:31: warning: field 'm_betha' will be initialized after field 'm_lambda' [-Wreorder]
-                                max_age), m_alpha(alpha), m_betha(betha), m_lambda(lambda), m_eps_w(
-                                                          ^
-gng/gng_algorithm.cpp:88:11: warning: field 'errorHeap' will be initialized after field 'dim' [-Wreorder]
-                                1.5), errorHeap(), dim(dim), m_toggle_uniformgrid(
-                                      ^
-gng/gng_algorithm.cpp:88:24: warning: field 'dim' will be initialized after field 'm_toggle_uniformgrid' [-Wreorder]
-                                1.5), errorHeap(), dim(dim), m_toggle_uniformgrid(
-                                                   ^
-gng/gng_algorithm.cpp:90:30: warning: field 'm_utility_option' will be initialized after field 'm_mean_error' [-Wreorder]
-                                lazyheap_optimization),  m_utility_option(
-                                                         ^
-gng/gng_algorithm.cpp:91:42: warning: field 'm_utility_k' will be initialized after field 'max_iter' [-Wreorder]
-                                utility_option), m_mean_error(1000), m_utility_k(utility_k), 
-                                                                     ^
-gng/gng_algorithm.cpp:92:37: warning: field 'm_logger' will be initialized after field 'm_iteration' [-Wreorder]
-                max_iter(max_iter), m_logger(
-                                    ^
-gng/gng_algorithm.cpp:374:7: warning: unused variable 'BYPASS' [-Wunused-variable]
-        bool BYPASS = false;
-             ^
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:15:
-In file included from ../inst/include/gng/uniform_grid.h:173:
-../inst/include/gng/uniform_grid.hpp:350:18: warning: field 'gng_dim' will be initialized after field 'm_density_threshold' [-Wreorder]
-                m_dist_fnc(0), gng_dim(gng_dim), m_density_threshold(
-                               ^
-gng/gng_algorithm.cpp:103:12: note: in instantiation of member function 'gmum::UniformGrid<std::__1::vector<std::__1::list<int, std::__1::allocator<int> >, std::__1::allocator<std::__1::list<int, std::__1::allocator<int> > > >, std::__1::list<int, std::__1::allocator<int> >, int>::UniformGrid' requested here
-                ug = new UniformGrid<std::vector<Node>, Node, int>(boundingbox_origin,
-                         ^
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: 'static' function '__double_rnd' declared in header file should be declared 'static inline' [-Wunneeded-internal-declaration]
-static double __double_rnd(double min, double max) {
-              ^
-In file included from gng/gng_algorithm.cpp:13:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:18:
-In file included from ../inst/include/gng/gng_graph.h:163:
-../inst/include/gng/gng_graph.hpp:511:20: warning: unused function 'writeToGraphML' [-Wunused-function]
-static std::string writeToGraphML(GNGGraph &g, string filename) {
-                   ^
-20 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c gng/gng_configuration.cpp -o gng/gng_configuration.o
-In file included from gng/gng_configuration.cpp:1:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from gng/gng_configuration.cpp:1:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: unused function '__double_rnd' [-Wunused-function]
-static double __double_rnd(double min, double max) {
-              ^
-In file included from gng/gng_configuration.cpp:1:
-In file included from ../inst/include/gng/gng_configuration.h:18:
-In file included from ../inst/include/gng/gng_graph.h:163:
-../inst/include/gng/gng_graph.hpp:511:20: warning: unused function 'writeToGraphML' [-Wunused-function]
-static std::string writeToGraphML(GNGGraph &g, string filename) {
-                   ^
-6 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c gng/gng_module.cpp -o gng/gng_module.o
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-../inst/include/gng/gng_configuration.h:22:1: warning: 'GNGConfiguration' defined as a struct here but previously declared as a class [-Wmismatched-tags]
-struct GNGConfiguration {
-^
-gng/gng_module.cpp:13:1: note: did you mean struct here?
-RCPP_EXPOSED_CLASS(GNGConfiguration)
-^
-/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include/Rcpp/macros/module.h:70:3: note: expanded from macro 'RCPP_EXPOSED_CLASS'
-  class CLASS;                    \
-  ^
-gng/gng_module.cpp:10:1: note: did you mean struct here?
-class GNGConfiguration;
-^~~~~
-struct
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:14:
-../inst/include/gng/gng_lazy_error_heap.h:67:4: warning: field 'm_buffer_size' will be initialized after base 'super' (aka 'Heap<gmum::ErrorNode>') [-Wreorder]
-                        m_buffer_size(0), super() {
-                        ^
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:15:
-In file included from ../inst/include/gng/uniform_grid.h:173:
-../inst/include/gng/uniform_grid.hpp:215:6: warning: unused variable 'size' [-Wunused-variable]
-        int size = SIZE(m_grid);
-            ^
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:17:
-../inst/include/utils/utils.h:107:12: warning: unused function '__seed' [-Wunused-function]
-static int __seed(int seed) {
-           ^
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:131:15: warning: 'static' function '__double_rnd' declared in header file should be declared 'static inline' [-Wunneeded-internal-declaration]
-static double __double_rnd(double min, double max) {
-              ^
-In file included from gng/gng_module.cpp:18:
-In file included from ../inst/include/gng/gng.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:18:
-In file included from ../inst/include/gng/gng_graph.h:163:
-../inst/include/gng/gng_graph.hpp:511:20: warning: unused function 'writeToGraphML' [-Wunused-function]
-static std::string writeToGraphML(GNGGraph &g, string filename) {
-                   ^
-9 warnings generated.
-ccache clang++ -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include  --std=c++0x -fPIC  -Wall -g -O2  -c gng/gng_server.cpp -o gng/gng_server.o
-In file included from gng/gng_server.cpp:6:
-../inst/include/utils/utils.h:51:9: warning: 'DBG' macro redefined [-Wmacro-redefined]
-#define DBG(verbosity, level, text)
-        ^
-../inst/include/utils/logger.h:29:13: note: previous definition is here
-    #define DBG(logger, level, text)
-            ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:14:
-../inst/include/gng/gng_lazy_error_heap.h:67:4: warning: field 'm_buffer_size' will be initialized after base 'super' (aka 'Heap<gmum::ErrorNode>') [-Wreorder]
-                        m_buffer_size(0), super() {
-                        ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:15:
-In file included from ../inst/include/gng/uniform_grid.h:173:
-../inst/include/gng/uniform_grid.hpp:215:6: warning: unused variable 'size' [-Wunused-variable]
-        int size = SIZE(m_grid);
-            ^
-gng/gng_server.cpp:405:9: warning: unused variable 'max' [-Wunused-variable]
-                float max = arma::max(diff), min = arma::min(diff);
-                      ^
-gng/gng_server.cpp:405:32: warning: unused variable 'min' [-Wunused-variable]
-                float max = arma::max(diff), min = arma::min(diff);
-                                             ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-../inst/include/gng/gng_dataset.h:94:19: warning: field 'store_extra_' will be initialized after field 'dim_' [-Wreorder]
-                        mutex_(mutex), store_extra_(store_extra), dim_(dim), access_method_(
-                                       ^
-gng/gng_server.cpp:88:9: note: in instantiation of member function 'gmum::GNGDatasetSimple<double>::GNGDatasetSimple' requested here
-                                new GNGDatasetSimple<double>(&database_mutex,
-                                    ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-../inst/include/gng/gng_dataset.h:94:57: warning: field 'access_method_' will be initialized after field 'current_example_' [-Wreorder]
-                        mutex_(mutex), store_extra_(store_extra), dim_(dim), access_method_(
-                                                                             ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:18:
-In file included from ../inst/include/gng/gng_graph.h:163:
-../inst/include/gng/gng_graph.hpp:24:9: warning: field 'maximum_index' will be initialized after field 'mutex' [-Wreorder]
-        maximum_index(-1), mutex(mutex), gng_dim(dim), first_free(-1), nodes(0), dist_fnc(
-        ^
-gng/gng_server.cpp:125:11: note: in instantiation of member function 'gmum::RAMGNGGraph<GNGNode, GNGEdge, tthread::recursive_mutex>::RAMGNGGraph' requested here
-                                                new RAMGNGGraph<GNGNode, GNGEdge>(&grow_mutex,
-                                                    ^
-In file included from gng/gng_server.cpp:8:
-In file included from ../inst/include/gng/gng_server.h:11:
-In file included from ../inst/include/gng/gng_algorithm.h:12:
-In file included from ../inst/include/gng/gng_dataset.h:15:
-In file included from ../inst/include/gng/gng_configuration.h:18:
-In file included from ../inst/include/gng/gng_graph.h:163:
-../inst/include/gng/gng_graph.hpp:24:42: warning: field 'gng_dim' will be initialized after field 'first_free' [-Wreorder]
-        maximum_index(-1), mutex(mutex), gng_dim(dim), first_free(-1), nodes(0), dist_fnc(
-                                         ^
-../inst/include/gng/gng_graph.hpp:24:72: warning: field 'nodes' will be initialized after field 'dist_fnc' [-Wreorder]
-        maximum_index(-1), mutex(mutex), gng_dim(dim), first_free(-1), nodes(0), dist_fnc(
-                                                                       ^
-In file included from gng/gng_server.cpp:6:
-../inst/include/utils/utils.h:123:12: warning: unused function '__rnd' [-Wunused-function]
-static int __rnd(int min, int max) {
-           ^
-../inst/include/utils/utils.h:127:12: warning: unused function '__int_rnd' [-Wunused-function]
-static int __int_rnd(int min, int max) {
-           ^
-12 warnings generated.
-ccache clang -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c svmlight/svm_common.c -o svmlight/svm_common.o
-ccache clang -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c svmlight/svm_hideo.c -o svmlight/svm_hideo.o
-ccache clang -Qunused-arguments  -I/Library/Frameworks/R.framework/Resources/include -DNDEBUG  -DNDEBUG_GMUM -DRCPP_INTERFACE -DARMA_64BIT_WORD -DBOOST_DISABLE_ASSERTS  -I ../inst/include/svmlight -I ../inst/include/utils -I ../inst/include  -I ../inst/include/cec -I ../inst/include/gng -I ../inst/include/svm -pthread -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/Rcpp/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/RcppArmadillo/include" -I"/Users/hadley/Documents/web/httr/revdep/library/gmum.r/BH/include" -I/usr/local/include   -fPIC  -Wall -g -O2  -c svmlight/svm_learn.c -o svmlight/svm_learn.o
-svmlight/svm_learn.c:2800:24: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
-      if((unlabeled[i] == 2)) {
-          ~~~~~~~~~~~~~^~~~
-svmlight/svm_learn.c:2800:24: note: remove extraneous parentheses around the comparison to silence this warning
-      if((unlabeled[i] == 2)) {
-         ~             ^   ~
-svmlight/svm_learn.c:2800:24: note: use '=' to turn this equality comparison into an assignment
-      if((unlabeled[i] == 2)) {
-                       ^~
-                       =
-svmlight/svm_learn.c:2806:29: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
-      else if((unlabeled[i] == 3)) {
-               ~~~~~~~~~~~~~^~~~
-svmlight/svm_learn.c:2806:29: note: remove extraneous parentheses around the comparison to silence this warning
-      else if((unlabeled[i] == 3)) {
-              ~             ^   ~
-svmlight/svm_learn.c:2806:29: note: use '=' to turn this equality comparison into an assignment
-      else if((unlabeled[i] == 3)) {
-                            ^~
-                            =
-2 warnings generated.
-ccache clang++ -Qunused-arguments -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o gmum.r.so svm/libsvm_runner.o svm/svm_client.o svm/svmlight_runner.o svm/svm_wrapper_module.o svm/two_e_svm_pre.o svm/svm_basic.o svm/svm.o svm/svm_utils.o svm/two_e_svm_post.o svm/validator_runner.o cec/assignment.o cec/cec.o cec/centroids_assignment.o cec/cluster_custom_function.o cec/kmeanspp_assignment.o cec/cec_configuration.o cec/cec_module.o cec/cluster.o cec/hartigan.o cec/random_assignment.o utils/threading.o utils/tinythread.o utils/utils.o gng/gng_algorithm.o gng/gng_configuration.o gng/gng_module.o gng/gng_server.o svmlight/svm_common.o svmlight/svm_hideo.o svmlight/svm_learn.o -L/Library/Frameworks/R.framework/Resources/lib -lRlapack -L/Library/Frameworks/R.framework/Resources/lib -lRblas -fopenmp -L/usr/local/lib -F/Library/Frameworks/R.framework/.. -framework R -lpcre -llzma -lbz2 -lz -licucore -lm -liconv -L/usr/local/gfortran/lib/gcc/x86_64-apple-darwin15/6.1.0 -L/usr/local/gfortran/lib -lgfortran -lquadmath -lm -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation
-clang: error: unsupported option '-fopenmp'
-make: *** [gmum.r.so] Error 1
-ERROR: compilation failed for package ‘gmum.r’
-* removing ‘/Users/hadley/Documents/web/httr/revdep/checks/gmum.r/old/gmum.r.Rcheck/gmum.r’
-
-```
-# googleAuthR
-
-Version: 0.5.1
-
-## Newly broken
-
-*   R CMD check timed out
-    
-
-## Newly fixed
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
+      1/1 mismatches
+      [1] 12.9 - 12.9 == 5.72e-07
       
+      [31m──[39m [31m2. Failure: Test that create_stack creates tmn if requested (@test-create_CRU_stack.R#1[39m
+      raster::maxValue(CRU_stack_list[[1]][[1]]) not equal to 4.3.
+      1/1 mismatches
+      [1] 4.3 - 4.3 == 1.91e-07
       
-      
-      ==auth JSON file location==
-      =dir:  /Users/hadley/Documents/web/httr/revdep/checks/googleAuthR/old/googleAuthR.Rcheck/tests/testthat 
-      =file:   
-      =list files: auth.json httr-oauth.rds test-batch.R test-discovery.R test-gaAuthR.R 
-      
-      testthat results ================================================================
-      OK: 23 SKIPPED: 2 FAILED: 2
-      1. Error: A batch call works (@test-batch.R#95) 
-      2. Error: A walk batch call works but with no returned data (@test-batch.R#103) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 661 SKIPPED: 23 FAILED: 2
+      1. Failure: Test that create_stack creates tmx if requested (@test-create_CRU_stack.R#868) 
+      2. Failure: Test that create_stack creates tmn if requested (@test-create_CRU_stack.R#1233) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
+# getProxy
+
+Version: 1.12
+
 ## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘bitops’ ‘data.table’ ‘dplyr’ ‘httr’
+      All declared Imports should be used.
+    ```
+
+# gfer
+
+Version: 0.1.10
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘tidyr’
+      All declared Imports should be used.
+    ```
+
+# githubinstall
+
+Version: 0.2.2
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# gitlabr
+
+Version: 0.9
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# googleAuthR
+
+Version: 0.7.0
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -2548,37 +2340,25 @@ Version: 0.5.1
       All declared Imports should be used.
     ```
 
-# googleCloudStorageR
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘devtools’
+    ```
 
-Version: 0.3.0
+# googleComputeEngineR
+
+Version: 0.2.0
 
 ## In both
 
-*   checking tests ...
+*   checking package dependencies ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 36 SKIPPED: 0 FAILED: 36
-      1. Error: We can login (@test.R#11) 
-      2. Error: We can list buckets (@test.R#25) 
-      3. Error: We can get a bucket (@test.R#32) 
-      4. Error: We can create a bucket (@test.R#41) 
-      5. Error: We can upload to the new bucket (@test.R#50) 
-      6. Error: We can delete upload to the new bucket (@test.R#59) 
-      7. Error: We can make a bucket with lifecycle and versioning set (@test.R#72) 
-      8. Error: We can upload a file (@test.R#92) 
-      9. Error: We can upload a data.frame (@test.R#100) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # GoogleGenomics
 
-Version: 1.8.0
+Version: 2.4.0
 
 ## In both
 
@@ -2601,59 +2381,81 @@ Version: 1.8.0
     Execution halted
     ```
 
+*   checking whether package ‘GoogleGenomics’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: Package 'GoogleGenomics' is deprecated and will be removed from
+    See ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/GoogleGenomics/new/GoogleGenomics.Rcheck/00install.out’ for details.
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘BSgenome.Hsapiens.UCSC.hg19’ ‘org.Hs.eg.db’
+      ‘TxDb.Hsapiens.UCSC.hg19.knownGene’
+    ```
+
+*   checking for GNU extensions in Makefiles ... NOTE
+    ```
+    GNU make is a SystemRequirements.
+    ```
+
 # googlesheets
 
-Version: 0.2.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Complete output:
-      > library(testthat)
-      > library(googlesheets)
-      > 
-      > if (identical(tolower(Sys.getenv("NOT_CRAN")), "true")) {
-      +   test_check("googlesheets")
-      + }
-      Error: Cannot read token from alleged .rds file:
-      googlesheets_token.rds
-      testthat results ================================================================
-      OK: 2 SKIPPED: 0 FAILED: 0
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 37-41 (basic-usage.Rmd) 
-    Error: processing vignette 'basic-usage.Rmd' failed with diagnostics:
-    Cannot read token from alleged .rds file:
-    ../tests/testthat/googlesheets_token.rds
-    Execution halted
-    ```
-
-# hansard
-
-Version: 0.5.2
-
-## In both
-
-*   R CMD check timed out
-    
-
-# HIBPwned
-
-Version: 0.1.6
+Version: 0.3.0
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
-    Namespace in Imports field not imported from: ‘ratelimitr’
+    Namespace in Imports field not imported from: ‘tibble’
+      All declared Imports should be used.
+    ```
+
+# graphite
+
+Version: 1.28.1
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘graphite-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: convertIdentifiers
+    > ### Title: Convert the node identifiers of a pathway.
+    > ### Aliases: convertIdentifiers
+    > 
+    > ### ** Examples
+    > 
+    >   r <- pathways("hsapiens", "reactome")
+    >   convertIdentifiers(r$`mTOR signalling`, "symbol")
+    Warning in library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+      there is no package called ‘org.Hs.eg.db’
+    Error: package "org.Hs.eg.db" is missing
+    Execution halted
+    ```
+
+*   R CMD check timed out
+    
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘ALL’ ‘hgu133plus2.db’ ‘hgu95av2.db’ ‘org.Hs.eg.db’
+    ```
+
+# helminthR
+
+Version: 1.0.6
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘knitr’ ‘rmarkdown’
       All declared Imports should be used.
     ```
 
@@ -2663,27 +2465,9 @@ Version: 0.5.0
 
 ## In both
 
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘highcharter-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: hcboxplot
-    > ### Title: Shortcut to make a boxplot
-    > ### Aliases: hcboxplot
-    > 
-    > ### ** Examples
-    > 
-    > hcboxplot(x = iris$Sepal.Length, var = iris$Species, color = "red")
-    Error in mutate_impl(.data, dots) : 
-      Column `data` must be length 1 (the group size), not 5
-    Calls: hcboxplot ... transmute.default -> mutate -> mutate.tbl_df -> mutate_impl -> .Call
-    Execution halted
-    ```
-
 *   checking installed package size ... NOTE
     ```
-      installed size is 16.4Mb
+      installed size is 16.9Mb
       sub-directories of 1Mb or more:
         doc          13.7Mb
         htmlwidgets   1.8Mb
@@ -2691,47 +2475,165 @@ Version: 0.5.0
 
 # httpcache
 
-Version: 1.0.0
+Version: 1.1.0
+
+## Newly broken
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 25 SKIPPED: 0 FAILED: 29
+      1. Error: Checking cache even with cache off doesn't fail on long query (@test-cache-query-params.R#9) 
+      2. Error: cache gets set on GET even with long query (@test-cache-query-params.R#19) 
+      3. Error: Can read cache with query params even with no connection (@test-cache-query-params.R#26) 
+      4. Error: Cache gets set on GET (@test-cache.R#20) 
+      5. Error: When the cache is set, can read from it even with no connection (@test-cache.R#34) 
+      6. Error: PUT busts cache (@test-cache.R#45) 
+      7. Failure: PATCH busts cache (@test-cache.R#58) 
+      8. Error: PATCH busts cache (@test-cache.R#58) 
+      9. Error: POST busts cache more narrowly by default: setup (@test-cache.R#81) 
+      1. ...
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+# httptest
+
+Version: 3.2.0
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘httptest-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: expect_header
+    > ### Title: Test that an HTTP request is made with a header
+    > ### Aliases: expect_header
+    > 
+    > ### ** Examples
+    > 
+    > library(httr)
+    > with_fake_http({
+    +     expect_header(GET("http://example.com", config=add_headers(Accept="image/png")),
+    +         "Accept: image/png")
+    + })
+    GET http://example.com
+    Error in rawToChar(raw) : argument 'x' must be a raw vector
+    Calls: with_fake_http ... request_perform -> parse_http_headers -> strsplit -> rawToChar
+    Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 141 SKIPPED: 8 FAILED: 42
+      1. Error: Recording requests even with the mock API (@test-capture-requests.R#105) 
+      2. Error: Loading 204 response status recorded with simplify=TRUE (@test-capture-requests.R#117) 
+      3. Error: Using simplify=FALSE (and setting .mockPaths) (@test-capture-requests.R#129) 
+      4. Error: Recorded JSON is prettified (@test-capture-requests.R#145) 
+      5. Error: Using verbose=TRUE works (and warns) (@test-capture-requests.R#153) 
+      6. Error: Request object isn't recorded at all (@test-capture-requests.R#174) 
+      7. Error: expect_header with fake HTTP (@test-expect-header.R#6) 
+      8. Error: expect_header with mock API (@test-expect-header.R#23) 
+      9. Error: fakeGET (@test-fake-http.R#6) 
+      1. ...
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+# huxtable
+
+Version: 4.3.0
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.3Mb
+      sub-directories of 1Mb or more:
+        R     2.1Mb
+        doc   2.9Mb
+    ```
+
+# hydrolinks
+
+Version: 0.10.0
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
-    Namespace in Imports field not imported from: ‘jsonlite’
+    Namespace in Imports field not imported from: ‘dbplyr’
       All declared Imports should be used.
     ```
 
-# httping
+# icesSAG
 
-Version: 0.1.0
+Version: 1.3-4
 
 ## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘icesSAG-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: getSAGGraphs
+    > ### Title: Get Summary Graphs of Stock Assessment Output
+    > ### Aliases: getSAGGraphs
+    > 
+    > ### ** Examples
+    > 
+    > assessmentKey <- findAssessmentKey("cod", 2015)
+    GETing ... http://sg.ices.dk/StandardGraphsWebServices.asmx/getListStocks?year=2015
+    > graphs <- getSAGGraphs(assessmentKey[1])
+    > plot(graphs)
+    Error in UseMethod("as.raster") : 
+      no applicable method for 'as.raster' applied to an object of class "c('ices_standardgraph_list', 'list')"
+    Calls: plot ... plot.ices_standardgraph_list -> <Anonymous> -> rasterGrob -> as.raster
+    Execution halted
+    ```
 
 *   checking tests ...
     ```
      ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
+    Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      Names of bb1$request$request$options ('useragent', 'timeout_ms', 'httpget') don't match 'useragent', 'timeout_ms', 'customrequest'
+      > ## test package
+      > test_check("icesSAG")
+      [31m──[39m [31m1. Failure: getSAGTypeGraphs (@test-test.R#50) [39m [31m───────────────────────────────────────[39m
+      `x` inherits from `NULL` not `data.frame`.
       
+      [31m──[39m [31m2. Failure: findAssessmentKey (@test-test.R#59) [39m [31m──────────────────────────────────────[39m
+      `keytab` inherits from `NULL` not `data.frame`.
       
-      3. Failure: time - flood parameter works (@test-time.R#54) ---------------------
-      system.time(time(GET("http://httpbin.org/get/"), count = 3, verbose = FALSE))[[3]] is not strictly more than ...[[]]. Difference: -0.367
-      
-      
-      testthat results ================================================================
-      OK: 47 SKIPPED: 0 FAILED: 3
-      1. Failure: ping works (@test-ping.R#14) 
-      2. Failure: ping works (@test-ping.R#19) 
-      3. Failure: time - flood parameter works (@test-time.R#54) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 6 SKIPPED: 0 FAILED: 2
+      1. Failure: getSAGTypeGraphs (@test-test.R#50) 
+      2. Failure: findAssessmentKey (@test-test.R#59) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-# influxdbr
+# ImmuneSpaceR
 
-Version: 0.12.0
+Version: 1.10.0
 
 ## In both
 
@@ -2740,77 +2642,207 @@ Version: 0.12.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 10
-      1.  Error: connection (@test_query.R#12) 
-      2.  Error: single query no chunking (@test_query.R#24) 
-      3.  Error: multiple query no chunking (@test_query.R#65) 
-      4.  Error: single query with chunking (@test_query.R#84) 
-      5.  Error: multiple query with chunking (@test_query.R#101) 
-      6.  Error: multiple query with chunking and xts result (@test_query.R#118) 
-      7.  Error: connection (@test_schema_exploration.R#12) 
-      8.  Error: show commands (@test_schema_exploration.R#25) 
-      9.  Error: connection (@test_write.R#12) 
-      10. Error: write xts with NA (@test_write.R#34) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 2 SKIPPED: 0 FAILED: 19
+      1. Failure: all studies can loaded with empty string (@test-CreateConnection.R#33) 
+      2. Failure: Nonexistent study fails to load (@test-CreateConnection.R#39) 
+      3. Failure: Existing study can be loaded (@test-CreateConnection.R#44) 
+      4. Failure: ImmuneSignatures study can be loaded (@test-CreateConnection.R#49) 
+      5. Failure: ImmuneSignatures study can be loaded (@test-CreateConnection.R#50) 
+      6. Failure: Lyoplate study cannot be loaded (@test-CreateConnection.R#56) 
+      7. Error: Connection loads with cohort-type in GE_matrices (@test-CreateConnection.R#60) 
+      8. Error: (unknown) (@test-dataIntegration.R#11) 
+      9. Error: (unknown) (@test-getDataset.R#9) 
+      1. ...
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-# internetarchive
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 63-66 (Intro_to_ImmuneSpaceR.Rmd) 
+    Error: processing vignette 'Intro_to_ImmuneSpaceR.Rmd' failed with diagnostics:
+    Invalid credential or deactivated account. Check your account in the portal.
+    Execution halted
+    ```
 
-Version: 0.1.6
+*   checking installed package size ... NOTE
+    ```
+      installed size is  8.7Mb
+      sub-directories of 1Mb or more:
+        doc   7.8Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Unexported objects imported by ':::' calls:
+      ‘Rlabkey:::.lkdefaults’ ‘Rlabkey:::labkey.getRequestOptions’
+      See the note in ?`:::` about the use of this operator.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    .getDataToPlot: no visible binding for global variable ‘value_reported’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ImmuneSpaceR/new/ImmuneSpaceR.Rcheck/00_pkg_src/ImmuneSpaceR/R/ISCon-plot.R:411)
+    Undefined global functions or variables:
+      value_reported
+    ```
+
+# inlmisc
+
+Version: 0.4.4
 
 ## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# InterMineR
+
+Version: 1.4.0
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+    > # load human genes which are associated with Diabetes (retrieved from HumanMine)
+    > data("PL_DiabetesGenes")
+    > 
+    > # get Gene.primaryIdentifiers (ENTREZ Gene identifier)
+    > hsa_gene_entrez = as.character(PL_DiabetesGenes$Gene.primaryIdentifier)
+    > 
+    > # perform enrichment analysis with InterMineR
+    > hsa_enrichResult = doEnrichment(
+    +   im = initInterMine(listMines()["HumanMine"]),
+    +   genelist = "PL_DiabetesGenes",
+    +   widget = "go_enrichment_for_gene",
+    +   correction = "Benjamini Hochberg"
+    + )
+    > 
+    > # convert InterMineR enrichment analysis results to a GeneAnswers object
+    > # Do not run unless you have installed and loaded GeneAnswers package!
+    > 
+    > # load GeneAnswers
+    > library(GeneAnswers)
+    Error in library(GeneAnswers) : there is no package called ‘GeneAnswers’
+    Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Warning in fun(libname, pkgname) : couldn't connect to display ""
+    Quitting from lines 224-255 (Enrichment_Analysis_and_Visualization.Rmd) 
+    Error: processing vignette 'Enrichment_Analysis_and_Visualization.Rmd' failed with diagnostics:
+    there is no package called 'GeneAnswers'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘GeneAnswers’ ‘GO.db’ ‘org.Hs.eg.db’
+    ```
+
+*   checking for hidden files and directories ... NOTE
+    ```
+    Found the following hidden files and directories:
+      .travis.yml
+    These were most likely included in error. See section ‘Package
+    structure’ in the ‘Writing R Extensions’ manual.
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.1Mb
+      sub-directories of 1Mb or more:
+        doc   4.6Mb
+    ```
+
+*   checking top-level files ... NOTE
+    ```
+    File
+      LICENSE
+    is not mentioned in the DESCRIPTION file.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+      definition for ‘reshape’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/InterMineR/new/InterMineR.Rcheck/00_pkg_src/InterMineR/R/convertToRangedSummarizedExperiment.R:63-68)
+    doEnrichment: no visible global function definition for ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/InterMineR/new/InterMineR.Rcheck/00_pkg_src/InterMineR/R/doEnrichment.R:87)
+    listDatasets: no visible binding for global variable ‘child_name’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/InterMineR/new/InterMineR.Rcheck/00_pkg_src/InterMineR/R/listDatasets.R:4)
+    runQuery,ANY-InterMineR: no visible global function definition for
+      ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/InterMineR/new/InterMineR.Rcheck/00_pkg_src/InterMineR/R/runQuery.R:61)
+    runQuery,ANY-InterMineR: no visible global function definition for
+      ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/InterMineR/new/InterMineR.Rcheck/00_pkg_src/InterMineR/R/runQuery.R:96)
+    runQuery,ANY-list: no visible global function definition for
+      ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/InterMineR/new/InterMineR.Rcheck/00_pkg_src/InterMineR/R/runQuery.R:139)
+    Undefined global functions or variables:
+      URLencode child_name geneExpProfile reshape
+    Consider adding
+      importFrom("stats", "reshape")
+      importFrom("utils", "URLencode")
+    to your NAMESPACE file.
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘GeneAnswers’
+    ```
+
+# ipeaData
+
+Version: 0.0.2
+
+## Newly broken
+
+*   R CMD check timed out
+    
+
+## Newly fixed
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      > library(testthat)
-      > library(internetarchive)
-      > 
-      > test_check("internetarchive")
-      1. Failure: ia_metadata() returns a data frame (@test-files-download.R#32) -----
-      `meta` not equal to reference from `hecker_meta.rds`.
-      Different number of rows
+      1: search_serie("pib", fields_search = ("SERNOME")) at testthat/test_functions_ipea_data.R:24
+      2: basic_call(api_call, type) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ipeaData/old/ipeaData.Rcheck/00_pkg_src/ipeaData/R/ipeaData.R:139
+      3: GET(api) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ipeaData/old/ipeaData.Rcheck/00_pkg_src/ipeaData/R/ipeaData.R:61
+      4: request_perform(req, hu$handle$handle)
+      5: request_fetch(req$output, req$url, handle)
+      6: request_fetch.write_memory(req$output, req$url, handle)
+      7: curl::curl_fetch_memory(url, handle = handle)
       
-      
-      testthat results ================================================================
-      OK: 21 SKIPPED: 0 FAILED: 1
-      1. Failure: ia_metadata() returns a data frame (@test-files-download.R#32) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 5 SKIPPED: 0 FAILED: 2
+      1. Error: ipeaData (@test_functions_ipea_data.R#19) 
+      2. Error: search_serie (@test_functions_ipea_data.R#24) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-# issueReporter
-
-Version: 0.1.0
-
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/test.R’ failed.
-    Last 13 lines of output:
-      output file: tint.knit.md
-      
-      /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc +RTS -K512m -RTS tint.utf8.md --to latex --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output /private/tmp/Rtmp1FoC3a/ir40e20d65722.pdf --template /Users/hadley/Documents/web/httr/revdep/library/issueReporter/tint/rmarkdown/templates/pdf/resources/tintPdf-template.tex --highlight-style pygments --latex-engine /Library/TeX/texbin/pdflatex --variable 'documentclass:tufte-handout' 
-      ! Undefined control sequence.
-      \maketitle ...p \thispagestyle {plain}\tuftebreak 
-                                                        \@afterindentfalse \@after...
-      l.206 \maketitle
-      
-      pandoc: Error producing PDF
-      Error: pandoc document conversion failed with error 43
-      In addition: Warning message:
-      In block_exec(params) : failed to tidy R code in chunk <setup>
-      reason: Error in loadNamespace(name) : there is no package called 'formatR'
-      
-      Execution halted
+    Namespace in Imports field not imported from: ‘RCurl’
+      All declared Imports should be used.
     ```
 
 # jsonlite
@@ -2829,18 +2861,23 @@ Version: 1.5
     See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
     ```
 
-# junr
+# KEGGlincs
 
-Version: 0.1.2
+Version: 1.8.0
 
 ## In both
 
-*   R CMD check timed out
+*   checking package dependencies ... ERROR
+    ```
+    Packages required but not available: ‘hgu133a.db’ ‘org.Hs.eg.db’
     
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
 
 # KEGGREST
 
-Version: 1.16.1
+Version: 1.22.0
 
 ## In both
 
@@ -2850,58 +2887,133 @@ Version: 1.16.1
       See the note in ?`:::` about the use of this operator.
     ```
 
-*   checking R code for possible problems ... NOTE
-    ```
-    .get.tmp.url: no visible global function definition for ‘download.file’
-    Undefined global functions or variables:
-      download.file
-    Consider adding
-      importFrom("utils", "download.file")
-    to your NAMESPACE file.
-    ```
-
 # kokudosuuchi
 
-Version: 0.2.0
+Version: 0.4.2
 
 ## In both
 
 *   checking data for non-ASCII characters ... NOTE
     ```
-      Note: found 47 marked UTF-8 strings
+      Note: found 52458 marked UTF-8 strings
+    ```
+
+# levi
+
+Version: 1.0.0
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
+      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
+    Quitting from lines 2-90 (levi.Rmd) 
+    Error: processing vignette 'levi.Rmd' failed with diagnostics:
+    could not find function "doc_date"
+    Execution halted
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    LEVIui: no visible global function definition for ‘is’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/levi/new/levi.Rcheck/00_pkg_src/levi/R/LEVIui.R:23-24)
+    levi_function: no visible binding for global variable ‘x’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/levi/new/levi.Rcheck/00_pkg_src/levi/R/levi_function.R:34)
+    levi_function: no visible binding for global variable ‘x’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/levi/new/levi.Rcheck/00_pkg_src/levi/R/levi_function.R:503-532)
+    levi_function: no visible binding for global variable ‘x’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/levi/new/levi.Rcheck/00_pkg_src/levi/R/levi_function.R:534-562)
+    Undefined global functions or variables:
+      is x
+    Consider adding
+      importFrom("methods", "is")
+    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
+    contains 'methods').
+    ```
+
+# LowMACA
+
+Version: 1.12.0
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘LowMACAAnnotation’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
 # Luminescence
 
-Version: 0.7.5
+Version: 0.8.6
 
 ## In both
 
-*   checking tests ...
+*   checking package dependencies ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Content type 'application/octet-stream' length 3014 bytes
-      ==================================================
-      downloaded 3014 bytes
-      
-      
-      [read_BIN2R()]
-      	 >> /tmp/Rtmp89fwtS/read_BIN2R_FILE7f4b3a996b48
-      	 >> 2 records have been read successfully!
-      
-      testthat results ================================================================
-      OK: 488 SKIPPED: 0 FAILED: 1
-      1. Error: Full check of analyse_baSAR function (@test_analyse_baSAR.R#19) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  9.6Mb
+      sub-directories of 1Mb or more:
+        R   7.1Mb
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘devtools’
+    ```
+
+# malariaAtlas
+
+Version: 0.0.3
+
+## Newly broken
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+     Vanuatu 
+     Vatican City 
+     Venezuela 
+     Vietnam 
+     Wallis and Futuna 
+     Western Sahara 
+     Yemen 
+     Zambia 
+     Zimbabwe
+    Confirming availability of PR data for: Madagascar...
+    PR points are available for Madagascar.
+    Attempting to download PR point data for Madagascar ...
+    Data downloaded for Madagascar.
+    Downloading list of available species, please wait...
+    Confirming availability of Vector data for: Myanmar...
+    Vector points are available for Myanmar.
+    Attempting to download vector occurence data for Myanmar ...
+    Quitting from lines 102-103 (overview.Rmd) 
+    Error: processing vignette 'overview.Rmd' failed with diagnostics:
+    cannot read from connection
+    Execution halted
+    ```
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘grid’
+      All declared Imports should be used.
     ```
 
 # markmyassignment
 
-Version: 0.6.1
+Version: 0.8.1
 
 ## In both
 
@@ -2911,68 +3023,143 @@ Version: 0.6.1
       All declared Imports should be used.
     ```
 
-# miRLAB
+# martini
 
-Version: 1.6.0
+Version: 1.2.0
 
 ## In both
 
-*   checking R code for possible problems ... NOTE
+*   checking package dependencies ... ERROR
     ```
-    ...
-    Validation: no visible global function definition for ‘read.csv’
-    ValidationT: no visible global function definition for ‘read.csv’
-    Zscore: no visible global function definition for ‘read.csv’
-    Zscore: no visible global function definition for ‘median’
-    convert: no visible global function definition for ‘read.csv’
-    convert: no visible global function definition for ‘write.table’
-    readHeader: no visible global function definition for ‘read.csv’
-    urlReadTable: no visible global function definition for ‘read.table’
-    Undefined global functions or variables:
-      boxplot cancor cor cov data dev.off median new p.adjust par phyper
-      png read.csv read.table rnorm write.csv write.table
-    Consider adding
-      importFrom("grDevices", "dev.off", "png")
-      importFrom("graphics", "boxplot", "par")
-      importFrom("methods", "new")
-      importFrom("stats", "cancor", "cor", "cov", "median", "p.adjust",
-                 "phyper", "rnorm")
-      importFrom("utils", "data", "read.csv", "read.table", "write.csv",
-                 "write.table")
-    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
-    contains 'methods').
+    Package required but not available: ‘snpStats’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
-# mnis
+# MetamapsDB
 
-Version: 0.2.7
+Version: 0.0.2
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘Matrix’ ‘shiny’
+      All declared Imports should be used.
+    ```
+
+# metavizr
+
+Version: 1.6.1
 
 ## In both
 
 *   checking tests ...
     ```
      ERROR
-    Running the tests in ‘tests/testthat-a.R’ failed.
+    Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      > library(testthat)
-      > library(mnis)
+      2: replacing previous import 'S4Vectors::head' by 'git2r::head' when loading 'epivizrStandalone' 
+      3: replacing previous import 'S4Vectors::as.data.frame' by 'git2r::as.data.frame' when loading 'epivizrStandalone' 
       > 
-      > test_check("mnis", filter= "a")
-      1. Failure: mnis_additional returns expected format (@test_additional.R#80) ----
-      `xi` has length 349, not length 285.
+      > test_check("metavizr")
+      [31m──[39m [31m1. Error: (unknown) (@test-EpivizMetagenomicsInnerNodeData_class.R#2) [39m [31m────────────────[39m
+      there is no package called 'curatedMetagenomicData'
+      1: library(curatedMetagenomicData) at testthat/test-EpivizMetagenomicsInnerNodeData_class.R:2
+      2: stop(txt, domain = NA)
       
-      
-      testthat results ================================================================
-      OK: 98 SKIPPED: 0 FAILED: 1
-      1. Failure: mnis_additional returns expected format (@test_additional.R#80) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 17 SKIPPED: 0 FAILED: 1
+      1. Error: (unknown) (@test-EpivizMetagenomicsInnerNodeData_class.R#2) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    
+        plotMA
+    
+    Loading required package: glmnet
+    Loading required package: Matrix
+    Loading required package: foreach
+    Loaded glmnet 2.0-16
+    
+    Loading required package: RColorBrewer
+    Loading required package: data.table
+    Loading required package: digest
+    Warning: replacing previous import 'S4Vectors::merge' by 'git2r::merge' when loading 'epivizrStandalone'
+    Warning: replacing previous import 'S4Vectors::head' by 'git2r::head' when loading 'epivizrStandalone'
+    Warning: replacing previous import 'S4Vectors::as.data.frame' by 'git2r::as.data.frame' when loading 'epivizrStandalone'
+    Loading required package: msd16s
+    Warning in library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+      there is no package called 'msd16s'
+    Quitting from lines 95-124 (IntroToMetavizr.Rmd) 
+    Error: processing vignette 'IntroToMetavizr.Rmd' failed with diagnostics:
+    object 'msd16s' not found
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘msd16s’ ‘etec16s’ ‘curatedMetagenomicData’
+    ```
+
+# miniCRAN
+
+Version: 0.2.11
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# miRLAB
+
+Version: 1.12.0
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Packages required but not available:
+      ‘TCGAbiolinks’ ‘Category’ ‘org.Hs.eg.db’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# mlflow
+
+Version: 0.8.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘aws.s3’
+      All declared Imports should be used.
+    ```
+
+# MODISTools
+
+Version: 1.0.0
+
+## In both
+
+*   R CMD check timed out
+    
+
 # MODIStsp
 
-Version: 1.3.3
+Version: 1.3.7
 
 ## In both
 
@@ -2986,35 +3173,33 @@ Version: 1.3.3
 
 # monkeylearn
 
-Version: 0.1.3
+Version: 0.2.0
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-             out$push(condition)
-             invokeRestart("muffleMessage")
-         })
-      4: monkeylearn_extract(request = c("  ", "I do not know what the horse is doing in the house"))
-      5: monkeylearn_check(output)
-      6: stop("HTTP failure: ", req$status_code, "\n", content(req)$detail, call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 4 SKIPPED: 0 FAILED: 3
-      1. Error: monkeylearn_parse returns a data.frame with a data.frame as attribute (@test_output.R#7) 
-      2. Error: No error if no results from the extractor call (@test_output.R#55) 
-      3. Error: Blank texts are handled properly (@test_text_size.R#10) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespace in Imports field not imported from: ‘ratelimitr’
+      All declared Imports should be used.
+    ```
+
+# move
+
+Version: 3.1.0
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.1Mb
+      sub-directories of 1Mb or more:
+        R      2.1Mb
+        data   2.1Mb
     ```
 
 # mregions
 
-Version: 0.1.4
+Version: 0.1.6
 
 ## In both
 
@@ -3023,65 +3208,9 @@ Version: 0.1.4
     Package which this enhances but not available for checking: ‘leaflet’
     ```
 
-# mscstexta4r
-
-Version: 0.1.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > # quick notes:
-      > #   put all your tests in tests/testthat folder
-      > #   each test file should start with test and end in .R
-      > #   since we use secret API keys, don't run the tests on CRAN
-      > 
-      > library("testthat")
-      > 
-      > if (identical(tolower(Sys.getenv("NOT_CRAN")), "true")) {
-      +   library("mscstexta4r")
-      +   test_check("mscstexta4r")
-      + }
-      Error: mscstexta4r: could not load config info from Sys env nor from file
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 0
-      Execution halted
-    ```
-
-# mscsweblm4r
-
-Version: 0.1.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > # quick notes:
-      > #   put all your tests in tests/testthat folder
-      > #   each test file should start with test and end in .R
-      > #   since we use secret API keys, don't run the tests on CRAN
-      > 
-      > library("testthat")
-      > 
-      > if (identical(tolower(Sys.getenv("NOT_CRAN")), "true")) {
-      +   library("mscsweblm4r")
-      +   test_check("mscsweblm4r")
-      + }
-      Error: mscsweblm4r: could not load config info from Sys env nor from file
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 0
-      Execution halted
-    ```
-
 # mygene
 
-Version: 1.12.0
+Version: 1.18.0
 
 ## In both
 
@@ -3093,19 +3222,19 @@ Version: 1.12.0
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    .df2DF: no visible binding for global variable ‘as’
-    .unnest.df : <anonymous>: no visible global function definition for
-      ‘is’
-    .unnest.df : <anonymous>: no visible global function definition for
-      ‘setNames’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/mygene/new/mygene.Rcheck/00_pkg_src/mygene/R/utils.R:56)
     MyGene: no visible global function definition for ‘new’
     index.tx.id: no visible global function definition for
       ‘installed.packages’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/mygene/new/mygene.Rcheck/00_pkg_src/mygene/R/mygene.R:280)
     validMyGeneObject: no visible global function definition for ‘slot’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/mygene/new/mygene.Rcheck/00_pkg_src/mygene/R/mygene.R:17-18)
     .request.get,MyGene: no visible global function definition for
       ‘capture.output’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/mygene/new/mygene.Rcheck/00_pkg_src/mygene/R/mygene.R:57-59)
     .request.post,MyGene: no visible global function definition for
       ‘capture.output’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/mygene/new/mygene.Rcheck/00_pkg_src/mygene/R/mygene.R:79-81)
     Undefined global functions or variables:
       as capture.output installed.packages is new setNames slot
     Consider adding
@@ -3118,7 +3247,7 @@ Version: 1.12.0
 
 # myvariant
 
-Version: 1.6.0
+Version: 1.12.0
 
 ## In both
 
@@ -3135,19 +3264,19 @@ Version: 1.6.0
 *   checking R code for possible problems ... NOTE
     ```
     ...
-    .getIndels: no visible binding for global variable ‘ALT’
-    .unnest.df : <anonymous>: no visible global function definition for
-      ‘is’
-    .unnest.df : <anonymous>: no visible global function definition for
-      ‘setNames’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/myvariant/new/myvariant.Rcheck/00_pkg_src/myvariant/R/utils.R:54)
     MyVariant: no visible global function definition for ‘new’
     formatHgvs: no visible global function definition for
       ‘seqlevelsStyle<-’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/myvariant/new/myvariant.Rcheck/00_pkg_src/myvariant/R/readHGVS.R:52)
     validMyVariantObject: no visible global function definition for ‘slot’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/myvariant/new/myvariant.Rcheck/00_pkg_src/myvariant/R/MyVariant.R:10-11)
     .request.get,MyVariant: no visible global function definition for
       ‘capture.output’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/myvariant/new/myvariant.Rcheck/00_pkg_src/myvariant/R/MyVariant.R:51-53)
     .request.post,MyVariant: no visible global function definition for
       ‘capture.output’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/myvariant/new/myvariant.Rcheck/00_pkg_src/myvariant/R/MyVariant.R:75-77)
     Undefined global functions or variables:
       ALT REF as capture.output is new seqlevelsStyle<- setNames slot
     Consider adding
@@ -3158,36 +3287,142 @@ Version: 1.6.0
     contains 'methods').
     ```
 
-# oai
+# nat
 
-Version: 0.2.2
+Version: 1.8.11
+
+## In both
+
+*   checking whether package ‘nat’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Warning: partial match of 'OS' to 'OS.type'
+    See ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/nat/new/nat.Rcheck/00install.out’ for details.
+    ```
+
+# ndexr
+
+Version: 1.4.0
+
+## In both
+
+*   checking DESCRIPTION meta-information ... NOTE
+    ```
+    Deprecated license: BSD
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Package in Depends field not imported from: ‘igraph’
+      These packages need to be imported from (in the NAMESPACE file)
+      for when this namespace is loaded but not attached.
+    Unexported object imported by a ':::' call: ‘httr:::default_ua’
+      See the note in ?`:::` about the use of this operator.
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    rcx_toRCXgraph: no visible global function definition for ‘E’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ndexr/new/ndexr.Rcheck/00_pkg_src/ndexr/R/ndex_RCXgraph.r:117)
+    rcx_toRCXgraph: no visible global function definition for ‘E<-’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ndexr/new/ndexr.Rcheck/00_pkg_src/ndexr/R/ndex_RCXgraph.r:117)
+    rcxgraph_fromRCX: no visible global function definition for ‘V’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ndexr/new/ndexr.Rcheck/00_pkg_src/ndexr/R/ndex_RCXgraph.r:116)
+    rcxgraph_fromRCX: no visible global function definition for ‘V<-’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ndexr/new/ndexr.Rcheck/00_pkg_src/ndexr/R/ndex_RCXgraph.r:116)
+    rcxgraph_fromRCX: no visible global function definition for ‘E’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ndexr/new/ndexr.Rcheck/00_pkg_src/ndexr/R/ndex_RCXgraph.r:117)
+    rcxgraph_fromRCX: no visible global function definition for ‘E<-’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ndexr/new/ndexr.Rcheck/00_pkg_src/ndexr/R/ndex_RCXgraph.r:117)
+    rcxgraph_toRCX: no visible binding for global variable ‘po’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ndexr/new/ndexr.Rcheck/00_pkg_src/ndexr/R/ndex_RCXgraph.r:268)
+    rcxgraph_toRCX: no visible binding for global variable ‘po’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/ndexr/new/ndexr.Rcheck/00_pkg_src/ndexr/R/ndex_RCXgraph.r:294)
+    Undefined global functions or variables:
+      E E<- V V<- packageVersion po tail
+    Consider adding
+      importFrom("utils", "packageVersion", "tail")
+    to your NAMESPACE file.
+    ```
+
+# neonUtilities
+
+Version: 1.0.1
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# neurobase
+
+Version: 1.27.6
 
 ## Newly broken
 
-*   checking tests ...
+*   checking re-building of vignette outputs ... WARNING
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      > library(testthat)
-      > library("oai")
-      > 
-      > test_check("oai")
-      1. Failure: badArgument is triggered (@test-handle_errors.R#28) ----------------
-      handle_errors(xml) did not throw an error.
-      
-      
-      testthat results ================================================================
-      OK: 137 SKIPPED: 0 FAILED: 1
-      1. Failure: badArgument is triggered (@test-handle_errors.R#28) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 189-219 (nifti_basics.Rmd) 
+    Error: processing vignette 'nifti_basics.Rmd' failed with diagnostics:
+    LibreSSL SSL_read: error:06FFF064:digital envelope routines:CRYPTO_internal:bad decrypt, errno 0
+    Execution halted
     ```
 
-# opencage
+# OmaDB
 
-Version: 0.1.2
+Version: 1.2.0
+
+## In both
+
+*   checking whether package ‘OmaDB’ can be installed ... ERROR
+    ```
+    Installation failed.
+    See ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/OmaDB/new/OmaDB.Rcheck/00install.out’ for details.
+    ```
+
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘OmaDB’ ...
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+  there is no package called ‘GO.db’
+ERROR: lazy loading failed for package ‘OmaDB’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/OmaDB/new/OmaDB.Rcheck/OmaDB’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘OmaDB’ ...
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+  there is no package called ‘GO.db’
+ERROR: lazy loading failed for package ‘OmaDB’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/OmaDB/old/OmaDB.Rcheck/OmaDB’
+
+```
+# opensensmapr
+
+Version: 0.5.0
 
 ## In both
 
@@ -3196,18 +3431,18 @@ Version: 0.1.2
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      3: `_f`(placename = placename, key = key, bounds = bounds, countrycode = countrycode, 
-             language = language, limit = limit, min_confidence = min_confidence, no_annotations = no_annotations, 
-             no_dedupe = no_dedupe, no_record = no_record, abbrv = abbrv)
-      4: opencage_check(temp)
-      5: stop("HTTP failure: ", req$status_code, "\n", message, call. = FALSE)
+             test_error <<- e
+         }, "object 'boxes' not found", quote(eval(code, test_env))) at testthat/test_phenomena.R:30
+      2: eval(code, test_env)
       
-      testthat results ================================================================
-      OK: 23 SKIPPED: 0 FAILED: 4
-      1. Error: opencage_parse returns what it should for both functions (@test-opencage_parse.R#6) 
-      2. Error: opencage_parse returns what it should for both functions with several parameters (@test-opencage_parse.R#40) 
-      3. Error: opencage_parse deals well with resuls being NULL (@test-opencage_parse.R#72) 
-      4. Error: the bounds argument is well taken into account (@test-opencage_parse.R#86) 
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 10 SKIPPED: 35 FAILED: 6
+      1. Error: osem_box_to_archive_name works for one box (@test_archive.R#23) 
+      2. Error: osem_box_to_archive_name works for multiple boxes (@test_archive.R#29) 
+      3. Error: osem_measurements_archive works for one box (@test_archive.R#41) 
+      4. Error: osem_measurements_archive fails for multiple boxes (@test_archive.R#47) 
+      5. Error: summary.sensebox outputs all metrics for a single box (@test_box.R#42) 
+      6. Error: phenomena from a not sensebox data.frame returns error (@test_phenomena.R#30) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -3215,31 +3450,39 @@ Version: 0.1.2
 
 *   checking re-building of vignette outputs ... WARNING
     ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 41-47 (opencage.Rmd) 
-    Error: processing vignette 'opencage.Rmd' failed with diagnostics:
-    HTTP failure: 403
-    Invalid or missing api key (forbidden)
+    ...
+    
+        intersect, setdiff, setequal, union
+    
+    
+    Attaching package: 'lubridate'
+    
+    The following object is masked from 'package:base':
+    
+        date
+    
+    
+    Attaching package: 'zoo'
+    
+    The following objects are masked from 'package:base':
+    
+        as.Date, as.Date.numeric
+    
+    Quitting from lines 44-47 (osem-history.Rmd) 
+    Error: processing vignette 'osem-history.Rmd' failed with diagnostics:
+    $ operator is invalid for atomic vectors
     Execution halted
     ```
 
-# openwindfarm
+# osmdata
 
-Version: 0.1.0
+Version: 0.0.8
 
 ## In both
 
-*   checking re-building of vignette outputs ... WARNING
+*   checking package dependencies ... NOTE
     ```
-    Error in re-building vignettes:
-      ...
-    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
-      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
-    Quitting from lines 22-24 (openwindfarm-vignette.Rmd) 
-    Error: processing vignette 'openwindfarm-vignette.Rmd' failed with diagnostics:
-    there is no package called 'webshot'
-    Execution halted
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # osmplotr
@@ -3248,94 +3491,89 @@ Version: 0.3.0
 
 ## In both
 
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 33-37 (basic-maps.Rmd) 
+    Error: processing vignette 'basic-maps.Rmd' failed with diagnostics:
+    there is no package called 'devtools'
+    Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
 *   checking installed package size ... NOTE
     ```
-      installed size is  6.4Mb
+      installed size is  6.9Mb
       sub-directories of 1Mb or more:
         doc   5.9Mb
     ```
 
 # packrat
 
-Version: 0.4.8-1
+Version: 0.5.0
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 47 SKIPPED: 1 FAILED: 11
-      1. Error: Bundle works when using R's internal tar (@test-bundle.R#14) 
-      2. Error: Bundle works when omitting CRAN packages (@test-bundle.R#36) 
-      3. Error: init creates project structure and installs dependencies (@test-packrat.R#19) 
-      4. Error: restore ignores dirty packages (@test-packrat.R#35) 
-      5. Error: restore installs missing packages (@test-packrat.R#48) 
-      6. Error: snapshot captures new dependencies (@test-packrat.R#62) 
-      7. Error: dependencies in library directories are ignored (@test-packrat.R#89) 
-      8. Error: clean removes libraries and sources (@test-packrat.R#103) 
-      9. Error: init works with multiple repos (@test-packrat.R#133) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 *   checking package dependencies ... NOTE
     ```
-    Package which this enhances but not available for checking: ‘BiocInstaller’
-    ```
-
-# pangaear
-
-Version: 0.3.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      > library("testthat")
-      > test_check("pangaear")
-      Loading required package: pangaear
-      1. Failure: fails well (@test-oai_functions.R#72) ------------------------------
-      error$message does not match "Invalid datestamp".
-      Actual value: "OAI-PMH errors: badArgument: from/until invalid: Text '3' could not be parsed at index 0"
-      
-      
-      testthat results ================================================================
-      OK: 72 SKIPPED: 0 FAILED: 1
-      1. Failure: fails well (@test-oai_functions.R#72) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # parlitools
 
-Version: 0.2.0
+Version: 0.2.1
 
 ## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
 
 *   checking data for non-ASCII characters ... NOTE
     ```
       Note: found 13 marked UTF-8 strings
     ```
 
+# patentsview
+
+Version: 0.2.1
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 42-59 (examples.Rmd) 
+    Error: processing vignette 'examples.Rmd' failed with diagnostics:
+    parse error: object key and value must be separated by a colon (':')
+              9835"}]},{"patent_numbeijing","inventor_country":"CN","inven
+                         (right here) ------^
+    Execution halted
+    ```
+
 # paxtoolsr
 
-Version: 1.10.0
+Version: 1.16.0
 
 ## In both
 
 *   checking whether package ‘paxtoolsr’ can be installed ... ERROR
     ```
     Installation failed.
-    See ‘/Users/hadley/Documents/web/httr/revdep/checks/paxtoolsr/new/paxtoolsr.Rcheck/00install.out’ for details.
+    See ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/paxtoolsr/new/paxtoolsr.Rcheck/00install.out’ for details.
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Packages suggested but not available for checking:
+      ‘estrogen’ ‘hgu95av2’ ‘org.Hs.eg.db’
     ```
 
 ## Installation
@@ -3346,17 +3584,17 @@ Version: 1.10.0
 * installing *source* package ‘paxtoolsr’ ...
 ** R
 ** inst
-** preparing package for lazy loading
+** byte-compile and prepare package for lazy loading
 Error: package or namespace load failed for ‘rJava’:
  .onLoad failed in loadNamespace() for 'rJava', details:
   call: dyn.load(file, DLLpath = DLLpath, ...)
-  error: unable to load shared object '/Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so':
-  dlopen(/Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so, 6): Library not loaded: @rpath/libjvm.dylib
-  Referenced from: /Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so
+  error: unable to load shared object '/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/paxtoolsr/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/paxtoolsr/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/r-lib/httr/revdep/library.noindex/paxtoolsr/rJava/libs/rJava.so
   Reason: image not found
 Error : package ‘rJava’ could not be loaded
 ERROR: lazy loading failed for package ‘paxtoolsr’
-* removing ‘/Users/hadley/Documents/web/httr/revdep/checks/paxtoolsr/new/paxtoolsr.Rcheck/paxtoolsr’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/paxtoolsr/new/paxtoolsr.Rcheck/paxtoolsr’
 
 ```
 ### CRAN
@@ -3365,45 +3603,315 @@ ERROR: lazy loading failed for package ‘paxtoolsr’
 * installing *source* package ‘paxtoolsr’ ...
 ** R
 ** inst
-** preparing package for lazy loading
+** byte-compile and prepare package for lazy loading
 Error: package or namespace load failed for ‘rJava’:
  .onLoad failed in loadNamespace() for 'rJava', details:
   call: dyn.load(file, DLLpath = DLLpath, ...)
-  error: unable to load shared object '/Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so':
-  dlopen(/Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so, 6): Library not loaded: @rpath/libjvm.dylib
-  Referenced from: /Users/hadley/Documents/web/httr/revdep/library/paxtoolsr/rJava/libs/rJava.so
+  error: unable to load shared object '/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/paxtoolsr/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/paxtoolsr/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/r-lib/httr/revdep/library.noindex/paxtoolsr/rJava/libs/rJava.so
   Reason: image not found
 Error : package ‘rJava’ could not be loaded
 ERROR: lazy loading failed for package ‘paxtoolsr’
-* removing ‘/Users/hadley/Documents/web/httr/revdep/checks/paxtoolsr/old/paxtoolsr.Rcheck/paxtoolsr’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/paxtoolsr/old/paxtoolsr.Rcheck/paxtoolsr’
 
 ```
-# prettymapr
+# phantasus
 
-Version: 0.2.1
+Version: 1.2.0
 
 ## In both
 
 *   checking tests ...
     ```
      ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
+    Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      |                                                    |  0%                      
-      |========                                            |16.66667% ~0 s remaining  
-      |=================                                   |33.33333% ~0 s remaining  
-      |==========================                          | 50% ~0 s remaining       
-      |==================================                  |66.66667% ~0 s remaining  
-      |===========================================         |83.33333% ~0 s remaining  
-      |====================================================|100% ~0 s remaining       
-      |====================================================|100%                      Completed after 0 s 
-      testthat results ================================================================
-      OK: 115 SKIPPED: 0 FAILED: 2
-      1. Error: invalid pickpoint API key results in correct error message (@test_geocode.R#90) 
-      2. Error: non 200 status codes throw warning when quiet = FALSE (@test_geocode.R#125) 
+      1: getGSE("GSE99709", destdir = system.file("testdata", package = "phantasus")) at testthat/testloadGEO.R:74
+      2: suppressWarnings(getGEO(filename = destfile, destdir = destdir, AnnotGPL = TRUE)) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/phantasus/new/phantasus.Rcheck/00_pkg_src/phantasus/R/loadGEO.R:344
+      3: withCallingHandlers(expr, warning = function(w) invokeRestart("muffleWarning"))
+      4: getGEO(filename = destfile, destdir = destdir, AnnotGPL = TRUE) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/phantasus/new/phantasus.Rcheck/00_pkg_src/phantasus/R/loadGEO.R:344
+      5: parseGEO(filename, GSElimits, destdir, AnnotGPL = AnnotGPL, getGPL = getGPL)
+      6: parseGSEMatrix(fname, destdir = destdir, AnnotGPL = AnnotGPL, getGPL = getGPL)
+      7: datamat[[1]]
+      8: `[[.tbl_df`(datamat, 1)
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 95 SKIPPED: 0 FAILED: 1
+      1. Error: getGSE works with ARCHS4 (@testloadGEO.R#74) 
       
       Error: testthat unit tests failed
       Execution halted
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 14.9Mb
+      sub-directories of 1Mb or more:
+        doc   2.6Mb
+        www  11.5Mb
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Unexported objects imported by ':::' calls:
+      'GEOquery:::getDirListing' 'opencpu:::rookhandler'
+      'opencpu:::tmp_root' 'opencpu:::win_or_mac'
+      See the note in ?`:::` about the use of this operator.
+    ```
+
+# phenocamr
+
+Version: 1.1.1
+
+## Newly broken
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/run_tests.r’ failed.
+    Last 13 lines of output:
+      Downloading: harvard_DB_1000_3day.csv
+      Smoothing time series! 
+      Merging Daymet Data! 
+      Downloading: harvard_DB_1000_3day.csv
+      Contracting Data! 
+      Downloading: harvard_DB_1000_3day.csv
+      [31m──[39m [31m1. Failure: check download options (@test_download_function.r#69) [39m [31m────────────────────[39m
+      `check` isn't true.
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 2 SKIPPED: 0 FAILED: 1
+      1. Failure: check download options (@test_download_function.r#69) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+# pivotaltrackR
+
+Version: 0.1.0
+
+## Newly broken
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      12: ptPOST(pivotalURL("stories"), body = list(...)) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pivotaltrackR/new/pivotaltrackR.Rcheck/00_pkg_src/pivotaltrackR/R/story.R:53
+      13: ptAPI("POST", url, encode = "json", ...) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pivotaltrackR/new/pivotaltrackR.Rcheck/00_pkg_src/pivotaltrackR/R/api.R:47
+      14: FUN(url, ..., config = c(ptConfig(), config)) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pivotaltrackR/new/pivotaltrackR.Rcheck/00_pkg_src/pivotaltrackR/R/api.R:18
+      15: request_perform(req, hu$handle$handle) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/http-post.r:49
+      16: parse_http_headers(resp$headers) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/request.R:163
+      17: strsplit(rawToChar(raw), "\r?\n") at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/headers.r:109
+      18: rawToChar(raw) at /private/tmp/RtmpWX9zDL/R.INSTALL90f54d7cc535/httr/R/headers.r:109
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 18 SKIPPED: 0 FAILED: 2
+      1. Error: (unknown) (@test-stories.R#44) 
+      2. Error: (unknown) (@test-story.R#15) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
+      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
+    Quitting from lines 50-52 (pivotaltrackR.Rmd) 
+    Error: processing vignette 'pivotaltrackR.Rmd' failed with diagnostics:
+    argument 'x' must be a raw vector
+    Execution halted
+    ```
+
+# pkgdown
+
+Version: 1.2.0
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      > library(testthat)
+      > library(pkgdown)
+      > 
+      > test_check("pkgdown")
+      [31m──[39m [31m1. Failure: intermediate files cleaned up automatically (@test-build_home.R#22) [39m [31m──────[39m
+      dir(pkg) not set-equal to c("docs", "man", "NAMESPACE", "DESCRIPTION", "README.md", "README.Rmd").
+      Lengths differ: 5 is not 6
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 287 SKIPPED: 8 FAILED: 1
+      1. Failure: intermediate files cleaned up automatically (@test-build_home.R#22) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘devtools’
+    ```
+
+# plotly
+
+Version: 4.8.0
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  7.0Mb
+      sub-directories of 1Mb or more:
+        R             2.3Mb
+        htmlwidgets   3.1Mb
+    ```
+
+# pogos
+
+Version: 1.2.0
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
+      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
+    Quitting from lines 2-36 (pogos.Rmd) 
+    Error: processing vignette 'pogos.Rmd' failed with diagnostics:
+    could not find function "Biocpkg"
+    Execution halted
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    lkc: no visible binding for global variable ‘datasets_v1’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pogos/new/pogos.Rcheck/00_pkg_src/pogos/R/lkcomb.R:93)
+    lkc: no visible binding for global variable ‘datasets_v1’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pogos/new/pogos.Rcheck/00_pkg_src/pogos/R/lkcomb.R:94)
+    plot,DRProfSet-missing: no visible binding for global variable ‘dose’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pogos/new/pogos.Rcheck/00_pkg_src/pogos/R/lkcomb.R:209-210)
+    plot,DRProfSet-missing: no visible binding for global variable
+      ‘response’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pogos/new/pogos.Rcheck/00_pkg_src/pogos/R/lkcomb.R:209-210)
+    plot,DRProfSet-missing: no visible binding for global variable ‘drug’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pogos/new/pogos.Rcheck/00_pkg_src/pogos/R/lkcomb.R:209-210)
+    plot,DRTraceSet-missing: no visible binding for global variable ‘dose’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pogos/new/pogos.Rcheck/00_pkg_src/pogos/R/lkcomb.R:142)
+    plot,DRTraceSet-missing: no visible binding for global variable
+      ‘response’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pogos/new/pogos.Rcheck/00_pkg_src/pogos/R/lkcomb.R:142)
+    plot,DRTraceSet-missing: no visible binding for global variable
+      ‘cell_line’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pogos/new/pogos.Rcheck/00_pkg_src/pogos/R/lkcomb.R:142)
+    Undefined global functions or variables:
+      cell_line cell_lines_v1 compounds_v1 datasets_v1 dose drug response
+    ```
+
+# PoloniexR
+
+Version: 0.0.1
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+             bid       amount
+    1 0.00000815 4310.8497278
+    2 0.00000814 245.77965373
+    > order.book$ask
+             ask        amount
+    1 0.00000821  436.55744592
+    2 0.00000822 3440.78986349
+    > order.book$frozen
+    [1] FALSE
+    > order.book$seq
+    [1] 85890835
+    > 
+    > pair <- "all"
+    > depth <- 2
+    > order.book <- ReturnOrderBook(poloniex.public,
+    +                               pair  = pair,
+    +                               depth = depth)
+    Error in matrix(unlist(pair.book$bids), ncol = 2, byrow = TRUE) : 
+      'data' must be of a vector type, was 'NULL'
+    Calls: ReturnOrderBook ... ReturnOrderBook -> lapply -> FUN -> as.data.frame -> matrix
+    Execution halted
+    ```
+
+# portalr
+
+Version: 0.1.4
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      1: get_stake_data(path = portal_data_path) at testthat/test-05-get_stake_data.R:6
+      2: load_data(path, download_if_missing = download_if_missing, clean = clean) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/portalr/new/portalr.Rcheck/00_pkg_src/portalr/R/IndividualData.R:40
+      3: load_generic_data(data_files, na_strings, path, download_if_missing) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/portalr/new/portalr.Rcheck/00_pkg_src/portalr/R/GetData.R:333
+      4: download_observations(path) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/portalr/new/portalr.Rcheck/00_pkg_src/portalr/R/GetData.R:516
+      5: download.file(zip_download_path, zip_download_dest, quiet = TRUE, mode = "wb") at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/portalr/new/portalr.Rcheck/00_pkg_src/portalr/R/GetData.R:71
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 62 SKIPPED: 14 FAILED: 4
+      1. Error: load_data downloads data if missing (@test-01-data-retrieval.R#25) 
+      2. Error: (unknown) (@test-02-data-processing.R#4) 
+      3. Error: (unknown) (@test-04-weather.R#4) 
+      4. Error: get_stake_data returns expected columns (@test-05-get_stake_data.R#6) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    ── Attaching packages ───────────────────────────────────────────────── tidyverse 1.2.1 ──
+    ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+    ✔ tibble  1.4.2     ✔ dplyr   0.7.8
+    ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+    ✔ readr   1.2.1     ✔ forcats 0.3.0
+    ── Conflicts ──────────────────────────────────────────────────── tidyverse_conflicts() ──
+    ✖ dplyr::filter() masks stats::filter()
+    ✖ dplyr::lag()    masks stats::lag()
+    Loading in data version 1.66.0
+    Loading in data version 1.66.0
+    
+    Attaching package: 'cowplot'
+    
+    The following object is masked from 'package:ggplot2':
+    
+        ggsave
+    
+    Quitting from lines 50-52 (rodent-abundance-demo.Rmd) 
+    Error: processing vignette 'rodent-abundance-demo.Rmd' failed with diagnostics:
+    download from 'https://zenodo.org/api/files/a7cf28e3-caf9-4e93-a4bd-d93840ca9afc/weecology/PortalData-1.64.0.zip' failed
+    Execution halted
     ```
 
 # primerTree
@@ -3431,9 +3939,45 @@ Version: 0.1.0
       Note: found 2 marked UTF-8 strings
     ```
 
+# psichomics
+
+Version: 1.8.1
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  9.7Mb
+      sub-directories of 1Mb or more:
+        R     3.0Mb
+        doc   5.6Mb
+    ```
+
+*   checking compiled code ... NOTE
+    ```
+    File ‘psichomics/libs/psichomics.so’:
+      Found ‘___stdoutp’, possibly from ‘stdout’ (C)
+        Object: ‘psiFastCalc.o’
+      Found ‘_printf’, possibly from ‘printf’ (C)
+        Object: ‘psiFastCalc.o’
+      Found ‘_putchar’, possibly from ‘putchar’ (C)
+        Object: ‘psiFastCalc.o’
+    
+    Compiled code should not call entry points which might terminate R nor
+    write to stdout/stderr instead of to the console, nor use Fortran I/O
+    nor system RNGs.
+    
+    See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
+    ```
+
 # PSICQUIC
 
-Version: 1.14.0
+Version: 1.20.0
 
 ## In both
 
@@ -3442,8 +3986,6 @@ Version: 1.14.0
      ERROR
     Running the tests in ‘tests/runTests.R’ failed.
     Last 13 lines of output:
-      
-      Attaching package: 'plyr'
       
       The following object is masked from 'package:IRanges':
       
@@ -3456,34 +3998,31 @@ Version: 1.14.0
       Error in library("RUnit", quietly = TRUE) : 
         there is no package called 'RUnit'
       Calls: <Anonymous> -> library
+      In addition: Warning message:
+      replacing previous import 'IRanges::desc' by 'plyr::desc' when loading 'PSICQUIC' 
       Execution halted
     ```
 
-*   checking dependencies in R code ... NOTE
+*   checking whether package ‘PSICQUIC’ can be installed ... WARNING
     ```
-    Packages in Depends field not imported from:
-      ‘httr’ ‘plyr’
-      These packages need to be imported from (in the NAMESPACE file)
-      for when this namespace is loaded but not attached.
+    Found the following significant warnings:
+      Warning: replacing previous import ‘IRanges::desc’ by ‘plyr::desc’ when loading ‘PSICQUIC’
+    See ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/PSICQUIC/new/PSICQUIC.Rcheck/00install.out’ for details.
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘org.Hs.eg.db’
     ```
 
 *   checking R code for possible problems ... NOTE
     ```
     .loadRegistry: no visible global function definition for ‘DataFrame’
-    .loadRegistry : <anonymous>: no visible global function definition for
-      ‘str’
-    .retrieveData: no visible global function definition for ‘read.table’
-    .retrieveData : <anonymous>: no visible global function definition for
-      ‘str’
-    .translate.uniprotkb: no visible binding for global variable ‘id’
-    detectionMethods: no visible global function definition for ‘browseURL’
-    interactionTypes: no visible global function definition for ‘browseURL’
-    speciesIDs: no visible global function definition for ‘browseURL’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/PSICQUIC/new/PSICQUIC.Rcheck/00_pkg_src/PSICQUIC/R/PSICQUIC-class.R:112-113)
+    .loadRegistry: no visible global function definition for ‘DataFrame’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/PSICQUIC/new/PSICQUIC.Rcheck/00_pkg_src/PSICQUIC/R/PSICQUIC-class.R:124)
     Undefined global functions or variables:
-      DataFrame browseURL id read.table str
-    Consider adding
-      importFrom("utils", "browseURL", "read.table", "str")
-    to your NAMESPACE file.
+      DataFrame
     ```
 
 # pvsR
@@ -3494,20 +4033,22 @@ Version: 0.3
 
 *   checking R code for possible problems ... NOTE
     ```
-    CandidateBio.getBio : <anonymous>: no visible global function
-      definition for ‘na.omit’
-    Committee.getCommittee : <anonymous>: no visible global function
-      definition for ‘na.omit’
-    getAllBios: no visible global function definition for ‘txtProgressBar’
+    ...
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pvsR/new/pvsR.Rcheck/00_pkg_src/pvsR/R/getAllBios.R:46)
     getAllBios: no visible global function definition for
       ‘setTxtProgressBar’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pvsR/new/pvsR.Rcheck/00_pkg_src/pvsR/R/getAllBios.R:71)
     getAllLocalOfficials: no visible global function definition for
       ‘txtProgressBar’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pvsR/new/pvsR.Rcheck/00_pkg_src/pvsR/R/getAllLocalOfficials.R:59)
     getAllLocalOfficials: no visible global function definition for
       ‘setTxtProgressBar’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pvsR/new/pvsR.Rcheck/00_pkg_src/pvsR/R/getAllLocalOfficials.R:84)
     getAllVotes: no visible global function definition for ‘txtProgressBar’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pvsR/new/pvsR.Rcheck/00_pkg_src/pvsR/R/getAllVotes.R:47)
     getAllVotes: no visible global function definition for
       ‘setTxtProgressBar’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/pvsR/new/pvsR.Rcheck/00_pkg_src/pvsR/R/getAllVotes.R:72)
     Undefined global functions or variables:
       na.omit setTxtProgressBar txtProgressBar
     Consider adding
@@ -3516,100 +4057,116 @@ Version: 0.3
     to your NAMESPACE file.
     ```
 
-# pxweb
+# r511
 
-Version: 0.6.3
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      Use update_pxweb_apis() to update the api catalogue.
-      > test_check("pxweb")
-      1. Failure: baseURL 1 (@test-get_pxweb_metadata.R#23) --------------------------
-      dim(test_file) not equivalent to test$test_dims.
-      1/2 mismatches
-      [1] 17 - 16 == 1
-      
-      
-      testthat results ================================================================
-      OK: 121 SKIPPED: 10 FAILED: 1
-      1. Failure: baseURL 1 (@test-get_pxweb_metadata.R#23) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# qiitr
-
-Version: 0.1.0
+Version: 0.1.1
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 18 SKIPPED: 0 FAILED: 12
-      1. Error: qiita_get_comments with comment id works (@test-qiita_get_comments.R#5) 
-      2. Error: qiita_get_comments with item id works (@test-qiita_get_comments.R#12) 
-      3. Error: qiita_get_items by tag ID (@test-qiita_get_items.R#6) 
-      4. Error: qiita_get_items by item ID (@test-qiita_get_items.R#12) 
-      5. Error: qiita_get_items by item ID (@test-qiita_get_items.R#19) 
-      6. Error: qiita_get_tags with tag ID (@test-qiita_get_tags.R#5) 
-      7. Error: qiita_get_tags with multiple tag IDs (@test-qiita_get_tags.R#12) 
-      8. Error: qiita_get_tags with user ID (@test-qiita_get_tags.R#19) 
-      9. Error: qiita_is_following_tag works. (@test-qiita_get_tags.R#25) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespace in Imports field not imported from: ‘dplyr’
+      All declared Imports should be used.
+    ```
+
+# RBitmoji
+
+Version: 0.0.2
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘jsonlite’
+      All declared Imports should be used.
+    ```
+
+# Rcereal
+
+Version: 1.2.1
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# rclimateca
+
+Version: 1.0.2
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 24 marked UTF-8 strings
     ```
 
 # RCy3
 
-Version: 1.6.0
+Version: 2.2.5
 
 ## In both
 
-*   checking for missing documentation entries ... WARNING
+*   checking for hidden files and directories ... NOTE
     ```
-    Undocumented code objects:
-      ‘copyCytoscapeNetwork’ ‘renameCytoscapeNetwork’ ‘selectAllEdges’
-      ‘selectAllNodes’
-    Undocumented S4 methods:
-      generic 'copyCytoscapeNetwork' and siglist 'CytoscapeWindowClass'
-      generic 'renameCytoscapeNetwork' and siglist 'CytoscapeWindowClass'
-      generic 'selectAllEdges' and siglist 'CytoscapeWindowClass'
-      generic 'selectAllNodes' and siglist 'CytoscapeWindowClass'
-    All user-level objects in a package (including S4 classes and methods)
-    should have documentation entries.
-    See chapter ‘Writing R documentation files’ in the ‘Writing R
-    Extensions’ manual.
+    Found the following hidden files and directories:
+      .travis.yml
+    These were most likely included in error. See section ‘Package
+    structure’ in the ‘Writing R Extensions’ manual.
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 13.6Mb
+      sub-directories of 1Mb or more:
+        doc  10.8Mb
     ```
 
 *   checking R code for possible problems ... NOTE
     ```
-    .BBSOverride: no visible global function definition for ‘as’
-    is.classic.graph: no visible global function definition for ‘is’
-    is.multiGraph: no visible global function definition for ‘is’
+    createNetworkFromDataFrames: no visible binding for global variable
+      ‘SUID’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/RCy3/new/RCy3.Rcheck/00_pkg_src/RCy3/R/Networks.R:903-904)
+    createNetworkFromDataFrames: no visible binding for global variable
+      ‘SUID’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/RCy3/new/RCy3.Rcheck/00_pkg_src/RCy3/R/Networks.R:910-911)
     Undefined global functions or variables:
-      as is
-    Consider adding
-      importFrom("methods", "as", "is")
-    to your NAMESPACE file (and ensure that your DESCRIPTION Imports field
-    contains 'methods').
+      SUID
     ```
 
-# RDota2
+# RCzechia
 
-Version: 0.1.6
+Version: 1.3.1
+
+## Newly fixed
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+      ...
+    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
+      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
+    
+    Attaching package: 'dplyr'
+    
+    The following objects are masked from 'package:stats':
+    
+        filter, lag
+    
+    The following objects are masked from 'package:base':
+    
+        intersect, setdiff, setequal, union
+    
+    Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3
+    RCzechia: downloading remote dataset.
+    RCzechia: downloading remote dataset.
+    Quitting from lines 104-127 (vignette.Rmd) 
+    Error: processing vignette 'vignette.Rmd' failed with diagnostics:
+    ReadItem: unknown type 169, perhaps written by later version of R
+    Execution halted
+    ```
 
 ## In both
 
@@ -3618,66 +4175,50 @@ Version: 0.1.6
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      testthat results ================================================================
-      OK: 19 SKIPPED: 0 FAILED: 28
-      1. Failure: function fails if no key has been set (@test_get_event_stats_for_account.R#17) 
-      2. Error: function fails if no key has been set (@test_get_event_stats_for_account.R#24) 
-      3. Failure: function fails if no key has been set (@test_get_game_items.R#15) 
-      4. Error: function fails if no key has been set (@test_get_game_items.R#20) 
-      5. Failure: function get heroes works properly (@test_get_heroes.R#16) 
-      6. Error: function get heroes works properly (@test_get_heroes.R#21) 
-      7. Failure: function get_league_listing works properly (@test_get_league_listing.R#15) 
-      8. Error: function get_league_listing works properly (@test_get_league_listing.R#20) 
-      9. Failure: function get_live_league_games works properly (@test_get_live_league_games.R#15) 
-      1. ...
+      1: expect_that(is.data.frame(zeleznice()), is_true()) at testthat/test-1-data-structures.R:132
+      2: condition(object)
+      3: expect_true(x)
+      4: quasi_label(enquo(object), label)
+      5: eval_bare(get_expr(quo), get_env(quo))
+      6: is.data.frame(zeleznice())
+      7: zeleznice()
+      8: readRDS(local_file) at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/RCzechia/new/RCzechia.Rcheck/00_pkg_src/RCzechia/R/zeleznice.R:47
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 74 SKIPPED: 0 FAILED: 1
+      1. Error: (unknown) (@test-1-data-structures.R#132) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-*   checking re-building of vignette outputs ... WARNING
+*   checking package dependencies ... NOTE
     ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 54-61 (RDota2.Rmd) 
-    Error: processing vignette 'RDota2.Rmd' failed with diagnostics:
-    The function cannot find an API key. Please register a key by using the RDota2::key_actions function. If you do not have a key you can obtain one by visiting https://steamcommunity.com/dev.
-    Execution halted
+    Package suggested but not available for checking: ‘devtools’
     ```
 
-# rdryad
+# rdrop2
 
-Version: 0.2.0
+Version: 0.8.1
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      any(grepl("dryad", bb$identifier)) isn't true.
-      
-      
-      testthat results ================================================================
-      OK: 64 SKIPPED: 0 FAILED: 7
-      1. Error: download_url basic functionality works (@test-download_url.R#6) 
-      2. Failure: dr_get_records works (@test-dr_get_records.R#13) 
-      3. Failure: dr_get_records works (@test-dr_get_records.R#14) 
-      4. Failure: dr_get_records works (@test-dr_get_records.R#16) 
-      5. Failure: dr_get_records works (@test-dr_get_records.R#18) 
-      6. Failure: dr_get_records works (@test-dr_get_records.R#19) 
-      7. Failure: dr_get_records works (@test-dr_get_records.R#21) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespace in Imports field not imported from: ‘digest’
+      All declared Imports should be used.
     ```
 
 # readtext
 
-Version: 0.50
+Version: 0.71
 
 ## In both
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘XML’
+    ```
 
 *   checking data for non-ASCII characters ... NOTE
     ```
@@ -3688,34 +4229,48 @@ Version: 0.50
 
 # redcapAPI
 
-Version: 1.3
+Version: 2.2
 
 ## In both
 
-*   checking R code for possible problems ... NOTE
+*   checking dependencies in R code ... NOTE
     ```
-    ...
-      definition for ‘read.csv’
-    exportUsers.redcapApiConnection: no visible global function definition
-      for ‘read.csv’
-    importRecords.redcapApiConnection : <anonymous>: no visible global
-      function definition for ‘capture.output’
-    importRecords.redcapApiConnection : <anonymous>: no visible global
-      function definition for ‘write.table’
-    importRecords.redcapApiConnection: no visible global function
-      definition for ‘capture.output’
-    importRecords.redcapApiConnection: no visible global function
-      definition for ‘write.table’
-    validateImport : printLog: no visible global function definition for
-      ‘write.table’
-    validateImport: no visible binding for global variable ‘tail’
-    validateImport: no visible binding for global variable ‘head’
-    Undefined global functions or variables:
-      capture.output head read.csv tail write.table
-    Consider adding
-      importFrom("utils", "capture.output", "head", "read.csv", "tail",
-                 "write.table")
-    to your NAMESPACE file.
+    Namespaces in Imports field not imported from:
+      ‘DBI’ ‘readr’
+      All declared Imports should be used.
+    ```
+
+# REDCapR
+
+Version: 0.9.8
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/test-all.R’ failed.
+    Last 13 lines of output:
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 91 SKIPPED: 15 FAILED: 11
+      1. Error: (unknown) (@test-metadata-read.R#4) 
+      2. Error: (unknown) (@test-read-batch-longitudinal.R#4) 
+      3. Error: (unknown) (@test-read-batch-simple.R#4) 
+      4. Error: One Shot: Bad Uri -Not HTTPS (@test-read-errors.R#8) 
+      5. Error: One Shot: Bad Uri -wrong address (@test-read-errors.R#30) 
+      6. Error: Batch: Bad Uri -Not HTTPS (@test-read-errors.R#51) 
+      7. Error: Batch: Bad Uri -wrong address (@test-read-errors.R#72) 
+      8. Error: (unknown) (@test-read-oneshot.R#4) 
+      9. Error: (unknown) (@test-read-russian.R#4) 
+      1. ...
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # refimpact
@@ -3735,37 +4290,71 @@ Version: 1.0.0
       Note: found 85 marked UTF-8 strings
     ```
 
+# rentrez
+
+Version: 1.2.1
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘XML’
+    
+    Packages suggested but not available for checking:
+      ‘testthat’ ‘knitr’ ‘rmarkdown’
+    
+    VignetteBuilder package required for checking but not installed: ‘knitr’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# reproducible
+
+Version: 0.2.5
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
 # rerddap
 
 Version: 0.4.2
 
 ## In both
 
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      
-      
-      testthat results ================================================================
-      OK: 123 SKIPPED: 0 FAILED: 8
-      1. Failure: ed_search_adv fails well (@test-ed_search_adv.R#58) 
-      2. Failure: ed_search_adv fails well (@test-ed_search_adv.R#59) 
-      3. Failure: info fails well (@test-info.R#48) 
-      4. Failure: tabledap fields parameter works, and fails correctly (@test-tabledap.R#27) 
-      5. Failure: tabledap units parameter works, and fails correctly (@test-tabledap.R#38) 
-      6. Failure: tabledap fails well, in addition to above failure tests (@test-tabledap.R#47) 
-      7. Failure: tabledap fails well, in addition to above failure tests (@test-tabledap.R#48) 
-      8. Failure: tabledap fails well, in addition to above failure tests (@test-tabledap.R#50) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 *   checking package dependencies ... NOTE
     ```
     Package which this enhances but not available for checking: ‘taxize’
+    ```
+
+# rfacebookstat
+
+Version: 1.8.3
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘bitops’
+      All declared Imports should be used.
+    ```
+
+# rfbCNPJ
+
+Version: 0.1.1
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 27 marked UTF-8 strings
     ```
 
 # rfigshare
@@ -3778,8 +4367,10 @@ Version: 0.3.7
     ```
     fs_author_ids : <anonymous>: no visible global function definition for
       ‘select.list’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rfigshare/new/rfigshare.Rcheck/00_pkg_src/rfigshare/R/fs_add_authors.R:82-85)
     fs_download : <anonymous>: no visible global function definition for
       ‘download.file’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rfigshare/new/rfigshare.Rcheck/00_pkg_src/rfigshare/R/fs_download.R:35-38)
     Undefined global functions or variables:
       download.file select.list
     Consider adding
@@ -3787,54 +4378,133 @@ Version: 0.3.7
     to your NAMESPACE file.
     ```
 
-# rfishbase
+# RGMQL
 
-Version: 2.1.2
-
-## In both
-
-*   checking data for non-ASCII characters ... NOTE
-    ```
-      Note: found 44 marked UTF-8 strings
-    ```
-
-# rfml
-
-Version: 0.1.0
+Version: 1.2.0
 
 ## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘RGMQLlib’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
+    ```
+
+# rGoodData
+
+Version: 0.1.1
+
+## Newly broken
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      2. Error: MarkLogic database can be cleand up (@test-00-config.R#10) 
-      3. Error: Statistics field based methods (@test-method-statistics.R#5) 
-      4. Error: Statistics ml.data.frame based methods (@test-method-statistics.R#24) 
-      5. Error: ml.arules works (@test-ml.arules.R#5) 
-      6. Error: ml.col.def methods (@test-ml.col.def.R#5) 
-      7. Error: can create and delete a ml.data.frame based on iris dataset using json format (@test-ml.data.frame.R#5) 
-      8. Error: can create and delete a ml.data.frame based on iris dataset using xml format (@test-ml.data.frame.R#15) 
-      9. Error: can create a ml.data.frame based on search (@test-ml.data.frame.R#25) 
-      1. ...
+      Actual message: "argument is of length zero"
+      
+      ══ testthat results  ═════════════════════════════════════════════════════════════════════
+      OK: 2 SKIPPED: 0 FAILED: 8
+      1. Failure: Login unauthorized message is correct (@test.login.R#15) 
+      2. Error: Report definition is extracted correctly (@report.R#79) 
+      3. Error: Correct report URI is returned (@report.R#30) 
+      4. Failure: Error code is processed correctly 
+      5. Failure: Error code is processed correctly 
+      6. Failure: Error code is processed correctly 
+      7. Error: Test that data is extracted correctly from large report (@report.R#51) 
+      8. Failure: Test bad response with text message 
       
       Error: testthat unit tests failed
-      In addition: Warning message:
-      In unique(unlist(lapply(elist, findLocals1, shadowed, cntxt))) :
-        closing unused connection 3 (/Users/hadley/Documents/web/httr/revdep/checks/rfml/new/rfml.Rcheck/rfml/lib/rfmlUtilities.sjs)
       Execution halted
     ```
 
-# RGoogleAnalytics
+# rhdf5client
 
-Version: 0.1.1
+Version: 1.4.0
 
 ## In both
 
-*   checking DESCRIPTION meta-information ... NOTE
+*   checking examples ... ERROR
     ```
-    Malformed Description field: should contain one or more complete sentences.
+    ...
+    > # cg00000029      0.47339629  1.2943041 -0.8084735  |  0.6708168 -0.86093022
+    > # cg00000165      1.23640861  0.2099817 -0.2683763  |  0.4446088  0.99868231
+    > # cg00000236     -0.22258183  1.6236857 -0.8654838  |  0.1958195 -0.06090929
+    > # cg00000289      0.65720581  0.5527470 -1.8458295  | -0.4618782  0.34934164
+    > # cg00000363     -0.15063083  0.7498020  0.3254333  |  0.7342878  0.12940774
+    > # #-------------------------------------------------------------------------
+    > # ch.9.98936572R -0.07954958  0.2139431 -0.4719621  |  0.6835012  0.57758798
+    > # ch.9.98937537R  0.04254705  1.0702770  1.7356387  | -0.1531732 -1.52889773
+    > # ch.9.98959675F -1.59253143  0.2982456 -1.1954030  | -1.3703135  0.28974909
+    > # ch.9.98989607R -1.80646652  0.4760022  1.4771808  |  0.9479602  0.49921375
+    > # ch.9.991104F    0.08180195 -0.2434306  1.0281002  | -0.1653721  0.55612215
+    > #
+    > # compare to that delivered by H5S_Array
+    > #
+    > H5S_Array("http://h5s.channingremotedata.org:5000", "", "assays")
+    Error in curl::curl_fetch_memory(url, handle = handle) : 
+      Timeout was reached: Connection timed out after 10005 milliseconds
+    Error in H5S_ArraySeed(endpoint, filepath, host) : 
+      could not resolve H5S_source request on filepath
+    Calls: H5S_Array -> DelayedArray -> H5S_ArraySeed
+    Execution halted
+    ```
+
+*   checking for missing documentation entries ... WARNING
+    ```
+    Undocumented code objects:
+      ‘listDomains’
+    Undocumented S4 methods:
+      generic 'listDomains' and siglist 'HSDSSource,character'
+      generic 'listDomains' and siglist 'HSDSSource,missing'
+    All user-level objects in a package (including S4 classes and methods)
+    should have documentation entries.
+    See chapter ‘Writing R documentation files’ in the ‘Writing R
+    Extensions’ manual.
+    ```
+
+*   checking Rd \usage sections ... WARNING
+    ```
+    Duplicated \argument entries in documentation object 'dim':
+      ‘x’
+    
+    Duplicated \argument entries in documentation object 'dimnames,H5S_ArraySeed-method':
+      ‘x’
+    
+    Duplicated \argument entries in documentation object '[,H5S_dataset,numeric,numeric-method':
+      ‘x’ ‘i’
+    
+    Functions with \usage entries need to have the appropriate \alias
+    entries, and all their arguments documented.
+    The \usage entries must correspond to syntactically valid R code.
+    See chapter ‘Writing R documentation files’ in the ‘Writing R
+    Extensions’ manual.
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 115-124 (h5client.Rmd) 
+    Error: processing vignette 'h5client.Rmd' failed with diagnostics:
+    ImportError: No module named h5pyd
+    Execution halted
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    There are ::: calls to the package's namespace in its code. A package
+      almost never needs to use ::: for its own objects:
+      ‘getDataList’
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    HSDS_Matrix: warning in readBin(GET(targ)$content, w = "character"):
+      partial argument match of 'w' to 'what'
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rhdf5client/new/rhdf5client.Rcheck/00_pkg_src/rhdf5client/R/HSDS_Matrix.R:46)
     ```
 
 # rHealthDataGov
@@ -3846,76 +4516,127 @@ Version: 1.0.1
 *   checking R code for possible problems ... NOTE
     ```
     .quick_fetch: no visible global function definition for ‘POST’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rHealthDataGov/new/rHealthDataGov.Rcheck/00_pkg_src/rHealthDataGov/R/fetch_heathdata.R:22)
     .quick_fetch: no visible global function definition for ‘add_headers’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rHealthDataGov/new/rHealthDataGov.Rcheck/00_pkg_src/rHealthDataGov/R/fetch_heathdata.R:22)
     .quick_fetch: no visible global function definition for
       ‘stop_for_status’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rHealthDataGov/new/rHealthDataGov.Rcheck/00_pkg_src/rHealthDataGov/R/fetch_heathdata.R:27)
     .quick_fetch: no visible global function definition for ‘content’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rHealthDataGov/new/rHealthDataGov.Rcheck/00_pkg_src/rHealthDataGov/R/fetch_heathdata.R:28)
     fetch_healthdata: no visible binding for global variable ‘resources’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rHealthDataGov/new/rHealthDataGov.Rcheck/00_pkg_src/rHealthDataGov/R/fetch_heathdata.R:92)
     fetch_healthdata : <anonymous>: no visible binding for global variable
       ‘filters’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rHealthDataGov/new/rHealthDataGov.Rcheck/00_pkg_src/rHealthDataGov/R/fetch_heathdata.R:97)
     Undefined global functions or variables:
       POST add_headers content filters resources stop_for_status
     ```
 
-# ritis
+# riingo
 
-Version: 0.5.4
+Version: 0.1.0
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      1: publications(tsn = "Asdfasdfa") at testthat/test-publications.R:41
-      2: itis_GET("getPublicationsFromTSN", list(tsn = tsn), wt, ...)
-      3: httr::stop_for_status(tt)
-      
-      testthat results ================================================================
-      OK: 126 SKIPPED: 0 FAILED: 6
-      1. Failure: hierarchy_down basic functionality works (@test-hierarchy.R#11) 
-      2. Failure: hierarchy_down basic functionality works (@test-hierarchy.R#12) 
-      3. Error: hierarchy functions fail well (@test-hierarchy.R#47) 
-      4. Error: jurisdiction functions fail well (@test-jurisdiction.R#46) 
-      5. Error: kingdom functions fail well (@test-kingdoms.R#38) 
-      6. Error: publications fails well (@test-publications.R#41) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespace in Imports field not imported from: ‘rlang’
+      All declared Imports should be used.
     ```
 
 # rmapzen
 
-Version: 0.3.3
+Version: 0.4.1
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      3: FUN(X[[i]], ...)
-      4: vector_url(x = tile_coordinates$x, y = tile_coordinates$y, z = tile_coordinates$z, 
-             layers = "all", format = "json")
-      5: structure(list(scheme = "https", hostname = "tile.mapzen.com", path = vector_path(layers, 
-             x, y, z, format), query = list(api_key = api_key)), class = "url")
-      6: mz_key()
-      7: stop("Set the MAPZEN_KEY environment variable")
-      
-      testthat results ================================================================
-      OK: 199 SKIPPED: 0 FAILED: 2
-      1. Error: single tiles can be pulled (@test-mz-vector-tiles.R#14) 
-      2. Error: multiple contiguous tiles can be pulled (@test-mz-vector-tiles.R#22) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 *   checking data for non-ASCII characters ... NOTE
     ```
       Note: found 31 marked UTF-8 strings
+    ```
+
+# RMassBank
+
+Version: 2.10.0
+
+## In both
+
+*   checking whether package ‘RMassBank’ can be installed ... ERROR
+    ```
+    Installation failed.
+    See ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/RMassBank/new/RMassBank.Rcheck/00install.out’ for details.
+    ```
+
+*   checking for hidden files and directories ... NOTE
+    ```
+    Found the following hidden files and directories:
+      .BBSoptions
+      .travis.yml
+    These were most likely included in error. See section ‘Package
+    structure’ in the ‘Writing R Extensions’ manual.
+    ```
+
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘RMassBank’ ...
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Warning in fun(libname, pkgname) :
+  mzR has been built against a different Rcpp version (0.12.19)
+than is installed on your system (1.0.0). This might lead to errors
+when loading mzR. If you encounter such issues, please send a report,
+including the output of sessionInfo() to the Bioc support forum at 
+https://support.bioconductor.org/. For details see also
+https://github.com/sneumann/mzR/wiki/mzR-Rcpp-compiler-linker-issue.
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/RMassBank/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/RMassBank/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/r-lib/httr/revdep/library.noindex/RMassBank/rJava/libs/rJava.so
+  Reason: image not found
+ERROR: lazy loading failed for package ‘RMassBank’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/RMassBank/new/RMassBank.Rcheck/RMassBank’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘RMassBank’ ...
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Warning in fun(libname, pkgname) :
+  mzR has been built against a different Rcpp version (0.12.19)
+than is installed on your system (1.0.0). This might lead to errors
+when loading mzR. If you encounter such issues, please send a report,
+including the output of sessionInfo() to the Bioc support forum at 
+https://support.bioconductor.org/. For details see also
+https://github.com/sneumann/mzR/wiki/mzR-Rcpp-compiler-linker-issue.
+Error : .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/RMassBank/rJava/libs/rJava.so':
+  dlopen(/Users/hadley/Documents/r-lib/httr/revdep/library.noindex/RMassBank/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Users/hadley/Documents/r-lib/httr/revdep/library.noindex/RMassBank/rJava/libs/rJava.so
+  Reason: image not found
+ERROR: lazy loading failed for package ‘RMassBank’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/RMassBank/old/RMassBank.Rcheck/RMassBank’
+
+```
+# rmytarget
+
+Version: 2.0.1
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘jsonlite’
+      All declared Imports should be used.
     ```
 
 # rnaturalearth
@@ -3926,7 +4647,8 @@ Version: 0.1.0
 
 *   checking package dependencies ... NOTE
     ```
-    Package suggested but not available for checking: ‘rnaturalearthhires’
+    Packages suggested but not available for checking:
+      ‘devtools’ ‘rnaturalearthhires’
     ```
 
 *   checking data for non-ASCII characters ... NOTE
@@ -3936,221 +4658,131 @@ Version: 0.1.0
 
 # RNeXML
 
-Version: 2.0.7
+Version: 2.2.0
 
 ## In both
 
-*   checking package dependencies ... NOTE
+*   checking re-building of vignette outputs ... WARNING
     ```
-    Packages suggested but not available for checking: ‘rrdf’ ‘Sxslt’
+    ...
+    The following objects are masked from 'package:base':
+    
+        intersect, setdiff, setequal, union
+    
+    No ENTREZ API key provided
+     Get one via use_entrez()
+    See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/
+    
+    Retrieving data for taxon 'Allenopithecus_nigroviridis'
+    
+    No ENTREZ API key provided
+     Get one via use_entrez()
+    See https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/
+    
+    Retrieving data for taxon 'Allocebus_trichotis'
+    
+    Quitting from lines 205-209 (metadata.Rmd) 
+    Error: processing vignette 'metadata.Rmd' failed with diagnostics:
+    '{"error":"API rate limit exceeded","api-key":"76.31.205.235","count":"4","limit":"3"}
+    ' does not exist in current working directory ('/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/RNeXML/new/RNeXML.Rcheck/vign_test/RNeXML/vignettes').
+    Execution halted
     ```
 
-# rnoaa
+# robotstxt
 
-Version: 0.7.0
+Version: 0.6.2
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      testthat results ================================================================
-      OK: 181 SKIPPED: 1 FAILED: 9
-      1. Error: check_response returns an error (@test-check_response.r#7) 
-      2. Error: check_response returns the correct error messages (@test-check_response.r#26) 
-      3. Error: ncdc returns the correct ... (@test-ncdc.r#8) 
-      4. Error: ncdc_datacats returns the correct ... (@test-ncdc_datacats.r#7) 
-      5. Error: ncdc_datasets returns the correct class (@test-ncdc_datasets.r#7) 
-      6. Error: ncdc_datatypes returns the correct class (@test-ncdc_datatypes.r#7) 
-      7. Error: ncdc_locs returns the correct class (@test-ncdc_locs.r#7) 
-      8. Error: ncdc_locs_cats returns the correct ... (@test-ncdc_locs_cats.r#7) 
-      9. Error: ncdc_stations returns the correct... (@test-ncdc_stations.r#7) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# rnpn
-
-Version: 0.1.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      bb$latitude inherits from `numeric` not `character`.
-      
-      
-      testthat results ================================================================
-      OK: 20 SKIPPED: 0 FAILED: 7
-      1. Failure: npn_indsatstations works well (@test-npn_indsatstations.R#9) 
-      2. Failure: npn_indspatstations works well (@test-npn_indspatstations.R#9) 
-      3. Error: npn_obsspbyday works well (@test-npn_obsspbyday.R#6) 
-      4. Error: when no match, returns empty data.frame (@test-npn_obsspbyday.R#20) 
-      5. Failure: npn_stationsbystate works well (@test-npn_stationsbystate.R#11) 
-      6. Failure: npn_stationswithspp works well (@test-npn_stationswithspp.R#10) 
-      7. Failure: npn_stationswithspp works well (@test-npn_stationswithspp.R#15) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespace in Imports field not imported from: ‘future’
+      All declared Imports should be used.
     ```
 
 # rols
 
-Version: 2.4.0
+Version: 2.10.0
 
-## In both
+## Newly broken
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 21-26 (rols.Rmd) 
+    Error: processing vignette 'rols.Rmd' failed with diagnostics:
+    there is no package called 'GO.db'
+    Execution halted
+    ```
+
+## Newly fixed
 
 *   R CMD check timed out
     
 
-# rorcid
-
-Version: 0.3.0
-
 ## In both
 
-*   checking tests ...
+*   checking examples ... ERROR
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      
-      3. Failure: orcid_doi paging parameters works as expected (@test-orcid_doi.R#38) 
-      NROW(pg2[[1]]) not equal to 3.
-      1/1 mismatches
-      [1] 2 - 3 == -1
-      
-      
-      testthat results ================================================================
-      OK: 99 SKIPPED: 0 FAILED: 3
-      1. Failure: identifiers works with output from orcid() call (@test-identifiers.R#51) 
-      2. Failure: orcid fails well (@test-orcid.R#60) 
-      3. Failure: orcid_doi paging parameters works as expected (@test-orcid_doi.R#38) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# rotl
-
-Version: 3.0.3
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 444 SKIPPED: 0 FAILED: 16
-      1. Failure: correct data is being returned when asked to lookup by taxon name (@test-match_names.R#123) 
-      2. Failure: correct data is being returned when asked to lookup by ott_id (@test-match_names.R#129) 
-      3. Failure: correct data is being returned when asked to lookup by row number (@test-match_names.R#135) 
-      4. Failure: correct data is being returned when asked to lookup by taxon name (with missing data) (@test-match_names.R#143) 
-      5. Failure: correct data is being returned when asked to lookup by ott_id (with missing data) (@test-match_names.R#150) 
-      6. Failure: correct data is being returned when asked to lookup by row number (with missing data) (@test-match_names.R#156) 
-      7. Error: correct synonyms are being returned when asked to look up by ott id (@test-match_names.R#210) 
-      8. Error: correct synonyms are being returned when asked to look up by ott id (@test-match_names.R#245) 
-      9. Failure: flags with no arguments (@test-match_names.R#333) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# rplos
-
-Version: 0.6.4
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      1: searchplos(q = "*:*", fl = "id", fq = "cross_published_journal_key:PLoSONE", start = 0, 
-             limit = 15) at testthat/test-searchplos.R:8
-      2: check_response(tt)
-      3: stop(sprintf("(%s) - %s", x$status_code, jsonlite::fromJSON(utf8cont(x), FALSE)$error$msg), 
-             call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 224 SKIPPED: 0 FAILED: 4
-      1. Error: journalnamekey returns the correct value (@test-journalnamekey.R#7) 
-      2. Error: journalnamekey returns the correct class (@test-journalnamekey.R#13) 
-      3. Error: journalnamekey returns the correct length vector (@test-journalnamekey.R#19) 
-      4. Error: searchplos returns the correct (@test-searchplos.R#8) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    ...
+    > ###   olsTitle,character-method olsTitle,Ontology-method
+    > ###   olsTitle,Ontologies-method olsVersion olsVersion,Ontology-method
+    > ###   olsVersion,character-method olsVersion,Ontologies-method olsLoaded
+    > ###   olsLoaded,Ontology-method olsLoaded,character-method
+    > ###   olsLoaded,Ontologies-method olsUpdated olsUpdated,Ontology-method
+    > ###   olsUpdated,character-method olsUpdated,Ontologies-method
+    > ###   show,Ontology-method show,Ontologies-method length,Ontologies-method
+    > ###   lapply,Ontologies-method [,Ontologies-method [[,Ontologies-method
+    > ###   coerce,Ontologies,data.frame-method coerce,Ontologies,list-method
+    > ###   all.equal,Ontologies,Ontologies-method
+    > ###   all.equal,Ontology,Ontology-method
+    > ### Keywords: classes
+    > 
+    > ### ** Examples
+    > 
+    > ## Get all ontolgies
+    > ol <- Ontologies()
+    Error in curl::curl_fetch_memory(url, handle = handle) : 
+      LibreSSL SSL_read: error:06FFF064:digital envelope routines:CRYPTO_internal:bad decrypt, errno 0
+    Calls: Ontologies ... request_fetch -> request_fetch.write_memory -> <Anonymous>
+    Execution halted
     ```
 
 *   checking package dependencies ... NOTE
     ```
-    Package which this enhances but not available for checking: ‘tm’
+    Package suggested but not available for checking: ‘GO.db’
     ```
 
-# RSauceLabs
+# rscorecard
 
-Version: 0.1.6
+Version: 0.11.1
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 38 SKIPPED: 0 FAILED: 26
-      1. Failure: canGetRealTimeJobActivity (@test-acc_usage_methods_tests.R#6) 
-      2. Failure: canGetUserActivity (@test-acc_usage_methods_tests.R#11) 
-      3. Error: canGetAccountUsage (@test-acc_usage_methods_tests.R#17) 
-      4. Failure: canGetUser (@test-account_methods_tests.R#9) 
-      5. Failure: checkCanCreateSubAccount (@test-account_methods_tests.R#26) 
-      6. Failure: canGetUserConcurrency (@test-account_methods_tests.R#33) 
-      7. Failure: canGetSubUserConcurrency (@test-account_methods_tests.R#39) 
-      8. Failure: canGetSubUserConcurrency (@test-account_methods_tests.R#40) 
-      9. Failure: canGetListOfSubAccounts (@test-account_methods_tests.R#46) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespace in Imports field not imported from: ‘tidyselect’
+      All declared Imports should be used.
     ```
 
 # RSelenium
 
-Version: 1.7.1
+Version: 1.7.4
+
+## Newly broken
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    pandoc: Terminated False "bad record mac" (Error_Protocol ("bad record mac",True,BadRecordMac))
+    Error: processing vignette 'saucelabs.Rmd' failed with diagnostics:
+    pandoc document conversion failed with error 1
+    Execution halted
+    ```
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Complete output:
-      > library(testthat)
-      > library(RSelenium)
-      > 
-      > if(Sys.getenv("NOT_CRAN") == "true"){
-      +   test_check("RSelenium")
-      + }
-      Error in checkError(res) : 
-        Undefined error in httr call. httr output: Failed to connect to localhost port 4444: Connection refused
-      Calls: test_check ... eval -> initFun -> <Anonymous> -> queryRD -> checkError
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 0
-      Execution halted
-    ```
 
 *   checking package dependencies ... NOTE
     ```
@@ -4164,177 +4796,52 @@ Version: 1.7.1
       All declared Imports should be used.
     ```
 
-# RSiteCatalyst
+# rsinaica
 
-Version: 1.4.13
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat-build.R’ failed.
-    Last 13 lines of output:
-      1: SCAuth(Sys.getenv("USER", ""), Sys.getenv("SECRET", "")) at testthat/test-buildclassificationvaluesegment.R:6
-      2: stop("Authentication failed due to errors")
-      
-      2. Error: Validate BuildRealTimeReportStructure using legacy credentials (@test-buildrealtimereportstructure.R#6) 
-      Authentication failed due to errors
-      1: SCAuth(Sys.getenv("USER", ""), Sys.getenv("SECRET", "")) at testthat/test-buildrealtimereportstructure.R:6
-      2: stop("Authentication failed due to errors")
-      
-      testthat results ================================================================
-      OK: 4 SKIPPED: 0 FAILED: 2
-      1. Error: Validate BuildClassificationValueSegment using legacy credentials (@test-buildclassificationvaluesegment.R#6) 
-      2. Error: Validate BuildRealTimeReportStructure using legacy credentials (@test-buildrealtimereportstructure.R#6) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# rsnps
-
-Version: 0.2.0
+Version: 0.6.0
 
 ## In both
 
-*   checking tests ...
+*   checking data for non-ASCII characters ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      3: withCallingHandlers(code, warning = function(condition) {
-             out$push(condition)
-             invokeRestart("muffleWarning")
-         })
-      4: ld_search(c("rs2836443", "rs121909001"), quiet = TRUE)
-      5: split_to_df(tmp, sep = "\t", fixed = TRUE)
-      6: stop("non-equal lengths for each entry of x post-splitting")
-      
-      testthat results ================================================================
-      OK: 53 SKIPPED: 0 FAILED: 2
-      1. Error: ld_search returns the correct data (@test-LDSearch.R#6) 
-      2. Error: ld_search fails well - one bad snp + other good ones (@test-LDSearch.R#31) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      Note: found 467 marked UTF-8 strings
     ```
 
-# RSocrata
+# Rspotify
 
-Version: 1.7.3-2
-
-## Newly broken
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      
-      2. Failure: add a row to a dataset (@test-all.R#488) ---------------------------
-      y value not equal to as.numeric(df_out_last_row$y).
-      1/1 mismatches
-      [1] -869 - 166 == -1035
-      
-      
-      testthat results ================================================================
-      OK: 155 SKIPPED: 0 FAILED: 2
-      1. Failure: add a row to a dataset (@test-all.R#487) 
-      2. Failure: add a row to a dataset (@test-all.R#488) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# rsunlight
-
-Version: 0.4.2
+Version: 0.1.2
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 8 SKIPPED: 0 FAILED: 30
-      1. Error: returns the correct (@test-amendments.R#6) 
-      2. Error: vectorizing works (@test-amendments.R#29) 
-      3. Error: paging works (@test-amendments.R#37) 
-      4. Error: fails well (@test-amendments.R#47) 
-      5. Error: cg_bills returns the correct (@test-cg_bills.R#6) 
-      6. Error: cg_bills vectorizing works (@test-cg_bills.R#25) 
-      7. Error: cg_bills pagination works (@test-cg_bills.R#35) 
-      8. Failure: cg_bills curl options work (@test-cg_bills.R#44) 
-      9. Failure: cg_bills fails well (@test-cg_bills.R#50) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespace in Imports field not imported from: ‘magrittr’
+      All declared Imports should be used.
     ```
 
-*   checking package dependencies ... NOTE
+# RSuite
+
+Version: 0.33-246
+
+## In both
+
+*   checking package dependencies ... ERROR
     ```
-    Package which this enhances but not available for checking: ‘ggplot2’
+    Package required but not available: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
 # rtweet
 
-Version: 0.4.0
+Version: 0.6.8
 
 ## In both
 
-*   checking tests ...
+*   checking data for non-ASCII characters ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      1. Error: system_token functions (@test_tokens.R#6) ----------------------------
-      Not a valid access token.
-      1: search_tweets("a OR b OR c OR d OR e", max_id = NULL, type = "recent", include_rts = TRUE) at testthat/test_tokens.R:6
-      2: check_token(token, "search/tweets")
-      3: fetch_tokens(token, query)
-      4: rate_limit(token = tokens, query)
-      5: check_token(token, query = NULL)
-      6: stop("Not a valid access token.", call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 123 SKIPPED: 0 FAILED: 1
-      1. Error: system_token functions (@test_tokens.R#6) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# rvertnet
-
-Version: 0.5.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      testthat results ================================================================
-      OK: 96 SKIPPED: 0 FAILED: 9
-      1. Failure: searchbyterm works correctly (@test-searchbyterm.R#20) 
-      2. Failure: searchbyterm works correctly (@test-searchbyterm.R#26) 
-      3. Failure: searchbyterm works correctly (@test-searchbyterm.R#29) 
-      4. Failure: searchbyterm - state param works when using boolean's with > 1 state name (@test-searchbyterm.R#49) 
-      5. Failure: searchbyterm multi-year param input works (@test-searchbyterm.R#78) 
-      6. Failure: searchbyterm multi-year param input works (@test-searchbyterm.R#79) 
-      7. Failure: spatialsearch works correctly (@test-spatialsearch.R#13) 
-      8. Failure: vert_id works (@test-vert_id.R#12) 
-      9. Failure: vert_id works (@test-vert_id.R#28) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      Note: found 113868 marked UTF-8 strings
     ```
 
 # rWBclimate
@@ -4345,14 +4852,22 @@ Version: 0.1.3
 
 *   checking R code for possible problems ... NOTE
     ```
-    check_ISO_code: no visible binding for global variable ‘NoAm_country’
-    check_ISO_code: no visible binding for global variable ‘SoAm_country’
+    ...
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rWBclimate/new/rWBclimate.Rcheck/00_pkg_src/rWBclimate/R/check_ISO_code.R:14)
     check_ISO_code: no visible binding for global variable ‘Oceana_country’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rWBclimate/new/rWBclimate.Rcheck/00_pkg_src/rWBclimate/R/check_ISO_code.R:14)
     check_ISO_code: no visible binding for global variable ‘Africa_country’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rWBclimate/new/rWBclimate.Rcheck/00_pkg_src/rWBclimate/R/check_ISO_code.R:14)
     check_ISO_code: no visible binding for global variable ‘Asia_country’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rWBclimate/new/rWBclimate.Rcheck/00_pkg_src/rWBclimate/R/check_ISO_code.R:14)
     check_ISO_code: no visible binding for global variable ‘Eur_country’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rWBclimate/new/rWBclimate.Rcheck/00_pkg_src/rWBclimate/R/check_ISO_code.R:14)
     climate_map: no visible binding for global variable ‘data’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rWBclimate/new/rWBclimate.Rcheck/00_pkg_src/rWBclimate/R/climate_map.R:45)
     date_correct: no visible global function definition for ‘tail’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rWBclimate/new/rWBclimate.Rcheck/00_pkg_src/rWBclimate/R/date_correct.R:43)
+    date_correct: no visible global function definition for ‘tail’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rWBclimate/new/rWBclimate.Rcheck/00_pkg_src/rWBclimate/R/date_correct.R:45)
     Undefined global functions or variables:
       Africa_country Asia_country Eur_country NoAm_country Oceana_country
       SoAm_country data tail
@@ -4361,172 +4876,135 @@ Version: 0.1.3
     to your NAMESPACE file.
     ```
 
-# sbtools
+# rWikiPathways
 
-Version: 1.1.6
+Version: 1.2.0
+
+## In both
+
+*   checking for hidden files and directories ... NOTE
+    ```
+    Found the following hidden files and directories:
+      .travis.yml
+    These were most likely included in error. See section ‘Package
+    structure’ in the ‘Writing R Extensions’ manual.
+    ```
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  6.4Mb
+      sub-directories of 1Mb or more:
+        doc       3.4Mb
+        extdata   2.8Mb
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    downloadPathwayArchive: no visible global function definition for
+      ‘readHTMLTable’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/rWikiPathways/new/rWikiPathways.Rcheck/00_pkg_src/rWikiPathways/R/downloadPathwayArchive.R:42)
+    Undefined global functions or variables:
+      readHTMLTable
+    ```
+
+# rzeit2
+
+Version: 0.2.0
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 841 marked UTF-8 strings
+    ```
+
+# scholar
+
+Version: 0.1.7
 
 ## In both
 
 *   checking examples ... ERROR
     ```
-    Running examples in ‘sbtools-Ex.R’ failed
+    Running examples in ‘scholar-Ex.R’ failed
     The error most likely occurred in:
     
-    > ### Name: item_get
-    > ### Title: Retrieve SB item
-    > ### Aliases: item_get
+    > ### Name: compare_scholar_careers
+    > ### Title: Compare the careers of multiple scholars
+    > ### Aliases: compare_scholar_careers
     > 
     > ### ** Examples
     > 
-    > # Get an item
-    > item_get("4f4e4b24e4b07f02db6aea14")
-    Error: GET failed to https://www.sciencebase.gov/catalog/item/4f4e4b24e4b07f02db6aea14. check authorization and/or content
+    > {
+    +     ## How do Richard Feynmann and Stephen Hawking compare?
+    +     # Compare Feynman and Stephen Hawking
+    +     ids <- c("B7vSqZsAAAAJ", "qj74uXkAAAAJ")
+    +     df <- compare_scholar_careers(ids)
+    + }
+    Error in get_resp(url, attempts_left - 1) : 
+      Cannot connect to Google Scholar. Is the ID you provided correct?
+    Calls: compare_scholar_careers ... get_resp -> get_resp -> get_resp -> get_resp -> get_resp
     Execution halted
     ```
 
-*   checking tests ...
+*   checking re-building of vignette outputs ... WARNING
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      12: get_item(x, ...)
-      13: sbtools_GET(url = paste0(pkg.env$url_item, id), ..., query = list(type = "json"), 
-             session = session)
-      14: handle_errors(r, url, "GET", supported_types)
-      15: stop(method, " failed to ", url, ". check authorization and/or content", call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 10 SKIPPED: 3 FAILED: 4
-      1. Failure: generic post fails w/o auth (@test-REST.R#5) 
-      2. Failure: generic post fails w/o auth (@test-REST.R#10) 
-      3. Failure: generic post fails w/o auth (@test-REST.R#14) 
-      4. Error: generic get w/ and w/o auth (@test-REST.R#29) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# seleniumPipes
-
-Version: 0.3.7
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      The following objects are masked from 'package:testthat':
-      
-          equals, is_less_than, not
-      
-      Loading required package: whisker
-      > if(Sys.getenv("NOT_CRAN") == "true"){
-      +   test_check("seleniumPipes")
-      + }
-      Error in curl::curl_fetch_memory(url, handle = handle) : 
-        Failed to connect to localhost port 4444: Connection refused
-      Calls: test_check ... request_fetch -> request_fetch.write_memory -> <Anonymous> -> .Call
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 0
-      Execution halted
-    ```
-
-# sergeant
-
-Version: 0.5.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      2: httr::POST(sprintf("%s/query.json", drill_server), encode = "json", body = list(queryType = "SQL", 
-             query = query))
-      3: request_perform(req, hu$handle$handle)
-      4: request_fetch(req$output, req$url, handle)
-      5: request_fetch.write_memory(req$output, req$url, handle)
-      6: curl::curl_fetch_memory(url, handle = handle)
-      
-      testthat results ================================================================
-      OK: 1 SKIPPED: 0 FAILED: 3
-      1. Error: Core dbplyr ops work (@test-sergeant.R#12) 
-      2. Failure: REST API works (@test-sergeant.R#25) 
-      3. Error: REST API works (@test-sergeant.R#27) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# SigOptR
-
-Version: 0.0.1
-
-## In both
-
-*   checking examples ... ERROR
-    ```
-    ...
-    The error most likely occurred in:
-    
-    > ### Name: create_experiment
-    > ### Title: Create an experiment
-    > ### Aliases: create_experiment
-    > 
-    > ### ** Examples
-    > 
-    > env <- Sys.getenv("NOT_CRAN")
-    > if (!identical(env, "true")) {
-    + 0
-    + } else {
-    + create_experiment(list(
-    +   name="R test experiment",
-    +   parameters=list(
-    +     list(name="x1", type="double", bounds=list(min=0, max=100)),
-    +     list(name="x2", type="double", bounds=list(min=0, max=100))
-    +   )
-    + ))}
-    Error: Please set env var SIGOPT_API_TOKEN to your SigOpt API token
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 35-48 (scholar.Rmd) 
+    Error: processing vignette 'scholar.Rmd' failed with diagnostics:
+    Cannot connect to Google Scholar. Is the ID you provided correct?
     Execution halted
     ```
 
-# smapr
+# seoR
 
 Version: 0.1.0
 
 ## In both
 
-*   checking tests ...
+*   checking examples ... ERROR
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 8 SKIPPED: 0 FAILED: 18
-      1. Error: invalid output directories cause errors (@test-download_smap.R#5) 
-      2. Error: non-existent directories are created (@test-download_smap.R#11) 
-      3. Error: the downloaded data is of the data frame class (@test-download_smap.R#21) 
-      4. Error: Two SPL4CMDL data files are downloaded (h5 and xml) (@test-download_smap.R#28) 
-      5. Error: setting overwrite = FALSE prevents data from being overwritten (@test-download_smap.R#50) 
-      6. Error: setting overwrite = TRUE ensures data overwrite (@test-download_smap.R#72) 
-      7. Error: invalid datasets cause errors (@test-extract_smap.R#5) 
-      8. Error: extract_smap produces a RasterStack (@test-extract_smap.R#14) 
-      9. Error: -9999 is used fill value when a _FillValue doesn't exist (@test-extract_smap.R#24) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Running examples in ‘seoR-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: getBingResults
+    > ### Title: Function to retrive data from Google Suggest for a specific
+    > ###   keyword
+    > ### Aliases: getBingResults
+    > 
+    > ### ** Examples
+    > 
+    > getBingResults("R Project")
+    Error in data.frame(..., check.names = FALSE) : 
+      arguments imply differing number of rows: 10, 9
+    Calls: getBingResults -> as.data.frame -> cbind -> cbind -> data.frame
+    Execution halted
     ```
 
-*   checking dependencies in R code ... NOTE
+# Seurat
+
+Version: 2.3.4
+
+## In both
+
+*   checking package dependencies ... NOTE
     ```
-    Namespaces in Imports field not imported from:
-      ‘rgdal’ ‘utils’
-      All declared Imports should be used.
+    Packages suggested but not available for checking: ‘loomR’ ‘MAST’
+    ```
+
+# sevenbridges
+
+Version: 1.12.3
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 14.3Mb
+      sub-directories of 1Mb or more:
+        R     4.1Mb
+        doc   9.5Mb
     ```
 
 # SmarterPoland
@@ -4547,311 +5025,323 @@ Version: 1.7
       Note: found 1122 marked UTF-8 strings
     ```
 
-# solrium
+# SocialMediaLab
 
-Version: 0.4.0
+Version: 0.23.2
+
+## In both
+
+*   checking whether package ‘SocialMediaLab’ can be installed ... WARNING
+    ```
+    Found the following significant warnings:
+      Note: break used in wrong context: no loop is visible at CollectDataFacebook.R:128 
+      Note: break used in wrong context: no loop is visible at CollectDataTwitter.R:140 
+      Note: break used in wrong context: no loop is visible at CollectDataYoutube.R:117 
+      Note: break used in wrong context: no loop is visible at CollectDataYoutube.R:124 
+    See ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/SocialMediaLab/new/SocialMediaLab.Rcheck/00install.out’ for details.
+    Information on the location(s) of code generating the ‘Note’s can be
+    obtained by re-running with environment variable R_KEEP_PKG_SOURCE set
+    to ‘yes’.
+    ```
+
+# socialmixr
+
+Version: 0.1.3
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 1 marked UTF-8 string
+    ```
+
+# soilDB
+
+Version: 2.3
 
 ## In both
 
 *   checking tests ...
     ```
      ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
+    Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-             url), call. = FALSE)
+      > 
+      > 
+      > 
+      > 
+      > test_check("soilDB")
+      [31m──[39m [31m1. Failure: siblings() returns reasonable data (@test-siblings.R#26) [39m [31m───[39m
+      names(x$sib) not equal to c("series", "sibling", "n").
+      Lengths differ: 4 is not 3
       
-      testthat results ================================================================
-      OK: 208 SKIPPED: 0 FAILED: 8
-      1. Error: core_create works (@test-core_create.R#6) 
-      2. Error: ping works against (@test-ping.R#7) 
-      3. Error: ping gives raw data correctly (@test-ping.R#20) 
-      4. Error: ping fails well (@test-ping.R#31) 
-      5. Error: schema works against (@test-schema.R#7) 
-      6. Error: schema fails well (@test-schema.R#32) 
-      7. Error: solr_connect to local Solr server works (@test-solr_connect.R#19) 
-      8. Error: solr_connect works with a proxy (@test-solr_connect.R#33) 
+      ══ testthat results  ═══════════════════════════════════════════════════════
+      OK: 119 SKIPPED: 2 FAILED: 1
+      1. Failure: siblings() returns reasonable data (@test-siblings.R#26) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-*   checking Rd cross-references ... NOTE
-    ```
-    Package unavailable to check Rd xrefs: ‘XML’
-    ```
+# SpaDES.core
 
-# SpaDES
-
-Version: 1.3.1
+Version: 0.2.3
 
 ## In both
 
-*   checking tests ...
+*   checking re-building of vignette outputs ... WARNING
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-        adding: myModule/README.txt (deflated 23%)
-        adding: myModule/citation.bib (deflated 27%)
-        adding: myModule/data/CHECKSUMS.txt (stored 0%)
-        adding: myModule/myModule.R (deflated 70%)
-        adding: myModule/myModule.Rmd (deflated 52%)
-        adding: myModule/tests/testthat/test-template.R (deflated 64%)
-        adding: myModule/tests/unitTests.R (deflated 47%)
-      testthat results ================================================================
-      OK: 955 SKIPPED: 15 FAILED: 1
-      1. Failure: downloadModule downloads and unzips a single module (@test-downloadModule.R#26) 
-      
-      Error: testthat unit tests failed
-      In addition: Warning message:
-      In fun(libname, pkgname) : couldn't connect to display ""
-      Execution halted
+    ...
+    
+    Attaching package: 'RandomFields'
+    
+    The following object is masked from 'package:RandomFieldsUtils':
+    
+        RFoptions
+    
+    The following objects are masked from 'package:base':
+    
+        abs, acosh, asin, asinh, atan, atan2, atanh, cos, cosh, exp,
+        expm1, floor, gamma, lgamma, log, log1p, log2, logb, max, min,
+        round, sin, sinh, sqrt, tan, tanh, trunc
+    
+    Quitting from lines 477-498 (ii-modules.Rmd) 
+    Error: processing vignette 'ii-modules.Rmd' failed with diagnostics:
+    GLPK not found on this system.
+    igraph is used internally and requires a GLPK installation.
+    It can be installed using, e.g., `brew install glpk`, after which you should reinstall igraph from source using:
+    `install.packages('igraph', type = 'source')`
+    For more info see https://github.com/igraph/rigraph/issues/273.
+    Execution halted
     ```
 
-*   checking package dependencies ... NOTE
+*   checking installed package size ... NOTE
     ```
-    Package suggested but not available for checking: ‘fastshp’
-    ```
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘rstudioapi’
-      All declared Imports should be used.
+      installed size is  5.4Mb
+      sub-directories of 1Mb or more:
+        R     3.1Mb
+        doc   1.4Mb
     ```
 
 # sparklyr
 
-Version: 0.6.2
+Version: 0.9.3
 
-## Newly broken
+## In both
 
-*   checking tests ...
+*   checking installed package size ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-             }
-             else {
-                 msg <- core_read_spark_log_error(sc)
-                 stop(msg, call. = FALSE)
-             }
-         })
-      26: force(code)
-      27: stop(msg, call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 357 SKIPPED: 2 FAILED: 1
-      1. Error: 'spark_apply' works over empty partitions (@test-spark-apply.R#104) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      installed size is  7.1Mb
+      sub-directories of 1Mb or more:
+        R      4.1Mb
+        java   1.9Mb
     ```
 
 # SpidermiR
 
-Version: 1.6.3
+Version: 1.12.0
 
 ## In both
 
-*   checking R code for possible problems ... NOTE
+*   checking package dependencies ... ERROR
     ```
-    .SpidermiRvisualize_gene: possible error in simpleNetwork(NetworkData,
-      linkColour = "gray", textColour = "black", zoom = TRUE): unused
-      argument (textColour = "black")
-    SpidermiRvisualize_plot_target: no visible binding for global variable
-      ‘miRNAs’
-    SpidermiRvisualize_plot_target: no visible binding for global variable
-      ‘mRNA_target’
-    Undefined global functions or variables:
-      mRNA_target miRNAs
+    Packages required but not available:
+      ‘TCGAbiolinks’ ‘miRNAtap.db’ ‘org.Hs.eg.db’
+    
+    Package suggested but not available for checking: ‘devtools’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
-# statsgrokse
+# spm12r
 
-Version: 0.1.4
+Version: 2.8.0
 
 ## In both
 
-*   checking tests ...
+*   checking examples ... ERROR
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Error in curl::curl_fetch_memory(url, handle = handle) : 
-        Timeout was reached: Connection timed out after 10006 milliseconds
-      4. Failure: normal usage (@test_usage.R#15) ------------------------------------
-      all(dim(tmp) > 0) isn't true.
-      
-      
-      testthat results ================================================================
-      OK: 57 SKIPPED: 0 FAILED: 4
-      1. Failure: normal usage (@test_usage.R#6) 
-      2. Failure: normal usage (@test_usage.R#9) 
-      3. Failure: normal usage (@test_usage.R#12) 
-      4. Failure: normal usage (@test_usage.R#15) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    ...
+    > ### Name: install_spm12
+    > ### Title: Install SPM12 file into directory
+    > ### Aliases: install_spm12
+    > 
+    > ### ** Examples
+    > 
+    > tdir = tempfile()
+    > dir.create(tdir)
+    > res = install_spm12(install_dir = tdir)
+    cloning into '/tmp/RtmpecbiIb/file32b44eeb40f7/spm12'...
+    Receiving objects:   1% (65/6461),   17 kb
+    Receiving objects:  11% (711/6461),  256 kb
+    Receiving objects:  21% (1357/6461), 3169 kb
+    Receiving objects:  31% (2003/6461), 8336 kb
+    Receiving objects:  41% (2650/6461), 10176 kb
+    Receiving objects:  51% (3296/6461), 11568 kb
+    Receiving objects:  61% (3942/6461), 32893 kb
+    Error in git2r::clone("https://github.com/muschellij2/spm12r", branch = "gh-pages",  : 
+      Error in 'git2r_clone': SecureTransport error: decryption failure
+    Calls: install_spm12 -> <Anonymous>
+    Execution halted
     ```
 
-# taxize
+# statsDK
 
-Version: 0.8.9
+Version: 0.1.1
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 643 SKIPPED: 0 FAILED: 10
-      1.  Failure: col_search returns the correct value, dimensions, and classes (@test-bold_search.R#12) 
-      2.  Failure: col_search returns the correct value, dimensions, and classes (@test-bold_search.R#15) 
-      3.  Failure: col_search returns the correct value, dimensions, and classes (@test-bold_search.R#16) 
-      4.  Failure: col_search returns the correct value, dimensions, and classes (@test-bold_search.R#17) 
-      5.  Error: iucn_id returns the correct class (@test-iucn_id.R#7) 
-      6.  Error: iucn_id fails well (@test-iucn_id.R#24) 
-      7.  Error: iucn_summary returns the correct value (@test-iucn_summary.R#7) 
-      8.  Error: iucn_summary gives expected result for lots of names (@test-iucn_summary.R#22) 
-      9.  Error: iucn_summary and iucn_summary_id fail well (@test-iucn_summary.R#59) 
-      10. Error: bold_ping returns the correct value (@test-ping.R#41) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespaces in Imports field not imported from:
+      ‘dplyr’ ‘ggplot2’ ‘stringr’
+      All declared Imports should be used.
+    ```
+
+# SympluR
+
+Version: 0.3.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘readr’
+      All declared Imports should be used.
+    ```
+
+# tableschema.r
+
+Version: 1.1.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘iterators’
+      All declared Imports should be used.
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘parsedate’
     ```
 
 # TCGAbiolinks
 
-Version: 2.5.7
+Version: 2.10.0
 
 ## In both
 
 *   R CMD check timed out
     
 
+*   checking dependencies in R code ... WARNING
+    ```
+    '::' or ':::' import not declared from: ‘tidyr’
+    ```
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
 *   checking installed package size ... NOTE
     ```
-      installed size is 65.9Mb
+      installed size is 75.5Mb
       sub-directories of 1Mb or more:
-        R      1.1Mb
-        data   6.4Mb
-        doc   58.2Mb
+        R      4.1Mb
+        data   4.1Mb
+        doc   67.1Mb
     ```
 
 *   checking R code for possible problems ... NOTE
     ```
     ...
-      ‘limmamakeContrasts’
-    TCGAanalyze_DEA_Affy: no visible global function definition for
-      ‘limmacontrasts.fit’
-    TCGAanalyze_analyseGRN: no visible global function definition for
-      ‘knnmi.cross’
-    TCGAanalyze_networkInference: no visible global function definition for
-      ‘c3net’
-    TCGAanalyze_networkInference: no visible global function definition for
-      ‘minet’
-    TCGAvisualize_SurvivalCoxNET: no visible global function definition for
-      ‘dNetInduce’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/visualize.R:156-157)
     TCGAvisualize_SurvivalCoxNET: no visible global function definition for
       ‘dNetPipeline’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/visualize.R:161-162)
     TCGAvisualize_SurvivalCoxNET: no visible global function definition for
       ‘dCommSignif’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/visualize.R:174)
     TCGAvisualize_SurvivalCoxNET: no visible global function definition for
       ‘visNet’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/visualize.R:184-189)
     TCGAvisualize_oncoprint: no visible binding for global variable ‘value’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/visualize.R:936)
+    readExonQuantification: no visible binding for global variable ‘exon’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/prepare.R:234-235)
+    readExonQuantification: no visible binding for global variable
+      ‘coordinates’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TCGAbiolinks/new/TCGAbiolinks.Rcheck/00_pkg_src/TCGAbiolinks/R/prepare.R:234-235)
     Undefined global functions or variables:
-      c3net dCommSignif dNetInduce dNetPipeline knnmi.cross
-      limmacontrasts.fit limmamakeContrasts minet portions value visNet
-    ```
-
-# threewords
-
-Version: 0.1.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      5. Failure: Errors are correctly thrown (@test_threewords.R#43) ----------------
-      from_position(...) did not throw an error.
-      
-      
-      testthat results ================================================================
-      OK: 10 SKIPPED: 0 FAILED: 5
-      1. Failure: Individual word trios can be resolved to positions (@test_threewords.R#11) 
-      2. Failure: Individual positions can be resolved to word trios (@test_threewords.R#19) 
-      3. Failure: Multiple word trios can be resolved to positions (@test_threewords.R#29) 
-      4. Failure: Multiple coordinate sets can be resolved to positions (@test_threewords.R#38) 
-      5. Failure: Errors are correctly thrown (@test_threewords.R#43) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      Tumor.purity barcode c3net clinical coordinates dCommSignif
+      dNetInduce dNetPipeline exon knnmi.cross limmacontrasts.fit
+      limmamakeContrasts minet portions rse_gene value visNet
     ```
 
 # tidyquant
 
-Version: 0.5.3
+Version: 0.5.5
 
 ## In both
 
-*   checking tests ...
+*   checking installed package size ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      testthat results ================================================================
-      OK: 182 SKIPPED: 0 FAILED: 9
-      1. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
-      2. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
-      3. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
-      4. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
-      5. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
-      6. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
-      7. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
-      8. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
-      9. Failure: Test all stock.index options to ensure no issues during fetch. (@test_tq_index.R#22) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      installed size is  5.2Mb
+      sub-directories of 1Mb or more:
+        doc   4.1Mb
     ```
 
-*   checking re-building of vignette outputs ... WARNING
+# tidyRSS
+
+Version: 1.2.7
+
+## In both
+
+*   checking dependencies in R code ... NOTE
     ```
-    ...
-      error: unable to load shared object '/Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so':
-      dlopen(/Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so, 6): Library not loaded: @rpath/libjvm.dylib
-      Referenced from: /Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so
-      Reason: image not found
-    
-    Getting data...
-    
-    Getting holdings for DOW
-    Warning in tq_index("DOW") :
-      Error at DOW during download. 
-    Error: .onLoad failed in loadNamespace() for 'rJava', details:
-      call: dyn.load(file, DLLpath = DLLpath, ...)
-      error: unable to load shared object '/Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so':
-      dlopen(/Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so, 6): Library not loaded: @rpath/libjvm.dylib
-      Referenced from: /Users/hadley/Documents/web/httr/revdep/library/tidyquant/rJava/libs/rJava.so
-      Reason: image not found
-    
-    Quitting from lines 105-108 (TQ03-scaling-and-modeling-with-tidyquant.Rmd) 
-    Error: processing vignette 'TQ03-scaling-and-modeling-with-tidyquant.Rmd' failed with diagnostics:
-    subscript out of bounds
-    Execution halted
+    Namespace in Imports field not imported from: ‘testthat’
+      All declared Imports should be used.
+    ```
+
+# tidytransit
+
+Version: 0.3.5
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  5.3Mb
+      sub-directories of 1Mb or more:
+        extdata   4.4Mb
     ```
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
-      ‘broom’ ‘curl’ ‘devtools’ ‘rvest’ ‘timeSeries’ ‘tseries’ ‘zoo’
+      ‘here’ ‘htmltools’ ‘scales’ ‘stringr’
+      All declared Imports should be used.
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 41 marked UTF-8 strings
+    ```
+
+# tidyverse
+
+Version: 1.2.1
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘dbplyr’ ‘reprex’ ‘rlang’
       All declared Imports should be used.
     ```
 
@@ -4863,15 +5353,23 @@ Version: 1.0
 
 *   checking R code for possible problems ... NOTE
     ```
-    search_collection: no visible global function definition for
+    ...
       ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TMDb/new/TMDb.Rcheck/00_pkg_src/TMDb/R/search_collection.R:16-17)
     search_company: no visible global function definition for ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TMDb/new/TMDb.Rcheck/00_pkg_src/TMDb/R/search_company.R:8-9)
     search_keyword: no visible global function definition for ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TMDb/new/TMDb.Rcheck/00_pkg_src/TMDb/R/search_keyword.R:12-13)
     search_list: no visible global function definition for ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TMDb/new/TMDb.Rcheck/00_pkg_src/TMDb/R/search_list.R:17-18)
     search_movie: no visible global function definition for ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TMDb/new/TMDb.Rcheck/00_pkg_src/TMDb/R/search_movie.R:35-36)
     search_multi: no visible global function definition for ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TMDb/new/TMDb.Rcheck/00_pkg_src/TMDb/R/search_multi.R:21-22)
     search_person: no visible global function definition for ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TMDb/new/TMDb.Rcheck/00_pkg_src/TMDb/R/search_person.R:20-21)
     search_tv: no visible global function definition for ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/TMDb/new/TMDb.Rcheck/00_pkg_src/TMDb/R/search_tv.R:26-27)
     Undefined global functions or variables:
       URLencode
     Consider adding
@@ -4889,6 +5387,7 @@ Version: 1.0
     ```
     microsoftTranslate: no visible global function definition for
       ‘URLencode’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/translateR/new/translateR.Rcheck/00_pkg_src/translateR/R/microsoftTranslate.R:3)
     Undefined global functions or variables:
       URLencode
     Consider adding
@@ -4896,9 +5395,9 @@ Version: 1.0
     to your NAMESPACE file.
     ```
 
-# tuber
+# tropr
 
-Version: 0.9.0
+Version: 0.1.2
 
 ## In both
 
@@ -4907,21 +5406,46 @@ Version: 0.9.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      tests/testthat/test-url.r:79:22: style: Only use double-quotes.
-         url <- modify_url('http://google.com?a=1', query = list(b = 2))
-                           ^~~~~~~~~~~~~~~~~~~~~~~
-      tests/testthat/test-url.r:85:27: warning: Do not use absolute paths.
-        expect_equal(url$path, "/tmp/foobar")
-                                ^~~~
+      Failed to find tvtrope content
+      1: as.data.frame(trope_content(.url)) at testthat/test-tropr.R:26
+      2: trope_content(.url)
+      3: stop("Failed to find tvtrope content") at /Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/tropr/new/tropr.Rcheck/00_pkg_src/tropr/R/tropr.R:40
       
-      
-      testthat results ================================================================
-      OK: 4 SKIPPED: 0 FAILED: 1
-      1. Failure: Package Style (@test-pkg-style.R#5) 
+      ══ testthat results  ═══════════════════════════════════════════════════════
+      OK: 3 SKIPPED: 0 FAILED: 5
+      1. Error: trope_data (@test-data.R#6) 
+      2. Error: trope_cache (@test-data.R#19) 
+      3. Error: trope_content, as.data.frame (@test-tropr.R#5) 
+      4. Error: trope_history, aggr (@test-tropr.R#14) 
+      5. Error: More cases (@test-tropr.R#26) 
       
       Error: testthat unit tests failed
       Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
+      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
+    Quitting from lines 41-47 (quickstart.Rmd) 
+    Error: processing vignette 'quickstart.Rmd' failed with diagnostics:
+    Failed to find tvtrope content
+    Execution halted
+    ```
+
+# trread
+
+Version: 0.2.5
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘here’ ‘htmltools’ ‘magrittr’ ‘scales’ ‘stringr’
+      All declared Imports should be used.
     ```
 
 # tumblR
@@ -4933,6 +5457,7 @@ Version: 1.1
 *   checking R code for possible problems ... NOTE
     ```
     http.connection: no visible global function definition for ‘setNames’
+      (/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/tumblR/new/tumblR.Rcheck/00_pkg_src/tumblR/R/http.connection.R:23)
     Undefined global functions or variables:
       setNames
     Consider adding
@@ -4940,121 +5465,24 @@ Version: 1.1
     to your NAMESPACE file.
     ```
 
-# twilio
+# vcr
 
-Version: 0.1.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      3. Error: tw_send_message() can send messages (@test_tw_send_message.R#11) -----
-      Please set environmental variable TWILIO_SID.
-      1: tw_send_message("2127872000", "+15005550006", "Half a pound of whitefish salad please.") at testthat/test_tw_send_message.R:11
-      2: paste("2010-04-01", "Accounts", get_sid(), "Messages.json", sep = "/")
-      3: get_sid()
-      4: stop("Please set environmental variable TWILIO_SID.", call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 4 SKIPPED: 0 FAILED: 3
-      1. Error: tw_get_message_media() can retrieve a photo (@test_tw_get_message_media.R#6) 
-      2. Error: Test that tw_get_messages_list() will retrieve messages (@test_tw_get_messages_list.R#6) 
-      3. Error: tw_send_message() can send messages (@test_tw_send_message.R#11) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# ungeneanno
-
-Version: 0.1.6
+Version: 0.2.0
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Loading required package: httr
-      Loading required package: XML
-      > 
-      > test_check("ungeneanno")
-      1. Failure: Gets from NCBI gene database (@test-NIHConnections.R#25) -----------
-      `g` not equal to reference from `ncbi_test_gene.rds`.
-      Attributes: < Component "nih_summary": 1 string mismatch >
-      
-      
-      testthat results ================================================================
-      OK: 19 SKIPPED: 0 FAILED: 1
-      1. Failure: Gets from NCBI gene database (@test-NIHConnections.R#25) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# uptasticsearch
-
-Version: 0.0.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      1: devtools::check at testthat/test-repo_characteristics.R:38
-      2: getExportedValue(pkg, name)
-      3: asNamespace(ns)
-      4: getNamespace(ns)
-      5: tryCatch(loadNamespace(name), error = function(e) stop(e))
-      6: tryCatchList(expr, classes, parentenv, handlers)
-      7: tryCatchOne(expr, names, parentenv, handlers[[1L]])
-      8: value[[3L]](cond)
-      
-      testthat results ================================================================
-      OK: 226 SKIPPED: 0 FAILED: 1
-      1. Error: R CMD check should not return any unexpected errors, warnings, or notes (@test-repo_characteristics.R#38) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespaces in Imports field not imported from:
+      ‘crul’ ‘httr’
+      All declared Imports should be used.
     ```
 
 # viridis
 
-Version: 0.4.0
+Version: 0.5.1
 
 ## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
-    
-    Attaching package: 'raster'
-    
-    The following object is masked from 'package:colorspace':
-    
-        RGB
-    
-    Loading required package: lattice
-    Loading required package: latticeExtra
-    Loading required package: RColorBrewer
-    
-    Attaching package: 'latticeExtra'
-    
-    The following object is masked from 'package:ggplot2':
-    
-        layer
-    
-    Quitting from lines 204-213 (intro-to-viridis.Rmd) 
-    Error: processing vignette 'intro-to-viridis.Rmd' failed with diagnostics:
-    Cannot create RasterLayer object from this file; perhaps you need to install rgdal first
-    Execution halted
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -5062,90 +5490,67 @@ Version: 0.4.0
       All declared Imports should be used.
     ```
 
-# virustotal
+# vstsr
 
-Version: 0.2.1
+Version: 1.0.0
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      tests/testthat/test-url.r:79:22: style: Only use double-quotes.
-         url <- modify_url('http://google.com?a=1', query = list(b = 2))
-                           ^~~~~~~~~~~~~~~~~~~~~~~
-      tests/testthat/test-url.r:85:27: warning: Do not use absolute paths.
-        expect_equal(url$path, "/tmp/foobar")
-                                ^~~~
-      
-      
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 2
-      1. Error: can decrypt secrets and data structures verified (@test-data-structures.R#16) 
-      2. Failure: Package Style (@test-pkg-style.R#5) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespace in Imports field not imported from: ‘xml2’
+      All declared Imports should be used.
     ```
 
 # wbstats
 
-Version: 0.1.1
+Version: 0.2
 
 ## In both
 
 *   checking data for non-ASCII characters ... NOTE
     ```
-      Note: found 1371 marked UTF-8 strings
+      Note: found 1528 marked UTF-8 strings
+    ```
+
+# weathercan
+
+Version: 0.2.8
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘xml2’
+      All declared Imports should be used.
+    ```
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 25 marked UTF-8 strings
+    ```
+
+# webTRISr
+
+Version: 0.1.1
+
+## In both
+
+*   checking package dependencies ... NOTE
+    ```
+    Package suggested but not available for checking: ‘devtools’
     ```
 
 # WikidataR
 
-Version: 1.3.0
+Version: 1.4.0
 
 ## In both
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘WikidataR-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: get_geo_entity
-    > ### Title: Retrieve geographic information from Wikidata
-    > ### Aliases: get_geo_entity
-    > 
-    > ### ** Examples
-    > 
-    > # All entities
-    > sf_locations <- get_geo_entity("Q62")
-    Error in sparql_query(query) : Internal Server Error (HTTP 500).
-    Calls: get_geo_entity ... clean_geo -> do.call -> lapply -> sparql_query -> <Anonymous>
-    Execution halted
-    ```
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-             wd_id <- gsub(x = item$item$value, pattern = "http://www.wikidata.org/entity/", 
-                 replacement = "", fixed = TRUE)
-             return(data.frame(item = wd_id, name = ifelse(item$name$value == wd_id, NA, item$name$value), 
-                 latitutde = as.numeric(point[1]), longitude = as.numeric(point[2]), stringsAsFactors = FALSE))
-         })
-      5: sparql_query(query)
-      6: httr::stop_for_status(result)
-      
-      testthat results ================================================================
-      OK: 21 SKIPPED: 0 FAILED: 2
-      1. Error: Simple entity-based geo lookups work (@test_geo.R#5) 
-      2. Error: Language-variant entity-based geo lookups work (@test_geo.R#13) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -5166,83 +5571,112 @@ Version: 1.1
 
 # wikipediatrend
 
-Version: 1.1.10
+Version: 1.1.14
 
 ## In both
 
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      2. Failure: setting cache file (@test_caching_gathering.R#39) ------------------
-      all(dim(wp_get_cache()) > 0) isn't true.
-      
-      
-      Error in curl::curl_fetch_memory(url, handle = handle) : 
-        Timeout was reached: Connection timed out after 10001 milliseconds
-      Error in curl::curl_fetch_memory(url, handle = handle) : 
-        Timeout was reached: Connection timed out after 10005 milliseconds
-      testthat results ================================================================
-      OK: 66 SKIPPED: 0 FAILED: 2
-      1. Failure: normal usage (@test_caching_gathering.R#27) 
-      2. Failure: setting cache file (@test_caching_gathering.R#39) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
-      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
-    Error in curl::curl_fetch_memory(url, handle = handle) : 
-      Timeout was reached: Connection timed out after 10008 milliseconds
-    http://stats.grok.se/json/en/201510/Main_page
-    
-    data from server was: Error in curl::curl_fetch_memory(url, handle = handle) : 
-      Timeout was reached: Connection timed out after 10008 milliseconds
-    
-    
-    Error in curl::curl_fetch_memory(url, handle = handle) : 
-      Timeout was reached: Connection timed out after 10007 milliseconds
-    http://stats.grok.se/json/en/201511/Main_page
-    
-    data from server was: Error in curl::curl_fetch_memory(url, handle = handle) : 
-      Timeout was reached: Connection timed out after 10007 milliseconds
-    
-    
-    Quitting from lines 108-112 (using-wikipediatrend.Rmd) 
-    Error: processing vignette 'using-wikipediatrend.Rmd' failed with diagnostics:
-    need finite 'xlim' values
-    Execution halted
-    ```
-
 *   checking package dependencies ... NOTE
     ```
-    Packages suggested but not available for checking:
-      ‘AnomalyDetection’ ‘BreakoutDetection’
+    Package suggested but not available for checking: ‘devtools’
+    ```
+
+# wunderscraper
+
+Version: 0.1.0
+
+## In both
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘rwunderground’
+    ```
+
+# XKCDdata
+
+Version: 0.1.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘tibble’
+      All declared Imports should be used.
+    ```
+
+# xlm
+
+Version: 0.1.1
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘methods’ ‘stats’
+      All declared Imports should be used.
     ```
 
 # xml2
 
-Version: 1.1.1
+Version: 1.2.0
 
 ## In both
 
-*   checking compiled code ... NOTE
+*   checking whether package ‘xml2’ can be installed ... ERROR
     ```
-    File ‘xml2/libs/xml2.so’:
-      Found non-API calls to R: ‘R_GetConnection’, ‘R_WriteConnection’
-    
-    Compiled code should not call non-API entry points in R.
-    
-    See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
+    Installation failed.
+    See ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/xml2/new/xml2.Rcheck/00install.out’ for details.
     ```
 
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘xml2’ ...
+** package ‘xml2’ successfully unpacked and MD5 sums checked
+Found pkg-config cflags and libs!
+Using PKG_CFLAGS=-I/usr/include/libxml2
+Using PKG_LIBS=-L/usr/lib -lxml2 -lz -lpthread -licucore -lm
+------------------------- ANTICONF ERROR ---------------------------
+Configuration failed because libxml-2.0 was not found. Try installing:
+ * deb: libxml2-dev (Debian, Ubuntu, etc)
+ * rpm: libxml2-devel (Fedora, CentOS, RHEL)
+ * csw: libxml2_dev (Solaris)
+If libxml-2.0 is already installed, check that 'pkg-config' is in your
+PATH and PKG_CONFIG_PATH contains a libxml-2.0.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+--------------------------------------------------------------------
+ERROR: configuration failed for package ‘xml2’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/xml2/new/xml2.Rcheck/xml2’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘xml2’ ...
+** package ‘xml2’ successfully unpacked and MD5 sums checked
+Found pkg-config cflags and libs!
+Using PKG_CFLAGS=-I/usr/include/libxml2
+Using PKG_LIBS=-L/usr/lib -lxml2 -lz -lpthread -licucore -lm
+------------------------- ANTICONF ERROR ---------------------------
+Configuration failed because libxml-2.0 was not found. Try installing:
+ * deb: libxml2-dev (Debian, Ubuntu, etc)
+ * rpm: libxml2-devel (Fedora, CentOS, RHEL)
+ * csw: libxml2_dev (Solaris)
+If libxml-2.0 is already installed, check that 'pkg-config' is in your
+PATH and PKG_CONFIG_PATH contains a libxml-2.0.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+--------------------------------------------------------------------
+ERROR: configuration failed for package ‘xml2’
+* removing ‘/Users/hadley/Documents/r-lib/httr/revdep/checks.noindex/xml2/old/xml2.Rcheck/xml2’
+
+```
 # xtractomatic
 
-Version: 3.3.2
+Version: 3.4.2
 
 ## In both
 
@@ -5250,16 +5684,20 @@ Version: 3.3.2
     ```
     Error in re-building vignettes:
       ...
-    Warning in engine$weave(file, quiet = quiet, encoding = enc) :
-      The vignette engine knitr::rmarkdown is not available, because the rmarkdown package is not installed. Please install it.
     date	lon	lat	lowLon	higLon	lowLat	higLat
     4/23/2003	203.899	19.664	203.899	203.899	19.664	19.664
     4/24/2003	204.151	19.821	203.912597	204.389403	18.78051934	20.86148066
     4/30/2003	203.919	20.351	203.6793669	204.1586331	18.79728188	21.90471812
     5/1/2003	204.229	20.305	203.9943343	204.4636657	18.90440013	21.70559987
-    Quitting from lines 1044-1046 (Usingxtractomatic.Rmd) 
+    Quitting from lines 818-843 (Usingxtractomatic.Rmd) 
     Error: processing vignette 'Usingxtractomatic.Rmd' failed with diagnostics:
-    there is no package called 'webshot'
+    (converted from warning) Removed 4070 rows containing missing values (geom_raster).
     Execution halted
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘dplyr’
+      All declared Imports should be used.
     ```
 
