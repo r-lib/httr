@@ -69,7 +69,7 @@ for a given option, use curl_docs()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">httr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
       </span>
     </div>
 
@@ -180,32 +180,32 @@ per handle.</p>
     <pre class="examples"><div class='input'><span class='co'># There are a number of ways to modify the configuration of a request</span>
 <span class='co'># * you can add directly to a request</span>
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2018-12-06 16:06
+#&gt;   Date: 2018-12-14 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
 <span class='co'># * you can wrap with with_config()</span>
 <span class='fu'><a href='with_config.html'>with_config</a></span>(<span class='fu'><a href='verbose.html'>verbose</a></span>(), <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>))</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2018-12-06 16:06
+#&gt;   Date: 2018-12-14 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
 <span class='co'># * you can set global with set_config()</span>
 <span class='no'>old</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='set_config.html'>set_config</a></span>(<span class='fu'><a href='verbose.html'>verbose</a></span>())
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2018-12-06 16:06
+#&gt;   Date: 2018-12-14 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># and re-establish the previous settings with</span>
 <span class='fu'><a href='set_config.html'>set_config</a></span>(<span class='no'>old</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2018-12-06 16:06
+#&gt;   Date: 2018-12-14 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># or</span>
 <span class='fu'><a href='set_config.html'>reset_config</a></span>()
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2018-12-06 16:06
+#&gt;   Date: 2018-12-14 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
@@ -213,7 +213,7 @@ per handle.</p>
 <span class='co'># options. But you can pass Curl options (as listed in httr_options())</span>
 <span class='co'># in config</span>
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com/"</span>, <span class='fu'>config</span>(<span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2018-12-06 16:06
+#&gt;   Date: 2018-12-14 21:12
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div></pre>
@@ -239,7 +239,7 @@ per handle.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
 </div>
       </footer>
    </div>
