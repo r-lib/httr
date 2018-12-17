@@ -164,31 +164,31 @@ selection of the correct handle is taken care of when the user passes an url
     <pre class="examples"><div class='input'><span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Host: http://google.com &lt;NA&gt;</div><div class='input'><span class='fu'>handle</span>(<span class='st'>"https://google.com"</span>)</div><div class='output co'>#&gt; Host: https://google.com &lt;NA&gt;</div><div class='input'>
 <span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>)
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2018-12-14 21:17
+#&gt;   Date: 2018-12-17 20:44
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.3 kB
+#&gt;   Size: 12.3 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div><div class='input'><span class='co'># Should see cookies sent back to server</span>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2018-12-14 21:17
+#&gt;   Date: 2018-12-17 20:44
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.3 kB
+#&gt;   Size: 12.3 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div><div class='input'>
 <span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>, <span class='kw'>cookies</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Cookies argument is depcrated</span></div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>)$<span class='no'>cookies</span></div><div class='output co'>#&gt;                  domain flag path secure          expiration   name
-#&gt; 1           .google.com TRUE    /  FALSE 2019-01-13 21:17:10 1P_JAR
-#&gt; 2 #HttpOnly_.google.com TRUE    /  FALSE 2019-06-15 21:17:10    NID
+#&gt; 1           .google.com TRUE    /  FALSE 2019-01-16 20:44:43 1P_JAR
+#&gt; 2 #HttpOnly_.google.com TRUE    /  FALSE 2019-06-18 20:44:43    NID
 #&gt;                                                                                                                                                                             value
-#&gt; 1                                                                                                                                                                   2018-12-14-21
-#&gt; 2 150=CsOZnwe7ENNcHpFmlwe-6VqrCiINLpYf62ctZP2oQDBVVQoURLeZGLHB_mkaJGLdU77ybu0jC7rNXBl5u_hkVngVH9SdaUnMsXlNzZGX5nKO0Efd8bsYmWKz5LtWAPAkzRP_DuhUOqOudiB0Z4RcL-Szl39nwybSuXV-pNM4KmA</div><span class='co'># NOT RUN {</span>
+#&gt; 1                                                                                                                                                                   2018-12-17-20
+#&gt; 2 150=qg-tj5YJMMmnI4_x_ZgALvaoJk4OJNa4A1-avGIiOqhIrc6fX8d85pvBdWb1X7vZ8X1dLRaYkuyGvQ8EsgIM_CeLqt3ly-0wWJT0GyDcSk3UbNKQ6LkALLe5gSFbmfaz27nDFL3feU5he5fa5k-x0vbJ84l_nvOeB_AoMFMDoe8</div><span class='co'># NOT RUN {</span>
 <span class='co'># Using the preferred way of configuring the http methods</span>
 <span class='co'># will not work when using handle():</span>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>, <span class='fu'><a href='timeout.html'>timeout</a></span>(<span class='fl'>10</span>))
