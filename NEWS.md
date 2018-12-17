@@ -10,7 +10,7 @@ OAuth2.0 has been made somewhat more flexible in order to support more websites:
    basic authentication for OAuth 2.0 (@peterhartman, #484).
 
 * `oauth2.0_token()` (and `init_oauth2.0()`) gains a `oob_value` argument 
-  that been allows arbitrary values to be sent for the `request_uri` 
+  that allows arbitrary values to be sent for the `request_uri` 
   parameter during OOB flows (@ctrombley, #493).
 
 * `oauth2.0_token()` (and `init_oauth2.0()`) gain a new 
