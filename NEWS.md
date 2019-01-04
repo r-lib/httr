@@ -1,5 +1,8 @@
 # httr (development version)
 
+* `POST` gains an example on how to use `encode = "raw"` for specific json
+string body (@cderv, #563)
+
 # httr 1.4.0
 
 ## OAuth
