@@ -4,7 +4,7 @@
 \alias{oauth_service_token}
 \title{Generate OAuth token for service accounts.}
 \usage{
-oauth_service_token(endpoint, secrets, scope = NULL, sub = NULL)
+oauth_service_token(endpoint, secrets, scope = NULL, sub = NULL, ...)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link[=oauth_endpoint]{oauth_endpoint()}}}
@@ -15,6 +15,8 @@ oauth_service_token(endpoint, secrets, scope = NULL, sub = NULL)
 
 \item{sub}{The email address of the user for which the application is
 requesting delegated access.}
+
+\item{...}{any additional claims for the token}
 }
 \description{
 Service accounts provide a way of using OAuth2 without user intervention.
