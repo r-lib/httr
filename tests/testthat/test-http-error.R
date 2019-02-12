@@ -17,3 +17,9 @@ test_that("http_error works with integers", {
   expect_false(http_error(200L))
   expect_true(http_error(404L))
 })
+
+test_that("http_error works with simpleErrors", {
+    expect_error({
+        res <- RETRY("POST", "http://98d90a2a254647889e2e4c236fb576cd.com")
+    })
+})

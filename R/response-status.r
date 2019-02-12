@@ -180,6 +180,11 @@ http_error.integer <- function(x, ...) {
 }
 
 #' @export
+http_error.simpleError <- function(x, ...){
+    FALSE
+}
+
+#' @export
 #' @rdname http_error
 #' @usage NULL
 url_success <- function(x, ...) {
