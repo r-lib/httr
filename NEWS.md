@@ -1,5 +1,8 @@
 # httr (development version)
 
+* `RETRY()` now throws the correct error message if an error occurs during the 
+  request (@austin3dickey, #581).
+
 # httr 1.4.0
 
 ## OAuth
