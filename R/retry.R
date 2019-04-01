@@ -77,12 +77,12 @@ RETRY <- function(verb, url = NULL, config = list(), ...,
 }
 
 retry_should_terminate <- function(i, times, resp, terminate_on, terminate_on_success) {
-  if (terminate_on_success && !http_error(resp)) {
-    TRUE
-  } else if (i >= times) {
+  if (i >= times) {
     TRUE
   } else if (inherits(resp, "error")) {
     FALSE
+  } else if (terminate_on_success && !http_error(resp)) {
+    TRUE
   } else if (!is.null(terminate_on)) {
     status_code(resp) %in% terminate_on
   } else {
