@@ -14,6 +14,11 @@ test_that("c.request merges headers", {
   )
 })
 
+test_that('request_build upper cases verbs', {
+  expect_equal(request_build('get', 'asdf.com')$method, "GET")
+  expect_equal(request_build('post', 'asdf.com')$method, "POST")
+})
+
 test_that("non-http methods don't parse headers", {
   # skip on travis to avoid hammering the FTP server, which doesn't
   # seem to be able to handle multiple simultaneous requests

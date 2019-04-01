@@ -67,7 +67,7 @@ request_build <- function(method, url, ...) {
 
   req <- Reduce(request_combine, extra, init = request())
 
-  req$method <- method
+  req$method <- toupper(method)
   req$url <- url
 
   req
