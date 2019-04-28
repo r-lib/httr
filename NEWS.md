@@ -1,5 +1,8 @@
 # httr (development version)
 
+* `http_status()` now throws the correct error message if http status code is 
+  not in the list of known codes (@Javdat, #567).
+
 * `RETRY()` now throws the correct error message if an error occurs during the 
   request (@austin3dickey, #581).
 

@@ -13,3 +13,7 @@ test_that("status converted to errors", {
 test_that("task adds informative message", {
   expect_error(stop_for_status(300, "download"), "Failed to download.")
 })
+
+test_that("unknown status converted to error", {
+  expect_error(stop_for_status(10000), "Unknown http status code: 10000", fixed = TRUE)
+})
