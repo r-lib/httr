@@ -13,3 +13,10 @@ test_that("sucessful requests terminate when terminate_on_success is true", {
   expect_true(should_terminate(200L))
   expect_false(should_terminate(400L))
 })
+
+test_that("if request_perform() throws an error, RETRY passes it on", {
+  expect_error(
+    RETRY("POST", "http://98d90a2a254647889e2e4c236fb576cd.com", times = 1),
+    regexp = "resolve host"
+  )
+})

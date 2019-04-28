@@ -1,7 +1,13 @@
 # httr (development version)
 
 * `POST` gains an example on how to use `encode = "raw"` for specific json
-string body (@cderv, #563)
+  string body (@cderv, #563)
+
+* `http_status()` now throws the correct error message if http status code is 
+  not in the list of known codes (@Javdat, #567).
+
+* `RETRY()` now throws the correct error message if an error occurs during the 
+  request (@austin3dickey, #581).
 
 # httr 1.4.0
 

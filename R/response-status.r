@@ -46,10 +46,11 @@ status_code.numeric <- function(x) x
 http_status <- function(x) {
   status <- status_code(x)
 
-  status_desc <- http_statuses[[as.character(status)]]
-  if (is.na(status_desc)) {
+  if (!status %in% names(http_statuses)) {
     stop("Unknown http status code: ", status, call. = FALSE)
   }
+
+  status_desc <- http_statuses[[as.character(status)]]
 
   status_types <- c(
     "Information", "Success", "Redirection", "Client error",
