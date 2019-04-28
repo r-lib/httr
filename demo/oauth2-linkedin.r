@@ -15,8 +15,7 @@ myapp <- oauth_app("linkedin",
 )
 
 # 3. Get OAuth credentials and specify a scope your app has permission for
-token <- oauth2.0_token(endpoints, myapp,
-                        scope = "r_liteprofile")
+token <- oauth2.0_token(endpoints, myapp, scope = "r_liteprofile")
 
 # 4. Use API
 req <- GET("https://api.linkedin.com/v2/me", config(token = token))
