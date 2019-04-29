@@ -109,8 +109,22 @@ value will be used instead, unless it's smaller than pause_min." />
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="../news/index.html">News</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/12/httr-1-4-0/">Version 1.4.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
@@ -266,17 +280,19 @@ to use <code><a href='stop_for_status.html'>stop_for_status()</a></code>.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Succeeds straight away</span>
 <span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/200"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/status/200]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># Never succeeds</span>
 <span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/500"</span>)</div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 3.3 seconds...</span></div><div class='output co'>#&gt; Response [http://httpbin.org/status/500]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 500
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># Invalid hostname generates curl error condition and is retried but eventually</span>
 <span class='co'># raises an error condition.</span>
-<span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://invalidhostname/"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in UseMethod("http_error"): no applicable method for 'http_error' applied to an object of class "c('simpleError', 'error', 'condition')"</span></div></pre>
+<span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://invalidhostname/"</span>)</div><div class='output co'>#&gt; <span class='message'>Error in curl::curl_fetch_memory(url, handle = handle): Couldn't resolve host 'invalidhostname'</span>
+#&gt; <span class='message'>Request failed [ERROR]. Retrying in 1.2 seconds...</span></div><div class='output co'>#&gt; <span class='message'>Error in curl::curl_fetch_memory(url, handle = handle): Couldn't resolve host 'invalidhostname'</span>
+#&gt; <span class='message'>Request failed [ERROR]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='error'>Error in curl::curl_fetch_memory(url, handle = handle): Couldn't resolve host 'invalidhostname'</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

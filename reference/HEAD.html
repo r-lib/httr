@@ -99,8 +99,22 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="../news/index.html">News</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/12/httr-1-4-0/">Version 1.4.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
@@ -196,11 +210,11 @@ cache MUST treat the cache entry as stale.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'><a href='headers.html'>headers</a></span>(<span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>))</div><div class='output co'>#&gt; $date
-#&gt; [1] "Mon, 17 Dec 2018 20:44:31 GMT"
+#&gt; [1] "Mon, 29 Apr 2019 00:31:30 GMT"
 #&gt; 
 #&gt; $expires
 #&gt; [1] "-1"
@@ -218,16 +232,16 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "gws"
 #&gt; 
 #&gt; $`content-length`
-#&gt; [1] "5282"
+#&gt; [1] "4911"
 #&gt; 
 #&gt; $`x-xss-protection`
-#&gt; [1] "1; mode=block"
+#&gt; [1] "0"
 #&gt; 
 #&gt; $`x-frame-options`
 #&gt; [1] "SAMEORIGIN"
 #&gt; 
 #&gt; $`set-cookie`
-#&gt; [1] "1P_JAR=2018-12-17-20; expires=Wed, 16-Jan-2019 20:44:31 GMT; path=/; domain=.google.com"
+#&gt; [1] "1P_JAR=2019-04-29-00; expires=Wed, 29-May-2019 00:31:30 GMT; path=/; domain=.google.com"
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "insensitive" "list"       </div></pre>

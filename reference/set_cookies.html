@@ -99,8 +99,22 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="../news/index.html">News</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/12/httr-1-4-0/">Version 1.4.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
@@ -162,7 +176,7 @@
 #&gt; Options:
 #&gt; * cookie: a=1;b=2</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/cookies"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/cookies]
-#&gt;   Date: 2018-12-17 20:45
+#&gt;   Date: 2019-04-29 00:32
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 51 B
@@ -172,7 +186,7 @@
 #&gt;     "b": "2"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/cookies"</span>, <span class='fu'>set_cookies</span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/cookies]
-#&gt;   Date: 2018-12-17 20:45
+#&gt;   Date: 2019-04-29 00:32
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 51 B

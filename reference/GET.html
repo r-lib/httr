@@ -99,8 +99,22 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="../news/index.html">News</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/12/httr-1-4-0/">Version 1.4.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
@@ -202,61 +216,61 @@ data already held by the client.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 12.3 kB
+#&gt;   Size: 11.3 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/webhp]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 12.3 kB
+#&gt;   Size: 11.3 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>, <span class='kw'>query</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>q</span> <span class='kw'>=</span> <span class='st'>"ham"</span>))</div><div class='output co'>#&gt; Response [http://www.google.com/search?q=ham]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 59.7 kB
+#&gt;   Size: 55 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/SearchResultsPa...
 #&gt; &lt;/style&gt;&lt;style&gt;.star{float:left;margin-top:1px;overflow:hidden}.ybhkme{font-s...
-#&gt; breasts and other premium meats, as well as heat-and-serve sides, lunch, &lt;br&gt;
-#&gt; catering&amp;nbsp;...&lt;/span&gt;&lt;br&gt;&lt;div class="osl"&gt;&lt;a href="/url?q=https://www.hone...
-#&gt; without smoking. As a processed meat, the term &amp;quot;&lt;b&gt;ham&lt;/b&gt;&amp;quot; include...
-#&gt;  ... Here are our five favorite ways to glaze and caramelize the holiday dinn...
-#&gt;  ... All &lt;b&gt;Ham&lt;/b&gt; Recipes Ideas.&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="g"&gt;&lt;h3 c...
+#&gt;  ... But every now and then I buy a spiral sliced &lt;b&gt;ham&lt;/b&gt; and let it do it...
+#&gt;  ... In short there are three types: spiral sliced, bone-in unsliced &lt;b&gt;hams&lt;...
 #&gt; the classic, 1942, Ernst Lubitch comedy film, &amp;quot;To Be or Not to Be,&amp;quot;...
 #&gt; &amp;nbsp;...&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="g"&gt;&lt;h3 class="r"&gt;&lt;a href="/url?q=...
-#&gt; specialty &lt;b&gt;hams&lt;/b&gt;.&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="g"&gt;&lt;h3 class="r"&gt;&lt;a ...
+#&gt; breasts and other premium meats, as well as heat-and-serve sides, lunch, &lt;br&gt;
+#&gt; catering&amp;nbsp;...&lt;/span&gt;&lt;br&gt;&lt;div class="osl"&gt;&lt;a href="/url?q=https://www.hone...
+#&gt; outside is brushed with a brown sugar glaze and caramelized for a&amp;nbsp;...&lt;/s...
+#&gt; glaze! Succulent on the inside with crispy, charred, sticky edges.&lt;/span&gt;&lt;br&gt;...
 #&gt; ...</div><div class='input'>
 <span class='co'># See what GET is doing with httpbin.org</span>
 <span class='no'>url</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/get"</span>
 <span class='fu'>GET</span>(<span class='no'>url</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 331 B
+#&gt;   Size: 314 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
-#&gt;     "Connection": "close", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.2 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt;   }, 
-#&gt;   "origin": "35.192.136.167", 
+#&gt;   "origin": "35.193.7.13, 35.193.7.13", 
+#&gt;   "url": "https://httpbin.org/get"
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 361 B
+#&gt;   Size: 344 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
@@ -264,29 +278,29 @@ data already held by the client.</p>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt;     "B": "2", 
-#&gt;     "Connection": "close", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.2 httr/1.4.0.9000"
-#&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2018-12-17 20:44
-#&gt;   Status: 200
-#&gt;   Content-Type: application/json
-#&gt;   Size: 357 B
-#&gt; {
-#&gt;   "args": {}, 
-#&gt;   "headers": {
-#&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
-#&gt;     "Accept-Encoding": "gzip, deflate", 
-#&gt;     "Connection": "close", 
-#&gt;     "Cookie": "a=1;b=2", 
-#&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.2 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt;   }, 
-#&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2018-12-17 20:44
+#&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 387 B
+#&gt;   Size: 340 B
+#&gt; {
+#&gt;   "args": {}, 
+#&gt;   "headers": {
+#&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
+#&gt;     "Accept-Encoding": "gzip, deflate", 
+#&gt;     "Cookie": "a=1;b=2", 
+#&gt;     "Host": "httpbin.org", 
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
+#&gt;   }, 
+#&gt;   "origin": "35.193.7.13, 35.193.7.13", 
+#&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
+#&gt;   Date: 2019-04-29 00:31
+#&gt;   Status: 200
+#&gt;   Content-Type: application/json
+#&gt;   Size: 370 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
@@ -294,57 +308,57 @@ data already held by the client.</p>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt;     "B": "2", 
-#&gt;     "Connection": "close", 
 #&gt;     "Cookie": "a=1;b=2", 
 #&gt;     "Host": "httpbin.org", 
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='authenticate.html'>authenticate</a></span>(<span class='st'>"username"</span>, <span class='st'>"password"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 387 B
+#&gt;   Size: 370 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt;     "Authorization": "Basic dXNlcm5hbWU6cGFzc3dvcmQ=", 
-#&gt;     "Connection": "close", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.2 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt;   }, 
+#&gt;   "origin": "35.193.7.13, 35.193.7.13", 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 331 B
+#&gt;   Size: 320 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
-#&gt;     "Connection": "close", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.2 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt;   }, 
-#&gt;   "origin": "35.192.136.167", 
+#&gt;   "origin": "35.184.226.236, 35.184.226.236", 
+#&gt;   "url": "https://httpbin.org/get"
 #&gt; ...</div><div class='input'>
 <span class='co'># You might want to manually specify the handle so you can have multiple</span>
 <span class='co'># independent logins to the same website.</span>
 <span class='no'>google</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='handle.html'>handle</a></span>(<span class='st'>"http://google.com"</span>)
 <span class='fu'>GET</span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>google</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"/"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 12.3 kB
+#&gt;   Size: 11.3 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...</div><div class='input'><span class='fu'>GET</span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>google</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/webhp]
-#&gt;   Date: 2018-12-17 20:44
+#&gt;   Date: 2019-04-29 00:31
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 12.3 kB
+#&gt;   Size: 11.3 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...

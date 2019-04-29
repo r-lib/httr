@@ -65,8 +65,22 @@
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="../news/index.html">News</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/12/httr-1-4-0/">Version 1.4.0</a>
+    </li>
+    <li class="divider">
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
@@ -167,10 +181,10 @@
 <a class="sourceLine" id="cb3-7" data-line-number="7">resp &lt;-<span class="st"> </span><span class="kw">github_api</span>(<span class="st">"/repos/hadley/httr"</span>)</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">resp</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; Response [https://api.github.com/repositories/2756403]</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;   Date: 2018-12-17 20:45</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;   Date: 2019-04-29 00:32</span></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;   Size: 6.02 kB</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;   Size: 6.04 kB</span></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; {</span></a>
 <a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;   "id": 2756403,</span></a>
 <a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;   "node_id": "MDEwOlJlcG9zaXRvcnkyNzU2NDAz",</span></a>
@@ -190,24 +204,24 @@
 <p>Note that while most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span>)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   Date: 2018-12-17 20:45</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   Date: 2019-04-29 00:32</span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;   Content-Type: text/xml; charset=utf-8</span></a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;   Size: 1.79 kB</span></a>
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; &lt;colors numResults="1" totalResults="9961293"&gt;</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; &lt;colors numResults="1" totalResults="9989733"&gt;</span></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  &lt;color&gt;</span></a>
 <a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;      &lt;id&gt;903893&lt;/id&gt;</span></a>
 <a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;      &lt;title&gt;&lt;![CDATA[wet dirt]]&gt;&lt;/title&gt;</span></a>
 <a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;      &lt;userName&gt;&lt;![CDATA[jessicabrown]]&gt;&lt;/userName&gt;</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;      &lt;numViews&gt;526&lt;/numViews&gt;</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;      &lt;numViews&gt;557&lt;/numViews&gt;</span></a>
 <a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;      &lt;numVotes&gt;1&lt;/numVotes&gt;</span></a>
 <a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;      &lt;numComments&gt;0&lt;/numComments&gt;</span></a>
 <a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;      &lt;numHearts&gt;0&lt;/numHearts&gt;</span></a>
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; ...</span></a>
 <a class="sourceLine" id="cb4-18" data-line-number="18"><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span>)</a>
 <a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;   Date: 2018-12-17 20:45</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;   Date: 2019-04-29 00:32</span></a>
 <a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></a>
 <a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt;   Size: 1.43 kB</span></a></code></pre></div>
@@ -302,12 +316,12 @@
 <a class="sourceLine" id="cb8-52" data-line-number="52"><span class="co">#&gt;  $ email              : NULL</span></a>
 <a class="sourceLine" id="cb8-53" data-line-number="53"><span class="co">#&gt;  $ hireable           : NULL</span></a>
 <a class="sourceLine" id="cb8-54" data-line-number="54"><span class="co">#&gt;  $ bio                : chr "Chief Scientist at @RStudio"</span></a>
-<a class="sourceLine" id="cb8-55" data-line-number="55"><span class="co">#&gt;  $ public_repos       : int 216</span></a>
+<a class="sourceLine" id="cb8-55" data-line-number="55"><span class="co">#&gt;  $ public_repos       : int 220</span></a>
 <a class="sourceLine" id="cb8-56" data-line-number="56"><span class="co">#&gt;  $ public_gists       : int 166</span></a>
-<a class="sourceLine" id="cb8-57" data-line-number="57"><span class="co">#&gt;  $ followers          : int 14740</span></a>
+<a class="sourceLine" id="cb8-57" data-line-number="57"><span class="co">#&gt;  $ followers          : int 15778</span></a>
 <a class="sourceLine" id="cb8-58" data-line-number="58"><span class="co">#&gt;  $ following          : int 6</span></a>
 <a class="sourceLine" id="cb8-59" data-line-number="59"><span class="co">#&gt;  $ created_at         : chr "2008-04-01T14:47:36Z"</span></a>
-<a class="sourceLine" id="cb8-60" data-line-number="60"><span class="co">#&gt;  $ updated_at         : chr "2018-12-16T14:39:00Z"</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-60" data-line-number="60"><span class="co">#&gt;  $ updated_at         : chr "2019-04-13T18:27:40Z"</span></a></code></pre></div>
 <p>The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.</p>
 </div>
 <div id="turn-api-errors-into-r-errors" class="section level3">
@@ -496,23 +510,27 @@
 <a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw">rate_limit</span>()</a>
 <a class="sourceLine" id="cb14-5" data-line-number="5"><span class="co">#&gt; &lt;GitHub /rate_limit&gt;</span></a>
 <a class="sourceLine" id="cb14-6" data-line-number="6"><span class="co">#&gt; List of 2</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co">#&gt;  $ resources:List of 3</span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co">#&gt;   ..$ core   :List of 3</span></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co">#&gt;  $ resources:List of 4</span></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co">#&gt;   ..$ core                :List of 3</span></a>
 <a class="sourceLine" id="cb14-9" data-line-number="9"><span class="co">#&gt;   .. ..$ limit    : int 60</span></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt;   .. ..$ remaining: int 38</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt;   .. ..$ reset    : int 1545082479</span></a>
-<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co">#&gt;   ..$ search :List of 3</span></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt;   .. ..$ remaining: int 17</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt;   .. ..$ reset    : int 1556498051</span></a>
+<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co">#&gt;   ..$ search              :List of 3</span></a>
 <a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co">#&gt;   .. ..$ limit    : int 10</span></a>
 <a class="sourceLine" id="cb14-14" data-line-number="14"><span class="co">#&gt;   .. ..$ remaining: int 10</span></a>
-<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">#&gt;   .. ..$ reset    : int 1545079574</span></a>
-<a class="sourceLine" id="cb14-16" data-line-number="16"><span class="co">#&gt;   ..$ graphql:List of 3</span></a>
+<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">#&gt;   .. ..$ reset    : int 1556497995</span></a>
+<a class="sourceLine" id="cb14-16" data-line-number="16"><span class="co">#&gt;   ..$ graphql             :List of 3</span></a>
 <a class="sourceLine" id="cb14-17" data-line-number="17"><span class="co">#&gt;   .. ..$ limit    : int 0</span></a>
 <a class="sourceLine" id="cb14-18" data-line-number="18"><span class="co">#&gt;   .. ..$ remaining: int 0</span></a>
-<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="co">#&gt;   .. ..$ reset    : int 1545083114</span></a>
-<a class="sourceLine" id="cb14-20" data-line-number="20"><span class="co">#&gt;  $ rate     :List of 3</span></a>
-<a class="sourceLine" id="cb14-21" data-line-number="21"><span class="co">#&gt;   ..$ limit    : int 60</span></a>
-<a class="sourceLine" id="cb14-22" data-line-number="22"><span class="co">#&gt;   ..$ remaining: int 38</span></a>
-<a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">#&gt;   ..$ reset    : int 1545082479</span></a></code></pre></div>
+<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="co">#&gt;   .. ..$ reset    : int 1556501535</span></a>
+<a class="sourceLine" id="cb14-20" data-line-number="20"><span class="co">#&gt;   ..$ integration_manifest:List of 3</span></a>
+<a class="sourceLine" id="cb14-21" data-line-number="21"><span class="co">#&gt;   .. ..$ limit    : int 5000</span></a>
+<a class="sourceLine" id="cb14-22" data-line-number="22"><span class="co">#&gt;   .. ..$ remaining: int 5000</span></a>
+<a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">#&gt;   .. ..$ reset    : int 1556501535</span></a>
+<a class="sourceLine" id="cb14-24" data-line-number="24"><span class="co">#&gt;  $ rate     :List of 3</span></a>
+<a class="sourceLine" id="cb14-25" data-line-number="25"><span class="co">#&gt;   ..$ limit    : int 60</span></a>
+<a class="sourceLine" id="cb14-26" data-line-number="26"><span class="co">#&gt;   ..$ remaining: int 17</span></a>
+<a class="sourceLine" id="cb14-27" data-line-number="27"><span class="co">#&gt;   ..$ reset    : int 1556498051</span></a></code></pre></div>
 <p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">rate_limit &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">  req &lt;-<span class="st"> </span><span class="kw">github_api</span>(<span class="st">"/rate_limit"</span>)</a>
@@ -524,7 +542,7 @@
 <a class="sourceLine" id="cb15-8" data-line-number="8">}</a>
 <a class="sourceLine" id="cb15-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb15-10" data-line-number="10"><span class="kw">rate_limit</span>()</a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; 38 / 60 (Resets at 21:34:39)</span></a></code></pre></div>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; 17 / 60 (Resets at 00:34:11)</span></a></code></pre></div>
 </div>
 </div>
   </div>

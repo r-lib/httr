@@ -100,8 +100,22 @@ information between the client and server." />
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="../news/index.html">News</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/12/httr-1-4-0/">Version 1.4.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
@@ -184,10 +198,10 @@ even when the requests are buried inside another function call.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2018-12-17 20:45
+#&gt;   Date: 2019-04-29 00:32
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
-#&gt;   Size: 10.1 kB
+#&gt;   Size: 9.59 kB
 #&gt; &lt;!DOCTYPE html&gt;
 #&gt; &lt;html lang="en"&gt;
 #&gt; 
@@ -199,10 +213,10 @@ even when the requests are buried inside another function call.</p>
 #&gt;     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagger-ui....
 #&gt;     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes="64x64...
 #&gt; ...</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span>(<span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2018-12-17 20:45
+#&gt;   Date: 2019-04-29 00:32
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
-#&gt;   Size: 10.1 kB
+#&gt;   Size: 9.59 kB
 #&gt; &lt;!DOCTYPE html&gt;
 #&gt; &lt;html lang="en"&gt;
 #&gt; 
@@ -218,10 +232,10 @@ even when the requests are buried inside another function call.</p>
   <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>)
 }
 <span class='fu'><a href='with_config.html'>with_verbose</a></span>(<span class='fu'>f</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2018-12-17 20:45
+#&gt;   Date: 2019-04-29 00:32
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
-#&gt;   Size: 10.1 kB
+#&gt;   Size: 9.59 kB
 #&gt; &lt;!DOCTYPE html&gt;
 #&gt; &lt;html lang="en"&gt;
 #&gt; 
@@ -233,10 +247,10 @@ even when the requests are buried inside another function call.</p>
 #&gt;     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagger-ui....
 #&gt;     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes="64x64...
 #&gt; ...</div><div class='input'><span class='fu'><a href='with_config.html'>with_verbose</a></span>(<span class='fu'>f</span>(), <span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2018-12-17 20:45
+#&gt;   Date: 2019-04-29 00:32
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
-#&gt;   Size: 10.1 kB
+#&gt;   Size: 9.59 kB
 #&gt; &lt;!DOCTYPE html&gt;
 #&gt; &lt;html lang="en"&gt;
 #&gt; 

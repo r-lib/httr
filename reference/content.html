@@ -103,8 +103,22 @@ does its best to guess which output is most appropriate." />
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="../news/index.html">News</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/12/httr-1-4-0/">Version 1.4.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
@@ -239,30 +253,27 @@ you will protect yourself against changes to httr.</p>
 #&gt; $headers$`Accept-Encoding`
 #&gt; [1] "gzip, deflate"
 #&gt; 
-#&gt; $headers$Connection
-#&gt; [1] "close"
-#&gt; 
 #&gt; $headers$`Content-Length`
 #&gt; [1] "228"
 #&gt; 
 #&gt; $headers$`Content-Type`
-#&gt; [1] "multipart/form-data; boundary=------------------------ee1e712db75bc747"
+#&gt; [1] "multipart/form-data; boundary=------------------------7c0b9eb5947a610c"
 #&gt; 
 #&gt; $headers$Host
 #&gt; [1] "httpbin.org"
 #&gt; 
 #&gt; $headers$`User-Agent`
-#&gt; [1] "libcurl/7.43.0 r-curl/3.2 httr/1.4.0.9000"
+#&gt; [1] "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt; 
 #&gt; 
 #&gt; $json
 #&gt; NULL
 #&gt; 
 #&gt; $origin
-#&gt; [1] "35.192.187.174"
+#&gt; [1] "35.202.145.110, 35.202.145.110"
 #&gt; 
 #&gt; $url
-#&gt; [1] "http://httpbin.org/post"
+#&gt; [1] "https://httpbin.org/post"
 #&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cat'>cat</a></span>(<span class='fu'>content</span>(<span class='no'>r</span>, <span class='st'>"text"</span>), <span class='st'>"\n"</span>) <span class='co'># text content</span></div><div class='output co'>#&gt; <span class='message'>No encoding supplied: defaulting to UTF-8.</span></div><div class='output co'>#&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -274,15 +285,14 @@ you will protect yourself against changes to httr.</p>
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
-#&gt;     "Connection": "close", 
 #&gt;     "Content-Length": "228", 
-#&gt;     "Content-Type": "multipart/form-data; boundary=------------------------ee1e712db75bc747", 
+#&gt;     "Content-Type": "multipart/form-data; boundary=------------------------7c0b9eb5947a610c", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.2 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt;   }, 
 #&gt;   "json": null, 
-#&gt;   "origin": "35.192.187.174", 
-#&gt;   "url": "http://httpbin.org/post"
+#&gt;   "origin": "35.202.145.110, 35.202.145.110", 
+#&gt;   "url": "https://httpbin.org/post"
 #&gt; }
 #&gt;  </div><div class='input'><span class='fu'>content</span>(<span class='no'>r</span>, <span class='st'>"raw"</span>) <span class='co'># raw bytes from server</span></div><div class='output co'>#&gt;   [1] 7b 0a 20 20 22 61 72 67 73 22 3a 20 7b 7d 2c 20 0a 20 20 22 64 61 74 61 22
 #&gt;  [26] 3a 20 22 22 2c 20 0a 20 20 22 66 69 6c 65 73 22 3a 20 7b 7d 2c 20 0a 20 20
@@ -293,20 +303,19 @@ you will protect yourself against changes to httr.</p>
 #&gt; [151] 2c 20 61 70 70 6c 69 63 61 74 69 6f 6e 2f 78 6d 6c 2c 20 2a 2f 2a 22 2c 20
 #&gt; [176] 0a 20 20 20 20 22 41 63 63 65 70 74 2d 45 6e 63 6f 64 69 6e 67 22 3a 20 22
 #&gt; [201] 67 7a 69 70 2c 20 64 65 66 6c 61 74 65 22 2c 20 0a 20 20 20 20 22 43 6f 6e
-#&gt; [226] 6e 65 63 74 69 6f 6e 22 3a 20 22 63 6c 6f 73 65 22 2c 20 0a 20 20 20 20 22
-#&gt; [251] 43 6f 6e 74 65 6e 74 2d 4c 65 6e 67 74 68 22 3a 20 22 32 32 38 22 2c 20 0a
-#&gt; [276] 20 20 20 20 22 43 6f 6e 74 65 6e 74 2d 54 79 70 65 22 3a 20 22 6d 75 6c 74
-#&gt; [301] 69 70 61 72 74 2f 66 6f 72 6d 2d 64 61 74 61 3b 20 62 6f 75 6e 64 61 72 79
-#&gt; [326] 3d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d
-#&gt; [351] 65 65 31 65 37 31 32 64 62 37 35 62 63 37 34 37 22 2c 20 0a 20 20 20 20 22
-#&gt; [376] 48 6f 73 74 22 3a 20 22 68 74 74 70 62 69 6e 2e 6f 72 67 22 2c 20 0a 20 20
-#&gt; [401] 20 20 22 55 73 65 72 2d 41 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f
-#&gt; [426] 37 2e 34 33 2e 30 20 72 2d 63 75 72 6c 2f 33 2e 32 20 68 74 74 72 2f 31 2e
-#&gt; [451] 34 2e 30 2e 39 30 30 30 22 0a 20 20 7d 2c 20 0a 20 20 22 6a 73 6f 6e 22 3a
-#&gt; [476] 20 6e 75 6c 6c 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 33 35 2e 31
-#&gt; [501] 39 32 2e 31 38 37 2e 31 37 34 22 2c 20 0a 20 20 22 75 72 6c 22 3a 20 22 68
-#&gt; [526] 74 74 70 3a 2f 2f 68 74 74 70 62 69 6e 2e 6f 72 67 2f 70 6f 73 74 22 0a 7d
-#&gt; [551] 0a</div><div class='input'>
+#&gt; [226] 74 65 6e 74 2d 4c 65 6e 67 74 68 22 3a 20 22 32 32 38 22 2c 20 0a 20 20 20
+#&gt; [251] 20 22 43 6f 6e 74 65 6e 74 2d 54 79 70 65 22 3a 20 22 6d 75 6c 74 69 70 61
+#&gt; [276] 72 74 2f 66 6f 72 6d 2d 64 61 74 61 3b 20 62 6f 75 6e 64 61 72 79 3d 2d 2d
+#&gt; [301] 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 37 63 30
+#&gt; [326] 62 39 65 62 35 39 34 37 61 36 31 30 63 22 2c 20 0a 20 20 20 20 22 48 6f 73
+#&gt; [351] 74 22 3a 20 22 68 74 74 70 62 69 6e 2e 6f 72 67 22 2c 20 0a 20 20 20 20 22
+#&gt; [376] 55 73 65 72 2d 41 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f 37 2e 34
+#&gt; [401] 33 2e 30 20 72 2d 63 75 72 6c 2f 33 2e 33 20 68 74 74 72 2f 31 2e 34 2e 30
+#&gt; [426] 2e 39 30 30 30 22 0a 20 20 7d 2c 20 0a 20 20 22 6a 73 6f 6e 22 3a 20 6e 75
+#&gt; [451] 6c 6c 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 33 35 2e 32 30 32 2e
+#&gt; [476] 31 34 35 2e 31 31 30 2c 20 33 35 2e 32 30 32 2e 31 34 35 2e 31 31 30 22 2c
+#&gt; [501] 20 0a 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 73 3a 2f 2f 68 74 74 70 62
+#&gt; [526] 69 6e 2e 6f 72 67 2f 70 6f 73 74 22 0a 7d 0a</div><div class='input'>
 <span class='no'>rlogo</span> <span class='kw'>&lt;-</span> <span class='fu'>content</span>(<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://cran.r-project.org/Rlogo.jpg"</span>))
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='fl'>0</span>:<span class='fl'>1</span>, <span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"n"</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/rasterImage'>rasterImage</a></span>(<span class='no'>rlogo</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>)</div><div class='img'><img src='content-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
