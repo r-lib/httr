@@ -1,5 +1,12 @@
 url: https://httr.r-lib.org
 
+template:
+  params:
+    docsearch:
+      api_key: fbd8d79ed49f21fc9ca7b2cf601a3f5b
+      index_name: httr
+    ganalytics: UA-115082821-1
+
 reference:
 
 - title: HTTP verbs
