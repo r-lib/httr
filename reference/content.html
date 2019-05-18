@@ -51,6 +51,16 @@ does its best to guess which output is most appropriate." />
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115082821-1');
+</script>
+
   </head>
 
   <body>
@@ -257,7 +267,7 @@ you will protect yourself against changes to httr.</p>
 #&gt; [1] "228"
 #&gt; 
 #&gt; $headers$`Content-Type`
-#&gt; [1] "multipart/form-data; boundary=------------------------7c0b9eb5947a610c"
+#&gt; [1] "multipart/form-data; boundary=------------------------5a941ec6053ee2b9"
 #&gt; 
 #&gt; $headers$Host
 #&gt; [1] "httpbin.org"
@@ -270,7 +280,7 @@ you will protect yourself against changes to httr.</p>
 #&gt; NULL
 #&gt; 
 #&gt; $origin
-#&gt; [1] "35.202.145.110, 35.202.145.110"
+#&gt; [1] "35.224.112.202, 35.224.112.202"
 #&gt; 
 #&gt; $url
 #&gt; [1] "https://httpbin.org/post"
@@ -286,12 +296,12 @@ you will protect yourself against changes to httr.</p>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "gzip, deflate", 
 #&gt;     "Content-Length": "228", 
-#&gt;     "Content-Type": "multipart/form-data; boundary=------------------------7c0b9eb5947a610c", 
+#&gt;     "Content-Type": "multipart/form-data; boundary=------------------------5a941ec6053ee2b9", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt;   }, 
 #&gt;   "json": null, 
-#&gt;   "origin": "35.202.145.110, 35.202.145.110", 
+#&gt;   "origin": "35.224.112.202, 35.224.112.202", 
 #&gt;   "url": "https://httpbin.org/post"
 #&gt; }
 #&gt;  </div><div class='input'><span class='fu'>content</span>(<span class='no'>r</span>, <span class='st'>"raw"</span>) <span class='co'># raw bytes from server</span></div><div class='output co'>#&gt;   [1] 7b 0a 20 20 22 61 72 67 73 22 3a 20 7b 7d 2c 20 0a 20 20 22 64 61 74 61 22
@@ -306,14 +316,14 @@ you will protect yourself against changes to httr.</p>
 #&gt; [226] 74 65 6e 74 2d 4c 65 6e 67 74 68 22 3a 20 22 32 32 38 22 2c 20 0a 20 20 20
 #&gt; [251] 20 22 43 6f 6e 74 65 6e 74 2d 54 79 70 65 22 3a 20 22 6d 75 6c 74 69 70 61
 #&gt; [276] 72 74 2f 66 6f 72 6d 2d 64 61 74 61 3b 20 62 6f 75 6e 64 61 72 79 3d 2d 2d
-#&gt; [301] 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 37 63 30
-#&gt; [326] 62 39 65 62 35 39 34 37 61 36 31 30 63 22 2c 20 0a 20 20 20 20 22 48 6f 73
+#&gt; [301] 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 35 61 39
+#&gt; [326] 34 31 65 63 36 30 35 33 65 65 32 62 39 22 2c 20 0a 20 20 20 20 22 48 6f 73
 #&gt; [351] 74 22 3a 20 22 68 74 74 70 62 69 6e 2e 6f 72 67 22 2c 20 0a 20 20 20 20 22
 #&gt; [376] 55 73 65 72 2d 41 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f 37 2e 34
 #&gt; [401] 33 2e 30 20 72 2d 63 75 72 6c 2f 33 2e 33 20 68 74 74 72 2f 31 2e 34 2e 30
 #&gt; [426] 2e 39 30 30 30 22 0a 20 20 7d 2c 20 0a 20 20 22 6a 73 6f 6e 22 3a 20 6e 75
-#&gt; [451] 6c 6c 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 33 35 2e 32 30 32 2e
-#&gt; [476] 31 34 35 2e 31 31 30 2c 20 33 35 2e 32 30 32 2e 31 34 35 2e 31 31 30 22 2c
+#&gt; [451] 6c 6c 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 33 35 2e 32 32 34 2e
+#&gt; [476] 31 31 32 2e 32 30 32 2c 20 33 35 2e 32 32 34 2e 31 31 32 2e 32 30 32 22 2c
 #&gt; [501] 20 0a 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 73 3a 2f 2f 68 74 74 70 62
 #&gt; [526] 69 6e 2e 6f 72 67 2f 70 6f 73 74 22 0a 7d 0a</div><div class='input'>
 <span class='no'>rlogo</span> <span class='kw'>&lt;-</span> <span class='fu'>content</span>(<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://cran.r-project.org/Rlogo.jpg"</span>))

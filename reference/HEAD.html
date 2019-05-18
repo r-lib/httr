@@ -47,6 +47,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115082821-1');
+</script>
+
   </head>
 
   <body>
@@ -210,11 +220,11 @@ cache MUST treat the cache entry as stale.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2019-04-29 00:31
+#&gt;   Date: 2019-05-18 12:15
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'><a href='headers.html'>headers</a></span>(<span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>))</div><div class='output co'>#&gt; $date
-#&gt; [1] "Mon, 29 Apr 2019 00:31:30 GMT"
+#&gt; [1] "Sat, 18 May 2019 12:15:16 GMT"
 #&gt; 
 #&gt; $expires
 #&gt; [1] "-1"
@@ -232,7 +242,7 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "gws"
 #&gt; 
 #&gt; $`content-length`
-#&gt; [1] "4911"
+#&gt; [1] "4930"
 #&gt; 
 #&gt; $`x-xss-protection`
 #&gt; [1] "0"
@@ -241,7 +251,7 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "SAMEORIGIN"
 #&gt; 
 #&gt; $`set-cookie`
-#&gt; [1] "1P_JAR=2019-04-29-00; expires=Wed, 29-May-2019 00:31:30 GMT; path=/; domain=.google.com"
+#&gt; [1] "1P_JAR=2019-05-18-12; expires=Mon, 17-Jun-2019 12:15:16 GMT; path=/; domain=.google.com"
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "insensitive" "list"       </div></pre>

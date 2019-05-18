@@ -47,6 +47,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115082821-1');
+</script>
+
   </head>
 
   <body>
@@ -176,7 +186,7 @@
 #&gt; Options:
 #&gt; * cookie: a=1;b=2</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/cookies"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/cookies]
-#&gt;   Date: 2019-04-29 00:32
+#&gt;   Date: 2019-05-18 12:15
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 51 B
@@ -186,7 +196,7 @@
 #&gt;     "b": "2"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/cookies"</span>, <span class='fu'>set_cookies</span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/cookies]
-#&gt;   Date: 2019-04-29 00:32
+#&gt;   Date: 2019-05-18 12:15
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 51 B

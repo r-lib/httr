@@ -53,6 +53,16 @@ Sun Nov  6 08:49:37 1994       ; ANSI C's asctime() format
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115082821-1');
+</script>
+
   </head>
 
   <body>
@@ -183,7 +193,7 @@ All elements must be of the same type.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>parse_http_date</span>(<span class='st'>"Sun, 06 Nov 1994 08:49:37 GMT"</span>)</div><div class='output co'>#&gt; [1] "1994-11-06 08:49:37 GMT"</div><div class='input'><span class='fu'>parse_http_date</span>(<span class='st'>"Sunday, 06-Nov-94 08:49:37 GMT"</span>)</div><div class='output co'>#&gt; [1] "1994-11-06 08:49:37 GMT"</div><div class='input'><span class='fu'>parse_http_date</span>(<span class='st'>"Sun Nov  6 08:49:37 1994"</span>)</div><div class='output co'>#&gt; [1] "1994-11-06 08:49:37 GMT"</div><div class='input'>
-<span class='fu'>http_date</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Sys.time'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] "Mon, 29 Apr 2019 00:31:48 GMT"</div></pre>
+<span class='fu'>http_date</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Sys.time'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] "Sat, 18 May 2019 12:15:34 GMT"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

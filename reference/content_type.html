@@ -47,6 +47,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115082821-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115082821-1');
+</script>
+
   </head>
 
   <body>
@@ -176,7 +186,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-04-29 00:31
+#&gt;   Date: 2019-05-18 12:15
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 221 B
@@ -189,7 +199,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept_json</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-04-29 00:31
+#&gt;   Date: 2019-05-18 12:15
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 189 B
@@ -201,7 +211,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span>(<span class='st'>"text/csv"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-04-29 00:31
+#&gt;   Date: 2019-05-18 12:15
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 181 B
@@ -213,7 +223,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span>(<span class='st'>".doc"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-04-29 00:31
+#&gt;   Date: 2019-05-18 12:15
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 191 B
@@ -226,7 +236,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type_xml</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-04-29 00:31
+#&gt;   Date: 2019-05-18 12:15
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 261 B
@@ -239,7 +249,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span>(<span class='st'>"text/csv"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-04-29 00:31
+#&gt;   Date: 2019-05-18 12:15
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 254 B
@@ -252,7 +262,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span>(<span class='st'>".xml"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-04-29 00:31
+#&gt;   Date: 2019-05-18 12:15
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 261 B
