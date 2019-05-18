@@ -13,7 +13,7 @@ Description: Useful tools for working with HTTP organised by
     to control additional request components (authenticate(),
     add_headers() and so on).
 License: MIT + file LICENSE
-URL: https://github.com/r-lib/httr
+URL: https://httr.r-lib.org/, https://github.com/r-lib/httr
 BugReports: https://github.com/r-lib/httr/issues
 Depends:
     R (>= 3.1)

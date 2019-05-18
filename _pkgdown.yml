@@ -1,5 +1,9 @@
 url: https://httr.r-lib.org
 
+template:
+  params:
+    ganalytics: UA-115082821-1
+
 reference:
 
 - title: HTTP verbs
