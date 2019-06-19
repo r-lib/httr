@@ -48,7 +48,7 @@ download_file("https://google.com", tmp1) # downloads fine
 download_file("https://google.com", tmp1) # doesn't re-download since it's cached
 download_file("https://google.com", tmp1, overwrite = TRUE) # re-downloads (overwrites file)
 download_file("https://google.com", tmp2) # re-downloads (new file)
-download_file("badurl", tmp3)) # handles major errors gracefully
+download_file("badurl", tmp3) # handles major errors gracefully
 
 # multi-file example with no-caching
 download_file(
