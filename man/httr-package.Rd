@@ -34,6 +34,7 @@ github, google, linkedin, reddit, yahoo, and yelp).
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://httr.r-lib.org/}
   \item \url{https://github.com/r-lib/httr}
   \item Report bugs at \url{https://github.com/r-lib/httr/issues}
 }

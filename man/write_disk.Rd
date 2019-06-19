@@ -10,7 +10,7 @@ write_disk(path, overwrite = FALSE)
 write_memory()
 }
 \arguments{
-\item{path}{Path to content to.}
+\item{path}{Path to save content to.}
 
 \item{overwrite}{Will only overwrite existing \code{path} if TRUE.}
 }
