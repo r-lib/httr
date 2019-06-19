@@ -8,10 +8,10 @@ download_file(url, path, overwrite = FALSE, ...)
 }
 \arguments{
 \item{url}{the url(s) of the file to retrieve. If multiple URLs are provided then the same
-number of \link{path}s must also be provided.}
+number of \code{path}s must also be provided.}
 
 \item{path}{Path(s) to save content to. If more than one \code{path} is specified then the same
-number of \link{url}s must also be provided. THis parameter will be \code{\link[=path.expand]{path.expand()}}ed.}
+number of \code{url}s must also be provided. THis parameter will be \code{\link[=path.expand]{path.expand()}}ed.}
 
 \item{overwrite}{Will only overwrite existing path if \code{TRUE}.}
 

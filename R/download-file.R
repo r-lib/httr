@@ -33,9 +33,9 @@ safe_GET <- possibly(GET, NULL, quiet = TRUE)
 #' @note While this function supports specifying multiple URLs and download paths it
 #'       does not perform concurrent downloads.
 #' @param url the url(s) of the file to retrieve. If multiple URLs are provided then the same
-#'        number of [path]s must also be provided.
+#'        number of `path`s must also be provided.
 #' @param path Path(s) to save content to. If more than one `path` is specified then the same
-#'        number of [url]s must also be provided. THis parameter will be [path.expand()]ed.
+#'        number of `url`s must also be provided. THis parameter will be [path.expand()]ed.
 #' @param overwrite	Will only overwrite existing path if `TRUE`.
 #' @param ... passed on to [GET()]
 #' @return a data frame containing the `url`(s), `path`(s), cache status, and HTTP status code(s).
