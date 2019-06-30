@@ -74,18 +74,23 @@ keep_last <- function(...) {
 }
 
 find_cert_bundle <- function() {
-  if (.Platform$OS.type != "windows") {
-    return()
-  }
 
   env <- Sys.getenv("CURL_CA_BUNDLE")
   if (!identical(env, "")) {
-    return(env)
+    if (file.exists(env)) {
+      return(env)
+    } else {
+      wrn <- paste("Environment variable CURL_CA_BUNDLE is set to", env, "but that file does not exist. Looking for CA bundle in $R_HOME/etc/curl-ca-bundle.crt")
+      warning(wrn)
+    }
   }
 
   bundled <- file.path(R.home("etc"), "curl-ca-bundle.crt")
   if (file.exists(bundled)) {
     return(bundled)
+  } else {
+    msg <- paste0("No CA bundle found at ", bundled, ", falling back to the openssl package's CA bundle.")
+    message(msg)
   }
 
   # Fall back to certificate bundle in openssl
