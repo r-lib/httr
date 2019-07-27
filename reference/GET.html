@@ -226,7 +226,7 @@ data already held by the client.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt;   Size: 11.4 kB
@@ -236,17 +236,17 @@ data already held by the client.</p>
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...
 #&gt; function _F_installCss(c){}</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/webhp]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.4 kB
+#&gt;   Size: 11.5 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...
 #&gt; function _F_installCss(c){}</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>, <span class='kw'>query</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>q</span> <span class='kw'>=</span> <span class='st'>"ham"</span>))</div><div class='output co'>#&gt; Response [http://www.google.com/search?q=ham]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt;   Size: 214 kB
@@ -259,10 +259,10 @@ data already held by the client.</p>
 <span class='co'># See what GET is doing with httpbin.org</span>
 <span class='no'>url</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/get"</span>
 <span class='fu'>GET</span>(<span class='no'>url</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 314 B
+#&gt;   Size: 322 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
@@ -271,13 +271,13 @@ data already held by the client.</p>
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
 #&gt;   }, 
-#&gt;   "origin": "35.193.7.13, 35.193.7.13", 
+#&gt;   "origin": "104.154.120.187, 104.154.120.187", 
 #&gt;   "url": "https://httpbin.org/get"
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 344 B
+#&gt;   Size: 352 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
@@ -289,10 +289,10 @@ data already held by the client.</p>
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
 #&gt;   }, 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 340 B
+#&gt;   Size: 348 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
@@ -302,12 +302,12 @@ data already held by the client.</p>
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
 #&gt;   }, 
-#&gt;   "origin": "35.193.7.13, 35.193.7.13", 
+#&gt;   "origin": "104.154.120.187, 104.154.120.187", 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 370 B
+#&gt;   Size: 378 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
@@ -319,10 +319,10 @@ data already held by the client.</p>
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='authenticate.html'>authenticate</a></span>(<span class='st'>"username"</span>, <span class='st'>"password"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 370 B
+#&gt;   Size: 378 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
@@ -332,9 +332,9 @@ data already held by the client.</p>
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
 #&gt;   }, 
-#&gt;   "origin": "35.193.7.13, 35.193.7.13", 
+#&gt;   "origin": "104.154.120.187, 104.154.120.187", 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 316 B
@@ -353,20 +353,20 @@ data already held by the client.</p>
 <span class='co'># independent logins to the same website.</span>
 <span class='no'>google</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='handle.html'>handle</a></span>(<span class='st'>"http://google.com"</span>)
 <span class='fu'>GET</span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>google</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"/"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.5 kB
+#&gt;   Size: 11.4 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...
 #&gt; function _F_installCss(c){}</div><div class='input'><span class='fu'>GET</span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>google</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/webhp]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.5 kB
+#&gt;   Size: 11.4 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...

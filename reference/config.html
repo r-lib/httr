@@ -204,32 +204,32 @@ per handle.</p>
     <pre class="examples"><div class='input'><span class='co'># There are a number of ways to modify the configuration of a request</span>
 <span class='co'># * you can add directly to a request</span>
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
 <span class='co'># * you can wrap with with_config()</span>
 <span class='fu'><a href='with_config.html'>with_config</a></span>(<span class='fu'><a href='verbose.html'>verbose</a></span>(), <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>))</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
 <span class='co'># * you can set global with set_config()</span>
 <span class='no'>old</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='set_config.html'>set_config</a></span>(<span class='fu'><a href='verbose.html'>verbose</a></span>())
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># and re-establish the previous settings with</span>
 <span class='fu'><a href='set_config.html'>set_config</a></span>(<span class='no'>old</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># or</span>
 <span class='fu'><a href='set_config.html'>reset_config</a></span>()
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
@@ -237,7 +237,7 @@ per handle.</p>
 <span class='co'># options. But you can pass Curl options (as listed in httr_options())</span>
 <span class='co'># in config</span>
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com/"</span>, <span class='fu'>config</span>(<span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-07-27 13:05
+#&gt;   Date: 2019-07-27 13:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div></pre>
