@@ -192,16 +192,16 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt; * a: 1
 #&gt; * b: 2</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-05-18 12:15
+#&gt;   Date: 2019-07-27 10:16
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 221 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
-#&gt;     "Accept-Encoding": "gzip, deflate", 
+#&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='co'># Add arbitrary headers</span>
@@ -209,30 +209,30 @@ convenience functions for setting accept and content-type headers.</p>
   <span class='st'>"http://httpbin.org/headers"</span>,
   <span class='fu'>add_headers</span>(<span class='kw'>version</span> <span class='kw'>=</span> <span class='no'>version</span>$<span class='no'>version.string</span>)
 )</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-05-18 12:15
+#&gt;   Date: 2019-07-27 10:16
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 269 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
-#&gt;     "Accept-Encoding": "gzip, deflate", 
+#&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000", 
-#&gt;     "Version": "R version 3.6.0 (2017-01-27)"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000", 
+#&gt;     "Version": "R version 3.6.1 (2017-01-27)"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='co'># Override default headers with empty strings</span>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>add_headers</span>(<span class='kw'>Accept</span> <span class='kw'>=</span> <span class='st'>""</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-05-18 12:15
+#&gt;   Date: 2019-07-27 10:16
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 154 B
 #&gt; {
 #&gt;   "headers": {
-#&gt;     "Accept-Encoding": "gzip, deflate", 
+#&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/3.3 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
 #&gt;   }
 #&gt; }</div></pre>
   </div>
