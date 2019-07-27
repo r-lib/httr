@@ -8,6 +8,11 @@
 
 * `RETRY()` now throws the correct error message if an error occurs during the 
   request (@austin3dickey, #581).
+  
+* Remove the default `cainfo` option on Windows. Providing a CA bundle is not 
+  needed anymore because `curl` on now uses the native schannel SSL backend.
+  For recent versions of libcurl, overriding the CA bundle actually breaks 
+  custom trust certificates on corporate networks.
 
 # httr 1.4.0
 
