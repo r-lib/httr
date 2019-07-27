@@ -15,10 +15,9 @@ matrix:
       skip_cleanup: true
   - r: devel
   - r: oldrel
+  - r: 3.4
   - r: 3.3
-  # Still failing due to readr installation
-  # - r: 3.2
-  # - r: 3.1
+  - r: 3.2
 
 env:
   global:
