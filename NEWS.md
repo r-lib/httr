@@ -10,9 +10,9 @@
   request (@austin3dickey, #581).
   
 * Remove the default `cainfo` option on Windows. Providing a CA bundle is not 
-  needed anymore because `curl` on now uses the native schannel SSL backend.
+  needed anymore because `curl` now uses the native schannel SSL backend.
   For recent versions of libcurl, overriding the CA bundle actually breaks 
-  custom trust certificates on corporate networks.
+  custom trust certificates on corporate networks. (@jeroen, #603)
 
 # httr 1.4.0
 
