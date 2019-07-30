@@ -220,11 +220,11 @@ cache MUST treat the cache entry as stale.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2019-07-27 13:19
+#&gt;   Date: 2019-07-30 13:41
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'><a href='headers.html'>headers</a></span>(<span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>))</div><div class='output co'>#&gt; $date
-#&gt; [1] "Sat, 27 Jul 2019 13:19:57 GMT"
+#&gt; [1] "Tue, 30 Jul 2019 13:41:31 GMT"
 #&gt; 
 #&gt; $expires
 #&gt; [1] "-1"
@@ -242,7 +242,7 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "gws"
 #&gt; 
 #&gt; $`content-length`
-#&gt; [1] "4933"
+#&gt; [1] "4949"
 #&gt; 
 #&gt; $`x-xss-protection`
 #&gt; [1] "0"
@@ -251,7 +251,7 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "SAMEORIGIN"
 #&gt; 
 #&gt; $`set-cookie`
-#&gt; [1] "1P_JAR=2019-07-27-13; expires=Mon, 26-Aug-2019 13:19:57 GMT; path=/; domain=.google.com"
+#&gt; [1] "1P_JAR=2019-07-30-13; expires=Thu, 29-Aug-2019 13:41:31 GMT; path=/; domain=.google.com"
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "insensitive" "list"       </div></pre>

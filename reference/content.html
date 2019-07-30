@@ -209,8 +209,8 @@ declares an incorrect encoding), <code>content()</code> will return <code>NA</co
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><code>content</code> currently knows about the following mime types:</p><ul>
-<li><p><code>text/html</code>: <code><a href='https://www.rdocumentation.org/packages/xml2/topics/read_xml'>xml2::read_html()</a></code></p></li>
-<li><p><code>text/xml</code>: <code><a href='https://www.rdocumentation.org/packages/xml2/topics/read_xml'>xml2::read_xml()</a></code></p></li>
+<li><p><code>text/html</code>: <code><a href='http://xml2.r-lib.org/reference/read_xml.html'>xml2::read_html()</a></code></p></li>
+<li><p><code>text/xml</code>: <code><a href='http://xml2.r-lib.org/reference/read_xml.html'>xml2::read_xml()</a></code></p></li>
 <li><p><code>text/csv</code>: <code><a href='https://readr.tidyverse.org/reference/read_delim.html'>readr::read_csv()</a></code></p></li>
 <li><p><code>text/tab-separated-values</code>: <code><a href='https://readr.tidyverse.org/reference/read_delim.html'>readr::read_tsv()</a></code></p></li>
 <li><p><code>application/json</code>: <code><a href='https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON'>jsonlite::fromJSON()</a></code></p></li>
@@ -267,7 +267,7 @@ you will protect yourself against changes to httr.</p>
 #&gt; [1] "228"
 #&gt; 
 #&gt; $headers$`Content-Type`
-#&gt; [1] "multipart/form-data; boundary=------------------------1ca15a4967770e8f"
+#&gt; [1] "multipart/form-data; boundary=------------------------e355ad48b3dbe0d9"
 #&gt; 
 #&gt; $headers$Host
 #&gt; [1] "httpbin.org"
@@ -280,7 +280,7 @@ you will protect yourself against changes to httr.</p>
 #&gt; NULL
 #&gt; 
 #&gt; $origin
-#&gt; [1] "35.193.7.13, 35.193.7.13"
+#&gt; [1] "34.66.178.120, 34.66.178.120"
 #&gt; 
 #&gt; $url
 #&gt; [1] "https://httpbin.org/post"
@@ -296,12 +296,12 @@ you will protect yourself against changes to httr.</p>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Content-Length": "228", 
-#&gt;     "Content-Type": "multipart/form-data; boundary=------------------------1ca15a4967770e8f", 
+#&gt;     "Content-Type": "multipart/form-data; boundary=------------------------e355ad48b3dbe0d9", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
 #&gt;   }, 
 #&gt;   "json": null, 
-#&gt;   "origin": "35.193.7.13, 35.193.7.13", 
+#&gt;   "origin": "34.66.178.120, 34.66.178.120", 
 #&gt;   "url": "https://httpbin.org/post"
 #&gt; }
 #&gt;  </div><div class='input'><span class='fu'>content</span>(<span class='no'>r</span>, <span class='st'>"raw"</span>) <span class='co'># raw bytes from server</span></div><div class='output co'>#&gt;   [1] 7b 0a 20 20 22 61 72 67 73 22 3a 20 7b 7d 2c 20 0a 20 20 22 64 61 74 61 22
@@ -316,16 +316,16 @@ you will protect yourself against changes to httr.</p>
 #&gt; [226] 74 65 6e 74 2d 4c 65 6e 67 74 68 22 3a 20 22 32 32 38 22 2c 20 0a 20 20 20
 #&gt; [251] 20 22 43 6f 6e 74 65 6e 74 2d 54 79 70 65 22 3a 20 22 6d 75 6c 74 69 70 61
 #&gt; [276] 72 74 2f 66 6f 72 6d 2d 64 61 74 61 3b 20 62 6f 75 6e 64 61 72 79 3d 2d 2d
-#&gt; [301] 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 31 63 61
-#&gt; [326] 31 35 61 34 39 36 37 37 37 30 65 38 66 22 2c 20 0a 20 20 20 20 22 48 6f 73
+#&gt; [301] 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 65 33 35
+#&gt; [326] 35 61 64 34 38 62 33 64 62 65 30 64 39 22 2c 20 0a 20 20 20 20 22 48 6f 73
 #&gt; [351] 74 22 3a 20 22 68 74 74 70 62 69 6e 2e 6f 72 67 22 2c 20 0a 20 20 20 20 22
 #&gt; [376] 55 73 65 72 2d 41 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f 37 2e 34
 #&gt; [401] 33 2e 30 20 72 2d 63 75 72 6c 2f 34 2e 30 20 68 74 74 72 2f 31 2e 34 2e 30
 #&gt; [426] 2e 39 30 30 30 22 0a 20 20 7d 2c 20 0a 20 20 22 6a 73 6f 6e 22 3a 20 6e 75
-#&gt; [451] 6c 6c 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 33 35 2e 31 39 33 2e
-#&gt; [476] 37 2e 31 33 2c 20 33 35 2e 31 39 33 2e 37 2e 31 33 22 2c 20 0a 20 20 22 75
-#&gt; [501] 72 6c 22 3a 20 22 68 74 74 70 73 3a 2f 2f 68 74 74 70 62 69 6e 2e 6f 72 67
-#&gt; [526] 2f 70 6f 73 74 22 0a 7d 0a</div><div class='input'>
+#&gt; [451] 6c 6c 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 33 34 2e 36 36 2e 31
+#&gt; [476] 37 38 2e 31 32 30 2c 20 33 34 2e 36 36 2e 31 37 38 2e 31 32 30 22 2c 20 0a
+#&gt; [501] 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 73 3a 2f 2f 68 74 74 70 62 69 6e
+#&gt; [526] 2e 6f 72 67 2f 70 6f 73 74 22 0a 7d 0a</div><div class='input'>
 <span class='no'>rlogo</span> <span class='kw'>&lt;-</span> <span class='fu'>content</span>(<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://cran.r-project.org/Rlogo.jpg"</span>))
 <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='fl'>0</span>:<span class='fl'>1</span>, <span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"n"</span>)</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/rasterImage'>rasterImage</a></span>(<span class='no'>rlogo</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>)</div><div class='img'><img src='content-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
