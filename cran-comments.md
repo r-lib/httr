@@ -10,47 +10,21 @@
 
 ## revdepcheck results
 
-We checked 613 reverse dependencies (556 from CRAN + 57 from BioConductor), comparing R CMD check results across CRAN and dev versions of this package.
+We checked 688 reverse dependencies (628 from CRAN + 60 from BioConductor), comparing R CMD check results across CRAN and dev versions of this package.
 
- * We saw 19 new problems
- * We failed to check 6 packages
+ * We saw 1 new problems
+ * We failed to check 3 packages
 
 Issues with CRAN packages are summarised below.
 
 ### New problems
 (This reports the first line of each new failure)
 
-There were 10 failures due to httptest relying on internal implementation details. The author has a fix in flight and will submit to CRAN very shortly (I'm assuming the complete set of httr revdep tests will take a while so I'm submitting httr even though httptest is still on its way).
-
-* AlphaVantageClient
-* crunch
-* dkanr
-* echor
-* edgarWebR
-* httpcache
-* httptest
-* pivotaltrackR
-* rGoodData
-* neurobase
-
-Random internet failure:
-
-* banR
-* bigrquery
-* biomartr
-* boxoffice
-* eurostat
-* geoparser
-* malariaAtlas
-* phenocamr
-* RSelenium
-
+* rhymer
+  checking examples ... ERROR
 
 ### Failed to check
 
-* CytobankAPIstats (failed to install)
-* dynamichazard    (failed to install)
-* ipeaData         (check timed out)
-* MODISTools       (check timed out)
-* xml2             (failed to install)
-* rcongresso       (NA)
+* dynamichazard (NA)
+* lpirfs        (NA)
+* move          (NA)
