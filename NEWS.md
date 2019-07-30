@@ -1,18 +1,18 @@
 # httr (development version)
 
-* `POST` gains an example on how to use `encode = "raw"` for specific json
-  string body (@cderv, #563)
-
-* `http_status()` now throws the correct error message if http status code is 
-  not in the list of known codes (@Javdat, #567).
-
-* `RETRY()` now throws the correct error message if an error occurs during the 
-  request (@austin3dickey, #581).
-  
 * Remove the default `cainfo` option on Windows. Providing a CA bundle is not 
   needed anymore because `curl` now uses the native schannel SSL backend.
   For recent versions of libcurl, overriding the CA bundle actually breaks 
   custom trust certificates on corporate networks. (@jeroen, #603)
+
+* `http_status()` now throws the correct error message if http status code is 
+  not in the list of known codes (@Javdat, #567).
+
+* `POST()` gains an example on how to use `encode = "raw"` for specific json
+  string body (@cderv, #563)
+
+* `RETRY()` now throws the correct error message if an error occurs during the 
+  request (@austin3dickey, #581).
 
 # httr 1.4.0
 
