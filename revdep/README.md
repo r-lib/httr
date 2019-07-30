@@ -5,12 +5,12 @@
 |version  |R version 3.6.0 (2019-04-26) |
 |os       |macOS Mojave 10.14.5         |
 |system   |x86_64, darwin15.6.0         |
-|ui       |X11                          |
+|ui       |RStudio                      |
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |ctype    |en_US.UTF-8                  |
 |tz       |America/Chicago              |
-|date     |2019-07-27                   |
+|date     |2019-07-30                   |
 
 # Dependencies
 
@@ -38,11 +38,4 @@
 |move          |3.2.0   |1     |        |1    |
 |rols          |2.12.0  |1     |        |     |
 |TCGAbiolinks  |2.12.3  |1     |2       |3    |
-
-## New problems (2)
-
-|package                                              |version |error     |warning |note |
-|:----------------------------------------------------|:-------|:---------|:-------|:----|
-|[GenomicDataCommons](problems.md#genomicdatacommons) |1.8.0   |__+1__    |1       |1    |
-|[rhymer](problems.md#rhymer)                         |1.0.0   |-1 __+1__ |        |     |
 
