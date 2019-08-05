@@ -75,7 +75,7 @@ it will mostly be hidden from the user." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">httr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1.9000</span>
       </span>
     </div>
 
@@ -188,7 +188,7 @@ selection of the correct handle is taken care of when the user passes an url
     <pre class="examples"><div class='input'><span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Host: http://google.com &lt;NA&gt;</div><div class='input'><span class='fu'>handle</span>(<span class='st'>"https://google.com"</span>)</div><div class='output co'>#&gt; Host: https://google.com &lt;NA&gt;</div><div class='input'>
 <span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>)
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2019-08-05 14:40
+#&gt;   Date: 2019-08-05 15:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt;   Size: 11.4 kB
@@ -199,7 +199,7 @@ selection of the correct handle is taken care of when the user passes an url
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...
 #&gt; function _F_installCss(c){}</div><div class='input'><span class='co'># Should see cookies sent back to server</span>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2019-08-05 14:40
+#&gt;   Date: 2019-08-05 15:13
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt;   Size: 11.4 kB
@@ -210,11 +210,11 @@ selection of the correct handle is taken care of when the user passes an url
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...
 #&gt; function _F_installCss(c){}</div><div class='input'>
 <span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>, <span class='kw'>cookies</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Cookies argument is depcrated</span></div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>)$<span class='no'>cookies</span></div><div class='output co'>#&gt;                  domain flag path secure          expiration   name
-#&gt; 1           .google.com TRUE    /  FALSE 2019-09-04 14:40:36 1P_JAR
-#&gt; 2 #HttpOnly_.google.com TRUE    /  FALSE 2020-02-04 14:40:36    NID
+#&gt; 1           .google.com TRUE    /  FALSE 2019-09-04 15:13:06 1P_JAR
+#&gt; 2 #HttpOnly_.google.com TRUE    /  FALSE 2020-02-04 15:13:06    NID
 #&gt;                                                                                                                                                                             value
-#&gt; 1                                                                                                                                                                   2019-08-05-14
-#&gt; 2 188=Rc9OzP64T24tv9Lpgdgp99A7Nq-56_EnrMBLUszA8u9unLEJh9elpUvOHWd4KHbWhNXV-FdwpA3_TK-30uzM6k9o17Mtn0W7qWDJ99E-xusYOvNau5GY2bHRggn6zvN0DGA1K7fySMeEeINmikyC7SYBZkWek0xbmjzGkv4sIV4</div><span class='co'># NOT RUN {</span>
+#&gt; 1                                                                                                                                                                   2019-08-05-15
+#&gt; 2 188=JaytWDYtID0zp9L2T-KUFIBYkt9rWlJkKK5x0FhYrnkSEkT49sLZUMzD7J6aDO3_MWcX05RrTVIsHshmwaC3Yhyymib_4wTRdWICH7Nh-_wJjDgnH3EY30ObhnIVbmI4yYicc1Yie68rT8SkAD09pcI9QAtW5qRhtF1bZNkAbIo</div><span class='co'># NOT RUN {</span>
 <span class='co'># Using the preferred way of configuring the http methods</span>
 <span class='co'># will not work when using handle():</span>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>, <span class='fu'><a href='timeout.html'>timeout</a></span>(<span class='fl'>10</span>))
