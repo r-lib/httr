@@ -1,3 +1,5 @@
+# httr (development version)
+
 # httr 1.4.1
 
 * Remove the default `cainfo` option on Windows. Providing a CA bundle is not 
