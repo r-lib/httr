@@ -74,7 +74,7 @@ http://en.wikipedia.org/wiki/List_of_HTTP_header_fields." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">httr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1</span>
       </span>
     </div>
 
@@ -192,16 +192,16 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt; * a: 1
 #&gt; * b: 2</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-07-30 13:41
+#&gt;   Date: 2019-08-05 14:40
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 221 B
+#&gt;   Size: 216 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='co'># Add arbitrary headers</span>
@@ -209,30 +209,30 @@ convenience functions for setting accept and content-type headers.</p>
   <span class='st'>"http://httpbin.org/headers"</span>,
   <span class='fu'>add_headers</span>(<span class='kw'>version</span> <span class='kw'>=</span> <span class='no'>version</span>$<span class='no'>version.string</span>)
 )</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-07-30 13:41
+#&gt;   Date: 2019-08-05 14:40
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 269 B
+#&gt;   Size: 264 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000", 
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1", 
 #&gt;     "Version": "R version 3.6.1 (2017-01-27)"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='co'># Override default headers with empty strings</span>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>add_headers</span>(<span class='kw'>Accept</span> <span class='kw'>=</span> <span class='st'>""</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-07-30 13:41
+#&gt;   Date: 2019-08-05 14:40
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 154 B
+#&gt;   Size: 149 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1"
 #&gt;   }
 #&gt; }</div></pre>
   </div>

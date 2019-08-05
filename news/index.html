@@ -70,7 +70,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">httr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1</span>
       </span>
     </div>
 
@@ -145,6 +145,17 @@
       <small>Source: <a href='https://github.com/r-lib/httr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="httr-1-4-1" class="section level1">
+<h1 class="page-header">
+<a href="#httr-1-4-1" class="anchor"></a>httr 1.4.1<small> Unreleased </small>
+</h1>
+<ul>
+<li><p>Remove the default <code>cainfo</code> option on Windows. Providing a CA bundle is not needed anymore because <code>curl</code> now uses the native schannel SSL backend. For recent versions of libcurl, overriding the CA bundle actually breaks custom trust certificates on corporate networks. (<a href='https://github.com/jeroen'>@jeroen</a>, <a href='https://github.com/r-lib/httr/issues/603'>#603</a>)</p></li>
+<li><p><code><a href="../reference/http_status.html">http_status()</a></code> now throws the correct error message if http status code is not in the list of known codes (<a href='https://github.com/Javdat'>@Javdat</a>, <a href='https://github.com/r-lib/httr/issues/567'>#567</a>).</p></li>
+<li><p><code><a href="../reference/POST.html">POST()</a></code> gains an example on how to use <code>encode = "raw"</code> for specific json string body (<a href='https://github.com/cderv'>@cderv</a>, <a href='https://github.com/r-lib/httr/issues/563'>#563</a>)</p></li>
+<li><p><code><a href="../reference/RETRY.html">RETRY()</a></code> now throws the correct error message if an error occurs during the request (<a href='https://github.com/austin3dickey'>@austin3dickey</a>, <a href='https://github.com/r-lib/httr/issues/581'>#581</a>).</p></li>
+</ul>
+</div>
     <div id="httr-1-4-0" class="section level1">
 <h1 class="page-header">
 <a href="#httr-1-4-0" class="anchor"></a>httr 1.4.0<small> 2018-12-11 </small>
@@ -587,6 +598,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#httr-1-4-1">1.4.1</a></li>
         <li><a href="#httr-1-4-0">1.4.0</a></li>
         <li><a href="#httr-1-3-1">1.3.1</a></li>
         <li><a href="#httr-1-3-0">1.3.0</a></li>

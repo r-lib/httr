@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">httr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1</span>
       </span>
     </div>
 
@@ -186,93 +186,93 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-07-30 13:41
+#&gt;   Date: 2019-08-05 14:40
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 221 B
+#&gt;   Size: 216 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept_json</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-07-30 13:41
+#&gt;   Date: 2019-08-05 14:40
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 189 B
+#&gt;   Size: 184 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span>(<span class='st'>"text/csv"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-07-30 13:41
+#&gt;   Date: 2019-08-05 14:40
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 181 B
+#&gt;   Size: 176 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "text/csv", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span>(<span class='st'>".doc"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-07-30 13:41
+#&gt;   Date: 2019-08-05 14:40
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 191 B
+#&gt;   Size: 186 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/msword", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type_xml</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-07-30 13:41
+#&gt;   Date: 2019-08-05 14:40
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 261 B
+#&gt;   Size: 256 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Content-Type": "application/xml", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span>(<span class='st'>"text/csv"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-07-30 13:41
+#&gt;   Date: 2019-08-05 14:40
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 254 B
+#&gt;   Size: 249 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Content-Type": "text/csv", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span>(<span class='st'>".xml"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-07-30 13:41
+#&gt;   Date: 2019-08-05 14:40
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 261 B
+#&gt;   Size: 256 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Content-Type": "application/xml", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.0.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1"
 #&gt;   }
 #&gt; }</div></pre>
   </div>

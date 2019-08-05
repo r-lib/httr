@@ -76,7 +76,7 @@ revalidation if Etag or Last-Modified headers are present)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">httr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1</span>
       </span>
     </div>
 
@@ -180,22 +180,22 @@ revalidation if Etag or Last-Modified headers are present).</p>
 <span class='no'>r1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"https://www.google.com"</span>)
 <span class='fu'>cache_info</span>(<span class='no'>r1</span>)</div><div class='output co'>#&gt; &lt;cache_info&gt;  https://www.google.com/
 #&gt;   Cacheable:     TRUE
-#&gt;   Expires:       Tue, 30 Jul 2019 13:41:42 GMT &lt;expired&gt;
+#&gt;   Expires:       Mon, 05 Aug 2019 14:40:33 GMT
 #&gt;   Last-Modified: 
-#&gt;   Etag:          </div><div class='input'><span class='no'>r1</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-07-30 13:41:42 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r1</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-07-30 13:41:42 GMT"</div><div class='input'>
+#&gt;   Etag:          </div><div class='input'><span class='no'>r1</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-08-05 14:40:33 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r1</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-08-05 14:40:33 GMT"</div><div class='input'>
 <span class='co'># Expires in a year</span>
 <span class='no'>r2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"https://www.google.com/images/srpr/logo11w.png"</span>)
 <span class='fu'>cache_info</span>(<span class='no'>r2</span>)</div><div class='output co'>#&gt; &lt;cache_info&gt;  https://www.google.com/images/srpr/logo11w.png
 #&gt;   Cacheable:     TRUE
-#&gt;   Expires:       Wed, 29 Jul 2020 13:41:42 GMT
+#&gt;   Expires:       Tue, 04 Aug 2020 14:40:33 GMT
 #&gt;   Last-Modified: Fri, 16 Dec 2016 12:30:00 GMT
-#&gt;   Etag:          </div><div class='input'><span class='no'>r2</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-07-30 13:41:42 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r2</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-07-30 13:41:42 GMT"</div><div class='input'>
+#&gt;   Etag:          </div><div class='input'><span class='no'>r2</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-08-05 14:40:33 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r2</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-08-05 14:40:33 GMT"</div><div class='input'>
 <span class='co'># Has last-modified and etag, so does revalidation</span>
 <span class='no'>r3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/cache"</span>)
 <span class='fu'>cache_info</span>(<span class='no'>r3</span>)</div><div class='output co'>#&gt; &lt;cache_info&gt;  http://httpbin.org/cache
 #&gt;   Cacheable:     TRUE
-#&gt;   Last-Modified: Tue, 30 Jul 2019 13:41:42 GMT
-#&gt;   Etag:          </div><div class='input'><span class='no'>r3</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-07-30 13:41:42 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r3</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-07-30 13:41:42 GMT"</div><div class='input'>
+#&gt;   Last-Modified: Mon, 05 Aug 2019 14:40:33 GMT
+#&gt;   Etag:          </div><div class='input'><span class='no'>r3</span>$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-08-05 14:40:33 GMT"</div><div class='input'><span class='fu'>rerequest</span>(<span class='no'>r3</span>)$<span class='no'>date</span></div><div class='output co'>#&gt; [1] "2019-08-05 14:40:33 GMT"</div><div class='input'>
 # Expires after 5 seconds
 </div><span class='co'># NOT RUN {</span>
 <span class='no'>r4</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/cache/5"</span>)
