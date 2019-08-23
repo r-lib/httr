@@ -192,7 +192,7 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt; * a: 1
 #&gt; * b: 2</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-08-05 15:13
+#&gt;   Date: 2019-08-23 16:09
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 221 B
@@ -209,7 +209,7 @@ convenience functions for setting accept and content-type headers.</p>
   <span class='st'>"http://httpbin.org/headers"</span>,
   <span class='fu'>add_headers</span>(<span class='kw'>version</span> <span class='kw'>=</span> <span class='no'>version</span>$<span class='no'>version.string</span>)
 )</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-08-05 15:13
+#&gt;   Date: 2019-08-23 16:09
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 269 B
@@ -224,7 +224,7 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt; }</div><div class='input'>
 <span class='co'># Override default headers with empty strings</span>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>add_headers</span>(<span class='kw'>Accept</span> <span class='kw'>=</span> <span class='st'>""</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-08-05 15:13
+#&gt;   Date: 2019-08-23 16:09
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 154 B
