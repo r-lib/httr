@@ -91,7 +91,7 @@ text_content <- function(x) {
 
 #' @export
 parsed_content <- function(x, ...) {
-  message("text_content() deprecated. Use parsed_content(x, as = 'parsed')")
+  message("text_content() deprecated. Use content(x, as = 'parsed')")
   content(x, as = "parsed", ...)
 }
 
