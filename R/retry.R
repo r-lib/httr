@@ -93,21 +93,23 @@ retry_should_terminate <- function(i, times, resp, terminate_on, terminate_on_su
 backoff_full_jitter <- function(i, resp, pause_base = 1, pause_cap = 60,
                                 pause_min = 1, quiet = FALSE) {
   length <- max(pause_min, stats::runif(1, max = min(pause_cap, pause_base * (2^i))))
+  if (inherits(resp, "error")) {
+    error_description <- gsub("[\n\r]*$", "\n", as.character(resp))
+    status <- "ERROR"
+  } else {
+    error_description <- ""
+    status <- status_code(resp)
+  }
+  if (status == 429) {
+    retry_after <- resp$headers[["retry-after"]] %||%
+      resp$headers[["Retry-After"]]
+    if (!is.null(retry_after)) {
+      length <- max(pause_min, as.numeric(retry_after))
+    }
+  }
   if (!quiet) {
-    if (inherits(resp, "error")) {
-      error_description <- gsub("[\n\r]*$", "\n", as.character(resp))
-      status <- "ERROR"
-    } else {
-      error_description <- ""
-      status <- status_code(resp)
-    }
-    if (status == 429) {
-      retry_after <- resp$headers[["retry-after"]]
-      if (!is.null(retry_after)) {
-        length <- max(pause_min, as.numeric(retry_after))
-      }
-    }
     message(error_description, "Request failed [", status, "]. Retrying in ", round(length, 1), " seconds...")
   }
   Sys.sleep(length)
+  invisible(length)
 }

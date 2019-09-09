@@ -15,6 +15,9 @@
 
 * `RETRY()` now throws the correct error message if an error occurs during the 
   request (@austin3dickey, #581).
+  
+* `RETRY()` now respects the `Retry-After` header in addition to `retry-after`
+including when `quiet = TRUE` (@patr1ckm, #614).
 
 # httr 1.4.0
 

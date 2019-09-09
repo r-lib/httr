@@ -20,3 +20,9 @@ test_that("if request_perform() throws an error, RETRY passes it on", {
     regexp = "resolve host"
   )
 })
+
+test_that("back_off_full_jitter respects Retry-After header", {
+  r <- response(status_code = 429, headers = list('Retry-After' = .01))
+  length <- backoff_full_jitter(0, r, pause_min = 0, quiet = TRUE)
+  expect_equal(length, .01)
+})
