@@ -157,6 +157,9 @@ request_perform <- function(req, handle, refresh = TRUE) {
   }
 
   url_scheme <- parse_url(resp$url)$scheme
+  if (is.null(url_scheme))
+    url_scheme <- "http"
+
   is_http <- tolower(url_scheme) %in% c("http", "https")
   if (is_http) {
     all_headers <- parse_http_headers(resp$headers)

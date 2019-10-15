@@ -48,9 +48,6 @@ parse_url <- function(url) {
   scheme <- pull_off("^([[:alpha:]+.-]+):")
   netloc <- pull_off("^//([^/?]*)/?")
 
-  if (is.null(scheme))
-    scheme <- "http"
-
   if (identical(netloc, "")) { # corresponds to ///
     url <- paste0("/", url)
     port <- username <- password <- hostname <- NULL
