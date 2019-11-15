@@ -12,3 +12,5 @@
 ^docs$
 ^_pkgdown\.yaml$
 ^codecov\.yml$
+^LICENSE\.md$
+^\.github$
