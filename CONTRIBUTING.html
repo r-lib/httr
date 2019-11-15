@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Does the request have content associated with it? — has_content • httr</title>
+<title>Contributing to httr • httr</title>
 
 
 <!-- jquery -->
@@ -29,15 +29,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script>
+<link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="Does the request have content associated with it? — has_content" />
-<meta property="og:description" content="Does the request have content associated with it?" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Contributing to httr" />
 
 
 
@@ -66,7 +64,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-title-body">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -78,7 +76,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">httr</a>
+        <a class="navbar-link" href="index.html">httr</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1.9000</span>
       </span>
     </div>
@@ -86,16 +84,16 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="/index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../articles/quickstart.html">Intro</a>
+  <a href="articles/quickstart.html">Intro</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -105,10 +103,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/secrets.html">Managing secrets</a>
+      <a href="articles/secrets.html">Managing secrets</a>
     </li>
     <li>
-      <a href="../articles/api-packages.html">Best practices for API packages</a>
+      <a href="articles/api-packages.html">Best practices for API packages</a>
     </li>
   </ul>
 </li>
@@ -127,7 +125,7 @@
     </li>
     <li class="divider"></li>
     <li>
-      <a href="../news/index.html">Change log</a>
+      <a href="news/index.html">Change log</a>
     </li>
   </ul>
 </li>
@@ -148,32 +146,55 @@
       </header>
 
 <div class="row">
-  <div class="col-md-9 contents">
+  <div class="contents col-md-9">
     <div class="page-header">
-    <h1>Does the request have content associated with it?</h1>
-    <small class="dont-index">Source: <a href='https://github.com/r-lib/httr/blob/master/R/content.r'><code>R/content.r</code></a></small>
-    <div class="hidden name"><code>has_content.Rd</code></div>
+      <h1>Contributing to httr</h1>
     </div>
 
-    <div class="ref-description">
-    <p>Does the request have content associated with it?</p>
-    </div>
+<div id="contributing-to-httr" class="section level1">
 
-    <pre class="usage"><span class='fu'>has_content</span>(<span class='no'>x</span>)</pre>
-
-
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>has_content</span>(<span class='fu'><a href='POST.html'>POST</a></span>(<span class='st'>"http://httpbin.org/post"</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>))</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>has_content</span>(<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"http://httpbin.org/headers"</span>))</div><div class='output co'>#&gt; [1] FALSE</div></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-  </div>
+<p>This outlines how to propose a change to httr. For more detailed info about contributing to this, and other tidyverse packages, please see the <a href="https://rstd.io/tidy-contrib"><strong>development contributing guide</strong></a>.</p>
+<div id="fixing-typos" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fixing-typos" class="anchor"></a>Fixing typos</h2>
+<p>You can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the <em>source</em> file. This generally means you’ll need to edit <a href="https://roxygen2.r-lib.org/articles/roxygen2.html">roxygen2 comments</a> in an <code>.R</code>, not a <code>.Rd</code> file. You can find the <code>.R</code> file that generates the <code>.Rd</code> by reading the comment in the first line.</p>
 </div>
+<div id="bigger-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bigger-changes" class="anchor"></a>Bigger changes</h2>
+<p>If you want to make a bigger change, it’s a good idea to first file an issue and make sure someone from the team agrees that it’s needed. If you’ve found a bug, please file an issue that illustrates the bug with a minimal <a href="https://www.tidyverse.org/help/#reprex">reprex</a> (this will also help you write a unit test, if needed).</p>
+<div id="pull-request-process" class="section level3">
+<h3 class="hasAnchor">
+<a href="#pull-request-process" class="anchor"></a>Pull request process</h3>
+<ul>
+<li><p>Fork the package and clone onto your computer. If you haven’t done this before, we recommend using <code>usethis::create_from_github("batpigandme/httr", fork = TRUE)</code>.</p></li>
+<li>Install all development dependences with <code>devtools::install_dev_deps()</code>, and then make sure the package passes R CMD check by running <code>devtools::check()</code>. If R CMD check doesn’t pass cleanly, it’s a good idea to ask for help before continuing.</li>
+<li><p>Create a Git branch for your pull request (PR). We recommend using <code>usethis::pr_init("brief-description-of-change")</code>.</p></li>
+<li><p>Make your changes, commit to git, and then create a PR by running <code>usethis::pr_push()</code>, and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain <code>Fixes #issue-number</code>.</p></li>
+<li><p>For user-facing changes, add a bullet to the top of <code>NEWS.md</code> (i.e. just below the first header). Follow the style described in <a href="https://style.tidyverse.org/news.html" class="uri">https://style.tidyverse.org/news.html</a>.</p></li>
+</ul>
+</div>
+<div id="code-style" class="section level3">
+<h3 class="hasAnchor">
+<a href="#code-style" class="anchor"></a>Code style</h3>
+<ul>
+<li><p>New code should follow the tidyverse <a href="https://style.tidyverse.org">style guide</a>. You can use the <a href="https://CRAN.R-project.org/package=styler">styler</a> package to apply these styles, but please don’t restyle code that has nothing to do with your PR.</p></li>
+<li><p>We use <a href="https://cran.r-project.org/package=roxygen2">roxygen2</a>, with <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/markdown.html">Markdown syntax</a>, for documentation.</p></li>
+<li><p>We use <a href="https://cran.r-project.org/package=testthat">testthat</a> for unit tests. Contributions with test cases included are easier to accept.</p></li>
+</ul>
+</div>
+</div>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<p>Please note that the httr project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project you agree to abide by its terms.</p>
+</div>
+</div>
+
+  </div>
+
+</div>
+
 
 
       <footer>

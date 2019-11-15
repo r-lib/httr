@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best practices for API packages • httr</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Best practices for API packages">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
@@ -103,6 +104,7 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
@@ -178,7 +180,7 @@
 <h3 class="hasAnchor">
 <a href="#send-a-simple-request" class="anchor"></a>Send a simple request</h3>
 <p>First, find a simple API endpoint that doesn’t require authentication: this lets you get the basics working before tackling the complexities of authentication. For this example, we’ll use the list of httr issues which requires sending a GET request to <code>repos/hadley/httr</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(httr)</a>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(httr)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">github_api &lt;-<span class="st"> </span><span class="cf">function</span>(path) {</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">  url &lt;-<span class="st"> </span><span class="kw"><a href="../reference/modify_url.html">modify_url</a></span>(<span class="st">"https://api.github.com"</span>, <span class="dt">path =</span> path)</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw"><a href="../reference/GET.html">GET</a></span>(url)</a>
@@ -186,15 +188,22 @@
 <a class="sourceLine" id="cb3-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">resp &lt;-<span class="st"> </span><span class="kw">github_api</span>(<span class="st">"/repos/hadley/httr"</span>)</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">resp</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; Response [https://api.github.com/repos/hadley/httr]</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;   Date: 2019-08-23 16:09</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;   Status: 403</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; Response [https://api.github.com/repositories/2756403]</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;   Date: 2019-11-15 14:07</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;   Size: 259 B</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;   Size: 6.04 kB</span></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; {</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;   "message": "API rate limit exceeded for 104.154.120.187. (But here's t...</span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;   "documentation_url": "https://developer.github.com/v3/#rate-limiting"</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; }</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;   "id": 2756403,</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;   "node_id": "MDEwOlJlcG9zaXRvcnkyNzU2NDAz",</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt;   "name": "httr",</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt;   "full_name": "r-lib/httr",</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt;   "private": false,</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt;   "owner": {</span></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt;     "login": "r-lib",</span></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt;     "id": 22618716,</span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#&gt;     "node_id": "MDEyOk9yZ2FuaXphdGlvbjIyNjE4NzE2",</span></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">#&gt; ...</span></a></code></pre></div>
 </div>
 <div id="parse-the-response" class="section level3">
 <h3 class="hasAnchor">
@@ -203,24 +212,24 @@
 <p>Note that while most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span>)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   Date: 2019-08-23 16:09</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   Date: 2019-11-15 14:07</span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;   Content-Type: text/xml; charset=utf-8</span></a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;   Size: 1.8 kB</span></a>
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; &lt;colors numResults="1" totalResults="10016357"&gt;</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; &lt;colors numResults="1" totalResults="10033303"&gt;</span></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  &lt;color&gt;</span></a>
 <a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;      &lt;id&gt;903893&lt;/id&gt;</span></a>
 <a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;      &lt;title&gt;&lt;![CDATA[wet dirt]]&gt;&lt;/title&gt;</span></a>
 <a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;      &lt;userName&gt;&lt;![CDATA[jessicabrown]]&gt;&lt;/userName&gt;</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;      &lt;numViews&gt;567&lt;/numViews&gt;</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;      &lt;numViews&gt;572&lt;/numViews&gt;</span></a>
 <a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;      &lt;numVotes&gt;1&lt;/numVotes&gt;</span></a>
 <a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;      &lt;numComments&gt;0&lt;/numComments&gt;</span></a>
 <a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;      &lt;numHearts&gt;0&lt;/numHearts&gt;</span></a>
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; ...</span></a>
 <a class="sourceLine" id="cb4-18" data-line-number="18"><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span>)</a>
 <a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;   Date: 2019-08-23 16:09</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;   Date: 2019-11-15 14:07</span></a>
 <a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt;   Status: 200</span></a>
 <a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></a>
 <a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt;   Size: 1.43 kB</span></a></code></pre></div>
@@ -235,7 +244,7 @@
 <a class="sourceLine" id="cb6-3" data-line-number="3">  </a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">  resp &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(url)</a>
 <a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="cf">if</span> (<span class="kw"><a href="../reference/http_type.html">http_type</a></span>(resp) <span class="op">!=</span><span class="st"> "application/json"</span>) {</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/stop">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb6-7" data-line-number="7">  }</a>
 <a class="sourceLine" id="cb6-8" data-line-number="8">  </a>
 <a class="sourceLine" id="cb6-9" data-line-number="9">  resp</a>
@@ -251,10 +260,10 @@
 <a class="sourceLine" id="cb7-3" data-line-number="3">  </a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">  resp &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(url)</a>
 <a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="cf">if</span> (<span class="kw"><a href="../reference/http_type.html">http_type</a></span>(resp) <span class="op">!=</span><span class="st"> "application/json"</span>) {</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/stop">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb7-7" data-line-number="7">  }</a>
 <a class="sourceLine" id="cb7-8" data-line-number="8">  </a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">  jsonlite<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(resp, <span class="st">"text"</span>), <span class="dt">simplifyVector =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">  jsonlite<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/jsonlite/man/fromJSON.html">fromJSON</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(resp, <span class="st">"text"</span>), <span class="dt">simplifyVector =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb7-10" data-line-number="10">}</a></code></pre></div>
 </div>
 <div id="return-a-helpful-object" class="section level3">
@@ -266,13 +275,13 @@
 <a class="sourceLine" id="cb8-3" data-line-number="3">  </a>
 <a class="sourceLine" id="cb8-4" data-line-number="4">  resp &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(url)</a>
 <a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="cf">if</span> (<span class="kw"><a href="../reference/http_type.html">http_type</a></span>(resp) <span class="op">!=</span><span class="st"> "application/json"</span>) {</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/stop">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb8-7" data-line-number="7">  }</a>
 <a class="sourceLine" id="cb8-8" data-line-number="8">  </a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">  parsed &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(resp, <span class="st">"text"</span>), <span class="dt">simplifyVector =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">  parsed &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/jsonlite/man/fromJSON.html">fromJSON</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(resp, <span class="st">"text"</span>), <span class="dt">simplifyVector =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb8-10" data-line-number="10">  </a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/structure">structure</a></span>(</a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">  <span class="kw"><a href="https://rdrr.io/r/base/structure.html">structure</a></span>(</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">    <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(</a>
 <a class="sourceLine" id="cb8-13" data-line-number="13">      <span class="dt">content =</span> parsed,</a>
 <a class="sourceLine" id="cb8-14" data-line-number="14">      <span class="dt">path =</span> path,</a>
 <a class="sourceLine" id="cb8-15" data-line-number="15">      <span class="dt">response =</span> resp</a>
@@ -282,16 +291,45 @@
 <a class="sourceLine" id="cb8-19" data-line-number="19">}</a>
 <a class="sourceLine" id="cb8-20" data-line-number="20"></a>
 <a class="sourceLine" id="cb8-21" data-line-number="21">print.github_api &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</a>
-<a class="sourceLine" id="cb8-22" data-line-number="22">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cat">cat</a></span>(<span class="st">"&lt;GitHub "</span>, x<span class="op">$</span>path, <span class="st">"&gt;</span><span class="ch">\n</span><span class="st">"</span>, <span class="dt">sep =</span> <span class="st">""</span>)</a>
-<a class="sourceLine" id="cb8-23" data-line-number="23">  <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/str">str</a></span>(x<span class="op">$</span>content)</a>
-<a class="sourceLine" id="cb8-24" data-line-number="24">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/invisible">invisible</a></span>(x)</a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">  <span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">"&lt;GitHub "</span>, x<span class="op">$</span>path, <span class="st">"&gt;</span><span class="ch">\n</span><span class="st">"</span>, <span class="dt">sep =</span> <span class="st">""</span>)</a>
+<a class="sourceLine" id="cb8-23" data-line-number="23">  <span class="kw"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(x<span class="op">$</span>content)</a>
+<a class="sourceLine" id="cb8-24" data-line-number="24">  <span class="kw"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span>(x)</a>
 <a class="sourceLine" id="cb8-25" data-line-number="25">}</a>
 <a class="sourceLine" id="cb8-26" data-line-number="26"></a>
 <a class="sourceLine" id="cb8-27" data-line-number="27"><span class="kw">github_api</span>(<span class="st">"/users/hadley"</span>)</a>
 <a class="sourceLine" id="cb8-28" data-line-number="28"><span class="co">#&gt; &lt;GitHub /users/hadley&gt;</span></a>
-<a class="sourceLine" id="cb8-29" data-line-number="29"><span class="co">#&gt; List of 2</span></a>
-<a class="sourceLine" id="cb8-30" data-line-number="30"><span class="co">#&gt;  $ message          : chr "API rate limit exceeded for 104.154.120.187. (But here's the good news: Authenticated requests get a higher rat"| __truncated__</span></a>
-<a class="sourceLine" id="cb8-31" data-line-number="31"><span class="co">#&gt;  $ documentation_url: chr "https://developer.github.com/v3/#rate-limiting"</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-29" data-line-number="29"><span class="co">#&gt; List of 31</span></a>
+<a class="sourceLine" id="cb8-30" data-line-number="30"><span class="co">#&gt;  $ login              : chr "hadley"</span></a>
+<a class="sourceLine" id="cb8-31" data-line-number="31"><span class="co">#&gt;  $ id                 : int 4196</span></a>
+<a class="sourceLine" id="cb8-32" data-line-number="32"><span class="co">#&gt;  $ node_id            : chr "MDQ6VXNlcjQxOTY="</span></a>
+<a class="sourceLine" id="cb8-33" data-line-number="33"><span class="co">#&gt;  $ avatar_url         : chr "https://avatars3.githubusercontent.com/u/4196?v=4"</span></a>
+<a class="sourceLine" id="cb8-34" data-line-number="34"><span class="co">#&gt;  $ gravatar_id        : chr ""</span></a>
+<a class="sourceLine" id="cb8-35" data-line-number="35"><span class="co">#&gt;  $ url                : chr "https://api.github.com/users/hadley"</span></a>
+<a class="sourceLine" id="cb8-36" data-line-number="36"><span class="co">#&gt;  $ html_url           : chr "https://github.com/hadley"</span></a>
+<a class="sourceLine" id="cb8-37" data-line-number="37"><span class="co">#&gt;  $ followers_url      : chr "https://api.github.com/users/hadley/followers"</span></a>
+<a class="sourceLine" id="cb8-38" data-line-number="38"><span class="co">#&gt;  $ following_url      : chr "https://api.github.com/users/hadley/following{/other_user}"</span></a>
+<a class="sourceLine" id="cb8-39" data-line-number="39"><span class="co">#&gt;  $ gists_url          : chr "https://api.github.com/users/hadley/gists{/gist_id}"</span></a>
+<a class="sourceLine" id="cb8-40" data-line-number="40"><span class="co">#&gt;  $ starred_url        : chr "https://api.github.com/users/hadley/starred{/owner}{/repo}"</span></a>
+<a class="sourceLine" id="cb8-41" data-line-number="41"><span class="co">#&gt;  $ subscriptions_url  : chr "https://api.github.com/users/hadley/subscriptions"</span></a>
+<a class="sourceLine" id="cb8-42" data-line-number="42"><span class="co">#&gt;  $ organizations_url  : chr "https://api.github.com/users/hadley/orgs"</span></a>
+<a class="sourceLine" id="cb8-43" data-line-number="43"><span class="co">#&gt;  $ repos_url          : chr "https://api.github.com/users/hadley/repos"</span></a>
+<a class="sourceLine" id="cb8-44" data-line-number="44"><span class="co">#&gt;  $ events_url         : chr "https://api.github.com/users/hadley/events{/privacy}"</span></a>
+<a class="sourceLine" id="cb8-45" data-line-number="45"><span class="co">#&gt;  $ received_events_url: chr "https://api.github.com/users/hadley/received_events"</span></a>
+<a class="sourceLine" id="cb8-46" data-line-number="46"><span class="co">#&gt;  $ type               : chr "User"</span></a>
+<a class="sourceLine" id="cb8-47" data-line-number="47"><span class="co">#&gt;  $ site_admin         : logi FALSE</span></a>
+<a class="sourceLine" id="cb8-48" data-line-number="48"><span class="co">#&gt;  $ name               : chr "Hadley Wickham"</span></a>
+<a class="sourceLine" id="cb8-49" data-line-number="49"><span class="co">#&gt;  $ company            : chr "@rstudio "</span></a>
+<a class="sourceLine" id="cb8-50" data-line-number="50"><span class="co">#&gt;  $ blog               : chr "http://hadley.nz"</span></a>
+<a class="sourceLine" id="cb8-51" data-line-number="51"><span class="co">#&gt;  $ location           : chr "Houston, TX"</span></a>
+<a class="sourceLine" id="cb8-52" data-line-number="52"><span class="co">#&gt;  $ email              : NULL</span></a>
+<a class="sourceLine" id="cb8-53" data-line-number="53"><span class="co">#&gt;  $ hireable           : NULL</span></a>
+<a class="sourceLine" id="cb8-54" data-line-number="54"><span class="co">#&gt;  $ bio                : chr "Chief Scientist at @RStudio"</span></a>
+<a class="sourceLine" id="cb8-55" data-line-number="55"><span class="co">#&gt;  $ public_repos       : int 225</span></a>
+<a class="sourceLine" id="cb8-56" data-line-number="56"><span class="co">#&gt;  $ public_gists       : int 169</span></a>
+<a class="sourceLine" id="cb8-57" data-line-number="57"><span class="co">#&gt;  $ followers          : int 17220</span></a>
+<a class="sourceLine" id="cb8-58" data-line-number="58"><span class="co">#&gt;  $ following          : int 6</span></a>
+<a class="sourceLine" id="cb8-59" data-line-number="59"><span class="co">#&gt;  $ created_at         : chr "2008-04-01T14:47:36Z"</span></a>
+<a class="sourceLine" id="cb8-60" data-line-number="60"><span class="co">#&gt;  $ updated_at         : chr "2019-10-31T17:26:17Z"</span></a></code></pre></div>
 <p>The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.</p>
 </div>
 <div id="turn-api-errors-into-r-errors" class="section level3">
@@ -310,14 +348,14 @@
 <a class="sourceLine" id="cb9-3" data-line-number="3">  </a>
 <a class="sourceLine" id="cb9-4" data-line-number="4">  resp &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(url)</a>
 <a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="cf">if</span> (<span class="kw"><a href="../reference/http_type.html">http_type</a></span>(resp) <span class="op">!=</span><span class="st"> "application/json"</span>) {</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/stop">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb9-7" data-line-number="7">  }</a>
 <a class="sourceLine" id="cb9-8" data-line-number="8">  </a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">  parsed &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(resp, <span class="st">"text"</span>), <span class="dt">simplifyVector =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">  parsed &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/jsonlite/man/fromJSON.html">fromJSON</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(resp, <span class="st">"text"</span>), <span class="dt">simplifyVector =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb9-10" data-line-number="10">  </a>
 <a class="sourceLine" id="cb9-11" data-line-number="11">  <span class="cf">if</span> (<span class="kw"><a href="../reference/http_error.html">http_error</a></span>(resp)) {</a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/stop">stop</a></span>(</a>
-<a class="sourceLine" id="cb9-13" data-line-number="13">      <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sprintf">sprintf</a></span>(</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(</a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">      <span class="kw"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(</a>
 <a class="sourceLine" id="cb9-14" data-line-number="14">        <span class="st">"GitHub API request failed [%s]</span><span class="ch">\n</span><span class="st">%s</span><span class="ch">\n</span><span class="st">&lt;%s&gt;"</span>, </a>
 <a class="sourceLine" id="cb9-15" data-line-number="15">        <span class="kw"><a href="../reference/status_code.html">status_code</a></span>(resp),</a>
 <a class="sourceLine" id="cb9-16" data-line-number="16">        parsed<span class="op">$</span>message,</a>
@@ -327,8 +365,8 @@
 <a class="sourceLine" id="cb9-20" data-line-number="20">    )</a>
 <a class="sourceLine" id="cb9-21" data-line-number="21">  }</a>
 <a class="sourceLine" id="cb9-22" data-line-number="22">  </a>
-<a class="sourceLine" id="cb9-23" data-line-number="23">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/structure">structure</a></span>(</a>
-<a class="sourceLine" id="cb9-24" data-line-number="24">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(</a>
+<a class="sourceLine" id="cb9-23" data-line-number="23">  <span class="kw"><a href="https://rdrr.io/r/base/structure.html">structure</a></span>(</a>
+<a class="sourceLine" id="cb9-24" data-line-number="24">    <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(</a>
 <a class="sourceLine" id="cb9-25" data-line-number="25">      <span class="dt">content =</span> parsed,</a>
 <a class="sourceLine" id="cb9-26" data-line-number="26">      <span class="dt">path =</span> path,</a>
 <a class="sourceLine" id="cb9-27" data-line-number="27">      <span class="dt">response =</span> resp</a>
@@ -337,9 +375,9 @@
 <a class="sourceLine" id="cb9-30" data-line-number="30">  )</a>
 <a class="sourceLine" id="cb9-31" data-line-number="31">}</a>
 <a class="sourceLine" id="cb9-32" data-line-number="32"><span class="kw">github_api</span>(<span class="st">"/user/hadley"</span>)</a>
-<a class="sourceLine" id="cb9-33" data-line-number="33"><span class="co">#&gt; Error: GitHub API request failed [403]</span></a>
-<a class="sourceLine" id="cb9-34" data-line-number="34"><span class="co">#&gt; API rate limit exceeded for 104.154.120.187. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)</span></a>
-<a class="sourceLine" id="cb9-35" data-line-number="35"><span class="co">#&gt; &lt;https://developer.github.com/v3/#rate-limiting&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb9-33" data-line-number="33"><span class="co">#&gt; Error: GitHub API request failed [404]</span></a>
+<a class="sourceLine" id="cb9-34" data-line-number="34"><span class="co">#&gt; Not Found</span></a>
+<a class="sourceLine" id="cb9-35" data-line-number="35"><span class="co">#&gt; &lt;https://developer.github.com/v3/users/#get-a-single-user&gt;</span></a></code></pre></div>
 <blockquote>
 <p>Some poorly written APIs will return different types of response based on whether or not the request succeeded or failed. If your API does this you’ll need to make your request function check the <code><a href="../reference/status_code.html">status_code()</a></code> before parsing the response.</p>
 </blockquote>
@@ -361,14 +399,14 @@
 <a class="sourceLine" id="cb10-9" data-line-number="9">  </a>
 <a class="sourceLine" id="cb10-10" data-line-number="10">  resp &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(url, ua)</a>
 <a class="sourceLine" id="cb10-11" data-line-number="11">  <span class="cf">if</span> (<span class="kw"><a href="../reference/http_type.html">http_type</a></span>(resp) <span class="op">!=</span><span class="st"> "application/json"</span>) {</a>
-<a class="sourceLine" id="cb10-12" data-line-number="12">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/stop">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb10-13" data-line-number="13">  }</a>
 <a class="sourceLine" id="cb10-14" data-line-number="14">  </a>
-<a class="sourceLine" id="cb10-15" data-line-number="15">  parsed &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(resp, <span class="st">"text"</span>), <span class="dt">simplifyVector =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">  parsed &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/jsonlite/man/fromJSON.html">fromJSON</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(resp, <span class="st">"text"</span>), <span class="dt">simplifyVector =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb10-16" data-line-number="16">  </a>
 <a class="sourceLine" id="cb10-17" data-line-number="17">  <span class="cf">if</span> (<span class="kw"><a href="../reference/status_code.html">status_code</a></span>(resp) <span class="op">!=</span><span class="st"> </span><span class="dv">200</span>) {</a>
-<a class="sourceLine" id="cb10-18" data-line-number="18">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/stop">stop</a></span>(</a>
-<a class="sourceLine" id="cb10-19" data-line-number="19">      <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sprintf">sprintf</a></span>(</a>
+<a class="sourceLine" id="cb10-18" data-line-number="18">    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(</a>
+<a class="sourceLine" id="cb10-19" data-line-number="19">      <span class="kw"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(</a>
 <a class="sourceLine" id="cb10-20" data-line-number="20">        <span class="st">"GitHub API request failed [%s]</span><span class="ch">\n</span><span class="st">%s</span><span class="ch">\n</span><span class="st">&lt;%s&gt;"</span>, </a>
 <a class="sourceLine" id="cb10-21" data-line-number="21">        <span class="kw"><a href="../reference/status_code.html">status_code</a></span>(resp),</a>
 <a class="sourceLine" id="cb10-22" data-line-number="22">        parsed<span class="op">$</span>message,</a>
@@ -378,8 +416,8 @@
 <a class="sourceLine" id="cb10-26" data-line-number="26">    )</a>
 <a class="sourceLine" id="cb10-27" data-line-number="27">  }</a>
 <a class="sourceLine" id="cb10-28" data-line-number="28">  </a>
-<a class="sourceLine" id="cb10-29" data-line-number="29">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/structure">structure</a></span>(</a>
-<a class="sourceLine" id="cb10-30" data-line-number="30">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(</a>
+<a class="sourceLine" id="cb10-29" data-line-number="29">  <span class="kw"><a href="https://rdrr.io/r/base/structure.html">structure</a></span>(</a>
+<a class="sourceLine" id="cb10-30" data-line-number="30">    <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(</a>
 <a class="sourceLine" id="cb10-31" data-line-number="31">      <span class="dt">content =</span> parsed,</a>
 <a class="sourceLine" id="cb10-32" data-line-number="32">      <span class="dt">path =</span> path,</a>
 <a class="sourceLine" id="cb10-33" data-line-number="33">      <span class="dt">response =</span> resp</a>
@@ -405,20 +443,20 @@
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="../reference/POST.html">POST</a></span>(<span class="kw"><a href="../reference/modify_url.html">modify_url</a></span>(<span class="st">"https://httpbin.org"</span>, <span class="dt">path =</span> <span class="st">"/post"</span>))</a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co"># query arguments</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="dt">query =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">foo =</span> <span class="st">"bar"</span>))</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="dt">query =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">foo =</span> <span class="st">"bar"</span>))</a>
 <a class="sourceLine" id="cb11-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co"># headers</span></a>
 <a class="sourceLine" id="cb11-8" data-line-number="8"><span class="kw"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="kw"><a href="../reference/add_headers.html">add_headers</a></span>(<span class="dt">foo =</span> <span class="st">"bar"</span>))</a>
 <a class="sourceLine" id="cb11-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co"># body</span></a>
 <a class="sourceLine" id="cb11-11" data-line-number="11">## as form</a>
-<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="kw"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="dt">body =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">foo =</span> <span class="st">"bar"</span>), <span class="dt">encode =</span> <span class="st">"form"</span>)</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="kw"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="dt">body =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">foo =</span> <span class="st">"bar"</span>), <span class="dt">encode =</span> <span class="st">"form"</span>)</a>
 <a class="sourceLine" id="cb11-13" data-line-number="13">## as json</a>
-<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="kw"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="dt">body =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">foo =</span> <span class="st">"bar"</span>), <span class="dt">encode =</span> <span class="st">"json"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="kw"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="dt">body =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">foo =</span> <span class="st">"bar"</span>), <span class="dt">encode =</span> <span class="st">"json"</span>)</a></code></pre></div>
 <p>Many APIs will use just one of these forms of argument passing, but others will use multiple of them in combination. Best practice is to insulate the user from how and where the various arguments are used by the API and instead simply expose relevant arguments via R function arguments, some of which might be used in the URL, in the headers, in the body, etc.</p>
-<p>If a parameter has a small fixed set of possible values that are allowed by the API, you can use list them in the default arguments and then use <code><a href="https://www.rdocumentation.org/packages/base/topics/match.arg">match.arg()</a></code> to ensure that the caller only supplies one of those values. (This also allows the user to supply the short unique prefixes.)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">f &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>)) {</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/match.arg">match.arg</a></span>(x)</a>
+<p>If a parameter has a small fixed set of possible values that are allowed by the API, you can use list them in the default arguments and then use <code><a href="https://rdrr.io/r/base/match.arg.html">match.arg()</a></code> to ensure that the caller only supplies one of those values. (This also allows the user to supply the short unique prefixes.)</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">f &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>)) {</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="kw"><a href="https://rdrr.io/r/base/match.arg.html">match.arg</a></span>(x)</a>
 <a class="sourceLine" id="cb12-3" data-line-number="3">}</a>
 <a class="sourceLine" id="cb12-4" data-line-number="4"><span class="kw">f</span>(<span class="st">"a"</span>)</a>
 <a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt; [1] "apple"</span></a></code></pre></div>
@@ -442,9 +480,9 @@
 </blockquote>
 <p>It is possible to specify the key(s) or token(s) required for basic or OAuth authentication in a number of different ways. You may also need some way to preserve user credentials between function calls so that end users do not need to specify them each time. A good start is to use an environment variable. Here is an example of how to write a function that checks for the presence of a GitHub personal access token and errors otherwise:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">github_pat &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">  pat &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.getenv">Sys.getenv</a></span>(<span class="st">'GITHUB_PAT'</span>)</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="cf">if</span> (<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/identical">identical</a></span>(pat, <span class="st">""</span>)) {</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">    <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/stop">stop</a></span>(<span class="st">"Please set env var GITHUB_PAT to your github personal access token"</span>,</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  pat &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span>(<span class="st">'GITHUB_PAT'</span>)</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="cf">if</span> (<span class="kw"><a href="https://rdrr.io/r/base/identical.html">identical</a></span>(pat, <span class="st">""</span>)) {</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"Please set env var GITHUB_PAT to your github personal access token"</span>,</a>
 <a class="sourceLine" id="cb13-5" data-line-number="5">      <span class="dt">call. =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb13-6" data-line-number="6">  }</a>
 <a class="sourceLine" id="cb13-7" data-line-number="7"></a>
@@ -472,7 +510,7 @@
 <div id="rate-limiting" class="section level3">
 <h3 class="hasAnchor">
 <a href="#rate-limiting" class="anchor"></a>Rate limiting</h3>
-<p>Many APIs are rate limited, which means that you can only send a certain number of requests per hour. Often if your request is rate limited, the error message will tell you how long you should wait before performing another request. You might want to expose this to the user, or even include a call to <code><a href="https://www.rdocumentation.org/packages/base/topics/Sys.sleep">Sys.sleep()</a></code> that waits long enough.</p>
+<p>Many APIs are rate limited, which means that you can only send a certain number of requests per hour. Often if your request is rate limited, the error message will tell you how long you should wait before performing another request. You might want to expose this to the user, or even include a call to <code><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep()</a></code> that waits long enough.</p>
 <p>For example, we could implement a <code>rate_limit()</code> function that tells you how many calls against the github API are available to you.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">rate_limit &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
 <a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="kw">github_api</span>(<span class="st">"/rate_limit"</span>)</a>
@@ -483,41 +521,42 @@
 <a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co">#&gt;  $ resources:List of 4</span></a>
 <a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co">#&gt;   ..$ core                :List of 3</span></a>
 <a class="sourceLine" id="cb14-9" data-line-number="9"><span class="co">#&gt;   .. ..$ limit    : int 60</span></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt;   .. ..$ remaining: int 0</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt;   .. ..$ reset    : int 1566580102</span></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt;   .. ..$ remaining: int 23</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt;   .. ..$ reset    : int 1573827884</span></a>
 <a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co">#&gt;   ..$ search              :List of 3</span></a>
 <a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co">#&gt;   .. ..$ limit    : int 10</span></a>
 <a class="sourceLine" id="cb14-14" data-line-number="14"><span class="co">#&gt;   .. ..$ remaining: int 10</span></a>
-<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">#&gt;   .. ..$ reset    : int 1566576653</span></a>
+<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">#&gt;   .. ..$ reset    : int 1573826921</span></a>
 <a class="sourceLine" id="cb14-16" data-line-number="16"><span class="co">#&gt;   ..$ graphql             :List of 3</span></a>
 <a class="sourceLine" id="cb14-17" data-line-number="17"><span class="co">#&gt;   .. ..$ limit    : int 0</span></a>
 <a class="sourceLine" id="cb14-18" data-line-number="18"><span class="co">#&gt;   .. ..$ remaining: int 0</span></a>
-<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="co">#&gt;   .. ..$ reset    : int 1566580193</span></a>
+<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="co">#&gt;   .. ..$ reset    : int 1573830461</span></a>
 <a class="sourceLine" id="cb14-20" data-line-number="20"><span class="co">#&gt;   ..$ integration_manifest:List of 3</span></a>
 <a class="sourceLine" id="cb14-21" data-line-number="21"><span class="co">#&gt;   .. ..$ limit    : int 5000</span></a>
 <a class="sourceLine" id="cb14-22" data-line-number="22"><span class="co">#&gt;   .. ..$ remaining: int 5000</span></a>
-<a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">#&gt;   .. ..$ reset    : int 1566579916</span></a>
+<a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">#&gt;   .. ..$ reset    : int 1573830461</span></a>
 <a class="sourceLine" id="cb14-24" data-line-number="24"><span class="co">#&gt;  $ rate     :List of 3</span></a>
 <a class="sourceLine" id="cb14-25" data-line-number="25"><span class="co">#&gt;   ..$ limit    : int 60</span></a>
-<a class="sourceLine" id="cb14-26" data-line-number="26"><span class="co">#&gt;   ..$ remaining: int 0</span></a>
-<a class="sourceLine" id="cb14-27" data-line-number="27"><span class="co">#&gt;   ..$ reset    : int 1566580102</span></a></code></pre></div>
+<a class="sourceLine" id="cb14-26" data-line-number="26"><span class="co">#&gt;   ..$ remaining: int 23</span></a>
+<a class="sourceLine" id="cb14-27" data-line-number="27"><span class="co">#&gt;   ..$ reset    : int 1573827884</span></a></code></pre></div>
 <p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">rate_limit &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">  req &lt;-<span class="st"> </span><span class="kw">github_api</span>(<span class="st">"/rate_limit"</span>)</a>
 <a class="sourceLine" id="cb15-3" data-line-number="3">  core &lt;-<span class="st"> </span>req<span class="op">$</span>content<span class="op">$</span>resources<span class="op">$</span>core</a>
 <a class="sourceLine" id="cb15-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5">  reset &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.POSIXlt">as.POSIXct</a></span>(core<span class="op">$</span>reset, <span class="dt">origin =</span> <span class="st">"1970-01-01"</span>)</a>
-<a class="sourceLine" id="cb15-6" data-line-number="6">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cat">cat</a></span>(core<span class="op">$</span>remaining, <span class="st">" / "</span>, core<span class="op">$</span>limit,</a>
-<a class="sourceLine" id="cb15-7" data-line-number="7">    <span class="st">" (Resets at "</span>, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/strptime">strftime</a></span>(reset, <span class="st">"%H:%M:%S"</span>), <span class="st">")</span><span class="ch">\n</span><span class="st">"</span>, <span class="dt">sep =</span> <span class="st">""</span>)</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">  reset &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span>(core<span class="op">$</span>reset, <span class="dt">origin =</span> <span class="st">"1970-01-01"</span>)</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">  <span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(core<span class="op">$</span>remaining, <span class="st">" / "</span>, core<span class="op">$</span>limit,</a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">    <span class="st">" (Resets at "</span>, <span class="kw"><a href="https://rdrr.io/r/base/strptime.html">strftime</a></span>(reset, <span class="st">"%H:%M:%S"</span>), <span class="st">")</span><span class="ch">\n</span><span class="st">"</span>, <span class="dt">sep =</span> <span class="st">""</span>)</a>
 <a class="sourceLine" id="cb15-8" data-line-number="8">}</a>
 <a class="sourceLine" id="cb15-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb15-10" data-line-number="10"><span class="kw">rate_limit</span>()</a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; 0 / 60 (Resets at 17:08:22)</span></a></code></pre></div>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt; 23 / 60 (Resets at 14:24:44)</span></a></code></pre></div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
@@ -533,17 +572,20 @@
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

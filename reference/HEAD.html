@@ -8,21 +8,25 @@
 
 <title>Get url HEADers. — HEAD • httr</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +34,11 @@
 
 
 
-<meta property="og:title" content="Get url HEADers. — HEAD" />
 
+<meta property="og:title" content="Get url HEADers. — HEAD" />
 <meta property="og:description" content="Get url HEADers." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -56,6 +61,7 @@
 
   gtag('config', 'UA-115082821-1');
 </script>
+
 
   </head>
 
@@ -107,7 +113,6 @@
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -139,6 +144,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -150,13 +156,11 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Get url HEADers.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>HEAD</span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='no'>...</span>, <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>HEAD</span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(), <span class='no'>...</span>, <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -188,15 +192,15 @@ requests to the same host. See <code><a href='handle_pool.html'>handle_pool()</a
 details.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code><a href='response.html'>response()</a></code> object.</p>
-    
     <h2 class="hasAnchor" id="rfc-"><a class="anchor" href="#rfc-"></a>RFC2616</h2>
 
     
-    <p>The HEAD method is identical to GET except that the server MUST NOT return
+
+<p>The HEAD method is identical to GET except that the server MUST NOT return
 a message-body in the response. The metainformation contained in the HTTP
 headers in response to a HEAD request SHOULD be identical to the
 information sent in response to a GET request. This method can be used for
@@ -209,22 +213,20 @@ cached entity from that resource. If the new field values indicate that the
 cached entity differs from the current entity (as would be indicated by a
 change in Content-Length, Content-MD5, ETag or Last-Modified), then the
 cache MUST treat the cache entry as stale.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other http methods: <code><a href='BROWSE.html'>BROWSE</a></code>,
   <code><a href='DELETE.html'>DELETE</a></code>, <code><a href='GET.html'>GET</a></code>,
   <code><a href='PATCH.html'>PATCH</a></code>, <code><a href='POST.html'>POST</a></code>,
   <code><a href='PUT.html'>PUT</a></code>, <code><a href='VERB.html'>VERB</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'><a href='headers.html'>headers</a></span>(<span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>))</div><div class='output co'>#&gt; $date
-#&gt; [1] "Fri, 23 Aug 2019 16:09:08 GMT"
+#&gt; [1] "Fri, 15 Nov 2019 14:06:56 GMT"
 #&gt; 
 #&gt; $expires
 #&gt; [1] "-1"
@@ -242,7 +244,7 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "gws"
 #&gt; 
 #&gt; $`content-length`
-#&gt; [1] "5059"
+#&gt; [1] "5085"
 #&gt; 
 #&gt; $`x-xss-protection`
 #&gt; [1] "0"
@@ -251,7 +253,7 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "SAMEORIGIN"
 #&gt; 
 #&gt; $`set-cookie`
-#&gt; [1] "1P_JAR=2019-08-23-16; expires=Sun, 22-Sep-2019 16:09:08 GMT; path=/; domain=.google.com"
+#&gt; [1] "1P_JAR=2019-11-15-14; expires=Sun, 15-Dec-2019 14:06:56 GMT; path=/; domain=.google.com"
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "insensitive" "list"       </div></pre>
@@ -260,18 +262,15 @@ cache MUST treat the cache entry as stale.</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#rfc-">RFC2616</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -279,13 +278,16 @@ cache MUST treat the cache entry as stale.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

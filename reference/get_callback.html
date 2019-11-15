@@ -8,21 +8,25 @@
 
 <title>Install or uninstall a callback function — get_callback • httr</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,8 +34,8 @@
 
 
 
-<meta property="og:title" content="Install or uninstall a callback function — get_callback" />
 
+<meta property="og:title" content="Install or uninstall a callback function — get_callback" />
 <meta property="og:description" content="Supported callback functions:
 &amp;#8216;request&amp;#8217;This callback is called before an HTTP request
 is performed, with the request object as an argument.
@@ -44,8 +48,11 @@ is performed. The callback is called with two arguments: the
 request object and the response object of the HTTP
 request. If this callback returns a value other than NULL,
 then this value is returned by httr.
+
+
 " />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -68,6 +75,7 @@ then this value is returned by httr.
 
   gtag('config', 'UA-115082821-1');
 </script>
+
 
   </head>
 
@@ -119,7 +127,6 @@ then this value is returned by httr.
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -151,6 +158,7 @@ then this value is returned by httr.
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -162,7 +170,6 @@ then this value is returned by httr.
     </div>
 
     <div class="ref-description">
-    
     <p>Supported callback functions:</p><dl class='dl-horizontal'>
 <dt>&#8216;request&#8217;</dt><dd><p>This callback is called before an HTTP request
 is performed, with the <code>request</code> object as an argument.
@@ -175,14 +182,15 @@ is performed. The callback is called with two arguments: the
 <code>request</code> object and the <code>response</code> object of the HTTP
 request. If this callback returns a value other than <code>NULL</code>,
 then this value is returned by <code>httr</code>.</p></dd>
+
 </dl>
-    
+
     </div>
 
     <pre class="usage"><span class='fu'>get_callback</span>(<span class='no'>name</span>)
 
 <span class='fu'>set_callback</span>(<span class='no'>name</span>, <span class='kw'>new_callback</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -196,14 +204,13 @@ then this value is returned by <code>httr</code>.</p></dd>
 or <code>NULL</code> to remove the currently installed callback (if any).</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>get_callback</code> returns the currently installed
 callback, or <code>NULL</code> if none is installed.</p>
 <p><code>set_callback</code> returns the previously installed callback,
 or <code>NULL</code> if none was installed.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Note that it is not possible to install multiple callbacks of the same
@@ -212,13 +219,12 @@ To uninstall a callback function, set it to <code>NULL</code> with
 <code>set_callback()</code>.</p>
 <p>See the <code>httrmock</code> package for a proper example that uses
 callbacks.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'>## Log all HTTP requests to the screeen</span>
 <span class='no'>req_logger</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>req</span>) {
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cat'>cat</a></span>(<span class='st'>"HTTP request to"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sQuote'>sQuote</a></span>(<span class='no'>req</span>$<span class='no'>url</span>), <span class='st'>"\n"</span>)
+  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='st'>"HTTP request to"</span>, <span class='fu'><a href='https://rdrr.io/r/base/sQuote.html'>sQuote</a></span>(<span class='no'>req</span>$<span class='no'>url</span>), <span class='st'>"\n"</span>)
 }
 
 <span class='no'>old</span> <span class='kw'>&lt;-</span> <span class='fu'>set_callback</span>(<span class='st'>"request"</span>, <span class='no'>req_logger</span>)
@@ -228,10 +234,10 @@ callbacks.</p>
 
 <span class='co'>## Log all HTTP requests and response status codes as well</span>
 <span class='no'>req_logger2</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>req</span>) {
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cat'>cat</a></span>(<span class='st'>"HTTP request to"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sQuote'>sQuote</a></span>(<span class='no'>req</span>$<span class='no'>url</span>), <span class='st'>"... "</span>)
+  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='st'>"HTTP request to"</span>, <span class='fu'><a href='https://rdrr.io/r/base/sQuote.html'>sQuote</a></span>(<span class='no'>req</span>$<span class='no'>url</span>), <span class='st'>"... "</span>)
 }
 <span class='no'>res_logger</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>req</span>, <span class='no'>res</span>) {
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cat'>cat</a></span>(<span class='no'>res</span>$<span class='no'>status_code</span>, <span class='st'>"\n"</span>)
+  <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='no'>res</span>$<span class='no'>status_code</span>, <span class='st'>"\n"</span>)
 }
 
 <span class='no'>old_req</span> <span class='kw'>&lt;-</span> <span class='fu'>set_callback</span>(<span class='st'>"request"</span>, <span class='no'>req_logger2</span>)
@@ -249,23 +255,20 @@ callbacks.</p>
 <span class='no'>grec</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"https://httpbin.org"</span>)
 <span class='no'>grec</span>$<span class='no'>date</span> <span class='kw'>==</span> <span class='no'>g3</span>$<span class='no'>date</span>
 <span class='fu'>set_callback</span>(<span class='st'>"request"</span>, <span class='no'>old_req</span>)
-<span class='co'># }</span><div class='input'>
-</div></pre>
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -273,13 +276,16 @@ callbacks.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

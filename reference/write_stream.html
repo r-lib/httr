@@ -8,21 +8,25 @@
 
 <title>Process output in a streaming manner. — write_stream • httr</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,12 +34,13 @@
 
 
 
-<meta property="og:title" content="Process output in a streaming manner. — write_stream" />
 
+<meta property="og:title" content="Process output in a streaming manner. — write_stream" />
 <meta property="og:description" content="This is the most general way of processing the response from the server -
 you receive the raw bytes as they come in, and you can do whatever you want
 with them." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -58,6 +63,7 @@ with them." />
 
   gtag('config', 'UA-115082821-1');
 </script>
+
 
   </head>
 
@@ -109,7 +115,6 @@ with them." />
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -141,6 +146,7 @@ with them." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -152,15 +158,13 @@ with them." />
     </div>
 
     <div class="ref-description">
-    
     <p>This is the most general way of processing the response from the server -
 you receive the raw bytes as they come in, and you can do whatever you want
 with them.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>write_stream</span>(<span class='no'>f</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -171,14 +175,14 @@ vector containing the bytes recieved from the server. This will usually
 be 16k or less. The return value of the function is ignored.</p></td>
     </tr>
     </table>
-    
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(
   <span class='st'>"https://github.com/jeroen/data/raw/gh-pages/diamonds.json"</span>,
   <span class='fu'>write_stream</span>(<span class='kw'>function</span>(<span class='no'>x</span>) {
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>x</span>))
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>x</span>)
+    <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x</span>))
+    <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x</span>)
   })
 )</div><div class='output co'>#&gt; [1] 32768
 #&gt; [1] 32768
@@ -188,7 +192,7 @@ be 16k or less. The return value of the function is ignored.</p></td>
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
-#&gt; [1] 14297
+#&gt; [1] 14162
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
@@ -201,7 +205,7 @@ be 16k or less. The return value of the function is ignored.</p></td>
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
-#&gt; [1] 31556
+#&gt; [1] 31472
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
@@ -232,7 +236,7 @@ be 16k or less. The return value of the function is ignored.</p></td>
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
-#&gt; [1] 17656
+#&gt; [1] 17645
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
@@ -274,6 +278,7 @@ be 16k or less. The return value of the function is ignored.</p></td>
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
+#&gt; [1] 15258
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
@@ -282,7 +287,6 @@ be 16k or less. The return value of the function is ignored.</p></td>
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
-#&gt; [1] 15805
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
@@ -381,8 +385,8 @@ be 16k or less. The return value of the function is ignored.</p></td>
 #&gt; [1] 32768
 #&gt; [1] 32768
 #&gt; [1] 32768
-#&gt; [1] 13265</div><div class='output co'>#&gt; Response [https://raw.githubusercontent.com/jeroen/data/gh-pages/diamonds.json]
-#&gt;   Date: 2019-08-23 16:09
+#&gt; [1] 14042</div><div class='output co'>#&gt; Response [https://raw.githubusercontent.com/jeroen/data/gh-pages/diamonds.json]
+#&gt;   Date: 2019-11-15 14:07
 #&gt;   Status: 200
 #&gt;   Content-Type: text/plain; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div></pre>
@@ -391,12 +395,12 @@ be 16k or less. The return value of the function is ignored.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -404,13 +408,16 @@ be 16k or less. The return value of the function is ignored.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -8,21 +8,25 @@
 
 <title>GET a url. — GET • httr</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +34,11 @@
 
 
 
-<meta property="og:title" content="GET a url. — GET" />
 
+<meta property="og:title" content="GET a url. — GET" />
 <meta property="og:description" content="GET a url." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -56,6 +61,7 @@
 
   gtag('config', 'UA-115082821-1');
 </script>
+
 
   </head>
 
@@ -107,7 +113,6 @@
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -139,6 +144,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -150,13 +156,11 @@
     </div>
 
     <div class="ref-description">
-    
     <p>GET a url.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>GET</span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='no'>...</span>, <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>GET</span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(), <span class='no'>...</span>, <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -188,15 +192,15 @@ requests to the same host. See <code><a href='handle_pool.html'>handle_pool()</a
 details.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code><a href='response.html'>response()</a></code> object.</p>
-    
     <h2 class="hasAnchor" id="rfc-"><a class="anchor" href="#rfc-"></a>RFC2616</h2>
 
     
-    <p>The GET method means retrieve whatever information (in the form of an
+
+<p>The GET method means retrieve whatever information (in the form of an
 entity) is identified by the Request-URI. If the Request-URI refers to a
 data-producing process, it is the produced data which shall be returned as
 the entity in the response and not the source text of the process, unless
@@ -215,100 +219,101 @@ part of the entity be transferred, as described in <a href='http://www.w3.org/Pr
 The partial GET method is intended to reduce unnecessary network usage by
 allowing partially-retrieved entities to be completed without transferring
 data already held by the client.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other http methods: <code><a href='BROWSE.html'>BROWSE</a></code>,
   <code><a href='DELETE.html'>DELETE</a></code>, <code><a href='HEAD.html'>HEAD</a></code>,
   <code><a href='PATCH.html'>PATCH</a></code>, <code><a href='POST.html'>POST</a></code>,
   <code><a href='PUT.html'>PUT</a></code>, <code><a href='VERB.html'>VERB</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.6 kB
+#&gt;   Size: 11.7 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AAP1E1EAAAAAXc6_D...
 #&gt; function _F_installCss(c){}</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/webhp]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.6 kB
+#&gt;   Size: 11.7 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...
-#&gt; function _F_installCss(c){}</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>, <span class='kw'>query</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>q</span> <span class='kw'>=</span> <span class='st'>"ham"</span>))</div><div class='output co'>#&gt; Response [http://www.google.com/search?q=ham]
-#&gt;   Date: 2019-08-23 16:09
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AAP1E1EAAAAAXc6_D...
+#&gt; function _F_installCss(c){}</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>, <span class='kw'>query</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>q</span> <span class='kw'>=</span> <span class='st'>"ham"</span>))</div><div class='output co'>#&gt; Response [http://www.google.com/search?q=ham]
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 180 kB
+#&gt;   Size: 97.4 kB
 #&gt; &lt;!doctype html&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;meta content="/im...
 #&gt; element.addEventListener('click',()=&gt; {element.parentElement.querySelector('a...
 #&gt; &lt;span class="BNeawe"&gt;&lt;a href="/url?q=https://en.wikipedia.org/wiki/List_of_ha...
 #&gt; function C(){w=null;if(x){var a="/complete/search?client=heirloom-srp&amp;hl="+hl...
 #&gt; function D(){for(;n.firstChild;)n.removeChild(n.firstChild);r=[];t=-1;z(!1)}f...
 #&gt; })(google.lc,google.li);google.li++;}catch(e){}
-#&gt; })();})();&lt;/script&gt;&lt;/div&gt;&lt;!-- cctlcm 5 cctlcm --&gt;&lt;textarea class="csi" name="...</div><div class='input'>
+#&gt; })();})();&lt;/script&gt;&lt;/div&gt;&lt;!-- cctlcm 5 cctlcm --&gt;&lt;textarea class="csi" name="...
+#&gt; (function(){for(var a=+new Date-window.start,b=D(a),d=0,c=0,f=0,n=document.ge...</div><div class='input'>
 <span class='co'># See what GET is doing with httpbin.org</span>
 <span class='no'>url</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/get"</span>
 <span class='fu'>GET</span>(<span class='no'>url</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 320 B
+#&gt;   Size: 316 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
 #&gt;   }, 
-#&gt;   "origin": "35.184.226.236, 35.184.226.236", 
+#&gt;   "origin": "35.192.10.37, 35.192.10.37", 
 #&gt;   "url": "https://httpbin.org/get"
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-08-23 16:09
-#&gt;   Status: 200
-#&gt;   Content-Type: application/json
-#&gt;   Size: 350 B
-#&gt; {
-#&gt;   "args": {}, 
-#&gt;   "headers": {
-#&gt;     "A": "1", 
-#&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
-#&gt;     "Accept-Encoding": "deflate, gzip", 
-#&gt;     "B": "2", 
-#&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1.9000"
-#&gt;   }, 
-#&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 346 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
+#&gt;     "A": "1", 
+#&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
+#&gt;     "Accept-Encoding": "deflate, gzip", 
+#&gt;     "B": "2", 
+#&gt;     "Host": "httpbin.org", 
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
+#&gt;   }, 
+#&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
+#&gt;   Date: 2019-11-15 14:06
+#&gt;   Status: 200
+#&gt;   Content-Type: application/json
+#&gt;   Size: 342 B
+#&gt; {
+#&gt;   "args": {}, 
+#&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Cookie": "a=1;b=2", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
 #&gt;   }, 
-#&gt;   "origin": "35.184.226.236, 35.184.226.236", 
+#&gt;   "origin": "35.192.10.37, 35.192.10.37", 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 376 B
+#&gt;   Size: 372 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
@@ -318,12 +323,12 @@ data already held by the client.</p>
 #&gt;     "B": "2", 
 #&gt;     "Cookie": "a=1;b=2", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='authenticate.html'>authenticate</a></span>(<span class='st'>"username"</span>, <span class='st'>"password"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 376 B
+#&gt;   Size: 372 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
@@ -331,66 +336,65 @@ data already held by the client.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Authorization": "Basic dXNlcm5hbWU6cGFzc3dvcmQ=", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
 #&gt;   }, 
-#&gt;   "origin": "35.184.226.236, 35.184.226.236", 
+#&gt;   "origin": "35.192.10.37, 35.192.10.37", 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 322 B
+#&gt;   Size: 316 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.0 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
 #&gt;   }, 
-#&gt;   "origin": "104.154.120.187, 104.154.120.187", 
+#&gt;   "origin": "34.66.200.49, 34.66.200.49", 
 #&gt;   "url": "https://httpbin.org/get"
 #&gt; ...</div><div class='input'>
 <span class='co'># You might want to manually specify the handle so you can have multiple</span>
 <span class='co'># independent logins to the same website.</span>
 <span class='no'>google</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='handle.html'>handle</a></span>(<span class='st'>"http://google.com"</span>)
 <span class='fu'>GET</span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>google</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"/"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.7 kB
+#&gt;   Size: 11.8 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AAP1E1EAAAAAXc6_D...
 #&gt; function _F_installCss(c){}</div><div class='input'><span class='fu'>GET</span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>google</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/webhp]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 11.7 kB
+#&gt;   Size: 11.8 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AAP1E1EAAAAAXc6_D...
 #&gt; function _F_installCss(c){}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#rfc-">RFC2616</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -398,13 +402,16 @@ data already held by the client.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

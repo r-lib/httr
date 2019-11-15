@@ -8,21 +8,25 @@
 
 <title>Generate OAuth token for service accounts. — oauth_service_token • httr</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,13 +34,14 @@
 
 
 
-<meta property="og:title" content="Generate OAuth token for service accounts. — oauth_service_token" />
 
+<meta property="og:title" content="Generate OAuth token for service accounts. — oauth_service_token" />
 <meta property="og:description" content="Service accounts provide a way of using OAuth2 without user intervention.
 They instead assume that the server has access to a private key used
 to sign requests. The OAuth app is not needed for service accounts:
 that information is embedded in the account itself." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -59,6 +64,7 @@ that information is embedded in the account itself." />
 
   gtag('config', 'UA-115082821-1');
 </script>
+
 
   </head>
 
@@ -110,7 +116,6 @@ that information is embedded in the account itself." />
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -142,6 +147,7 @@ that information is embedded in the account itself." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -153,16 +159,14 @@ that information is embedded in the account itself." />
     </div>
 
     <div class="ref-description">
-    
     <p>Service accounts provide a way of using OAuth2 without user intervention.
 They instead assume that the server has access to a private key used
 to sign requests. The OAuth app is not needed for service accounts:
 that information is embedded in the account itself.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>oauth_service_token</span>(<span class='no'>endpoint</span>, <span class='no'>secrets</span>, <span class='kw'>scope</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>sub</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -184,35 +188,33 @@ that information is embedded in the account itself.</p>
 requesting delegated access.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other OAuth: <code><a href='oauth1.0_token.html'>oauth1.0_token</a></code>,
   <code><a href='oauth2.0_token.html'>oauth2.0_token</a></code>, <code><a href='oauth_app.html'>oauth_app</a></code>,
   <code><a href='oauth_endpoint.html'>oauth_endpoint</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='no'>endpoint</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='oauth_endpoints.html'>oauth_endpoints</a></span>(<span class='st'>"google"</span>)
-<span class='no'>secrets</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>jsonlite</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON'>fromJSON</a></span>(<span class='st'>"~/Desktop/httrtest-45693cbfac92.json"</span>)
+<span class='no'>secrets</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>jsonlite</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></span>(<span class='st'>"~/Desktop/httrtest-45693cbfac92.json"</span>)
 <span class='no'>scope</span> <span class='kw'>&lt;-</span> <span class='st'>"https://www.googleapis.com/auth/bigquery.readonly"</span>
 
 <span class='no'>token</span> <span class='kw'>&lt;-</span> <span class='fu'>oauth_service_token</span>(<span class='no'>endpoint</span>, <span class='no'>secrets</span>, <span class='no'>scope</span>)
-<span class='co'># }</span></pre>
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -220,13 +222,16 @@ requesting delegated access.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

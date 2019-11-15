@@ -8,21 +8,25 @@
 
 <title>Changelog • httr</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,7 +34,9 @@
 
 
 
+
 <meta property="og:title" content="Changelog" />
+
 
 
 
@@ -53,6 +59,7 @@
 
   gtag('config', 'UA-115082821-1');
 </script>
+
 
   </head>
 
@@ -104,7 +111,6 @@
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -136,6 +142,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -145,6 +152,11 @@
       <small>Source: <a href='https://github.com/r-lib/httr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="httr-development-version" class="section level1">
+<h1 class="page-header">
+<a href="#httr-development-version" class="anchor"></a>httr (development version)<small> Unreleased </small>
+</h1>
+</div>
     <div id="httr-1-4-1" class="section level1">
 <h1 class="page-header">
 <a href="#httr-1-4-1" class="anchor"></a>httr 1.4.1<small> 2019-08-05 </small>
@@ -255,9 +267,9 @@
 <ul>
 <li><p><code>BROWSER()</code> prints a message telling you to browse to the URL if called in a non-interactive session.</p></li>
 <li><p><code>find_cert_bundle()</code> will now correctly find cert bundle in “R_HOME/etc” (<a href='https://github.com/jiwalker-usgs'>@jiwalker-usgs</a>, <a href='https://github.com/r-lib/httr/issues/386'>#386</a>).</p></li>
-<li><p>You can now send lists containing <code><a href="https://www.rdocumentation.org/packages/curl/topics/multipart">curl::form_data()</a></code> in the <code>body</code> of requests with `encoding = “multipart”. This makes it possible to specify the mime-type of individual components (<a href='https://github.com/r-lib/httr/issues/430'>#430</a>).</p></li>
+<li><p>You can now send lists containing <code><a href="https://jeroen.cran.dev/curl/reference/multipart.html">curl::form_data()</a></code> in the <code>body</code> of requests with `encoding = “multipart”. This makes it possible to specify the mime-type of individual components (<a href='https://github.com/r-lib/httr/issues/430'>#430</a>).</p></li>
 <li><p><code><a href="../reference/modify_url.html">modify_url()</a></code> recognises more forms of empty queries. This eliminates a source of spurious trailing <code>?</code> and <code>?=</code> (<a href='https://github.com/jennybc'>@jennybc</a>, <a href='https://github.com/r-lib/httr/issues/452'>#452</a>).</p></li>
-<li><p>The <code><a href="https://www.rdocumentation.org/packages/base/topics/length">length()</a></code> method of the internal <code>path</code> class is no longer exported (<a href='https://github.com/r-lib/httr/issues/395'>#395</a>).</p></li>
+<li><p>The <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> method of the internal <code>path</code> class is no longer exported (<a href='https://github.com/r-lib/httr/issues/395'>#395</a>).</p></li>
 </ul>
 </div>
 </div>
@@ -278,7 +290,7 @@
 <a href="#new-features-1" class="anchor"></a>New features</h2>
 <ul>
 <li><p><code><a href="../reference/oauth_signature.html">oauth_signature()</a></code> no longer prepends ‘oauth_’ to additional parameters. (<a href='https://github.com/jimhester'>@jimhester</a>, <a href='https://github.com/r-lib/httr/issues/373'>#373</a>)</p></li>
-<li><p>All <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print()</a></code> methods now invisibly return <code>x</code> (<a href='https://github.com/r-lib/httr/issues/355'>#355</a>).</p></li>
+<li><p>All <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> methods now invisibly return <code>x</code> (<a href='https://github.com/r-lib/httr/issues/355'>#355</a>).</p></li>
 <li><p><code><a href="../reference/DELETE.html">DELETE()</a></code> gains a body parameter (<a href='https://github.com/r-lib/httr/issues/326'>#326</a>).</p></li>
 <li><p>New <code>encode = "raw"</code> allows you to do your own encoding for requests with bodies.</p></li>
 <li><p>New <code><a href="../reference/http_type.html">http_type()</a></code> returns the content/mime type of a request, sans parameters.</p></li>
@@ -341,7 +353,7 @@
 <li><p>httr no longer bundles <code>cacert.pem</code>, and instead it relies on the bundle in openssl. This bundle is only used a last-resort on windows with R &lt;3.2.0.</p></li>
 <li><p>Switch to ‘openssl’ package for hashing, hmac, signatures, and base64.</p></li>
 <li><p>httr no longer depends on stringr (<a href='https://github.com/r-lib/httr/issues/285'>#285</a>, <a href='https://github.com/jimhester'>@jimhester</a>).</p></li>
-<li><p><code><a href="../reference/parse_url.html">build_url()</a></code> collapses vector <code>path</code> with <code>/</code> (<a href='https://github.com/r-lib/httr/issues/280'>#280</a>, <a href='https://github.com/artemklevtsov'>@artemklevtsov</a>).</p></li>
+<li><p><code><a href="../reference/parse_url.html">build_url()</a></code> collapses vector <code>path</code> with <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code> (<a href='https://github.com/r-lib/httr/issues/280'>#280</a>, <a href='https://github.com/artemklevtsov'>@artemklevtsov</a>).</p></li>
 <li><p><code><a href="../reference/content.html">content(x)</a></code> uses xml2 for XML documents and readr for csv and tsv.</p></li>
 <li><p><code><a href="../reference/content.html">content(, type = "text")</a></code> defaults to UTF-8 encoding if not otherwise specified.</p></li>
 <li><p><code><a href="../reference/has_content.html">has_content()</a></code> correctly tests for the presence/absence of body content (<a href='https://github.com/r-lib/httr/issues/91'>#91</a>).</p></li>
@@ -358,7 +370,7 @@
 <ul>
 <li><p>httr no longer uses the RCurl package. Instead it uses the curl package, a modern binding to libcurl written by Jeroen Ooms (<a href='https://github.com/r-lib/httr/issues/172'>#172</a>). This should make httr more reliable and prevent the “easy handle already used in multi handle” error. This change shouldn’t affect any code that uses httr - all the changes have happened behind the scenes.</p></li>
 <li><p>The <code>oauth_listener</code> can now listen on a custom IP address and port (the previously hardwired ip:port of <code>127.0.0.1:1410</code> is now just the default). This permits authentication to work under other settings, such as inside docker containers (which require localhost uses <code>0.0.0.0</code> instead). To configure, set the system environmental variables <code>HTTR_LOCALHOST</code> and <code>HTTR_PORT</code> respectively (<a href='https://github.com/cboettig'>@cboettig</a>, <a href='https://github.com/r-lib/httr/issues/211'>#211</a>).</p></li>
-<li><p><code><a href="../reference/POST.html">POST(encode = 'json')</a></code> now automatically turns length-1 vectors into json scalars. To prevent this automatic “unboxing”, wrap the vector in <code><a href="https://www.rdocumentation.org/packages/base/topics/AsIs">I()</a></code> (<a href='https://github.com/r-lib/httr/issues/187'>#187</a>).</p></li>
+<li><p><code><a href="../reference/POST.html">POST(encode = 'json')</a></code> now automatically turns length-1 vectors into json scalars. To prevent this automatic “unboxing”, wrap the vector in <code><a href="https://rdrr.io/r/base/AsIs.html">I()</a></code> (<a href='https://github.com/r-lib/httr/issues/187'>#187</a>).</p></li>
 <li><p><code><a href="../reference/POST.html">POST()</a></code>, <code><a href="../reference/PUT.html">PUT()</a></code> and <code><a href="../reference/PATCH.html">PATCH()</a></code> now drop <code>NULL</code> body elements. This is convenient and consistent with the behaviour for url query params.</p></li>
 </ul>
 <div id="minor-improvements-and-bug-fixes" class="section level2">
@@ -412,7 +424,7 @@
 <ul>
 <li><p><code><a href="../articles/api-packages.html">vignette("api-packages")</a></code> gains more detailed instructions on setting environment variables, thanks to <a href='https://github.com/jennybc'>@jennybc</a>.</p></li>
 <li><p>Add <code><a href="../reference/revoke_all.html">revoke_all()</a></code> to revoke all stored tokens (if possible) (<a href='https://github.com/r-lib/httr/issues/77'>#77</a>).</p></li>
-<li><p>Fix for OAuth 2 process when using <code><a href="https://www.rdocumentation.org/packages/base/topics/options">options(httr_oob_default = TRUE)</a></code> (<a href='https://github.com/r-lib/httr/issues/126'>#126</a>, <a href='https://github.com/WillemPaling'>@WillemPaling</a>).</p></li>
+<li><p>Fix for OAuth 2 process when using <code><a href="https://rdrr.io/r/base/options.html">options(httr_oob_default = TRUE)</a></code> (<a href='https://github.com/r-lib/httr/issues/126'>#126</a>, <a href='https://github.com/WillemPaling'>@WillemPaling</a>).</p></li>
 <li><p>New <code>brew_dr()</code> checks for common problems. Currently checks if your libCurl uses NSS. This is unlikely to work so it gives you some advice on how to fix the problem (thanks to <a href='https://github.com/eddelbuettel'>@eddelbuettel</a> for debugging this problem).</p></li>
 <li><p><code>Content-Type</code> set to title case to avoid errors in servers which do not correctly implement case insensitivity in header names. (<a href='https://github.com/r-lib/httr/issues/142'>#142</a>, <a href='https://github.com/r-lib/httr/issues/146'>#146</a>) thanks to Håkon Malmedal (<a href='https://github.com/hmalmedal'>@hmalmedal</a>) and Jim Hester (<a href='https://github.com/jimhester'>@jimhester</a>).</p></li>
 <li><p>Correctly parse http status when it only contains two components (<a href='https://github.com/r-lib/httr/issues/162'>#162</a>).</p></li>
@@ -429,7 +441,7 @@
 <a href="#deprecated-and-deleted-functions" class="anchor"></a>Deprecated and deleted functions</h2>
 <ul>
 <li><p><code>new_token()</code> has been removed - this was always an internal function so you should never have been using it. If you were, switch to creating the tokens directly.</p></li>
-<li><p>Deprecate <code><a href="../reference/guess_media.html">guess_media()</a></code>, and instead use <code><a href="https://www.rdocumentation.org/packages/mime/topics/guess_type">mime::guess_type()</a></code> (<a href='https://github.com/r-lib/httr/issues/148'>#148</a>).</p></li>
+<li><p>Deprecate <code><a href="../reference/guess_media.html">guess_media()</a></code>, and instead use <code><a href="https://rdrr.io/pkg/mime/man/guess_type.html">mime::guess_type()</a></code> (<a href='https://github.com/r-lib/httr/issues/148'>#148</a>).</p></li>
 </ul>
 </div>
 </div>
@@ -458,7 +470,7 @@
 <a href="#minor-improvements-and-bug-fixes-2" class="anchor"></a>Minor improvements and bug fixes</h2>
 <ul>
 <li><p>Now possible to specify both handle and url when making a request.</p></li>
-<li><p><code><a href="../reference/content.html">content(type = "text")</a></code> uses <code><a href="https://www.rdocumentation.org/packages/base/topics/readBin">readBin()</a></code> instead of <code><a href="https://www.rdocumentation.org/packages/base/topics/rawConversion">rawToChar()</a></code> so that strings with embedded NULLs (e.g. WINDOWS-1252) can be re-encoded to UTF-8.</p></li>
+<li><p><code><a href="../reference/content.html">content(type = "text")</a></code> uses <code><a href="https://rdrr.io/r/base/readBin.html">readBin()</a></code> instead of <code><a href="https://rdrr.io/r/base/rawConversion.html">rawToChar()</a></code> so that strings with embedded NULLs (e.g. WINDOWS-1252) can be re-encoded to UTF-8.</p></li>
 <li><p><code><a href="../reference/DELETE.html">DELETE()</a></code> now returns body of request (<a href='https://github.com/r-lib/httr/issues/138'>#138</a>).</p></li>
 <li><p><code><a href="../reference/headers.html">headers()</a></code> is now a generic with a method for response objects.</p></li>
 <li><p><code><a href="../reference/parse_media.html">parse_media()</a></code> failed to take into account that media types are case-insenstive - this lead to bad re-encoding for content-types like “text/html; Charset=UTF-8”</p></li>
@@ -503,7 +515,7 @@
 <li><p>Add <code>is_interactive()</code> parameter to <code><a href="../reference/oauth_listener.html">oauth_listener()</a></code>, <code><a href="../reference/init_oauth1.0.html">init_oauth1.0()</a></code> and <code><a href="../reference/init_oauth2.0.html">init_oauth2.0()</a></code> (<a href='https://github.com/r-lib/httr/issues/90'>#90</a>).</p></li>
 <li><p><code><a href="../reference/oauth_signature.html">oauth_signature()</a></code> and <code><a href="../reference/oauth_signature.html">oauth_header()</a></code> now exported to make it easier to construct custom authentication for APIs that use only some components of the full OAuth process (e.g. 2 legged OAuth).</p></li>
 <li><p>NULL <code>query</code> parameters are now dropped automatically.</p></li>
-<li><p>When <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print()</a></code>ing a response, httr will only attempt to print the first few lines if it’s a text format (i.e. either the main type is text or is application/json). It will also truncate each line so that it fits on screen - this should hopefully make it easier to see a little bit of the content, without filling the screen with gibberish.</p></li>
+<li><p>When <code><a href="https://rdrr.io/r/base/print.html">print()</a></code>ing a response, httr will only attempt to print the first few lines if it’s a text format (i.e. either the main type is text or is application/json). It will also truncate each line so that it fits on screen - this should hopefully make it easier to see a little bit of the content, without filling the screen with gibberish.</p></li>
 <li><p><code>new_bin()</code> has been removed: it’s easier to see what’s going on in examples with <code>httpbin.org</code>.</p></li>
 </ul>
 </div>
@@ -512,7 +524,7 @@
 <a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
 <ul>
 <li><p><code><a href="../reference/user_agent.html">user_agent()</a></code> once again overrides default (closes <a href='https://github.com/r-lib/httr/issues/97'>#97</a>)</p></li>
-<li><p><code><a href="https://www.rdocumentation.org/packages/base/topics/parse">parse(type = "auto")</a></code> returns NULL if no content associated with request (<a href='https://github.com/r-lib/httr/issues/91'>#91</a>).</p></li>
+<li><p><code><a href="https://rdrr.io/r/base/parse.html">parse(type = "auto")</a></code> returns NULL if no content associated with request (<a href='https://github.com/r-lib/httr/issues/91'>#91</a>).</p></li>
 <li><p>Better strategy for resetting Curl handles prevents carry-over of error status and other problems (<a href='https://github.com/r-lib/httr/issues/112'>#112</a>).</p></li>
 <li><p><code><a href="../reference/set_config.html">set_config()</a></code> and <code><a href="../reference/with_config.html">with_config()</a></code> now work with <code>token</code>s (<a href='https://github.com/r-lib/httr/issues/111'>#111</a>).</p></li>
 </ul>
@@ -533,7 +545,7 @@
 <li><p>The OAuth token objects are now reference classes, which mean they can be updated in place, such as when an access token expires and needs to be refreshed. You can manually refresh by calling <code>$refresh()</code> on the object. You can force reinitialisation (to do the complete dance from scratch) by calling <code>$reinit(force = TRUE)</code>.</p></li>
 <li><p>If a signed OAuth2 request fails with a 401 and the credentials have a <code>refresh_token</code>, then the OAuth token will be automatically refreshed (<a href='https://github.com/r-lib/httr/issues/74'>#74</a>).</p></li>
 <li><p>OAuth tokens are cached locally in a file called <code>.httr-oauth</code> (unless you opt out). This file should not be included in source code control, and httr will automatically add to <code>.gitignore</code> and <code>.Rbuildignore</code>. The caching policy is described in more detail in the help for the <code>Token</code> class.</p></li>
-<li><p>The OAuth2 dance can now be performed without running a local webserver (<a href='https://github.com/r-lib/httr/issues/33'>#33</a>, thanks to <a href='https://github.com/craigcitro'>@craigcitro</a>). To make that the default, set <code><a href="https://www.rdocumentation.org/packages/base/topics/options">options(httr_oob_default = TRUE)</a></code>. This is useful when running R remotely.</p></li>
+<li><p>The OAuth2 dance can now be performed without running a local webserver (<a href='https://github.com/r-lib/httr/issues/33'>#33</a>, thanks to <a href='https://github.com/craigcitro'>@craigcitro</a>). To make that the default, set <code><a href="https://rdrr.io/r/base/options.html">options(httr_oob_default = TRUE)</a></code>. This is useful when running R remotely.</p></li>
 <li><p>Add support for passing oauth2 tokens in headers instead of the URL, and make this the default (<a href='https://github.com/r-lib/httr/issues/34'>#34</a>, thanks to <a href='https://github.com/craigcitro'>@craigcitro</a>).</p></li>
 <li><p>OAuth endpoints can store arbitrary extra urls.</p></li>
 <li><p>Use the httpuv webserver for the OAuth dance instead of the built-in httpd server (<a href='https://github.com/r-lib/httr/issues/32'>#32</a>, thanks to <a href='https://github.com/jdeboer'>@jdeboer</a>). This makes the dance work in Rstudio, and also seems a little faster. Rook is no longer required.</p></li>
@@ -550,7 +562,7 @@
 <li><p>Added default user agent which includes versions of Curl, RCurl and httr.</p></li>
 <li><p>Switched to jsonlite from rjson.</p></li>
 <li><p>Content parsers no longer load packages on to search path.</p></li>
-<li><p><code><a href="../reference/stop_for_status.html">stop_for_status()</a></code> now raises errors with useful classes so that you can use <code><a href="https://www.rdocumentation.org/packages/base/topics/conditions">tryCatch()</a></code> to take different actions depending on the type of error. See <code><a href="../reference/http_condition.html">http_condition()</a></code> for more details.</p></li>
+<li><p><code><a href="../reference/stop_for_status.html">stop_for_status()</a></code> now raises errors with useful classes so that you can use <code><a href="https://rdrr.io/r/base/conditions.html">tryCatch()</a></code> to take different actions depending on the type of error. See <code><a href="../reference/http_condition.html">http_condition()</a></code> for more details.</p></li>
 <li><p>httr now imports the methods package so that it works when called with Rscript.</p></li>
 <li><p>New automatic parsers for mime types <code>text/tab-separated-values</code> and <code>text/csv</code> (<a href='https://github.com/r-lib/httr/issues/49'>#49</a>)</p></li>
 <li><p>Add support for <code>fragment</code> in url building/parsing (<a href='https://github.com/r-lib/httr/issues/70'>#70</a>, thanks to <a href='https://github.com/craigcitro'>@craigcitro</a>).</p></li>
@@ -598,6 +610,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#httr-development-version">development version</a></li>
         <li><a href="#httr-1-4-1">1.4.1</a></li>
         <li><a href="#httr-1-4-0">1.4.0</a></li>
         <li><a href="#httr-1-3-1">1.3.1</a></li>
@@ -619,19 +632,23 @@
 
 </div>
 
+
       <footer>
       <div class="copyright">
   <p>Developed by <a href='http://hadley.nz'>Hadley Wickham</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

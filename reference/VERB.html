@@ -8,21 +8,25 @@
 
 <title>VERB a url. — VERB • httr</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +34,11 @@
 
 
 
-<meta property="og:title" content="VERB a url. — VERB" />
 
+<meta property="og:title" content="VERB a url. — VERB" />
 <meta property="og:description" content="Use an arbitrary verb." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -56,6 +61,7 @@
 
   gtag('config', 'UA-115082821-1');
 </script>
+
 
   </head>
 
@@ -107,7 +113,6 @@
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -139,6 +144,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -150,14 +156,12 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Use an arbitrary verb.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>VERB</span>(<span class='no'>verb</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='no'>...</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>encode</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"multipart"</span>, <span class='st'>"form"</span>, <span class='st'>"json"</span>, <span class='st'>"raw"</span>), <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>VERB</span>(<span class='no'>verb</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(), <span class='no'>...</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>encode</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"multipart"</span>, <span class='st'>"form"</span>, <span class='st'>"json"</span>, <span class='st'>"raw"</span>), <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -206,10 +210,10 @@ one of form (application/x-www-form-urlencoded), multipart,
 (multipart/form-data), or json (application/json).</p>
 <p>For "multipart", list elements can be strings or objects created by
 <code><a href='upload_file.html'>upload_file()</a></code>. For "form", elements are coerced to strings
-and escaped, use <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code> to prevent double-escaping. For "json",
+and escaped, use <code><a href='https://rdrr.io/r/base/AsIs.html'>I()</a></code> to prevent double-escaping. For "json",
 parameters are automatically "unboxed" (i.e. length 1 vectors are
 converted to scalars). To preserve a length 1 vector as a vector,
-wrap in <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code>. For "raw", either a character or raw vector. You'll
+wrap in <code><a href='https://rdrr.io/r/base/AsIs.html'>I()</a></code>. For "raw", either a character or raw vector. You'll
 need to make sure to set the <code><a href='content_type.html'>content_type()</a></code> yourself.</p></td>
     </tr>
     <tr>
@@ -223,18 +227,16 @@ requests to the same host. See <code><a href='handle_pool.html'>handle_pool()</a
 details.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code><a href='response.html'>response()</a></code> object.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other http methods: <code><a href='BROWSE.html'>BROWSE</a></code>,
   <code><a href='DELETE.html'>DELETE</a></code>, <code><a href='GET.html'>GET</a></code>,
   <code><a href='HEAD.html'>HEAD</a></code>, <code><a href='PATCH.html'>PATCH</a></code>,
   <code><a href='POST.html'>POST</a></code>, <code><a href='PUT.html'>PUT</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'>VERB</span>(
@@ -244,32 +246,32 @@ details.</p></td>
 <span class='fu'><a href='stop_for_status.html'>stop_for_status</a></span>(<span class='no'>r</span>)
 <span class='fu'><a href='content.html'>content</a></span>(<span class='no'>r</span>)</div><div class='output co'>#&gt; {xml_document}
 #&gt; &lt;multistatus xmlns:D="DAV:"&gt;
-#&gt;  [1] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
-#&gt;  [2] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
-#&gt;  [3] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
+#&gt;  [1] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
+#&gt;  [2] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
+#&gt;  [3] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
 #&gt;  [4] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
-#&gt;  [5] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
+#&gt;  [5] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
 #&gt;  [6] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
-#&gt;  [7] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
+#&gt;  [7] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
 #&gt;  [8] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
-#&gt;  [9] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
+#&gt;  [9] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
 #&gt; [10] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
 #&gt; [11] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
 #&gt; [12] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
 #&gt; [13] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
-#&gt; [14] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
+#&gt; [14] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
 #&gt; [15] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
-#&gt; [16] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
-#&gt; [17] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
+#&gt; [16] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
+#&gt; [17] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
 #&gt; [18] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
 #&gt; [19] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
-#&gt; [20] &lt;D:response xmlns:S="http://subversion.tigris.org/xmlns/svn/" xmlns:C="h ...
+#&gt; [20] &lt;D:response xmlns:V="http://subversion.tigris.org/xmlns/dav/" xmlns:S="h ...
 #&gt; ...</div><div class='input'>
 <span class='fu'>VERB</span>(<span class='st'>"POST"</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>"http://httpbin.org/post"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:07
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 412 B
+#&gt;   Size: 408 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -281,10 +283,10 @@ details.</p></td>
 #&gt;     "Content-Length": "0", 
 #&gt;     "Host": "httpbin.org", 
 #&gt; ...</div><div class='input'><span class='fu'>VERB</span>(<span class='st'>"POST"</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>"http://httpbin.org/post"</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>"foobar"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:07
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 418 B
+#&gt;   Size: 414 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "foobar", 
@@ -301,16 +303,14 @@ details.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -318,13 +318,16 @@ details.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -8,21 +8,25 @@
 
 <title>Retry a request until it succeeds. — RETRY • httr</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,8 +34,8 @@
 
 
 
-<meta property="og:title" content="Retry a request until it succeeds. — RETRY" />
 
+<meta property="og:title" content="Retry a request until it succeeds. — RETRY" />
 <meta property="og:description" content="Safely retry a request until it succeeds, as defined by the terminate_on
 parameter, which by default means a response for which http_error()
 is FALSE. Will also retry on error conditions raised by the underlying curl code,
@@ -44,6 +48,7 @@ https://www.awsarchitectureblog.com/2015/03/backoff.html.)
 If the server returns status code 429 and specifies a retry-after value, that
 value will be used instead, unless it's smaller than pause_min." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -66,6 +71,7 @@ value will be used instead, unless it's smaller than pause_min." />
 
   gtag('config', 'UA-115082821-1');
 </script>
+
 
   </head>
 
@@ -117,7 +123,6 @@ value will be used instead, unless it's smaller than pause_min." />
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -149,6 +154,7 @@ value will be used instead, unless it's smaller than pause_min." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -160,26 +166,24 @@ value will be used instead, unless it's smaller than pause_min." />
     </div>
 
     <div class="ref-description">
-    
     <p>Safely retry a request until it succeeds, as defined by the <code>terminate_on</code>
 parameter, which by default means a response for which <code><a href='http_error.html'>http_error()</a></code>
 is <code>FALSE</code>. Will also retry on error conditions raised by the underlying curl code,
 but if the last retry still raises one, <code>RETRY</code> will raise it again with
-<code><a href='https://www.rdocumentation.org/packages/base/topics/stop'>stop()</a></code>.
+<code><a href='https://rdrr.io/r/base/stop.html'>stop()</a></code>.
 It is designed to be kind to the server: after each failure
 randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in
 <a href='https://www.awsarchitectureblog.com/2015/03/backoff.html'>https://www.awsarchitectureblog.com/2015/03/backoff.html</a>.)
 If the server returns status code 429 and specifies a <code>retry-after</code> value, that
 value will be used instead, unless it's smaller than <code>pause_min</code>.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>RETRY</span>(<span class='no'>verb</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='no'>...</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>encode</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"multipart"</span>, <span class='st'>"form"</span>, <span class='st'>"json"</span>, <span class='st'>"raw"</span>), <span class='kw'>times</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+    <pre class="usage"><span class='fu'>RETRY</span>(<span class='no'>verb</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(), <span class='no'>...</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>encode</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"multipart"</span>, <span class='st'>"form"</span>, <span class='st'>"json"</span>, <span class='st'>"raw"</span>), <span class='kw'>times</span> <span class='kw'>=</span> <span class='fl'>3</span>,
   <span class='kw'>pause_base</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>pause_cap</span> <span class='kw'>=</span> <span class='fl'>60</span>, <span class='kw'>pause_min</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>terminate_on</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>terminate_on_success</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -228,10 +232,10 @@ one of form (application/x-www-form-urlencoded), multipart,
 (multipart/form-data), or json (application/json).</p>
 <p>For "multipart", list elements can be strings or objects created by
 <code><a href='upload_file.html'>upload_file()</a></code>. For "form", elements are coerced to strings
-and escaped, use <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code> to prevent double-escaping. For "json",
+and escaped, use <code><a href='https://rdrr.io/r/base/AsIs.html'>I()</a></code> to prevent double-escaping. For "json",
 parameters are automatically "unboxed" (i.e. length 1 vectors are
 converted to scalars). To preserve a length 1 vector as a vector,
-wrap in <code><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I()</a></code>. For "raw", either a character or raw vector. You'll
+wrap in <code><a href='https://rdrr.io/r/base/AsIs.html'>I()</a></code>. For "raw", either a character or raw vector. You'll
 need to make sure to set the <code><a href='content_type.html'>content_type()</a></code> yourself.</p></td>
     </tr>
     <tr>
@@ -279,43 +283,43 @@ automatically terminate when the request is successful, regardless of the
 value of <code>terminate_on</code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The last response. Note that if the request doesn't succeed after
 <code>times</code> times this will be a failed request, i.e. you still need
 to use <code><a href='stop_for_status.html'>stop_for_status()</a></code>.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Succeeds straight away</span>
 <span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/200"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/status/200]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:06
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># Never succeeds</span>
 <span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/500"</span>)</div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 3.3 seconds...</span></div><div class='output co'>#&gt; Response [http://httpbin.org/status/500]
-#&gt;   Date: 2019-08-23 16:09
+#&gt;   Date: 2019-11-15 14:07
 #&gt;   Status: 500
 #&gt;   Content-Type: text/html; charset=utf-8
-#&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># Invalid hostname generates curl error condition and is retried but eventually</span>
+#&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># \donttest{</span>
+<span class='co'># Invalid hostname generates curl error condition and is retried but eventually</span>
 <span class='co'># raises an error condition.</span>
 <span class='fu'>RETRY</span>(<span class='st'>"GET"</span>, <span class='st'>"http://invalidhostname/"</span>)</div><div class='output co'>#&gt; <span class='message'>Error in curl::curl_fetch_memory(url, handle = handle): Couldn't resolve host 'invalidhostname'</span>
 #&gt; <span class='message'>Request failed [ERROR]. Retrying in 1.2 seconds...</span></div><div class='output co'>#&gt; <span class='message'>Error in curl::curl_fetch_memory(url, handle = handle): Couldn't resolve host 'invalidhostname'</span>
-#&gt; <span class='message'>Request failed [ERROR]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='error'>Error in curl::curl_fetch_memory(url, handle = handle): Couldn't resolve host 'invalidhostname'</span></div></pre>
+#&gt; <span class='message'>Request failed [ERROR]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='error'>Error in curl::curl_fetch_memory(url, handle = handle): Couldn't resolve host 'invalidhostname'</span></div><div class='input'># }
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -323,13 +327,16 @@ to use <code><a href='stop_for_status.html'>stop_for_status()</a></code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
