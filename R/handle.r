@@ -38,7 +38,7 @@ handle <- function(url, cookies = TRUE) {
   stopifnot(is.character(url), length(url) == 1)
 
   if (!missing(cookies)) {
-    warning("Cookies argument is depcrated", call. = FALSE)
+    warning("Cookies argument is deprecated", call. = FALSE)
   }
 
   h <- curl::new_handle()
