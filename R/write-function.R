@@ -17,17 +17,17 @@ write_function <- function(subclass, ...) {
 #' it avoids a round-trip to disk. If you want to save a file that's bigger
 #' than memory, use `write_disk()` to save it to a known path.
 #'
-#' @param path Path to content to.
+#' @param path Path to save content to.
 #' @param overwrite Will only overwrite existing `path` if TRUE.
 #' @export
 #' @examples
 #' tmp <- tempfile()
 #' r1 <- GET("https://www.google.com", write_disk(tmp))
 #' readLines(tmp)
-#' 
+#'
 #' # The default
 #' r2 <- GET("https://www.google.com", write_memory())
-#' 
+#'
 #' # Save a very large file
 #' \dontrun{
 #' GET(
