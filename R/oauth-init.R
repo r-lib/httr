@@ -212,6 +212,7 @@ check_scope <- function(x) {
 }
 
 # Wrap base::interactive in a non-primitive function so that the call can be mocked for testing
+#' @export 
 is_interactive <- function() interactive()
 
 check_oob <- function(use_oob, oob_value = NULL) {
