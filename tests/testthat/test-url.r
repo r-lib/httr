@@ -85,6 +85,36 @@ test_that("parse_url preserves leading / in path", {
   expect_equal(url$path, "/tmp/foobar")
 })
 
+test_that("scheme starts with alpha", {
+  url <- parse_url("+ab://host/tmp/foobar")
+  expect_equal(url$scheme, NULL)
+})
+
+test_that("scheme can contain digits", {
+  url <- parse_url("ab1://host/tmp/foobar")
+  expect_equal(url$scheme, "ab1")
+})
+
+test_that("scheme can contain plus", {
+  url <- parse_url("a+b://host/tmp/foobar")
+  expect_equal(url$scheme, "a+b")
+})
+
+test_that("scheme can contain period", {
+  url <- parse_url("a.b://host/tmp/foobar")
+  expect_equal(url$scheme, "a.b")
+})
+
+test_that("scheme can contain hyphen", {
+  url <- parse_url("a-b://host/tmp/foobar")
+  expect_equal(url$scheme, "a-b")
+})
+
+test_that("scheme can be a single character", {
+  url <- parse_url("a://host/tmp/foobar")
+  expect_equal(url$scheme, "a")
+})
+
 # compose_query -----------------------------------------------------------
 
 test_that("I() prevents escaping", {

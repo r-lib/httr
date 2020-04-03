@@ -1,9 +1,9 @@
 # Good example for testing
 # http://stevenlevithan.com/demo/parseuri/js/
 
-#' Parse and build urls according to RFC1808.
+#' Parse and build urls according to RFC3986.
 #'
-#' See <http://tools.ietf.org/html/rfc1808.html> for details of parsing
+#' See <https://tools.ietf.org/html/rfc3986> for details of parsing
 #' algorithm.
 #'
 #' @param url For `parse_url` a character vector (of length 1) to parse
@@ -24,7 +24,7 @@
 #' parse_url("http://google.com/")
 #' parse_url("http://google.com:80/")
 #' parse_url("http://google.com:80/?a=1&b=2")
-#' 
+#'
 #' url <- parse_url("http://google.com/")
 #' url$scheme <- "https"
 #' url$query <- list(q = "hello")
@@ -45,7 +45,7 @@ parse_url <- function(url) {
   }
 
   fragment <- pull_off("#(.*)$")
-  scheme <- pull_off("^([[:alpha:]+.-]+):")
+  scheme <- pull_off("^([[:alpha:]][[:alpha:][:digit:]+.-]*):")
   netloc <- pull_off("^//([^/?]*)/?")
 
   if (identical(netloc, "")) { # corresponds to ///

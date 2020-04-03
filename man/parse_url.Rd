@@ -3,7 +3,7 @@
 \name{parse_url}
 \alias{parse_url}
 \alias{build_url}
-\title{Parse and build urls according to RFC1808.}
+\title{Parse and build urls according to RFC3986.}
 \usage{
 parse_url(url)
 
@@ -29,7 +29,7 @@ a list containing:
 }
 }
 \description{
-See \url{http://tools.ietf.org/html/rfc1808.html} for details of parsing
+See \url{https://tools.ietf.org/html/rfc3986} for details of parsing
 algorithm.
 }
 \examples{
