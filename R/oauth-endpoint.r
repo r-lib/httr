@@ -24,7 +24,7 @@
 #'   authorize = "https://www.facebook.com/dialog/oauth",
 #'   access = "https://graph.facebook.com/oauth/access_token"
 #' )
-#' 
+#'
 #' oauth_endpoints
 oauth_endpoint <- function(request = NULL, authorize, access, ...,
                            base_url = NULL) {
@@ -122,6 +122,11 @@ oauth_endpoints <- function(name) {
       base_url = "https://login.windows.net/common/oauth2",
       authorize = "authorize",
       access = "token"
+    ),
+    meetup = oauth_endpoint(
+      base_url = "https://secure.meetup.com/oauth2",
+      authorize = "authorize",
+      access = "access"
     ),
     stop("Unknown endpoint", call. = FALSE)
   )
