@@ -6,6 +6,8 @@
 
 OAuth2.0 has been made somewhat more flexible in order to support more websites:
 
+* `oauth2.0_access_token` prioritize user parameters over endpoint (@denrou, #564)
+
 * `init_oauth2.0()` passes `use_basic_auth` onwards, enabling 
    basic authentication for OAuth 2.0 (@peterhartman, #484).
 
