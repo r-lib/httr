@@ -115,6 +115,7 @@ test_that("can not use oob in non-interactive session", {
 })
 
 test_that("can not use custom oob value without enabling oob", {
+  testthat::skip_if_not_installed("httpuv")
   with_mock(
     `httr:::is_interactive` = function() TRUE,
     expect_error(check_oob(FALSE, "custom_value"), "custom oob value")
