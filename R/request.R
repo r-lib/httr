@@ -66,7 +66,7 @@ request_build <- function(method, url, ...) {
 
   req <- Reduce(request_combine, extra, init = request())
 
-  req$method <- method
+  req$method <- toupper(method)
   req$url <- url
 
   req
@@ -93,7 +93,7 @@ request_combine <- function(x, y) {
 print.request <- function(x, ...) {
   cat("<request>\n")
   if (!is.null(x$method) && !is.null(x$url)) {
-    cat(toupper(x$method), " ", x$url, "\n", sep = "")
+    cat(x$method, " ", x$url, "\n", sep = "")
   }
   if (!is.null(x$output)) {
     cat("Output: ", class(x$output)[[1]], "\n", sep = "")
