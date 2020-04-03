@@ -33,7 +33,8 @@ with_config(verbose(), {
 with_verbose(GET("http://google.com"))
 }
 \seealso{
-Other ways to set configuration: \code{\link{config}},
-  \code{\link{set_config}}
+Other ways to set configuration: 
+\code{\link{config}()},
+\code{\link{set_config}()}
 }
 \concept{ways to set configuration}

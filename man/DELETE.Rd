@@ -4,8 +4,14 @@
 \alias{DELETE}
 \title{Send a DELETE request.}
 \usage{
-DELETE(url = NULL, config = list(), ..., body = NULL,
-  encode = c("multipart", "form", "json", "raw"), handle = NULL)
+DELETE(
+  url = NULL,
+  config = list(),
+  ...,
+  body = NULL,
+  encode = c("multipart", "form", "json", "raw"),
+  handle = NULL
+)
 }
 \arguments{
 \item{url}{the url of the page to retrieve}
@@ -88,9 +94,13 @@ DELETE("http://httpbin.org/delete")
 POST("http://httpbin.org/delete")
 }
 \seealso{
-Other http methods: \code{\link{BROWSE}},
-  \code{\link{GET}}, \code{\link{HEAD}},
-  \code{\link{PATCH}}, \code{\link{POST}},
-  \code{\link{PUT}}, \code{\link{VERB}}
+Other http methods: 
+\code{\link{BROWSE}()},
+\code{\link{GET}()},
+\code{\link{HEAD}()},
+\code{\link{PATCH}()},
+\code{\link{POST}()},
+\code{\link{PUT}()},
+\code{\link{VERB}()}
 }
 \concept{http methods}

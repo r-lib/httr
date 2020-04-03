@@ -72,7 +72,7 @@ you will protect yourself against changes to httr.
 \examples{
 r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
 content(r) # automatically parses JSON
-cat(content(r, "text"), "\\n") # text content
+cat(content(r, "text"), "\n") # text content
 content(r, "raw") # raw bytes from server
 
 rlogo <- content(GET("http://cran.r-project.org/Rlogo.jpg"))
@@ -80,8 +80,10 @@ plot(0:1, 0:1, type = "n")
 rasterImage(rlogo, 0, 0, 1, 1)
 }
 \seealso{
-Other response methods: \code{\link{http_error}},
-  \code{\link{http_status}}, \code{\link{response}},
-  \code{\link{stop_for_status}}
+Other response methods: 
+\code{\link{http_error}()},
+\code{\link{http_status}()},
+\code{\link{response}()},
+\code{\link{stop_for_status}()}
 }
 \concept{response methods}

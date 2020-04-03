@@ -51,7 +51,7 @@ callbacks.
 \dontrun{
 ## Log all HTTP requests to the screeen
 req_logger <- function(req) {
-  cat("HTTP request to", sQuote(req$url), "\\n")
+  cat("HTTP request to", sQuote(req$url), "\n")
 }
 
 old <- set_callback("request", req_logger)
@@ -64,7 +64,7 @@ req_logger2 <- function(req) {
   cat("HTTP request to", sQuote(req$url), "... ")
 }
 res_logger <- function(req, res) {
-  cat(res$status_code, "\\n")
+  cat(res$status_code, "\n")
 }
 
 old_req <- set_callback("request", req_logger2)

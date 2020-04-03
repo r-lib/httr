@@ -6,20 +6,41 @@
 \alias{oauth2.0_access_token}
 \title{Retrieve OAuth 2.0 access token.}
 \usage{
-init_oauth2.0(endpoint, app, scope = NULL, user_params = NULL,
-  type = NULL, use_oob = getOption("httr_oob_default"),
-  oob_value = NULL, is_interactive = interactive(),
-  use_basic_auth = FALSE, config_init = list(),
-  client_credentials = FALSE, query_authorize_extra = list())
+init_oauth2.0(
+  endpoint,
+  app,
+  scope = NULL,
+  user_params = NULL,
+  type = NULL,
+  use_oob = getOption("httr_oob_default"),
+  oob_value = NULL,
+  is_interactive = interactive(),
+  use_basic_auth = FALSE,
+  config_init = list(),
+  client_credentials = FALSE,
+  query_authorize_extra = list()
+)
 
-oauth2.0_authorize_url(endpoint, app, scope,
-  redirect_uri = app$redirect_uri, state = nonce(),
-  query_extra = list())
+oauth2.0_authorize_url(
+  endpoint,
+  app,
+  scope,
+  redirect_uri = app$redirect_uri,
+  state = nonce(),
+  query_extra = list()
+)
 
-oauth2.0_access_token(endpoint, app, code, user_params = NULL,
-  type = NULL, use_basic_auth = FALSE,
-  redirect_uri = app$redirect_uri, client_credentials = FALSE,
-  config = list())
+oauth2.0_access_token(
+  endpoint,
+  app,
+  code,
+  user_params = NULL,
+  type = NULL,
+  use_basic_auth = FALSE,
+  redirect_uri = app$redirect_uri,
+  client_credentials = FALSE,
+  config = list()
+)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link[=oauth_endpoint]{oauth_endpoint()}}}

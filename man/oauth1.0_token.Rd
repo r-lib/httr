@@ -4,8 +4,14 @@
 \alias{oauth1.0_token}
 \title{Generate an oauth1.0 token.}
 \usage{
-oauth1.0_token(endpoint, app, permission = NULL, as_header = TRUE,
-  private_key = NULL, cache = getOption("httr_oauth_cache"))
+oauth1.0_token(
+  endpoint,
+  app,
+  permission = NULL,
+  as_header = TRUE,
+  private_key = NULL,
+  cache = getOption("httr_oauth_cache")
+)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link[=oauth_endpoint]{oauth_endpoint()}}}
@@ -38,8 +44,10 @@ See \code{\link[=Token]{Token()}} for full details about the token object, and t
 caching policies used to store credentials across sessions.
 }
 \seealso{
-Other OAuth: \code{\link{oauth2.0_token}},
-  \code{\link{oauth_app}}, \code{\link{oauth_endpoint}},
-  \code{\link{oauth_service_token}}
+Other OAuth: 
+\code{\link{oauth2.0_token}()},
+\code{\link{oauth_app}()},
+\code{\link{oauth_endpoint}()},
+\code{\link{oauth_service_token}()}
 }
 \concept{OAuth}

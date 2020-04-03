@@ -4,9 +4,15 @@
 \alias{jwt_signature}
 \title{Generate a JWT signature given credentials.}
 \usage{
-jwt_signature(credentials, scope, aud, sub = NULL,
-  iat = as.integer(Sys.time()), exp = iat + duration, duration = 60L
-  * 60L)
+jwt_signature(
+  credentials,
+  scope,
+  aud,
+  sub = NULL,
+  iat = as.integer(Sys.time()),
+  exp = iat + duration,
+  duration = 60L * 60L
+)
 }
 \arguments{
 \item{credentials}{Parsed contents of the credentials file.}
@@ -31,9 +37,6 @@ the issued time.}
 
 \item{iss}{Email address of the client_id of the application making the
 access token request.}
-
-\item{scope}{A space-delimited list of the permissions that the application
-requests.}
 }
 \description{
 As described in

@@ -17,9 +17,13 @@ GET("http://httpbin.org/user-agent")
 GET("http://httpbin.org/user-agent", user_agent("httr"))
 }
 \seealso{
-Other config: \code{\link{add_headers}},
-  \code{\link{authenticate}}, \code{\link{config}},
-  \code{\link{set_cookies}}, \code{\link{timeout}},
-  \code{\link{use_proxy}}, \code{\link{verbose}}
+Other config: 
+\code{\link{add_headers}()},
+\code{\link{authenticate}()},
+\code{\link{config}()},
+\code{\link{set_cookies}()},
+\code{\link{timeout}()},
+\code{\link{use_proxy}()},
+\code{\link{verbose}()}
 }
 \concept{config}

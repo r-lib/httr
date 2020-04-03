@@ -5,8 +5,15 @@
 \alias{oauth_header}
 \title{Generate oauth signature.}
 \usage{
-oauth_signature(url, method = "GET", app, token = NULL,
-  token_secret = NULL, private_key = NULL, other_params = NULL)
+oauth_signature(
+  url,
+  method = "GET",
+  app,
+  token = NULL,
+  token_secret = NULL,
+  private_key = NULL,
+  other_params = NULL
+)
 
 oauth_header(info)
 }

@@ -4,8 +4,14 @@
 \alias{POST}
 \title{POST file to a server.}
 \usage{
-POST(url = NULL, config = list(), ..., body = NULL,
-  encode = c("multipart", "form", "json", "raw"), handle = NULL)
+POST(
+  url = NULL,
+  config = list(),
+  ...,
+  body = NULL,
+  encode = c("multipart", "form", "json", "raw"),
+  handle = NULL
+)
 }
 \arguments{
 \item{url}{the url of the page to retrieve}
@@ -82,9 +88,13 @@ POST(b2, body = FALSE, verbose())
 POST(b2, body = "", verbose())
 }
 \seealso{
-Other http methods: \code{\link{BROWSE}},
-  \code{\link{DELETE}}, \code{\link{GET}},
-  \code{\link{HEAD}}, \code{\link{PATCH}},
-  \code{\link{PUT}}, \code{\link{VERB}}
+Other http methods: 
+\code{\link{BROWSE}()},
+\code{\link{DELETE}()},
+\code{\link{GET}()},
+\code{\link{HEAD}()},
+\code{\link{PATCH}()},
+\code{\link{PUT}()},
+\code{\link{VERB}()}
 }
 \concept{http methods}

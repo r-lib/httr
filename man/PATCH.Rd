@@ -4,8 +4,14 @@
 \alias{PATCH}
 \title{Send PATCH request to a server.}
 \usage{
-PATCH(url = NULL, config = list(), ..., body = NULL,
-  encode = c("multipart", "form", "json", "raw"), handle = NULL)
+PATCH(
+  url = NULL,
+  config = list(),
+  ...,
+  body = NULL,
+  encode = c("multipart", "form", "json", "raw"),
+  handle = NULL
+)
 }
 \arguments{
 \item{url}{the url of the page to retrieve}
@@ -62,9 +68,13 @@ A \code{\link[=response]{response()}} object.
 Send PATCH request to a server.
 }
 \seealso{
-Other http methods: \code{\link{BROWSE}},
-  \code{\link{DELETE}}, \code{\link{GET}},
-  \code{\link{HEAD}}, \code{\link{POST}},
-  \code{\link{PUT}}, \code{\link{VERB}}
+Other http methods: 
+\code{\link{BROWSE}()},
+\code{\link{DELETE}()},
+\code{\link{GET}()},
+\code{\link{HEAD}()},
+\code{\link{POST}()},
+\code{\link{PUT}()},
+\code{\link{VERB}()}
 }
 \concept{http methods}

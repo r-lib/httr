@@ -4,9 +4,18 @@
 \alias{modify_url}
 \title{Modify a url.}
 \usage{
-modify_url(url, scheme = NULL, hostname = NULL, port = NULL,
-  path = NULL, query = NULL, params = NULL, fragment = NULL,
-  username = NULL, password = NULL)
+modify_url(
+  url,
+  scheme = NULL,
+  hostname = NULL,
+  port = NULL,
+  path = NULL,
+  query = NULL,
+  params = NULL,
+  fragment = NULL,
+  username = NULL,
+  password = NULL
+)
 }
 \arguments{
 \item{url}{the url to modify}

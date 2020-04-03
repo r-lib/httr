@@ -26,7 +26,7 @@ was successfully executed; codes in the 300s mean the page was redirected;
 codes in the 400s mean there was a mistake in the way the client sent the
 request; codes in the 500s mean the server failed to fulfill
 an apparently valid request. More details on the codes can be found at
-\code{http://en.wikipedia.org/wiki/Http_error_codes}.
+\verb{http://en.wikipedia.org/wiki/Http_error_codes}.
 }
 \examples{
 http_status(100)
@@ -45,8 +45,10 @@ http_status(GET("http://httpbin.org/status/320"))
 }
 }
 \seealso{
-Other response methods: \code{\link{content}},
-  \code{\link{http_error}}, \code{\link{response}},
-  \code{\link{stop_for_status}}
+Other response methods: 
+\code{\link{content}()},
+\code{\link{http_error}()},
+\code{\link{response}()},
+\code{\link{stop_for_status}()}
 }
 \concept{response methods}

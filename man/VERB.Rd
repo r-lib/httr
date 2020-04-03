@@ -4,8 +4,15 @@
 \alias{VERB}
 \title{VERB a url.}
 \usage{
-VERB(verb, url = NULL, config = list(), ..., body = NULL,
-  encode = c("multipart", "form", "json", "raw"), handle = NULL)
+VERB(
+  verb,
+  url = NULL,
+  config = list(),
+  ...,
+  body = NULL,
+  encode = c("multipart", "form", "json", "raw"),
+  handle = NULL
+)
 }
 \arguments{
 \item{verb}{Name of verb to use.}
@@ -75,9 +82,13 @@ VERB("POST", url = "http://httpbin.org/post")
 VERB("POST", url = "http://httpbin.org/post", body = "foobar")
 }
 \seealso{
-Other http methods: \code{\link{BROWSE}},
-  \code{\link{DELETE}}, \code{\link{GET}},
-  \code{\link{HEAD}}, \code{\link{PATCH}},
-  \code{\link{POST}}, \code{\link{PUT}}
+Other http methods: 
+\code{\link{BROWSE}()},
+\code{\link{DELETE}()},
+\code{\link{GET}()},
+\code{\link{HEAD}()},
+\code{\link{PATCH}()},
+\code{\link{POST}()},
+\code{\link{PUT}()}
 }
 \concept{http methods}

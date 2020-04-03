@@ -6,7 +6,9 @@
 \alias{handle_find}
 \alias{handle_reset}
 \title{Maintain a pool of handles.}
-\format{An environment.}
+\format{
+An environment.
+}
 \usage{
 handle_pool
 

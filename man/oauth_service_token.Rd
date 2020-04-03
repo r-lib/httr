@@ -32,8 +32,10 @@ token <- oauth_service_token(endpoint, secrets, scope)
 }
 }
 \seealso{
-Other OAuth: \code{\link{oauth1.0_token}},
-  \code{\link{oauth2.0_token}}, \code{\link{oauth_app}},
-  \code{\link{oauth_endpoint}}
+Other OAuth: 
+\code{\link{oauth1.0_token}()},
+\code{\link{oauth2.0_token}()},
+\code{\link{oauth_app}()},
+\code{\link{oauth_endpoint}()}
 }
 \concept{OAuth}

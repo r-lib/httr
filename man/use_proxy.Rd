@@ -4,8 +4,7 @@
 \alias{use_proxy}
 \title{Use a proxy to connect to the internet.}
 \usage{
-use_proxy(url, port = NULL, username = NULL, password = NULL,
-  auth = "basic")
+use_proxy(url, port = NULL, username = NULL, password = NULL, auth = "basic")
 }
 \arguments{
 \item{url, port}{location of proxy}
@@ -24,9 +23,13 @@ Use a proxy to connect to the internet.
 # GET("http://had.co.nz", use_proxy("64.251.21.73", 8080), verbose())
 }
 \seealso{
-Other config: \code{\link{add_headers}},
-  \code{\link{authenticate}}, \code{\link{config}},
-  \code{\link{set_cookies}}, \code{\link{timeout}},
-  \code{\link{user_agent}}, \code{\link{verbose}}
+Other config: 
+\code{\link{add_headers}()},
+\code{\link{authenticate}()},
+\code{\link{config}()},
+\code{\link{set_cookies}()},
+\code{\link{timeout}()},
+\code{\link{user_agent}()},
+\code{\link{verbose}()}
 }
 \concept{config}

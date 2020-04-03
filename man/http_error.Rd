@@ -36,8 +36,10 @@ http_error(200L)
 http_error(404L)
 }
 \seealso{
-Other response methods: \code{\link{content}},
-  \code{\link{http_status}}, \code{\link{response}},
-  \code{\link{stop_for_status}}
+Other response methods: 
+\code{\link{content}()},
+\code{\link{http_status}()},
+\code{\link{response}()},
+\code{\link{stop_for_status}()}
 }
 \concept{response methods}

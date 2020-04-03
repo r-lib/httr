@@ -78,9 +78,13 @@ GET(handle = google, path = "/")
 GET(handle = google, path = "search")
 }
 \seealso{
-Other http methods: \code{\link{BROWSE}},
-  \code{\link{DELETE}}, \code{\link{HEAD}},
-  \code{\link{PATCH}}, \code{\link{POST}},
-  \code{\link{PUT}}, \code{\link{VERB}}
+Other http methods: 
+\code{\link{BROWSE}()},
+\code{\link{DELETE}()},
+\code{\link{HEAD}()},
+\code{\link{PATCH}()},
+\code{\link{POST}()},
+\code{\link{PUT}()},
+\code{\link{VERB}()}
 }
 \concept{http methods}

@@ -4,12 +4,22 @@
 \alias{oauth2.0_token}
 \title{Generate an oauth2.0 token.}
 \usage{
-oauth2.0_token(endpoint, app, scope = NULL, user_params = NULL,
-  type = NULL, use_oob = getOption("httr_oob_default"),
-  oob_value = NULL, as_header = TRUE, use_basic_auth = FALSE,
-  cache = getOption("httr_oauth_cache"), config_init = list(),
-  client_credentials = FALSE, credentials = NULL,
-  query_authorize_extra = list())
+oauth2.0_token(
+  endpoint,
+  app,
+  scope = NULL,
+  user_params = NULL,
+  type = NULL,
+  use_oob = getOption("httr_oob_default"),
+  oob_value = NULL,
+  as_header = TRUE,
+  use_basic_auth = FALSE,
+  cache = getOption("httr_oauth_cache"),
+  config_init = list(),
+  client_credentials = FALSE,
+  credentials = NULL,
+  query_authorize_extra = list()
+)
 }
 \arguments{
 \item{endpoint}{An OAuth endpoint, created by \code{\link[=oauth_endpoint]{oauth_endpoint()}}}
@@ -70,15 +80,17 @@ A \code{Token2.0} reference class (RC) object.
 This is the final object in the OAuth dance - it encapsulates the app,
 the endpoint, other parameters and the received credentials. It is a
 reference class so that it can be seamlessly updated (e.g. using
-\code{$refresh()}) when access expires.
+\verb{$refresh()}) when access expires.
 }
 \details{
 See \code{\link[=Token]{Token()}} for full details about the token object, and the
 caching policies used to store credentials across sessions.
 }
 \seealso{
-Other OAuth: \code{\link{oauth1.0_token}},
-  \code{\link{oauth_app}}, \code{\link{oauth_endpoint}},
-  \code{\link{oauth_service_token}}
+Other OAuth: 
+\code{\link{oauth1.0_token}()},
+\code{\link{oauth_app}()},
+\code{\link{oauth_endpoint}()},
+\code{\link{oauth_service_token}()}
 }
 \concept{OAuth}

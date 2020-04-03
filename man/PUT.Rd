@@ -4,8 +4,14 @@
 \alias{PUT}
 \title{Send PUT request to server.}
 \usage{
-PUT(url = NULL, config = list(), ..., body = NULL,
-  encode = c("multipart", "form", "json", "raw"), handle = NULL)
+PUT(
+  url = NULL,
+  config = list(),
+  ...,
+  body = NULL,
+  encode = c("multipart", "form", "json", "raw"),
+  handle = NULL
+)
 }
 \arguments{
 \item{url}{the url of the page to retrieve}
@@ -69,9 +75,13 @@ PUT(b2, body = list(y = upload_file(system.file("CITATION"))))
 PUT(b2, body = list(x = "A simple text string"), encode = "json")
 }
 \seealso{
-Other http methods: \code{\link{BROWSE}},
-  \code{\link{DELETE}}, \code{\link{GET}},
-  \code{\link{HEAD}}, \code{\link{PATCH}},
-  \code{\link{POST}}, \code{\link{VERB}}
+Other http methods: 
+\code{\link{BROWSE}()},
+\code{\link{DELETE}()},
+\code{\link{GET}()},
+\code{\link{HEAD}()},
+\code{\link{PATCH}()},
+\code{\link{POST}()},
+\code{\link{VERB}()}
 }
 \concept{http methods}

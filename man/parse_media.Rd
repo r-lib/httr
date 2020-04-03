@@ -16,19 +16,19 @@ Parsed according to RFC 2616, as at
 \details{
 A simplified minimal EBNF is:
 \itemize{
-\item media-type     = \code{type "/" subtype *( ";" parameter )}
+\item media-type     = \verb{type "/" subtype *( ";" parameter )}
 \item type           = \code{token}
 \item subtype        = \code{token}
-\item parameter      = \code{attribute "=" value}
+\item parameter      = \verb{attribute "=" value}
 \item attribute      = \code{token}
 \item value          = \code{token | quoted-string}
-\item token          = \code{1*<any CHAR except CTLs or ()<>@,;:\"/[]?=\{\}}
+\item token          = \verb{1*<any CHAR except CTLs or ()<>@,;:\\"/[]?=\\\{\\\}}
 }
 }
 \examples{
 parse_media("text/plain")
 parse_media("text/plain; charset=utf-8")
-parse_media("text/plain; charset=\\"utf-8\\"")
-parse_media("text/plain; randomparam=\\";=;=\\"")
+parse_media("text/plain; charset=\"utf-8\"")
+parse_media("text/plain; randomparam=\";=;=\"")
 }
 \keyword{internal}

@@ -39,8 +39,10 @@ facebook <- oauth_endpoint(
 oauth_endpoints
 }
 \seealso{
-Other OAuth: \code{\link{oauth1.0_token}},
-  \code{\link{oauth2.0_token}}, \code{\link{oauth_app}},
-  \code{\link{oauth_service_token}}
+Other OAuth: 
+\code{\link{oauth1.0_token}()},
+\code{\link{oauth2.0_token}()},
+\code{\link{oauth_app}()},
+\code{\link{oauth_service_token}()}
 }
 \concept{OAuth}

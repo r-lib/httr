@@ -8,15 +8,8 @@
 \alias{Token2.0}
 \alias{TokenServiceAccount}
 \title{OAuth token objects.}
-\format{An R6 class object.}
-\usage{
-Token
-
-Token1.0
-
-Token2.0
-
-TokenServiceAccount
+\format{
+An R6 class object.
 }
 \description{
 These objects represent the complete set of data needed for OAuth access:
@@ -54,5 +47,4 @@ The cache file should not be included in source code control or R packages
 the appropriate entries to \code{.gitignore} and \code{.Rbuildignore} if needed.
 }
 
-\keyword{datasets}
 \keyword{internal}

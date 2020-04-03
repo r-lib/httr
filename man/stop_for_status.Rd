@@ -56,11 +56,13 @@ message_for_status(x, "download spreadsheet")
 }
 \seealso{
 \code{\link[=http_status]{http_status()}} and
-\code{http://en.wikipedia.org/wiki/Http_status_codes} for more information
+\verb{http://en.wikipedia.org/wiki/Http_status_codes} for more information
 on http status codes.
 
-Other response methods: \code{\link{content}},
-  \code{\link{http_error}}, \code{\link{http_status}},
-  \code{\link{response}}
+Other response methods: 
+\code{\link{content}()},
+\code{\link{http_error}()},
+\code{\link{http_status}()},
+\code{\link{response}()}
 }
 \concept{response methods}
