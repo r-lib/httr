@@ -1,5 +1,8 @@
 # httr (development version)
 
+* `parse_url()` now refers to RFC3986 for the parsing of the URL's 
+  scheme, with a bit more permissive syntax (@ymarcon, #615).
+
 # httr 1.4.1
 
 * Remove the default `cainfo` option on Windows. Providing a CA bundle is not 
