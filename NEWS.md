@@ -1,5 +1,8 @@
 # httr (development version)
 
+* Added a workaround for a bug in curl versions 7.62.0 -> 7.66.0 where
+  omitting the scheme throws a cryptic error (@jonathon-love, #607).
+
 # httr 1.4.1
 
 * Remove the default `cainfo` option on Windows. Providing a CA bundle is not 
