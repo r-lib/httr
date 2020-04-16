@@ -15,6 +15,9 @@
 #'     [content_type()] to tell the server what sort of data
 #'     you are sending.
 #'   * A named list: See details for encode.
+#'   * A connection: either an unopened connection or a binary connection
+#'     open for reading. Contents will be sent as-is using chunked
+#'     transfer encoding.
 #' @param encode If the body is a named list, how should it be encoded? Can be
 #'   one of form (application/x-www-form-urlencoded), multipart,
 #'   (multipart/form-data), or json (application/json).
