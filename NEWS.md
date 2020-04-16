@@ -3,6 +3,10 @@
 * `parse_url()` now refers to RFC3986 for the parsing of the URL's 
   scheme, with a bit more permissive syntax (@ymarcon, #615).
 
+* `POST()` allows `body` to be a connection, in which case the body will be
+   streamed from the connection using chunked transfer encoding.
+   (@s-u, #641)
+
 # httr 1.4.1
 
 * Remove the default `cainfo` option on Windows. Providing a CA bundle is not 
