@@ -92,7 +92,7 @@ accept <- function(type) {
   stopifnot(is.character(type), length(type) > 0L)
   guess <- substr(type, 1, 1) == "."
   if (any(guess))
-      type[guess] <- mime::guess_type(type[guess], empty = NULL)
+    type[guess] <- mime::guess_type(type[guess], empty = NULL)
   add_headers("Accept" = paste(type, collapse = ", "))
 }
 

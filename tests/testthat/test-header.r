@@ -12,31 +12,31 @@ test_that("Only last duplicated header kept when combined", {
 })
 
 test_that("Accept allows vector lengths greater than 1", {
-    type <- character()
-    expect_error(accept(type))
+  type <- character()
+  expect_error(accept(type))
 
-    type <- "application/json"
-    out <- accept(type)$headers
-    expect_identical(out, setNames(paste(type, collapse = ", "), "Accept"))
+  type <- "application/json"
+  out <- accept(type)$headers
+  expect_identical(out, setNames(paste(type, collapse = ", "), "Accept"))
 
-    type <- c("application/json", "text/plain")
-    out <- accept(type)$headers
-    expect_identical(out, setNames(paste(type, collapse = ", "), "Accept"))
+  type <- c("application/json", "text/plain")
+  out <- accept(type)$headers
+  expect_identical(out, setNames(paste(type, collapse = ", "), "Accept"))
 
-    ext <- ".json"
-    type <- "application/json"
-    out <- accept(ext)$headers
-    expect_identical(out, setNames(paste(type, collapse = ", "), "Accept"))
+  ext <- ".json"
+  type <- "application/json"
+  out <- accept(ext)$headers
+  expect_identical(out, setNames(paste(type, collapse = ", "), "Accept"))
 
-    ext <- c(".json", ".txt")
-    type <- c("application/json", "text/plain")
-    out <- accept(ext)$headers
-    expect_identical(out, setNames(paste(type, collapse = ", "), "Accept"))
+  ext <- c(".json", ".txt")
+  type <- c("application/json", "text/plain")
+  out <- accept(ext)$headers
+  expect_identical(out, setNames(paste(type, collapse = ", "), "Accept"))
 
-    ext <- c(".json", "text/plain")
-    type <- c("application/json", "text/plain")
-    out <- accept(ext)$headers
-    expect_identical(out, setNames(paste(type, collapse = ", "), "Accept"))
+  ext <- c(".json", "text/plain")
+  type <- c("application/json", "text/plain")
+  out <- accept(ext)$headers
+  expect_identical(out, setNames(paste(type, collapse = ", "), "Accept"))
 })
 
 # Getting ---------------------------------------------------------------------
