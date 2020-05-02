@@ -89,10 +89,11 @@ content_type_xml <- function() content_type("application/xml")
 #' @export
 #' @rdname content_type
 accept <- function(type) {
-  if (substr(type, 1, 1) == ".") {
-    type <- mime::guess_type(type, empty = NULL)
-  }
-  add_headers("Accept" = type)
+  stopifnot(is.character(type), length(type) > 0L)
+  guess <- substr(type, 1, 1) == "."
+  if (any(guess))
+      type[guess] <- mime::guess_type(type[guess], empty = NULL)
+  add_headers("Accept" = paste(type, collapse = ", "))
 }
 
 #' @export
