@@ -9,13 +9,13 @@ oauth_endpoints("github")
 #    (http://github.com is fine) and  http://localhost:1410 as the callback url
 #
 #    Replace your key and secret below.
-myapp <- oauth_app("github",
-  key = "56b637a5baffac62cad9",
-  secret = "8e107541ae1791259e9987d544ca568633da2ebf"
+myapp <- oauth_app("Mygitapp",
+  key = "4b43f870c873d43aec53",
+  secret = "030c9740a8fe0836a4fe1b7ee7c02f49432799ff"
 )
 
 # 3. Get OAuth credentials
-github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
+github_token <- oauth2.0_token(oauth_endpoints("Mygitapp"), myapp)
 
 # 4. Use API
 gtoken <- config(token = github_token)
