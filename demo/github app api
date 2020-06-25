@@ -2,7 +2,7 @@ library(httr)
 
 # 1. Find OAuth settings for github:
 #    http://developer.github.com/v3/oauth/
-oauth_endpoints("github")
+oauth_endpoints("Mygitapp")
 
 # 2. To make your own application, register at
 #    https://github.com/settings/developers. Use any URL for the homepage URL
