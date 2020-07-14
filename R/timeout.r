@@ -3,6 +3,7 @@
 #' @param seconds number of seconds to wait for a response until giving up.
 #'   Can not be less than 1 ms.
 #' @family config
+#' @details This timeout is passed on to \code{\link[curl]{handle_setopt}}. See there and \code{\link[curl]{curl_options}} for more details.
 #' @export
 #' @examples
 #' \dontrun{
