@@ -3,6 +3,8 @@
 #' @param seconds number of seconds to wait for a response until giving up.
 #'   Can not be less than 1 ms.
 #' @family config
+#' @details This timeout is passed on to [curl::handle_setopt()].
+#'   See there and [curl::curl_options()] for more details.
 #' @export
 #' @examples
 #' \dontrun{
