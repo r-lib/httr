@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -40,7 +44,6 @@
 It provides both the short R name which you use with httr, and the longer
 Curl name, which is useful when searching the documentation. curl_doc
 opens a link to the libcurl documentation for an option in your browser." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -68,7 +71,7 @@ opens a link to the libcurl documentation for an option in your browser." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -199,246 +202,269 @@ becomes "sslengine.default".</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>httr_options</span>()</div><div class='output co'>#&gt;                           httr                            libcurl     type
-#&gt; 1              accept_encoding            CURLOPT_ACCEPT_ENCODING   string
-#&gt; 2             accepttimeout_ms           CURLOPT_ACCEPTTIMEOUT_MS  integer
-#&gt; 3                address_scope              CURLOPT_ADDRESS_SCOPE  integer
-#&gt; 4                       append                     CURLOPT_APPEND  integer
-#&gt; 5                  autoreferer                CURLOPT_AUTOREFERER  integer
-#&gt; 6                   buffersize                 CURLOPT_BUFFERSIZE  integer
-#&gt; 7                       cainfo                     CURLOPT_CAINFO   string
-#&gt; 8                       capath                     CURLOPT_CAPATH   string
-#&gt; 9                     certinfo                   CURLOPT_CERTINFO  integer
-#&gt; 10          chunk_bgn_function         CURLOPT_CHUNK_BGN_FUNCTION function
-#&gt; 11                  chunk_data                 CURLOPT_CHUNK_DATA   string
-#&gt; 12          chunk_end_function         CURLOPT_CHUNK_END_FUNCTION function
-#&gt; 13             closesocketdata            CURLOPT_CLOSESOCKETDATA   string
-#&gt; 14         closesocketfunction        CURLOPT_CLOSESOCKETFUNCTION function
-#&gt; 15                connect_only               CURLOPT_CONNECT_ONLY  integer
-#&gt; 16              connecttimeout             CURLOPT_CONNECTTIMEOUT  integer
-#&gt; 17           connecttimeout_ms          CURLOPT_CONNECTTIMEOUT_MS  integer
-#&gt; 18  conv_from_network_function CURLOPT_CONV_FROM_NETWORK_FUNCTION function
-#&gt; 19     conv_from_utf8_function    CURLOPT_CONV_FROM_UTF8_FUNCTION function
-#&gt; 20    conv_to_network_function   CURLOPT_CONV_TO_NETWORK_FUNCTION function
-#&gt; 21                      cookie                     CURLOPT_COOKIE   string
-#&gt; 22                  cookiefile                 CURLOPT_COOKIEFILE   string
-#&gt; 23                   cookiejar                  CURLOPT_COOKIEJAR   string
-#&gt; 24                  cookielist                 CURLOPT_COOKIELIST   string
-#&gt; 25               cookiesession              CURLOPT_COOKIESESSION  integer
-#&gt; 26              copypostfields             CURLOPT_COPYPOSTFIELDS   string
-#&gt; 27                        crlf                       CURLOPT_CRLF  integer
-#&gt; 28                     crlfile                    CURLOPT_CRLFILE   string
-#&gt; 29               customrequest              CURLOPT_CUSTOMREQUEST   string
-#&gt; 30                   debugdata                  CURLOPT_DEBUGDATA   string
-#&gt; 31               debugfunction              CURLOPT_DEBUGFUNCTION function
-#&gt; 32                 dirlistonly                CURLOPT_DIRLISTONLY  integer
-#&gt; 33           dns_cache_timeout          CURLOPT_DNS_CACHE_TIMEOUT  integer
-#&gt; 34               dns_interface              CURLOPT_DNS_INTERFACE   string
-#&gt; 35               dns_local_ip4              CURLOPT_DNS_LOCAL_IP4   string
-#&gt; 36               dns_local_ip6              CURLOPT_DNS_LOCAL_IP6   string
-#&gt; 37                 dns_servers                CURLOPT_DNS_SERVERS   string
-#&gt; 38        dns_use_global_cache       CURLOPT_DNS_USE_GLOBAL_CACHE  integer
-#&gt; 39                   egdsocket                  CURLOPT_EGDSOCKET   string
-#&gt; 40                 errorbuffer                CURLOPT_ERRORBUFFER   string
-#&gt; 41       expect_100_timeout_ms      CURLOPT_EXPECT_100_TIMEOUT_MS  integer
-#&gt; 42                 failonerror                CURLOPT_FAILONERROR  integer
-#&gt; 43                    filetime                   CURLOPT_FILETIME  integer
-#&gt; 44                fnmatch_data               CURLOPT_FNMATCH_DATA   string
-#&gt; 45            fnmatch_function           CURLOPT_FNMATCH_FUNCTION function
-#&gt; 46              followlocation             CURLOPT_FOLLOWLOCATION  integer
-#&gt; 47                forbid_reuse               CURLOPT_FORBID_REUSE  integer
-#&gt; 48               fresh_connect              CURLOPT_FRESH_CONNECT  integer
-#&gt; 49                 ftp_account                CURLOPT_FTP_ACCOUNT   string
-#&gt; 50     ftp_alternative_to_user    CURLOPT_FTP_ALTERNATIVE_TO_USER   string
-#&gt; 51     ftp_create_missing_dirs    CURLOPT_FTP_CREATE_MISSING_DIRS  integer
-#&gt; 52              ftp_filemethod             CURLOPT_FTP_FILEMETHOD  integer
-#&gt; 53        ftp_response_timeout       CURLOPT_FTP_RESPONSE_TIMEOUT  integer
-#&gt; 54            ftp_skip_pasv_ip           CURLOPT_FTP_SKIP_PASV_IP  integer
-#&gt; 55                 ftp_ssl_ccc                CURLOPT_FTP_SSL_CCC  integer
-#&gt; 56                ftp_use_eprt               CURLOPT_FTP_USE_EPRT  integer
-#&gt; 57                ftp_use_epsv               CURLOPT_FTP_USE_EPSV  integer
-#&gt; 58                ftp_use_pret               CURLOPT_FTP_USE_PRET  integer
-#&gt; 59                     ftpport                    CURLOPT_FTPPORT   string
-#&gt; 60                  ftpsslauth                 CURLOPT_FTPSSLAUTH  integer
-#&gt; 61           gssapi_delegation          CURLOPT_GSSAPI_DELEGATION  integer
-#&gt; 62                      header                     CURLOPT_HEADER  integer
-#&gt; 63                  headerdata                 CURLOPT_HEADERDATA   string
-#&gt; 64              headerfunction             CURLOPT_HEADERFUNCTION function
-#&gt; 65                   headeropt                  CURLOPT_HEADEROPT  integer
-#&gt; 66       http_content_decoding      CURLOPT_HTTP_CONTENT_DECODING  integer
-#&gt; 67      http_transfer_decoding     CURLOPT_HTTP_TRANSFER_DECODING  integer
-#&gt; 68                http_version               CURLOPT_HTTP_VERSION  integer
-#&gt; 69              http200aliases             CURLOPT_HTTP200ALIASES   string
-#&gt; 70                    httpauth                   CURLOPT_HTTPAUTH  integer
-#&gt; 71                     httpget                    CURLOPT_HTTPGET  integer
-#&gt; 72                  httpheader                 CURLOPT_HTTPHEADER   string
-#&gt; 73                    httppost                   CURLOPT_HTTPPOST   string
-#&gt; 74             httpproxytunnel            CURLOPT_HTTPPROXYTUNNEL  integer
-#&gt; 75       ignore_content_length      CURLOPT_IGNORE_CONTENT_LENGTH  integer
-#&gt; 76                  infilesize                 CURLOPT_INFILESIZE  integer
-#&gt; 77            infilesize_large           CURLOPT_INFILESIZE_LARGE   number
-#&gt; 78                   interface                  CURLOPT_INTERFACE   string
-#&gt; 79              interleavedata             CURLOPT_INTERLEAVEDATA   string
-#&gt; 80          interleavefunction         CURLOPT_INTERLEAVEFUNCTION function
-#&gt; 81                   ioctldata                  CURLOPT_IOCTLDATA   string
-#&gt; 82               ioctlfunction              CURLOPT_IOCTLFUNCTION function
-#&gt; 83                   ipresolve                  CURLOPT_IPRESOLVE  integer
-#&gt; 84                  issuercert                 CURLOPT_ISSUERCERT   string
-#&gt; 85                   keypasswd                  CURLOPT_KEYPASSWD   string
-#&gt; 86                    krblevel                   CURLOPT_KRBLEVEL   string
-#&gt; 87                   localport                  CURLOPT_LOCALPORT  integer
-#&gt; 88              localportrange             CURLOPT_LOCALPORTRANGE  integer
-#&gt; 89               login_options              CURLOPT_LOGIN_OPTIONS   string
-#&gt; 90             low_speed_limit            CURLOPT_LOW_SPEED_LIMIT  integer
-#&gt; 91              low_speed_time             CURLOPT_LOW_SPEED_TIME  integer
-#&gt; 92                   mail_auth                  CURLOPT_MAIL_AUTH   string
-#&gt; 93                   mail_from                  CURLOPT_MAIL_FROM   string
-#&gt; 94                   mail_rcpt                  CURLOPT_MAIL_RCPT   string
-#&gt; 95        max_recv_speed_large       CURLOPT_MAX_RECV_SPEED_LARGE   number
-#&gt; 96        max_send_speed_large       CURLOPT_MAX_SEND_SPEED_LARGE   number
-#&gt; 97                 maxconnects                CURLOPT_MAXCONNECTS  integer
-#&gt; 98                 maxfilesize                CURLOPT_MAXFILESIZE  integer
-#&gt; 99           maxfilesize_large          CURLOPT_MAXFILESIZE_LARGE   number
-#&gt; 100                  maxredirs                  CURLOPT_MAXREDIRS  integer
-#&gt; 101                      netrc                      CURLOPT_NETRC  integer
-#&gt; 102                 netrc_file                 CURLOPT_NETRC_FILE   string
-#&gt; 103        new_directory_perms        CURLOPT_NEW_DIRECTORY_PERMS  integer
-#&gt; 104             new_file_perms             CURLOPT_NEW_FILE_PERMS  integer
-#&gt; 105                     nobody                     CURLOPT_NOBODY  integer
-#&gt; 106                 noprogress                 CURLOPT_NOPROGRESS  integer
-#&gt; 107                    noproxy                    CURLOPT_NOPROXY   string
-#&gt; 108                   nosignal                   CURLOPT_NOSIGNAL  integer
-#&gt; 109                 obsolete40                 CURLOPT_OBSOLETE40   string
-#&gt; 110                 obsolete72                 CURLOPT_OBSOLETE72  integer
-#&gt; 111             opensocketdata             CURLOPT_OPENSOCKETDATA   string
-#&gt; 112         opensocketfunction         CURLOPT_OPENSOCKETFUNCTION function
-#&gt; 113                   password                   CURLOPT_PASSWORD   string
-#&gt; 114                 path_as_is                 CURLOPT_PATH_AS_IS  integer
-#&gt; 115            pinnedpublickey            CURLOPT_PINNEDPUBLICKEY   string
-#&gt; 116                   pipewait                   CURLOPT_PIPEWAIT  integer
-#&gt; 117                       port                       CURLOPT_PORT  integer
-#&gt; 118                       post                       CURLOPT_POST  integer
-#&gt; 119                 postfields                 CURLOPT_POSTFIELDS   string
-#&gt; 120              postfieldsize              CURLOPT_POSTFIELDSIZE  integer
-#&gt; 121        postfieldsize_large        CURLOPT_POSTFIELDSIZE_LARGE   number
-#&gt; 122                  postquote                  CURLOPT_POSTQUOTE   string
-#&gt; 123                  postredir                  CURLOPT_POSTREDIR  integer
-#&gt; 124                   prequote                   CURLOPT_PREQUOTE   string
-#&gt; 125                    private                    CURLOPT_PRIVATE   string
-#&gt; 126               progressdata               CURLOPT_PROGRESSDATA   string
-#&gt; 127           progressfunction           CURLOPT_PROGRESSFUNCTION function
-#&gt; 128                  protocols                  CURLOPT_PROTOCOLS  integer
-#&gt; 129                      proxy                      CURLOPT_PROXY   string
-#&gt; 130         proxy_service_name         CURLOPT_PROXY_SERVICE_NAME   string
-#&gt; 131        proxy_transfer_mode        CURLOPT_PROXY_TRANSFER_MODE  integer
-#&gt; 132                  proxyauth                  CURLOPT_PROXYAUTH  integer
-#&gt; 133                proxyheader                CURLOPT_PROXYHEADER   string
-#&gt; 134              proxypassword              CURLOPT_PROXYPASSWORD   string
-#&gt; 135                  proxyport                  CURLOPT_PROXYPORT  integer
-#&gt; 136                  proxytype                  CURLOPT_PROXYTYPE  integer
-#&gt; 137              proxyusername              CURLOPT_PROXYUSERNAME   string
-#&gt; 138               proxyuserpwd               CURLOPT_PROXYUSERPWD   string
-#&gt; 139                        put                        CURLOPT_PUT  integer
-#&gt; 140                      quote                      CURLOPT_QUOTE   string
-#&gt; 141                random_file                CURLOPT_RANDOM_FILE   string
-#&gt; 142                      range                      CURLOPT_RANGE   string
-#&gt; 143                   readdata                   CURLOPT_READDATA   string
-#&gt; 144               readfunction               CURLOPT_READFUNCTION function
-#&gt; 145            redir_protocols            CURLOPT_REDIR_PROTOCOLS  integer
-#&gt; 146                    referer                    CURLOPT_REFERER   string
-#&gt; 147                    resolve                    CURLOPT_RESOLVE   string
-#&gt; 148                resume_from                CURLOPT_RESUME_FROM  integer
-#&gt; 149          resume_from_large          CURLOPT_RESUME_FROM_LARGE   number
-#&gt; 150           rtsp_client_cseq           CURLOPT_RTSP_CLIENT_CSEQ  integer
-#&gt; 151               rtsp_request               CURLOPT_RTSP_REQUEST  integer
-#&gt; 152           rtsp_server_cseq           CURLOPT_RTSP_SERVER_CSEQ  integer
-#&gt; 153            rtsp_session_id            CURLOPT_RTSP_SESSION_ID   string
-#&gt; 154            rtsp_stream_uri            CURLOPT_RTSP_STREAM_URI   string
-#&gt; 155             rtsp_transport             CURLOPT_RTSP_TRANSPORT   string
-#&gt; 156                    sasl_ir                    CURLOPT_SASL_IR  integer
-#&gt; 157                   seekdata                   CURLOPT_SEEKDATA   string
-#&gt; 158               seekfunction               CURLOPT_SEEKFUNCTION function
-#&gt; 159               service_name               CURLOPT_SERVICE_NAME   string
-#&gt; 160                      share                      CURLOPT_SHARE   string
-#&gt; 161                sockoptdata                CURLOPT_SOCKOPTDATA   string
-#&gt; 162            sockoptfunction            CURLOPT_SOCKOPTFUNCTION function
-#&gt; 163          socks5_gssapi_nec          CURLOPT_SOCKS5_GSSAPI_NEC  integer
-#&gt; 164      socks5_gssapi_service      CURLOPT_SOCKS5_GSSAPI_SERVICE   string
-#&gt; 165             ssh_auth_types             CURLOPT_SSH_AUTH_TYPES  integer
-#&gt; 166    ssh_host_public_key_md5    CURLOPT_SSH_HOST_PUBLIC_KEY_MD5   string
-#&gt; 167                ssh_keydata                CURLOPT_SSH_KEYDATA   string
-#&gt; 168            ssh_keyfunction            CURLOPT_SSH_KEYFUNCTION function
-#&gt; 169             ssh_knownhosts             CURLOPT_SSH_KNOWNHOSTS   string
-#&gt; 170        ssh_private_keyfile        CURLOPT_SSH_PRIVATE_KEYFILE   string
-#&gt; 171         ssh_public_keyfile         CURLOPT_SSH_PUBLIC_KEYFILE   string
-#&gt; 172            ssl_cipher_list            CURLOPT_SSL_CIPHER_LIST   string
-#&gt; 173               ssl_ctx_data               CURLOPT_SSL_CTX_DATA   string
-#&gt; 174           ssl_ctx_function           CURLOPT_SSL_CTX_FUNCTION function
-#&gt; 175            ssl_enable_alpn            CURLOPT_SSL_ENABLE_ALPN  integer
-#&gt; 176             ssl_enable_npn             CURLOPT_SSL_ENABLE_NPN  integer
-#&gt; 177             ssl_falsestart             CURLOPT_SSL_FALSESTART  integer
-#&gt; 178                ssl_options                CURLOPT_SSL_OPTIONS  integer
-#&gt; 179        ssl_sessionid_cache        CURLOPT_SSL_SESSIONID_CACHE  integer
-#&gt; 180             ssl_verifyhost             CURLOPT_SSL_VERIFYHOST  integer
-#&gt; 181             ssl_verifypeer             CURLOPT_SSL_VERIFYPEER  integer
-#&gt; 182           ssl_verifystatus           CURLOPT_SSL_VERIFYSTATUS  integer
-#&gt; 183                    sslcert                    CURLOPT_SSLCERT   string
-#&gt; 184                sslcerttype                CURLOPT_SSLCERTTYPE   string
-#&gt; 185                  sslengine                  CURLOPT_SSLENGINE   string
-#&gt; 186          sslengine_default          CURLOPT_SSLENGINE_DEFAULT  integer
-#&gt; 187                     sslkey                     CURLOPT_SSLKEY   string
-#&gt; 188                 sslkeytype                 CURLOPT_SSLKEYTYPE   string
-#&gt; 189                 sslversion                 CURLOPT_SSLVERSION  integer
-#&gt; 190                     stderr                     CURLOPT_STDERR   string
-#&gt; 191              tcp_keepalive              CURLOPT_TCP_KEEPALIVE  integer
-#&gt; 192               tcp_keepidle               CURLOPT_TCP_KEEPIDLE  integer
-#&gt; 193              tcp_keepintvl              CURLOPT_TCP_KEEPINTVL  integer
-#&gt; 194                tcp_nodelay                CURLOPT_TCP_NODELAY  integer
-#&gt; 195              telnetoptions              CURLOPT_TELNETOPTIONS   string
-#&gt; 196               tftp_blksize               CURLOPT_TFTP_BLKSIZE  integer
-#&gt; 197              timecondition              CURLOPT_TIMECONDITION  integer
-#&gt; 198                    timeout                    CURLOPT_TIMEOUT  integer
-#&gt; 199                 timeout_ms                 CURLOPT_TIMEOUT_MS  integer
-#&gt; 200                  timevalue                  CURLOPT_TIMEVALUE  integer
-#&gt; 201           tlsauth_password           CURLOPT_TLSAUTH_PASSWORD   string
-#&gt; 202               tlsauth_type               CURLOPT_TLSAUTH_TYPE   string
-#&gt; 203           tlsauth_username           CURLOPT_TLSAUTH_USERNAME   string
-#&gt; 204          transfer_encoding          CURLOPT_TRANSFER_ENCODING  integer
-#&gt; 205               transfertext               CURLOPT_TRANSFERTEXT  integer
-#&gt; 206           unix_socket_path           CURLOPT_UNIX_SOCKET_PATH   string
-#&gt; 207          unrestricted_auth          CURLOPT_UNRESTRICTED_AUTH  integer
-#&gt; 208                     upload                     CURLOPT_UPLOAD  integer
-#&gt; 209                        url                        CURLOPT_URL   string
-#&gt; 210                    use_ssl                    CURLOPT_USE_SSL  integer
-#&gt; 211                  useragent                  CURLOPT_USERAGENT   string
-#&gt; 212                   username                   CURLOPT_USERNAME   string
-#&gt; 213                    userpwd                    CURLOPT_USERPWD   string
-#&gt; 214                    verbose                    CURLOPT_VERBOSE  integer
-#&gt; 215              wildcardmatch              CURLOPT_WILDCARDMATCH  integer
-#&gt; 216                  writedata                  CURLOPT_WRITEDATA   string
-#&gt; 217              writefunction              CURLOPT_WRITEFUNCTION function
-#&gt; 218           xferinfofunction           CURLOPT_XFERINFOFUNCTION function
-#&gt; 219             xoauth2_bearer             CURLOPT_XOAUTH2_BEARER   string</div><div class='input'><span class='fu'>httr_options</span>(<span class='st'>"post"</span>)</div><div class='output co'>#&gt;                    httr                     libcurl    type
-#&gt; 26       copypostfields      CURLOPT_COPYPOSTFIELDS  string
-#&gt; 73             httppost            CURLOPT_HTTPPOST  string
-#&gt; 118                post                CURLOPT_POST integer
-#&gt; 119          postfields          CURLOPT_POSTFIELDS  string
-#&gt; 120       postfieldsize       CURLOPT_POSTFIELDSIZE integer
-#&gt; 121 postfieldsize_large CURLOPT_POSTFIELDSIZE_LARGE  number
-#&gt; 122           postquote           CURLOPT_POSTQUOTE  string
-#&gt; 123           postredir           CURLOPT_POSTREDIR integer</div><div class='input'>
+#&gt; 1         abstract_unix_socket       CURLOPT_ABSTRACT_UNIX_SOCKET   string
+#&gt; 2              accept_encoding            CURLOPT_ACCEPT_ENCODING   string
+#&gt; 3             accepttimeout_ms           CURLOPT_ACCEPTTIMEOUT_MS  integer
+#&gt; 4                address_scope              CURLOPT_ADDRESS_SCOPE  integer
+#&gt; 5                       append                     CURLOPT_APPEND  integer
+#&gt; 6                  autoreferer                CURLOPT_AUTOREFERER  integer
+#&gt; 7                   buffersize                 CURLOPT_BUFFERSIZE  integer
+#&gt; 8                       cainfo                     CURLOPT_CAINFO   string
+#&gt; 9                       capath                     CURLOPT_CAPATH   string
+#&gt; 10                    certinfo                   CURLOPT_CERTINFO  integer
+#&gt; 11          chunk_bgn_function         CURLOPT_CHUNK_BGN_FUNCTION function
+#&gt; 12                  chunk_data                 CURLOPT_CHUNK_DATA   string
+#&gt; 13          chunk_end_function         CURLOPT_CHUNK_END_FUNCTION function
+#&gt; 14             closesocketdata            CURLOPT_CLOSESOCKETDATA   string
+#&gt; 15         closesocketfunction        CURLOPT_CLOSESOCKETFUNCTION function
+#&gt; 16                connect_only               CURLOPT_CONNECT_ONLY  integer
+#&gt; 17                  connect_to                 CURLOPT_CONNECT_TO   string
+#&gt; 18              connecttimeout             CURLOPT_CONNECTTIMEOUT  integer
+#&gt; 19           connecttimeout_ms          CURLOPT_CONNECTTIMEOUT_MS  integer
+#&gt; 20  conv_from_network_function CURLOPT_CONV_FROM_NETWORK_FUNCTION function
+#&gt; 21     conv_from_utf8_function    CURLOPT_CONV_FROM_UTF8_FUNCTION function
+#&gt; 22    conv_to_network_function   CURLOPT_CONV_TO_NETWORK_FUNCTION function
+#&gt; 23                      cookie                     CURLOPT_COOKIE   string
+#&gt; 24                  cookiefile                 CURLOPT_COOKIEFILE   string
+#&gt; 25                   cookiejar                  CURLOPT_COOKIEJAR   string
+#&gt; 26                  cookielist                 CURLOPT_COOKIELIST   string
+#&gt; 27               cookiesession              CURLOPT_COOKIESESSION  integer
+#&gt; 28              copypostfields             CURLOPT_COPYPOSTFIELDS   string
+#&gt; 29                        crlf                       CURLOPT_CRLF  integer
+#&gt; 30                     crlfile                    CURLOPT_CRLFILE   string
+#&gt; 31               customrequest              CURLOPT_CUSTOMREQUEST   string
+#&gt; 32                   debugdata                  CURLOPT_DEBUGDATA   string
+#&gt; 33               debugfunction              CURLOPT_DEBUGFUNCTION function
+#&gt; 34            default_protocol           CURLOPT_DEFAULT_PROTOCOL   string
+#&gt; 35                 dirlistonly                CURLOPT_DIRLISTONLY  integer
+#&gt; 36           dns_cache_timeout          CURLOPT_DNS_CACHE_TIMEOUT  integer
+#&gt; 37               dns_interface              CURLOPT_DNS_INTERFACE   string
+#&gt; 38               dns_local_ip4              CURLOPT_DNS_LOCAL_IP4   string
+#&gt; 39               dns_local_ip6              CURLOPT_DNS_LOCAL_IP6   string
+#&gt; 40                 dns_servers                CURLOPT_DNS_SERVERS   string
+#&gt; 41        dns_use_global_cache       CURLOPT_DNS_USE_GLOBAL_CACHE  integer
+#&gt; 42                   egdsocket                  CURLOPT_EGDSOCKET   string
+#&gt; 43                 errorbuffer                CURLOPT_ERRORBUFFER   string
+#&gt; 44       expect_100_timeout_ms      CURLOPT_EXPECT_100_TIMEOUT_MS  integer
+#&gt; 45                 failonerror                CURLOPT_FAILONERROR  integer
+#&gt; 46                    filetime                   CURLOPT_FILETIME  integer
+#&gt; 47                fnmatch_data               CURLOPT_FNMATCH_DATA   string
+#&gt; 48            fnmatch_function           CURLOPT_FNMATCH_FUNCTION function
+#&gt; 49              followlocation             CURLOPT_FOLLOWLOCATION  integer
+#&gt; 50                forbid_reuse               CURLOPT_FORBID_REUSE  integer
+#&gt; 51               fresh_connect              CURLOPT_FRESH_CONNECT  integer
+#&gt; 52                 ftp_account                CURLOPT_FTP_ACCOUNT   string
+#&gt; 53     ftp_alternative_to_user    CURLOPT_FTP_ALTERNATIVE_TO_USER   string
+#&gt; 54     ftp_create_missing_dirs    CURLOPT_FTP_CREATE_MISSING_DIRS  integer
+#&gt; 55              ftp_filemethod             CURLOPT_FTP_FILEMETHOD  integer
+#&gt; 56        ftp_response_timeout       CURLOPT_FTP_RESPONSE_TIMEOUT  integer
+#&gt; 57            ftp_skip_pasv_ip           CURLOPT_FTP_SKIP_PASV_IP  integer
+#&gt; 58                 ftp_ssl_ccc                CURLOPT_FTP_SSL_CCC  integer
+#&gt; 59                ftp_use_eprt               CURLOPT_FTP_USE_EPRT  integer
+#&gt; 60                ftp_use_epsv               CURLOPT_FTP_USE_EPSV  integer
+#&gt; 61                ftp_use_pret               CURLOPT_FTP_USE_PRET  integer
+#&gt; 62                     ftpport                    CURLOPT_FTPPORT   string
+#&gt; 63                  ftpsslauth                 CURLOPT_FTPSSLAUTH  integer
+#&gt; 64           gssapi_delegation          CURLOPT_GSSAPI_DELEGATION  integer
+#&gt; 65                      header                     CURLOPT_HEADER  integer
+#&gt; 66                  headerdata                 CURLOPT_HEADERDATA   string
+#&gt; 67              headerfunction             CURLOPT_HEADERFUNCTION function
+#&gt; 68                   headeropt                  CURLOPT_HEADEROPT  integer
+#&gt; 69       http_content_decoding      CURLOPT_HTTP_CONTENT_DECODING  integer
+#&gt; 70      http_transfer_decoding     CURLOPT_HTTP_TRANSFER_DECODING  integer
+#&gt; 71                http_version               CURLOPT_HTTP_VERSION  integer
+#&gt; 72              http200aliases             CURLOPT_HTTP200ALIASES   string
+#&gt; 73                    httpauth                   CURLOPT_HTTPAUTH  integer
+#&gt; 74                     httpget                    CURLOPT_HTTPGET  integer
+#&gt; 75                  httpheader                 CURLOPT_HTTPHEADER   string
+#&gt; 76                    httppost                   CURLOPT_HTTPPOST   string
+#&gt; 77             httpproxytunnel            CURLOPT_HTTPPROXYTUNNEL  integer
+#&gt; 78       ignore_content_length      CURLOPT_IGNORE_CONTENT_LENGTH  integer
+#&gt; 79                  infilesize                 CURLOPT_INFILESIZE  integer
+#&gt; 80            infilesize_large           CURLOPT_INFILESIZE_LARGE   number
+#&gt; 81                   interface                  CURLOPT_INTERFACE   string
+#&gt; 82              interleavedata             CURLOPT_INTERLEAVEDATA   string
+#&gt; 83          interleavefunction         CURLOPT_INTERLEAVEFUNCTION function
+#&gt; 84                   ioctldata                  CURLOPT_IOCTLDATA   string
+#&gt; 85               ioctlfunction              CURLOPT_IOCTLFUNCTION function
+#&gt; 86                   ipresolve                  CURLOPT_IPRESOLVE  integer
+#&gt; 87                  issuercert                 CURLOPT_ISSUERCERT   string
+#&gt; 88       keep_sending_on_error      CURLOPT_KEEP_SENDING_ON_ERROR  integer
+#&gt; 89                   keypasswd                  CURLOPT_KEYPASSWD   string
+#&gt; 90                    krblevel                   CURLOPT_KRBLEVEL   string
+#&gt; 91                   localport                  CURLOPT_LOCALPORT  integer
+#&gt; 92              localportrange             CURLOPT_LOCALPORTRANGE  integer
+#&gt; 93               login_options              CURLOPT_LOGIN_OPTIONS   string
+#&gt; 94             low_speed_limit            CURLOPT_LOW_SPEED_LIMIT  integer
+#&gt; 95              low_speed_time             CURLOPT_LOW_SPEED_TIME  integer
+#&gt; 96                   mail_auth                  CURLOPT_MAIL_AUTH   string
+#&gt; 97                   mail_from                  CURLOPT_MAIL_FROM   string
+#&gt; 98                   mail_rcpt                  CURLOPT_MAIL_RCPT   string
+#&gt; 99        max_recv_speed_large       CURLOPT_MAX_RECV_SPEED_LARGE   number
+#&gt; 100       max_send_speed_large       CURLOPT_MAX_SEND_SPEED_LARGE   number
+#&gt; 101                maxconnects                CURLOPT_MAXCONNECTS  integer
+#&gt; 102                maxfilesize                CURLOPT_MAXFILESIZE  integer
+#&gt; 103          maxfilesize_large          CURLOPT_MAXFILESIZE_LARGE   number
+#&gt; 104                  maxredirs                  CURLOPT_MAXREDIRS  integer
+#&gt; 105                      netrc                      CURLOPT_NETRC  integer
+#&gt; 106                 netrc_file                 CURLOPT_NETRC_FILE   string
+#&gt; 107        new_directory_perms        CURLOPT_NEW_DIRECTORY_PERMS  integer
+#&gt; 108             new_file_perms             CURLOPT_NEW_FILE_PERMS  integer
+#&gt; 109                     nobody                     CURLOPT_NOBODY  integer
+#&gt; 110                 noprogress                 CURLOPT_NOPROGRESS  integer
+#&gt; 111                    noproxy                    CURLOPT_NOPROXY   string
+#&gt; 112                   nosignal                   CURLOPT_NOSIGNAL  integer
+#&gt; 113                 obsolete40                 CURLOPT_OBSOLETE40   string
+#&gt; 114                 obsolete72                 CURLOPT_OBSOLETE72  integer
+#&gt; 115             opensocketdata             CURLOPT_OPENSOCKETDATA   string
+#&gt; 116         opensocketfunction         CURLOPT_OPENSOCKETFUNCTION function
+#&gt; 117                   password                   CURLOPT_PASSWORD   string
+#&gt; 118                 path_as_is                 CURLOPT_PATH_AS_IS  integer
+#&gt; 119            pinnedpublickey            CURLOPT_PINNEDPUBLICKEY   string
+#&gt; 120                   pipewait                   CURLOPT_PIPEWAIT  integer
+#&gt; 121                       port                       CURLOPT_PORT  integer
+#&gt; 122                       post                       CURLOPT_POST  integer
+#&gt; 123                 postfields                 CURLOPT_POSTFIELDS   string
+#&gt; 124              postfieldsize              CURLOPT_POSTFIELDSIZE  integer
+#&gt; 125        postfieldsize_large        CURLOPT_POSTFIELDSIZE_LARGE   number
+#&gt; 126                  postquote                  CURLOPT_POSTQUOTE   string
+#&gt; 127                  postredir                  CURLOPT_POSTREDIR  integer
+#&gt; 128                  pre_proxy                  CURLOPT_PRE_PROXY   string
+#&gt; 129                   prequote                   CURLOPT_PREQUOTE   string
+#&gt; 130                    private                    CURLOPT_PRIVATE   string
+#&gt; 131               progressdata               CURLOPT_PROGRESSDATA   string
+#&gt; 132           progressfunction           CURLOPT_PROGRESSFUNCTION function
+#&gt; 133                  protocols                  CURLOPT_PROTOCOLS  integer
+#&gt; 134                      proxy                      CURLOPT_PROXY   string
+#&gt; 135               proxy_cainfo               CURLOPT_PROXY_CAINFO   string
+#&gt; 136               proxy_capath               CURLOPT_PROXY_CAPATH   string
+#&gt; 137              proxy_crlfile              CURLOPT_PROXY_CRLFILE   string
+#&gt; 138            proxy_keypasswd            CURLOPT_PROXY_KEYPASSWD   string
+#&gt; 139      proxy_pinnedpublickey      CURLOPT_PROXY_PINNEDPUBLICKEY   string
+#&gt; 140         proxy_service_name         CURLOPT_PROXY_SERVICE_NAME   string
+#&gt; 141      proxy_ssl_cipher_list      CURLOPT_PROXY_SSL_CIPHER_LIST   string
+#&gt; 142          proxy_ssl_options          CURLOPT_PROXY_SSL_OPTIONS  integer
+#&gt; 143       proxy_ssl_verifyhost       CURLOPT_PROXY_SSL_VERIFYHOST  integer
+#&gt; 144       proxy_ssl_verifypeer       CURLOPT_PROXY_SSL_VERIFYPEER  integer
+#&gt; 145              proxy_sslcert              CURLOPT_PROXY_SSLCERT   string
+#&gt; 146          proxy_sslcerttype          CURLOPT_PROXY_SSLCERTTYPE   string
+#&gt; 147               proxy_sslkey               CURLOPT_PROXY_SSLKEY   string
+#&gt; 148           proxy_sslkeytype           CURLOPT_PROXY_SSLKEYTYPE   string
+#&gt; 149           proxy_sslversion           CURLOPT_PROXY_SSLVERSION  integer
+#&gt; 150     proxy_tlsauth_password     CURLOPT_PROXY_TLSAUTH_PASSWORD   string
+#&gt; 151         proxy_tlsauth_type         CURLOPT_PROXY_TLSAUTH_TYPE   string
+#&gt; 152     proxy_tlsauth_username     CURLOPT_PROXY_TLSAUTH_USERNAME   string
+#&gt; 153        proxy_transfer_mode        CURLOPT_PROXY_TRANSFER_MODE  integer
+#&gt; 154                  proxyauth                  CURLOPT_PROXYAUTH  integer
+#&gt; 155                proxyheader                CURLOPT_PROXYHEADER   string
+#&gt; 156              proxypassword              CURLOPT_PROXYPASSWORD   string
+#&gt; 157                  proxyport                  CURLOPT_PROXYPORT  integer
+#&gt; 158                  proxytype                  CURLOPT_PROXYTYPE  integer
+#&gt; 159              proxyusername              CURLOPT_PROXYUSERNAME   string
+#&gt; 160               proxyuserpwd               CURLOPT_PROXYUSERPWD   string
+#&gt; 161                        put                        CURLOPT_PUT  integer
+#&gt; 162                      quote                      CURLOPT_QUOTE   string
+#&gt; 163                random_file                CURLOPT_RANDOM_FILE   string
+#&gt; 164                      range                      CURLOPT_RANGE   string
+#&gt; 165                   readdata                   CURLOPT_READDATA   string
+#&gt; 166               readfunction               CURLOPT_READFUNCTION function
+#&gt; 167            redir_protocols            CURLOPT_REDIR_PROTOCOLS  integer
+#&gt; 168                    referer                    CURLOPT_REFERER   string
+#&gt; 169                    resolve                    CURLOPT_RESOLVE   string
+#&gt; 170                resume_from                CURLOPT_RESUME_FROM  integer
+#&gt; 171          resume_from_large          CURLOPT_RESUME_FROM_LARGE   number
+#&gt; 172           rtsp_client_cseq           CURLOPT_RTSP_CLIENT_CSEQ  integer
+#&gt; 173               rtsp_request               CURLOPT_RTSP_REQUEST  integer
+#&gt; 174           rtsp_server_cseq           CURLOPT_RTSP_SERVER_CSEQ  integer
+#&gt; 175            rtsp_session_id            CURLOPT_RTSP_SESSION_ID   string
+#&gt; 176            rtsp_stream_uri            CURLOPT_RTSP_STREAM_URI   string
+#&gt; 177             rtsp_transport             CURLOPT_RTSP_TRANSPORT   string
+#&gt; 178                    sasl_ir                    CURLOPT_SASL_IR  integer
+#&gt; 179                   seekdata                   CURLOPT_SEEKDATA   string
+#&gt; 180               seekfunction               CURLOPT_SEEKFUNCTION function
+#&gt; 181               service_name               CURLOPT_SERVICE_NAME   string
+#&gt; 182                      share                      CURLOPT_SHARE   string
+#&gt; 183                sockoptdata                CURLOPT_SOCKOPTDATA   string
+#&gt; 184            sockoptfunction            CURLOPT_SOCKOPTFUNCTION function
+#&gt; 185          socks5_gssapi_nec          CURLOPT_SOCKS5_GSSAPI_NEC  integer
+#&gt; 186      socks5_gssapi_service      CURLOPT_SOCKS5_GSSAPI_SERVICE   string
+#&gt; 187             ssh_auth_types             CURLOPT_SSH_AUTH_TYPES  integer
+#&gt; 188    ssh_host_public_key_md5    CURLOPT_SSH_HOST_PUBLIC_KEY_MD5   string
+#&gt; 189                ssh_keydata                CURLOPT_SSH_KEYDATA   string
+#&gt; 190            ssh_keyfunction            CURLOPT_SSH_KEYFUNCTION function
+#&gt; 191             ssh_knownhosts             CURLOPT_SSH_KNOWNHOSTS   string
+#&gt; 192        ssh_private_keyfile        CURLOPT_SSH_PRIVATE_KEYFILE   string
+#&gt; 193         ssh_public_keyfile         CURLOPT_SSH_PUBLIC_KEYFILE   string
+#&gt; 194            ssl_cipher_list            CURLOPT_SSL_CIPHER_LIST   string
+#&gt; 195               ssl_ctx_data               CURLOPT_SSL_CTX_DATA   string
+#&gt; 196           ssl_ctx_function           CURLOPT_SSL_CTX_FUNCTION function
+#&gt; 197            ssl_enable_alpn            CURLOPT_SSL_ENABLE_ALPN  integer
+#&gt; 198             ssl_enable_npn             CURLOPT_SSL_ENABLE_NPN  integer
+#&gt; 199             ssl_falsestart             CURLOPT_SSL_FALSESTART  integer
+#&gt; 200                ssl_options                CURLOPT_SSL_OPTIONS  integer
+#&gt; 201        ssl_sessionid_cache        CURLOPT_SSL_SESSIONID_CACHE  integer
+#&gt; 202             ssl_verifyhost             CURLOPT_SSL_VERIFYHOST  integer
+#&gt; 203             ssl_verifypeer             CURLOPT_SSL_VERIFYPEER  integer
+#&gt; 204           ssl_verifystatus           CURLOPT_SSL_VERIFYSTATUS  integer
+#&gt; 205                    sslcert                    CURLOPT_SSLCERT   string
+#&gt; 206                sslcerttype                CURLOPT_SSLCERTTYPE   string
+#&gt; 207                  sslengine                  CURLOPT_SSLENGINE   string
+#&gt; 208          sslengine_default          CURLOPT_SSLENGINE_DEFAULT  integer
+#&gt; 209                     sslkey                     CURLOPT_SSLKEY   string
+#&gt; 210                 sslkeytype                 CURLOPT_SSLKEYTYPE   string
+#&gt; 211                 sslversion                 CURLOPT_SSLVERSION  integer
+#&gt; 212                     stderr                     CURLOPT_STDERR   string
+#&gt; 213             stream_depends             CURLOPT_STREAM_DEPENDS   string
+#&gt; 214           stream_depends_e           CURLOPT_STREAM_DEPENDS_E   string
+#&gt; 215              stream_weight              CURLOPT_STREAM_WEIGHT  integer
+#&gt; 216   suppress_connect_headers   CURLOPT_SUPPRESS_CONNECT_HEADERS  integer
+#&gt; 217               tcp_fastopen               CURLOPT_TCP_FASTOPEN  integer
+#&gt; 218              tcp_keepalive              CURLOPT_TCP_KEEPALIVE  integer
+#&gt; 219               tcp_keepidle               CURLOPT_TCP_KEEPIDLE  integer
+#&gt; 220              tcp_keepintvl              CURLOPT_TCP_KEEPINTVL  integer
+#&gt; 221                tcp_nodelay                CURLOPT_TCP_NODELAY  integer
+#&gt; 222              telnetoptions              CURLOPT_TELNETOPTIONS   string
+#&gt; 223               tftp_blksize               CURLOPT_TFTP_BLKSIZE  integer
+#&gt; 224            tftp_no_options            CURLOPT_TFTP_NO_OPTIONS  integer
+#&gt; 225              timecondition              CURLOPT_TIMECONDITION  integer
+#&gt; 226                    timeout                    CURLOPT_TIMEOUT  integer
+#&gt; 227                 timeout_ms                 CURLOPT_TIMEOUT_MS  integer
+#&gt; 228                  timevalue                  CURLOPT_TIMEVALUE  integer
+#&gt; 229           tlsauth_password           CURLOPT_TLSAUTH_PASSWORD   string
+#&gt; 230               tlsauth_type               CURLOPT_TLSAUTH_TYPE   string
+#&gt; 231           tlsauth_username           CURLOPT_TLSAUTH_USERNAME   string
+#&gt; 232          transfer_encoding          CURLOPT_TRANSFER_ENCODING  integer
+#&gt; 233               transfertext               CURLOPT_TRANSFERTEXT  integer
+#&gt; 234           unix_socket_path           CURLOPT_UNIX_SOCKET_PATH   string
+#&gt; 235          unrestricted_auth          CURLOPT_UNRESTRICTED_AUTH  integer
+#&gt; 236                     upload                     CURLOPT_UPLOAD  integer
+#&gt; 237                        url                        CURLOPT_URL   string
+#&gt; 238                    use_ssl                    CURLOPT_USE_SSL  integer
+#&gt; 239                  useragent                  CURLOPT_USERAGENT   string
+#&gt; 240                   username                   CURLOPT_USERNAME   string
+#&gt; 241                    userpwd                    CURLOPT_USERPWD   string
+#&gt; 242                    verbose                    CURLOPT_VERBOSE  integer
+#&gt; 243              wildcardmatch              CURLOPT_WILDCARDMATCH  integer
+#&gt; 244                  writedata                  CURLOPT_WRITEDATA   string
+#&gt; 245              writefunction              CURLOPT_WRITEFUNCTION function
+#&gt; 246           xferinfofunction           CURLOPT_XFERINFOFUNCTION function
+#&gt; 247             xoauth2_bearer             CURLOPT_XOAUTH2_BEARER   string</div><div class='input'><span class='fu'>httr_options</span>(<span class='st'>"post"</span>)</div><div class='output co'>#&gt;                    httr                     libcurl    type
+#&gt; 28       copypostfields      CURLOPT_COPYPOSTFIELDS  string
+#&gt; 76             httppost            CURLOPT_HTTPPOST  string
+#&gt; 122                post                CURLOPT_POST integer
+#&gt; 123          postfields          CURLOPT_POSTFIELDS  string
+#&gt; 124       postfieldsize       CURLOPT_POSTFIELDSIZE integer
+#&gt; 125 postfieldsize_large CURLOPT_POSTFIELDSIZE_LARGE  number
+#&gt; 126           postquote           CURLOPT_POSTQUOTE  string
+#&gt; 127           postredir           CURLOPT_POSTREDIR integer</div><div class='input'>
 <span class='co'># Use curl_docs to read the curl documentation for each option.</span>
 <span class='co'># You can use either the httr or curl option name.</span>
 <span class='fu'>curl_docs</span>(<span class='st'>"userpwd"</span>)</div><div class='output co'>#&gt; <span class='message'>Please point your browser to the following url: </span></div><div class='output co'>#&gt; <span class='message'>http://curl.haxx.se/libcurl/c/CURLOPT_USERPWD.html</span></div><div class='input'><span class='fu'>curl_docs</span>(<span class='st'>"CURLOPT_USERPWD"</span>)</div><div class='output co'>#&gt; <span class='message'>Please point your browser to the following url: </span></div><div class='output co'>#&gt; <span class='message'>http://curl.haxx.se/libcurl/c/CURLOPT_USERPWD.html</span></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -449,7 +475,7 @@ becomes "sslengine.default".</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

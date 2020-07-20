@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="Send PUT request to server. — PUT" />
 <meta property="og:description" content="Send PUT request to server." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -65,7 +68,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -159,8 +162,14 @@
     <p>Send PUT request to server.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>PUT</span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(), <span class='no'>...</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>encode</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"multipart"</span>, <span class='st'>"form"</span>, <span class='st'>"json"</span>, <span class='st'>"raw"</span>), <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>PUT</span>(
+  <span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(),
+  <span class='no'>...</span>,
+  <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>encode</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"multipart"</span>, <span class='st'>"form"</span>, <span class='st'>"json"</span>, <span class='st'>"raw"</span>),
+  <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -226,14 +235,18 @@ details.</p></td>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other http methods: <code><a href='BROWSE.html'>BROWSE</a></code>,
-  <code><a href='DELETE.html'>DELETE</a></code>, <code><a href='GET.html'>GET</a></code>,
-  <code><a href='HEAD.html'>HEAD</a></code>, <code><a href='PATCH.html'>PATCH</a></code>,
-  <code><a href='POST.html'>POST</a></code>, <code><a href='VERB.html'>VERB</a></code></p></div>
+    <div class='dont-index'><p>Other http methods: 
+<code><a href='BROWSE.html'>BROWSE</a>()</code>,
+<code><a href='DELETE.html'>DELETE</a>()</code>,
+<code><a href='GET.html'>GET</a>()</code>,
+<code><a href='HEAD.html'>HEAD</a>()</code>,
+<code><a href='PATCH.html'>PATCH</a>()</code>,
+<code><a href='POST.html'>POST</a>()</code>,
+<code><a href='VERB.html'>VERB</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='POST.html'>POST</a></span>(<span class='st'>"http://httpbin.org/put"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2019-11-15 14:06
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 405
 #&gt;   Content-Type: text/html
 #&gt;   Size: 178 B
@@ -241,10 +254,10 @@ details.</p></td>
 #&gt; &lt;title&gt;405 Method Not Allowed&lt;/title&gt;
 #&gt; &lt;h1&gt;Method Not Allowed&lt;/h1&gt;
 #&gt; &lt;p&gt;The method is not allowed for the requested URL.&lt;/p&gt;</div><div class='input'><span class='fu'>PUT</span>(<span class='st'>"http://httpbin.org/put"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2019-11-15 14:06
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 407 B
+#&gt;   Size: 460 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -258,10 +271,10 @@ details.</p></td>
 #&gt; ...</div><div class='input'>
 <span class='no'>b2</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/put"</span>
 <span class='fu'>PUT</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2019-11-15 14:06
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 428 B
+#&gt;   Size: 481 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "A simple text string", 
@@ -273,10 +286,10 @@ details.</p></td>
 #&gt;     "Content-Length": "20", 
 #&gt;     "Host": "httpbin.org", 
 #&gt; ...</div><div class='input'><span class='fu'>PUT</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2019-11-15 14:06
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 539 B
+#&gt;   Size: 592 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -288,10 +301,10 @@ details.</p></td>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt; ...</div><div class='input'><span class='fu'>PUT</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='upload_file.html'>upload_file</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"CITATION"</span>))))</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2019-11-15 14:06
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 1.55 kB
+#&gt;   Size: 1.6 kB
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "", 
@@ -303,10 +316,10 @@ details.</p></td>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt; ...</div><div class='input'><span class='fu'>PUT</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>), <span class='kw'>encode</span> <span class='kw'>=</span> <span class='st'>"json"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/put]
-#&gt;   Date: 2019-11-15 14:06
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 514 B
+#&gt;   Size: 567 B
 #&gt; {
 #&gt;   "args": {}, 
 #&gt;   "data": "{\"x\":\"A simple text string\"}", 
@@ -319,14 +332,10 @@ details.</p></td>
 #&gt;     "Content-Type": "application/json", 
 #&gt; ...</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -337,7 +346,7 @@ details.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

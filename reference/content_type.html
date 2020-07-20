@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="Set content-type and accept headers. — content_type" />
 <meta property="og:description" content="These are convenient wrappers aroud add_headers()." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -65,7 +68,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -189,104 +192,107 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-11-15 14:07
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 221 B
+#&gt;   Size: 289 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159a9e-2eff9703db4c1a862949a6fd"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept_json</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-11-15 14:07
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 189 B
+#&gt;   Size: 257 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159a9e-0d4bfef4be7de0e7ba1a111a"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span>(<span class='st'>"text/csv"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-11-15 14:07
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 181 B
+#&gt;   Size: 249 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "text/csv", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159a9e-ce29c1027f5c03c7f29bf122"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span>(<span class='st'>".doc"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-11-15 14:07
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 191 B
+#&gt;   Size: 259 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/msword", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159a9e-8b5071aaf79125222716a065"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type_xml</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-11-15 14:07
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 261 B
+#&gt;   Size: 329 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Content-Type": "application/xml", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159a9e-cd04aff69980ad7d73d7fced"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span>(<span class='st'>"text/csv"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-11-15 14:07
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 254 B
+#&gt;   Size: 322 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Content-Type": "text/csv", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159a9e-d5eac28b632888646181d730"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span>(<span class='st'>".xml"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2019-11-15 14:07
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
-#&gt;   Size: 261 B
+#&gt;   Size: 329 B
 #&gt; {
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Content-Type": "application/xml", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159a9e-b023e9ef38357dd7df91c1f7"
 #&gt;   }
 #&gt; }</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -297,7 +303,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

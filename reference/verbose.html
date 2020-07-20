@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -38,7 +42,6 @@
 <meta property="og:title" content="Give verbose output. — verbose" />
 <meta property="og:description" content="A verbose connection provides much more information about the flow of
 information between the client and server." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -66,7 +69,7 @@ information between the client and server." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -161,8 +164,7 @@ information between the client and server." />
 information between the client and server.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>verbose</span>(<span class='kw'>data_out</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>data_in</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>ssl</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>verbose</span>(<span class='kw'>data_out</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>data_in</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>ssl</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -206,14 +208,18 @@ different components of the http messages:</p><ul>
 
     <div class='dont-index'><p><code><a href='with_config.html'>with_verbose()</a></code> makes it easier to use verbose mode
 even when the requests are buried inside another function call.</p>
-<p>Other config: <code><a href='add_headers.html'>add_headers</a></code>,
-  <code><a href='authenticate.html'>authenticate</a></code>, <code><a href='config.html'>config</a></code>,
-  <code><a href='set_cookies.html'>set_cookies</a></code>, <code><a href='timeout.html'>timeout</a></code>,
-  <code><a href='use_proxy.html'>use_proxy</a></code>, <code><a href='user_agent.html'>user_agent</a></code></p></div>
+<p>Other config: 
+<code><a href='add_headers.html'>add_headers</a>()</code>,
+<code><a href='authenticate.html'>authenticate</a>()</code>,
+<code><a href='config.html'>config</a>()</code>,
+<code><a href='set_cookies.html'>set_cookies</a>()</code>,
+<code><a href='timeout.html'>timeout</a>()</code>,
+<code><a href='use_proxy.html'>use_proxy</a>()</code>,
+<code><a href='user_agent.html'>user_agent</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2019-11-15 14:07
+    <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org]
+#&gt;   Date: 2020-07-20 13:23
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 9.59 kB
@@ -227,8 +233,8 @@ even when the requests are buried inside another function call.</p>
 #&gt;         rel="stylesheet"&gt;
 #&gt;     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagger-ui....
 #&gt;     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes="64x64...
-#&gt; ...</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span>(<span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2019-11-15 14:07
+#&gt; ...</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span>(<span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org]
+#&gt;   Date: 2020-07-20 13:23
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 9.59 kB
@@ -246,8 +252,8 @@ even when the requests are buried inside another function call.</p>
 <span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>() {
   <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>)
 }
-<span class='fu'><a href='with_config.html'>with_verbose</a></span>(<span class='fu'>f</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2019-11-15 14:07
+<span class='fu'><a href='with_config.html'>with_verbose</a></span>(<span class='fu'>f</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org]
+#&gt;   Date: 2020-07-20 13:23
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 9.59 kB
@@ -261,8 +267,8 @@ even when the requests are buried inside another function call.</p>
 #&gt;         rel="stylesheet"&gt;
 #&gt;     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagger-ui....
 #&gt;     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes="64x64...
-#&gt; ...</div><div class='input'><span class='fu'><a href='with_config.html'>with_verbose</a></span>(<span class='fu'>f</span>(), <span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/]
-#&gt;   Date: 2019-11-15 14:07
+#&gt; ...</div><div class='input'><span class='fu'><a href='with_config.html'>with_verbose</a></span>(<span class='fu'>f</span>(), <span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org]
+#&gt;   Date: 2020-07-20 13:23
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 9.59 kB
@@ -287,15 +293,10 @@ even when the requests are buried inside another function call.</p>
 <span class='fu'>POST_verbose</span>(<span class='st'>""</span>)
 <span class='fu'>POST_verbose</span>(<span class='st'>"xyz"</span>)</div><div class='output co'>#&gt; </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#prefixes">Prefixes</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -306,7 +307,7 @@ even when the requests are buried inside another function call.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

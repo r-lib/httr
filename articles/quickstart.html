@@ -6,13 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Getting started with httr • httr</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Getting started with httr">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="httr">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -24,7 +24,7 @@
   gtag('config', 'UA-115082821-1');
 </script>
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -105,10 +105,10 @@
 
       
 
-      </header><div class="row">
+      </header><script src="quickstart_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Getting started with httr</h1>
+      <h1 data-toc-skip>Getting started with httr</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/r-lib/httr/blob/master/vignettes/quickstart.Rmd"><code>vignettes/quickstart.Rmd</code></a></small>
@@ -128,78 +128,64 @@
 <h2 class="hasAnchor">
 <a href="#httr-basics" class="anchor"></a>httr basics</h2>
 <p>To make a request, first load httr, then call <code><a href="../reference/GET.html">GET()</a></code> with a url:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(httr)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">httr</span>)
+<span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>)</pre></body></html></div>
 <p>This gives you a response object. Printing a response object gives you some useful information: the actual url used (after any redirects), the http status, the file (content) type, the size, and if it’s a text file, the first few lines of output.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">r</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; Response [http://httpbin.org/get]</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;   Date: 2019-11-15 14:07</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;   Status: 200</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;   Content-Type: application/json</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;   Size: 316 B</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; {</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;   "args": {}, </span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;   "headers": {</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;     "Accept": "application/json, text/xml, application/xml, */*", </span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;     "Accept-Encoding": "deflate, gzip", </span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;     "Host": "httpbin.org", </span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;     "User-Agent": "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;   }, </span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;   "origin": "34.66.200.49, 34.66.200.49", </span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;   "url": "https://httpbin.org/get"</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; ...</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">r</span>
+<span class="co">#&gt; Response [http://httpbin.org/get]</span>
+<span class="co">#&gt;   Date: 2020-07-20 13:23</span>
+<span class="co">#&gt;   Status: 200</span>
+<span class="co">#&gt;   Content-Type: application/json</span>
+<span class="co">#&gt;   Size: 369 B</span>
+<span class="co">#&gt; {</span>
+<span class="co">#&gt;   "args": {}, </span>
+<span class="co">#&gt;   "headers": {</span>
+<span class="co">#&gt;     "Accept": "application/json, text/xml, application/xml, */*", </span>
+<span class="co">#&gt;     "Accept-Encoding": "deflate, gzip", </span>
+<span class="co">#&gt;     "Host": "httpbin.org", </span>
+<span class="co">#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", </span>
+<span class="co">#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159ac0-bcf6fc9f7e2b8d7f3d74485b"</span>
+<span class="co">#&gt;   }, </span>
+<span class="co">#&gt;   "origin": "199.7.166.17", </span>
+<span class="co">#&gt; ...</span></pre></body></html></div>
 <p>You can pull out important parts of the response with various helper methods, or dig directly into the object:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="../reference/status_code.html">status_code</a></span>(r)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; [1] 200</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="../reference/headers.html">headers</a></span>(r)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; $`access-control-allow-credentials`</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; [1] "true"</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; $`access-control-allow-origin`</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; [1] "*"</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; $`content-encoding`</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; [1] "gzip"</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; $`content-type`</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; [1] "application/json"</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; $date</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; [1] "Fri, 15 Nov 2019 14:07:43 GMT"</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; $`referrer-policy`</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt; [1] "no-referrer-when-downgrade"</span></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt; $server</span></a>
-<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#&gt; [1] "nginx"</span></a>
-<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">#&gt; $`x-content-type-options`</span></a>
-<a class="sourceLine" id="cb3-26" data-line-number="26"><span class="co">#&gt; [1] "nosniff"</span></a>
-<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#&gt; $`x-frame-options`</span></a>
-<a class="sourceLine" id="cb3-29" data-line-number="29"><span class="co">#&gt; [1] "DENY"</span></a>
-<a class="sourceLine" id="cb3-30" data-line-number="30"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-31" data-line-number="31"><span class="co">#&gt; $`x-xss-protection`</span></a>
-<a class="sourceLine" id="cb3-32" data-line-number="32"><span class="co">#&gt; [1] "1; mode=block"</span></a>
-<a class="sourceLine" id="cb3-33" data-line-number="33"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-34" data-line-number="34"><span class="co">#&gt; $`content-length`</span></a>
-<a class="sourceLine" id="cb3-35" data-line-number="35"><span class="co">#&gt; [1] "219"</span></a>
-<a class="sourceLine" id="cb3-36" data-line-number="36"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-37" data-line-number="37"><span class="co">#&gt; $connection</span></a>
-<a class="sourceLine" id="cb3-38" data-line-number="38"><span class="co">#&gt; [1] "keep-alive"</span></a>
-<a class="sourceLine" id="cb3-39" data-line-number="39"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-40" data-line-number="40"><span class="co">#&gt; attr(,"class")</span></a>
-<a class="sourceLine" id="cb3-41" data-line-number="41"><span class="co">#&gt; [1] "insensitive" "list"</span></a>
-<a class="sourceLine" id="cb3-42" data-line-number="42"><span class="kw"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(r))</a>
-<a class="sourceLine" id="cb3-43" data-line-number="43"><span class="co">#&gt; List of 4</span></a>
-<a class="sourceLine" id="cb3-44" data-line-number="44"><span class="co">#&gt;  $ args   : Named list()</span></a>
-<a class="sourceLine" id="cb3-45" data-line-number="45"><span class="co">#&gt;  $ headers:List of 4</span></a>
-<a class="sourceLine" id="cb3-46" data-line-number="46"><span class="co">#&gt;   ..$ Accept         : chr "application/json, text/xml, application/xml, */*"</span></a>
-<a class="sourceLine" id="cb3-47" data-line-number="47"><span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip"</span></a>
-<a class="sourceLine" id="cb3-48" data-line-number="48"><span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span></a>
-<a class="sourceLine" id="cb3-49" data-line-number="49"><span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"</span></a>
-<a class="sourceLine" id="cb3-50" data-line-number="50"><span class="co">#&gt;  $ origin : chr "34.66.200.49, 34.66.200.49"</span></a>
-<a class="sourceLine" id="cb3-51" data-line-number="51"><span class="co">#&gt;  $ url    : chr "https://httpbin.org/get"</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="../reference/status_code.html">status_code</a></span>(<span class="no">r</span>)
+<span class="co">#&gt; [1] 200</span>
+<span class="fu"><a href="../reference/headers.html">headers</a></span>(<span class="no">r</span>)
+<span class="co">#&gt; $date</span>
+<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:23:12 GMT"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $`content-type`</span>
+<span class="co">#&gt; [1] "application/json"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $`content-length`</span>
+<span class="co">#&gt; [1] "369"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $connection</span>
+<span class="co">#&gt; [1] "keep-alive"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $server</span>
+<span class="co">#&gt; [1] "gunicorn/19.9.0"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $`access-control-allow-origin`</span>
+<span class="co">#&gt; [1] "*"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $`access-control-allow-credentials`</span>
+<span class="co">#&gt; [1] "true"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; attr(,"class")</span>
+<span class="co">#&gt; [1] "insensitive" "list"</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>))
+<span class="co">#&gt; List of 4</span>
+<span class="co">#&gt;  $ args   : Named list()</span>
+<span class="co">#&gt;  $ headers:List of 5</span>
+<span class="co">#&gt;   ..$ Accept         : chr "application/json, text/xml, application/xml, */*"</span>
+<span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip"</span>
+<span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span>
+<span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000"</span>
+<span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-5f159ac0-bcf6fc9f7e2b8d7f3d74485b"</span>
+<span class="co">#&gt;  $ origin : chr "199.7.166.17"</span>
+<span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></pre></body></html></div>
 <p>I’ll use <code>httpbin.org</code> throughout this introduction. It accepts many types of http request and returns json that describes the data that it received. This makes it easy to see what httr is doing.</p>
 <p>As well as <code><a href="../reference/GET.html">GET()</a></code>, you can also use the <code><a href="../reference/HEAD.html">HEAD()</a></code>, <code><a href="../reference/POST.html">POST()</a></code>, <code><a href="../reference/PATCH.html">PATCH()</a></code>, <code><a href="../reference/PUT.html">PUT()</a></code> and <code><a href="../reference/DELETE.html">DELETE()</a></code> verbs. You’re probably most familiar with <code><a href="../reference/GET.html">GET()</a></code> and <code><a href="../reference/POST.html">POST()</a></code>: <code><a href="../reference/GET.html">GET()</a></code> is used by your browser when requesting a page, and <code><a href="../reference/POST.html">POST()</a></code> is (usually) used when submitting a form to a server. <code><a href="../reference/PUT.html">PUT()</a></code>, <code><a href="../reference/PATCH.html">PATCH()</a></code> and <code><a href="../reference/DELETE.html">DELETE()</a></code> are used most often by web APIs.</p>
 </div>
@@ -211,25 +197,25 @@
 <h3 class="hasAnchor">
 <a href="#the-status-code" class="anchor"></a>The status code</h3>
 <p>The status code is a three digit number that summarises whether or not the request was successful (as defined by the server that you’re talking to). You can access the status code along with a descriptive message using <code><a href="../reference/http_status.html">http_status()</a></code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># Get an informative description:</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="../reference/http_status.html">http_status</a></span>(r)</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; $category</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; [1] "Success"</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; $reason</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; [1] "OK"</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; $message</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; [1] "Success: (200) OK"</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co"># Or just access the raw code:</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14">r<span class="op">$</span>status_code</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; [1] 200</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>)
+<span class="co"># Get an informative description:</span>
+<span class="fu"><a href="../reference/http_status.html">http_status</a></span>(<span class="no">r</span>)
+<span class="co">#&gt; $category</span>
+<span class="co">#&gt; [1] "Success"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $reason</span>
+<span class="co">#&gt; [1] "OK"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $message</span>
+<span class="co">#&gt; [1] "Success: (200) OK"</span>
+
+<span class="co"># Or just access the raw code:</span>
+<span class="no">r</span>$<span class="no">status_code</span>
+<span class="co">#&gt; [1] 200</span></pre></body></html></div>
 <p>A successful request always returns a status of 200. Common errors are 404 (file not found) and 403 (permission denied). If you’re talking to web APIs you might also see 500, which is a generic failure code (and thus not very helpful). If you’d like to learn more, the most memorable guides are the <a href="https://www.flickr.com/photos/girliemac/sets/72157628409467125">http status cats</a>.</p>
 <p>You can automatically throw a warning or raise an error if a request did not succeed:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/stop_for_status.html">warn_for_status</a></span>(r)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="../reference/stop_for_status.html">stop_for_status</a></span>(r)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="../reference/stop_for_status.html">warn_for_status</a></span>(<span class="no">r</span>)
+<span class="fu"><a href="../reference/stop_for_status.html">stop_for_status</a></span>(<span class="no">r</span>)</pre></body></html></div>
 <p>I highly recommend using one of these functions whenever you’re using httr inside a function (i.e. not interactively) to make sure you find out about errors as soon as possible.</p>
 </div>
 <div id="the-body" class="section level3">
@@ -239,47 +225,50 @@
 <ul>
 <li>
 <p><code><a href="../reference/content.html">content(r, "text")</a></code> accesses the body as a character vector:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="../reference/content.html">content</a></span>(r, <span class="st">"text"</span>)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"deflate, gzip\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000\"\n  }, \n  \"origin\": \"34.66.200.49, 34.66.200.49\", \n  \"url\": \"https://httpbin.org/get\"\n}\n"</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>)
+<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>, <span class="st">"text"</span>)
+<span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span>
+<span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"deflate, gzip\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f159ac0-7af0ae8d4477f5f764dd0467\"\n  }, \n  \"origin\": \"199.7.166.17\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></pre></body></html></div>
 <p>httr will automatically decode content from the server using the encoding supplied in the <code>content-type</code> HTTP header. Unfortunately you can’t always trust what the server tells you, so you can override encoding if needed:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="../reference/content.html">content</a></span>(r, <span class="st">"text"</span>, <span class="dt">encoding =</span> <span class="st">"ISO-8859-1"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>, <span class="st">"text"</span>, <span class="kw">encoding</span> <span class="kw">=</span> <span class="st">"ISO-8859-1"</span>)</pre></body></html></div>
 <p>If you’re having problems figuring out what the correct encoding should be, try <code><a href="https://rdrr.io/pkg/stringi/man/stri_enc_detect.html">stringi::stri_enc_detect(content(r, "raw"))</a></code>.</p>
 </li>
 <li>
 <p>For non-text requests, you can access the body of the request as a raw vector:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../reference/content.html">content</a></span>(r, <span class="st">"raw"</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt;   [1] 7b 0a 20 20 22 61 72 67 73 22 3a 20 7b 7d 2c 20 0a 20 20 22 68 65 61 64 65</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;  [26] 72 73 22 3a 20 7b 0a 20 20 20 20 22 41 63 63 65 70 74 22 3a 20 22 61 70 70</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;  [51] 6c 69 63 61 74 69 6f 6e 2f 6a 73 6f 6e 2c 20 74 65 78 74 2f 78 6d 6c 2c 20</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  [76] 61 70 70 6c 69 63 61 74 69 6f 6e 2f 78 6d 6c 2c 20 2a 2f 2a 22 2c 20 0a 20</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; [101] 20 20 20 22 41 63 63 65 70 74 2d 45 6e 63 6f 64 69 6e 67 22 3a 20 22 64 65</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; [126] 66 6c 61 74 65 2c 20 67 7a 69 70 22 2c 20 0a 20 20 20 20 22 48 6f 73 74 22</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; [151] 3a 20 22 68 74 74 70 62 69 6e 2e 6f 72 67 22 2c 20 0a 20 20 20 20 22 55 73</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt; [176] 65 72 2d 41 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f 37 2e 34 33 2e</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt; [201] 30 20 72 2d 63 75 72 6c 2f 34 2e 32 20 68 74 74 72 2f 31 2e 34 2e 31 2e 39</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt; [226] 30 30 30 22 0a 20 20 7d 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 33</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt; [251] 34 2e 36 36 2e 32 30 30 2e 34 39 2c 20 33 34 2e 36 36 2e 32 30 30 2e 34 39</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt; [276] 22 2c 20 0a 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 73 3a 2f 2f 68 74 74</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; [301] 70 62 69 6e 2e 6f 72 67 2f 67 65 74 22 0a 7d 0a</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>, <span class="st">"raw"</span>)
+<span class="co">#&gt;   [1] 7b 0a 20 20 22 61 72 67 73 22 3a 20 7b 7d 2c 20 0a 20 20 22 68 65 61 64 65</span>
+<span class="co">#&gt;  [26] 72 73 22 3a 20 7b 0a 20 20 20 20 22 41 63 63 65 70 74 22 3a 20 22 61 70 70</span>
+<span class="co">#&gt;  [51] 6c 69 63 61 74 69 6f 6e 2f 6a 73 6f 6e 2c 20 74 65 78 74 2f 78 6d 6c 2c 20</span>
+<span class="co">#&gt;  [76] 61 70 70 6c 69 63 61 74 69 6f 6e 2f 78 6d 6c 2c 20 2a 2f 2a 22 2c 20 0a 20</span>
+<span class="co">#&gt; [101] 20 20 20 22 41 63 63 65 70 74 2d 45 6e 63 6f 64 69 6e 67 22 3a 20 22 64 65</span>
+<span class="co">#&gt; [126] 66 6c 61 74 65 2c 20 67 7a 69 70 22 2c 20 0a 20 20 20 20 22 48 6f 73 74 22</span>
+<span class="co">#&gt; [151] 3a 20 22 68 74 74 70 62 69 6e 2e 6f 72 67 22 2c 20 0a 20 20 20 20 22 55 73</span>
+<span class="co">#&gt; [176] 65 72 2d 41 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f 37 2e 36 34 2e</span>
+<span class="co">#&gt; [201] 31 20 72 2d 63 75 72 6c 2f 34 2e 33 20 68 74 74 72 2f 31 2e 34 2e 31 2e 39</span>
+<span class="co">#&gt; [226] 30 30 30 22 2c 20 0a 20 20 20 20 22 58 2d 41 6d 7a 6e 2d 54 72 61 63 65 2d</span>
+<span class="co">#&gt; [251] 49 64 22 3a 20 22 52 6f 6f 74 3d 31 2d 35 66 31 35 39 61 63 30 2d 37 61 66</span>
+<span class="co">#&gt; [276] 30 61 65 38 64 34 34 37 37 66 35 66 37 36 34 64 64 30 34 36 37 22 0a 20 20</span>
+<span class="co">#&gt; [301] 7d 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 31 39 39 2e 37 2e 31 36</span>
+<span class="co">#&gt; [326] 36 2e 31 37 22 2c 20 0a 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 3a 2f 2f</span>
+<span class="co">#&gt; [351] 68 74 74 70 62 69 6e 2e 6f 72 67 2f 67 65 74 22 0a 7d 0a</span></pre></body></html></div>
 <p>This is exactly the sequence of bytes that the web server sent, so this is the highest fidelity way of saving files to disk:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">bin &lt;-<span class="st"> </span><span class="kw"><a href="../reference/content.html">content</a></span>(r, <span class="st">"raw"</span>)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/readBin.html">writeBin</a></span>(bin, <span class="st">"myfile.txt"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">bin</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>, <span class="st">"raw"</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/readBin.html">writeBin</a></span>(<span class="no">bin</span>, <span class="st">"myfile.txt"</span>)</pre></body></html></div>
 </li>
 <li>
 <p>httr provides a number of default parsers for common file types:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># JSON automatically parsed into named list</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(r, <span class="st">"parsed"</span>))</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#&gt; List of 4</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">#&gt;  $ args   : Named list()</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co">#&gt;  $ headers:List of 4</span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co">#&gt;   ..$ Accept         : chr "application/json, text/xml, application/xml, */*"</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip"</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span></a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"</span></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co">#&gt;  $ origin : chr "34.66.200.49, 34.66.200.49"</span></a>
-<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="co">#&gt;  $ url    : chr "https://httpbin.org/get"</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="co"># JSON automatically parsed into named list</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>, <span class="st">"parsed"</span>))
+<span class="co">#&gt; List of 4</span>
+<span class="co">#&gt;  $ args   : Named list()</span>
+<span class="co">#&gt;  $ headers:List of 5</span>
+<span class="co">#&gt;   ..$ Accept         : chr "application/json, text/xml, application/xml, */*"</span>
+<span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip"</span>
+<span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span>
+<span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000"</span>
+<span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-5f159ac0-7af0ae8d4477f5f764dd0467"</span>
+<span class="co">#&gt;  $ origin : chr "199.7.166.17"</span>
+<span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></pre></body></html></div>
 <p>See <code><a href="../reference/content.html">?content</a></code> for a complete list.</p>
 <p>These are convenient for interactive usage, but if you’re writing an API wrapper, it’s best to parse the text or raw content yourself and check it is as you expect. See the API wrappers vignette for more details.</p>
 </li>
@@ -289,65 +278,50 @@
 <h3 class="hasAnchor">
 <a href="#the-headers" class="anchor"></a>The headers</h3>
 <p>Access response headers with <code><a href="../reference/headers.html">headers()</a></code>:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="../reference/headers.html">headers</a></span>(r)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">#&gt; $`access-control-allow-credentials`</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt; [1] "true"</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt; $`access-control-allow-origin`</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; [1] "*"</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt; $`content-encoding`</span></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; [1] "gzip"</span></a>
-<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">#&gt; $`content-type`</span></a>
-<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="co">#&gt; [1] "application/json"</span></a>
-<a class="sourceLine" id="cb11-13" data-line-number="13"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="co">#&gt; $date</span></a>
-<a class="sourceLine" id="cb11-15" data-line-number="15"><span class="co">#&gt; [1] "Fri, 15 Nov 2019 14:07:43 GMT"</span></a>
-<a class="sourceLine" id="cb11-16" data-line-number="16"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-17" data-line-number="17"><span class="co">#&gt; $`referrer-policy`</span></a>
-<a class="sourceLine" id="cb11-18" data-line-number="18"><span class="co">#&gt; [1] "no-referrer-when-downgrade"</span></a>
-<a class="sourceLine" id="cb11-19" data-line-number="19"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-20" data-line-number="20"><span class="co">#&gt; $server</span></a>
-<a class="sourceLine" id="cb11-21" data-line-number="21"><span class="co">#&gt; [1] "nginx"</span></a>
-<a class="sourceLine" id="cb11-22" data-line-number="22"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-23" data-line-number="23"><span class="co">#&gt; $`x-content-type-options`</span></a>
-<a class="sourceLine" id="cb11-24" data-line-number="24"><span class="co">#&gt; [1] "nosniff"</span></a>
-<a class="sourceLine" id="cb11-25" data-line-number="25"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-26" data-line-number="26"><span class="co">#&gt; $`x-frame-options`</span></a>
-<a class="sourceLine" id="cb11-27" data-line-number="27"><span class="co">#&gt; [1] "DENY"</span></a>
-<a class="sourceLine" id="cb11-28" data-line-number="28"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-29" data-line-number="29"><span class="co">#&gt; $`x-xss-protection`</span></a>
-<a class="sourceLine" id="cb11-30" data-line-number="30"><span class="co">#&gt; [1] "1; mode=block"</span></a>
-<a class="sourceLine" id="cb11-31" data-line-number="31"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-32" data-line-number="32"><span class="co">#&gt; $`content-length`</span></a>
-<a class="sourceLine" id="cb11-33" data-line-number="33"><span class="co">#&gt; [1] "219"</span></a>
-<a class="sourceLine" id="cb11-34" data-line-number="34"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-35" data-line-number="35"><span class="co">#&gt; $connection</span></a>
-<a class="sourceLine" id="cb11-36" data-line-number="36"><span class="co">#&gt; [1] "keep-alive"</span></a>
-<a class="sourceLine" id="cb11-37" data-line-number="37"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb11-38" data-line-number="38"><span class="co">#&gt; attr(,"class")</span></a>
-<a class="sourceLine" id="cb11-39" data-line-number="39"><span class="co">#&gt; [1] "insensitive" "list"</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="fu"><a href="../reference/headers.html">headers</a></span>(<span class="no">r</span>)
+<span class="co">#&gt; $date</span>
+<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:23:12 GMT"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $`content-type`</span>
+<span class="co">#&gt; [1] "application/json"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $`content-length`</span>
+<span class="co">#&gt; [1] "369"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $connection</span>
+<span class="co">#&gt; [1] "keep-alive"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $server</span>
+<span class="co">#&gt; [1] "gunicorn/19.9.0"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $`access-control-allow-origin`</span>
+<span class="co">#&gt; [1] "*"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $`access-control-allow-credentials`</span>
+<span class="co">#&gt; [1] "true"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; attr(,"class")</span>
+<span class="co">#&gt; [1] "insensitive" "list"</span></pre></body></html></div>
 <p>This is basically a named list, but because http headers are case insensitive, indexing this object ignores case:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="../reference/headers.html">headers</a></span>(r)<span class="op">$</span>date</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co">#&gt; [1] "Fri, 15 Nov 2019 14:07:43 GMT"</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="kw"><a href="../reference/headers.html">headers</a></span>(r)<span class="op">$</span>DATE</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co">#&gt; [1] "Fri, 15 Nov 2019 14:07:43 GMT"</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="fu"><a href="../reference/headers.html">headers</a></span>(<span class="no">r</span>)$<span class="no">date</span>
+<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:23:12 GMT"</span>
+<span class="fu"><a href="../reference/headers.html">headers</a></span>(<span class="no">r</span>)$<span class="no">DATE</span>
+<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:23:12 GMT"</span></pre></body></html></div>
 </div>
 <div id="cookies" class="section level3">
 <h3 class="hasAnchor">
 <a href="#cookies" class="anchor"></a>Cookies</h3>
 <p>You can access cookies in a similar way:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/cookies/set"</span>, <span class="dt">query =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">a =</span> <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw"><a href="../reference/cookies.html">cookies</a></span>(r)</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co">#&gt;        domain  flag path secure expiration name value</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co">#&gt; 1 httpbin.org FALSE    /  FALSE       &lt;NA&gt;    a     1</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/cookies/set"</span>, <span class="kw">query</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">a</span> <span class="kw">=</span> <span class="fl">1</span>))
+<span class="fu"><a href="../reference/cookies.html">cookies</a></span>(<span class="no">r</span>)
+<span class="co">#&gt;        domain  flag path secure expiration name value</span>
+<span class="co">#&gt; 1 httpbin.org FALSE    /  FALSE       &lt;NA&gt;    a     1</span></pre></body></html></div>
 <p>Cookies are automatically persisted between requests to the same domain:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/cookies/set"</span>, <span class="dt">query =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">b =</span> <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw"><a href="../reference/cookies.html">cookies</a></span>(r)</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">#&gt;        domain  flag path secure expiration name value</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="co">#&gt; 1 httpbin.org FALSE    /  FALSE       &lt;NA&gt;    a     1</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="co">#&gt; 2 httpbin.org FALSE    /  FALSE       &lt;NA&gt;    b     1</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/cookies/set"</span>, <span class="kw">query</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">b</span> <span class="kw">=</span> <span class="fl">1</span>))
+<span class="fu"><a href="../reference/cookies.html">cookies</a></span>(<span class="no">r</span>)
+<span class="co">#&gt;        domain  flag path secure expiration name value</span>
+<span class="co">#&gt; 1 httpbin.org FALSE    /  FALSE       &lt;NA&gt;    a     1</span>
+<span class="co">#&gt; 2 httpbin.org FALSE    /  FALSE       &lt;NA&gt;    b     1</span></pre></body></html></div>
 </div>
 </div>
 <div id="the-request" class="section level2">
@@ -357,39 +331,40 @@
 <div id="the-url-query-string" class="section level3">
 <h3 class="hasAnchor">
 <a href="#the-url-query-string" class="anchor"></a>The url query string</h3>
-<p>A common way of sending simple key-value pairs to the server is the query string: e.g. <code>http://httpbin.org/get?key=val</code>. httr allows you to provide these arguments as a named list with the <code>query</code> argument. For example, if you wanted to pass <code>key1=value1</code> and <code>key2=value2</code> to <code>http://httpbin.org/get</code> you could do:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>, </a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="dt">query =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">key1 =</span> <span class="st">"value1"</span>, <span class="dt">key2 =</span> <span class="st">"value2"</span>)</a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">)</a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="kw"><a href="../reference/content.html">content</a></span>(r)<span class="op">$</span>args</a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co">#&gt; $key1</span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co">#&gt; [1] "value1"</span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="co">#&gt; $key2</span></a>
-<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="co">#&gt; [1] "value2"</span></a></code></pre></div>
+<p>A common way of sending simple key-value pairs to the server is the query string: e.g. <code>http://httpbin.org/get?key=val</code>. httr allows you to provide these arguments as a named list with the <code>query</code> argument. For example, if you wanted to pass <code>key1=value1</code> and <code>key2=value2</code> to <code>http://httpbin.org/get</code> you could do:</p>
+<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>,
+  <span class="kw">query</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">key1</span> <span class="kw">=</span> <span class="st">"value1"</span>, <span class="kw">key2</span> <span class="kw">=</span> <span class="st">"value2"</span>)
+)
+<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>)$<span class="no">args</span>
+<span class="co">#&gt; $key1</span>
+<span class="co">#&gt; [1] "value1"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $key2</span>
+<span class="co">#&gt; [1] "value2"</span></pre></body></html></div>
 <p>Any <code>NULL</code> elements are automatically dropped from the list, and both keys and values are escaped automatically.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>, </a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">  <span class="dt">query =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">key1 =</span> <span class="st">"value 1"</span>, <span class="st">"key 2"</span> =<span class="st"> "value2"</span>, <span class="dt">key2 =</span> <span class="ot">NULL</span>))</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="kw"><a href="../reference/content.html">content</a></span>(r)<span class="op">$</span>args</a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="co">#&gt; $`key 2`</span></a>
-<a class="sourceLine" id="cb16-5" data-line-number="5"><span class="co">#&gt; [1] "value2"</span></a>
-<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="co">#&gt; $key1</span></a>
-<a class="sourceLine" id="cb16-8" data-line-number="8"><span class="co">#&gt; [1] "value 1"</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>,
+  <span class="kw">query</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">key1</span> <span class="kw">=</span> <span class="st">"value 1"</span>, <span class="st">"key 2"</span> <span class="kw">=</span> <span class="st">"value2"</span>, <span class="kw">key2</span> <span class="kw">=</span> <span class="kw">NULL</span>))
+<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>)$<span class="no">args</span>
+<span class="co">#&gt; $`key 2`</span>
+<span class="co">#&gt; [1] "value2"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $key1</span>
+<span class="co">#&gt; [1] "value 1"</span></pre></body></html></div>
 </div>
 <div id="custom-headers" class="section level3">
 <h3 class="hasAnchor">
 <a href="#custom-headers" class="anchor"></a>Custom headers</h3>
 <p>You can add custom headers to a request with <code><a href="../reference/add_headers.html">add_headers()</a></code>:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>, <span class="kw"><a href="../reference/add_headers.html">add_headers</a></span>(<span class="dt">Name =</span> <span class="st">"Hadley"</span>))</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="kw"><a href="../reference/content.html">content</a></span>(r)<span class="op">$</span>headers)</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="co">#&gt; List of 6</span></a>
-<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co">#&gt;  $ Accept         : chr "application/json, text/xml, application/xml, */*"</span></a>
-<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="co">#&gt;  $ Accept-Encoding: chr "deflate, gzip"</span></a>
-<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="co">#&gt;  $ Cookie         : chr "a=1; b=1"</span></a>
-<a class="sourceLine" id="cb17-7" data-line-number="7"><span class="co">#&gt;  $ Host           : chr "httpbin.org"</span></a>
-<a class="sourceLine" id="cb17-8" data-line-number="8"><span class="co">#&gt;  $ Name           : chr "Hadley"</span></a>
-<a class="sourceLine" id="cb17-9" data-line-number="9"><span class="co">#&gt;  $ User-Agent     : chr "libcurl/7.43.0 r-curl/4.2 httr/1.4.1.9000"</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>, <span class="fu"><a href="../reference/add_headers.html">add_headers</a></span>(<span class="kw">Name</span> <span class="kw">=</span> <span class="st">"Hadley"</span>))
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>)$<span class="no">headers</span>)
+<span class="co">#&gt; List of 7</span>
+<span class="co">#&gt;  $ Accept         : chr "application/json, text/xml, application/xml, */*"</span>
+<span class="co">#&gt;  $ Accept-Encoding: chr "deflate, gzip"</span>
+<span class="co">#&gt;  $ Cookie         : chr "b=1; a=1"</span>
+<span class="co">#&gt;  $ Host           : chr "httpbin.org"</span>
+<span class="co">#&gt;  $ Name           : chr "Hadley"</span>
+<span class="co">#&gt;  $ User-Agent     : chr "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000"</span>
+<span class="co">#&gt;  $ X-Amzn-Trace-Id: chr "Root=1-5f159ac1-f3ee32f5f0fffa196e5da27b"</span></pre></body></html></div>
 <p>(Note that <code>content(r)$header</code> retrieves the headers that httpbin received. <code><a href="../reference/headers.html">headers(r)</a></code> gives the headers that it sent back in its response.)</p>
 </div>
 </div>
@@ -397,100 +372,83 @@
 <h2 class="hasAnchor">
 <a href="#cookies-1" class="anchor"></a>Cookies</h2>
 <p>Cookies are simple key-value pairs like the query string, but they persist across multiple requests in a session (because they’re sent back and forth every time). To send your own cookies to the server, use <code><a href="../reference/set_cookies.html">set_cookies()</a></code>:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/cookies"</span>, <span class="kw"><a href="../reference/set_cookies.html">set_cookies</a></span>(<span class="st">"MeWant"</span> =<span class="st"> "cookies"</span>))</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw"><a href="../reference/content.html">content</a></span>(r)<span class="op">$</span>cookies</a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="co">#&gt; $MeWant</span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="co">#&gt; [1] "cookies"</span></a>
-<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="co">#&gt; $a</span></a>
-<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="co">#&gt; [1] "1"</span></a>
-<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb18-9" data-line-number="9"><span class="co">#&gt; $b</span></a>
-<a class="sourceLine" id="cb18-10" data-line-number="10"><span class="co">#&gt; [1] "1"</span></a></code></pre></div>
+<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/cookies"</span>, <span class="fu"><a href="../reference/set_cookies.html">set_cookies</a></span>(<span class="st">"MeWant"</span> <span class="kw">=</span> <span class="st">"cookies"</span>))
+<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>)$<span class="no">cookies</span>
+<span class="co">#&gt; $MeWant</span>
+<span class="co">#&gt; [1] "cookies"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $a</span>
+<span class="co">#&gt; [1] "1"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $b</span>
+<span class="co">#&gt; [1] "1"</span></pre></body></html></div>
 <p>Note that this response includes the <code>a</code> and <code>b</code> cookies that were added by the server earlier.</p>
 <div id="request-body" class="section level3">
 <h3 class="hasAnchor">
 <a href="#request-body" class="anchor"></a>Request body</h3>
 <p>When <code><a href="../reference/POST.html">POST()</a></code>ing, you can include data in the <code>body</code> of the request. httr allows you to supply this in a number of different ways. The most common way is a named list:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="dt">body =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="dv">3</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">a</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">b</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">c</span> <span class="kw">=</span> <span class="fl">3</span>))</pre></body></html></div>
 <p>You can use the <code>encode</code> argument to determine how this data is sent to the server:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">url &lt;-<span class="st"> "http://httpbin.org/post"</span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2">body &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co"># Form encoded</span></a>
-<a class="sourceLine" id="cb20-5" data-line-number="5">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/POST.html">POST</a></span>(url, <span class="dt">body =</span> body, <span class="dt">encode =</span> <span class="st">"form"</span>)</a>
-<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="co"># Multipart encoded</span></a>
-<a class="sourceLine" id="cb20-7" data-line-number="7">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/POST.html">POST</a></span>(url, <span class="dt">body =</span> body, <span class="dt">encode =</span> <span class="st">"multipart"</span>)</a>
-<a class="sourceLine" id="cb20-8" data-line-number="8"><span class="co"># JSON encoded</span></a>
-<a class="sourceLine" id="cb20-9" data-line-number="9">r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/POST.html">POST</a></span>(url, <span class="dt">body =</span> body, <span class="dt">encode =</span> <span class="st">"json"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><html><body><pre class="r"><span class="no">url</span> <span class="kw">&lt;-</span> <span class="st">"http://httpbin.org/post"</span>
+<span class="no">body</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">a</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">b</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">c</span> <span class="kw">=</span> <span class="fl">3</span>)
+
+<span class="co"># Form encoded</span>
+<span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="no">url</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="no">body</span>, <span class="kw">encode</span> <span class="kw">=</span> <span class="st">"form"</span>)
+<span class="co"># Multipart encoded</span>
+<span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="no">url</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="no">body</span>, <span class="kw">encode</span> <span class="kw">=</span> <span class="st">"multipart"</span>)
+<span class="co"># JSON encoded</span>
+<span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="no">url</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="no">body</span>, <span class="kw">encode</span> <span class="kw">=</span> <span class="st">"json"</span>)</pre></body></html></div>
 <p>To see exactly what’s being sent to the server, use <code><a href="../reference/verbose.html">verbose()</a></code>. Unfortunately due to the way that <code><a href="../reference/verbose.html">verbose()</a></code> works, knitr can’t capture the messages, so you’ll need to run these from an interactive console to see what’s going on.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw"><a href="../reference/POST.html">POST</a></span>(url, <span class="dt">body =</span> body, <span class="dt">encode =</span> <span class="st">"multipart"</span>, <span class="kw"><a href="../reference/verbose.html">verbose</a></span>()) <span class="co"># the default</span></a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="kw"><a href="../reference/POST.html">POST</a></span>(url, <span class="dt">body =</span> body, <span class="dt">encode =</span> <span class="st">"form"</span>, <span class="kw"><a href="../reference/verbose.html">verbose</a></span>())</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="kw"><a href="../reference/POST.html">POST</a></span>(url, <span class="dt">body =</span> body, <span class="dt">encode =</span> <span class="st">"json"</span>, <span class="kw"><a href="../reference/verbose.html">verbose</a></span>())</a></code></pre></div>
+<div class="sourceCode" id="cb21"><html><body><pre class="r"><span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="no">url</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="no">body</span>, <span class="kw">encode</span> <span class="kw">=</span> <span class="st">"multipart"</span>, <span class="fu"><a href="../reference/verbose.html">verbose</a></span>()) <span class="co"># the default</span>
+<span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="no">url</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="no">body</span>, <span class="kw">encode</span> <span class="kw">=</span> <span class="st">"form"</span>, <span class="fu"><a href="../reference/verbose.html">verbose</a></span>())
+<span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="no">url</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="no">body</span>, <span class="kw">encode</span> <span class="kw">=</span> <span class="st">"json"</span>, <span class="fu"><a href="../reference/verbose.html">verbose</a></span>())</pre></body></html></div>
 <p><code><a href="../reference/PUT.html">PUT()</a></code> and <code><a href="../reference/PATCH.html">PATCH()</a></code> can also have request bodies, and they take arguments identically to <code><a href="../reference/POST.html">POST()</a></code>.</p>
 <p>You can also send files off disk:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw"><a href="../reference/POST.html">POST</a></span>(url, <span class="dt">body =</span> <span class="kw"><a href="../reference/upload_file.html">upload_file</a></span>(<span class="st">"mypath.txt"</span>))</a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw"><a href="../reference/POST.html">POST</a></span>(url, <span class="dt">body =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">x =</span> <span class="kw"><a href="../reference/upload_file.html">upload_file</a></span>(<span class="st">"mypath.txt"</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb22"><html><body><pre class="r"><span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="no">url</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="fu"><a href="../reference/upload_file.html">upload_file</a></span>(<span class="st">"mypath.txt"</span>))
+<span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="no">url</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="fu"><a href="../reference/upload_file.html">upload_file</a></span>(<span class="st">"mypath.txt"</span>)))</pre></body></html></div>
 <p>(<code><a href="../reference/upload_file.html">upload_file()</a></code> will guess the mime-type from the extension - using the <code>type</code> argument to override/supply yourself.)</p>
 <p>These uploads stream the data to the server: the data will be loaded in R in chunks then sent to the remote server. This means that you can upload files that are larger than memory.</p>
 <p>See <code><a href="../reference/POST.html">POST()</a></code> for more details on the other types of thing that you can send: no body, empty body, and character and raw vectors.</p>
 <div id="built-with" class="section level5">
 <h5 class="hasAnchor">
 <a href="#built-with" class="anchor"></a>Built with</h5>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span>()</a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="co">#&gt; R version 3.6.1 (2017-01-27)</span></a>
-<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co">#&gt; Platform: x86_64-pc-linux-gnu (64-bit)</span></a>
-<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="co">#&gt; Running under: Ubuntu 16.04.6 LTS</span></a>
-<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb23-6" data-line-number="6"><span class="co">#&gt; Matrix products: default</span></a>
-<a class="sourceLine" id="cb23-7" data-line-number="7"><span class="co">#&gt; BLAS:   /home/travis/R-bin/lib/R/lib/libRblas.so</span></a>
-<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="co">#&gt; LAPACK: /home/travis/R-bin/lib/R/lib/libRlapack.so</span></a>
-<a class="sourceLine" id="cb23-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb23-10" data-line-number="10"><span class="co">#&gt; locale:</span></a>
-<a class="sourceLine" id="cb23-11" data-line-number="11"><span class="co">#&gt;  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              </span></a>
-<a class="sourceLine" id="cb23-12" data-line-number="12"><span class="co">#&gt;  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    </span></a>
-<a class="sourceLine" id="cb23-13" data-line-number="13"><span class="co">#&gt;  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   </span></a>
-<a class="sourceLine" id="cb23-14" data-line-number="14"><span class="co">#&gt;  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 </span></a>
-<a class="sourceLine" id="cb23-15" data-line-number="15"><span class="co">#&gt;  [9] LC_ADDRESS=C               LC_TELEPHONE=C            </span></a>
-<a class="sourceLine" id="cb23-16" data-line-number="16"><span class="co">#&gt; [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       </span></a>
-<a class="sourceLine" id="cb23-17" data-line-number="17"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb23-18" data-line-number="18"><span class="co">#&gt; attached base packages:</span></a>
-<a class="sourceLine" id="cb23-19" data-line-number="19"><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></a>
-<a class="sourceLine" id="cb23-20" data-line-number="20"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb23-21" data-line-number="21"><span class="co">#&gt; other attached packages:</span></a>
-<a class="sourceLine" id="cb23-22" data-line-number="22"><span class="co">#&gt; [1] httr_1.4.1.9000</span></a>
-<a class="sourceLine" id="cb23-23" data-line-number="23"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb23-24" data-line-number="24"><span class="co">#&gt; loaded via a namespace (and not attached):</span></a>
-<a class="sourceLine" id="cb23-25" data-line-number="25"><span class="co">#&gt;  [1] Rcpp_1.0.3       rprojroot_1.3-2  crayon_1.3.4     digest_0.6.22   </span></a>
-<a class="sourceLine" id="cb23-26" data-line-number="26"><span class="co">#&gt;  [5] assertthat_0.2.1 MASS_7.3-51.4    R6_2.4.1         jsonlite_1.6    </span></a>
-<a class="sourceLine" id="cb23-27" data-line-number="27"><span class="co">#&gt;  [9] backports_1.1.5  magrittr_1.5     evaluate_0.14    stringi_1.4.3   </span></a>
-<a class="sourceLine" id="cb23-28" data-line-number="28"><span class="co">#&gt; [13] rlang_0.4.1      curl_4.2         fs_1.3.1         rmarkdown_1.17  </span></a>
-<a class="sourceLine" id="cb23-29" data-line-number="29"><span class="co">#&gt; [17] pkgdown_1.4.1    desc_1.2.0       tools_3.6.1      stringr_1.4.0   </span></a>
-<a class="sourceLine" id="cb23-30" data-line-number="30"><span class="co">#&gt; [21] yaml_2.2.0       xfun_0.11        compiler_3.6.1   memoise_1.1.0   </span></a>
-<a class="sourceLine" id="cb23-31" data-line-number="31"><span class="co">#&gt; [25] htmltools_0.4.0  knitr_1.26</span></a></code></pre></div>
+<div class="sourceCode" id="cb23"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span>()
+<span class="co">#&gt; R version 4.0.2 (2020-06-22)</span>
+<span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
+<span class="co">#&gt; Running under: macOS Catalina 10.15.5</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Matrix products: default</span>
+<span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib</span>
+<span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; locale:</span>
+<span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; attached base packages:</span>
+<span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; other attached packages:</span>
+<span class="co">#&gt; [1] httr_1.4.1.9000</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; loaded via a namespace (and not attached):</span>
+<span class="co">#&gt;  [1] rprojroot_1.3-2  digest_0.6.25    crayon_1.3.4     assertthat_0.2.1</span>
+<span class="co">#&gt;  [5] MASS_7.3-51.6    R6_2.4.1         jsonlite_1.7.0   backports_1.1.8 </span>
+<span class="co">#&gt;  [9] magrittr_1.5     evaluate_0.14    stringi_1.4.6    rlang_0.4.7     </span>
+<span class="co">#&gt; [13] curl_4.3         fs_1.4.2         rmarkdown_2.3    pkgdown_1.5.1   </span>
+<span class="co">#&gt; [17] desc_1.2.0       tools_4.0.2      stringr_1.4.0    yaml_2.2.1      </span>
+<span class="co">#&gt; [21] xfun_0.15        compiler_4.0.2   memoise_1.1.0    htmltools_0.5.0 </span>
+<span class="co">#&gt; [25] knitr_1.29</span></pre></body></html></div>
 </div>
 </div>
 </div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li>
-<a href="#httr-quickstart-guide">httr quickstart guide</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#httr-basics">httr basics</a></li>
-      <li><a href="#the-response">The response</a></li>
-      <li><a href="#the-request">The request</a></li>
-      <li><a href="#cookies-1">Cookies</a></li>
-      </ul>
-</li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
@@ -501,7 +459,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

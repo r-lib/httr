@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -63,7 +67,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -148,29 +152,34 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
       <small>Source: <a href='https://github.com/r-lib/httr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
     <div id="httr-development-version" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="development version">
 <a href="#httr-development-version" class="anchor"></a>httr (development version)<small> Unreleased </small>
 </h1>
+<ul>
+<li>
+<code><a href="../reference/parse_url.html">parse_url()</a></code> now refers to RFC3986 for the parsing of the URL’s scheme, with a bit more permissive syntax (<a href='https://github.com/ymarcon'>@ymarcon</a>, <a href='https://github.com/r-lib/httr/issues/615'>#615</a>).</li>
+</ul>
 </div>
-    <div id="httr-1-4-1" class="section level1">
-<h1 class="page-header">
-<a href="#httr-1-4-1" class="anchor"></a>httr 1.4.1<small> 2019-08-05 </small>
+    <div id="httr-141" class="section level1">
+<h1 class="page-header" data-toc-text="1.4.1">
+<a href="#httr-141" class="anchor"></a>httr 1.4.1<small> 2019-08-05 </small>
 </h1>
 <ul>
 <li><p>Remove the default <code>cainfo</code> option on Windows. Providing a CA bundle is not needed anymore because <code>curl</code> now uses the native schannel SSL backend. For recent versions of libcurl, overriding the CA bundle actually breaks custom trust certificates on corporate networks. (<a href='https://github.com/jeroen'>@jeroen</a>, <a href='https://github.com/r-lib/httr/issues/603'>#603</a>)</p></li>
 <li><p><code><a href="../reference/http_status.html">http_status()</a></code> now throws the correct error message if http status code is not in the list of known codes (<a href='https://github.com/Javdat'>@Javdat</a>, <a href='https://github.com/r-lib/httr/issues/567'>#567</a>).</p></li>
 <li><p><code><a href="../reference/POST.html">POST()</a></code> gains an example on how to use <code>encode = "raw"</code> for specific json string body (<a href='https://github.com/cderv'>@cderv</a>, <a href='https://github.com/r-lib/httr/issues/563'>#563</a>)</p></li>
 <li><p><code><a href="../reference/RETRY.html">RETRY()</a></code> now throws the correct error message if an error occurs during the request (<a href='https://github.com/austin3dickey'>@austin3dickey</a>, <a href='https://github.com/r-lib/httr/issues/581'>#581</a>).</p></li>
+<li><p><code><a href="../reference/VERB.html">VERB()</a></code> and <code><a href="../reference/RETRY.html">RETRY()</a></code> now automatically uppercase methods (<a href='https://github.com/patr1ckm'>@patr1ckm</a>, <a href='https://github.com/r-lib/httr/issues/571'>#571</a>).</p></li>
 </ul>
 </div>
-    <div id="httr-1-4-0" class="section level1">
-<h1 class="page-header">
-<a href="#httr-1-4-0" class="anchor"></a>httr 1.4.0<small> 2018-12-11 </small>
+    <div id="httr-140" class="section level1">
+<h1 class="page-header" data-toc-text="1.4.0">
+<a href="#httr-140" class="anchor"></a>httr 1.4.0<small> 2018-12-11 </small>
 </h1>
 <div id="oauth" class="section level2">
 <h2 class="hasAnchor">
@@ -205,17 +214,17 @@
 </ul>
 </div>
 </div>
-    <div id="httr-1-3-1" class="section level1">
-<h1 class="page-header">
-<a href="#httr-1-3-1" class="anchor"></a>httr 1.3.1<small> 2017-08-20 </small>
+    <div id="httr-131" class="section level1">
+<h1 class="page-header" data-toc-text="1.3.1">
+<a href="#httr-131" class="anchor"></a>httr 1.3.1<small> 2017-08-20 </small>
 </h1>
 <ul>
 <li>Re-enable on-disk caching (accidentally disabled in <a href='https://github.com/r-lib/httr/issues/457'>#457</a>) (<a href='https://github.com/r-lib/httr/issues/475'>#475</a>)</li>
 </ul>
 </div>
-    <div id="httr-1-3-0" class="section level1">
-<h1 class="page-header">
-<a href="#httr-1-3-0" class="anchor"></a>httr 1.3.0<small> 2017-08-16 </small>
+    <div id="httr-130" class="section level1">
+<h1 class="page-header" data-toc-text="1.3.0">
+<a href="#httr-130" class="anchor"></a>httr 1.3.0<small> 2017-08-16 </small>
 </h1>
 <div id="api-changes" class="section level2">
 <h2 class="hasAnchor">
@@ -273,17 +282,17 @@
 </ul>
 </div>
 </div>
-    <div id="httr-1-2-1" class="section level1">
-<h1 class="page-header">
-<a href="#httr-1-2-1" class="anchor"></a>httr 1.2.1<small> 2016-07-03 </small>
+    <div id="httr-121" class="section level1">
+<h1 class="page-header" data-toc-text="1.2.1">
+<a href="#httr-121" class="anchor"></a>httr 1.2.1<small> 2016-07-03 </small>
 </h1>
 <ul>
 <li>Fix bug with new cache creation code: need to check that cache isn’t an empty file.</li>
 </ul>
 </div>
-    <div id="httr-1-2-0" class="section level1">
-<h1 class="page-header">
-<a href="#httr-1-2-0" class="anchor"></a>httr 1.2.0<small> 2016-06-15 </small>
+    <div id="httr-120" class="section level1">
+<h1 class="page-header" data-toc-text="1.2.0">
+<a href="#httr-120" class="anchor"></a>httr 1.2.0<small> 2016-06-15 </small>
 </h1>
 <div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
@@ -300,7 +309,8 @@
 <h2 class="hasAnchor">
 <a href="#bug-fixes-and-minor-improvements" class="anchor"></a>Bug fixes and minor improvements</h2>
 <ul>
-<li>No longer uses use custom requests for standard <code>POST</code> requests (<a href='https://github.com/r-lib/httr/issues/356'>#356</a>,
+<li>
+<p>No longer uses use custom requests for standard <code>POST</code> requests (<a href='https://github.com/r-lib/httr/issues/356'>#356</a>,</p>
 <p><a href='https://github.com/r-lib/httr/issues/357'>#357</a>). This has the side-effect of properly following redirects after <code>POST</code>, fixing some login issues (eg hadley/rvest<a href='https://github.com/r-lib/httr/issues/133'>#133</a>).</p>
 </li>
 <li><p>Long deprecated <code>multipart</code> argument to <code><a href="../reference/POST.html">POST()</a></code>, <code><a href="../reference/PUT.html">PUT()</a></code> and <code><a href="../reference/PATCH.html">PATCH()</a></code> has been removed.</p></li>
@@ -318,9 +328,9 @@
 </ul>
 </div>
 </div>
-    <div id="httr-1-1-0" class="section level1">
-<h1 class="page-header">
-<a href="#httr-1-1-0" class="anchor"></a>httr 1.1.0<small> 2016-01-28 </small>
+    <div id="httr-110" class="section level1">
+<h1 class="page-header" data-toc-text="1.1.0">
+<a href="#httr-110" class="anchor"></a>httr 1.1.0<small> 2016-01-28 </small>
 </h1>
 <div id="new-features-2" class="section level2">
 <h2 class="hasAnchor">
@@ -363,9 +373,9 @@
 </ul>
 </div>
 </div>
-    <div id="httr-1-0-0" class="section level1">
-<h1 class="page-header">
-<a href="#httr-1-0-0" class="anchor"></a>httr 1.0.0<small> 2015-06-25 </small>
+    <div id="httr-100" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.0">
+<a href="#httr-100" class="anchor"></a>httr 1.0.0<small> 2015-06-25 </small>
 </h1>
 <ul>
 <li><p>httr no longer uses the RCurl package. Instead it uses the curl package, a modern binding to libcurl written by Jeroen Ooms (<a href='https://github.com/r-lib/httr/issues/172'>#172</a>). This should make httr more reliable and prevent the “easy handle already used in multi handle” error. This change shouldn’t affect any code that uses httr - all the changes have happened behind the scenes.</p></li>
@@ -391,9 +401,9 @@
 </ul>
 </div>
 </div>
-    <div id="httr-0-6-1" class="section level1">
-<h1 class="page-header">
-<a href="#httr-0-6-1" class="anchor"></a>httr 0.6.1<small> 2015-01-01 </small>
+    <div id="httr-061" class="section level1">
+<h1 class="page-header" data-toc-text="0.6.1">
+<a href="#httr-061" class="anchor"></a>httr 0.6.1<small> 2015-01-01 </small>
 </h1>
 <ul>
 <li><p>Correctly parse headers with multiple <code>:</code>, thanks to <a href='https://github.com/mmorgan'>@mmorgan</a> (<a href='https://github.com/r-lib/httr/issues/180'>#180</a>).</p></li>
@@ -402,9 +412,9 @@
 <li><p>Improved LinkedIn OAuth demo (<a href='https://github.com/r-lib/httr/issues/173'>#173</a>).</p></li>
 </ul>
 </div>
-    <div id="httr-0-6-0" class="section level1">
-<h1 class="page-header">
-<a href="#httr-0-6-0" class="anchor"></a>httr 0.6.0<small> 2014-12-13 </small>
+    <div id="httr-060" class="section level1">
+<h1 class="page-header" data-toc-text="0.6.0">
+<a href="#httr-060" class="anchor"></a>httr 0.6.0<small> 2014-12-13 </small>
 </h1>
 <div id="new-features-3" class="section level2">
 <h2 class="hasAnchor">
@@ -445,14 +455,14 @@
 </ul>
 </div>
 </div>
-    <div id="httr-0-5" class="section level1">
-<h1 class="page-header">
-<a href="#httr-0-5" class="anchor"></a>httr 0.5<small> 2014-09-02 </small>
+    <div id="httr-05" class="section level1">
+<h1 class="page-header" data-toc-text="0.5">
+<a href="#httr-05" class="anchor"></a>httr 0.5<small> 2014-09-02 </small>
 </h1>
 <ul>
 <li><p>You can now save response bodies directly to disk by using the <code><a href="../reference/write_disk.html">write_disk()</a></code> config. This is useful if you want to capture large files that don’t fit in memory (<a href='https://github.com/r-lib/httr/issues/44'>#44</a>).</p></li>
 <li><p>Default accept header is now “application/json, text/xml, <em>/</em>” - this should encourage servers to send json or xml if they know how.</p></li>
-<li><p><code><a href="../reference/httr_options.html">httr_options()</a></code> allows you to easily filter the options, e.g. <code><a href="../reference/httr_options.html">httr_options("post")</a></code></p></li>
+<li><p><code><a href="../reference/httr_options.html">httr_options()</a></code> allows you to easily filter the options, e.g.  <code><a href="../reference/httr_options.html">httr_options("post")</a></code></p></li>
 <li><p><code><a href="../reference/POST.html">POST()</a></code> now specifies Curl options more precisely so that Curl know’s that you’re doing a POST and can respond appropriately to redirects.</p></li>
 </ul>
 <div id="caching" class="section level2">
@@ -480,9 +490,9 @@
 </ul>
 </div>
 </div>
-    <div id="httr-0-4" class="section level1">
-<h1 class="page-header">
-<a href="#httr-0-4" class="anchor"></a>httr 0.4<small> 2014-07-28 </small>
+    <div id="httr-04" class="section level1">
+<h1 class="page-header" data-toc-text="0.4">
+<a href="#httr-04" class="anchor"></a>httr 0.4<small> 2014-07-28 </small>
 </h1>
 <div id="new-features-4" class="section level2">
 <h2 class="hasAnchor">
@@ -530,9 +540,9 @@
 </ul>
 </div>
 </div>
-    <div id="httr-0-3" class="section level1">
-<h1 class="page-header">
-<a href="#httr-0-3" class="anchor"></a>httr 0.3<small> 2014-03-20 </small>
+    <div id="httr-03" class="section level1">
+<h1 class="page-header" data-toc-text="0.3">
+<a href="#httr-03" class="anchor"></a>httr 0.3<small> 2014-03-20 </small>
 </h1>
 <div id="oauth-improvements" class="section level2">
 <h2 class="hasAnchor">
@@ -574,14 +584,14 @@
 <a href="#bug-fixes-1" class="anchor"></a>Bug fixes</h2>
 <ul>
 <li><p>If you supply multiple headers of the same name, the value of the most recently set header will always be used.</p></li>
-<li><p>Urls with missing query param values (e.g. <code>http://x.com/?q=</code>) are now parsed correctly (<a href='https://github.com/r-lib/httr/issues/27'>#27</a>). The names of query params are now also escaped and unescaped correctly when parsing and building urls.</p></li>
+<li><p>Urls with missing query param values (e.g. <code>http://x.com/?q=</code>) are now parsed correctly (<a href='https://github.com/r-lib/httr/issues/27'>#27</a>). The names of query params are now also escaped and unescaped correctly when parsing and building urls.</p></li>
 <li><p>Default html parser is now <code>XML::htmlParse()</code> which is easier to use with xpath (<a href='https://github.com/r-lib/httr/issues/66'>#66</a>).</p></li>
 </ul>
 </div>
 </div>
-    <div id="httr-0-2" class="section level1">
-<h1 class="page-header">
-<a href="#httr-0-2" class="anchor"></a>httr 0.2<small> 2012-10-11 </small>
+    <div id="httr-02" class="section level1">
+<h1 class="page-header" data-toc-text="0.2">
+<a href="#httr-02" class="anchor"></a>httr 0.2<small> 2012-10-11 </small>
 </h1>
 <ul>
 <li><p>OAuth now uses custom escaping function which is guaranteed to work on all platforms (Fixes <a href='https://github.com/r-lib/httr/issues/21'>#21</a>)</p></li>
@@ -595,9 +605,9 @@
 <li><p><code>build_url</code>: correctly add params back into full url.</p></li>
 </ul>
 </div>
-    <div id="httr-0-1-1" class="section level1">
-<h1 class="page-header">
-<a href="#httr-0-1-1" class="anchor"></a>httr 0.1.1<small> 2012-06-19 </small>
+    <div id="httr-011" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.1">
+<a href="#httr-011" class="anchor"></a>httr 0.1.1<small> 2012-06-19 </small>
 </h1>
 <ul>
 <li><p>Add new default config: use the standard SSL certificate</p></li>
@@ -606,28 +616,10 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#httr-development-version">development version</a></li>
-        <li><a href="#httr-1-4-1">1.4.1</a></li>
-        <li><a href="#httr-1-4-0">1.4.0</a></li>
-        <li><a href="#httr-1-3-1">1.3.1</a></li>
-        <li><a href="#httr-1-3-0">1.3.0</a></li>
-        <li><a href="#httr-1-2-1">1.2.1</a></li>
-        <li><a href="#httr-1-2-0">1.2.0</a></li>
-        <li><a href="#httr-1-1-0">1.1.0</a></li>
-        <li><a href="#httr-1-0-0">1.0.0</a></li>
-        <li><a href="#httr-0-6-1">0.6.1</a></li>
-        <li><a href="#httr-0-6-0">0.6.0</a></li>
-        <li><a href="#httr-0-5">0.5</a></li>
-        <li><a href="#httr-0-4">0.4</a></li>
-        <li><a href="#httr-0-3">0.3</a></li>
-        <li><a href="#httr-0-2">0.2</a></li>
-        <li><a href="#httr-0-1-1">0.1.1</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -639,7 +631,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -43,7 +47,6 @@ authenticate(). To use this function effectively requires
 some knowledge of CURL, and CURL options. Use httr_options() to
 see a complete list of available options. To see the libcurl documentation
 for a given option, use curl_docs()." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -71,7 +74,7 @@ for a given option, use curl_docs()." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -195,43 +198,48 @@ per handle.</p>
     <div class='dont-index'><p><code><a href='set_config.html'>set_config()</a></code> to set global config defaults, and
 <code><a href='with_config.html'>with_config()</a></code> to temporarily run code with set options.</p>
 <p>All known available options are listed in <code><a href='httr_options.html'>httr_options()</a></code></p>
-<p>Other config: <code><a href='add_headers.html'>add_headers</a></code>,
-  <code><a href='authenticate.html'>authenticate</a></code>, <code><a href='set_cookies.html'>set_cookies</a></code>,
-  <code><a href='timeout.html'>timeout</a></code>, <code><a href='use_proxy.html'>use_proxy</a></code>,
-  <code><a href='user_agent.html'>user_agent</a></code>, <code><a href='verbose.html'>verbose</a></code></p>
-<p>Other ways to set configuration: <code><a href='set_config.html'>set_config</a></code>,
-  <code><a href='with_config.html'>with_config</a></code></p></div>
+<p>Other config: 
+<code><a href='add_headers.html'>add_headers</a>()</code>,
+<code><a href='authenticate.html'>authenticate</a>()</code>,
+<code><a href='set_cookies.html'>set_cookies</a>()</code>,
+<code><a href='timeout.html'>timeout</a>()</code>,
+<code><a href='use_proxy.html'>use_proxy</a>()</code>,
+<code><a href='user_agent.html'>user_agent</a>()</code>,
+<code><a href='verbose.html'>verbose</a>()</code></p>
+<p>Other ways to set configuration: 
+<code><a href='set_config.html'>set_config</a>()</code>,
+<code><a href='with_config.html'>with_config</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># There are a number of ways to modify the configuration of a request</span>
 <span class='co'># * you can add directly to a request</span>
-<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-11-15 14:07
+<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [https://www.google.com]
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
 <span class='co'># * you can wrap with with_config()</span>
-<span class='fu'><a href='with_config.html'>with_config</a></span>(<span class='fu'><a href='verbose.html'>verbose</a></span>(), <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>))</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-11-15 14:07
+<span class='fu'><a href='with_config.html'>with_config</a></span>(<span class='fu'><a href='verbose.html'>verbose</a></span>(), <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>))</div><div class='output co'>#&gt; Response [https://www.google.com]
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
 <span class='co'># * you can set global with set_config()</span>
 <span class='no'>old</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='set_config.html'>set_config</a></span>(<span class='fu'><a href='verbose.html'>verbose</a></span>())
-<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-11-15 14:07
+<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com]
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># and re-establish the previous settings with</span>
 <span class='fu'><a href='set_config.html'>set_config</a></span>(<span class='no'>old</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-11-15 14:07
+<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com]
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># or</span>
 <span class='fu'><a href='set_config.html'>reset_config</a></span>()
-<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-11-15 14:07
+<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com]
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
@@ -239,20 +247,15 @@ per handle.</p>
 <span class='co'># options. But you can pass Curl options (as listed in httr_options())</span>
 <span class='co'># in config</span>
 <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com/"</span>, <span class='fu'>config</span>(<span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2019-11-15 14:07
+#&gt;   Date: 2020-07-20 13:22
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -263,7 +266,7 @@ per handle.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
