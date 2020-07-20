@@ -14,7 +14,7 @@ Can not be less than 1 ms.}
 Set maximum request time.
 }
 \details{
-This timeout is passed on to \code{\link[curl:handle_setopt]{curl::handle_setopt()}}.
+This timeout is passed on to \code{\link[curl:handle]{curl::handle_setopt()}}.
 See there and \code{\link[curl:curl_options]{curl::curl_options()}} for more details.
 }
 \examples{
