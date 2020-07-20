@@ -133,7 +133,7 @@
 <p>This gives you a response object. Printing a response object gives you some useful information: the actual url used (after any redirects), the http status, the file (content) type, the size, and if it’s a text file, the first few lines of output.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">r</span>
 <span class="co">#&gt; Response [http://httpbin.org/get]</span>
-<span class="co">#&gt;   Date: 2020-07-20 13:23</span>
+<span class="co">#&gt;   Date: 2020-07-20 13:42</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json</span>
 <span class="co">#&gt;   Size: 369 B</span>
@@ -144,7 +144,7 @@
 <span class="co">#&gt;     "Accept-Encoding": "deflate, gzip", </span>
 <span class="co">#&gt;     "Host": "httpbin.org", </span>
 <span class="co">#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", </span>
-<span class="co">#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159ac0-bcf6fc9f7e2b8d7f3d74485b"</span>
+<span class="co">#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159f56-c54ce2205379b08d55ef5307"</span>
 <span class="co">#&gt;   }, </span>
 <span class="co">#&gt;   "origin": "199.7.166.17", </span>
 <span class="co">#&gt; ...</span></pre></body></html></div>
@@ -153,7 +153,7 @@
 <span class="co">#&gt; [1] 200</span>
 <span class="fu"><a href="../reference/headers.html">headers</a></span>(<span class="no">r</span>)
 <span class="co">#&gt; $date</span>
-<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:23:12 GMT"</span>
+<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:42:46 GMT"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-type`</span>
 <span class="co">#&gt; [1] "application/json"</span>
@@ -183,7 +183,7 @@
 <span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip"</span>
 <span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span>
 <span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000"</span>
-<span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-5f159ac0-bcf6fc9f7e2b8d7f3d74485b"</span>
+<span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-5f159f56-c54ce2205379b08d55ef5307"</span>
 <span class="co">#&gt;  $ origin : chr "199.7.166.17"</span>
 <span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></pre></body></html></div>
 <p>I’ll use <code>httpbin.org</code> throughout this introduction. It accepts many types of http request and returns json that describes the data that it received. This makes it easy to see what httr is doing.</p>
@@ -228,7 +228,7 @@
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">r</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://httpbin.org/get"</span>)
 <span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>, <span class="st">"text"</span>)
 <span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span>
-<span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"deflate, gzip\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f159ac0-7af0ae8d4477f5f764dd0467\"\n  }, \n  \"origin\": \"199.7.166.17\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></pre></body></html></div>
+<span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"deflate, gzip\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000\", \n    \"X-Amzn-Trace-Id\": \"Root=1-5f159f56-973d09b4fffd86f1be4fd4c4\"\n  }, \n  \"origin\": \"199.7.166.17\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></pre></body></html></div>
 <p>httr will automatically decode content from the server using the encoding supplied in the <code>content-type</code> HTTP header. Unfortunately you can’t always trust what the server tells you, so you can override encoding if needed:</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">r</span>, <span class="st">"text"</span>, <span class="kw">encoding</span> <span class="kw">=</span> <span class="st">"ISO-8859-1"</span>)</pre></body></html></div>
 <p>If you’re having problems figuring out what the correct encoding should be, try <code><a href="https://rdrr.io/pkg/stringi/man/stri_enc_detect.html">stringi::stri_enc_detect(content(r, "raw"))</a></code>.</p>
@@ -246,8 +246,8 @@
 <span class="co">#&gt; [176] 65 72 2d 41 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f 37 2e 36 34 2e</span>
 <span class="co">#&gt; [201] 31 20 72 2d 63 75 72 6c 2f 34 2e 33 20 68 74 74 72 2f 31 2e 34 2e 31 2e 39</span>
 <span class="co">#&gt; [226] 30 30 30 22 2c 20 0a 20 20 20 20 22 58 2d 41 6d 7a 6e 2d 54 72 61 63 65 2d</span>
-<span class="co">#&gt; [251] 49 64 22 3a 20 22 52 6f 6f 74 3d 31 2d 35 66 31 35 39 61 63 30 2d 37 61 66</span>
-<span class="co">#&gt; [276] 30 61 65 38 64 34 34 37 37 66 35 66 37 36 34 64 64 30 34 36 37 22 0a 20 20</span>
+<span class="co">#&gt; [251] 49 64 22 3a 20 22 52 6f 6f 74 3d 31 2d 35 66 31 35 39 66 35 36 2d 39 37 33</span>
+<span class="co">#&gt; [276] 64 30 39 62 34 66 66 66 64 38 36 66 31 62 65 34 66 64 34 63 34 22 0a 20 20</span>
 <span class="co">#&gt; [301] 7d 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 31 39 39 2e 37 2e 31 36</span>
 <span class="co">#&gt; [326] 36 2e 31 37 22 2c 20 0a 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 3a 2f 2f</span>
 <span class="co">#&gt; [351] 68 74 74 70 62 69 6e 2e 6f 72 67 2f 67 65 74 22 0a 7d 0a</span></pre></body></html></div>
@@ -266,7 +266,7 @@
 <span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip"</span>
 <span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span>
 <span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000"</span>
-<span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-5f159ac0-7af0ae8d4477f5f764dd0467"</span>
+<span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-5f159f56-973d09b4fffd86f1be4fd4c4"</span>
 <span class="co">#&gt;  $ origin : chr "199.7.166.17"</span>
 <span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></pre></body></html></div>
 <p>See <code><a href="../reference/content.html">?content</a></code> for a complete list.</p>
@@ -280,7 +280,7 @@
 <p>Access response headers with <code><a href="../reference/headers.html">headers()</a></code>:</p>
 <div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="fu"><a href="../reference/headers.html">headers</a></span>(<span class="no">r</span>)
 <span class="co">#&gt; $date</span>
-<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:23:12 GMT"</span>
+<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:42:46 GMT"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-type`</span>
 <span class="co">#&gt; [1] "application/json"</span>
@@ -304,9 +304,9 @@
 <span class="co">#&gt; [1] "insensitive" "list"</span></pre></body></html></div>
 <p>This is basically a named list, but because http headers are case insensitive, indexing this object ignores case:</p>
 <div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="fu"><a href="../reference/headers.html">headers</a></span>(<span class="no">r</span>)$<span class="no">date</span>
-<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:23:12 GMT"</span>
+<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:42:46 GMT"</span>
 <span class="fu"><a href="../reference/headers.html">headers</a></span>(<span class="no">r</span>)$<span class="no">DATE</span>
-<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:23:12 GMT"</span></pre></body></html></div>
+<span class="co">#&gt; [1] "Mon, 20 Jul 2020 13:42:46 GMT"</span></pre></body></html></div>
 </div>
 <div id="cookies" class="section level3">
 <h3 class="hasAnchor">
@@ -364,7 +364,7 @@
 <span class="co">#&gt;  $ Host           : chr "httpbin.org"</span>
 <span class="co">#&gt;  $ Name           : chr "Hadley"</span>
 <span class="co">#&gt;  $ User-Agent     : chr "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000"</span>
-<span class="co">#&gt;  $ X-Amzn-Trace-Id: chr "Root=1-5f159ac1-f3ee32f5f0fffa196e5da27b"</span></pre></body></html></div>
+<span class="co">#&gt;  $ X-Amzn-Trace-Id: chr "Root=1-5f159f56-e41be2d38427ee241c5919fb"</span></pre></body></html></div>
 <p>(Note that <code>content(r)$header</code> retrieves the headers that httpbin received. <code><a href="../reference/headers.html">headers(r)</a></code> gives the headers that it sent back in its response.)</p>
 </div>
 </div>
