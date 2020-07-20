@@ -16,7 +16,7 @@ knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 
 The goal of this document is to get you up and running with httr as quickly as possible. httr is designed to map closely to the underlying http protocol. I'll try and explain the basics in this intro, but I'd also recommend "[HTTP: The Protocol Every Web Developer Must Know][http-tutorial]" or "[HTTP made really easy](http://www.jmarshall.com/easy/http/)".
 
-This vignette (and parts of the httr API) derived from the excellent "[Requests quickstart guide](http://docs.python-requests.org/en/latest/user/quickstart/)" by Kenneth Reitz. Requests is a python library similar in spirit to httr.  
+This vignette (and parts of the httr API) derived from the excellent "[Requests quickstart guide](https://requests.readthedocs.io/en/master/user/quickstart/)" by Kenneth Reitz. Requests is a python library similar in spirit to httr.  
 
 There are two important parts to http: the __request__, the data sent to the server, and the __response__, the data sent back from the server. In the first section, you'll learn about the basics of constructing a request and accessing the response. In the second and third sections, you'll dive into more details of each.
 
