@@ -1,5 +1,7 @@
 # httr (development version)
 
+* Fix failing test.
+
 * `parse_url()` now refers to RFC3986 for the parsing of the URL's 
   scheme, with a bit more permissive syntax (@ymarcon, #615).
 
