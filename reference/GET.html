@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">httr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.2.9000</span>
       </span>
     </div>
 
@@ -235,10 +235,10 @@ data already held by the client.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 12.9 kB
+#&gt;   Size: 12.1 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; document.documentElement.addEventListener("submit",function(b){var a;if(a=b.t...
 #&gt; var a=window.location,b=a.href.indexOf("#");if(0&lt;=b){var c=a.href.substring(b...
@@ -246,13 +246,13 @@ data already held by the client.</p>
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a cl...
-#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxWtM...
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxdX5...
 #&gt; setTimeout(function(){var b=document;var a="SCRIPT";"application/xhtml+xml"==...
 #&gt; function _F_installCss(c){}</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/webhp]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 12.9 kB
+#&gt;   Size: 12.1 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; document.documentElement.addEventListener("submit",function(b){var a;if(a=b.t...
 #&gt; var a=window.location,b=a.href.indexOf("#");if(0&lt;=b){var c=a.href.substring(b...
@@ -260,13 +260,13 @@ data already held by the client.</p>
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a cl...
-#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxWtM...
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxdX5...
 #&gt; setTimeout(function(){var b=document;var a="SCRIPT";"application/xhtml+xml"==...
 #&gt; function _F_installCss(c){}</div><div class='input'><span class='fu'>GET</span>(<span class='st'>"http://google.com/"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>, <span class='kw'>query</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>q</span> <span class='kw'>=</span> <span class='st'>"ham"</span>))</div><div class='output co'>#&gt; Response [http://www.google.com/search?q=ham]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 73.8 kB
+#&gt;   Size: 73.7 kB
 #&gt; &lt;!doctype html&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;meta content="/im...
 #&gt; document.documentElement.addEventListener("submit",function(b){var a;if(a=b.t...
 #&gt; var a=window.performance;window.start=Date.now();a:{var b=window;if(a){var c=...
@@ -281,7 +281,7 @@ data already held by the client.</p>
 <span class='co'># See what GET is doing with httpbin.org</span>
 <span class='no'>url</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/get"</span>
 <span class='fu'>GET</span>(<span class='no'>url</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 369 B
@@ -291,12 +291,12 @@ data already held by the client.</p>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159f22-5dd7fc524d1f84904b9f41f9"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749d5-a03565ccdf4215c671ddd23c"
 #&gt;   }, 
 #&gt;   "origin": "199.7.166.17", 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 399 B
@@ -308,10 +308,10 @@ data already held by the client.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "B": "2", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159f22-7640ee2ee9e12181cb5ab01a"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749d5-606012e83427108a74b1d1c0"
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 395 B
@@ -322,11 +322,11 @@ data already held by the client.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Cookie": "a=1;b=2", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159f22-e218381fc112b79de9ccf1d4"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749d5-72d4cc16d3f0cdfc5c1689e2"
 #&gt;   }, 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>), <span class='fu'><a href='set_cookies.html'>set_cookies</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 425 B
@@ -339,9 +339,9 @@ data already held by the client.</p>
 #&gt;     "B": "2", 
 #&gt;     "Cookie": "a=1;b=2", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='authenticate.html'>authenticate</a></span>(<span class='st'>"username"</span>, <span class='st'>"password"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 425 B
@@ -352,11 +352,11 @@ data already held by the client.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Authorization": "Basic dXNlcm5hbWU6cGFzc3dvcmQ=", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159f22-8be37f45934b68dedb118fe7"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749d5-81db188ec21954f6ddd321a0"
 #&gt;   }, 
 #&gt; ...</div><div class='input'><span class='fu'>GET</span>(<span class='no'>url</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/get]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 369 B
@@ -366,8 +366,8 @@ data already held by the client.</p>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.1.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f159f22-fe02d9ac8bac9a6c9c1c1daa"
+#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749d5-faae00459ae10ad1fd6cf57e"
 #&gt;   }, 
 #&gt;   "origin": "199.7.166.17", 
 #&gt; ...</div><div class='input'>
@@ -375,10 +375,10 @@ data already held by the client.</p>
 <span class='co'># independent logins to the same website.</span>
 <span class='no'>google</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='handle.html'>handle</a></span>(<span class='st'>"http://google.com"</span>)
 <span class='fu'>GET</span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>google</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"/"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 13 kB
+#&gt;   Size: 12.1 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; document.documentElement.addEventListener("submit",function(b){var a;if(a=b.t...
 #&gt; var a=window.location,b=a.href.indexOf("#");if(0&lt;=b){var c=a.href.substring(b...
@@ -386,13 +386,13 @@ data already held by the client.</p>
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a cl...
-#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxWtM...
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxdX5...
 #&gt; setTimeout(function(){var b=document;var a="SCRIPT";"application/xhtml+xml"==...
 #&gt; function _F_installCss(c){}</div><div class='input'><span class='fu'>GET</span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>google</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"search"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/webhp]
-#&gt;   Date: 2020-07-20 13:41
+#&gt;   Date: 2020-07-21 20:02
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 13 kB
+#&gt;   Size: 12.1 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
 #&gt; document.documentElement.addEventListener("submit",function(b){var a;if(a=b.t...
 #&gt; var a=window.location,b=a.href.indexOf("#");if(0&lt;=b){var c=a.href.substring(b...
@@ -400,7 +400,7 @@ data already held by the client.</p>
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a cl...
-#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxWtM...
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxdX5...
 #&gt; setTimeout(function(){var b=document;var a="SCRIPT";"application/xhtml+xml"==...
 #&gt; function _F_installCss(c){}</div></pre>
   </div>

@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">httr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.2.9000</span>
       </span>
     </div>
 
@@ -189,7 +189,7 @@
 <span class="no">resp</span> <span class="kw">&lt;-</span> <span class="fu">github_api</span>(<span class="st">"/repos/hadley/httr"</span>)
 <span class="no">resp</span>
 <span class="co">#&gt; Response [https://api.github.com/repos/hadley/httr]</span>
-<span class="co">#&gt;   Date: 2020-07-20 13:42</span>
+<span class="co">#&gt;   Date: 2020-07-21 20:03</span>
 <span class="co">#&gt;   Status: 403</span>
 <span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span>
 <span class="co">#&gt;   Size: 247 B</span>
@@ -202,12 +202,12 @@
 <p>Note that while most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:</p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span>)
 <span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span>
-<span class="co">#&gt;   Date: 2020-07-20 13:42</span>
+<span class="co">#&gt;   Date: 2020-07-21 20:03</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: text/xml; charset=utf-8</span>
 <span class="co">#&gt;   Size: 1.8 kB</span>
 <span class="co">#&gt; &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>
-<span class="co">#&gt; &lt;colors numResults="1" totalResults="10075144"&gt;</span>
+<span class="co">#&gt; &lt;colors numResults="1" totalResults="10075301"&gt;</span>
 <span class="co">#&gt;  &lt;color&gt;</span>
 <span class="co">#&gt;      &lt;id&gt;903893&lt;/id&gt;</span>
 <span class="co">#&gt;      &lt;title&gt;&lt;![CDATA[wet dirt]]&gt;&lt;/title&gt;</span>
@@ -219,7 +219,7 @@
 <span class="co">#&gt; ...</span>
 <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span>)
 <span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span>
-<span class="co">#&gt;   Date: 2020-07-20 13:42</span>
+<span class="co">#&gt;   Date: 2020-07-21 20:03</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span>
 <span class="co">#&gt;   Size: 1.43 kB</span></pre></body></html></div>
@@ -483,23 +483,23 @@
 <span class="co">#&gt;   ..$ core                :List of 3</span>
 <span class="co">#&gt;   .. ..$ limit    : int 60</span>
 <span class="co">#&gt;   .. ..$ remaining: int 0</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1595254844</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1595363070</span>
 <span class="co">#&gt;   ..$ graphql             :List of 3</span>
 <span class="co">#&gt;   .. ..$ limit    : int 0</span>
 <span class="co">#&gt;   .. ..$ remaining: int 0</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1595256162</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1595365396</span>
 <span class="co">#&gt;   ..$ integration_manifest:List of 3</span>
 <span class="co">#&gt;   .. ..$ limit    : int 5000</span>
 <span class="co">#&gt;   .. ..$ remaining: int 5000</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1595256162</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1595365396</span>
 <span class="co">#&gt;   ..$ search              :List of 3</span>
 <span class="co">#&gt;   .. ..$ limit    : int 10</span>
 <span class="co">#&gt;   .. ..$ remaining: int 10</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1595252622</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1595361856</span>
 <span class="co">#&gt;  $ rate     :List of 3</span>
 <span class="co">#&gt;   ..$ limit    : int 60</span>
 <span class="co">#&gt;   ..$ remaining: int 0</span>
-<span class="co">#&gt;   ..$ reset    : int 1595254844</span></pre></body></html></div>
+<span class="co">#&gt;   ..$ reset    : int 1595363070</span></pre></body></html></div>
 <p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
 <div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="no">rate_limit</span> <span class="kw">&lt;-</span> <span class="kw">function</span>() {
   <span class="no">req</span> <span class="kw">&lt;-</span> <span class="fu">github_api</span>(<span class="st">"/rate_limit"</span>)
@@ -511,7 +511,7 @@
 }
 
 <span class="fu">rate_limit</span>()
-<span class="co">#&gt; 0 / 60 (Resets at 14:20:44)</span></pre></body></html></div>
+<span class="co">#&gt; 0 / 60 (Resets at 20:24:30)</span></pre></body></html></div>
 </div>
 </div>
   </div>
