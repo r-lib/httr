@@ -1,6 +1,6 @@
 Package: httr
 Title: Tools for Working with URLs and HTTP
-Version: 1.4.2
+Version: 1.4.2.9000
 Authors@R: 
     c(person(given = "Hadley",
              family = "Wickham",
