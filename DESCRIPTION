@@ -1,6 +1,6 @@
 Package: httr
 Title: Tools for Working with URLs and HTTP
-Version: 1.4.1.9000
+Version: 1.4.2.9000
 Authors@R: 
     c(person(given = "Hadley",
              family = "Wickham",
@@ -37,4 +37,4 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = FALSE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
