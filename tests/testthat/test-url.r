@@ -124,3 +124,11 @@ test_that("I() prevents escaping", {
 test_that("null elements are dropped", {
   expect_equal(compose_query(list(x = 1, y = NULL)), "x=1")
 })
+
+test_that("scientific notation is avoided", {
+  expect_equal(compose_query(list(x = 1e5, y = 100000, z = 1.23e3)), "x=100000&y=100000&z=1230")
+})
+
+test_that("sentinel values are preserved", {
+  expect_equal(compose_query(list(x = NaN, y = Inf, z=NA)), "x=NaN&y=Inf&z=NA")
+})
