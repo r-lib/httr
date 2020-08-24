@@ -42,7 +42,8 @@ handle <- function(url, cookies = TRUE) {
   }
 
   h <- curl::new_handle()
-  structure(list(handle = h, url = url), class = "handle")
+  out <- list2env(list(handle = h, url = url), parent = emptyenv(), size = 2)
+  structure(out, class = "handle")
 }
 
 #' @export
