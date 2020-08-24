@@ -21,3 +21,29 @@ test_that("if request_perform() throws an error, RETRY passes it on", {
     regexp = "resolve host"
   )
 })
+
+test_that("circuit breaking in RETRY works correctly", {
+  skip_on_cran()
+  # Should not RETRY immediately, since it failed 1 time above already.
+  expect_error(
+    RETRY(
+      "POST", "http://98d90a2a254647889e2e4c236fb576cd.com", times = 1,
+      failure_threshold = 1
+    ),
+    regexp = "Too many request failures"
+  )
+  expect_error(
+    RETRY(
+      "POST", "http://98d90a2a254647889e2e4c236fb576cd.com", times = 1,
+      failure_threshold = 2
+    ),
+    regexp = "resolve host"
+  )
+  expect_error(
+    RETRY(
+      "POST", "http://98d90a2a254647889e2e4c236fb576cd.com", times = 1,
+      failure_threshold = 2
+    ),
+    regexp = "Too many request failures"
+  )
+})
