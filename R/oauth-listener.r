@@ -12,9 +12,10 @@
 #' @param is_interactive DEPRECATED
 #' @param host ip address for the listener
 #' @param port for the listener
+#' @param silent messages should or not be shown
 #' @export
 #' @keywords internal
-oauth_listener <- function(request_url, is_interactive = interactive()) {
+oauth_listener <- function(request_url, is_interactive = interactive(), silent = FALSE) {
   if (!is_installed("httpuv")) {
     stop("httpuv package required to capture OAuth credentials.")
   }
@@ -45,9 +46,13 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
   use <- listener_endpoint()
   server <- httpuv::startServer(use$host, use$port, list(call = listen))
   on.exit(httpuv::stopServer(server))
-
-  message("Waiting for authentication in browser...")
-  message("Press Esc/Ctrl + C to abort")
+  
+  if (!silent)
+         {
+          message("Waiting for authentication in browser...")
+          message("Press Esc/Ctrl + C to abort")
+         }
+  
   BROWSE(request_url)
   while (is.null(info)) {
     httpuv::service()
@@ -58,8 +63,11 @@ oauth_listener <- function(request_url, is_interactive = interactive()) {
   if (identical(info, NA)) {
     stop("Authentication failed.", call. = FALSE)
   }
-
-  message("Authentication complete.")
+  
+    if (!silent)
+         {
+          message("Authentication complete.")
+         }
   info
 }
 
