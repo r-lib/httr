@@ -178,7 +178,7 @@ oauth2.0_access_token <- function(endpoint,
   # Send credentials using HTTP Basic or as parameters in the request body
   # See https://tools.ietf.org/html/rfc6749#section-2.3 (Client Authentication)
   if (isTRUE(use_basic_auth)) {
-    req <- POST(endpoint$access,
+    req <- POST(endpoint$access$ACCESS_URL,
       encode = "form",
       body = req_params,
       authenticate(app$key, app$secret, type = "basic"),
@@ -186,7 +186,7 @@ oauth2.0_access_token <- function(endpoint,
     )
   } else {
     req_params$client_secret <- app$secret
-    req <- POST(endpoint$access,
+    req <- POST(endpoint$access$ACCESS_URL,
       encode = "form",
       body = req_params,
       config = config
