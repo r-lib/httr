@@ -39,7 +39,7 @@
 #' @param encoding For text, overrides the charset or the Latin1 (ISO-8859-1)
 #'   default, if you know that the server is returning the incorrect encoding
 #'   as the charset in the content-type. Use for text and parsed outputs.
-#' @param ... Other parameters parsed on to the parsing functions, if
+#' @param ... Other parameters passed on to the parsing functions, if
 #'  `as = "parsed"`
 #' @family response methods
 #' @return
