@@ -24,7 +24,7 @@ common types.}
 default, if you know that the server is returning the incorrect encoding
 as the charset in the content-type. Use for text and parsed outputs.}
 
-\item{...}{Other parameters parsed on to the parsing functions, if
+\item{...}{Other parameters passed on to the parsing functions, if
 \code{as = "parsed"}}
 }
 \value{
