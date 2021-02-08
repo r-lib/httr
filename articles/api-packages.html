@@ -45,7 +45,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -91,7 +91,7 @@
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -180,117 +180,163 @@
 <h3 class="hasAnchor">
 <a href="#send-a-simple-request" class="anchor"></a>Send a simple request</h3>
 <p>First, find a simple API endpoint that doesn’t require authentication: this lets you get the basics working before tackling the complexities of authentication. For this example, we’ll use the list of httr issues which requires sending a GET request to <code>repos/hadley/httr</code>:</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">httr</span>)
-<span class="no">github_api</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">path</span>) {
-  <span class="no">url</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span>(<span class="st">"https://api.github.com"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="no">path</span>)
-  <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="no">url</span>)
-}
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://httr.r-lib.org/">httr</a></span><span class="op">)</span>
+<span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://api.github.com"</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
+  <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span>
+<span class="op">}</span>
 
-<span class="no">resp</span> <span class="kw">&lt;-</span> <span class="fu">github_api</span>(<span class="st">"/repos/hadley/httr"</span>)
-<span class="no">resp</span>
-<span class="co">#&gt; Response [https://api.github.com/repos/hadley/httr]</span>
-<span class="co">#&gt;   Date: 2020-07-21 20:03</span>
-<span class="co">#&gt;   Status: 403</span>
+<span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu">github_api</span><span class="op">(</span><span class="st">"/repos/hadley/httr"</span><span class="op">)</span>
+<span class="va">resp</span>
+<span class="co">#&gt; Response [https://api.github.com/repositories/2756403]</span>
+<span class="co">#&gt;   Date: 2021-02-08 15:25</span>
+<span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span>
-<span class="co">#&gt;   Size: 247 B</span>
-<span class="co">#&gt; {"message":"API rate limit exceeded for 199.7.166.17. (But here's the good ne...</span></pre></body></html></div>
+<span class="co">#&gt;   Size: 6.07 kB</span>
+<span class="co">#&gt; {</span>
+<span class="co">#&gt;   "id": 2756403,</span>
+<span class="co">#&gt;   "node_id": "MDEwOlJlcG9zaXRvcnkyNzU2NDAz",</span>
+<span class="co">#&gt;   "name": "httr",</span>
+<span class="co">#&gt;   "full_name": "r-lib/httr",</span>
+<span class="co">#&gt;   "private": false,</span>
+<span class="co">#&gt;   "owner": {</span>
+<span class="co">#&gt;     "login": "r-lib",</span>
+<span class="co">#&gt;     "id": 22618716,</span>
+<span class="co">#&gt;     "node_id": "MDEyOk9yZ2FuaXphdGlvbjIyNjE4NzE2",</span>
+<span class="co">#&gt; ...</span></code></pre></div>
 </div>
 <div id="parse-the-response" class="section level3">
 <h3 class="hasAnchor">
 <a href="#parse-the-response" class="anchor"></a>Parse the response</h3>
 <p>Next, you need to take the response returned by the API and turn it into a useful object. Any API will return an HTTP response that consists of headers and a body. While the response can come in multiple forms (see above), two of the most common structured formats are XML and JSON.</p>
 <p>Note that while most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span><span class="op">)</span>
 <span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span>
-<span class="co">#&gt;   Date: 2020-07-21 20:03</span>
+<span class="co">#&gt;   Date: 2021-02-08 15:25</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: text/xml; charset=utf-8</span>
 <span class="co">#&gt;   Size: 1.8 kB</span>
 <span class="co">#&gt; &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>
-<span class="co">#&gt; &lt;colors numResults="1" totalResults="10075301"&gt;</span>
+<span class="co">#&gt; &lt;colors numResults="1" totalResults="10101977"&gt;</span>
 <span class="co">#&gt;  &lt;color&gt;</span>
 <span class="co">#&gt;      &lt;id&gt;903893&lt;/id&gt;</span>
 <span class="co">#&gt;      &lt;title&gt;&lt;![CDATA[wet dirt]]&gt;&lt;/title&gt;</span>
 <span class="co">#&gt;      &lt;userName&gt;&lt;![CDATA[jessicabrown]]&gt;&lt;/userName&gt;</span>
-<span class="co">#&gt;      &lt;numViews&gt;597&lt;/numViews&gt;</span>
+<span class="co">#&gt;      &lt;numViews&gt;625&lt;/numViews&gt;</span>
 <span class="co">#&gt;      &lt;numVotes&gt;1&lt;/numVotes&gt;</span>
 <span class="co">#&gt;      &lt;numComments&gt;0&lt;/numComments&gt;</span>
 <span class="co">#&gt;      &lt;numHearts&gt;0&lt;/numHearts&gt;</span>
 <span class="co">#&gt; ...</span>
-<span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span>)
+<span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span><span class="op">)</span>
 <span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span>
-<span class="co">#&gt;   Date: 2020-07-21 20:03</span>
+<span class="co">#&gt;   Date: 2021-02-08 15:25</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span>
-<span class="co">#&gt;   Size: 1.43 kB</span></pre></body></html></div>
+<span class="co">#&gt;   Size: 1.43 kB</span></code></pre></div>
 <p>Others use <a href="http://en.wikipedia.org/wiki/Content_negotiation">content negotiation</a> to determine what sort of data to send back. If the API you’re wrapping does this, then you’ll need to include one of <code><a href="../reference/content_type.html">accept_json()</a></code> and <code><a href="../reference/content_type.html">accept_xml()</a></code> in your request.</p>
 <p>If you have a choice, choose json: it’s usually much easier to work with than xml.</p>
 <p>Most APIs will return most or all useful information in the response body, which can be accessed using <code><a href="../reference/content.html">content()</a></code>. To determine what type of information is returned, you can use <code><a href="../reference/http_type.html">http_type()</a></code></p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="../reference/http_type.html">http_type</a></span>(<span class="no">resp</span>)
-<span class="co">#&gt; [1] "application/json"</span></pre></body></html></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/http_type.html">http_type</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span>
+<span class="co">#&gt; [1] "application/json"</span></code></pre></div>
 <p>I recommend checking that the type is as you expect in your helper function. This will ensure that you get a clear error message if the API changes:</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">github_api</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">path</span>) {
-  <span class="no">url</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span>(<span class="st">"https://api.github.com"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="no">path</span>)
-
-  <span class="no">resp</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="no">url</span>)
-  <span class="kw">if</span> (<span class="fu"><a href="../reference/http_type.html">http_type</a></span>(<span class="no">resp</span>) <span class="kw">!=</span> <span class="st">"application/json"</span>) {
-    <span class="fu"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="kw">call.</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-  }
-
-  <span class="no">resp</span>
-}</pre></body></html></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://api.github.com"</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
+  
+  <span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="../reference/http_type.html">http_type</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span> <span class="op">!=</span> <span class="st">"application/json"</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"API did not return json"</span>, call. <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  <span class="op">}</span>
+  
+  <span class="va">resp</span>
+<span class="op">}</span></code></pre></div>
 <p>NB: some poorly written APIs will say the content is type A, but it will actually be type B. In this case you should complain to the API authors, and until they fix the problem, simply drop the check for content type.</p>
 <p>Next we need to parse the output into an R object. httr provides some default parsers with <code><a href="../reference/content.html">content(..., as = "auto")</a></code> but I don’t recommend using them inside a package. Instead it’s better to explicitly parse it yourself:</p>
 <ol style="list-style-type: decimal">
 <li>To parse json, use <code>jsonlite</code> package.</li>
 <li>To parse xml, use the <code>xml2</code> package.</li>
 </ol>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">github_api</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">path</span>) {
-  <span class="no">url</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span>(<span class="st">"https://api.github.com"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="no">path</span>)
-
-  <span class="no">resp</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="no">url</span>)
-  <span class="kw">if</span> (<span class="fu"><a href="../reference/http_type.html">http_type</a></span>(<span class="no">resp</span>) <span class="kw">!=</span> <span class="st">"application/json"</span>) {
-    <span class="fu"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="kw">call.</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-  }
-
-  <span class="kw pkg">jsonlite</span><span class="kw ns">::</span><span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">resp</span>, <span class="st">"text"</span>), <span class="kw">simplifyVector</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-}</pre></body></html></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://api.github.com"</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
+  
+  <span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="../reference/http_type.html">http_type</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span> <span class="op">!=</span> <span class="st">"application/json"</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"API did not return json"</span>, call. <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  <span class="op">}</span>
+  
+  <span class="fu">jsonlite</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/jsonlite/man/fromJSON.html">fromJSON</a></span><span class="op">(</span><span class="fu"><a href="../reference/content.html">content</a></span><span class="op">(</span><span class="va">resp</span>, <span class="st">"text"</span><span class="op">)</span>, simplifyVector <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 </div>
 <div id="return-a-helpful-object" class="section level3">
 <h3 class="hasAnchor">
 <a href="#return-a-helpful-object" class="anchor"></a>Return a helpful object</h3>
 <p>Rather than simply returning the response as a list, I think it’s a good practice to make a simple S3 object. That way you can return the response and parsed object, and provide a nice print method. This will make debugging later on much much much more pleasant.</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">github_api</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">path</span>) {
-  <span class="no">url</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span>(<span class="st">"https://api.github.com"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="no">path</span>)
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://api.github.com"</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
+  
+  <span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="../reference/http_type.html">http_type</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span> <span class="op">!=</span> <span class="st">"application/json"</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"API did not return json"</span>, call. <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  <span class="op">}</span>
+  
+  <span class="va">parsed</span> <span class="op">&lt;-</span> <span class="fu">jsonlite</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/jsonlite/man/fromJSON.html">fromJSON</a></span><span class="op">(</span><span class="fu"><a href="../reference/content.html">content</a></span><span class="op">(</span><span class="va">resp</span>, <span class="st">"text"</span><span class="op">)</span>, simplifyVector <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  
+  <span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+      content <span class="op">=</span> <span class="va">parsed</span>,
+      path <span class="op">=</span> <span class="va">path</span>,
+      response <span class="op">=</span> <span class="va">resp</span>
+    <span class="op">)</span>,
+    class <span class="op">=</span> <span class="st">"github_api"</span>
+  <span class="op">)</span>
+<span class="op">}</span>
 
-  <span class="no">resp</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="no">url</span>)
-  <span class="kw">if</span> (<span class="fu"><a href="../reference/http_type.html">http_type</a></span>(<span class="no">resp</span>) <span class="kw">!=</span> <span class="st">"application/json"</span>) {
-    <span class="fu"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="kw">call.</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-  }
+<span class="va">print.github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"&lt;GitHub "</span>, <span class="va">x</span><span class="op">$</span><span class="va">path</span>, <span class="st">"&gt;\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">content</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+<span class="op">}</span>
 
-  <span class="no">parsed</span> <span class="kw">&lt;-</span> <span class="kw pkg">jsonlite</span><span class="kw ns">::</span><span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">resp</span>, <span class="st">"text"</span>), <span class="kw">simplifyVector</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-
-  <span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span>(
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
-      <span class="kw">content</span> <span class="kw">=</span> <span class="no">parsed</span>,
-      <span class="kw">path</span> <span class="kw">=</span> <span class="no">path</span>,
-      <span class="kw">response</span> <span class="kw">=</span> <span class="no">resp</span>
-    ),
-    <span class="kw">class</span> <span class="kw">=</span> <span class="st">"github_api"</span>
-  )
-}
-
-<span class="no">print.github_api</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">x</span>, <span class="no">...</span>) {
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">"&lt;GitHub "</span>, <span class="no">x</span>$<span class="no">path</span>, <span class="st">"&gt;\n"</span>, <span class="kw">sep</span> <span class="kw">=</span> <span class="st">""</span>)
-  <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="no">x</span>$<span class="no">content</span>)
-  <span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span>(<span class="no">x</span>)
-}
-
-<span class="fu">github_api</span>(<span class="st">"/users/hadley"</span>)
+<span class="fu">github_api</span><span class="op">(</span><span class="st">"/users/hadley"</span><span class="op">)</span>
 <span class="co">#&gt; &lt;GitHub /users/hadley&gt;</span>
-<span class="co">#&gt; List of 2</span>
-<span class="co">#&gt;  $ message          : chr "API rate limit exceeded for 199.7.166.17. (But here's the good news: Authenticated requests get a higher rate l"| __truncated__</span>
-<span class="co">#&gt;  $ documentation_url: chr "https://developer.github.com/v3/#rate-limiting"</span></pre></body></html></div>
+<span class="co">#&gt; List of 32</span>
+<span class="co">#&gt;  $ login              : chr "hadley"</span>
+<span class="co">#&gt;  $ id                 : int 4196</span>
+<span class="co">#&gt;  $ node_id            : chr "MDQ6VXNlcjQxOTY="</span>
+<span class="co">#&gt;  $ avatar_url         : chr "https://avatars.githubusercontent.com/u/4196?v=4"</span>
+<span class="co">#&gt;  $ gravatar_id        : chr ""</span>
+<span class="co">#&gt;  $ url                : chr "https://api.github.com/users/hadley"</span>
+<span class="co">#&gt;  $ html_url           : chr "https://github.com/hadley"</span>
+<span class="co">#&gt;  $ followers_url      : chr "https://api.github.com/users/hadley/followers"</span>
+<span class="co">#&gt;  $ following_url      : chr "https://api.github.com/users/hadley/following{/other_user}"</span>
+<span class="co">#&gt;  $ gists_url          : chr "https://api.github.com/users/hadley/gists{/gist_id}"</span>
+<span class="co">#&gt;  $ starred_url        : chr "https://api.github.com/users/hadley/starred{/owner}{/repo}"</span>
+<span class="co">#&gt;  $ subscriptions_url  : chr "https://api.github.com/users/hadley/subscriptions"</span>
+<span class="co">#&gt;  $ organizations_url  : chr "https://api.github.com/users/hadley/orgs"</span>
+<span class="co">#&gt;  $ repos_url          : chr "https://api.github.com/users/hadley/repos"</span>
+<span class="co">#&gt;  $ events_url         : chr "https://api.github.com/users/hadley/events{/privacy}"</span>
+<span class="co">#&gt;  $ received_events_url: chr "https://api.github.com/users/hadley/received_events"</span>
+<span class="co">#&gt;  $ type               : chr "User"</span>
+<span class="co">#&gt;  $ site_admin         : logi FALSE</span>
+<span class="co">#&gt;  $ name               : chr "Hadley Wickham"</span>
+<span class="co">#&gt;  $ company            : chr "@rstudio "</span>
+<span class="co">#&gt;  $ blog               : chr "http://hadley.nz"</span>
+<span class="co">#&gt;  $ location           : chr "Houston, TX"</span>
+<span class="co">#&gt;  $ email              : NULL</span>
+<span class="co">#&gt;  $ hireable           : NULL</span>
+<span class="co">#&gt;  $ bio                : chr "Chief Scientist at @rstudio"</span>
+<span class="co">#&gt;  $ twitter_username   : chr "hadleywickham"</span>
+<span class="co">#&gt;  $ public_repos       : int 316</span>
+<span class="co">#&gt;  $ public_gists       : int 177</span>
+<span class="co">#&gt;  $ followers          : int 20204</span>
+<span class="co">#&gt;  $ following          : int 6</span>
+<span class="co">#&gt;  $ created_at         : chr "2008-04-01T14:47:36Z"</span>
+<span class="co">#&gt;  $ updated_at         : chr "2021-02-03T14:43:49Z"</span></code></pre></div>
 <p>The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.</p>
 </div>
 <div id="turn-api-errors-into-r-errors" class="section level3">
@@ -304,41 +350,42 @@
 </ul>
 <p>You need to make sure these are all converted into regular R errors. You can figure out if there’s a problem with <code><a href="../reference/http_error.html">http_error()</a></code>, which checks the HTTP status code. Status codes in the 400 range usually mean that you’ve done something wrong. Status codes in the 500 range typically mean that something has gone wrong on the server side.</p>
 <p>Often the API will provide information about the error in the body of the response: you should use this where available. If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are <a href="https://developer.github.com/v3/#rate-limiting">rate limited</a> you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).</p>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">github_api</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">path</span>) {
-  <span class="no">url</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span>(<span class="st">"https://api.github.com"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="no">path</span>)
-
-  <span class="no">resp</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="no">url</span>)
-  <span class="kw">if</span> (<span class="fu"><a href="../reference/http_type.html">http_type</a></span>(<span class="no">resp</span>) <span class="kw">!=</span> <span class="st">"application/json"</span>) {
-    <span class="fu"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="kw">call.</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-  }
-
-  <span class="no">parsed</span> <span class="kw">&lt;-</span> <span class="kw pkg">jsonlite</span><span class="kw ns">::</span><span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">resp</span>, <span class="st">"text"</span>), <span class="kw">simplifyVector</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-
-  <span class="kw">if</span> (<span class="fu"><a href="../reference/http_error.html">http_error</a></span>(<span class="no">resp</span>)) {
-    <span class="fu"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(
-      <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(
-        <span class="st">"GitHub API request failed [%s]\n%s\n&lt;%s&gt;"</span>,
-        <span class="fu"><a href="../reference/status_code.html">status_code</a></span>(<span class="no">resp</span>),
-        <span class="no">parsed</span>$<span class="no">message</span>,
-        <span class="no">parsed</span>$<span class="no">documentation_url</span>
-      ),
-      <span class="kw">call.</span> <span class="kw">=</span> <span class="fl">FALSE</span>
-    )
-  }
-
-  <span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span>(
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
-      <span class="kw">content</span> <span class="kw">=</span> <span class="no">parsed</span>,
-      <span class="kw">path</span> <span class="kw">=</span> <span class="no">path</span>,
-      <span class="kw">response</span> <span class="kw">=</span> <span class="no">resp</span>
-    ),
-    <span class="kw">class</span> <span class="kw">=</span> <span class="st">"github_api"</span>
-  )
-}
-<span class="fu">github_api</span>(<span class="st">"/user/hadley"</span>)
-<span class="co">#&gt; Error: GitHub API request failed [403]</span>
-<span class="co">#&gt; API rate limit exceeded for 199.7.166.17. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)</span>
-<span class="co">#&gt; &lt;https://developer.github.com/v3/#rate-limiting&gt;</span></pre></body></html></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://api.github.com"</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
+  
+  <span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="../reference/http_type.html">http_type</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span> <span class="op">!=</span> <span class="st">"application/json"</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"API did not return json"</span>, call. <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  <span class="op">}</span>
+  
+  <span class="va">parsed</span> <span class="op">&lt;-</span> <span class="fu">jsonlite</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/jsonlite/man/fromJSON.html">fromJSON</a></span><span class="op">(</span><span class="fu"><a href="../reference/content.html">content</a></span><span class="op">(</span><span class="va">resp</span>, <span class="st">"text"</span><span class="op">)</span>, simplifyVector <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  
+  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="../reference/http_error.html">http_error</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span>
+        <span class="st">"GitHub API request failed [%s]\n%s\n&lt;%s&gt;"</span>, 
+        <span class="fu"><a href="../reference/status_code.html">status_code</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span>,
+        <span class="va">parsed</span><span class="op">$</span><span class="va">message</span>,
+        <span class="va">parsed</span><span class="op">$</span><span class="va">documentation_url</span>
+      <span class="op">)</span>,
+      call. <span class="op">=</span> <span class="cn">FALSE</span>
+    <span class="op">)</span>
+  <span class="op">}</span>
+  
+  <span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+      content <span class="op">=</span> <span class="va">parsed</span>,
+      path <span class="op">=</span> <span class="va">path</span>,
+      response <span class="op">=</span> <span class="va">resp</span>
+    <span class="op">)</span>,
+    class <span class="op">=</span> <span class="st">"github_api"</span>
+  <span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">github_api</span><span class="op">(</span><span class="st">"/user/hadley"</span><span class="op">)</span>
+<span class="co">#&gt; Error: GitHub API request failed [404]</span>
+<span class="co">#&gt; Not Found</span>
+<span class="co">#&gt; &lt;https://docs.github.com/rest/reference/users#get-a-user&gt;</span></code></pre></div>
 <blockquote>
 <p>Some poorly written APIs will return different types of response based on whether or not the request succeeded or failed. If your API does this you’ll need to make your request function check the <code><a href="../reference/status_code.html">status_code()</a></code> before parsing the response.</p>
 </blockquote>
@@ -349,43 +396,44 @@
 <a href="#set-a-user-agent" class="anchor"></a>Set a user agent</h3>
 <p>While we’re in this function, there’s one important header that you should set for every API wrapper: the user agent. The user agent is a string used to identify the client. This is most useful for the API owner as it allows them to see who is using the API. It’s also useful for you if you have a contact on the inside as it often makes it easier for them to pull your requests from their logs and see what’s going wrong. If you’re hitting a commercial API, this also makes it easier for internal R advocates to see how many people are using their API via R and hopefully assign more resources.</p>
 <p>A good default for an R API package wrapper is to make it the URL to your GitHub repo:</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">ua</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/user_agent.html">user_agent</a></span>(<span class="st">"http://github.com/hadley/httr"</span>)
-<span class="no">ua</span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ua</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/user_agent.html">user_agent</a></span><span class="op">(</span><span class="st">"http://github.com/hadley/httr"</span><span class="op">)</span>
+<span class="va">ua</span>
 <span class="co">#&gt; &lt;request&gt;</span>
 <span class="co">#&gt; Options:</span>
 <span class="co">#&gt; * useragent: http://github.com/hadley/httr</span>
 
-<span class="no">github_api</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">path</span>) {
-  <span class="no">url</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span>(<span class="st">"https://api.github.com"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="no">path</span>)
-
-  <span class="no">resp</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span>(<span class="no">url</span>, <span class="no">ua</span>)
-  <span class="kw">if</span> (<span class="fu"><a href="../reference/http_type.html">http_type</a></span>(<span class="no">resp</span>) <span class="kw">!=</span> <span class="st">"application/json"</span>) {
-    <span class="fu"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"API did not return json"</span>, <span class="kw">call.</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-  }
-
-  <span class="no">parsed</span> <span class="kw">&lt;-</span> <span class="kw pkg">jsonlite</span><span class="kw ns">::</span><span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="fu"><a href="../reference/content.html">content</a></span>(<span class="no">resp</span>, <span class="st">"text"</span>), <span class="kw">simplifyVector</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-
-  <span class="kw">if</span> (<span class="fu"><a href="../reference/status_code.html">status_code</a></span>(<span class="no">resp</span>) <span class="kw">!=</span> <span class="fl">200</span>) {
-    <span class="fu"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(
-      <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span>(
-        <span class="st">"GitHub API request failed [%s]\n%s\n&lt;%s&gt;"</span>,
-        <span class="fu"><a href="../reference/status_code.html">status_code</a></span>(<span class="no">resp</span>),
-        <span class="no">parsed</span>$<span class="no">message</span>,
-        <span class="no">parsed</span>$<span class="no">documentation_url</span>
-      ),
-      <span class="kw">call.</span> <span class="kw">=</span> <span class="fl">FALSE</span>
-    )
-  }
-
-  <span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span>(
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
-      <span class="kw">content</span> <span class="kw">=</span> <span class="no">parsed</span>,
-      <span class="kw">path</span> <span class="kw">=</span> <span class="no">path</span>,
-      <span class="kw">response</span> <span class="kw">=</span> <span class="no">resp</span>
-    ),
-    <span class="kw">class</span> <span class="kw">=</span> <span class="st">"github_api"</span>
-  )
-}</pre></body></html></div>
+<span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://api.github.com"</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
+  
+  <span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="va">url</span>, <span class="va">ua</span><span class="op">)</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="../reference/http_type.html">http_type</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span> <span class="op">!=</span> <span class="st">"application/json"</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"API did not return json"</span>, call. <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  <span class="op">}</span>
+  
+  <span class="va">parsed</span> <span class="op">&lt;-</span> <span class="fu">jsonlite</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/jsonlite/man/fromJSON.html">fromJSON</a></span><span class="op">(</span><span class="fu"><a href="../reference/content.html">content</a></span><span class="op">(</span><span class="va">resp</span>, <span class="st">"text"</span><span class="op">)</span>, simplifyVector <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  
+  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="../reference/status_code.html">status_code</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span> <span class="op">!=</span> <span class="fl">200</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span>
+        <span class="st">"GitHub API request failed [%s]\n%s\n&lt;%s&gt;"</span>, 
+        <span class="fu"><a href="../reference/status_code.html">status_code</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span>,
+        <span class="va">parsed</span><span class="op">$</span><span class="va">message</span>,
+        <span class="va">parsed</span><span class="op">$</span><span class="va">documentation_url</span>
+      <span class="op">)</span>,
+      call. <span class="op">=</span> <span class="cn">FALSE</span>
+    <span class="op">)</span>
+  <span class="op">}</span>
+  
+  <span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+      content <span class="op">=</span> <span class="va">parsed</span>,
+      path <span class="op">=</span> <span class="va">path</span>,
+      response <span class="op">=</span> <span class="va">resp</span>
+    <span class="op">)</span>,
+    class <span class="op">=</span> <span class="st">"github_api"</span>
+  <span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 </div>
 <div id="passing-parameters" class="section level3">
 <h3 class="hasAnchor">
@@ -400,27 +448,29 @@
 <li>Request body: The <code>body</code> argument to <code><a href="../reference/GET.html">GET()</a></code>, <code><a href="../reference/POST.html">POST()</a></code>, etc.</li>
 </ol>
 <p><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful APIs</a> also use the HTTP verb to communicate arguments (e.g., <code>GET</code> retrieves a file, <code>POST</code> adds a file, <code>DELETE</code> removes a file, etc.). We can use the helpful <a href="http://httpbin.org">httpbin service</a> to show how to send arguments in each of these ways.</p>
-<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="co"># modify_url</span>
-<span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="fu"><a href="../reference/modify_url.html">modify_url</a></span>(<span class="st">"https://httpbin.org"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="st">"/post"</span>))
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># modify_url</span>
+<span class="fu"><a href="../reference/POST.html">POST</a></span><span class="op">(</span><span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://httpbin.org"</span>, path <span class="op">=</span> <span class="st">"/post"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co"># query arguments</span>
-<span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="kw">query</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">foo</span> <span class="kw">=</span> <span class="st">"bar"</span>))
+<span class="fu"><a href="../reference/POST.html">POST</a></span><span class="op">(</span><span class="st">"http://httpbin.org/post"</span>, query <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>foo <span class="op">=</span> <span class="st">"bar"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co"># headers</span>
-<span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="fu"><a href="../reference/add_headers.html">add_headers</a></span>(<span class="kw">foo</span> <span class="kw">=</span> <span class="st">"bar"</span>))
+<span class="fu"><a href="../reference/POST.html">POST</a></span><span class="op">(</span><span class="st">"http://httpbin.org/post"</span>, <span class="fu"><a href="../reference/add_headers.html">add_headers</a></span><span class="op">(</span>foo <span class="op">=</span> <span class="st">"bar"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co"># body</span>
 <span class="co">## as form</span>
-<span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">foo</span> <span class="kw">=</span> <span class="st">"bar"</span>), <span class="kw">encode</span> <span class="kw">=</span> <span class="st">"form"</span>)
+<span class="fu"><a href="../reference/POST.html">POST</a></span><span class="op">(</span><span class="st">"http://httpbin.org/post"</span>, body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>foo <span class="op">=</span> <span class="st">"bar"</span><span class="op">)</span>, encode <span class="op">=</span> <span class="st">"form"</span><span class="op">)</span>
 <span class="co">## as json</span>
-<span class="fu"><a href="../reference/POST.html">POST</a></span>(<span class="st">"http://httpbin.org/post"</span>, <span class="kw">body</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">foo</span> <span class="kw">=</span> <span class="st">"bar"</span>), <span class="kw">encode</span> <span class="kw">=</span> <span class="st">"json"</span>)</pre></body></html></div>
+<span class="fu"><a href="../reference/POST.html">POST</a></span><span class="op">(</span><span class="st">"http://httpbin.org/post"</span>, body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>foo <span class="op">=</span> <span class="st">"bar"</span><span class="op">)</span>, encode <span class="op">=</span> <span class="st">"json"</span><span class="op">)</span></code></pre></div>
 <p>Many APIs will use just one of these forms of argument passing, but others will use multiple of them in combination. Best practice is to insulate the user from how and where the various arguments are used by the API and instead simply expose relevant arguments via R function arguments, some of which might be used in the URL, in the headers, in the body, etc.</p>
 <p>If a parameter has a small fixed set of possible values that are allowed by the API, you can use list them in the default arguments and then use <code><a href="https://rdrr.io/r/base/match.arg.html">match.arg()</a></code> to ensure that the caller only supplies one of those values. (This also allows the user to supply the short unique prefixes.)</p>
-<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">f</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">x</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>)) {
-  <span class="fu"><a href="https://rdrr.io/r/base/match.arg.html">match.arg</a></span>(<span class="no">x</span>)
-}
-<span class="fu">f</span>(<span class="st">"a"</span>)
-<span class="co">#&gt; [1] "apple"</span></pre></body></html></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/match.arg.html">match.arg</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">f</span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "apple"</span></code></pre></div>
 <p>It is good practice to explicitly set default values for arguments that are not required to <code>NULL</code>. If there is a default value, it should be the first one listed in the vector of allowed arguments.</p>
 </div>
 </div>
@@ -440,15 +490,16 @@
 <p>Some APIs describe their authentication processes inaccurately, so care needs to be taken to understand the true authentication mechanism regardless of the label used in the API docs.</p>
 </blockquote>
 <p>It is possible to specify the key(s) or token(s) required for basic or OAuth authentication in a number of different ways. You may also need some way to preserve user credentials between function calls so that end users do not need to specify them each time. A good start is to use an environment variable. Here is an example of how to write a function that checks for the presence of a GitHub personal access token and errors otherwise:</p>
-<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">github_pat</span> <span class="kw">&lt;-</span> <span class="kw">function</span>() {
-  <span class="no">pat</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span>(<span class="st">'GITHUB_PAT'</span>)
-  <span class="kw">if</span> (<span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span>(<span class="no">pat</span>, <span class="st">""</span>)) {
-    <span class="fu"><a href="https://rdrr.io/r/base/stop.html">stop</a></span>(<span class="st">"Please set env var GITHUB_PAT to your github personal access token"</span>,
-      <span class="kw">call.</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-  }
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">github_pat</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">pat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">'GITHUB_PAT'</span><span class="op">)</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">pat</span>, <span class="st">""</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"Please set env var GITHUB_PAT to your github personal access token"</span>,
+      call. <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  <span class="op">}</span>
 
-  <span class="no">pat</span>
-}</pre></body></html></div>
+  <span class="va">pat</span>
+<span class="op">}</span></code></pre></div>
 </div>
 <div id="pagination-handling-multi-page-responses" class="section level2">
 <h2 class="hasAnchor">
@@ -473,45 +524,52 @@
 <a href="#rate-limiting" class="anchor"></a>Rate limiting</h3>
 <p>Many APIs are rate limited, which means that you can only send a certain number of requests per hour. Often if your request is rate limited, the error message will tell you how long you should wait before performing another request. You might want to expose this to the user, or even include a call to <code><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep()</a></code> that waits long enough.</p>
 <p>For example, we could implement a <code>rate_limit()</code> function that tells you how many calls against the github API are available to you.</p>
-<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="no">rate_limit</span> <span class="kw">&lt;-</span> <span class="kw">function</span>() {
-  <span class="fu">github_api</span>(<span class="st">"/rate_limit"</span>)
-}
-<span class="fu">rate_limit</span>()
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">rate_limit</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu">github_api</span><span class="op">(</span><span class="st">"/rate_limit"</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">rate_limit</span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; &lt;GitHub /rate_limit&gt;</span>
 <span class="co">#&gt; List of 2</span>
 <span class="co">#&gt;  $ resources:List of 4</span>
-<span class="co">#&gt;   ..$ core                :List of 3</span>
+<span class="co">#&gt;   ..$ core                :List of 4</span>
 <span class="co">#&gt;   .. ..$ limit    : int 60</span>
-<span class="co">#&gt;   .. ..$ remaining: int 0</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1595363070</span>
-<span class="co">#&gt;   ..$ graphql             :List of 3</span>
+<span class="co">#&gt;   .. ..$ remaining: int 56</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1612801531</span>
+<span class="co">#&gt;   .. ..$ used     : int 4</span>
+<span class="co">#&gt;   ..$ graphql             :List of 4</span>
 <span class="co">#&gt;   .. ..$ limit    : int 0</span>
 <span class="co">#&gt;   .. ..$ remaining: int 0</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1595365396</span>
-<span class="co">#&gt;   ..$ integration_manifest:List of 3</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1612801533</span>
+<span class="co">#&gt;   .. ..$ used     : int 0</span>
+<span class="co">#&gt;   ..$ integration_manifest:List of 4</span>
 <span class="co">#&gt;   .. ..$ limit    : int 5000</span>
 <span class="co">#&gt;   .. ..$ remaining: int 5000</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1595365396</span>
-<span class="co">#&gt;   ..$ search              :List of 3</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1612801533</span>
+<span class="co">#&gt;   .. ..$ used     : int 0</span>
+<span class="co">#&gt;   ..$ search              :List of 4</span>
 <span class="co">#&gt;   .. ..$ limit    : int 10</span>
 <span class="co">#&gt;   .. ..$ remaining: int 10</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1595361856</span>
-<span class="co">#&gt;  $ rate     :List of 3</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1612797993</span>
+<span class="co">#&gt;   .. ..$ used     : int 0</span>
+<span class="co">#&gt;  $ rate     :List of 4</span>
 <span class="co">#&gt;   ..$ limit    : int 60</span>
-<span class="co">#&gt;   ..$ remaining: int 0</span>
-<span class="co">#&gt;   ..$ reset    : int 1595363070</span></pre></body></html></div>
+<span class="co">#&gt;   ..$ remaining: int 56</span>
+<span class="co">#&gt;   ..$ reset    : int 1612801531</span>
+<span class="co">#&gt;   ..$ used     : int 4</span></code></pre></div>
 <p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
-<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="no">rate_limit</span> <span class="kw">&lt;-</span> <span class="kw">function</span>() {
-  <span class="no">req</span> <span class="kw">&lt;-</span> <span class="fu">github_api</span>(<span class="st">"/rate_limit"</span>)
-  <span class="no">core</span> <span class="kw">&lt;-</span> <span class="no">req</span>$<span class="no">content</span>$<span class="no">resources</span>$<span class="no">core</span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">rate_limit</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">req</span> <span class="op">&lt;-</span> <span class="fu">github_api</span><span class="op">(</span><span class="st">"/rate_limit"</span><span class="op">)</span>
+  <span class="va">core</span> <span class="op">&lt;-</span> <span class="va">req</span><span class="op">$</span><span class="va">content</span><span class="op">$</span><span class="va">resources</span><span class="op">$</span><span class="va">core</span>
 
-  <span class="no">reset</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span>(<span class="no">core</span>$<span class="no">reset</span>, <span class="kw">origin</span> <span class="kw">=</span> <span class="st">"1970-01-01"</span>)
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="no">core</span>$<span class="no">remaining</span>, <span class="st">" / "</span>, <span class="no">core</span>$<span class="no">limit</span>,
-    <span class="st">" (Resets at "</span>, <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strftime</a></span>(<span class="no">reset</span>, <span class="st">"%H:%M:%S"</span>), <span class="st">")\n"</span>, <span class="kw">sep</span> <span class="kw">=</span> <span class="st">""</span>)
-}
+  <span class="va">reset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span><span class="op">(</span><span class="va">core</span><span class="op">$</span><span class="va">reset</span>, origin <span class="op">=</span> <span class="st">"1970-01-01"</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">core</span><span class="op">$</span><span class="va">remaining</span>, <span class="st">" / "</span>, <span class="va">core</span><span class="op">$</span><span class="va">limit</span>,
+    <span class="st">" (Resets at "</span>, <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strftime</a></span><span class="op">(</span><span class="va">reset</span>, <span class="st">"%H:%M:%S"</span><span class="op">)</span>, <span class="st">")\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
+<span class="op">}</span>
 
-<span class="fu">rate_limit</span>()
-<span class="co">#&gt; 0 / 60 (Resets at 20:24:30)</span></pre></body></html></div>
+<span class="fu">rate_limit</span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; 56 / 60 (Resets at 16:25:31)</span></code></pre></div>
 </div>
 </div>
   </div>
@@ -531,7 +589,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

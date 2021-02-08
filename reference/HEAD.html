@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,7 +136,7 @@
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -162,7 +162,7 @@
     <p>Get url HEADers.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>HEAD</span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(), <span class='no'>...</span>, <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>HEAD</span><span class='op'>(</span>url <span class='op'>=</span> <span class='cn'>NULL</span>, config <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>...</span>, handle <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -228,15 +228,17 @@ cache MUST treat the cache entry as stale.</p>
 <code><a href='VERB.html'>VERB</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2020-07-21 20:02
+    <pre class="examples"><div class='input'><span class='fu'>HEAD</span><span class='op'>(</span><span class='st'>"http://google.com"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://www.google.com/]
+#&gt;   Date: 2021-02-08 15:24
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'><a href='headers.html'>headers</a></span>(<span class='fu'>HEAD</span>(<span class='st'>"http://google.com"</span>))</div><div class='output co'>#&gt; $`content-type`
+#&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'><a href='headers.html'>headers</a></span><span class='op'>(</span><span class='fu'>HEAD</span><span class='op'>(</span><span class='st'>"http://google.com"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $`content-type`
 #&gt; [1] "text/html; charset=ISO-8859-1"
 #&gt; 
 #&gt; $date
-#&gt; [1] "Tue, 21 Jul 2020 20:02:29 GMT"
+#&gt; [1] "Mon, 08 Feb 2021 15:24:52 GMT"
 #&gt; 
 #&gt; $server
 #&gt; [1] "gws"
@@ -251,13 +253,13 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "chunked"
 #&gt; 
 #&gt; $expires
-#&gt; [1] "Tue, 21 Jul 2020 20:02:29 GMT"
+#&gt; [1] "Mon, 08 Feb 2021 15:24:52 GMT"
 #&gt; 
 #&gt; $`cache-control`
 #&gt; [1] "private"
 #&gt; 
 #&gt; $`set-cookie`
-#&gt; [1] "1P_JAR=2020-07-21-20; expires=Thu, 20-Aug-2020 20:02:29 GMT; path=/; domain=.google.com; Secure"
+#&gt; [1] "1P_JAR=2021-02-08-15; expires=Wed, 10-Mar-2021 15:24:52 GMT; path=/; domain=.google.com; Secure"
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "insensitive" "list"       </div></pre>
@@ -276,7 +278,7 @@ cache MUST treat the cache entry as stale.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -91,7 +91,7 @@ http://en.wikipedia.org/wiki/List_of_HTTP_header_fields." />
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -137,7 +137,7 @@ http://en.wikipedia.org/wiki/List_of_HTTP_header_fields." />
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -164,7 +164,7 @@ http://en.wikipedia.org/wiki/List_of_HTTP_header_fields." />
 <a href='http://en.wikipedia.org/wiki/List_of_HTTP_header_fields'>http://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_headers</span>(<span class='no'>...</span>, <span class='kw'>.headers</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>())</pre>
+    <pre class="usage"><span class='fu'>add_headers</span><span class='op'>(</span><span class='va'>...</span>, .headers <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -194,15 +194,18 @@ convenience functions for setting accept and content-type headers.</p>
 <code><a href='verbose.html'>verbose</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>add_headers</span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; &lt;request&gt;
+    <pre class="examples"><div class='input'><span class='fu'>add_headers</span><span class='op'>(</span>a <span class='op'>=</span> <span class='fl'>1</span>, b <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; &lt;request&gt;
 #&gt; Headers:
 #&gt; * a: 1
-#&gt; * b: 2</div><div class='input'><span class='fu'>add_headers</span>(<span class='kw'>.headers</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='st'>"1"</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='st'>"2"</span>))</div><div class='output co'>#&gt; &lt;request&gt;
+#&gt; * b: 2</div><div class='input'><span class='fu'>add_headers</span><span class='op'>(</span>.headers <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>a <span class='op'>=</span> <span class='st'>"1"</span>, b <span class='op'>=</span> <span class='st'>"2"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; &lt;request&gt;
 #&gt; Headers:
 #&gt; * a: 1
 #&gt; * b: 2</div><div class='input'>
-<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 289 B
@@ -212,15 +215,16 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749de-4ce53798054abbd8077e3028"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cc-183ebfa02a5ecf2e25d9ac6e"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='co'># Add arbitrary headers</span>
-<span class='fu'><a href='GET.html'>GET</a></span>(
+<span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span>
   <span class='st'>"http://httpbin.org/headers"</span>,
-  <span class='fu'>add_headers</span>(<span class='kw'>version</span> <span class='kw'>=</span> <span class='no'>version</span>$<span class='no'>version.string</span>)
-)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2020-07-21 20:02
+  <span class='fu'>add_headers</span><span class='op'>(</span>version <span class='op'>=</span> <span class='va'>version</span><span class='op'>$</span><span class='va'>version.string</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 337 B
@@ -230,13 +234,14 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "Version": "R version 4.0.2 (2020-06-22)", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749de-499799a08351b360805ada50"
+#&gt;     "Version": "R version 4.0.3 (2020-10-10)", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cc-64dbdd1513f914ae177fc793"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='co'># Override default headers with empty strings</span>
-<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>add_headers</span>(<span class='kw'>Accept</span> <span class='kw'>=</span> <span class='st'>""</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>add_headers</span><span class='op'>(</span>Accept <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 222 B
@@ -245,7 +250,7 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749de-6fd5986061be4818d1117810"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cc-7ff01e38202620d60fe46984"
 #&gt;   }
 #&gt; }</div></pre>
   </div>
@@ -263,7 +268,7 @@ convenience functions for setting accept and content-type headers.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

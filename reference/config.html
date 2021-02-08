@@ -96,7 +96,7 @@ for a given option, use curl_docs()." />
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -142,7 +142,7 @@ for a given option, use curl_docs()." />
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -174,7 +174,7 @@ see a complete list of available options. To see the libcurl documentation
 for a given option, use <code><a href='httr_options.html'>curl_docs()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>config</span>(<span class='no'>...</span>, <span class='kw'>token</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>config</span><span class='op'>(</span><span class='va'>...</span>, token <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -213,41 +213,47 @@ per handle.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># There are a number of ways to modify the configuration of a request</span>
 <span class='co'># * you can add directly to a request</span>
-<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [https://www.google.com]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'><a href='HEAD.html'>HEAD</a></span><span class='op'>(</span><span class='st'>"https://www.google.com"</span>, <span class='fu'><a href='verbose.html'>verbose</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [https://www.google.com]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
 <span class='co'># * you can wrap with with_config()</span>
-<span class='fu'><a href='with_config.html'>with_config</a></span>(<span class='fu'><a href='verbose.html'>verbose</a></span>(), <span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>))</div><div class='output co'>#&gt; Response [https://www.google.com]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'><a href='with_config.html'>with_config</a></span><span class='op'>(</span><span class='fu'><a href='verbose.html'>verbose</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='HEAD.html'>HEAD</a></span><span class='op'>(</span><span class='st'>"https://www.google.com"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [https://www.google.com]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
 <span class='co'># * you can set global with set_config()</span>
-<span class='no'>old</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='set_config.html'>set_config</a></span>(<span class='fu'><a href='verbose.html'>verbose</a></span>())
-<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com]
-#&gt;   Date: 2020-07-21 20:02
+<span class='va'>old</span> <span class='op'>&lt;-</span> <span class='fu'><a href='set_config.html'>set_config</a></span><span class='op'>(</span><span class='fu'><a href='verbose.html'>verbose</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='HEAD.html'>HEAD</a></span><span class='op'>(</span><span class='st'>"https://www.google.com"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [https://www.google.com]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># and re-establish the previous settings with</span>
-<span class='fu'><a href='set_config.html'>set_config</a></span>(<span class='no'>old</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'><a href='set_config.html'>set_config</a></span><span class='op'>(</span><span class='va'>old</span>, override <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='HEAD.html'>HEAD</a></span><span class='op'>(</span><span class='st'>"https://www.google.com"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [https://www.google.com]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># or</span>
-<span class='fu'><a href='set_config.html'>reset_config</a></span>()
-<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com"</span>)</div><div class='output co'>#&gt; Response [https://www.google.com]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'><a href='set_config.html'>reset_config</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='HEAD.html'>HEAD</a></span><span class='op'>(</span><span class='st'>"https://www.google.com"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [https://www.google.com]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'>
 <span class='co'># If available, you should use a friendly httr wrapper over RCurl</span>
 <span class='co'># options. But you can pass Curl options (as listed in httr_options())</span>
 <span class='co'># in config</span>
-<span class='fu'><a href='HEAD.html'>HEAD</a></span>(<span class='st'>"https://www.google.com/"</span>, <span class='fu'>config</span>(<span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Response [https://www.google.com/]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'><a href='HEAD.html'>HEAD</a></span><span class='op'>(</span><span class='st'>"https://www.google.com/"</span>, <span class='fu'>config</span><span class='op'>(</span>verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [https://www.google.com/]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div></pre>
@@ -266,7 +272,7 @@ per handle.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

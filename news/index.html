@@ -89,7 +89,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -135,7 +135,7 @@
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -282,7 +282,7 @@
 <li><p><code>BROWSER()</code> prints a message telling you to browse to the URL if called in a non-interactive session.</p></li>
 <li><p><code>find_cert_bundle()</code> will now correctly find cert bundle in “R_HOME/etc” (<a href='https://github.com/jiwalker-usgs'>@jiwalker-usgs</a>, <a href='https://github.com/r-lib/httr/issues/386'>#386</a>).</p></li>
 <li><p>You can now send lists containing <code><a href="https://jeroen.cran.dev/curl/reference/multipart.html">curl::form_data()</a></code> in the <code>body</code> of requests with `encoding = “multipart”. This makes it possible to specify the mime-type of individual components (<a href='https://github.com/r-lib/httr/issues/430'>#430</a>).</p></li>
-<li><p><code><a href="../reference/modify_url.html">modify_url()</a></code> recognises more forms of empty queries. This eliminates a source of spurious trailing <code>?</code> and <code>?=</code> (<a href='https://github.com/jennybc'>@jennybc</a>, <a href='https://github.com/r-lib/httr/issues/452'>#452</a>).</p></li>
+<li><p><code><a href="../reference/modify_url.html">modify_url()</a></code> recognises more forms of empty queries. This eliminates a source of spurious trailing <code><a href="https://rdrr.io/r/utils/Question.html">?</a></code> and <code>?=</code> (<a href='https://github.com/jennybc'>@jennybc</a>, <a href='https://github.com/r-lib/httr/issues/452'>#452</a>).</p></li>
 <li><p>The <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> method of the internal <code>path</code> class is no longer exported (<a href='https://github.com/r-lib/httr/issues/395'>#395</a>).</p></li>
 </ul>
 </div>
@@ -411,7 +411,7 @@
 <a href="#httr-061" class="anchor"></a>httr 0.6.1<small> 2015-01-01 </small>
 </h1>
 <ul>
-<li><p>Correctly parse headers with multiple <code>:</code>, thanks to <a href='https://github.com/mmorgan'>@mmorgan</a> (<a href='https://github.com/r-lib/httr/issues/180'>#180</a>).</p></li>
+<li><p>Correctly parse headers with multiple <code><a href="https://rdrr.io/r/base/Colon.html">:</a></code>, thanks to <a href='https://github.com/mmorgan'>@mmorgan</a> (<a href='https://github.com/r-lib/httr/issues/180'>#180</a>).</p></li>
 <li><p>In <code><a href="../reference/content.html">content()</a></code>, if no type is provided to function or specified in headers, and we can’t guess the type from the extension, we now assume that it’s <code>application/octet-stream</code> (<a href='https://github.com/r-lib/httr/issues/181'>#181</a>).</p></li>
 <li><p>Throw error if <code><a href="../reference/timeout.html">timeout()</a></code> is less than 1 ms (<a href='https://github.com/r-lib/httr/issues/175'>#175</a>).</p></li>
 <li><p>Improved LinkedIn OAuth demo (<a href='https://github.com/r-lib/httr/issues/173'>#173</a>).</p></li>
@@ -636,7 +636,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

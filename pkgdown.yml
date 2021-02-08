@@ -1,11 +1,11 @@
 pandoc: 2.7.3
-pkgdown: 1.5.1
+pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   api-packages: api-packages.html
   quickstart: quickstart.html
   secrets: secrets.html
-last_built: 2020-07-21T20:02Z
+last_built: 2021-02-08T15:24Z
 urls:
   reference: https://httr.r-lib.org/reference
   article: https://httr.r-lib.org/articles

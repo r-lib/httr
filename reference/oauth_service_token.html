@@ -93,7 +93,7 @@ that information is embedded in the account itself." />
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -139,7 +139,7 @@ that information is embedded in the account itself." />
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -168,7 +168,7 @@ to sign requests. The OAuth app is not needed for service accounts:
 that information is embedded in the account itself.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>oauth_service_token</span>(<span class='no'>endpoint</span>, <span class='no'>secrets</span>, <span class='kw'>scope</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>sub</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>oauth_service_token</span><span class='op'>(</span><span class='va'>endpoint</span>, <span class='va'>secrets</span>, scope <span class='op'>=</span> <span class='cn'>NULL</span>, sub <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -201,13 +201,14 @@ requesting delegated access.</p></td>
 <code><a href='oauth_endpoint.html'>oauth_endpoint</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>endpoint</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='oauth_endpoints.html'>oauth_endpoints</a></span>(<span class='st'>"google"</span>)
-<span class='no'>secrets</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>jsonlite</span><span class='kw ns'>::</span><span class='fu'><a href='https://jeroen.cran.dev/jsonlite/reference/fromJSON.html'>fromJSON</a></span>(<span class='st'>"~/Desktop/httrtest-45693cbfac92.json"</span>)
-<span class='no'>scope</span> <span class='kw'>&lt;-</span> <span class='st'>"https://www.googleapis.com/auth/bigquery.readonly"</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>endpoint</span> <span class='op'>&lt;-</span> <span class='fu'><a href='oauth_endpoints.html'>oauth_endpoints</a></span><span class='op'>(</span><span class='st'>"google"</span><span class='op'>)</span>
+<span class='va'>secrets</span> <span class='op'>&lt;-</span> <span class='fu'>jsonlite</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></span><span class='op'>(</span><span class='st'>"~/Desktop/httrtest-45693cbfac92.json"</span><span class='op'>)</span>
+<span class='va'>scope</span> <span class='op'>&lt;-</span> <span class='st'>"https://www.googleapis.com/auth/bigquery.readonly"</span>
 
-<span class='no'>token</span> <span class='kw'>&lt;-</span> <span class='fu'>oauth_service_token</span>(<span class='no'>endpoint</span>, <span class='no'>secrets</span>, <span class='no'>scope</span>)
-}</div></pre>
+<span class='va'>token</span> <span class='op'>&lt;-</span> <span class='fu'>oauth_service_token</span><span class='op'>(</span><span class='va'>endpoint</span>, <span class='va'>secrets</span>, <span class='va'>scope</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -223,7 +224,7 @@ requesting delegated access.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,7 +136,7 @@
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -162,7 +162,7 @@
     <p>Extract the http status code and convert it into a human readable message.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>http_status</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>http_status</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -199,7 +199,8 @@ an apparently valid request. More details on the codes can be found at
 <code><a href='stop_for_status.html'>stop_for_status</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>http_status</span>(<span class='fl'>100</span>)</div><div class='output co'>#&gt; $category
+    <pre class="examples"><div class='input'><span class='fu'>http_status</span><span class='op'>(</span><span class='fl'>100</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $category
 #&gt; [1] "Information"
 #&gt; 
 #&gt; $reason
@@ -207,7 +208,8 @@ an apparently valid request. More details on the codes can be found at
 #&gt; 
 #&gt; $message
 #&gt; [1] "Information: (100) Continue"
-#&gt; </div><div class='input'><span class='fu'>http_status</span>(<span class='fl'>404</span>)</div><div class='output co'>#&gt; $category
+#&gt; </div><div class='input'><span class='fu'>http_status</span><span class='op'>(</span><span class='fl'>404</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $category
 #&gt; [1] "Client error"
 #&gt; 
 #&gt; $reason
@@ -216,8 +218,9 @@ an apparently valid request. More details on the codes can be found at
 #&gt; $message
 #&gt; [1] "Client error: (404) Not Found"
 #&gt; </div><div class='input'>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/status/200"</span>)
-<span class='fu'>http_status</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; $category
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/status/200"</span><span class='op'>)</span>
+<span class='fu'>http_status</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $category
 #&gt; [1] "Success"
 #&gt; 
 #&gt; $reason
@@ -226,7 +229,8 @@ an apparently valid request. More details on the codes can be found at
 #&gt; $message
 #&gt; [1] "Success: (200) OK"
 #&gt; </div><div class='input'>
-<span class='fu'>http_status</span>(<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/status/300"</span>))</div><div class='output co'>#&gt; $category
+<span class='fu'>http_status</span><span class='op'>(</span><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/status/300"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $category
 #&gt; [1] "Redirection"
 #&gt; 
 #&gt; $reason
@@ -234,7 +238,8 @@ an apparently valid request. More details on the codes can be found at
 #&gt; 
 #&gt; $message
 #&gt; [1] "Redirection: (300) Multiple Choices"
-#&gt; </div><div class='input'><span class='fu'>http_status</span>(<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/status/301"</span>))</div><div class='output co'>#&gt; $category
+#&gt; </div><div class='input'><span class='fu'>http_status</span><span class='op'>(</span><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/status/301"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $category
 #&gt; [1] "Client error"
 #&gt; 
 #&gt; $reason
@@ -242,7 +247,8 @@ an apparently valid request. More details on the codes can be found at
 #&gt; 
 #&gt; $message
 #&gt; [1] "Client error: (404) Not Found"
-#&gt; </div><div class='input'><span class='fu'>http_status</span>(<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/status/404"</span>))</div><div class='output co'>#&gt; $category
+#&gt; </div><div class='input'><span class='fu'>http_status</span><span class='op'>(</span><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/status/404"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $category
 #&gt; [1] "Client error"
 #&gt; 
 #&gt; $reason
@@ -252,9 +258,10 @@ an apparently valid request. More details on the codes can be found at
 #&gt; [1] "Client error: (404) Not Found"
 #&gt; </div><div class='input'>
 <span class='co'># errors out on unknown status</span>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>http_status</span>(<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/status/320"</span>))
-}</div></pre>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>http_status</span><span class='op'>(</span><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/status/320"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -270,7 +277,7 @@ an apparently valid request. More details on the codes can be found at
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

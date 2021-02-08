@@ -94,7 +94,7 @@ their own app or key and secret." />
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -140,7 +140,7 @@ their own app or key and secret." />
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -170,7 +170,7 @@ casual use and then provide a method for heavy or advanced users to supply
 their own app or key and secret.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>oauth_app</span>(<span class='no'>appname</span>, <span class='no'>key</span>, <span class='kw'>secret</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>redirect_uri</span> <span class='kw'>=</span> <span class='fu'><a href='oauth_callback.html'>oauth_callback</a></span>())</pre>
+    <pre class="usage"><span class='fu'>oauth_app</span><span class='op'>(</span><span class='va'>appname</span>, <span class='va'>key</span>, secret <span class='op'>=</span> <span class='cn'>NULL</span>, redirect_uri <span class='op'>=</span> <span class='fu'><a href='oauth_callback.html'>oauth_callback</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -210,13 +210,14 @@ unless you're using a non-standard auth flow (like with shiny).</p></td>
 <code><a href='oauth_service_token.html'>oauth_service_token</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>google_app</span> <span class='kw'>&lt;-</span> <span class='fu'>oauth_app</span>(
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>google_app</span> <span class='op'>&lt;-</span> <span class='fu'>oauth_app</span><span class='op'>(</span>
   <span class='st'>"google"</span>,
-  <span class='kw'>key</span> <span class='kw'>=</span> <span class='st'>"123456789.apps.googleusercontent.com"</span>,
-  <span class='kw'>secret</span> <span class='kw'>=</span> <span class='st'>"abcdefghijklmnopqrstuvwxyz"</span>
-)
-}</div></pre>
+  key <span class='op'>=</span> <span class='st'>"123456789.apps.googleusercontent.com"</span>,
+  secret <span class='op'>=</span> <span class='st'>"abcdefghijklmnopqrstuvwxyz"</span>
+<span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -232,7 +233,7 @@ unless you're using a non-standard auth flow (like with shiny).</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

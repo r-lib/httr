@@ -91,7 +91,7 @@ baked into httr." />
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -137,7 +137,7 @@ baked into httr." />
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -164,7 +164,7 @@ baked into httr." />
 baked into httr.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>oauth_endpoint</span>(<span class='kw'>request</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>authorize</span>, <span class='no'>access</span>, <span class='no'>...</span>, <span class='kw'>base_url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>oauth_endpoint</span><span class='op'>(</span>request <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>authorize</span>, <span class='va'>access</span>, <span class='va'>...</span>, base_url <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -203,18 +203,19 @@ if not needed</p></td>
 <code><a href='oauth_service_token.html'>oauth_service_token</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>linkedin</span> <span class='kw'>&lt;-</span> <span class='fu'>oauth_endpoint</span>(<span class='st'>"requestToken"</span>, <span class='st'>"authorize"</span>, <span class='st'>"accessToken"</span>,
-  <span class='kw'>base_url</span> <span class='kw'>=</span> <span class='st'>"https://api.linkedin.com/uas/oauth"</span>
-)
-<span class='no'>github</span> <span class='kw'>&lt;-</span> <span class='fu'>oauth_endpoint</span>(<span class='kw'>NULL</span>, <span class='st'>"authorize"</span>, <span class='st'>"access_token"</span>,
-  <span class='kw'>base_url</span> <span class='kw'>=</span> <span class='st'>"https://github.com/login/oauth"</span>
-)
-<span class='no'>facebook</span> <span class='kw'>&lt;-</span> <span class='fu'>oauth_endpoint</span>(
-  <span class='kw'>authorize</span> <span class='kw'>=</span> <span class='st'>"https://www.facebook.com/dialog/oauth"</span>,
-  <span class='kw'>access</span> <span class='kw'>=</span> <span class='st'>"https://graph.facebook.com/oauth/access_token"</span>
-)
+    <pre class="examples"><div class='input'><span class='va'>linkedin</span> <span class='op'>&lt;-</span> <span class='fu'>oauth_endpoint</span><span class='op'>(</span><span class='st'>"requestToken"</span>, <span class='st'>"authorize"</span>, <span class='st'>"accessToken"</span>,
+  base_url <span class='op'>=</span> <span class='st'>"https://api.linkedin.com/uas/oauth"</span>
+<span class='op'>)</span>
+<span class='va'>github</span> <span class='op'>&lt;-</span> <span class='fu'>oauth_endpoint</span><span class='op'>(</span><span class='cn'>NULL</span>, <span class='st'>"authorize"</span>, <span class='st'>"access_token"</span>,
+  base_url <span class='op'>=</span> <span class='st'>"https://github.com/login/oauth"</span>
+<span class='op'>)</span>
+<span class='va'>facebook</span> <span class='op'>&lt;-</span> <span class='fu'>oauth_endpoint</span><span class='op'>(</span>
+  authorize <span class='op'>=</span> <span class='st'>"https://www.facebook.com/dialog/oauth"</span>,
+  access <span class='op'>=</span> <span class='st'>"https://graph.facebook.com/oauth/access_token"</span>
+<span class='op'>)</span>
 
-<span class='no'>oauth_endpoints</span></div><div class='output co'>#&gt; function (name) 
+<span class='va'>oauth_endpoints</span>
+</div><div class='output co'>#&gt; function (name) 
 #&gt; {
 #&gt;     switch(name, linkedin = oauth_endpoint(base_url = "https://www.linkedin.com/uas/oauth2", 
 #&gt;         authorize = "authorization", access = "accessToken"), 
@@ -237,7 +238,7 @@ if not needed</p></td>
 #&gt;             authorize = "authorize", access = "access"), stop("Unknown endpoint", 
 #&gt;             call. = FALSE))
 #&gt; }
-#&gt; &lt;bytecode: 0x7f8146d27388&gt;
+#&gt; &lt;bytecode: 0x7fd7f9741500&gt;
 #&gt; &lt;environment: namespace:httr&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -254,7 +255,7 @@ if not needed</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

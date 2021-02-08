@@ -91,7 +91,7 @@ information between the client and server." />
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -137,7 +137,7 @@ information between the client and server." />
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -164,7 +164,7 @@ information between the client and server." />
 information between the client and server.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>verbose</span>(<span class='kw'>data_out</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>data_in</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>ssl</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>verbose</span><span class='op'>(</span>data_out <span class='op'>=</span> <span class='cn'>TRUE</span>, data_in <span class='op'>=</span> <span class='cn'>FALSE</span>, info <span class='op'>=</span> <span class='cn'>FALSE</span>, ssl <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -195,7 +195,7 @@ for debugging https and auth problems, so is disabled by default.</p></td>
 
 <p><code>verbose()</code> uses the following prefixes to distinguish between
 different components of the http messages:</p><ul>
-<li><p><code>*</code> informative curl messages</p></li>
+<li><p><code><a href='https://rdrr.io/r/base/Arithmetic.html'>*</a></code> informative curl messages</p></li>
 <li><p><code>-&gt;</code> headers sent (out)</p></li>
 <li><p><code>&gt;&gt;</code> data sent (out)</p></li>
 <li><p><code>*&gt;</code> ssl data sent (out)</p></li>
@@ -218,8 +218,9 @@ even when the requests are buried inside another function call.</p>
 <code><a href='user_agent.html'>user_agent</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org]
-#&gt;   Date: 2020-07-21 20:03
+    <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 9.59 kB
@@ -233,8 +234,9 @@ even when the requests are buried inside another function call.</p>
 #&gt;         rel="stylesheet"&gt;
 #&gt;     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagger-ui....
 #&gt;     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes="64x64...
-#&gt; ...</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span>(<span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org]
-#&gt;   Date: 2020-07-21 20:03
+#&gt; ...</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org"</span>, <span class='fu'>verbose</span><span class='op'>(</span>info <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 9.59 kB
@@ -249,11 +251,12 @@ even when the requests are buried inside another function call.</p>
 #&gt;     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagger-ui....
 #&gt;     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes="64x64...
 #&gt; ...</div><div class='input'>
-<span class='no'>f</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>() {
-  <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org"</span>)
-}
-<span class='fu'><a href='with_config.html'>with_verbose</a></span>(<span class='fu'>f</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org]
-#&gt;   Date: 2020-07-21 20:03
+<span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org"</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='fu'><a href='with_config.html'>with_verbose</a></span><span class='op'>(</span><span class='fu'>f</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 9.59 kB
@@ -267,8 +270,9 @@ even when the requests are buried inside another function call.</p>
 #&gt;         rel="stylesheet"&gt;
 #&gt;     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagger-ui....
 #&gt;     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes="64x64...
-#&gt; ...</div><div class='input'><span class='fu'><a href='with_config.html'>with_verbose</a></span>(<span class='fu'>f</span>(), <span class='kw'>info</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org]
-#&gt;   Date: 2020-07-21 20:03
+#&gt; ...</div><div class='input'><span class='fu'><a href='with_config.html'>with_verbose</a></span><span class='op'>(</span><span class='fu'>f</span><span class='op'>(</span><span class='op'>)</span>, info <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt;   Size: 9.59 kB
@@ -284,14 +288,17 @@ even when the requests are buried inside another function call.</p>
 #&gt;     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes="64x64...
 #&gt; ...</div><div class='input'>
 <span class='co'># verbose() makes it easy to see exactly what POST requests send</span>
-<span class='no'>POST_verbose</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>body</span>, <span class='no'>...</span>) {
-  <span class='fu'><a href='POST.html'>POST</a></span>(<span class='st'>"https://httpbin.org/post"</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='no'>body</span>, <span class='fu'>verbose</span>(), <span class='no'>...</span>)
-  <span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span>()
-}
-<span class='fu'>POST_verbose</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"a"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"b"</span>))</div><div class='output co'>#&gt; </div><div class='input'><span class='fu'>POST_verbose</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"a"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"b"</span>), <span class='kw'>encode</span> <span class='kw'>=</span> <span class='st'>"form"</span>)</div><div class='output co'>#&gt; </div><div class='input'><span class='fu'>POST_verbose</span>(<span class='fl'>FALSE</span>)
-<span class='fu'>POST_verbose</span>(<span class='kw'>NULL</span>)
-<span class='fu'>POST_verbose</span>(<span class='st'>""</span>)
-<span class='fu'>POST_verbose</span>(<span class='st'>"xyz"</span>)</div><div class='output co'>#&gt; </div></pre>
+<span class='va'>POST_verbose</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>body</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='POST.html'>POST</a></span><span class='op'>(</span><span class='st'>"https://httpbin.org/post"</span>, body <span class='op'>=</span> <span class='va'>body</span>, <span class='fu'>verbose</span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='fu'>POST_verbose</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"a"</span>, y <span class='op'>=</span> <span class='st'>"b"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </div><div class='input'><span class='fu'>POST_verbose</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"a"</span>, y <span class='op'>=</span> <span class='st'>"b"</span><span class='op'>)</span>, encode <span class='op'>=</span> <span class='st'>"form"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </div><div class='input'><span class='fu'>POST_verbose</span><span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'>POST_verbose</span><span class='op'>(</span><span class='cn'>NULL</span><span class='op'>)</span>
+<span class='fu'>POST_verbose</span><span class='op'>(</span><span class='st'>""</span><span class='op'>)</span>
+<span class='fu'>POST_verbose</span><span class='op'>(</span><span class='st'>"xyz"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -307,7 +314,7 @@ even when the requests are buried inside another function call.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

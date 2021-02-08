@@ -92,7 +92,7 @@ it will mostly be hidden from the user." />
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -138,7 +138,7 @@ it will mostly be hidden from the user." />
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -166,7 +166,7 @@ the foundation of all requests performed through the httr package, although
 it will mostly be hidden from the user.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>handle</span>(<span class='no'>url</span>, <span class='kw'>cookies</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>handle</span><span class='op'>(</span><span class='va'>url</span>, cookies <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -191,48 +191,58 @@ selection of the correct handle is taken care of when the user passes an url
 (See <code><a href='handle_pool.html'>handle_pool()</a></code>).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>)</div><div class='output co'>#&gt; Host: http://google.com &lt;NA&gt;</div><div class='input'><span class='fu'>handle</span>(<span class='st'>"https://google.com"</span>)</div><div class='output co'>#&gt; Host: https://google.com &lt;NA&gt;</div><div class='input'>
-<span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>)
-<span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>)</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2020-07-21 20:02
+    <pre class="examples"><div class='input'><span class='fu'>handle</span><span class='op'>(</span><span class='st'>"http://google.com"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Host: http://google.com &lt;NA&gt;</div><div class='input'><span class='fu'>handle</span><span class='op'>(</span><span class='st'>"https://google.com"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Host: https://google.com &lt;NA&gt;</div><div class='input'>
+<span class='va'>h</span> <span class='op'>&lt;-</span> <span class='fu'>handle</span><span class='op'>(</span><span class='st'>"http://google.com"</span><span class='op'>)</span>
+<span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span>handle <span class='op'>=</span> <span class='va'>h</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://www.google.com/]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 12 kB
+#&gt;   Size: 13.6 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
+#&gt; google.lc=[];google.li=0;google.getEI=function(a){for(var b;a&amp;&amp;(!a.getAttribu...
 #&gt; document.documentElement.addEventListener("submit",function(b){var a;if(a=b.t...
 #&gt; var a=window.location,b=a.href.indexOf("#");if(0&lt;=b){var c=a.href.substring(b...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a cl...
-#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxdX8...
-#&gt; setTimeout(function(){var b=document;var a="SCRIPT";"application/xhtml+xml"==...
-#&gt; function _F_installCss(c){}</div><div class='input'><span class='co'># Should see cookies sent back to server</span>
-<span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2020-07-21 20:02
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAYCFl3...
+#&gt; var d=this||self,e=/^[\w+/_-]+[=]{0,2}$/,f=null,g=function(a){return(a=a.quer...
+#&gt; ...</div><div class='input'><span class='co'># Should see cookies sent back to server</span>
+<span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span>handle <span class='op'>=</span> <span class='va'>h</span>, config <span class='op'>=</span> <span class='fu'><a href='verbose.html'>verbose</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://www.google.com/]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 12 kB
+#&gt;   Size: 13.6 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
+#&gt; google.lc=[];google.li=0;google.getEI=function(a){for(var b;a&amp;&amp;(!a.getAttribu...
 #&gt; document.documentElement.addEventListener("submit",function(b){var a;if(a=b.t...
 #&gt; var a=window.location,b=a.href.indexOf("#");if(0&lt;=b){var c=a.href.substring(b...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a cl...
-#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxdX8...
-#&gt; setTimeout(function(){var b=document;var a="SCRIPT";"application/xhtml+xml"==...
-#&gt; function _F_installCss(c){}</div><div class='input'>
-<span class='no'>h</span> <span class='kw'>&lt;-</span> <span class='fu'>handle</span>(<span class='st'>"http://google.com"</span>, <span class='kw'>cookies</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Cookies argument is deprecated</span></div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>)$<span class='no'>cookies</span></div><div class='output co'>#&gt;                  domain flag path secure          expiration name
-#&gt; 1 #HttpOnly_.google.com TRUE    /  FALSE 2021-01-20 20:02:43  NID
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAYCFl4...
+#&gt; var d=this||self,e=/^[\w+/_-]+[=]{0,2}$/,f=null,g=function(a){return(a=a.quer...
+#&gt; ...</div><div class='input'>
+<span class='va'>h</span> <span class='op'>&lt;-</span> <span class='fu'>handle</span><span class='op'>(</span><span class='st'>"http://google.com"</span>, cookies <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Cookies argument is deprecated</span></div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span>handle <span class='op'>=</span> <span class='va'>h</span><span class='op'>)</span><span class='op'>$</span><span class='va'>cookies</span>
+</div><div class='output co'>#&gt;                  domain flag path secure          expiration name
+#&gt; 1 #HttpOnly_.google.com TRUE    /  FALSE 2021-08-10 15:25:04  NID
 #&gt;                                                                                                                                                                             value
-#&gt; 1 204=jVI0_xps5w8pGClC4w-vD0W6_NHMTfY1ctmy3fgVirvH0rqEaOjxlP_vrx2_VdeOeMloZgxRi3AnSFQlbMKV2FdPnjyVxtEIq7s2DJRP3c9ASbzOsUYBZFGlhVouO1Yk-jQdYwaMU4Kz1IBVE7fYn8r6wlOi5E8RQarVY8J6zyE</div><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+#&gt; 1 208=LWqgSN6dwMpYBnJMQemKLL2JsgXmDgMTjzs3POqyfOeK04u7MO9a71KppYKNICvO7HmFKAQ6t8YE0JZsKmYBns4LqCf31ZtbkaRMjBAm-_xop6vecMt6_-hLNkjGKAty-Iw9-6jvQZt-nanoxcxKSoSSlj3BMgEepau_uwWwvws</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># Using the preferred way of configuring the http methods</span>
 <span class='co'># will not work when using handle():</span>
-<span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>, <span class='fu'><a href='timeout.html'>timeout</a></span>(<span class='fl'>10</span>))
+<span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span>handle <span class='op'>=</span> <span class='va'>h</span>, <span class='fu'><a href='timeout.html'>timeout</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
 <span class='co'># Passing named arguments will work properly:</span>
-<span class='fu'><a href='GET.html'>GET</a></span>(<span class='kw'>handle</span> <span class='kw'>=</span> <span class='no'>h</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='timeout.html'>timeout</a></span>(<span class='fl'>10</span>), <span class='fu'><a href='add_headers.html'>add_headers</a></span>(<span class='kw'>Accept</span> <span class='kw'>=</span> <span class='st'>""</span>)))
-}</div></pre>
+<span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span>handle <span class='op'>=</span> <span class='va'>h</span>, config <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='timeout.html'>timeout</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='add_headers.html'>add_headers</a></span><span class='op'>(</span>Accept <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -248,7 +258,7 @@ selection of the correct handle is taken care of when the user passes an url
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

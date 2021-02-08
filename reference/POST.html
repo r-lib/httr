@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,7 +136,7 @@
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -162,14 +162,14 @@
     <p>POST file to a server.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>POST</span>(
-  <span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(),
-  <span class='no'>...</span>,
-  <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>encode</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"multipart"</span>, <span class='st'>"form"</span>, <span class='st'>"json"</span>, <span class='st'>"raw"</span>),
-  <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>POST</span><span class='op'>(</span>
+  url <span class='op'>=</span> <span class='cn'>NULL</span>,
+  config <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>,
+  body <span class='op'>=</span> <span class='cn'>NULL</span>,
+  encode <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"multipart"</span>, <span class='st'>"form"</span>, <span class='st'>"json"</span>, <span class='st'>"raw"</span><span class='op'>)</span>,
+  handle <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -248,9 +248,10 @@ details.</p></td>
 <code><a href='VERB.html'>VERB</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>b2</span> <span class='kw'>&lt;-</span> <span class='st'>"http://httpbin.org/post"</span>
-<span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2020-07-21 20:02
+    <pre class="examples"><div class='input'><span class='va'>b2</span> <span class='op'>&lt;-</span> <span class='st'>"http://httpbin.org/post"</span>
+<span class='fu'>POST</span><span class='op'>(</span><span class='va'>b2</span>, body <span class='op'>=</span> <span class='st'>"A simple text string"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
+#&gt;   Date: 2021-02-08 15:24
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 482 B
@@ -264,8 +265,9 @@ details.</p></td>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Content-Length": "20", 
 #&gt;     "Host": "httpbin.org", 
-#&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2020-07-21 20:02
+#&gt; ...</div><div class='input'><span class='fu'>POST</span><span class='op'>(</span><span class='va'>b2</span>, body <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"A simple text string"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
+#&gt;   Date: 2021-02-08 15:24
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 593 B
@@ -279,8 +281,9 @@ details.</p></td>
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
-#&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='upload_file.html'>upload_file</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"CITATION"</span>))))</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2020-07-21 20:02
+#&gt; ...</div><div class='input'><span class='fu'>POST</span><span class='op'>(</span><span class='va'>b2</span>, body <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>y <span class='op'>=</span> <span class='fu'><a href='upload_file.html'>upload_file</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"CITATION"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
+#&gt;   Date: 2021-02-08 15:24
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 1.6 kB
@@ -294,8 +297,9 @@ details.</p></td>
 #&gt;   "headers": {
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
-#&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"A simple text string"</span>), <span class='kw'>encode</span> <span class='kw'>=</span> <span class='st'>"json"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2020-07-21 20:02
+#&gt; ...</div><div class='input'><span class='fu'>POST</span><span class='op'>(</span><span class='va'>b2</span>, body <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"A simple text string"</span><span class='op'>)</span>, encode <span class='op'>=</span> <span class='st'>"json"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
+#&gt;   Date: 2021-02-08 15:24
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 568 B
@@ -313,8 +317,9 @@ details.</p></td>
 <span class='co'># body can also be provided as a json string directly to deal</span>
 <span class='co'># with specific case, like an empty element in the json string.</span>
 <span class='co'># passing as string directly</span>
-<span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>'{"a":1,"b":{}}'</span>, <span class='kw'>encode</span> <span class='kw'>=</span> <span class='st'>"raw"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'>POST</span><span class='op'>(</span><span class='va'>b2</span>, body <span class='op'>=</span> <span class='st'>'{"a":1,"b":{}}'</span>, encode <span class='op'>=</span> <span class='st'>"raw"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
+#&gt;   Date: 2021-02-08 15:24
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 506 B
@@ -329,9 +334,10 @@ details.</p></td>
 #&gt;     "Content-Length": "14", 
 #&gt;     "Host": "httpbin.org", 
 #&gt; ...</div><div class='input'><span class='co'># or building the json string before</span>
-<span class='no'>json_body</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>jsonlite</span><span class='kw ns'>::</span><span class='fu'><a href='https://jeroen.cran.dev/jsonlite/reference/fromJSON.html'>toJSON</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='kw'>NULL</span>), <span class='kw'>auto_unbox</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='no'>json_body</span>, <span class='kw'>encode</span> <span class='kw'>=</span> <span class='st'>"raw"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2020-07-21 20:02
+<span class='va'>json_body</span> <span class='op'>&lt;-</span> <span class='fu'>jsonlite</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>toJSON</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>a <span class='op'>=</span> <span class='fl'>1</span>, b <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>, auto_unbox <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'>POST</span><span class='op'>(</span><span class='va'>b2</span>, body <span class='op'>=</span> <span class='va'>json_body</span>, encode <span class='op'>=</span> <span class='st'>"raw"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
+#&gt;   Date: 2021-02-08 15:24
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 506 B
@@ -347,8 +353,9 @@ details.</p></td>
 #&gt;     "Host": "httpbin.org", 
 #&gt; ...</div><div class='input'>
 <span class='co'># Various types of empty body:</span>
-<span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'>POST</span><span class='op'>(</span><span class='va'>b2</span>, body <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='fu'><a href='verbose.html'>verbose</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
+#&gt;   Date: 2021-02-08 15:24
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 461 B
@@ -362,12 +369,14 @@ details.</p></td>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Content-Length": "0", 
 #&gt;     "Host": "httpbin.org", 
-#&gt; ...</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2020-07-21 20:02
+#&gt; ...</div><div class='input'><span class='fu'>POST</span><span class='op'>(</span><span class='va'>b2</span>, body <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='fu'><a href='verbose.html'>verbose</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
+#&gt;   Date: 2021-02-08 15:24
 #&gt;   Status: 405
 #&gt;   Content-Type: text/html
-#&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'>POST</span>(<span class='no'>b2</span>, <span class='kw'>body</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='fu'><a href='verbose.html'>verbose</a></span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
-#&gt;   Date: 2020-07-21 20:02
+#&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'>POST</span><span class='op'>(</span><span class='va'>b2</span>, body <span class='op'>=</span> <span class='st'>""</span>, <span class='fu'><a href='verbose.html'>verbose</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/post]
+#&gt;   Date: 2021-02-08 15:24
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 461 B
@@ -397,7 +406,7 @@ details.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

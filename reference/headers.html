@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,7 +136,7 @@
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -162,7 +162,7 @@
     <p>Extract the headers from a response</p>
     </div>
 
-    <pre class="usage"><span class='fu'>headers</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>headers</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -179,9 +179,10 @@
 request</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/get"</span>)
-<span class='fu'>headers</span>(<span class='no'>r</span>)</div><div class='output co'>#&gt; $date
-#&gt; [1] "Tue, 21 Jul 2020 20:02:44 GMT"
+    <pre class="examples"><div class='input'><span class='va'>r</span> <span class='op'>&lt;-</span> <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/get"</span><span class='op'>)</span>
+<span class='fu'>headers</span><span class='op'>(</span><span class='va'>r</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $date
+#&gt; [1] "Mon, 08 Feb 2021 15:25:04 GMT"
 #&gt; 
 #&gt; $`content-type`
 #&gt; [1] "application/json"
@@ -218,7 +219,7 @@ request</p></div>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

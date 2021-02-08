@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,7 +136,7 @@
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -162,9 +162,9 @@
     <p>Execute code with configuration set.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>with_config</span>(<span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='config.html'>config</a></span>(), <span class='no'>expr</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>with_config</span><span class='op'>(</span>config <span class='op'>=</span> <span class='fu'><a href='config.html'>config</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>expr</span>, override <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>with_verbose</span>(<span class='no'>expr</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>with_verbose</span><span class='op'>(</span><span class='va'>expr</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -196,40 +196,44 @@ combine new config with old.</p></td>
 <code><a href='set_config.html'>set_config</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>with_config</span>(<span class='fu'><a href='verbose.html'>verbose</a></span>(), {
-  <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://had.co.nz"</span>)
-  <span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://google.com"</span>)
-})</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2020-07-21 20:03
+    <pre class="examples"><div class='input'><span class='fu'>with_config</span><span class='op'>(</span><span class='fu'><a href='verbose.html'>verbose</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='op'>{</span>
+  <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://had.co.nz"</span><span class='op'>)</span>
+  <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://google.com"</span><span class='op'>)</span>
+<span class='op'>}</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://www.google.com/]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 12.1 kB
+#&gt;   Size: 13.6 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
+#&gt; google.lc=[];google.li=0;google.getEI=function(a){for(var b;a&amp;&amp;(!a.getAttribu...
 #&gt; document.documentElement.addEventListener("submit",function(b){var a;if(a=b.t...
 #&gt; var a=window.location,b=a.href.indexOf("#");if(0&lt;=b){var c=a.href.substring(b...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a cl...
-#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxdYD...
-#&gt; setTimeout(function(){var b=document;var a="SCRIPT";"application/xhtml+xml"==...
-#&gt; function _F_installCss(c){}</div><div class='input'>
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAYCFl-...
+#&gt; var d=this||self,e=/^[\w+/_-]+[=]{0,2}$/,f=null,g=function(a){return(a=a.quer...
+#&gt; ...</div><div class='input'>
 <span class='co'># Or even easier:</span>
-<span class='fu'>with_verbose</span>(<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://google.com"</span>))</div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2020-07-21 20:03
+<span class='fu'>with_verbose</span><span class='op'>(</span><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://google.com"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://www.google.com/]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
-#&gt;   Size: 12.1 kB
+#&gt;   Size: 13.6 kB
 #&gt; &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="...
+#&gt; google.lc=[];google.li=0;google.getEI=function(a){for(var b;a&amp;&amp;(!a.getAttribu...
 #&gt; document.documentElement.addEventListener("submit",function(b){var a;if(a=b.t...
 #&gt; var a=window.location,b=a.href.indexOf("#");if(0&lt;=b){var c=a.href.substring(b...
 #&gt; &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a cl...
-#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAXxdYD...
-#&gt; setTimeout(function(){var b=document;var a="SCRIPT";"application/xhtml+xml"==...
-#&gt; function _F_installCss(c){}</div></pre>
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAYCFl-...
+#&gt; var d=this||self,e=/^[\w+/_-]+[=]{0,2}$/,f=null,g=function(a){return(a=a.quer...
+#&gt; ...</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -245,7 +249,7 @@ combine new config with old.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

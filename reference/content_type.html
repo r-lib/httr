@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="..//index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,7 +136,7 @@
 </li>
 <li>
   <a href="https://github.com/r-lib/httr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -162,17 +162,17 @@
     <p>These are convenient wrappers aroud <code><a href='add_headers.html'>add_headers()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>content_type</span>(<span class='no'>type</span>)
+    <pre class="usage"><span class='fu'>content_type</span><span class='op'>(</span><span class='va'>type</span><span class='op'>)</span>
 
-<span class='fu'>content_type_json</span>()
+<span class='fu'>content_type_json</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'>content_type_xml</span>()
+<span class='fu'>content_type_xml</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'>accept</span>(<span class='no'>type</span>)
+<span class='fu'>accept</span><span class='op'>(</span><span class='va'>type</span><span class='op'>)</span>
 
-<span class='fu'>accept_json</span>()
+<span class='fu'>accept_json</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'>accept_xml</span>()</pre>
+<span class='fu'>accept_xml</span><span class='op'>(</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -191,8 +191,9 @@ with <code>.</code>) will guess the mime type using <code><a href='https://rdrr.
 ask for json or xml responses or tell the server you are sending json/xml.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>)</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2020-07-21 20:02
+    <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 289 B
@@ -202,11 +203,12 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749e2-b781e9f00c7f4ed08a944da8"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-1108ed2723e971540e6a8ecd"
 #&gt;   }
 #&gt; }</div><div class='input'>
-<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept_json</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept_json</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 257 B
@@ -216,10 +218,11 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749e2-318010101d38b9c8e4d1a778"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-08778cd111892da363007749"
 #&gt;   }
-#&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span>(<span class='st'>"text/csv"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2020-07-21 20:02
+#&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span><span class='op'>(</span><span class='st'>"text/csv"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 249 B
@@ -229,10 +232,11 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749e2-6fd0ad6068eb22784b1e0908"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-6842ac6d761669b73add8fd8"
 #&gt;   }
-#&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span>(<span class='st'>".doc"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2020-07-21 20:02
+#&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span><span class='op'>(</span><span class='st'>".doc"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 259 B
@@ -242,11 +246,12 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749e2-d8172d08c167b910257a3f60"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-7c87b30e4aef86a907c13695"
 #&gt;   }
 #&gt; }</div><div class='input'>
-<span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type_xml</span>())</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2020-07-21 20:02
+<span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type_xml</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 329 B
@@ -257,10 +262,11 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Content-Type": "application/xml", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749e2-2eb4ed189aa91e28dab6e280"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-0bc8a9a06ae4ba4b54c57d86"
 #&gt;   }
-#&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span>(<span class='st'>"text/csv"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2020-07-21 20:02
+#&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span><span class='op'>(</span><span class='st'>"text/csv"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 322 B
@@ -271,10 +277,11 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Content-Type": "text/csv", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749e2-67457ca01b1678d007823f80"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-15b1ddf163bfe1df276a78c0"
 #&gt;   }
-#&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span>(<span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span>(<span class='st'>".xml"</span>))</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2020-07-21 20:02
+#&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span><span class='op'>(</span><span class='st'>".xml"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
+#&gt;   Date: 2021-02-08 15:25
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 329 B
@@ -285,7 +292,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Content-Type": "application/xml", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-5f1749e2-3a9562b0926dc5f09b4eec40"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-683240886beaf3fb669fd112"
 #&gt;   }
 #&gt; }</div></pre>
   </div>
@@ -303,7 +310,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
