@@ -11,7 +11,8 @@ jwt_signature(
   sub = NULL,
   iat = as.integer(Sys.time()),
   exp = iat + duration,
-  duration = 60L * 60L
+  duration = 60L * 60L,
+  ...
 )
 }
 \arguments{
@@ -34,6 +35,8 @@ requesting delegated access.}
 the issued time.}
 
 \item{duration}{Duration of token, in seconds.}
+
+\item{...}{any additional claims for the token.}
 
 \item{iss}{Email address of the client_id of the application making the
 access token request.}

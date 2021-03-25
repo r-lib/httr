@@ -1,10 +1,11 @@
 
-init_oauth_service_account <- function(secrets, scope = NULL, sub = NULL) {
+init_oauth_service_account <- function(secrets, scope = NULL, sub = NULL, ...) {
   signature <- jwt_signature(
     secrets,
     aud = secrets$token_uri,
     scope = scope,
-    sub = sub
+    sub = sub,
+    ...
   )
 
   res <- POST(
@@ -42,6 +43,7 @@ init_oauth_service_account <- function(secrets, scope = NULL, sub = NULL) {
 #'   00:00:00 UTC, January 1, 1970. This value has a maximum of 1 hour from
 #'   the issued time.
 #' @param duration Duration of token, in seconds.
+#' @param ... any additional claims for the token.
 #' @keywords internal
 #' @examples
 #' \dontrun{
@@ -54,14 +56,16 @@ jwt_signature <- function(credentials,
                           sub = NULL,
                           iat = as.integer(Sys.time()),
                           exp = iat + duration,
-                          duration = 60L * 60L) {
+                          duration = 60L * 60L,
+                          ...) {
   cs <- compact(list(
     iss = credentials$client_email,
     scope = scope,
     aud = aud,
     sub = sub,
     iat = iat,
-    exp = exp
+    exp = exp,
+    ...
   ))
 
   jwt_sign(cs, credentials$private_key)

@@ -301,6 +301,7 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
 #' @inheritParams oauth2.0_token
 #' @inheritParams jwt_signature
 #' @param secrets Secrets loaded from JSON file, downloaded from console.
+#' @param ... any additional claims for the token
 #' @family OAuth
 #' @export
 #' @examples
@@ -311,7 +312,7 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
 #'
 #' token <- oauth_service_token(endpoint, secrets, scope)
 #' }
-oauth_service_token <- function(endpoint, secrets, scope = NULL, sub = NULL) {
+oauth_service_token <- function(endpoint, secrets, scope = NULL, sub = NULL, ...) {
   if (!is.oauth_endpoint(endpoint)) {
     stop("`endpoint` must be an OAuth endpoint", call. = FALSE)
   }
@@ -324,7 +325,7 @@ oauth_service_token <- function(endpoint, secrets, scope = NULL, sub = NULL) {
   TokenServiceAccount$new(
     endpoint = endpoint,
     secrets = secrets,
-    params = list(scope = scope, sub = sub)
+    params = list(scope = scope, sub = sub, ...)
   )
 }
 
@@ -343,16 +344,12 @@ TokenServiceAccount <- R6::R6Class("TokenServiceAccount", inherit = Token2.0, li
     TRUE
   },
   refresh = function() {
-    self$credentials <- init_oauth_service_account(
-      self$secrets,
-      scope = self$params$scope,
-      sub = self$params$sub
-    )
+    self$credentials <- do.call(init_oauth_service_account, c(list(secrets = self$secrets), self$params))
     self
   },
   sign = function(method, url) {
     config <- add_headers(
-      Authorization = paste("Bearer", self$credentials$access_token)
+      Authorization = paste("Bearer", self$credentials$access_token %||% self$credentials$id_token)
     )
     request_build(method = method, url = url, config)
   },
