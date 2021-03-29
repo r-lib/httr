@@ -193,7 +193,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2021-02-08 15:25
+#&gt;   Date: 2021-03-29 01:10
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 289 B
@@ -203,12 +203,12 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-1108ed2723e971540e6a8ecd"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-60612919-18bc899348c06efb5ecd9879"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept_json</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2021-02-08 15:25
+#&gt;   Date: 2021-03-29 01:10
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 257 B
@@ -218,11 +218,11 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-08778cd111892da363007749"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-6061291a-3b3b43525f54d085486e6a09"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span><span class='op'>(</span><span class='st'>"text/csv"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2021-02-08 15:25
+#&gt;   Date: 2021-03-29 01:10
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 249 B
@@ -232,11 +232,11 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-6842ac6d761669b73add8fd8"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-6061291a-176e051942febd460dbffa1f"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>accept</span><span class='op'>(</span><span class='st'>".doc"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2021-02-08 15:25
+#&gt;   Date: 2021-03-29 01:10
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 259 B
@@ -246,12 +246,12 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-7c87b30e4aef86a907c13695"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-6061291a-20367f271b7ce32a75d20663"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type_xml</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2021-02-08 15:25
+#&gt;   Date: 2021-03-29 01:10
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 329 B
@@ -262,11 +262,11 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Content-Type": "application/xml", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-0bc8a9a06ae4ba4b54c57d86"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-6061291a-5bc7a77b5205c0df5fe01071"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span><span class='op'>(</span><span class='st'>"text/csv"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2021-02-08 15:25
+#&gt;   Date: 2021-03-29 01:10
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 322 B
@@ -277,11 +277,11 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Content-Type": "text/csv", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-15b1ddf163bfe1df276a78c0"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-6061291a-5bb01c0d0d89fb637422e4e6"
 #&gt;   }
 #&gt; }</div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>content_type</span><span class='op'>(</span><span class='st'>".xml"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2021-02-08 15:25
+#&gt;   Date: 2021-03-29 01:10
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 329 B
@@ -292,7 +292,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 #&gt;     "Content-Type": "application/xml", 
 #&gt;     "Host": "httpbin.org", 
 #&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-602157cf-683240886beaf3fb669fd112"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-6061291a-725fd06863d46b776b4d2ac8"
 #&gt;   }
 #&gt; }</div></pre>
   </div>

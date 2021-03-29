@@ -230,7 +230,7 @@ cache MUST treat the cache entry as stale.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>HEAD</span><span class='op'>(</span><span class='st'>"http://google.com"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2021-02-08 15:24
+#&gt;   Date: 2021-03-29 01:10
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='fu'><a href='headers.html'>headers</a></span><span class='op'>(</span><span class='fu'>HEAD</span><span class='op'>(</span><span class='st'>"http://google.com"</span><span class='op'>)</span><span class='op'>)</span>
@@ -238,7 +238,7 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "text/html; charset=ISO-8859-1"
 #&gt; 
 #&gt; $date
-#&gt; [1] "Mon, 08 Feb 2021 15:24:52 GMT"
+#&gt; [1] "Mon, 29 Mar 2021 01:10:35 GMT"
 #&gt; 
 #&gt; $server
 #&gt; [1] "gws"
@@ -253,13 +253,13 @@ cache MUST treat the cache entry as stale.</p>
 #&gt; [1] "chunked"
 #&gt; 
 #&gt; $expires
-#&gt; [1] "Mon, 08 Feb 2021 15:24:52 GMT"
+#&gt; [1] "Mon, 29 Mar 2021 01:10:35 GMT"
 #&gt; 
 #&gt; $`cache-control`
 #&gt; [1] "private"
 #&gt; 
 #&gt; $`set-cookie`
-#&gt; [1] "1P_JAR=2021-02-08-15; expires=Wed, 10-Mar-2021 15:24:52 GMT; path=/; domain=.google.com; Secure"
+#&gt; [1] "1P_JAR=2021-03-29-01; expires=Wed, 28-Apr-2021 01:10:35 GMT; path=/; domain=.google.com; Secure"
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "insensitive" "list"       </div></pre>

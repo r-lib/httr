@@ -48,7 +48,7 @@ stop().
 It is designed to be kind to the server: after each failure
 randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in
-https://www.awsarchitectureblog.com/2015/03/backoff.html.)
+https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/.)
 If the server returns status code 429 and specifies a retry-after value, that
 value will be used instead, unless it's smaller than pause_min." />
 
@@ -177,7 +177,7 @@ but if the last retry still raises one, <code>RETRY</code> will raise it again w
 It is designed to be kind to the server: after each failure
 randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in
-<a href='https://www.awsarchitectureblog.com/2015/03/backoff.html'>https://www.awsarchitectureblog.com/2015/03/backoff.html</a>.)
+<a href='https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/'>https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/</a>.)
 If the server returns status code 429 and specifies a <code>retry-after</code> value, that
 value will be used instead, unless it's smaller than <code>pause_min</code>.</p>
     </div>
@@ -309,13 +309,13 @@ to use <code><a href='stop_for_status.html'>stop_for_status()</a></code>.</p>
     <pre class="examples"><div class='input'><span class='co'># Succeeds straight away</span>
 <span class='fu'>RETRY</span><span class='op'>(</span><span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/200"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/status/200]
-#&gt;   Date: 2021-02-08 15:24
+#&gt;   Date: 2021-03-29 01:10
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># Never succeeds</span>
 <span class='fu'>RETRY</span><span class='op'>(</span><span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/500"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 3.3 seconds...</span></div><div class='output co'>#&gt; Response [http://httpbin.org/status/500]
-#&gt;   Date: 2021-02-08 15:24
+#&gt;   Date: 2021-03-29 01:10
 #&gt;   Status: 500
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>

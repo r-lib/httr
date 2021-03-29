@@ -121,7 +121,7 @@
 <div id="httr-quickstart-guide" class="section level1">
 <h1 class="hasAnchor">
 <a href="#httr-quickstart-guide" class="anchor"></a>httr quickstart guide</h1>
-<p>The goal of this document is to get you up and running with httr as quickly as possible. httr is designed to map closely to the underlying http protocol. I’ll try and explain the basics in this intro, but I’d also recommend “<a href="http://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177">HTTP: The Protocol Every Web Developer Must Know</a>” or “<a href="http://www.jmarshall.com/easy/http/">HTTP made really easy</a>”.</p>
+<p>The goal of this document is to get you up and running with httr as quickly as possible. httr is designed to map closely to the underlying http protocol. I’ll try and explain the basics in this intro, but I’d also recommend “<a href="https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177">HTTP: The Protocol Every Web Developer Must Know</a>” or “<a href="https://www.jmarshall.com/easy/http/">HTTP made really easy</a>”.</p>
 <p>This vignette (and parts of the httr API) derived from the excellent “<a href="https://requests.readthedocs.io/en/master/user/quickstart/">Requests quickstart guide</a>” by Kenneth Reitz. Requests is a python library similar in spirit to httr.</p>
 <p>There are two important parts to http: the <strong>request</strong>, the data sent to the server, and the <strong>response</strong>, the data sent back from the server. In the first section, you’ll learn about the basics of constructing a request and accessing the response. In the second and third sections, you’ll dive into more details of each.</p>
 <div id="httr-basics" class="section level2">
@@ -135,7 +135,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r</span>
 <span class="co">#&gt; Response [http://httpbin.org/get]</span>
-<span class="co">#&gt;   Date: 2021-02-08 15:25</span>
+<span class="co">#&gt;   Date: 2021-03-29 01:11</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json</span>
 <span class="co">#&gt;   Size: 369 B</span>
@@ -146,9 +146,9 @@
 <span class="co">#&gt;     "Accept-Encoding": "deflate, gzip", </span>
 <span class="co">#&gt;     "Host": "httpbin.org", </span>
 <span class="co">#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", </span>
-<span class="co">#&gt;     "X-Amzn-Trace-Id": "Root=1-602157f0-5a11ef74649774790a6dcc27"</span>
+<span class="co">#&gt;     "X-Amzn-Trace-Id": "Root=1-60612940-7d94ed657f17b8891bc5a68f"</span>
 <span class="co">#&gt;   }, </span>
-<span class="co">#&gt;   "origin": "143.55.64.30", </span>
+<span class="co">#&gt;   "origin": "199.19.85.33", </span>
 <span class="co">#&gt; ...</span></code></pre></div>
 <p>You can pull out important parts of the response with various helper methods, or dig directly into the object:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -156,7 +156,7 @@
 <span class="co">#&gt; [1] 200</span>
 <span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span>
 <span class="co">#&gt; $date</span>
-<span class="co">#&gt; [1] "Mon, 08 Feb 2021 15:25:36 GMT"</span>
+<span class="co">#&gt; [1] "Mon, 29 Mar 2021 01:11:28 GMT"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-type`</span>
 <span class="co">#&gt; [1] "application/json"</span>
@@ -186,8 +186,8 @@
 <span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip"</span>
 <span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span>
 <span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000"</span>
-<span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-602157f0-5a11ef74649774790a6dcc27"</span>
-<span class="co">#&gt;  $ origin : chr "143.55.64.30"</span>
+<span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-60612940-7d94ed657f17b8891bc5a68f"</span>
+<span class="co">#&gt;  $ origin : chr "199.19.85.33"</span>
 <span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></code></pre></div>
 <p>I’ll use <code>httpbin.org</code> throughout this introduction. It accepts many types of http request and returns json that describes the data that it received. This makes it easy to see what httr is doing.</p>
 <p>As well as <code><a href="../reference/GET.html">GET()</a></code>, you can also use the <code><a href="../reference/HEAD.html">HEAD()</a></code>, <code><a href="../reference/POST.html">POST()</a></code>, <code><a href="../reference/PATCH.html">PATCH()</a></code>, <code><a href="../reference/PUT.html">PUT()</a></code> and <code><a href="../reference/DELETE.html">DELETE()</a></code> verbs. You’re probably most familiar with <code><a href="../reference/GET.html">GET()</a></code> and <code><a href="../reference/POST.html">POST()</a></code>: <code><a href="../reference/GET.html">GET()</a></code> is used by your browser when requesting a page, and <code><a href="../reference/POST.html">POST()</a></code> is (usually) used when submitting a form to a server. <code><a href="../reference/PUT.html">PUT()</a></code>, <code><a href="../reference/PATCH.html">PATCH()</a></code> and <code><a href="../reference/DELETE.html">DELETE()</a></code> are used most often by web APIs.</p>
@@ -234,7 +234,7 @@
 <code class="sourceCode R"><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/get"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/content.html">content</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"text"</span><span class="op">)</span>
 <span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span>
-<span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"deflate, gzip\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000\", \n    \"X-Amzn-Trace-Id\": \"Root=1-602157f0-1ad34347429637c655ea1f38\"\n  }, \n  \"origin\": \"143.55.64.30\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></code></pre></div>
+<span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"deflate, gzip\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000\", \n    \"X-Amzn-Trace-Id\": \"Root=1-60612941-6fd053d44807bce80d96ff16\"\n  }, \n  \"origin\": \"199.19.85.33\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></code></pre></div>
 <p>httr will automatically decode content from the server using the encoding supplied in the <code>content-type</code> HTTP header. Unfortunately you can’t always trust what the server tells you, so you can override encoding if needed:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/content.html">content</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"text"</span>, encoding <span class="op">=</span> <span class="st">"ISO-8859-1"</span><span class="op">)</span></code></pre></div>
@@ -254,10 +254,10 @@
 <span class="co">#&gt; [176] 65 72 2d 41 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f 37 2e 36 34 2e</span>
 <span class="co">#&gt; [201] 31 20 72 2d 63 75 72 6c 2f 34 2e 33 20 68 74 74 72 2f 31 2e 34 2e 32 2e 39</span>
 <span class="co">#&gt; [226] 30 30 30 22 2c 20 0a 20 20 20 20 22 58 2d 41 6d 7a 6e 2d 54 72 61 63 65 2d</span>
-<span class="co">#&gt; [251] 49 64 22 3a 20 22 52 6f 6f 74 3d 31 2d 36 30 32 31 35 37 66 30 2d 31 61 64</span>
-<span class="co">#&gt; [276] 33 34 33 34 37 34 32 39 36 33 37 63 36 35 35 65 61 31 66 33 38 22 0a 20 20</span>
-<span class="co">#&gt; [301] 7d 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 31 34 33 2e 35 35 2e 36</span>
-<span class="co">#&gt; [326] 34 2e 33 30 22 2c 20 0a 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 3a 2f 2f</span>
+<span class="co">#&gt; [251] 49 64 22 3a 20 22 52 6f 6f 74 3d 31 2d 36 30 36 31 32 39 34 31 2d 36 66 64</span>
+<span class="co">#&gt; [276] 30 35 33 64 34 34 38 30 37 62 63 65 38 30 64 39 36 66 66 31 36 22 0a 20 20</span>
+<span class="co">#&gt; [301] 7d 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 31 39 39 2e 31 39 2e 38</span>
+<span class="co">#&gt; [326] 35 2e 33 33 22 2c 20 0a 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 3a 2f 2f</span>
 <span class="co">#&gt; [351] 68 74 74 70 62 69 6e 2e 6f 72 67 2f 67 65 74 22 0a 7d 0a</span></code></pre></div>
 <p>This is exactly the sequence of bytes that the web server sent, so this is the highest fidelity way of saving files to disk:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
@@ -276,8 +276,8 @@
 <span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip"</span>
 <span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span>
 <span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000"</span>
-<span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-602157f0-1ad34347429637c655ea1f38"</span>
-<span class="co">#&gt;  $ origin : chr "143.55.64.30"</span>
+<span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-60612941-6fd053d44807bce80d96ff16"</span>
+<span class="co">#&gt;  $ origin : chr "199.19.85.33"</span>
 <span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></code></pre></div>
 <p>See <code><a href="../reference/content.html">?content</a></code> for a complete list.</p>
 <p>These are convenient for interactive usage, but if you’re writing an API wrapper, it’s best to parse the text or raw content yourself and check it is as you expect. See the API wrappers vignette for more details.</p>
@@ -291,7 +291,7 @@
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span>
 <span class="co">#&gt; $date</span>
-<span class="co">#&gt; [1] "Mon, 08 Feb 2021 15:25:36 GMT"</span>
+<span class="co">#&gt; [1] "Mon, 29 Mar 2021 01:11:29 GMT"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $`content-type`</span>
 <span class="co">#&gt; [1] "application/json"</span>
@@ -316,9 +316,9 @@
 <p>This is basically a named list, but because http headers are case insensitive, indexing this object ignores case:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">$</span><span class="va">date</span>
-<span class="co">#&gt; [1] "Mon, 08 Feb 2021 15:25:36 GMT"</span>
+<span class="co">#&gt; [1] "Mon, 29 Mar 2021 01:11:29 GMT"</span>
 <span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">$</span><span class="va">DATE</span>
-<span class="co">#&gt; [1] "Mon, 08 Feb 2021 15:25:36 GMT"</span></code></pre></div>
+<span class="co">#&gt; [1] "Mon, 29 Mar 2021 01:11:29 GMT"</span></code></pre></div>
 </div>
 <div id="cookies" class="section level3">
 <h3 class="hasAnchor">
@@ -381,7 +381,7 @@
 <span class="co">#&gt;  $ Host           : chr "httpbin.org"</span>
 <span class="co">#&gt;  $ Name           : chr "Hadley"</span>
 <span class="co">#&gt;  $ User-Agent     : chr "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000"</span>
-<span class="co">#&gt;  $ X-Amzn-Trace-Id: chr "Root=1-602157f1-4e7f73e9346440e47556e19f"</span></code></pre></div>
+<span class="co">#&gt;  $ X-Amzn-Trace-Id: chr "Root=1-60612942-2785296530afb7f05a0db348"</span></code></pre></div>
 <p>(Note that <code>content(r)$header</code> retrieves the headers that httpbin received. <code><a href="../reference/headers.html">headers(r)</a></code> gives the headers that it sent back in its response.)</p>
 </div>
 </div>
@@ -436,7 +436,7 @@
 <a href="#built-with" class="anchor"></a>Built with</h5>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; R version 4.0.3 (2020-10-10)</span>
+<span class="co">#&gt; R version 4.0.4 (2021-02-15)</span>
 <span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
 <span class="co">#&gt; Running under: macOS Catalina 10.15.7</span>
 <span class="co">#&gt; </span>
@@ -454,13 +454,13 @@
 <span class="co">#&gt; [1] httr_1.4.2.9000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;  [1] rprojroot_2.0.2   crayon_1.4.0      digest_0.6.27     assertthat_0.2.1 </span>
-<span class="co">#&gt;  [5] R6_2.5.0          jsonlite_1.7.2    magrittr_2.0.1    evaluate_0.14    </span>
-<span class="co">#&gt;  [9] stringi_1.5.3     rlang_0.4.10      cachem_1.0.3      curl_4.3         </span>
-<span class="co">#&gt; [13] fs_1.5.0          ragg_0.4.1        rmarkdown_2.6     pkgdown_1.6.1    </span>
-<span class="co">#&gt; [17] textshaping_0.2.1 desc_1.2.0        tools_4.0.3       stringr_1.4.0    </span>
-<span class="co">#&gt; [21] yaml_2.2.1        xfun_0.20         fastmap_1.1.0     compiler_4.0.3   </span>
-<span class="co">#&gt; [25] systemfonts_1.0.0 memoise_2.0.0     htmltools_0.5.1.1 knitr_1.31</span></code></pre></div>
+<span class="co">#&gt;  [1] rprojroot_2.0.2   digest_0.6.27     crayon_1.4.1      R6_2.5.0         </span>
+<span class="co">#&gt;  [5] jsonlite_1.7.2    magrittr_2.0.1    evaluate_0.14     stringi_1.5.3    </span>
+<span class="co">#&gt;  [9] rlang_0.4.10      cachem_1.0.4      curl_4.3          fs_1.5.0         </span>
+<span class="co">#&gt; [13] ragg_1.1.2        rmarkdown_2.7     pkgdown_1.6.1     textshaping_0.3.3</span>
+<span class="co">#&gt; [17] desc_1.3.0        tools_4.0.4       stringr_1.4.0     yaml_2.2.1       </span>
+<span class="co">#&gt; [21] xfun_0.22         fastmap_1.1.0     compiler_4.0.4    systemfonts_1.0.1</span>
+<span class="co">#&gt; [25] memoise_2.0.0     htmltools_0.5.1.1 knitr_1.31</span></code></pre></div>
 </div>
 </div>
 </div>
