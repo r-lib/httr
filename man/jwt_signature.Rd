@@ -40,7 +40,7 @@ access token request.}
 }
 \description{
 As described in
-\url{https://developers.google.com/accounts/docs/OAuth2ServiceAccount}
+\url{https://developers.google.com/identity/protocols/oauth2/service-account}
 }
 \examples{
 \dontrun{

@@ -14,7 +14,7 @@ knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 
 # httr quickstart guide
 
-The goal of this document is to get you up and running with httr as quickly as possible. httr is designed to map closely to the underlying http protocol. I'll try and explain the basics in this intro, but I'd also recommend "[HTTP: The Protocol Every Web Developer Must Know][http-tutorial]" or "[HTTP made really easy](http://www.jmarshall.com/easy/http/)".
+The goal of this document is to get you up and running with httr as quickly as possible. httr is designed to map closely to the underlying http protocol. I'll try and explain the basics in this intro, but I'd also recommend "[HTTP: The Protocol Every Web Developer Must Know][http-tutorial]" or "[HTTP made really easy](https://www.jmarshall.com/easy/http/)".
 
 This vignette (and parts of the httr API) derived from the excellent "[Requests quickstart guide](https://requests.readthedocs.io/en/master/user/quickstart/)" by Kenneth Reitz. Requests is a python library similar in spirit to httr.  
 
@@ -252,4 +252,4 @@ See `POST()` for more details on the other types of thing that you can send: no 
 sessionInfo()
 ```
 
-[http-tutorial]:http://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177
+[http-tutorial]:https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177

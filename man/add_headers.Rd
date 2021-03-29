@@ -14,7 +14,7 @@ set, pass an empty string: \code{""}.}
 }
 \description{
 Wikipedia provides a useful list of common http headers:
-\url{http://en.wikipedia.org/wiki/List_of_HTTP_header_fields}.
+\url{https://en.wikipedia.org/wiki/List_of_HTTP_header_fields}.
 }
 \examples{
 add_headers(a = 1, b = 2)

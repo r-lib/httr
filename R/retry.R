@@ -8,7 +8,7 @@
 #' It is designed to be kind to the server: after each failure
 #' randomly waits up to twice as long. (Technically it uses exponential
 #' backoff with jitter, using the approach outlined in
-#' <https://www.awsarchitectureblog.com/2015/03/backoff.html>.)
+#' <https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/>.)
 #' If the server returns status code 429 and specifies a `retry-after` value, that
 #' value will be used instead, unless it's smaller than `pause_min`.
 #'

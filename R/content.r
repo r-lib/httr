@@ -34,7 +34,7 @@
 #'   which one is most appropriate, based on the content-type.
 #' @param type MIME type (aka internet media type) used to override
 #'   the content type returned by the server. See
-#'   <http://en.wikipedia.org/wiki/Internet_media_type> for a list of
+#'   <https://en.wikipedia.org/wiki/Internet_media_type> for a list of
 #'   common types.
 #' @param encoding For text, overrides the charset or the Latin1 (ISO-8859-1)
 #'   default, if you know that the server is returning the incorrect encoding
@@ -56,7 +56,7 @@
 #' content(r) # automatically parses JSON
 #' cat(content(r, "text"), "\n") # text content
 #' content(r, "raw") # raw bytes from server
-#' 
+#'
 #' rlogo <- content(GET("http://cran.r-project.org/Rlogo.jpg"))
 #' plot(0:1, 0:1, type = "n")
 #' rasterImage(rlogo, 0, 0, 1, 1)

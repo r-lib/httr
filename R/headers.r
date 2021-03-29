@@ -17,7 +17,7 @@ headers.response <- function(x) {
 #' Add additional headers to a request.
 #'
 #' Wikipedia provides a useful list of common http headers:
-#' <http://en.wikipedia.org/wiki/List_of_HTTP_header_fields>.
+#' <https://en.wikipedia.org/wiki/List_of_HTTP_header_fields>.
 #'
 #' @param ... named header values.  To stop an existing header from being
 #'   set, pass an empty string: `""`.
@@ -29,15 +29,15 @@ headers.response <- function(x) {
 #' @examples
 #' add_headers(a = 1, b = 2)
 #' add_headers(.headers = c(a = "1", b = "2"))
-#' 
+#'
 #' GET("http://httpbin.org/headers")
-#' 
+#'
 #' # Add arbitrary headers
 #' GET(
 #'   "http://httpbin.org/headers",
 #'   add_headers(version = version$version.string)
 #' )
-#' 
+#'
 #' # Override default headers with empty strings
 #' GET("http://httpbin.org/headers", add_headers(Accept = ""))
 add_headers <- function(..., .headers = character()) {
@@ -58,11 +58,11 @@ add_headers <- function(..., .headers = character()) {
 #' @export
 #' @examples
 #' GET("http://httpbin.org/headers")
-#' 
+#'
 #' GET("http://httpbin.org/headers", accept_json())
 #' GET("http://httpbin.org/headers", accept("text/csv"))
 #' GET("http://httpbin.org/headers", accept(".doc"))
-#' 
+#'
 #' GET("http://httpbin.org/headers", content_type_xml())
 #' GET("http://httpbin.org/headers", content_type("text/csv"))
 #' GET("http://httpbin.org/headers", content_type(".xml"))

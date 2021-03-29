@@ -17,7 +17,7 @@ which one is most appropriate, based on the content-type.}
 
 \item{type}{MIME type (aka internet media type) used to override
 the content type returned by the server. See
-\url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of
+\url{https://en.wikipedia.org/wiki/Internet_media_type} for a list of
 common types.}
 
 \item{encoding}{For text, overrides the charset or the Latin1 (ISO-8859-1)
