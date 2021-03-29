@@ -309,13 +309,13 @@ to use <code><a href='stop_for_status.html'>stop_for_status()</a></code>.</p>
     <pre class="examples"><div class='input'><span class='co'># Succeeds straight away</span>
 <span class='fu'>RETRY</span><span class='op'>(</span><span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/200"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/status/200]
-#&gt;   Date: 2021-03-29 01:10
+#&gt;   Date: 2021-03-29 17:14
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='co'># Never succeeds</span>
 <span class='fu'>RETRY</span><span class='op'>(</span><span class='st'>"GET"</span>, <span class='st'>"http://httpbin.org/status/500"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 1 seconds...</span></div><div class='output co'>#&gt; <span class='message'>Request failed [500]. Retrying in 3.3 seconds...</span></div><div class='output co'>#&gt; Response [http://httpbin.org/status/500]
-#&gt;   Date: 2021-03-29 01:10
+#&gt;   Date: 2021-03-29 17:14
 #&gt;   Status: 500
 #&gt;   Content-Type: text/html; charset=utf-8
 #&gt; &lt;EMPTY BODY&gt;</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>

@@ -205,7 +205,7 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt; * b: 2</div><div class='input'>
 <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2021-03-29 01:10
+#&gt;   Date: 2021-03-29 17:14
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 289 B
@@ -214,8 +214,8 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-60612915-6f96304f6d25442721ec794d"
+#&gt;     "User-Agent": "libcurl/7.58.0 r-curl/4.3 httr/1.4.2.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-60620b02-3407c4f710700e3c37864f86"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='co'># Add arbitrary headers</span>
@@ -224,7 +224,7 @@ convenience functions for setting accept and content-type headers.</p>
   <span class='fu'>add_headers</span><span class='op'>(</span>version <span class='op'>=</span> <span class='va'>version</span><span class='op'>$</span><span class='va'>version.string</span><span class='op'>)</span>
 <span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2021-03-29 01:10
+#&gt;   Date: 2021-03-29 17:14
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 337 B
@@ -233,15 +233,15 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt;     "Accept": "application/json, text/xml, application/xml, */*", 
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
+#&gt;     "User-Agent": "libcurl/7.58.0 r-curl/4.3 httr/1.4.2.9000", 
 #&gt;     "Version": "R version 4.0.4 (2021-02-15)", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-60612915-0d77806577895d2308d04212"
+#&gt;     "X-Amzn-Trace-Id": "Root=1-60620b02-2acfb4656b329c3a4372bd45"
 #&gt;   }
 #&gt; }</div><div class='input'>
 <span class='co'># Override default headers with empty strings</span>
 <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span><span class='st'>"http://httpbin.org/headers"</span>, <span class='fu'>add_headers</span><span class='op'>(</span>Accept <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://httpbin.org/headers]
-#&gt;   Date: 2021-03-29 01:10
+#&gt;   Date: 2021-03-29 17:14
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json
 #&gt;   Size: 222 B
@@ -249,8 +249,8 @@ convenience functions for setting accept and content-type headers.</p>
 #&gt;   "headers": {
 #&gt;     "Accept-Encoding": "deflate, gzip", 
 #&gt;     "Host": "httpbin.org", 
-#&gt;     "User-Agent": "libcurl/7.64.1 r-curl/4.3 httr/1.4.2.9000", 
-#&gt;     "X-Amzn-Trace-Id": "Root=1-60612915-5c21eee346c21c5d7f3099a9"
+#&gt;     "User-Agent": "libcurl/7.58.0 r-curl/4.3 httr/1.4.2.9000", 
+#&gt;     "X-Amzn-Trace-Id": "Root=1-60620b02-3d78fe427c2c3e164d7242db"
 #&gt;   }
 #&gt; }</div></pre>
   </div>

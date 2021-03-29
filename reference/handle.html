@@ -197,7 +197,7 @@ selection of the correct handle is taken care of when the user passes an url
 <span class='va'>h</span> <span class='op'>&lt;-</span> <span class='fu'>handle</span><span class='op'>(</span><span class='st'>"http://google.com"</span><span class='op'>)</span>
 <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span>handle <span class='op'>=</span> <span class='va'>h</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2021-03-29 01:10
+#&gt;   Date: 2021-03-29 17:14
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt;   Size: 12.8 kB
@@ -209,12 +209,12 @@ selection of the correct handle is taken care of when the user passes an url
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a cl...
-#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAYGE3K...
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAYGIZF...
 #&gt; var d=this||self,e=/^[\w+/_-]+[=]{0,2}$/,f=null,g=function(a){return(a=a.quer...
 #&gt; ...</div><div class='input'><span class='co'># Should see cookies sent back to server</span>
 <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span>handle <span class='op'>=</span> <span class='va'>h</span>, config <span class='op'>=</span> <span class='fu'><a href='verbose.html'>verbose</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Response [http://www.google.com/]
-#&gt;   Date: 2021-03-29 01:10
+#&gt;   Date: 2021-03-29 17:14
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=ISO-8859-1
 #&gt;   Size: 12.8 kB
@@ -226,15 +226,17 @@ selection of the correct handle is taken care of when the user passes an url
 #&gt; if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 #&gt; }
 #&gt; })();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a cl...
-#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAYGE3K...
+#&gt; else top.location='/doodles/';};})();&lt;/script&gt;&lt;input value="AINFCbYAAAAAYGIZF...
 #&gt; var d=this||self,e=/^[\w+/_-]+[=]{0,2}$/,f=null,g=function(a){return(a=a.quer...
 #&gt; ...</div><div class='input'>
 <span class='va'>h</span> <span class='op'>&lt;-</span> <span class='fu'>handle</span><span class='op'>(</span><span class='st'>"http://google.com"</span>, cookies <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: Cookies argument is deprecated</span></div><div class='input'><span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span>handle <span class='op'>=</span> <span class='va'>h</span><span class='op'>)</span><span class='op'>$</span><span class='va'>cookies</span>
-</div><div class='output co'>#&gt;                  domain flag path secure          expiration name
-#&gt; 1 #HttpOnly_.google.com TRUE    /  FALSE 2021-09-28 01:10:51  NID
+</div><div class='output co'>#&gt;                  domain flag path secure          expiration   name
+#&gt; 1           .google.com TRUE    /   TRUE 2021-04-28 17:14:46 1P_JAR
+#&gt; 2 #HttpOnly_.google.com TRUE    /  FALSE 2021-09-28 17:14:46    NID
 #&gt;                                                                                                                                                                             value
-#&gt; 1 212=lgfX2CDZ5S3NagIbiDBp-ZejSNzHCJmz186ZkQlQPFm0RMOZnlr1AsMwNl6-Xfo4AXuYRuLC9iSz9Y6X0e4rztWPiOZFcdQhYQdeF1YmL6_76ownarwUIH6maSZZ5cuykFvb0Dm_Mp9BvTEicK0efPVLQS-tTSuMfqp57LFB8t4</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+#&gt; 1                                                                                                                                                                   2021-03-29-17
+#&gt; 2 212=1pJl8bo4z7vX4-j5ajGVl5_oNwC-kXl2g6vajtCzRKj18hsZT5hjEZRnfBaJvYPKbgSJudNSHXkv9SxOBDo3NegSq8eNxKsm_jop7DZpNvWF3BZq7BvAyPDmb454jlgOiYTRlnvpwzp-_1RzGnccZ07AzzYE_qXVkkr41iBPOYQ</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># Using the preferred way of configuring the http methods</span>
 <span class='co'># will not work when using handle():</span>
 <span class='fu'><a href='GET.html'>GET</a></span><span class='op'>(</span>handle <span class='op'>=</span> <span class='va'>h</span>, <span class='fu'><a href='timeout.html'>timeout</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>

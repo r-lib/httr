@@ -189,12 +189,22 @@
 
 <span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu">github_api</span><span class="op">(</span><span class="st">"/repos/hadley/httr"</span><span class="op">)</span>
 <span class="va">resp</span>
-<span class="co">#&gt; Response [https://api.github.com/repos/hadley/httr]</span>
-<span class="co">#&gt;   Date: 2021-03-29 01:11</span>
-<span class="co">#&gt;   Status: 403</span>
+<span class="co">#&gt; Response [https://api.github.com/repositories/2756403]</span>
+<span class="co">#&gt;   Date: 2021-03-29 17:15</span>
+<span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span>
-<span class="co">#&gt;   Size: 278 B</span>
-<span class="co">#&gt; {"message":"API rate limit exceeded for 199.19.85.33. (But here's the good ne...</span></code></pre></div>
+<span class="co">#&gt;   Size: 6.07 kB</span>
+<span class="co">#&gt; {</span>
+<span class="co">#&gt;   "id": 2756403,</span>
+<span class="co">#&gt;   "node_id": "MDEwOlJlcG9zaXRvcnkyNzU2NDAz",</span>
+<span class="co">#&gt;   "name": "httr",</span>
+<span class="co">#&gt;   "full_name": "r-lib/httr",</span>
+<span class="co">#&gt;   "private": false,</span>
+<span class="co">#&gt;   "owner": {</span>
+<span class="co">#&gt;     "login": "r-lib",</span>
+<span class="co">#&gt;     "id": 22618716,</span>
+<span class="co">#&gt;     "node_id": "MDEyOk9yZ2FuaXphdGlvbjIyNjE4NzE2",</span>
+<span class="co">#&gt; ...</span></code></pre></div>
 </div>
 <div id="parse-the-response" class="section level3">
 <h3 class="hasAnchor">
@@ -204,12 +214,12 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span><span class="op">)</span>
 <span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span>
-<span class="co">#&gt;   Date: 2021-03-29 01:11</span>
+<span class="co">#&gt;   Date: 2021-03-29 17:15</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: text/xml; charset=utf-8</span>
 <span class="co">#&gt;   Size: 1.8 kB</span>
 <span class="co">#&gt; &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>
-<span class="co">#&gt; &lt;colors numResults="1" totalResults="10108165"&gt;</span>
+<span class="co">#&gt; &lt;colors numResults="1" totalResults="10108272"&gt;</span>
 <span class="co">#&gt;  &lt;color&gt;</span>
 <span class="co">#&gt;      &lt;id&gt;903893&lt;/id&gt;</span>
 <span class="co">#&gt;      &lt;title&gt;&lt;![CDATA[wet dirt]]&gt;&lt;/title&gt;</span>
@@ -221,7 +231,7 @@
 <span class="co">#&gt; ...</span>
 <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span><span class="op">)</span>
 <span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span>
-<span class="co">#&gt;   Date: 2021-03-29 01:11</span>
+<span class="co">#&gt;   Date: 2021-03-29 17:15</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span>
 <span class="co">#&gt;   Size: 1.43 kB</span></code></pre></div>
@@ -294,9 +304,39 @@
 
 <span class="fu">github_api</span><span class="op">(</span><span class="st">"/users/hadley"</span><span class="op">)</span>
 <span class="co">#&gt; &lt;GitHub /users/hadley&gt;</span>
-<span class="co">#&gt; List of 2</span>
-<span class="co">#&gt;  $ message          : chr "API rate limit exceeded for 199.19.85.33. (But here's the good news: Authenticated requests get a higher rate l"| __truncated__</span>
-<span class="co">#&gt;  $ documentation_url: chr "https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"</span></code></pre></div>
+<span class="co">#&gt; List of 32</span>
+<span class="co">#&gt;  $ login              : chr "hadley"</span>
+<span class="co">#&gt;  $ id                 : int 4196</span>
+<span class="co">#&gt;  $ node_id            : chr "MDQ6VXNlcjQxOTY="</span>
+<span class="co">#&gt;  $ avatar_url         : chr "https://avatars.githubusercontent.com/u/4196?v=4"</span>
+<span class="co">#&gt;  $ gravatar_id        : chr ""</span>
+<span class="co">#&gt;  $ url                : chr "https://api.github.com/users/hadley"</span>
+<span class="co">#&gt;  $ html_url           : chr "https://github.com/hadley"</span>
+<span class="co">#&gt;  $ followers_url      : chr "https://api.github.com/users/hadley/followers"</span>
+<span class="co">#&gt;  $ following_url      : chr "https://api.github.com/users/hadley/following{/other_user}"</span>
+<span class="co">#&gt;  $ gists_url          : chr "https://api.github.com/users/hadley/gists{/gist_id}"</span>
+<span class="co">#&gt;  $ starred_url        : chr "https://api.github.com/users/hadley/starred{/owner}{/repo}"</span>
+<span class="co">#&gt;  $ subscriptions_url  : chr "https://api.github.com/users/hadley/subscriptions"</span>
+<span class="co">#&gt;  $ organizations_url  : chr "https://api.github.com/users/hadley/orgs"</span>
+<span class="co">#&gt;  $ repos_url          : chr "https://api.github.com/users/hadley/repos"</span>
+<span class="co">#&gt;  $ events_url         : chr "https://api.github.com/users/hadley/events{/privacy}"</span>
+<span class="co">#&gt;  $ received_events_url: chr "https://api.github.com/users/hadley/received_events"</span>
+<span class="co">#&gt;  $ type               : chr "User"</span>
+<span class="co">#&gt;  $ site_admin         : logi FALSE</span>
+<span class="co">#&gt;  $ name               : chr "Hadley Wickham"</span>
+<span class="co">#&gt;  $ company            : chr "@rstudio "</span>
+<span class="co">#&gt;  $ blog               : chr "http://hadley.nz"</span>
+<span class="co">#&gt;  $ location           : chr "Houston, TX"</span>
+<span class="co">#&gt;  $ email              : NULL</span>
+<span class="co">#&gt;  $ hireable           : NULL</span>
+<span class="co">#&gt;  $ bio                : chr "Chief Scientist at @rstudio"</span>
+<span class="co">#&gt;  $ twitter_username   : chr "hadleywickham"</span>
+<span class="co">#&gt;  $ public_repos       : int 324</span>
+<span class="co">#&gt;  $ public_gists       : int 178</span>
+<span class="co">#&gt;  $ followers          : int 20481</span>
+<span class="co">#&gt;  $ following          : int 6</span>
+<span class="co">#&gt;  $ created_at         : chr "2008-04-01T14:47:36Z"</span>
+<span class="co">#&gt;  $ updated_at         : chr "2021-03-26T12:54:24Z"</span></code></pre></div>
 <p>The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.</p>
 </div>
 <div id="turn-api-errors-into-r-errors" class="section level3">
@@ -343,9 +383,9 @@
   <span class="op">)</span>
 <span class="op">}</span>
 <span class="fu">github_api</span><span class="op">(</span><span class="st">"/user/hadley"</span><span class="op">)</span>
-<span class="co">#&gt; Error: GitHub API request failed [403]</span>
-<span class="co">#&gt; API rate limit exceeded for 199.19.85.33. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)</span>
-<span class="co">#&gt; &lt;https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting&gt;</span></code></pre></div>
+<span class="co">#&gt; Error: GitHub API request failed [404]</span>
+<span class="co">#&gt; Not Found</span>
+<span class="co">#&gt; &lt;https://docs.github.com/rest/reference/users#get-a-user&gt;</span></code></pre></div>
 <blockquote>
 <p>Some poorly written APIs will return different types of response based on whether or not the request succeeded or failed. If your API does this you’ll need to make your request function check the <code><a href="../reference/status_code.html">status_code()</a></code> before parsing the response.</p>
 </blockquote>
@@ -494,29 +534,29 @@
 <span class="co">#&gt;  $ resources:List of 4</span>
 <span class="co">#&gt;   ..$ core                :List of 4</span>
 <span class="co">#&gt;   .. ..$ limit    : int 60</span>
-<span class="co">#&gt;   .. ..$ remaining: int 0</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1616981002</span>
-<span class="co">#&gt;   .. ..$ used     : int 60</span>
+<span class="co">#&gt;   .. ..$ remaining: int 56</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1617041715</span>
+<span class="co">#&gt;   .. ..$ used     : int 4</span>
 <span class="co">#&gt;   ..$ graphql             :List of 4</span>
 <span class="co">#&gt;   .. ..$ limit    : int 0</span>
 <span class="co">#&gt;   .. ..$ remaining: int 0</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1616983885</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1617041717</span>
 <span class="co">#&gt;   .. ..$ used     : int 0</span>
 <span class="co">#&gt;   ..$ integration_manifest:List of 4</span>
 <span class="co">#&gt;   .. ..$ limit    : int 5000</span>
 <span class="co">#&gt;   .. ..$ remaining: int 5000</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1616983885</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1617041717</span>
 <span class="co">#&gt;   .. ..$ used     : int 0</span>
 <span class="co">#&gt;   ..$ search              :List of 4</span>
 <span class="co">#&gt;   .. ..$ limit    : int 10</span>
 <span class="co">#&gt;   .. ..$ remaining: int 10</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1616980345</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1617038177</span>
 <span class="co">#&gt;   .. ..$ used     : int 0</span>
 <span class="co">#&gt;  $ rate     :List of 4</span>
 <span class="co">#&gt;   ..$ limit    : int 60</span>
-<span class="co">#&gt;   ..$ remaining: int 0</span>
-<span class="co">#&gt;   ..$ reset    : int 1616981002</span>
-<span class="co">#&gt;   ..$ used     : int 60</span></code></pre></div>
+<span class="co">#&gt;   ..$ remaining: int 56</span>
+<span class="co">#&gt;   ..$ reset    : int 1617041715</span>
+<span class="co">#&gt;   ..$ used     : int 4</span></code></pre></div>
 <p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rate_limit</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
@@ -529,7 +569,7 @@
 <span class="op">}</span>
 
 <span class="fu">rate_limit</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; 0 / 60 (Resets at 01:23:22)</span></code></pre></div>
+<span class="co">#&gt; 56 / 60 (Resets at 18:15:15)</span></code></pre></div>
 </div>
 </div>
   </div>
