@@ -9,7 +9,9 @@ oauth2.0_errors <- c(
   "invalid_grant",
   "unauthorized_client",
   "unsupported_grant_type",
-  "invalid_scope"
+  "invalid_scope",
+  # has been seen in Google auth
+  "deleted_client"
 )
 
 # This implements error checking according to the OAuth2.0
