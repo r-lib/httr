@@ -18,7 +18,9 @@ RETRY(
   handle = NULL,
   quiet = FALSE,
   terminate_on = NULL,
-  terminate_on_success = TRUE
+  terminate_on_success = TRUE,
+  failure_threshold = Inf,
+  failure_timeout = 30
 )
 }
 \arguments{
@@ -92,6 +94,15 @@ retrying while \code{\link[=http_error]{http_error()}} is \code{TRUE} for the re
 \item{terminate_on_success}{If \code{TRUE}, the default, this will
 automatically terminate when the request is successful, regardless of the
 value of \code{terminate_on}.}
+
+\item{failure_threshold}{If requests continue to fail even when retried up to
+this number of times, impose a timeout on all subsequent requests to this
+host/port combination (or \code{handle}, if given). This timeout will persist
+across subsequent calls to this function, and is intended to detect failing
+servers without needing to wait each time (a "circuit-breaker" pattern).}
+
+\item{failure_timeout}{Time to wait, in seconds, before retrying a request
+that has exceeded the failure threshold.}
 }
 \value{
 The last response. Note that if the request doesn't succeed after
