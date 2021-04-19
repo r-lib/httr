@@ -240,7 +240,13 @@ github_api("/user/hadley")
 > need to make your request function check the `status_code()` before parsing 
 > the response.
 
-For many APIs, the common approach is to retry API calls that return something in the 500 range. However, when doing this, it's **extremely** important to make sure to do this with some form of exponential backoff: if something's wrong on the server-side, hammering the server with retries may make things worse, and may lead to you exhausting quota (or hitting other sorts of rate limits). A common policy is to retry up to 5 times, starting at 1s, and each time doubling and adding a small amount of jitter (plus or minus up to, say, 5% of the current wait time). 
+For many APIs, the common approach is to retry API calls that return something in the 500 range. However, when doing this, it's **extremely** important to make sure to do this with some form of exponential backoff: if something's wrong on the server-side, hammering the server with retries may make things worse, and may lead to you exhausting quota (or hitting other sorts of rate limits). A common policy is to retry up to 5 times, starting at 1s, and each time doubling and adding a small amount of jitter (plus or minus up to, say, 5% of the current wait time).
+
+`httr` provides a function that does this for you. To make your code more reliable in the presence of temporary issues like network outages or brief periods of server-side unavailability, consider using `RETRY()` in place of functions like `GET()`, `POST()`, etc.
+
+```{r, eval = FALSE, echo = TRUE}
+resp <- RETRY("GET", url)
+```
 
 ### Set a user agent
 
