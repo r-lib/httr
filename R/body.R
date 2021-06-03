@@ -31,6 +31,48 @@ body_config <- function(body = NULL,
     ))
   }
 
+  # Connections - use chunked encoding and readfunction
+  if (inherits(body, "connection")) {
+    # summary() will fail with "invalid connection" if the connection has been closed
+    # (and so will all other functions) so let's handle that case ourselves
+    con.info <- tryCatch(summary(body), error=function(e) NULL)
+    if (is.null(con.info)) {
+      stop("Invalid connection in `body`, likely already closed.",
+           call. = FALSE)
+    }
+    con <- body
+
+    ## it has to be either 1) open for reading and binary or 2) unopened
+    if ((isOpen(con, "r") && con.info$text == "text") ||
+        (!isOpen(con, "r") && isOpen(con))) {
+      stop("Connection in `body` must be either unopened or open for reading and binary.",
+           call. = FALSE)
+    }
+
+    ## if it's not open, open it as binary reading
+    if (!isOpen(con))
+      open(con, "rb")
+
+    return(c(
+      config(
+        post = TRUE,
+        readfunction = function(nbytes, ...) {
+          if (is.null(con)) {
+              return(raw())
+          }
+          bin <- readBin(con, "raw", nbytes)
+          if (length(bin) < nbytes) {
+            close(con)
+            con <<- NULL
+          }
+          bin
+        }
+      ),
+      add_headers(`Transfer-Encoding`="chunked"), ## must be chunked
+      content_type(type %||% attr(body, "type", TRUE) %||% "")
+    ))
+  }
+
   # For character/raw, send raw bytes
   if (is.character(body) || is.raw(body)) {
     return(body_raw(body, type = type))
