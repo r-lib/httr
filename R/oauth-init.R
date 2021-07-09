@@ -172,7 +172,7 @@ oauth2.0_access_token <- function(endpoint,
   ))
 
   if (!is.null(user_params)) {
-    req_params <- utils::modifyList(user_params, req_params)
+    req_params <- utils::modifyList(req_params, user_params)
   }
 
   # Send credentials using HTTP Basic or as parameters in the request body
