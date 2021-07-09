@@ -23,7 +23,12 @@ compose_query <- function(elements) {
   names <- curl::curl_escape(names(elements))
 
   encode <- function(x) {
-    if (inherits(x, "AsIs")) return(x)
+    if (inherits(x, "AsIs")) {
+      return(x)
+    }
+    if (is.numeric(x)) {
+      x <- format(x, scientific = FALSE)
+    }
     curl::curl_escape(x)
   }
   values <- vapply(elements, encode, character(1))
