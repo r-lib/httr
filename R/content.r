@@ -3,10 +3,10 @@
 #' There are currently three ways to retrieve the contents of a request:
 #' as a raw object (`as = "raw"`), as a character vector,
 #' (`as = "text"`), and as parsed into an R object where possible,
-#' (`as = "parsed"`). If `as` is not specified, `content`
+#' (`as = "parsed"`). If `as` is not specified (`NULL`), `content()`
 #' does its best to guess which output is most appropriate.
 #'
-#' `content` currently knows about the following mime types:
+#' `content()` currently knows about the following MIME types:
 #'
 #' * `text/html`: [xml2::read_html()]
 #' * `text/xml`: [xml2::read_xml()]
@@ -24,23 +24,23 @@
 #' @section WARNING:
 #'
 #' When using `content()` in a package, DO NOT use on `as = "parsed"`.
-#' Instead, check the mime-type is what you expect, and then parse yourself.
+#' Instead, check the MIME type is what you expect, and then parse yourself.
 #' This is safer, as you will fail informatively if the API changes, and
 #' you will protect yourself against changes to httr.
 #'
 #' @param x request object
-#' @param as desired type of output: `raw`, `text` or
-#'   `parsed`. `content` attempts to automatically figure out
-#'   which one is most appropriate, based on the content-type.
+#' @param as desired type of output: `raw`, `text`,
+#'   `parsed`, or `NULL` to automatically figure out
+#'   which one is most appropriate based on the content `type`.
 #' @param type MIME type (aka internet media type) used to override
 #'   the content type returned by the server. See
 #'   <https://en.wikipedia.org/wiki/Internet_media_type> for a list of
 #'   common types.
 #' @param encoding For text, overrides the charset or the Latin1 (ISO-8859-1)
 #'   default, if you know that the server is returning the incorrect encoding
-#'   as the charset in the content-type. Use for text and parsed outputs.
+#'   as the charset in the content type. Use for text and parsed outputs.
 #' @param ... Other parameters passed on to the parsing functions, if
-#'  `as = "parsed"`
+#'  `as = "parsed"`.
 #' @family response methods
 #' @return
 #' For "raw", a raw vector.
