@@ -1,5 +1,8 @@
 # httr (development version)
 
+* When calling `request_perform()` and `curl` returns an incomplete response
+  object, use the original request url instead of an empty url. (#697)
+
 # httr 1.4.2
 
 * Fix failing test.
