@@ -156,7 +156,14 @@ request_perform <- function(req, handle, refresh = TRUE) {
     return(request_perform(req, handle, refresh = FALSE))
   }
 
-  url_scheme <- parse_url(resp$url)$scheme
+  # If the response does not return a url, use the request url
+  if (isTRUE(nzchar(resp$url))) {
+    response_url <- resp$url
+  } else {
+    response_url <- req$url
+  }
+
+  url_scheme <- parse_url(response_url)$scheme
   is_http <- tolower(url_scheme) %in% c("http", "https")
   if (is_http) {
     all_headers <- parse_http_headers(resp$headers)
@@ -173,7 +180,7 @@ request_perform <- function(req, handle, refresh = TRUE) {
   }
 
   res <- response(
-    url = resp$url,
+    url = response_url,
     status_code = resp$status_code,
     headers = headers,
     all_headers = all_headers,
