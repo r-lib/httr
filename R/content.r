@@ -12,7 +12,8 @@
 #' * `text/xml`: [xml2::read_xml()]
 #' * `text/csv`: [readr::read_csv()]
 #' * `text/tab-separated-values`: [readr::read_tsv()]
-#' * `application/json`: [jsonlite::fromJSON()]
+#' * `application/json`: [jsonlite::fromJSON()], but with a
+#' `simplifyVector = FALSE` default
 #' * `application/x-www-form-urlencoded`: `parse_query`
 #' * `image/jpeg`: [jpeg::readJPEG()]
 #' * `image/png`: [png::readPNG()]

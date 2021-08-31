@@ -50,7 +50,8 @@ does its best to guess which output is most appropriate.
 \item \code{text/xml}: \code{\link[xml2:read_xml]{xml2::read_xml()}}
 \item \code{text/csv}: \code{\link[readr:read_delim]{readr::read_csv()}}
 \item \code{text/tab-separated-values}: \code{\link[readr:read_delim]{readr::read_tsv()}}
-\item \code{application/json}: \code{\link[jsonlite:fromJSON]{jsonlite::fromJSON()}}
+\item \code{application/json}: \code{\link[jsonlite:fromJSON]{jsonlite::fromJSON()}}, but with a
+\code{simplifyVector = FALSE} default
 \item \code{application/x-www-form-urlencoded}: \code{parse_query}
 \item \code{image/jpeg}: \code{\link[jpeg:readJPEG]{jpeg::readJPEG()}}
 \item \code{image/png}: \code{\link[png:readPNG]{png::readPNG()}}
