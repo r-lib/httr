@@ -26,7 +26,7 @@ accept_xml()
 with \code{.}) will guess the mime type using \code{\link[mime:guess_type]{mime::guess_type()}}.}
 }
 \description{
-These are convenient wrappers aroud \code{\link[=add_headers]{add_headers()}}.
+These are convenient wrappers around \code{\link[=add_headers]{add_headers()}}.
 }
 \details{
 \code{accept_json}/\code{accept_xml} and

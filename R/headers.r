@@ -47,7 +47,7 @@ add_headers <- function(..., .headers = character()) {
 
 #' Set content-type and accept headers.
 #'
-#' These are convenient wrappers aroud [add_headers()].
+#' These are convenient wrappers around [add_headers()].
 #'
 #' `accept_json`/`accept_xml` and
 #' `content_type_json`/`content_type_xml` are useful shortcuts to
