@@ -34,7 +34,7 @@ For "text", a character vector of length 1. The character vector is always
 re-encoded to UTF-8. If this encoding fails (usually because the page
 declares an incorrect encoding), \code{content()} will return \code{NA}.
 
-For "auto", a parsed R object.
+For "parsed", a parsed R object.
 }
 \description{
 There are currently three ways to retrieve the contents of a request:
