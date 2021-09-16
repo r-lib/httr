@@ -49,7 +49,7 @@
 #' re-encoded to UTF-8. If this encoding fails (usually because the page
 #' declares an incorrect encoding), `content()` will return `NA`.
 #'
-#' For "auto", a parsed R object.
+#' For "parsed", a parsed R object.
 #' @export
 #' @examples
 #' r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
