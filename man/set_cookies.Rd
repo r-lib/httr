@@ -4,12 +4,14 @@
 \alias{set_cookies}
 \title{Set cookies.}
 \usage{
-set_cookies(..., .cookies = character(0))
+set_cookies(..., .cookies = character(0), escape = TRUE)
 }
 \arguments{
 \item{...}{a named cookie values}
 
 \item{.cookies}{a named character vector}
+
+\item{escape}{If \code{escape = FALSE}, the character in the cookies will not be escaped. Default is \code{TRUE}}
 }
 \description{
 Set cookies.

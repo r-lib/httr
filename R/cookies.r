@@ -2,20 +2,25 @@
 #'
 #' @param ... a named cookie values
 #' @param .cookies a named character vector
+#' @param escape If `escape = FALSE`, the character in the cookies will not be escaped. Default is `TRUE`
 #' @export
 #' @family config
 #' @seealso [cookies()] to see cookies in response.
 #' @examples
 #' set_cookies(a = 1, b = 2)
 #' set_cookies(.cookies = c(a = "1", b = "2"))
-#' 
+#'
 #' GET("http://httpbin.org/cookies")
 #' GET("http://httpbin.org/cookies", set_cookies(a = 1, b = 2))
-set_cookies <- function(..., .cookies = character(0)) {
+set_cookies <- function(..., .cookies = character(0), escape = TRUE) {
   cookies <- c(..., .cookies)
   stopifnot(is.character(cookies))
 
-  cookies_str <- vapply(cookies, curl::curl_escape, FUN.VALUE = character(1))
+  if(escape){
+    cookies_str <- vapply(cookies, curl::curl_escape, FUN.VALUE = character(1))
+  } else {
+    cookies_str <- cookies
+  }
 
   cookie <- paste(names(cookies), cookies_str, sep = "=", collapse = ";")
 
