@@ -1,11 +1,17 @@
 url: https://httr.r-lib.org
 
 template:
-  params:
-    ganalytics: UA-115082821-1
+  package: tidytemplate
+  bootstrap: 5
+
+  includes:
+    in_header: |
+      <script defer data-domain="httr.r-lib.org,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
+
+development:
+  mode: auto
 
 reference:
-
 - title: HTTP verbs
   contents:
   - GET
@@ -69,30 +75,7 @@ reference:
   - get_callback
   - response
 
-navbar:
-  title: httr
-  type: default
-  left:
-  - icon: fa-home fa-lg
-    href: /index.html
-  - text: Intro
-    href: articles/quickstart.html
-  - text: Reference
-    href: reference/index.html
-  - text: Articles
-    menu:
-    - text: Managing secrets
-      href: articles/secrets.html
-    - text: Best practices for API packages
-      href: articles/api-packages.html
-  right:
-  - text: News
-    menu:
-    - text: "Release notes"
-    - text: "Version 1.4.0"
-      href: https://www.tidyverse.org/articles/2018/12/httr-1-4-0/
-    - text: "------------------"
-    - text: "Change log"
-      href: news/index.html
-  - icon: fa-github fa-lg
-    href: https://github.com/r-lib/httr
+news:
+  releases:
+  - text: "Version 1.4.0"
+    href: https://www.tidyverse.org/articles/2018/12/httr-1-4-0/
