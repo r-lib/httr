@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">httr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -138,7 +138,7 @@ details.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="POST.html">POST</a></span><span class="op">(</span><span class="st">"http://httpbin.org/put"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/put]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 405</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 178 B</span>
@@ -148,10 +148,10 @@ details.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;p&gt;The method is not allowed for the requested URL.&lt;/p&gt;</span>
 <span class="r-in"><span class="fu">PUT</span><span class="op">(</span><span class="st">"http://httpbin.org/put"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/put]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 468 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 461 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "args": {}, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "data": "", </span>
@@ -167,10 +167,10 @@ details.</p></dd>
 <span class="r-in"><span class="va">b2</span> <span class="op">&lt;-</span> <span class="st">"http://httpbin.org/put"</span></span>
 <span class="r-in"><span class="fu">PUT</span><span class="op">(</span><span class="va">b2</span>, body <span class="op">=</span> <span class="st">"A simple text string"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/put]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 489 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 482 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "args": {}, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "data": "A simple text string", </span>
@@ -184,10 +184,10 @@ details.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span class="fu">PUT</span><span class="op">(</span><span class="va">b2</span>, body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"A simple text string"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/put]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 600 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 593 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "args": {}, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "data": "", </span>
@@ -201,10 +201,10 @@ details.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span class="fu">PUT</span><span class="op">(</span><span class="va">b2</span>, body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="upload_file.html">upload_file</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"CITATION"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/put]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 1.61 kB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 1.6 kB</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "args": {}, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "data": "", </span>
@@ -218,10 +218,10 @@ details.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span class="fu">PUT</span><span class="op">(</span><span class="va">b2</span>, body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"A simple text string"</span><span class="op">)</span>, encode <span class="op">=</span> <span class="st">"json"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/put]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 575 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 568 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "args": {}, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "data": "{\"x\":\"A simple text string\"}", </span>
@@ -242,7 +242,7 @@ details.</p></dd>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p></p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" width="72"></a>.</p>
+  <p></p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

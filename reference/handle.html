@@ -14,7 +14,7 @@ it will mostly be hidden from the user."><!-- mathjax --><script src="https://cd
     
     <a class="navbar-brand me-2" href="../index.html">httr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,7 +101,7 @@ selection of the correct handle is taken care of when the user passes an url
 <span class="r-in"><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu">handle</span><span class="op">(</span><span class="st">"http://google.com"</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span>handle <span class="op">=</span> <span class="va">h</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 14.9 kB</span>
@@ -119,7 +119,7 @@ selection of the correct handle is taken care of when the user passes an url
 <span class="r-in"><span class="co"># Should see cookies sent back to server</span></span>
 <span class="r-in"><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span>handle <span class="op">=</span> <span class="va">h</span>, config <span class="op">=</span> <span class="fu"><a href="verbose.html">verbose</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 14.9 kB</span>
@@ -139,9 +139,9 @@ selection of the correct handle is taken care of when the user passes an url
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Cookies argument is deprecated</span>
 <span class="r-in"><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span>handle <span class="op">=</span> <span class="va">h</span><span class="op">)</span><span class="op">$</span><span class="va">cookies</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  domain flag path secure          expiration name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 #HttpOnly_.google.com TRUE    /  FALSE 2022-08-31 15:45:58  NID</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 #HttpOnly_.google.com TRUE    /  FALSE 2022-08-31 16:27:16  NID</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                             value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 511=vW3-fQQuPamfomMQUbBg3SsDP6On0BKMW3NGGLbMa2zDmXdLJ2zA1op_1KhfJEU7pUxRlZwr-6eXPNW9tjOWwP0O97WN2vOe1Uvru10kMsMqPW8Web36CUOJYUM2-xBZgJGygxnQTrC36HTq0sVRrkeuURgwEYSdKz5RWEXvr0I</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 511=Jdn8Gj8tNyDTX5NqM43v4uXUBIdat4oA0wetkzGcBDxnu0vNv9Huvv7I06GgC-7qCB-RJhvFHuBSv5E1RhqR1PWbCCx0izWX6Y66c1cCcpCmwU5O4H9e4iBo_CitdVXhWZW4ysO1XOX1Afy_fc-0ZlR4V7YWM0NwMrM-XVMyxcs</span>
 <span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
 <span class="r-in"><span class="co"># Using the preferred way of configuring the http methods</span></span>
 <span class="r-in"><span class="co"># will not work when using handle():</span></span>
@@ -159,7 +159,7 @@ selection of the correct handle is taken care of when the user passes an url
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p></p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" width="72"></a>.</p>
+  <p></p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

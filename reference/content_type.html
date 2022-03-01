@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">httr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,112 +95,112 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 295 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 290 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json, text/xml, application/xml, */*", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e3fb5-2a1163d655d8b101212145c3"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e4963-4f942fa534d28a3b11ffcb69"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">accept_json</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 263 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 258 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e3fb5-3f0187657a2d447e619ee78d"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e4963-2aeba0d60e35d34d4e6a8e15"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">accept</span><span class="op">(</span><span class="st">"text/csv"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 255 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 250 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "text/csv", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e3fb5-175768f35557482c1bdec6cd"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e4963-614990986b5dec7130305b02"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">accept</span><span class="op">(</span><span class="st">".doc"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 265 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 260 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/msword", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e3fb5-27c14ca6101798e1111a2c41"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e4963-52899b3922aeeece705018cf"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">content_type_xml</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 335 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 330 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json, text/xml, application/xml, */*", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Type": "application/xml", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e3fb5-066382a67eae401e7a6dcec9"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e4963-42088baf63bd82e916a53a09"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">content_type</span><span class="op">(</span><span class="st">"text/csv"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 328 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 323 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json, text/xml, application/xml, */*", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Type": "text/csv", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e3fb5-033781e95ff0482a3a8b5141"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e4963-357a8b31297501913395ce6e"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">content_type</span><span class="op">(</span><span class="st">".xml"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 15:45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-03-01 16:27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 335 B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 330 B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json, text/xml, application/xml, */*", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Type": "application/xml", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e3fb5-2f0df3ff45cef70d1b1e2389"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e4963-51a7394e74d82e6f6a8768e0"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 </code></pre></div>
@@ -212,7 +212,7 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p></p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" width="72"></a>.</p>
+  <p></p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

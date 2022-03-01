@@ -18,7 +18,7 @@ does its best to guess which output is most appropriate.'><!-- mathjax --><scrip
     
     <a class="navbar-brand me-2" href="../index.html">httr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,14 +91,14 @@ which one is most appropriate, based on the content-type.</p></dd>
 <dt>type</dt>
 <dd><p>MIME type (aka internet media type) used to override
 the content type returned by the server. See
-<a href="https://en.wikipedia.org/wiki/Internet_media_type" class="external-link">https://en.wikipedia.org/wiki/Internet_media_type</a> for a list of
+<a href="http://en.wikipedia.org/wiki/Internet_media_type" class="external-link">http://en.wikipedia.org/wiki/Internet_media_type</a> for a list of
 common types.</p></dd>
 <dt>encoding</dt>
 <dd><p>For text, overrides the charset or the Latin1 (ISO-8859-1)
 default, if you know that the server is returning the incorrect encoding
 as the charset in the content-type. Use for text and parsed outputs.</p></dd>
 <dt>...</dt>
-<dd><p>Other parameters passed on to the parsing functions, if
+<dd><p>Other parameters parsed on to the parsing functions, if
 <code>as = "parsed"</code></p></dd>
 </dl></div>
     <div class="section level2">
@@ -174,23 +174,23 @@ you will protect yourself against changes to httr.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "228"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`Content-Type`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "multipart/form-data; boundary=------------------------8fcaf23c511a1762"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "multipart/form-data; boundary=------------------------355cf6e1dc8d8c29"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers$Host</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "httpbin.org"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`User-Agent`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2.9000"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`X-Amzn-Trace-Id`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Root=1-621e3fb2-2756786a0ad4ad8639452fff"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Root=1-621e4961-1535841961902a6003699e3f"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $json</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $origin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "20.119.161.120"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "40.76.219.89"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://httpbin.org/post"</span>
@@ -209,13 +209,13 @@ you will protect yourself against changes to httr.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json, text/xml, application/xml, */*", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Length": "228", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Type": "multipart/form-data; boundary=------------------------8fcaf23c511a1762", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Type": "multipart/form-data; boundary=------------------------355cf6e1dc8d8c29", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e3fb2-2756786a0ad4ad8639452fff"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.2", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-621e4961-1535841961902a6003699e3f"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "json": null, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "origin": "20.119.161.120", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "origin": "40.76.219.89", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "http://httpbin.org/post"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
@@ -234,18 +234,18 @@ you will protect yourself against changes to httr.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [254] 20 20 22 43 6f 6e 74 65 6e 74 2d 54 79 70 65 22 3a 20 22 6d 75 6c 74</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [277] 69 70 61 72 74 2f 66 6f 72 6d 2d 64 61 74 61 3b 20 62 6f 75 6e 64 61</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [300] 72 79 3d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [323] 2d 2d 2d 2d 38 66 63 61 66 32 33 63 35 31 31 61 31 37 36 32 22 2c 20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [323] 2d 2d 2d 2d 33 35 35 63 66 36 65 31 64 63 38 64 38 63 32 39 22 2c 20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [346] 0a 20 20 20 20 22 48 6f 73 74 22 3a 20 22 68 74 74 70 62 69 6e 2e 6f</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [369] 72 67 22 2c 20 0a 20 20 20 20 22 55 73 65 72 2d 41 67 65 6e 74 22 3a</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [392] 20 22 6c 69 62 63 75 72 6c 2f 37 2e 36 38 2e 30 20 72 2d 63 75 72 6c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [415] 2f 34 2e 33 2e 32 20 68 74 74 72 2f 31 2e 34 2e 32 2e 39 30 30 30 22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [438] 2c 20 0a 20 20 20 20 22 58 2d 41 6d 7a 6e 2d 54 72 61 63 65 2d 49 64</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [461] 22 3a 20 22 52 6f 6f 74 3d 31 2d 36 32 31 65 33 66 62 32 2d 32 37 35</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [484] 36 37 38 36 61 30 61 64 34 61 64 38 36 33 39 34 35 32 66 66 66 22 0a</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [507] 20 20 7d 2c 20 0a 20 20 22 6a 73 6f 6e 22 3a 20 6e 75 6c 6c 2c 20 0a</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [530] 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 32 30 2e 31 31 39 2e 31 36 31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [553] 2e 31 32 30 22 2c 20 0a 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 3a</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [576] 2f 2f 68 74 74 70 62 69 6e 2e 6f 72 67 2f 70 6f 73 74 22 0a 7d 0a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [415] 2f 34 2e 33 2e 32 20 68 74 74 72 2f 31 2e 34 2e 32 22 2c 20 0a 20 20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [438] 20 20 22 58 2d 41 6d 7a 6e 2d 54 72 61 63 65 2d 49 64 22 3a 20 22 52</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [461] 6f 6f 74 3d 31 2d 36 32 31 65 34 39 36 31 2d 31 35 33 35 38 34 31 39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [484] 36 31 39 30 32 61 36 30 30 33 36 39 39 65 33 66 22 0a 20 20 7d 2c 20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [507] 0a 20 20 22 6a 73 6f 6e 22 3a 20 6e 75 6c 6c 2c 20 0a 20 20 22 6f 72</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [530] 69 67 69 6e 22 3a 20 22 34 30 2e 37 36 2e 32 31 39 2e 38 39 22 2c 20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [553] 0a 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 3a 2f 2f 68 74 74 70 62</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [576] 69 6e 2e 6f 72 67 2f 70 6f 73 74 22 0a 7d 0a</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">rlogo</span> <span class="op">&lt;-</span> <span class="fu">content</span><span class="op">(</span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://cran.r-project.org/Rlogo.jpg"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, type <span class="op">=</span> <span class="st">"n"</span><span class="op">)</span></span>
@@ -260,7 +260,7 @@ you will protect yourself against changes to httr.</p>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p></p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" width="72"></a>.</p>
+  <p></p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
