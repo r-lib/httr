@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://httr.r-lib.org/404.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/SUPPORT.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/articles/api-packages.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/articles/quickstart.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/articles/secrets.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/authors.html</loc>
+  </url>
+  <url>
     <loc>https://httr.r-lib.org/index.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/news/index.html</loc>
   </url>
   <url>
     <loc>https://httr.r-lib.org/reference/BROWSE.html</loc>
@@ -95,6 +131,9 @@
   </url>
   <url>
     <loc>https://httr.r-lib.org/reference/httr_options.html</loc>
+  </url>
+  <url>
+    <loc>https://httr.r-lib.org/reference/index.html</loc>
   </url>
   <url>
     <loc>https://httr.r-lib.org/reference/init_oauth1.0.html</loc>
@@ -203,14 +242,5 @@
   </url>
   <url>
     <loc>https://httr.r-lib.org/reference/write_stream.html</loc>
-  </url>
-  <url>
-    <loc>https://httr.r-lib.org/articles/api-packages.html</loc>
-  </url>
-  <url>
-    <loc>https://httr.r-lib.org/articles/quickstart.html</loc>
-  </url>
-  <url>
-    <loc>https://httr.r-lib.org/articles/secrets.html</loc>
   </url>
 </urlset>
