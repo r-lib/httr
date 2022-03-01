@@ -3,7 +3,7 @@ Title: Tools for Working with URLs and HTTP
 Version: 1.4.2.9000
 Authors@R: c(
     person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre")),
-    person("RStudio", role = "cph")
+    person("RStudio", role = c("cph", "fnd"))
   )
 Description: Useful tools for working with HTTP organised by HTTP verbs
     (GET(), POST(), etc). Configuration functions make it easy to control
