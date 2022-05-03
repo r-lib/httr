@@ -1,5 +1,7 @@
 # httr (development version)
 
+* Fix failing test.
+
 # httr 1.4.2
 
 * Fix failing test.
