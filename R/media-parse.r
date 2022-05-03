@@ -1,7 +1,7 @@
 #' Parse a media type.
 #'
 #' Parsed according to RFC 2616, as at
-#' <http://pretty-rfc.herokuapp.com/RFC2616#media.types>.
+#' <https://www.rfc-editor.org/rfc/rfc2616#section-3.7>.
 #'
 #' A simplified minimal EBNF is:
 #'
