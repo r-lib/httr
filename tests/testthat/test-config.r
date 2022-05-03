@@ -2,6 +2,8 @@ context("Config")
 
 
 test_that("basic authentication works", {
+  skip_on_cran()
+
   h <- handle("http://httpbin.org")
   path <- "basic-auth/user/passwd"
 
@@ -20,6 +22,8 @@ test_that("basic authentication works", {
 })
 
 test_that("digest authentication works", {
+  skip_on_cran()
+
   h <- handle("http://httpbin.org")
   path <- "digest-auth/qop/user/passwd"
 
