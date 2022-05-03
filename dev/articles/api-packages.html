@@ -163,7 +163,7 @@
 <span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu">github_api</span><span class="op">(</span><span class="st">"/repos/hadley/httr"</span><span class="op">)</span>
 <span class="va">resp</span>
 <span class="co">#&gt; Response [https://api.github.com/repositories/2756403]</span>
-<span class="co">#&gt;   Date: 2022-05-03 20:24</span>
+<span class="co">#&gt;   Date: 2022-05-03 20:44</span>
 <span class="co">#&gt;   Status: 200</span>
 <span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span>
 <span class="co">#&gt;   Size: 6.21 kB</span>
@@ -187,7 +187,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span><span class="op">)</span>
 <span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span>
-<span class="co">#&gt;   Date: 2022-05-03 20:24</span>
+<span class="co">#&gt;   Date: 2022-05-03 20:44</span>
 <span class="co">#&gt;   Status: 403</span>
 <span class="co">#&gt;   Content-Type: text/html; charset=UTF-8</span>
 <span class="co">#&gt;   Size: 12 kB</span>
@@ -204,7 +204,7 @@
 <span class="co">#&gt; ...</span>
 <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span><span class="op">)</span>
 <span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span>
-<span class="co">#&gt;   Date: 2022-05-03 20:24</span>
+<span class="co">#&gt;   Date: 2022-05-03 20:44</span>
 <span class="co">#&gt;   Status: 403</span>
 <span class="co">#&gt;   Content-Type: text/html; charset=UTF-8</span>
 <span class="co">#&gt;   Size: 12 kB</span>
@@ -333,7 +333,7 @@
 <li>Server-side exceptions</li>
 </ul>
 <p>You need to make sure these are all converted into regular R errors. You can figure out if there’s a problem with <code><a href="../reference/http_error.html">http_error()</a></code>, which checks the HTTP status code. Status codes in the 400 range usually mean that you’ve done something wrong. Status codes in the 500 range typically mean that something has gone wrong on the server side.</p>
-<p>Often the API will provide information about the error in the body of the response: you should use this where available. If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are <a href="https://developer.github.com/v3/#rate-limiting" class="external-link">rate limited</a> you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).</p>
+<p>Often the API will provide information about the error in the body of the response: you should use this where available. If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are <a href="https://docs.github.com/v3/#rate-limiting" class="external-link">rate limited</a> you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://api.github.com"</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
@@ -519,31 +519,31 @@
 <span class="co">#&gt;   ..$ core                :List of 5</span>
 <span class="co">#&gt;   .. ..$ limit    : int 60</span>
 <span class="co">#&gt;   .. ..$ remaining: int 56</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1651613069</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1651614251</span>
 <span class="co">#&gt;   .. ..$ used     : int 4</span>
 <span class="co">#&gt;   .. ..$ resource : chr "core"</span>
 <span class="co">#&gt;   ..$ graphql             :List of 5</span>
 <span class="co">#&gt;   .. ..$ limit    : int 0</span>
 <span class="co">#&gt;   .. ..$ remaining: int 0</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1651613071</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1651614252</span>
 <span class="co">#&gt;   .. ..$ used     : int 0</span>
 <span class="co">#&gt;   .. ..$ resource : chr "graphql"</span>
 <span class="co">#&gt;   ..$ integration_manifest:List of 5</span>
 <span class="co">#&gt;   .. ..$ limit    : int 5000</span>
 <span class="co">#&gt;   .. ..$ remaining: int 5000</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1651613071</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1651614252</span>
 <span class="co">#&gt;   .. ..$ used     : int 0</span>
 <span class="co">#&gt;   .. ..$ resource : chr "integration_manifest"</span>
 <span class="co">#&gt;   ..$ search              :List of 5</span>
 <span class="co">#&gt;   .. ..$ limit    : int 10</span>
 <span class="co">#&gt;   .. ..$ remaining: int 10</span>
-<span class="co">#&gt;   .. ..$ reset    : int 1651609531</span>
+<span class="co">#&gt;   .. ..$ reset    : int 1651610712</span>
 <span class="co">#&gt;   .. ..$ used     : int 0</span>
 <span class="co">#&gt;   .. ..$ resource : chr "search"</span>
 <span class="co">#&gt;  $ rate     :List of 5</span>
 <span class="co">#&gt;   ..$ limit    : int 60</span>
 <span class="co">#&gt;   ..$ remaining: int 56</span>
-<span class="co">#&gt;   ..$ reset    : int 1651613069</span>
+<span class="co">#&gt;   ..$ reset    : int 1651614251</span>
 <span class="co">#&gt;   ..$ used     : int 4</span>
 <span class="co">#&gt;   ..$ resource : chr "core"</span></code></pre></div>
 <p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
@@ -558,7 +558,7 @@
 <span class="op">}</span>
 
 <span class="fu">rate_limit</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; 56 / 60 (Resets at 21:24:29)</span></code></pre></div>
+<span class="co">#&gt; 56 / 60 (Resets at 21:44:10)</span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
