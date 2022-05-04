@@ -14,3 +14,4 @@
 ^codecov\.yml$
 ^LICENSE\.md$
 ^\.github$
+^CRAN-SUBMISSION$
