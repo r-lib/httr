@@ -30,7 +30,7 @@ value will be used instead, unless it's smaller than pause_min."><meta name="rob
     
     <a class="navbar-brand me-2" href="../index.html">httr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.3.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -196,16 +196,16 @@ to use <code><a href="stop_for_status.html">stop_for_status()</a></code>.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Succeeds straight away</span></span>
 <span class="r-in"><span class="fu">RETRY</span><span class="op">(</span><span class="st">"GET"</span>, <span class="st">"http://httpbin.org/status/200"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/status/200]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-03 20:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-04 12:24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=utf-8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
 <span class="r-in"><span class="co"># Never succeeds</span></span>
 <span class="r-in"><span class="fu">RETRY</span><span class="op">(</span><span class="st">"GET"</span>, <span class="st">"http://httpbin.org/status/500"</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 1.5 seconds...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 2.6 seconds...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 1 seconds...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 3.4 seconds...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/status/500]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-03 20:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-04 12:24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 500</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=utf-8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>

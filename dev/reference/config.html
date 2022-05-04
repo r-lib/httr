@@ -22,7 +22,7 @@ for a given option, use curl_docs()."><meta name="robots" content="noindex"><!--
     
     <a class="navbar-brand me-2" href="../index.html">httr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.3.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,7 +122,7 @@ per handle.</p>
 <span class="r-in"><span class="co"># * you can add directly to a request</span></span>
 <span class="r-in"><span class="fu"><a href="HEAD.html">HEAD</a></span><span class="op">(</span><span class="st">"https://www.google.com"</span>, <span class="fu"><a href="verbose.html">verbose</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [https://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-03 20:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-04 12:24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
@@ -130,7 +130,7 @@ per handle.</p>
 <span class="r-in"><span class="co"># * you can wrap with with_config()</span></span>
 <span class="r-in"><span class="fu"><a href="with_config.html">with_config</a></span><span class="op">(</span><span class="fu"><a href="verbose.html">verbose</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="HEAD.html">HEAD</a></span><span class="op">(</span><span class="st">"https://www.google.com"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [https://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-03 20:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-04 12:24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
@@ -139,7 +139,7 @@ per handle.</p>
 <span class="r-in"><span class="va">old</span> <span class="op">&lt;-</span> <span class="fu"><a href="set_config.html">set_config</a></span><span class="op">(</span><span class="fu"><a href="verbose.html">verbose</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="HEAD.html">HEAD</a></span><span class="op">(</span><span class="st">"https://www.google.com"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [https://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-03 20:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-04 12:24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
@@ -147,7 +147,7 @@ per handle.</p>
 <span class="r-in"><span class="fu"><a href="set_config.html">set_config</a></span><span class="op">(</span><span class="va">old</span>, override <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="HEAD.html">HEAD</a></span><span class="op">(</span><span class="st">"https://www.google.com"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [https://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-03 20:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-04 12:24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
@@ -155,7 +155,7 @@ per handle.</p>
 <span class="r-in"><span class="fu"><a href="set_config.html">reset_config</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="HEAD.html">HEAD</a></span><span class="op">(</span><span class="st">"https://www.google.com"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [https://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-03 20:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-04 12:24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
@@ -165,7 +165,7 @@ per handle.</p>
 <span class="r-in"><span class="co"># in config</span></span>
 <span class="r-in"><span class="fu"><a href="HEAD.html">HEAD</a></span><span class="op">(</span><span class="st">"https://www.google.com/"</span>, <span class="fu">config</span><span class="op">(</span>verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [https://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-03 20:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-04 12:24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
