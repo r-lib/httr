@@ -9,7 +9,7 @@ randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in
 https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/.)
 If the server returns status code 429 and specifies a retry-after value, that
-value will be used instead, unless it's smaller than pause_min."><title>Retry a request until it succeeds. — RETRY • httr</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="../deps/_Source%20Sans%20Pro-0.4.1/font.css" rel="stylesheet"><link href="../deps/_Source%20Code%20Pro-0.4.1/font.css" rel="stylesheet"><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Retry a request until it succeeds. — RETRY"><meta property="og:description" content="Safely retry a request until it succeeds, as defined by the terminate_on
+value will be used instead, unless it's smaller than pause_min."><title>Retry a request until it succeeds. — RETRY • httr</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.2/font.css" rel="stylesheet"><link href="../deps/Source_Code_Pro-0.4.2/font.css" rel="stylesheet"><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Retry a request until it succeeds. — RETRY"><meta property="og:description" content="Safely retry a request until it succeeds, as defined by the terminate_on
 parameter, which by default means a response for which http_error()
 is FALSE. Will also retry on error conditions raised by the underlying curl code,
 but if the last retry still raises one, RETRY will raise it again with
@@ -95,39 +95,47 @@ value will be used instead, unless it's smaller than <code>pause_min</code>.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">RETRY</span><span class="op">(</span>
-  <span class="va">verb</span>,
-  url <span class="op">=</span> <span class="cn">NULL</span>,
-  config <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  <span class="va">...</span>,
-  body <span class="op">=</span> <span class="cn">NULL</span>,
-  encode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"multipart"</span>, <span class="st">"form"</span>, <span class="st">"json"</span>, <span class="st">"raw"</span><span class="op">)</span>,
-  times <span class="op">=</span> <span class="fl">3</span>,
-  pause_base <span class="op">=</span> <span class="fl">1</span>,
-  pause_cap <span class="op">=</span> <span class="fl">60</span>,
-  pause_min <span class="op">=</span> <span class="fl">1</span>,
-  handle <span class="op">=</span> <span class="cn">NULL</span>,
-  quiet <span class="op">=</span> <span class="cn">FALSE</span>,
-  terminate_on <span class="op">=</span> <span class="cn">NULL</span>,
-  terminate_on_success <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">RETRY</span><span class="op">(</span></span>
+<span>  <span class="va">verb</span>,</span>
+<span>  url <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  config <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  body <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  encode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"multipart"</span>, <span class="st">"form"</span>, <span class="st">"json"</span>, <span class="st">"raw"</span><span class="op">)</span>,</span>
+<span>  times <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  pause_base <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  pause_cap <span class="op">=</span> <span class="fl">60</span>,</span>
+<span>  pause_min <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  handle <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  terminate_on <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  terminate_on_success <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>verb</dt>
 <dd><p>Name of verb to use.</p></dd>
+
+
 <dt>url</dt>
 <dd><p>the url of the page to retrieve</p></dd>
+
+
 <dt>config</dt>
 <dd><p>Additional configuration settings such as http
 authentication (<code><a href="authenticate.html">authenticate()</a></code>), additional headers
 (<code><a href="add_headers.html">add_headers()</a></code>), cookies (<code><a href="set_cookies.html">set_cookies()</a></code>) etc.
 See <code><a href="config.html">config()</a></code> for full details and list of helpers.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Further named parameters, such as <code>query</code>, <code>path</code>, etc,
 passed on to <code><a href="modify_url.html">modify_url()</a></code>. Unnamed parameters will be combined
 with <code><a href="config.html">config()</a></code>.</p></dd>
+
+
 <dt>body</dt>
 <dd><p>One of the following:</p><ul><li><p><code>FALSE</code>: No body. This is typically not used with <code>POST</code>,
 <code>PUT</code>, or <code>PATCH</code>, but can be useful if you need to send a
@@ -142,6 +150,8 @@ as the second argument to <code><a href="upload_file.html">upload_file()</a></co
 you are sending.</p></li>
 <li><p>A named list: See details for encode.</p></li>
 </ul></dd>
+
+
 <dt>encode</dt>
 <dd><p>If the body is a named list, how should it be encoded? Can be
 one of form (application/x-www-form-urlencoded), multipart,
@@ -153,17 +163,25 @@ parameters are automatically "unboxed" (i.e. length 1 vectors are
 converted to scalars). To preserve a length 1 vector as a vector,
 wrap in <code><a href="https://rdrr.io/r/base/AsIs.html" class="external-link">I()</a></code>. For "raw", either a character or raw vector. You'll
 need to make sure to set the <code><a href="content_type.html">content_type()</a></code> yourself.</p></dd>
+
+
 <dt>times</dt>
 <dd><p>Maximum number of requests to attempt.</p></dd>
+
+
 <dt>pause_base, pause_cap</dt>
 <dd><p>This method uses exponential back-off with
 full jitter - this means that each request will randomly wait between 0
 and <code>pause_base * 2 ^ attempt</code> seconds, up to a maximum of
 <code>pause_cap</code> seconds.</p></dd>
+
+
 <dt>pause_min</dt>
 <dd><p>Minimum time to wait in the backoff; generally
 only necessary if you need pauses less than one second (which may
 not be kind to the server, use with caution!).</p></dd>
+
+
 <dt>handle</dt>
 <dd><p>The handle to use with this request. If not
 supplied, will be retrieved and reused from the <code><a href="handle_pool.html">handle_pool()</a></code>
@@ -172,48 +190,57 @@ requests to the same scheme/host/port combo. This substantially reduces
 connection time, and ensures that cookies are maintained over multiple
 requests to the same host. See <code><a href="handle_pool.html">handle_pool()</a></code> for more
 details.</p></dd>
+
+
 <dt>quiet</dt>
 <dd><p>If <code>FALSE</code>, will print a message displaying how long
 until the next request.</p></dd>
+
+
 <dt>terminate_on</dt>
 <dd><p>Optional vector of numeric HTTP status codes that if found
 on the response will terminate the retry process. If <code>NULL</code>, will keep
 retrying while <code><a href="http_error.html">http_error()</a></code> is <code>TRUE</code> for the response.</p></dd>
+
+
 <dt>terminate_on_success</dt>
 <dd><p>If <code>TRUE</code>, the default, this will
 automatically terminate when the request is successful, regardless of the
 value of <code>terminate_on</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>The last response. Note that if the request doesn't succeed after
+    
+
+<p>The last response. Note that if the request doesn't succeed after
 <code>times</code> times this will be a failed request, i.e. you still need
 to use <code><a href="stop_for_status.html">stop_for_status()</a></code>.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Succeeds straight away</span></span>
-<span class="r-in"><span class="fu">RETRY</span><span class="op">(</span><span class="st">"GET"</span>, <span class="st">"http://httpbin.org/status/200"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Succeeds straight away</span></span></span>
+<span class="r-in"><span><span class="fu">RETRY</span><span class="op">(</span><span class="st">"GET"</span>, <span class="st">"http://httpbin.org/status/200"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/status/200]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-04 12:24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-08-15 21:44</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=utf-8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
-<span class="r-in"><span class="co"># Never succeeds</span></span>
-<span class="r-in"><span class="fu">RETRY</span><span class="op">(</span><span class="st">"GET"</span>, <span class="st">"http://httpbin.org/status/500"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># Never succeeds</span></span></span>
+<span class="r-in"><span><span class="fu">RETRY</span><span class="op">(</span><span class="st">"GET"</span>, <span class="st">"http://httpbin.org/status/500"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 1 seconds...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 3.4 seconds...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 3.8 seconds...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/status/500]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-05-04 12:24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2022-08-15 21:44</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 500</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=utf-8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co"># Invalid hostname generates curl error condition and is retried but eventually</span></span>
-<span class="r-in"><span class="co"># raises an error condition.</span></span>
-<span class="r-in"><span class="fu">RETRY</span><span class="op">(</span><span class="st">"GET"</span>, <span class="st">"http://invalidhostname/"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># Invalid hostname generates curl error condition and is retried but eventually</span></span></span>
+<span class="r-in"><span><span class="co"># raises an error condition.</span></span></span>
+<span class="r-in"><span><span class="fu">RETRY</span><span class="op">(</span><span class="st">"GET"</span>, <span class="st">"http://invalidhostname/"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -227,7 +254,7 @@ to use <code><a href="stop_for_status.html">stop_for_status()</a></code>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
   </div></footer></body></html>
