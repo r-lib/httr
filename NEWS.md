@@ -1,4 +1,4 @@
-# httr (development version)
+# httr 1.4.4
 
 * Fix intermittent failing test.
 
