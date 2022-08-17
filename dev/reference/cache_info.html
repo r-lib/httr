@@ -16,7 +16,7 @@ revalidation if Etag or Last-Modified headers are present)."><meta name="robots"
     
     <a class="navbar-brand me-2" href="../index.html">httr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.3.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.4.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,38 +93,38 @@ revalidation if Etag or Last-Modified headers are present).</p>
 <span class="r-in"><span><span class="fu">cache_info</span><span class="op">(</span><span class="va">r1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;cache_info&gt;  https://www.google.com/</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Cacheable:     TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Expires:       Mon, 15 Aug 2022 21:44:38 GMT &lt;expired&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Expires:       Wed, 17 Aug 2022 14:45:26 GMT &lt;expired&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Last-Modified: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Etag:          </span>
 <span class="r-in"><span><span class="va">r1</span><span class="op">$</span><span class="va">date</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-15 21:44:38 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-17 14:45:26 GMT"</span>
 <span class="r-in"><span><span class="fu">rerequest</span><span class="op">(</span><span class="va">r1</span><span class="op">)</span><span class="op">$</span><span class="va">date</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-15 21:44:38 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-17 14:45:26 GMT"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Expires in a year</span></span></span>
 <span class="r-in"><span><span class="va">r2</span> <span class="op">&lt;-</span> <span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"https://www.google.com/images/srpr/logo11w.png"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">cache_info</span><span class="op">(</span><span class="va">r2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;cache_info&gt;  https://www.google.com/images/srpr/logo11w.png</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Cacheable:     TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Expires:       Tue, 15 Aug 2023 21:44:38 GMT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Expires:       Thu, 17 Aug 2023 14:45:26 GMT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Last-Modified: Tue, 22 Oct 2019 18:30:00 GMT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Etag:          </span>
 <span class="r-in"><span><span class="va">r2</span><span class="op">$</span><span class="va">date</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-15 21:44:38 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-17 14:45:26 GMT"</span>
 <span class="r-in"><span><span class="fu">rerequest</span><span class="op">(</span><span class="va">r2</span><span class="op">)</span><span class="op">$</span><span class="va">date</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-15 21:44:38 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-17 14:45:26 GMT"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Has last-modified and etag, so does revalidation</span></span></span>
 <span class="r-in"><span><span class="va">r3</span> <span class="op">&lt;-</span> <span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/cache"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">cache_info</span><span class="op">(</span><span class="va">r3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;cache_info&gt;  http://httpbin.org/cache</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Cacheable:     TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Last-Modified: Mon, 15 Aug 2022 21:44:38 GMT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Etag:          1d1ad4d912e9407f883ee7c824e090e5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Last-Modified: Wed, 17 Aug 2022 14:45:26 GMT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Etag:          2782c31504e449eba769b69c3e0d7150</span>
 <span class="r-in"><span><span class="va">r3</span><span class="op">$</span><span class="va">date</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-15 21:44:38 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-17 14:45:26 GMT"</span>
 <span class="r-in"><span><span class="fu">rerequest</span><span class="op">(</span><span class="va">r3</span><span class="op">)</span><span class="op">$</span><span class="va">date</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-15 21:44:38 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-08-17 14:45:26 GMT"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Expires after 5 seconds</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
