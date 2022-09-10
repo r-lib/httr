@@ -57,7 +57,7 @@
 #' cat(content(r, "text"), "\n") # text content
 #' content(r, "raw") # raw bytes from server
 #'
-#' rlogo <- content(GET("http://cran.r-project.org/Rlogo.jpg"))
+#' rlogo <- content(GET("https://httpbin.org/image/png"))
 #' plot(0:1, 0:1, type = "n")
 #' rasterImage(rlogo, 0, 0, 1, 1)
 #' @aliases text_content parsed_content
