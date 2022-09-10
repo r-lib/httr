@@ -108,10 +108,10 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">r</span></span>
 <span><span class="co">#&gt; Response [http://httpbin.org/get]</span></span>
-<span><span class="co">#&gt;   Date: 2022-08-17 14:46</span></span>
+<span><span class="co">#&gt;   Date: 2022-09-10 15:27</span></span>
 <span><span class="co">#&gt;   Status: 200</span></span>
 <span><span class="co">#&gt;   Content-Type: application/json</span></span>
-<span><span class="co">#&gt;   Size: 377 B</span></span>
+<span><span class="co">#&gt;   Size: 376 B</span></span>
 <span><span class="co">#&gt; {</span></span>
 <span><span class="co">#&gt;   "args": {}, </span></span>
 <span><span class="co">#&gt;   "headers": {</span></span>
@@ -119,9 +119,9 @@
 <span><span class="co">#&gt;     "Accept-Encoding": "deflate, gzip, br", </span></span>
 <span><span class="co">#&gt;     "Host": "httpbin.org", </span></span>
 <span><span class="co">#&gt;     "User-Agent": "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.4.9000", </span></span>
-<span><span class="co">#&gt;     "X-Amzn-Trace-Id": "Root=1-62fcff34-3c7a9eaa69f197ba1161acb9"</span></span>
+<span><span class="co">#&gt;     "X-Amzn-Trace-Id": "Root=1-631cacca-638a97517da16f9c7c4e07ac"</span></span>
 <span><span class="co">#&gt;   }, </span></span>
-<span><span class="co">#&gt;   "origin": "20.225.219.113", </span></span>
+<span><span class="co">#&gt;   "origin": "104.214.95.88", </span></span>
 <span><span class="co">#&gt; ...</span></span></code></pre></div>
 <p>You can pull out important parts of the response with various helper methods, or dig directly into the object:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -129,13 +129,13 @@
 <span><span class="co">#&gt; [1] 200</span></span>
 <span><span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $date</span></span>
-<span><span class="co">#&gt; [1] "Wed, 17 Aug 2022 14:46:12 GMT"</span></span>
+<span><span class="co">#&gt; [1] "Sat, 10 Sep 2022 15:27:06 GMT"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $`content-type`</span></span>
 <span><span class="co">#&gt; [1] "application/json"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $`content-length`</span></span>
-<span><span class="co">#&gt; [1] "377"</span></span>
+<span><span class="co">#&gt; [1] "376"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $connection</span></span>
 <span><span class="co">#&gt; [1] "keep-alive"</span></span>
@@ -159,8 +159,8 @@
 <span><span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip, br"</span></span>
 <span><span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span></span>
 <span><span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.4.9000"</span></span>
-<span><span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-62fcff34-3c7a9eaa69f197ba1161acb9"</span></span>
-<span><span class="co">#&gt;  $ origin : chr "20.225.219.113"</span></span>
+<span><span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-631cacca-638a97517da16f9c7c4e07ac"</span></span>
+<span><span class="co">#&gt;  $ origin : chr "104.214.95.88"</span></span>
 <span><span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></span></code></pre></div>
 <p>I’ll use <code>httpbin.org</code> throughout this introduction. It accepts many types of http request and returns json that describes the data that it received. This makes it easy to see what httr is doing.</p>
 <p>As well as <code><a href="../reference/GET.html">GET()</a></code>, you can also use the <code><a href="../reference/HEAD.html">HEAD()</a></code>, <code><a href="../reference/POST.html">POST()</a></code>, <code><a href="../reference/PATCH.html">PATCH()</a></code>, <code><a href="../reference/PUT.html">PUT()</a></code> and <code><a href="../reference/DELETE.html">DELETE()</a></code> verbs. You’re probably most familiar with <code><a href="../reference/GET.html">GET()</a></code> and <code><a href="../reference/POST.html">POST()</a></code>: <code><a href="../reference/GET.html">GET()</a></code> is used by your browser when requesting a page, and <code><a href="../reference/POST.html">POST()</a></code> is (usually) used when submitting a form to a server. <code><a href="../reference/PUT.html">PUT()</a></code>, <code><a href="../reference/PATCH.html">PATCH()</a></code> and <code><a href="../reference/DELETE.html">DELETE()</a></code> are used most often by web APIs.</p>
@@ -207,7 +207,7 @@
 <code class="sourceCode R"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/get"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/content.html">content</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"text"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span></span>
-<span><span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"deflate, gzip, br\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.68.0 r-curl/4.3.2 httr/1.4.4.9000\", \n    \"X-Amzn-Trace-Id\": \"Root=1-62fcff34-138ca02210f8b7e06a3459e5\"\n  }, \n  \"origin\": \"20.225.219.113\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"deflate, gzip, br\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.68.0 r-curl/4.3.2 httr/1.4.4.9000\", \n    \"X-Amzn-Trace-Id\": \"Root=1-631caccb-69eea5ec3032cb846bff57c6\"\n  }, \n  \"origin\": \"104.214.95.88\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></span></code></pre></div>
 <p>httr will automatically decode content from the server using the encoding supplied in the <code>content-type</code> HTTP header. Unfortunately you can’t always trust what the server tells you, so you can override encoding if needed:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/content.html">content</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"text"</span>, encoding <span class="op">=</span> <span class="st">"ISO-8859-1"</span><span class="op">)</span></span></code></pre></div>
@@ -228,12 +228,12 @@
 <span><span class="co">#&gt; [185] 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f 37 2e 36 38 2e 30 20 72</span></span>
 <span><span class="co">#&gt; [208] 2d 63 75 72 6c 2f 34 2e 33 2e 32 20 68 74 74 72 2f 31 2e 34 2e 34 2e</span></span>
 <span><span class="co">#&gt; [231] 39 30 30 30 22 2c 20 0a 20 20 20 20 22 58 2d 41 6d 7a 6e 2d 54 72 61</span></span>
-<span><span class="co">#&gt; [254] 63 65 2d 49 64 22 3a 20 22 52 6f 6f 74 3d 31 2d 36 32 66 63 66 66 33</span></span>
-<span><span class="co">#&gt; [277] 34 2d 31 33 38 63 61 30 32 32 31 30 66 38 62 37 65 30 36 61 33 34 35</span></span>
-<span><span class="co">#&gt; [300] 39 65 35 22 0a 20 20 7d 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20</span></span>
-<span><span class="co">#&gt; [323] 22 32 30 2e 32 32 35 2e 32 31 39 2e 31 31 33 22 2c 20 0a 20 20 22 75</span></span>
-<span><span class="co">#&gt; [346] 72 6c 22 3a 20 22 68 74 74 70 3a 2f 2f 68 74 74 70 62 69 6e 2e 6f 72</span></span>
-<span><span class="co">#&gt; [369] 67 2f 67 65 74 22 0a 7d 0a</span></span></code></pre></div>
+<span><span class="co">#&gt; [254] 63 65 2d 49 64 22 3a 20 22 52 6f 6f 74 3d 31 2d 36 33 31 63 61 63 63</span></span>
+<span><span class="co">#&gt; [277] 62 2d 36 39 65 65 61 35 65 63 33 30 33 32 63 62 38 34 36 62 66 66 35</span></span>
+<span><span class="co">#&gt; [300] 37 63 36 22 0a 20 20 7d 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20</span></span>
+<span><span class="co">#&gt; [323] 22 31 30 34 2e 32 31 34 2e 39 35 2e 38 38 22 2c 20 0a 20 20 22 75 72</span></span>
+<span><span class="co">#&gt; [346] 6c 22 3a 20 22 68 74 74 70 3a 2f 2f 68 74 74 70 62 69 6e 2e 6f 72 67</span></span>
+<span><span class="co">#&gt; [369] 2f 67 65 74 22 0a 7d 0a</span></span></code></pre></div>
 <p>This is exactly the sequence of bytes that the web server sent, so this is the highest fidelity way of saving files to disk:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bin</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/content.html">content</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"raw"</span><span class="op">)</span></span>
@@ -251,8 +251,8 @@
 <span><span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip, br"</span></span>
 <span><span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span></span>
 <span><span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.4.9000"</span></span>
-<span><span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-62fcff34-138ca02210f8b7e06a3459e5"</span></span>
-<span><span class="co">#&gt;  $ origin : chr "20.225.219.113"</span></span>
+<span><span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-631caccb-69eea5ec3032cb846bff57c6"</span></span>
+<span><span class="co">#&gt;  $ origin : chr "104.214.95.88"</span></span>
 <span><span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></span></code></pre></div>
 <p>See <code><a href="../reference/content.html">?content</a></code> for a complete list.</p>
 <p>These are convenient for interactive usage, but if you’re writing an API wrapper, it’s best to parse the text or raw content yourself and check it is as you expect. See the API wrappers vignette for more details.</p>
@@ -266,13 +266,13 @@
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $date</span></span>
-<span><span class="co">#&gt; [1] "Wed, 17 Aug 2022 14:46:12 GMT"</span></span>
+<span><span class="co">#&gt; [1] "Sat, 10 Sep 2022 15:27:07 GMT"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $`content-type`</span></span>
 <span><span class="co">#&gt; [1] "application/json"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $`content-length`</span></span>
-<span><span class="co">#&gt; [1] "377"</span></span>
+<span><span class="co">#&gt; [1] "376"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $connection</span></span>
 <span><span class="co">#&gt; [1] "keep-alive"</span></span>
@@ -291,9 +291,9 @@
 <p>This is basically a named list, but because http headers are case insensitive, indexing this object ignores case:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">$</span><span class="va">date</span></span>
-<span><span class="co">#&gt; [1] "Wed, 17 Aug 2022 14:46:12 GMT"</span></span>
+<span><span class="co">#&gt; [1] "Sat, 10 Sep 2022 15:27:07 GMT"</span></span>
 <span><span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">$</span><span class="va">DATE</span></span>
-<span><span class="co">#&gt; [1] "Wed, 17 Aug 2022 14:46:12 GMT"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "Sat, 10 Sep 2022 15:27:07 GMT"</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="cookies">Cookies<a class="anchor" aria-label="anchor" href="#cookies"></a>
@@ -356,7 +356,7 @@
 <span><span class="co">#&gt;  $ Host           : chr "httpbin.org"</span></span>
 <span><span class="co">#&gt;  $ Name           : chr "Hadley"</span></span>
 <span><span class="co">#&gt;  $ User-Agent     : chr "libcurl/7.68.0 r-curl/4.3.2 httr/1.4.4.9000"</span></span>
-<span><span class="co">#&gt;  $ X-Amzn-Trace-Id: chr "Root=1-62fcff35-4614776952adf8e57c5f4be2"</span></span></code></pre></div>
+<span><span class="co">#&gt;  $ X-Amzn-Trace-Id: chr "Root=1-631caccc-5cf1c15d2554814d4df33b4b"</span></span></code></pre></div>
 <p>(Note that <code>content(r)$header</code> retrieves the headers that httpbin received. <code>headers(r)</code> gives the headers that it sent back in its response.)</p>
 </div>
 </div>
@@ -413,7 +413,7 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; R version 4.2.1 (2022-06-23)</span></span>
 <span><span class="co">#&gt; Platform: x86_64-pc-linux-gnu (64-bit)</span></span>
-<span><span class="co">#&gt; Running under: Ubuntu 20.04.4 LTS</span></span>
+<span><span class="co">#&gt; Running under: Ubuntu 20.04.5 LTS</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Matrix products: default</span></span>
 <span><span class="co">#&gt; BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0</span></span>
@@ -432,16 +432,16 @@
 <span><span class="co">#&gt; [1] httr_1.4.4.9000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
-<span><span class="co">#&gt;  [1] knitr_1.39        magrittr_2.0.3    R6_2.5.1         </span></span>
-<span><span class="co">#&gt;  [4] ragg_1.2.2        rlang_1.0.4       fastmap_1.1.0    </span></span>
-<span><span class="co">#&gt;  [7] stringr_1.4.0     tools_4.2.1       xfun_0.32        </span></span>
-<span><span class="co">#&gt; [10] cli_3.3.0         jquerylib_0.1.4   htmltools_0.5.3  </span></span>
+<span><span class="co">#&gt;  [1] knitr_1.40        magrittr_2.0.3    R6_2.5.1         </span></span>
+<span><span class="co">#&gt;  [4] ragg_1.2.2        rlang_1.0.5       fastmap_1.1.0    </span></span>
+<span><span class="co">#&gt;  [7] stringr_1.4.1     tools_4.2.1       xfun_0.32        </span></span>
+<span><span class="co">#&gt; [10] cli_3.4.0         jquerylib_0.1.4   htmltools_0.5.3  </span></span>
 <span><span class="co">#&gt; [13] systemfonts_1.0.4 yaml_2.3.5        digest_0.6.29    </span></span>
 <span><span class="co">#&gt; [16] rprojroot_2.0.3   pkgdown_2.0.6     textshaping_0.3.6</span></span>
 <span><span class="co">#&gt; [19] purrr_0.3.4       sass_0.4.2        fs_1.5.2         </span></span>
 <span><span class="co">#&gt; [22] curl_4.3.2        memoise_2.0.1     cachem_1.0.6     </span></span>
-<span><span class="co">#&gt; [25] evaluate_0.16     rmarkdown_2.14    stringi_1.7.8    </span></span>
-<span><span class="co">#&gt; [28] compiler_4.2.1    bslib_0.4.0       desc_1.4.1       </span></span>
+<span><span class="co">#&gt; [25] evaluate_0.16     rmarkdown_2.16    stringi_1.7.8    </span></span>
+<span><span class="co">#&gt; [28] compiler_4.2.1    bslib_0.4.0       desc_1.4.2       </span></span>
 <span><span class="co">#&gt; [31] jsonlite_1.8.0</span></span></code></pre></div>
 </div>
 </div>

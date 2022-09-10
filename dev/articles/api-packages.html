@@ -163,7 +163,7 @@
 <span><span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu">github_api</span><span class="op">(</span><span class="st">"/repos/hadley/httr"</span><span class="op">)</span></span>
 <span><span class="va">resp</span></span>
 <span><span class="co">#&gt; Response [https://api.github.com/repositories/2756403]</span></span>
-<span><span class="co">#&gt;   Date: 2022-08-17 14:46</span></span>
+<span><span class="co">#&gt;   Date: 2022-09-10 15:26</span></span>
 <span><span class="co">#&gt;   Status: 200</span></span>
 <span><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></span>
 <span><span class="co">#&gt;   Size: 6.25 kB</span></span>
@@ -187,10 +187,10 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span></span>
-<span><span class="co">#&gt;   Date: 2022-08-17 14:46</span></span>
+<span><span class="co">#&gt;   Date: 2022-09-10 15:27</span></span>
 <span><span class="co">#&gt;   Status: 403</span></span>
 <span><span class="co">#&gt;   Content-Type: text/html; charset=UTF-8</span></span>
-<span><span class="co">#&gt;   Size: 7.3 kB</span></span>
+<span><span class="co">#&gt;   Size: 7.1 kB</span></span>
 <span><span class="co">#&gt; &lt;!DOCTYPE html&gt;</span></span>
 <span><span class="co">#&gt; &lt;html lang="en-US"&gt;</span></span>
 <span><span class="co">#&gt; &lt;head&gt;</span></span>
@@ -199,15 +199,15 @@
 <span><span class="co">#&gt;     &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge" /&gt;</span></span>
 <span><span class="co">#&gt;     &lt;meta name="robots" content="noindex,nofollow" /&gt;</span></span>
 <span><span class="co">#&gt;     &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</span></span>
-<span><span class="co">#&gt;     &lt;link href="/cdn-cgi/styles/cf-errors.css" rel="stylesheet" /&gt;</span></span>
+<span><span class="co">#&gt;     &lt;link href="/cdn-cgi/styles/challenges.css" rel="stylesheet" /&gt;</span></span>
 <span><span class="co">#&gt;     </span></span>
 <span><span class="co">#&gt; ...</span></span>
 <span><span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span></span>
-<span><span class="co">#&gt;   Date: 2022-08-17 14:46</span></span>
+<span><span class="co">#&gt;   Date: 2022-09-10 15:27</span></span>
 <span><span class="co">#&gt;   Status: 403</span></span>
 <span><span class="co">#&gt;   Content-Type: text/html; charset=UTF-8</span></span>
-<span><span class="co">#&gt;   Size: 7.3 kB</span></span>
+<span><span class="co">#&gt;   Size: 7.1 kB</span></span>
 <span><span class="co">#&gt; &lt;!DOCTYPE html&gt;</span></span>
 <span><span class="co">#&gt; &lt;html lang="en-US"&gt;</span></span>
 <span><span class="co">#&gt; &lt;head&gt;</span></span>
@@ -216,7 +216,7 @@
 <span><span class="co">#&gt;     &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge" /&gt;</span></span>
 <span><span class="co">#&gt;     &lt;meta name="robots" content="noindex,nofollow" /&gt;</span></span>
 <span><span class="co">#&gt;     &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</span></span>
-<span><span class="co">#&gt;     &lt;link href="/cdn-cgi/styles/cf-errors.css" rel="stylesheet" /&gt;</span></span>
+<span><span class="co">#&gt;     &lt;link href="/cdn-cgi/styles/challenges.css" rel="stylesheet" /&gt;</span></span>
 <span><span class="co">#&gt;     </span></span>
 <span><span class="co">#&gt; ...</span></span></code></pre></div>
 <p>Others use <a href="https://en.wikipedia.org/wiki/Content_negotiation" class="external-link">content negotiation</a> to determine what sort of data to send back. If the API you’re wrapping does this, then you’ll need to include one of <code><a href="../reference/content_type.html">accept_json()</a></code> and <code><a href="../reference/content_type.html">accept_xml()</a></code> in your request.</p>
@@ -315,12 +315,12 @@
 <span><span class="co">#&gt;  $ hireable           : NULL</span></span>
 <span><span class="co">#&gt;  $ bio                : chr "Chief Scientist at @rstudio"</span></span>
 <span><span class="co">#&gt;  $ twitter_username   : chr "hadleywickham"</span></span>
-<span><span class="co">#&gt;  $ public_repos       : int 176</span></span>
+<span><span class="co">#&gt;  $ public_repos       : int 177</span></span>
 <span><span class="co">#&gt;  $ public_gists       : int 178</span></span>
-<span><span class="co">#&gt;  $ followers          : int 22968</span></span>
+<span><span class="co">#&gt;  $ followers          : int 23080</span></span>
 <span><span class="co">#&gt;  $ following          : int 0</span></span>
 <span><span class="co">#&gt;  $ created_at         : chr "2008-04-01T14:47:36Z"</span></span>
-<span><span class="co">#&gt;  $ updated_at         : chr "2022-07-31T15:19:35Z"</span></span></code></pre></div>
+<span><span class="co">#&gt;  $ updated_at         : chr "2022-08-29T14:42:06Z"</span></span></code></pre></div>
 <p>The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.</p>
 </div>
 <div class="section level3">
@@ -518,33 +518,33 @@
 <span><span class="co">#&gt;  $ resources:List of 4</span></span>
 <span><span class="co">#&gt;   ..$ core                :List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 60</span></span>
-<span><span class="co">#&gt;   .. ..$ remaining: int 55</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1660749515</span></span>
-<span><span class="co">#&gt;   .. ..$ used     : int 5</span></span>
+<span><span class="co">#&gt;   .. ..$ remaining: int 56</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1662827222</span></span>
+<span><span class="co">#&gt;   .. ..$ used     : int 4</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "core"</span></span>
 <span><span class="co">#&gt;   ..$ graphql             :List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ remaining: int 0</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1660751169</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1662827223</span></span>
 <span><span class="co">#&gt;   .. ..$ used     : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "graphql"</span></span>
 <span><span class="co">#&gt;   ..$ integration_manifest:List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 5000</span></span>
 <span><span class="co">#&gt;   .. ..$ remaining: int 5000</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1660751169</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1662827223</span></span>
 <span><span class="co">#&gt;   .. ..$ used     : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "integration_manifest"</span></span>
 <span><span class="co">#&gt;   ..$ search              :List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 10</span></span>
 <span><span class="co">#&gt;   .. ..$ remaining: int 10</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1660747629</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1662823683</span></span>
 <span><span class="co">#&gt;   .. ..$ used     : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "search"</span></span>
 <span><span class="co">#&gt;  $ rate     :List of 5</span></span>
 <span><span class="co">#&gt;   ..$ limit    : int 60</span></span>
-<span><span class="co">#&gt;   ..$ remaining: int 55</span></span>
-<span><span class="co">#&gt;   ..$ reset    : int 1660749515</span></span>
-<span><span class="co">#&gt;   ..$ used     : int 5</span></span>
+<span><span class="co">#&gt;   ..$ remaining: int 56</span></span>
+<span><span class="co">#&gt;   ..$ reset    : int 1662827222</span></span>
+<span><span class="co">#&gt;   ..$ used     : int 4</span></span>
 <span><span class="co">#&gt;   ..$ resource : chr "core"</span></span></code></pre></div>
 <p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
@@ -558,7 +558,7 @@
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu">rate_limit</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 55 / 60 (Resets at 15:18:35)</span></span></code></pre></div>
+<span><span class="co">#&gt; 56 / 60 (Resets at 16:27:01)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
