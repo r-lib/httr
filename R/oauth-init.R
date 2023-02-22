@@ -211,8 +211,14 @@ check_scope <- function(x) {
   paste(x, collapse = " ")
 }
 
-# Wrap base::interactive in a non-primitive function so that the call can be mocked for testing
-is_interactive <- function() interactive()
+# Two reasons for wrapping base::interactive()
+# 1. Wrap in a non-primitive function, so it can be mocked for testing.
+# 2. gargle needs to access (pseudo-)OOB flow from Google Colab, so we need to
+#    be able to use the "rlang_interactive" option to signal that we are in
+#    an interactive environment.
+is_interactive <- function() {
+  getOption("rlang_interactive") %||% interactive()
+}
 
 check_oob <- function(use_oob, oob_value = NULL) {
   if (!is.logical(use_oob) || length(use_oob) != 1) {
