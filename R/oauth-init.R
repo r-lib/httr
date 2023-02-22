@@ -211,11 +211,9 @@ check_scope <- function(x) {
   paste(x, collapse = " ")
 }
 
-# Two reasons for wrapping base::interactive()
-# 1. Wrap in a non-primitive function, so it can be mocked for testing.
-# 2. gargle needs to access (pseudo-)OOB flow from Google Colab, so we need to
-#    be able to use the "rlang_interactive" option to signal that we are in
-#    an interactive environment.
+# gargle needs to access (pseudo-)OOB flow from Google Colab, so we need to
+# be able to use the "rlang_interactive" option to signal that we are in
+# an interactive environment. httr does not have an rlang dependency.
 is_interactive <- function() {
   getOption("rlang_interactive") %||% interactive()
 }
