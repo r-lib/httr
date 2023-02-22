@@ -1,4 +1,4 @@
-# httr (development version)
+# httr 1.4.5
 
 * An internal helper that checks for an interactive session in the OOB flow now
   honors the `"rlang_interactive"` global option, in case it's necessary to
