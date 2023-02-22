@@ -13,7 +13,7 @@ License: MIT + file LICENSE
 URL: https://httr.r-lib.org/, https://github.com/r-lib/httr
 BugReports: https://github.com/r-lib/httr/issues
 Depends:
-    R (>= 3.2)
+    R (>= 3.5)
 Imports:
     curl (>= 3.0.0),
     jsonlite,
