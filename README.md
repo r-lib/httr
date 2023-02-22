@@ -3,7 +3,7 @@
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/httr)](https://cran.r-project.org/package=httr)
 [![R-CMD-check](https://github.com/r-lib/httr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/httr/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/r-lib/httr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/r-lib/httr?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/httr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/httr?branch=main)
 <!-- badges: end -->
 
 The aim of httr is to provide a wrapper for the [curl](https://cran.r-project.org/package=curl) package, customised to the demands of modern web APIs.
