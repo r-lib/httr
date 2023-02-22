@@ -111,13 +111,19 @@ test_that("oob must be a flag", {
 })
 
 test_that("can not use oob in non-interactive session", {
+  old <- options()
+  on.exit(options(old))
+  options(rlang_interactive = FALSE)
+
   expect_error(check_oob(TRUE), "interactive")
 })
 
 test_that("can not use custom oob value without enabling oob", {
   testthat::skip_if_not_installed("httpuv")
-  with_mock(
-    `httr:::is_interactive` = function() TRUE,
-    expect_error(check_oob(FALSE, "custom_value"), "custom oob value")
-  )
+
+  old <- options()
+  on.exit(options(old))
+  options(rlang_interactive = TRUE)
+
+  expect_error(check_oob(FALSE, "custom_value"), "custom oob value")
 })
