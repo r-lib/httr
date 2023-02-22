@@ -16,9 +16,9 @@
 #' @inherit GET params return
 #' @inheritParams POST
 #' @param times Maximum number of requests to attempt.
-#' @param pause_base,pause_cap This method uses exponential back-off with
-#'   full jitter - this means that each request will randomly wait between 0
-#'   and `pause_base * 2 ^ attempt` seconds, up to a maximum of
+#' @param pause_base,pause_cap This method uses exponential back-off with full
+#'   jitter - this means that each request will randomly wait between
+#'   `pause_min` and `pause_base * 2 ^ attempt` seconds, up to a maximum of
 #'   `pause_cap` seconds.
 #' @param pause_min Minimum time to wait in the backoff; generally
 #'   only necessary if you need pauses less than one second (which may

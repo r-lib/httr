@@ -65,9 +65,9 @@ need to make sure to set the \code{\link[=content_type]{content_type()}} yoursel
 
 \item{times}{Maximum number of requests to attempt.}
 
-\item{pause_base, pause_cap}{This method uses exponential back-off with
-full jitter - this means that each request will randomly wait between 0
-and \code{pause_base * 2 ^ attempt} seconds, up to a maximum of
+\item{pause_base, pause_cap}{This method uses exponential back-off with full
+jitter - this means that each request will randomly wait between
+\code{pause_min} and \code{pause_base * 2 ^ attempt} seconds, up to a maximum of
 \code{pause_cap} seconds.}
 
 \item{pause_min}{Minimum time to wait in the backoff; generally
