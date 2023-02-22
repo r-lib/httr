@@ -223,16 +223,16 @@ to use <code><a href="stop_for_status.html">stop_for_status()</a></code>.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Succeeds straight away</span></span></span>
 <span class="r-in"><span><span class="fu">RETRY</span><span class="op">(</span><span class="st">"GET"</span>, <span class="st">"http://httpbin.org/status/200"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/status/200]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:35</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=utf-8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
 <span class="r-in"><span><span class="co"># Never succeeds</span></span></span>
 <span class="r-in"><span><span class="fu">RETRY</span><span class="op">(</span><span class="st">"GET"</span>, <span class="st">"http://httpbin.org/status/500"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 1.3 seconds...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 3.5 seconds...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 1 seconds...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [500]. Retrying in 1 seconds...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/status/500]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:36</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 500</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=utf-8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
