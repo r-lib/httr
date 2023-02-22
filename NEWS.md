@@ -1,5 +1,9 @@
 # httr (development version)
 
+* An internal helper that checks for an interactive session in the OOB flow now
+  honors the `"rlang_interactive"` global option, in case it's necessary to
+  declare the session to be interactive (enough) for OOB (@jennybc, #734).
+
 # httr 1.4.4
 
 * Fix intermittent failing test.

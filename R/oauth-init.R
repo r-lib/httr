@@ -213,7 +213,7 @@ check_scope <- function(x) {
 
 # gargle needs to access (pseudo-)OOB flow from Google Colab, so we need to
 # be able to use the "rlang_interactive" option to signal that we are in
-# an interactive environment. httr does not have an rlang dependency.
+# an environment that is interactive (enough) to complete this flow.
 is_interactive <- function() {
   getOption("rlang_interactive") %||% interactive()
 }
