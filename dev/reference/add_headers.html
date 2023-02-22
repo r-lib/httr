@@ -111,7 +111,7 @@ convenience functions for setting accept and content-type headers.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:41</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:45</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 301 B</span>
@@ -121,7 +121,7 @@ convenience functions for setting accept and content-type headers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f653d4-4650ced41b597ffd27e5a519"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f654b4-1a53a18a1a6ea45e1c5373e2"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span></span></span>
@@ -131,7 +131,7 @@ convenience functions for setting accept and content-type headers.</p>
 <span class="r-in"><span>  <span class="fu">add_headers</span><span class="op">(</span>version <span class="op">=</span> <span class="va">version</span><span class="op">$</span><span class="va">version.string</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:41</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:45</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 349 B</span>
@@ -142,14 +142,14 @@ convenience functions for setting accept and content-type headers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Version": "R version 4.2.2 (2022-10-31)", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f653d4-0c2a7e690aa4c222494f3fd0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f654b4-28e6f7a0656accbb73d78390"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Override default headers with empty strings</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">add_headers</span><span class="op">(</span>Accept <span class="op">=</span> <span class="st">""</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:41</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:45</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 234 B</span>
@@ -158,7 +158,7 @@ convenience functions for setting accept and content-type headers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f653d4-5ead2475192b9af039f5a1f1"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f654b4-5b5140c5529bc51e6788ac4b"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 </code></pre></div>
