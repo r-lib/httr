@@ -51,7 +51,7 @@ already held by the client.
 
 The semantics of the GET method change to a "partial GET" if the request
 message includes a Range header field. A partial GET requests that only
-part of the entity be transferred, as described in \url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35}
+part of the entity be transferred, as described in \url{https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35}
 The partial GET method is intended to reduce unnecessary network usage by
 allowing partially-retrieved entities to be completed without transferring
 data already held by the client.

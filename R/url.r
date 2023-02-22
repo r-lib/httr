@@ -3,7 +3,7 @@
 
 #' Parse and build urls according to RFC3986.
 #'
-#' See <https://tools.ietf.org/html/rfc3986> for details of parsing
+#' See <https://www.rfc-editor.org/rfc/rfc3986> for details of parsing
 #' algorithm.
 #'
 #' @param url For `parse_url` a character vector (of length 1) to parse

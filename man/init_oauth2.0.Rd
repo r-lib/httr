@@ -77,7 +77,7 @@ app key and secret in the request body.}
 
 \item{client_credentials}{Default to \code{FALSE}. Set to \code{TRUE} to use
 \emph{Client Credentials Grant} instead of \emph{Authorization
-Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
+Code Grant}. See \url{https://www.rfc-editor.org/rfc/rfc6749#section-4.4}.}
 
 \item{query_authorize_extra}{Default to \code{list()}. Set to named list
 holding query parameters to append to initial auth page query. Useful for

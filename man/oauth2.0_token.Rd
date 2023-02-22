@@ -64,7 +64,7 @@ A string means use the specified path as the cache file.}
 
 \item{client_credentials}{Default to \code{FALSE}. Set to \code{TRUE} to use
 \emph{Client Credentials Grant} instead of \emph{Authorization
-Code Grant}. See \url{https://tools.ietf.org/html/rfc6749#section-4.4}.}
+Code Grant}. See \url{https://www.rfc-editor.org/rfc/rfc6749#section-4.4}.}
 
 \item{credentials}{Advanced use only: allows you to completely customise
 token generation.}

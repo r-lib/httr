@@ -69,7 +69,7 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'   [POST()], e.g. [user_agent()].
 #' @param client_credentials Default to `FALSE`. Set to `TRUE` to use
 #'   *Client Credentials Grant* instead of *Authorization
-#'   Code Grant*. See <https://tools.ietf.org/html/rfc6749#section-4.4>.
+#'   Code Grant*. See <https://www.rfc-editor.org/rfc/rfc6749#section-4.4>.
 #' @param query_authorize_extra Default to `list()`. Set to named list
 #'   holding query parameters to append to initial auth page query. Useful for
 #'   some APIs.
