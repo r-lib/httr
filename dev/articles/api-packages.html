@@ -8,12 +8,12 @@
 <meta name="description" content="httr">
 <title>Best practices for API packages • httr</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.2/font.css" rel="stylesheet">
-<link href="../deps/Source_Code_Pro-0.4.2/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.5/font.css" rel="stylesheet">
+<link href="../deps/Source_Code_Pro-0.4.5/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Best practices for API packages">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Best practices for API packages">
 <meta property="og:description" content="httr">
 <meta name="robots" content="noindex">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -91,33 +91,51 @@
 
     
     
-<p>So you want to write an R client for a web API? This document walks through the key issues involved in writing API wrappers in R. If you’re new to working with web APIs, you may want to start by reading “<a href="https://zapier.com/learn/apis" class="external-link">An introduction to APIs</a>” by zapier.</p>
+<p>So you want to write an R client for a web API? This document walks
+through the key issues involved in writing API wrappers in R. If you’re
+new to working with web APIs, you may want to start by reading “<a href="https://zapier.com/learn/apis" class="external-link">An introduction to APIs</a>” by
+zapier.</p>
 <div class="section level2">
 <h2 id="overall-design">Overall design<a class="anchor" aria-label="anchor" href="#overall-design"></a>
 </h2>
-<p>APIs vary widely. Before starting to code, it is important to understand how the API you are working with handles important issues so that you can implement a complete and coherent R client for the API.</p>
-<p>The key features of any API are the structure of the requests and the structure of the responses. An HTTP request consists of the following parts:</p>
+<p>APIs vary widely. Before starting to code, it is important to
+understand how the API you are working with handles important issues so
+that you can implement a complete and coherent R client for the API.</p>
+<p>The key features of any API are the structure of the requests and the
+structure of the responses. An HTTP request consists of the following
+parts:</p>
 <ol style="list-style-type: decimal">
-<li>HTTP verb (<code>GET</code>, <code>POST</code>, <code>DELETE</code>, etc.)</li>
+<li>HTTP verb (<code>GET</code>, <code>POST</code>, <code>DELETE</code>,
+etc.)</li>
 <li>The base URL for the API</li>
 <li>The URL path or endpoint</li>
 <li>URL query arguments (e.g., <code>?foo=bar</code>)</li>
 <li>Optional headers</li>
 <li>An optional request body</li>
 </ol>
-<p>An API package needs to be able to generate these components in order to perform the desired API call, which will typically involve some sort of authentication.</p>
-<p>For example, to request that the GitHub API provides a list of all issues for the httr repo, we send an HTTP request that looks like:</p>
+<p>An API package needs to be able to generate these components in order
+to perform the desired API call, which will typically involve some sort
+of authentication.</p>
+<p>For example, to request that the GitHub API provides a list of all
+issues for the httr repo, we send an HTTP request that looks like:</p>
 <pre><code>-&gt; GET /repos/hadley/httr HTTP/1.1
 -&gt; Host: api.github.com
 -&gt; Accept: application/vnd.github.v3+json</code></pre>
-<p>Here we’re using a <code>GET</code> request to the host <code>api.github.com</code>. The url is <code>/repos/hadley/httr</code>, and we send an accept header that tells GitHub what sort of data we want.</p>
-<p>In response to this request, the API will return an HTTP response that includes:</p>
+<p>Here we’re using a <code>GET</code> request to the host
+<code>api.github.com</code>. The url is <code>/repos/hadley/httr</code>,
+and we send an accept header that tells GitHub what sort of data we
+want.</p>
+<p>In response to this request, the API will return an HTTP response
+that includes:</p>
 <ol style="list-style-type: decimal">
 <li>An HTTP status code.</li>
 <li>Headers, key-value pairs.</li>
-<li>A body typically consisting of XML, JSON, plain text, HTML, or some kind of binary representation.</li>
+<li>A body typically consisting of XML, JSON, plain text, HTML, or some
+kind of binary representation.</li>
 </ol>
-<p>An API client needs to parse these responses, turning API errors into R errors, and return a useful object to the end user. For the previous HTTP request, GitHub returns:</p>
+<p>An API client needs to parse these responses, turning API errors into
+R errors, and return a useful object to the end user. For the previous
+HTTP request, GitHub returns:</p>
 <pre><code>&lt;- HTTP/1.1 200 OK
 &lt;- Server: GitHub.com
 &lt;- Content-Type: application/json; charset=utf-8
@@ -144,7 +162,12 @@
 &lt;-   "network_count": 1368,
 &lt;-   "subscribers_count": 64
 &lt;- }</code></pre>
-<p>Designing a good API client requires identifying how each of these API features is used to compose a request and what type of response is expected for each. It’s best practice to insulate the end user from <em>how</em> the API works so they only need to understand how to use an R function, not the details of how APIs work. It’s your job to suffer so that others don’t have to!</p>
+<p>Designing a good API client requires identifying how each of these
+API features is used to compose a request and what type of response is
+expected for each. It’s best practice to insulate the end user from
+<em>how</em> the API works so they only need to understand how to use an
+R function, not the details of how APIs work. It’s your job to suffer so
+that others don’t have to!</p>
 </div>
 <div class="section level2">
 <h2 id="first-steps">First steps<a class="anchor" aria-label="anchor" href="#first-steps"></a>
@@ -152,7 +175,11 @@
 <div class="section level3">
 <h3 id="send-a-simple-request">Send a simple request<a class="anchor" aria-label="anchor" href="#send-a-simple-request"></a>
 </h3>
-<p>First, find a simple API endpoint that doesn’t require authentication: this lets you get the basics working before tackling the complexities of authentication. For this example, we’ll use the list of httr issues which requires sending a GET request to <code>repos/hadley/httr</code>:</p>
+<p>First, find a simple API endpoint that doesn’t require
+authentication: this lets you get the basics working before tackling the
+complexities of authentication. For this example, we’ll use the list of
+httr issues which requires sending a GET request to
+<code>repos/hadley/httr</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://httr.r-lib.org/">httr</a></span><span class="op">)</span></span>
 <span><span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span></span>
@@ -162,70 +189,76 @@
 <span></span>
 <span><span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu">github_api</span><span class="op">(</span><span class="st">"/repos/hadley/httr"</span><span class="op">)</span></span>
 <span><span class="va">resp</span></span>
-<span><span class="co">#&gt; Response [https://api.github.com/repositories/2756403]</span></span>
-<span><span class="co">#&gt;   Date: 2022-09-10 15:26</span></span>
-<span><span class="co">#&gt;   Status: 200</span></span>
+<span><span class="co">#&gt; Response [https://api.github.com/repos/hadley/httr]</span></span>
+<span><span class="co">#&gt;   Date: 2023-02-22 16:50</span></span>
+<span><span class="co">#&gt;   Status: 403</span></span>
 <span><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></span>
-<span><span class="co">#&gt;   Size: 6.25 kB</span></span>
-<span><span class="co">#&gt; {</span></span>
-<span><span class="co">#&gt;   "id": 2756403,</span></span>
-<span><span class="co">#&gt;   "node_id": "MDEwOlJlcG9zaXRvcnkyNzU2NDAz",</span></span>
-<span><span class="co">#&gt;   "name": "httr",</span></span>
-<span><span class="co">#&gt;   "full_name": "r-lib/httr",</span></span>
-<span><span class="co">#&gt;   "private": false,</span></span>
-<span><span class="co">#&gt;   "owner": {</span></span>
-<span><span class="co">#&gt;     "login": "r-lib",</span></span>
-<span><span class="co">#&gt;     "id": 22618716,</span></span>
-<span><span class="co">#&gt;     "node_id": "MDEyOk9yZ2FuaXphdGlvbjIyNjE4NzE2",</span></span>
-<span><span class="co">#&gt; ...</span></span></code></pre></div>
+<span><span class="co">#&gt;   Size: 280 B</span></span>
+<span><span class="co">#&gt; {"message":"API rate limit exceeded for 104.45.202.146. (But here's the...</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="parse-the-response">Parse the response<a class="anchor" aria-label="anchor" href="#parse-the-response"></a>
 </h3>
-<p>Next, you need to take the response returned by the API and turn it into a useful object. Any API will return an HTTP response that consists of headers and a body. While the response can come in multiple forms (see above), two of the most common structured formats are XML and JSON.</p>
-<p>Note that while most APIs will return only one or the other, some, like the colour lovers API, allow you to choose which one with a url parameter:</p>
+<p>Next, you need to take the response returned by the API and turn it
+into a useful object. Any API will return an HTTP response that consists
+of headers and a body. While the response can come in multiple forms
+(see above), two of the most common structured formats are XML and
+JSON.</p>
+<p>Note that while most APIs will return only one or the other, some,
+like the colour lovers API, allow you to choose which one with a url
+parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span></span>
-<span><span class="co">#&gt;   Date: 2022-09-10 15:27</span></span>
+<span><span class="co">#&gt;   Date: 2023-02-22 16:50</span></span>
 <span><span class="co">#&gt;   Status: 403</span></span>
 <span><span class="co">#&gt;   Content-Type: text/html; charset=UTF-8</span></span>
-<span><span class="co">#&gt;   Size: 7.1 kB</span></span>
+<span><span class="co">#&gt;   Size: 6.94 kB</span></span>
 <span><span class="co">#&gt; &lt;!DOCTYPE html&gt;</span></span>
 <span><span class="co">#&gt; &lt;html lang="en-US"&gt;</span></span>
 <span><span class="co">#&gt; &lt;head&gt;</span></span>
 <span><span class="co">#&gt;     &lt;title&gt;Just a moment...&lt;/title&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge" /&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta name="robots" content="noindex,nofollow" /&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</span></span>
-<span><span class="co">#&gt;     &lt;link href="/cdn-cgi/styles/challenges.css" rel="stylesheet" /&gt;</span></span>
+<span><span class="co">#&gt;     &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;meta name="robots" content="noindex,nofollow"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;link href="/cdn-cgi/styles/challenges.css" rel="stylesheet"&gt;</span></span>
 <span><span class="co">#&gt;     </span></span>
 <span><span class="co">#&gt; ...</span></span>
 <span><span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span></span>
-<span><span class="co">#&gt;   Date: 2022-09-10 15:27</span></span>
+<span><span class="co">#&gt;   Date: 2023-02-22 16:50</span></span>
 <span><span class="co">#&gt;   Status: 403</span></span>
 <span><span class="co">#&gt;   Content-Type: text/html; charset=UTF-8</span></span>
-<span><span class="co">#&gt;   Size: 7.1 kB</span></span>
+<span><span class="co">#&gt;   Size: 6.94 kB</span></span>
 <span><span class="co">#&gt; &lt;!DOCTYPE html&gt;</span></span>
 <span><span class="co">#&gt; &lt;html lang="en-US"&gt;</span></span>
 <span><span class="co">#&gt; &lt;head&gt;</span></span>
 <span><span class="co">#&gt;     &lt;title&gt;Just a moment...&lt;/title&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge" /&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta name="robots" content="noindex,nofollow" /&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</span></span>
-<span><span class="co">#&gt;     &lt;link href="/cdn-cgi/styles/challenges.css" rel="stylesheet" /&gt;</span></span>
+<span><span class="co">#&gt;     &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;meta name="robots" content="noindex,nofollow"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;link href="/cdn-cgi/styles/challenges.css" rel="stylesheet"&gt;</span></span>
 <span><span class="co">#&gt;     </span></span>
 <span><span class="co">#&gt; ...</span></span></code></pre></div>
-<p>Others use <a href="https://en.wikipedia.org/wiki/Content_negotiation" class="external-link">content negotiation</a> to determine what sort of data to send back. If the API you’re wrapping does this, then you’ll need to include one of <code><a href="../reference/content_type.html">accept_json()</a></code> and <code><a href="../reference/content_type.html">accept_xml()</a></code> in your request.</p>
-<p>If you have a choice, choose json: it’s usually much easier to work with than xml.</p>
-<p>Most APIs will return most or all useful information in the response body, which can be accessed using <code><a href="../reference/content.html">content()</a></code>. To determine what type of information is returned, you can use <code><a href="../reference/http_type.html">http_type()</a></code></p>
+<p>Others use <a href="https://en.wikipedia.org/wiki/Content_negotiation" class="external-link">content
+negotiation</a> to determine what sort of data to send back. If the API
+you’re wrapping does this, then you’ll need to include one of
+<code><a href="../reference/content_type.html">accept_json()</a></code> and <code><a href="../reference/content_type.html">accept_xml()</a></code> in your
+request.</p>
+<p>If you have a choice, choose json: it’s usually much easier to work
+with than xml.</p>
+<p>Most APIs will return most or all useful information in the response
+body, which can be accessed using <code><a href="../reference/content.html">content()</a></code>. To determine
+what type of information is returned, you can use
+<code><a href="../reference/http_type.html">http_type()</a></code></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/http_type.html">http_type</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "application/json"</span></span></code></pre></div>
-<p>I recommend checking that the type is as you expect in your helper function. This will ensure that you get a clear error message if the API changes:</p>
+<p>I recommend checking that the type is as you expect in your helper
+function. This will ensure that you get a clear error message if the API
+changes:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://api.github.com"</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></span>
@@ -237,8 +270,14 @@
 <span>  </span>
 <span>  <span class="va">resp</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-<p>NB: some poorly written APIs will say the content is type A, but it will actually be type B. In this case you should complain to the API authors, and until they fix the problem, simply drop the check for content type.</p>
-<p>Next we need to parse the output into an R object. httr provides some default parsers with <code>content(..., as = "auto")</code> but I don’t recommend using them inside a package. Instead it’s better to explicitly parse it yourself:</p>
+<p>NB: some poorly written APIs will say the content is type A, but it
+will actually be type B. In this case you should complain to the API
+authors, and until they fix the problem, simply drop the check for
+content type.</p>
+<p>Next we need to parse the output into an R object. httr provides some
+default parsers with <code>content(..., as = "auto")</code> but I don’t
+recommend using them inside a package. Instead it’s better to explicitly
+parse it yourself:</p>
 <ol style="list-style-type: decimal">
 <li>To parse json, use <code>jsonlite</code> package.</li>
 <li>To parse xml, use the <code>xml2</code> package.</li>
@@ -258,7 +297,10 @@
 <div class="section level3">
 <h3 id="return-a-helpful-object">Return a helpful object<a class="anchor" aria-label="anchor" href="#return-a-helpful-object"></a>
 </h3>
-<p>Rather than simply returning the response as a list, I think it’s a good practice to make a simple S3 object. That way you can return the response and parsed object, and provide a nice print method. This will make debugging later on much much much more pleasant.</p>
+<p>Rather than simply returning the response as a list, I think it’s a
+good practice to make a simple S3 object. That way you can return the
+response and parsed object, and provide a nice print method. This will
+make debugging later on much much much more pleasant.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://api.github.com"</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></span>
@@ -288,52 +330,35 @@
 <span></span>
 <span><span class="fu">github_api</span><span class="op">(</span><span class="st">"/users/hadley"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; &lt;GitHub /users/hadley&gt;</span></span>
-<span><span class="co">#&gt; List of 32</span></span>
-<span><span class="co">#&gt;  $ login              : chr "hadley"</span></span>
-<span><span class="co">#&gt;  $ id                 : int 4196</span></span>
-<span><span class="co">#&gt;  $ node_id            : chr "MDQ6VXNlcjQxOTY="</span></span>
-<span><span class="co">#&gt;  $ avatar_url         : chr "https://avatars.githubusercontent.com/u/4196?v=4"</span></span>
-<span><span class="co">#&gt;  $ gravatar_id        : chr ""</span></span>
-<span><span class="co">#&gt;  $ url                : chr "https://api.github.com/users/hadley"</span></span>
-<span><span class="co">#&gt;  $ html_url           : chr "https://github.com/hadley"</span></span>
-<span><span class="co">#&gt;  $ followers_url      : chr "https://api.github.com/users/hadley/followers"</span></span>
-<span><span class="co">#&gt;  $ following_url      : chr "https://api.github.com/users/hadley/following{/other_user}"</span></span>
-<span><span class="co">#&gt;  $ gists_url          : chr "https://api.github.com/users/hadley/gists{/gist_id}"</span></span>
-<span><span class="co">#&gt;  $ starred_url        : chr "https://api.github.com/users/hadley/starred{/owner}{/repo}"</span></span>
-<span><span class="co">#&gt;  $ subscriptions_url  : chr "https://api.github.com/users/hadley/subscriptions"</span></span>
-<span><span class="co">#&gt;  $ organizations_url  : chr "https://api.github.com/users/hadley/orgs"</span></span>
-<span><span class="co">#&gt;  $ repos_url          : chr "https://api.github.com/users/hadley/repos"</span></span>
-<span><span class="co">#&gt;  $ events_url         : chr "https://api.github.com/users/hadley/events{/privacy}"</span></span>
-<span><span class="co">#&gt;  $ received_events_url: chr "https://api.github.com/users/hadley/received_events"</span></span>
-<span><span class="co">#&gt;  $ type               : chr "User"</span></span>
-<span><span class="co">#&gt;  $ site_admin         : logi FALSE</span></span>
-<span><span class="co">#&gt;  $ name               : chr "Hadley Wickham"</span></span>
-<span><span class="co">#&gt;  $ company            : chr "@rstudio "</span></span>
-<span><span class="co">#&gt;  $ blog               : chr "http://hadley.nz"</span></span>
-<span><span class="co">#&gt;  $ location           : chr "Houston, TX"</span></span>
-<span><span class="co">#&gt;  $ email              : NULL</span></span>
-<span><span class="co">#&gt;  $ hireable           : NULL</span></span>
-<span><span class="co">#&gt;  $ bio                : chr "Chief Scientist at @rstudio"</span></span>
-<span><span class="co">#&gt;  $ twitter_username   : chr "hadleywickham"</span></span>
-<span><span class="co">#&gt;  $ public_repos       : int 177</span></span>
-<span><span class="co">#&gt;  $ public_gists       : int 178</span></span>
-<span><span class="co">#&gt;  $ followers          : int 23080</span></span>
-<span><span class="co">#&gt;  $ following          : int 0</span></span>
-<span><span class="co">#&gt;  $ created_at         : chr "2008-04-01T14:47:36Z"</span></span>
-<span><span class="co">#&gt;  $ updated_at         : chr "2022-08-29T14:42:06Z"</span></span></code></pre></div>
-<p>The API might return invalid data, but this should be rare, so you can just rely on the parser to provide a useful error message.</p>
+<span><span class="co">#&gt; List of 2</span></span>
+<span><span class="co">#&gt;  $ message          : chr "API rate limit exceeded for 104.45.202.146. (But here's the good news: Authenticated requests get a higher rate"| __truncated__</span></span>
+<span><span class="co">#&gt;  $ documentation_url: chr "https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"</span></span></code></pre></div>
+<p>The API might return invalid data, but this should be rare, so you
+can just rely on the parser to provide a useful error message.</p>
 </div>
 <div class="section level3">
 <h3 id="turn-api-errors-into-r-errors">Turn API errors into R errors<a class="anchor" aria-label="anchor" href="#turn-api-errors-into-r-errors"></a>
 </h3>
-<p>Next, you need to make sure that your API wrapper throws an error if the request failed. Using a web API introduces additional possible points of failure into R code aside from those occurring in R itself. These include:</p>
+<p>Next, you need to make sure that your API wrapper throws an error if
+the request failed. Using a web API introduces additional possible
+points of failure into R code aside from those occurring in R itself.
+These include:</p>
 <ul>
 <li>Client-side exceptions</li>
 <li>Network / communication exceptions</li>
 <li>Server-side exceptions</li>
 </ul>
-<p>You need to make sure these are all converted into regular R errors. You can figure out if there’s a problem with <code><a href="../reference/http_error.html">http_error()</a></code>, which checks the HTTP status code. Status codes in the 400 range usually mean that you’ve done something wrong. Status codes in the 500 range typically mean that something has gone wrong on the server side.</p>
-<p>Often the API will provide information about the error in the body of the response: you should use this where available. If the API returns special errors for common problems, you might want to provide more detail in the error. For example, if you run out of requests and are <a href="https://docs.github.com/v3/#rate-limiting" class="external-link">rate limited</a> you might want to tell the user how long to wait until they can make the next request (or even automatically wait that long!).</p>
+<p>You need to make sure these are all converted into regular R errors.
+You can figure out if there’s a problem with <code><a href="../reference/http_error.html">http_error()</a></code>,
+which checks the HTTP status code. Status codes in the 400 range usually
+mean that you’ve done something wrong. Status codes in the 500 range
+typically mean that something has gone wrong on the server side.</p>
+<p>Often the API will provide information about the error in the body of
+the response: you should use this where available. If the API returns
+special errors for common problems, you might want to provide more
+detail in the error. For example, if you run out of requests and are <a href="https://docs.github.com/v3/#rate-limiting" class="external-link">rate limited</a> you
+might want to tell the user how long to wait until they can make the
+next request (or even automatically wait that long!).</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">github_api</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">path</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://api.github.com"</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></span>
@@ -367,19 +392,39 @@
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="fu">github_api</span><span class="op">(</span><span class="st">"/user/hadley"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error: GitHub API request failed [404]</span></span>
-<span><span class="co">#&gt; Not Found</span></span>
-<span><span class="co">#&gt; &lt;https://docs.github.com/rest/reference/users#get-a-user&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; Error: GitHub API request failed [403]</span></span>
+<span><span class="co">#&gt; API rate limit exceeded for 104.45.202.146. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)</span></span>
+<span><span class="co">#&gt; &lt;https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting&gt;</span></span></code></pre></div>
 <blockquote>
-<p>Some poorly written APIs will return different types of response based on whether or not the request succeeded or failed. If your API does this you’ll need to make your request function check the <code><a href="../reference/status_code.html">status_code()</a></code> before parsing the response.</p>
+<p>Some poorly written APIs will return different types of response
+based on whether or not the request succeeded or failed. If your API
+does this you’ll need to make your request function check the
+<code><a href="../reference/status_code.html">status_code()</a></code> before parsing the response.</p>
 </blockquote>
-<p>For many APIs, the common approach is to retry API calls that return something in the 500 range. However, when doing this, it’s <strong>extremely</strong> important to make sure to do this with some form of exponential backoff: if something’s wrong on the server-side, hammering the server with retries may make things worse, and may lead to you exhausting quota (or hitting other sorts of rate limits). A common policy is to retry up to 5 times, starting at 1s, and each time doubling and adding a small amount of jitter (plus or minus up to, say, 5% of the current wait time).</p>
+<p>For many APIs, the common approach is to retry API calls that return
+something in the 500 range. However, when doing this, it’s
+<strong>extremely</strong> important to make sure to do this with some
+form of exponential backoff: if something’s wrong on the server-side,
+hammering the server with retries may make things worse, and may lead to
+you exhausting quota (or hitting other sorts of rate limits). A common
+policy is to retry up to 5 times, starting at 1s, and each time doubling
+and adding a small amount of jitter (plus or minus up to, say, 5% of the
+current wait time).</p>
 </div>
 <div class="section level3">
 <h3 id="set-a-user-agent">Set a user agent<a class="anchor" aria-label="anchor" href="#set-a-user-agent"></a>
 </h3>
-<p>While we’re in this function, there’s one important header that you should set for every API wrapper: the user agent. The user agent is a string used to identify the client. This is most useful for the API owner as it allows them to see who is using the API. It’s also useful for you if you have a contact on the inside as it often makes it easier for them to pull your requests from their logs and see what’s going wrong. If you’re hitting a commercial API, this also makes it easier for internal R advocates to see how many people are using their API via R and hopefully assign more resources.</p>
-<p>A good default for an R API package wrapper is to make it the URL to your GitHub repo:</p>
+<p>While we’re in this function, there’s one important header that you
+should set for every API wrapper: the user agent. The user agent is a
+string used to identify the client. This is most useful for the API
+owner as it allows them to see who is using the API. It’s also useful
+for you if you have a contact on the inside as it often makes it easier
+for them to pull your requests from their logs and see what’s going
+wrong. If you’re hitting a commercial API, this also makes it easier for
+internal R advocates to see how many people are using their API via R
+and hopefully assign more resources.</p>
+<p>A good default for an R API package wrapper is to make it the URL to
+your GitHub repo:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ua</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/user_agent.html">user_agent</a></span><span class="op">(</span><span class="st">"http://github.com/hadley/httr"</span><span class="op">)</span></span>
 <span><span class="va">ua</span></span>
@@ -422,16 +467,26 @@
 <div class="section level3">
 <h3 id="passing-parameters">Passing parameters<a class="anchor" aria-label="anchor" href="#passing-parameters"></a>
 </h3>
-<p>Most APIs work by executing an HTTP method on a specified URL with some additional parameters. These parameters can be specified in a number of ways, including in the URL path, in URL query arguments, in HTTP headers, and in the request body itself. These parameters can be controlled using httr functions:</p>
+<p>Most APIs work by executing an HTTP method on a specified URL with
+some additional parameters. These parameters can be specified in a
+number of ways, including in the URL path, in URL query arguments, in
+HTTP headers, and in the request body itself. These parameters can be
+controlled using httr functions:</p>
 <ol style="list-style-type: decimal">
 <li>URL path: <code><a href="../reference/modify_url.html">modify_url()</a></code>
 </li>
-<li>Query arguments: The <code>query</code> argument to <code><a href="../reference/GET.html">GET()</a></code>, <code><a href="../reference/POST.html">POST()</a></code>, etc.</li>
+<li>Query arguments: The <code>query</code> argument to
+<code><a href="../reference/GET.html">GET()</a></code>, <code><a href="../reference/POST.html">POST()</a></code>, etc.</li>
 <li>HTTP headers: <code><a href="../reference/add_headers.html">add_headers()</a></code>
 </li>
-<li>Request body: The <code>body</code> argument to <code><a href="../reference/GET.html">GET()</a></code>, <code><a href="../reference/POST.html">POST()</a></code>, etc.</li>
+<li>Request body: The <code>body</code> argument to <code><a href="../reference/GET.html">GET()</a></code>,
+<code><a href="../reference/POST.html">POST()</a></code>, etc.</li>
 </ol>
-<p><a href="https://en.wikipedia.org/wiki/Representational_state_transfer" class="external-link">RESTful APIs</a> also use the HTTP verb to communicate arguments (e.g., <code>GET</code> retrieves a file, <code>POST</code> adds a file, <code>DELETE</code> removes a file, etc.). We can use the helpful <a href="http://httpbin.org" class="external-link">httpbin service</a> to show how to send arguments in each of these ways.</p>
+<p><a href="https://en.wikipedia.org/wiki/Representational_state_transfer" class="external-link">RESTful
+APIs</a> also use the HTTP verb to communicate arguments (e.g.,
+<code>GET</code> retrieves a file, <code>POST</code> adds a file,
+<code>DELETE</code> removes a file, etc.). We can use the helpful <a href="http://httpbin.org" class="external-link">httpbin service</a> to show how to send
+arguments in each of these ways.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># modify_url</span></span>
 <span><span class="fu"><a href="../reference/POST.html">POST</a></span><span class="op">(</span><span class="fu"><a href="../reference/modify_url.html">modify_url</a></span><span class="op">(</span><span class="st">"https://httpbin.org"</span>, path <span class="op">=</span> <span class="st">"/post"</span><span class="op">)</span><span class="op">)</span></span>
@@ -447,33 +502,74 @@
 <span><span class="fu"><a href="../reference/POST.html">POST</a></span><span class="op">(</span><span class="st">"http://httpbin.org/post"</span>, body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>foo <span class="op">=</span> <span class="st">"bar"</span><span class="op">)</span>, encode <span class="op">=</span> <span class="st">"form"</span><span class="op">)</span></span>
 <span><span class="co">## as json</span></span>
 <span><span class="fu"><a href="../reference/POST.html">POST</a></span><span class="op">(</span><span class="st">"http://httpbin.org/post"</span>, body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>foo <span class="op">=</span> <span class="st">"bar"</span><span class="op">)</span>, encode <span class="op">=</span> <span class="st">"json"</span><span class="op">)</span></span></code></pre></div>
-<p>Many APIs will use just one of these forms of argument passing, but others will use multiple of them in combination. Best practice is to insulate the user from how and where the various arguments are used by the API and instead simply expose relevant arguments via R function arguments, some of which might be used in the URL, in the headers, in the body, etc.</p>
-<p>If a parameter has a small fixed set of possible values that are allowed by the API, you can use list them in the default arguments and then use <code><a href="https://rdrr.io/r/base/match.arg.html" class="external-link">match.arg()</a></code> to ensure that the caller only supplies one of those values. (This also allows the user to supply the short unique prefixes.)</p>
+<p>Many APIs will use just one of these forms of argument passing, but
+others will use multiple of them in combination. Best practice is to
+insulate the user from how and where the various arguments are used by
+the API and instead simply expose relevant arguments via R function
+arguments, some of which might be used in the URL, in the headers, in
+the body, etc.</p>
+<p>If a parameter has a small fixed set of possible values that are
+allowed by the API, you can use list them in the default arguments and
+then use <code><a href="https://rdrr.io/r/base/match.arg.html" class="external-link">match.arg()</a></code> to ensure that the caller only
+supplies one of those values. (This also allows the user to supply the
+short unique prefixes.)</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/match.arg.html" class="external-link">match.arg</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="fu">f</span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "apple"</span></span></code></pre></div>
-<p>It is good practice to explicitly set default values for arguments that are not required to <code>NULL</code>. If there is a default value, it should be the first one listed in the vector of allowed arguments.</p>
+<p>It is good practice to explicitly set default values for arguments
+that are not required to <code>NULL</code>. If there is a default value,
+it should be the first one listed in the vector of allowed
+arguments.</p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="authentication">Authentication<a class="anchor" aria-label="anchor" href="#authentication"></a>
 </h2>
-<p>Many APIs can be called without any authentication (just as if you called them in a web browser). However, others require authentication to perform particular requests or to avoid rate limits and other limitations. The most common forms of authentication are OAuth and HTTP basic authentication:</p>
+<p>Many APIs can be called without any authentication (just as if you
+called them in a web browser). However, others require authentication to
+perform particular requests or to avoid rate limits and other
+limitations. The most common forms of authentication are OAuth and HTTP
+basic authentication:</p>
 <ol style="list-style-type: decimal">
-<li><p><em>“Basic” authentication</em>: This requires a username and password (or sometimes just a username). This is passed as part of the HTTP request. In httr, you can do: <code>GET("http://httpbin.org", authenticate("username", "password"))</code></p></li>
+<li><p><em>“Basic” authentication</em>: This requires a username and
+password (or sometimes just a username). This is passed as part of the
+HTTP request. In httr, you can do:
+<code>GET("http://httpbin.org", authenticate("username", "password"))</code></p></li>
 <li>
-<p><em>Basic authentication with an API key</em>: An alternative provided by many APIs is an API “key” or “token” which is passed as part of the request. It is better than a username/password combination because it can be regenerated independent of the username and password.</p>
-<p>This API key can be specified in a number of different ways: in a URL query argument, in an HTTP header such as the <code>Authorization</code> header, or in an argument inside the request body.</p>
+<p><em>Basic authentication with an API key</em>: An alternative
+provided by many APIs is an API “key” or “token” which is passed as part
+of the request. It is better than a username/password combination
+because it can be regenerated independent of the username and
+password.</p>
+<p>This API key can be specified in a number of different ways: in a URL
+query argument, in an HTTP header such as the <code>Authorization</code>
+header, or in an argument inside the request body.</p>
 </li>
-<li><p><em>OAuth</em>: OAuth is a protocol for generating a user- or session-specific authentication token to use in subsequent requests. (An early standard, OAuth 1.0, is not terribly common any more. See <code><a href="../reference/oauth1.0_token.html">oauth1.0_token()</a></code> for details.) The current OAuth 2.0 standard is very common in modern web apps. It involves a round trip between the client and server to establish if the API client has the authority to access the data. See <code><a href="../reference/oauth2.0_token.html">oauth2.0_token()</a></code>. It’s ok to publish the app ID and app “secret” - these are not actually important for security of user data.</p></li>
+<li><p><em>OAuth</em>: OAuth is a protocol for generating a user- or
+session-specific authentication token to use in subsequent requests. (An
+early standard, OAuth 1.0, is not terribly common any more. See
+<code><a href="../reference/oauth1.0_token.html">oauth1.0_token()</a></code> for details.) The current OAuth 2.0
+standard is very common in modern web apps. It involves a round trip
+between the client and server to establish if the API client has the
+authority to access the data. See <code><a href="../reference/oauth2.0_token.html">oauth2.0_token()</a></code>. It’s ok
+to publish the app ID and app “secret” - these are not actually
+important for security of user data.</p></li>
 </ol>
 <blockquote>
-<p>Some APIs describe their authentication processes inaccurately, so care needs to be taken to understand the true authentication mechanism regardless of the label used in the API docs.</p>
+<p>Some APIs describe their authentication processes inaccurately, so
+care needs to be taken to understand the true authentication mechanism
+regardless of the label used in the API docs.</p>
 </blockquote>
-<p>It is possible to specify the key(s) or token(s) required for basic or OAuth authentication in a number of different ways. You may also need some way to preserve user credentials between function calls so that end users do not need to specify them each time. A good start is to use an environment variable. Here is an example of how to write a function that checks for the presence of a GitHub personal access token and errors otherwise:</p>
+<p>It is possible to specify the key(s) or token(s) required for basic
+or OAuth authentication in a number of different ways. You may also need
+some way to preserve user credentials between function calls so that end
+users do not need to specify them each time. A good start is to use an
+environment variable. Here is an example of how to write a function that
+checks for the presence of a GitHub personal access token and errors
+otherwise:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">github_pat</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">pat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">'GITHUB_PAT'</span><span class="op">)</span></span>
@@ -488,26 +584,51 @@
 <div class="section level2">
 <h2 id="pagination-handling-multi-page-responses">Pagination (handling multi-page responses)<a class="anchor" aria-label="anchor" href="#pagination-handling-multi-page-responses"></a>
 </h2>
-<p>One particularly frustrating aspect of many APIs is dealing with paginated responses. This is common in APIs that offer search functionality and have the potential to return a very large number of responses. Responses might be paginated because there is a large number of response elements or because elements are updated frequently. Often they will be sorted by an explicit or implicit argument specified in the request.</p>
-<p>When a response is paginated, the API response will typically respond with a header or value specified in the body that contains one of the following:</p>
+<p>One particularly frustrating aspect of many APIs is dealing with
+paginated responses. This is common in APIs that offer search
+functionality and have the potential to return a very large number of
+responses. Responses might be paginated because there is a large number
+of response elements or because elements are updated frequently. Often
+they will be sorted by an explicit or implicit argument specified in the
+request.</p>
+<p>When a response is paginated, the API response will typically respond
+with a header or value specified in the body that contains one of the
+following:</p>
 <ol style="list-style-type: decimal">
 <li>The total number of pages of responses</li>
-<li>The total number of response elements (with multiple elements per page)</li>
-<li>An indicator for whether any further elements or pages are available.</li>
+<li>The total number of response elements (with multiple elements per
+page)</li>
+<li>An indicator for whether any further elements or pages are
+available.</li>
 <li>A URL containing the next page</li>
 </ol>
-<p>These values can then be used to make further requests. This will either involve specifying a specific page of responses or specifying a “next page token” that returns the next page of results. How to deal with pagination is a difficult question and a client could implement any of the following:</p>
+<p>These values can then be used to make further requests. This will
+either involve specifying a specific page of responses or specifying a
+“next page token” that returns the next page of results. How to deal
+with pagination is a difficult question and a client could implement any
+of the following:</p>
 <ol style="list-style-type: decimal">
-<li>Return one page only by default with an option to return additional specific pages</li>
-<li>Return a specified page (defaulting to 1) and require the end user to handle pagination</li>
-<li>Return all pages by writing an internal process of checking for further pages and combining the results</li>
+<li>Return one page only by default with an option to return additional
+specific pages</li>
+<li>Return a specified page (defaulting to 1) and require the end user
+to handle pagination</li>
+<li>Return all pages by writing an internal process of checking for
+further pages and combining the results</li>
 </ol>
-<p>The choice of which to use depends on your needs and goals and the rate limits of the API.</p>
+<p>The choice of which to use depends on your needs and goals and the
+rate limits of the API.</p>
 <div class="section level3">
 <h3 id="rate-limiting">Rate limiting<a class="anchor" aria-label="anchor" href="#rate-limiting"></a>
 </h3>
-<p>Many APIs are rate limited, which means that you can only send a certain number of requests per hour. Often if your request is rate limited, the error message will tell you how long you should wait before performing another request. You might want to expose this to the user, or even include a call to <code><a href="https://rdrr.io/r/base/Sys.sleep.html" class="external-link">Sys.sleep()</a></code> that waits long enough.</p>
-<p>For example, we could implement a <code>rate_limit()</code> function that tells you how many calls against the github API are available to you.</p>
+<p>Many APIs are rate limited, which means that you can only send a
+certain number of requests per hour. Often if your request is rate
+limited, the error message will tell you how long you should wait before
+performing another request. You might want to expose this to the user,
+or even include a call to <code><a href="https://rdrr.io/r/base/Sys.sleep.html" class="external-link">Sys.sleep()</a></code> that waits long
+enough.</p>
+<p>For example, we could implement a <code>rate_limit()</code> function
+that tells you how many calls against the github API are available to
+you.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rate_limit</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">github_api</span><span class="op">(</span><span class="st">"/rate_limit"</span><span class="op">)</span></span>
@@ -518,35 +639,37 @@
 <span><span class="co">#&gt;  $ resources:List of 4</span></span>
 <span><span class="co">#&gt;   ..$ core                :List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 60</span></span>
-<span><span class="co">#&gt;   .. ..$ remaining: int 56</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1662827222</span></span>
-<span><span class="co">#&gt;   .. ..$ used     : int 4</span></span>
+<span><span class="co">#&gt;   .. ..$ remaining: int 0</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1677085732</span></span>
+<span><span class="co">#&gt;   .. ..$ used     : int 60</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "core"</span></span>
 <span><span class="co">#&gt;   ..$ graphql             :List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ remaining: int 0</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1662827223</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1677088236</span></span>
 <span><span class="co">#&gt;   .. ..$ used     : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "graphql"</span></span>
 <span><span class="co">#&gt;   ..$ integration_manifest:List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 5000</span></span>
 <span><span class="co">#&gt;   .. ..$ remaining: int 5000</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1662827223</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1677088236</span></span>
 <span><span class="co">#&gt;   .. ..$ used     : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "integration_manifest"</span></span>
 <span><span class="co">#&gt;   ..$ search              :List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 10</span></span>
 <span><span class="co">#&gt;   .. ..$ remaining: int 10</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1662823683</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1677084696</span></span>
 <span><span class="co">#&gt;   .. ..$ used     : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "search"</span></span>
 <span><span class="co">#&gt;  $ rate     :List of 5</span></span>
 <span><span class="co">#&gt;   ..$ limit    : int 60</span></span>
-<span><span class="co">#&gt;   ..$ remaining: int 56</span></span>
-<span><span class="co">#&gt;   ..$ reset    : int 1662827222</span></span>
-<span><span class="co">#&gt;   ..$ used     : int 4</span></span>
+<span><span class="co">#&gt;   ..$ remaining: int 0</span></span>
+<span><span class="co">#&gt;   ..$ reset    : int 1677085732</span></span>
+<span><span class="co">#&gt;   ..$ used     : int 60</span></span>
 <span><span class="co">#&gt;   ..$ resource : chr "core"</span></span></code></pre></div>
-<p>After getting the first version working, you’ll often want to polish the output to be more user friendly. For this example, we can parse the unix timestamps into more useful date types.</p>
+<p>After getting the first version working, you’ll often want to polish
+the output to be more user friendly. For this example, we can parse the
+unix timestamps into more useful date types.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rate_limit</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">req</span> <span class="op">&lt;-</span> <span class="fu">github_api</span><span class="op">(</span><span class="st">"/rate_limit"</span><span class="op">)</span></span>
@@ -558,7 +681,7 @@
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu">rate_limit</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 56 / 60 (Resets at 16:27:01)</span></span></code></pre></div>
+<span><span class="co">#&gt; 0 / 60 (Resets at 17:08:52)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -576,7 +699,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
   </div></footer>
