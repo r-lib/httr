@@ -143,10 +143,10 @@ data already held by the client.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">GET</span><span class="op">(</span><span class="st">"http://google.com/"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 15.6 kB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 13.9 kB</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> var f=this||self;var h,k=[];function l(a){for(var b;a&amp;&amp;(!a.getAttribute...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> function n(a,b,c,d,g){var e="";c||-1!==b.search("&amp;ei=")||(e="&amp;ei="+l(d)...</span>
@@ -160,10 +160,10 @@ data already held by the client.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span><span class="fu">GET</span><span class="op">(</span><span class="st">"http://google.com/"</span>, path <span class="op">=</span> <span class="st">"search"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://www.google.com/webhp]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 15.6 kB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 13.9 kB</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> var f=this||self;var h,k=[];function l(a){for(var b;a&amp;&amp;(!a.getAttribute...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> function n(a,b,c,d,g){var e="";c||-1!==b.search("&amp;ei=")||(e="&amp;ei="+l(d)...</span>
@@ -177,10 +177,10 @@ data already held by the client.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span><span class="fu">GET</span><span class="op">(</span><span class="st">"http://google.com/"</span>, path <span class="op">=</span> <span class="st">"search"</span>, query <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>q <span class="op">=</span> <span class="st">"ham"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://www.google.com/search?q=ham]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 298 kB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 83.9 kB</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!doctype html&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;meta conten...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> document.documentElement.addEventListener("submit",function(b){var a;if...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> var h=this||self;var k,l=null!=(k=h.mei)?k:1,n,p=null!=(n=h.sdo)?n:!0,q...</span>
@@ -197,7 +197,7 @@ data already held by the client.</p>
 <span class="r-in"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://httpbin.org/get"</span></span></span>
 <span class="r-in"><span><span class="fu">GET</span><span class="op">(</span><span class="va">url</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/get]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 383 B</span>
@@ -208,13 +208,13 @@ data already held by the client.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f64de4-7752521e488e4e2832df9ac0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f64ead-69018f9749433c3172fe6bd6"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "origin": "52.179.102.208", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "origin": "104.45.204.176", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span><span class="fu">GET</span><span class="op">(</span><span class="va">url</span>, <span class="fu"><a href="add_headers.html">add_headers</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/get]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 413 B</span>
@@ -227,11 +227,11 @@ data already held by the client.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "B": "2", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f64de5-1382f122553d716b1f50749b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f64ead-6b4a446365aa956255a93b27"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span><span class="fu">GET</span><span class="op">(</span><span class="va">url</span>, <span class="fu"><a href="set_cookies.html">set_cookies</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/get]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 409 B</span>
@@ -243,12 +243,12 @@ data already held by the client.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Cookie": "a=1;b=2", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f64de5-1c2ed4bf74ff40a73892a2f1"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f64eae-7749b7f5296ec66f57959a99"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span><span class="fu">GET</span><span class="op">(</span><span class="va">url</span>, <span class="fu"><a href="add_headers.html">add_headers</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="set_cookies.html">set_cookies</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/get]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 439 B</span>
@@ -265,7 +265,7 @@ data already held by the client.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span><span class="fu">GET</span><span class="op">(</span><span class="va">url</span>, <span class="fu"><a href="authenticate.html">authenticate</a></span><span class="op">(</span><span class="st">"username"</span>, <span class="st">"password"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/get]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 439 B</span>
@@ -277,12 +277,12 @@ data already held by the client.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Authorization": "Basic dXNlcm5hbWU6cGFzc3dvcmQ=", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f64de5-49f7b2092200546d3ccb7de4"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f64eae-7a1d453a18e9e4875deaa588"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span><span class="fu">GET</span><span class="op">(</span><span class="va">url</span>, <span class="fu"><a href="verbose.html">verbose</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/get]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 383 B</span>
@@ -293,9 +293,9 @@ data already held by the client.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f64de5-38de7a5f6d87d4b834846fbc"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f64eaf-79c2ecae5bdc159e6c2478ea"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   }, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "origin": "52.179.102.208", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "origin": "104.45.204.176", </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># You might want to manually specify the handle so you can have multiple</span></span></span>
@@ -303,10 +303,10 @@ data already held by the client.</p>
 <span class="r-in"><span><span class="va">google</span> <span class="op">&lt;-</span> <span class="fu"><a href="handle.html">handle</a></span><span class="op">(</span><span class="st">"http://google.com"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">GET</span><span class="op">(</span>handle <span class="op">=</span> <span class="va">google</span>, path <span class="op">=</span> <span class="st">"/"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 14 kB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 13.9 kB</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> var f=this||self;var h,k=[];function l(a){for(var b;a&amp;&amp;(!a.getAttribute...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> function n(a,b,c,d,g){var e="";c||-1!==b.search("&amp;ei=")||(e="&amp;ei="+l(d)...</span>
@@ -320,10 +320,10 @@ data already held by the client.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span><span class="fu">GET</span><span class="op">(</span>handle <span class="op">=</span> <span class="va">google</span>, path <span class="op">=</span> <span class="st">"search"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://www.google.com/webhp]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-22 17:19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 14 kB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 13.9 kB</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> var f=this||self;var h,k=[];function l(a){for(var b;a&amp;&amp;(!a.getAttribute...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> function n(a,b,c,d,g){var e="";c||-1!==b.search("&amp;ei=")||(e="&amp;ei="+l(d)...</span>
