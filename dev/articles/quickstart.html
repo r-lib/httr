@@ -124,10 +124,10 @@ file, the first few lines of output.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">r</span></span>
 <span><span class="co">#&gt; Response [http://httpbin.org/get]</span></span>
-<span><span class="co">#&gt;   Date: 2023-02-22 21:28</span></span>
+<span><span class="co">#&gt;   Date: 2023-02-23 16:57</span></span>
 <span><span class="co">#&gt;   Status: 200</span></span>
 <span><span class="co">#&gt;   Content-Type: application/json</span></span>
-<span><span class="co">#&gt;   Size: 381 B</span></span>
+<span><span class="co">#&gt;   Size: 383 B</span></span>
 <span><span class="co">#&gt; {</span></span>
 <span><span class="co">#&gt;   "args": {}, </span></span>
 <span><span class="co">#&gt;   "headers": {</span></span>
@@ -135,9 +135,9 @@ file, the first few lines of output.</p>
 <span><span class="co">#&gt;     "Accept-Encoding": "deflate, gzip, br, zstd", </span></span>
 <span><span class="co">#&gt;     "Host": "httpbin.org", </span></span>
 <span><span class="co">#&gt;     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000", </span></span>
-<span><span class="co">#&gt;     "X-Amzn-Trace-Id": "Root=1-63f688ed-21935f9961605f5838aeebaf"</span></span>
+<span><span class="co">#&gt;     "X-Amzn-Trace-Id": "Root=1-63f79b08-7c7c93df126142f92cbcf1cd"</span></span>
 <span><span class="co">#&gt;   }, </span></span>
-<span><span class="co">#&gt;   "origin": "172.177.6.16", </span></span>
+<span><span class="co">#&gt;   "origin": "104.45.202.148", </span></span>
 <span><span class="co">#&gt; ...</span></span></code></pre></div>
 <p>You can pull out important parts of the response with various helper
 methods, or dig directly into the object:</p>
@@ -146,13 +146,13 @@ methods, or dig directly into the object:</p>
 <span><span class="co">#&gt; [1] 200</span></span>
 <span><span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $date</span></span>
-<span><span class="co">#&gt; [1] "Wed, 22 Feb 2023 21:28:13 GMT"</span></span>
+<span><span class="co">#&gt; [1] "Thu, 23 Feb 2023 16:57:44 GMT"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $`content-type`</span></span>
 <span><span class="co">#&gt; [1] "application/json"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $`content-length`</span></span>
-<span><span class="co">#&gt; [1] "381"</span></span>
+<span><span class="co">#&gt; [1] "383"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $connection</span></span>
 <span><span class="co">#&gt; [1] "keep-alive"</span></span>
@@ -176,8 +176,8 @@ methods, or dig directly into the object:</p>
 <span><span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip, br, zstd"</span></span>
 <span><span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span></span>
 <span><span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000"</span></span>
-<span><span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-63f688ed-21935f9961605f5838aeebaf"</span></span>
-<span><span class="co">#&gt;  $ origin : chr "172.177.6.16"</span></span>
+<span><span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-63f79b08-7c7c93df126142f92cbcf1cd"</span></span>
+<span><span class="co">#&gt;  $ origin : chr "104.45.202.148"</span></span>
 <span><span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></span></code></pre></div>
 <p>I’ll use <code>httpbin.org</code> throughout this introduction. It
 accepts many types of http request and returns json that describes the
@@ -250,7 +250,7 @@ vector:</p>
 <code class="sourceCode R"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/get"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/content.html">content</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"text"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span></span>
-<span><span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"deflate, gzip, br, zstd\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000\", \n    \"X-Amzn-Trace-Id\": \"Root=1-63f688ed-481d99135629bb15553a2615\"\n  }, \n  \"origin\": \"172.177.6.16\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"application/json, text/xml, application/xml, */*\", \n    \"Accept-Encoding\": \"deflate, gzip, br, zstd\", \n    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000\", \n    \"X-Amzn-Trace-Id\": \"Root=1-63f79b08-2a47fe4930de1aa447a16848\"\n  }, \n  \"origin\": \"104.45.202.148\", \n  \"url\": \"http://httpbin.org/get\"\n}\n"</span></span></code></pre></div>
 <p>httr will automatically decode content from the server using the
 encoding supplied in the <code>content-type</code> HTTP header.
 Unfortunately you can’t always trust what the server tells you, so you
@@ -278,11 +278,11 @@ a raw vector:</p>
 <span><span class="co">#&gt; [208] 38 31 2e 30 20 72 2d 63 75 72 6c 2f 35 2e 30 2e 30 20 68 74 74 72 2f</span></span>
 <span><span class="co">#&gt; [231] 31 2e 34 2e 34 2e 39 30 30 30 22 2c 20 0a 20 20 20 20 22 58 2d 41 6d</span></span>
 <span><span class="co">#&gt; [254] 7a 6e 2d 54 72 61 63 65 2d 49 64 22 3a 20 22 52 6f 6f 74 3d 31 2d 36</span></span>
-<span><span class="co">#&gt; [277] 33 66 36 38 38 65 64 2d 34 38 31 64 39 39 31 33 35 36 32 39 62 62 31</span></span>
-<span><span class="co">#&gt; [300] 35 35 35 33 61 32 36 31 35 22 0a 20 20 7d 2c 20 0a 20 20 22 6f 72 69</span></span>
-<span><span class="co">#&gt; [323] 67 69 6e 22 3a 20 22 31 37 32 2e 31 37 37 2e 36 2e 31 36 22 2c 20 0a</span></span>
-<span><span class="co">#&gt; [346] 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 3a 2f 2f 68 74 74 70 62 69</span></span>
-<span><span class="co">#&gt; [369] 6e 2e 6f 72 67 2f 67 65 74 22 0a 7d 0a</span></span></code></pre></div>
+<span><span class="co">#&gt; [277] 33 66 37 39 62 30 38 2d 32 61 34 37 66 65 34 39 33 30 64 65 31 61 61</span></span>
+<span><span class="co">#&gt; [300] 34 34 37 61 31 36 38 34 38 22 0a 20 20 7d 2c 20 0a 20 20 22 6f 72 69</span></span>
+<span><span class="co">#&gt; [323] 67 69 6e 22 3a 20 22 31 30 34 2e 34 35 2e 32 30 32 2e 31 34 38 22 2c</span></span>
+<span><span class="co">#&gt; [346] 20 0a 20 20 22 75 72 6c 22 3a 20 22 68 74 74 70 3a 2f 2f 68 74 74 70</span></span>
+<span><span class="co">#&gt; [369] 62 69 6e 2e 6f 72 67 2f 67 65 74 22 0a 7d 0a</span></span></code></pre></div>
 <p>This is exactly the sequence of bytes that the web server sent, so
 this is the highest fidelity way of saving files to disk:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
@@ -302,8 +302,8 @@ types:</p>
 <span><span class="co">#&gt;   ..$ Accept-Encoding: chr "deflate, gzip, br, zstd"</span></span>
 <span><span class="co">#&gt;   ..$ Host           : chr "httpbin.org"</span></span>
 <span><span class="co">#&gt;   ..$ User-Agent     : chr "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000"</span></span>
-<span><span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-63f688ed-481d99135629bb15553a2615"</span></span>
-<span><span class="co">#&gt;  $ origin : chr "172.177.6.16"</span></span>
+<span><span class="co">#&gt;   ..$ X-Amzn-Trace-Id: chr "Root=1-63f79b08-2a47fe4930de1aa447a16848"</span></span>
+<span><span class="co">#&gt;  $ origin : chr "104.45.202.148"</span></span>
 <span><span class="co">#&gt;  $ url    : chr "http://httpbin.org/get"</span></span></code></pre></div>
 <p>See <code><a href="../reference/content.html">?content</a></code> for a complete list.</p>
 <p>These are convenient for interactive usage, but if you’re writing an
@@ -320,13 +320,13 @@ details.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $date</span></span>
-<span><span class="co">#&gt; [1] "Wed, 22 Feb 2023 21:28:13 GMT"</span></span>
+<span><span class="co">#&gt; [1] "Thu, 23 Feb 2023 16:57:44 GMT"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $`content-type`</span></span>
 <span><span class="co">#&gt; [1] "application/json"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $`content-length`</span></span>
-<span><span class="co">#&gt; [1] "381"</span></span>
+<span><span class="co">#&gt; [1] "383"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $connection</span></span>
 <span><span class="co">#&gt; [1] "keep-alive"</span></span>
@@ -346,9 +346,9 @@ details.</p>
 insensitive, indexing this object ignores case:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">$</span><span class="va">date</span></span>
-<span><span class="co">#&gt; [1] "Wed, 22 Feb 2023 21:28:13 GMT"</span></span>
+<span><span class="co">#&gt; [1] "Thu, 23 Feb 2023 16:57:44 GMT"</span></span>
 <span><span class="fu"><a href="../reference/headers.html">headers</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">$</span><span class="va">DATE</span></span>
-<span><span class="co">#&gt; [1] "Wed, 22 Feb 2023 21:28:13 GMT"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "Thu, 23 Feb 2023 16:57:44 GMT"</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="cookies">Cookies<a class="anchor" aria-label="anchor" href="#cookies"></a>
@@ -424,7 +424,7 @@ list, and both keys and values are escaped automatically.</p>
 <span><span class="co">#&gt;  $ Host           : chr "httpbin.org"</span></span>
 <span><span class="co">#&gt;  $ Name           : chr "Hadley"</span></span>
 <span><span class="co">#&gt;  $ User-Agent     : chr "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.4.9000"</span></span>
-<span><span class="co">#&gt;  $ X-Amzn-Trace-Id: chr "Root=1-63f688ee-1825cd9b694a9d702d059476"</span></span></code></pre></div>
+<span><span class="co">#&gt;  $ X-Amzn-Trace-Id: chr "Root=1-63f79b0a-51c3f63e715e128038ae2a06"</span></span></code></pre></div>
 <p>(Note that <code>content(r)$header</code> retrieves the headers that
 httpbin received. <code>headers(r)</code> gives the headers that it sent
 back in its response.)</p>
