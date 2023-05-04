@@ -1,4 +1,4 @@
-# httr (development version)
+# httr 1.4.6
 
 * Supress use of httpbin in examples and tests because it has become 
   unreliable.
