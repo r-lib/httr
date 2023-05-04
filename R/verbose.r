@@ -26,15 +26,16 @@
 #'  even when the requests are buried inside another function call.
 #' @export
 #' @examples
+#' \dontrun{
 #' GET("http://httpbin.org", verbose())
 #' GET("http://httpbin.org", verbose(info = TRUE))
-#' 
+#'
 #' f <- function() {
 #'   GET("http://httpbin.org")
 #' }
 #' with_verbose(f())
 #' with_verbose(f(), info = TRUE)
-#' 
+#'
 #' # verbose() makes it easy to see exactly what POST requests send
 #' POST_verbose <- function(body, ...) {
 #'   POST("https://httpbin.org/post", body = body, verbose(), ...)
@@ -46,6 +47,7 @@
 #' POST_verbose(NULL)
 #' POST_verbose("")
 #' POST_verbose("xyz")
+#' }
 verbose <- function(data_out = TRUE, data_in = FALSE, info = FALSE, ssl = FALSE) {
   debug <- function(type, msg) {
     switch(type + 1,

@@ -29,6 +29,7 @@
 #' @export
 #' @family http methods
 #' @examples
+#' \dontrun{
 #' b2 <- "http://httpbin.org/post"
 #' POST(b2, body = "A simple text string")
 #' POST(b2, body = list(x = "A simple text string"))
@@ -47,6 +48,7 @@
 #' POST(b2, body = NULL, verbose())
 #' POST(b2, body = FALSE, verbose())
 #' POST(b2, body = "", verbose())
+#' }
 POST <- function(url = NULL, config = list(), ..., body = NULL,
                  encode = c("multipart", "form", "json", "raw"),
                  handle = NULL) {

@@ -112,11 +112,11 @@ If the server returns status code 429 and specifies a \code{retry-after} value, 
 value will be used instead, unless it's smaller than \code{pause_min}.
 }
 \examples{
+\dontrun{
 # Succeeds straight away
 RETRY("GET", "http://httpbin.org/status/200")
 # Never succeeds
 RETRY("GET", "http://httpbin.org/status/500")
-\dontrun{
 # Invalid hostname generates curl error condition and is retried but eventually
 # raises an error condition.
 RETRY("GET", "http://invalidhostname/")

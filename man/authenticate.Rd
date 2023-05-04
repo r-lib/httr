@@ -20,11 +20,13 @@ It's not obvious how to turn authentication off after using it, so
 I recommend using custom handles with authentication.
 }
 \examples{
+\dontrun{
 GET("http://httpbin.org/basic-auth/user/passwd")
 GET(
   "http://httpbin.org/basic-auth/user/passwd",
   authenticate("user", "passwd")
 )
+}
 }
 \seealso{
 Other config: 

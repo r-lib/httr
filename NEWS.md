@@ -1,5 +1,8 @@
 # httr (development version)
 
+* Supress use of httpbin in examples and tests because it has become 
+  unreliable.
+
 # httr 1.4.5
 
 * An internal helper that checks for an interactive session in the OOB flow now

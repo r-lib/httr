@@ -1,6 +1,7 @@
 context("Content")
 
 test_that("parse content is null if no body", {
+  skip_on_cran()
   out <- content(HEAD("http://httpbin.org/headers"))
   expect_equal(out, NULL)
 })

@@ -13,8 +13,10 @@ headers(x)
 Extract the headers from a response
 }
 \examples{
+\dontrun{
 r <- GET("http://httpbin.org/get")
 headers(r)
+}
 }
 \seealso{
 \code{\link[=add_headers]{add_headers()}} to send additional headers in a

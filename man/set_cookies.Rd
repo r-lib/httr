@@ -18,8 +18,10 @@ Set cookies.
 set_cookies(a = 1, b = 2)
 set_cookies(.cookies = c(a = "1", b = "2"))
 
+\dontrun{
 GET("http://httpbin.org/cookies")
 GET("http://httpbin.org/cookies", set_cookies(a = 1, b = 2))
+}
 }
 \seealso{
 \code{\link[=cookies]{cookies()}} to see cookies in response.

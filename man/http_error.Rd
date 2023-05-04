@@ -23,9 +23,11 @@ otherwise \code{FALSE}.
 Check for an http error.
 }
 \examples{
+\dontrun{
 # You can pass a url:
 http_error("http://www.google.com")
 http_error("http://httpbin.org/status/404")
+}
 
 # Or a request
 r <- GET("http://httpbin.org/status/201")

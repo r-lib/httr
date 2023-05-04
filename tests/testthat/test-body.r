@@ -1,6 +1,7 @@
 context("Body")
 
 round_trip <- function(...) {
+  skip_on_cran()
   content(POST("http://httpbin.org/post", ...))
 }
 

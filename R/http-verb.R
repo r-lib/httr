@@ -14,9 +14,11 @@
 #' )
 #' stop_for_status(r)
 #' content(r)
-#' 
+#'
+#' \dontrun{
 #' VERB("POST", url = "http://httpbin.org/post")
 #' VERB("POST", url = "http://httpbin.org/post", body = "foobar")
+#' }
 VERB <- function(verb, url = NULL, config = list(), ...,
                  body = NULL, encode = c("multipart", "form", "json", "raw"),
                  handle = NULL) {

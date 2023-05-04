@@ -70,6 +70,7 @@ you will protect yourself against changes to httr.
 }
 
 \examples{
+\dontrun{
 r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
 content(r) # automatically parses JSON
 cat(content(r, "text"), "\n") # text content
@@ -78,6 +79,7 @@ content(r, "raw") # raw bytes from server
 rlogo <- content(GET("https://httpbin.org/image/png"))
 plot(0:1, 0:1, type = "n")
 rasterImage(rlogo, 0, 0, 1, 1)
+}
 }
 \seealso{
 Other response methods: 

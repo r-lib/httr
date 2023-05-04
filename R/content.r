@@ -52,6 +52,7 @@
 #' For "auto", a parsed R object.
 #' @export
 #' @examples
+#' \dontrun{
 #' r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
 #' content(r) # automatically parses JSON
 #' cat(content(r, "text"), "\n") # text content
@@ -60,6 +61,7 @@
 #' rlogo <- content(GET("https://httpbin.org/image/png"))
 #' plot(0:1, 0:1, type = "n")
 #' rasterImage(rlogo, 0, 0, 1, 1)
+#' }
 #' @aliases text_content parsed_content
 content <- function(x, as = NULL, type = NULL, encoding = NULL, ...) {
   stopifnot(is.response(x))
@@ -100,8 +102,10 @@ parsed_content <- function(x, ...) {
 #' @keywords internal
 #' @export
 #' @examples
+#' \dontrun{
 #' has_content(POST("http://httpbin.org/post", body = FALSE))
 #' has_content(HEAD("http://httpbin.org/headers"))
+#' }
 has_content <- function(x) {
   length(x$content) > 0
 }

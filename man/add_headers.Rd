@@ -20,6 +20,7 @@ Wikipedia provides a useful list of common http headers:
 add_headers(a = 1, b = 2)
 add_headers(.headers = c(a = "1", b = "2"))
 
+\dontrun{
 GET("http://httpbin.org/headers")
 
 # Add arbitrary headers
@@ -30,6 +31,7 @@ GET(
 
 # Override default headers with empty strings
 GET("http://httpbin.org/headers", add_headers(Accept = ""))
+}
 }
 \seealso{
 \code{\link[=accept]{accept()}} and \code{\link[=content_type]{content_type()}} for

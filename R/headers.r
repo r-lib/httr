@@ -5,8 +5,10 @@
 #'   request
 #' @export
 #' @examples
+#' \dontrun{
 #' r <- GET("http://httpbin.org/get")
 #' headers(r)
+#' }
 headers <- function(x) UseMethod("headers")
 
 #' @export
@@ -30,6 +32,7 @@ headers.response <- function(x) {
 #' add_headers(a = 1, b = 2)
 #' add_headers(.headers = c(a = "1", b = "2"))
 #'
+#' \dontrun{
 #' GET("http://httpbin.org/headers")
 #'
 #' # Add arbitrary headers
@@ -40,6 +43,7 @@ headers.response <- function(x) {
 #'
 #' # Override default headers with empty strings
 #' GET("http://httpbin.org/headers", add_headers(Accept = ""))
+#' }
 add_headers <- function(..., .headers = character()) {
   request(headers = c(..., .headers))
 }
@@ -57,6 +61,7 @@ add_headers <- function(..., .headers = character()) {
 #'   with `.`) will guess the mime type using [mime::guess_type()].
 #' @export
 #' @examples
+#' \dontrun{
 #' GET("http://httpbin.org/headers")
 #'
 #' GET("http://httpbin.org/headers", accept_json())
@@ -66,6 +71,7 @@ add_headers <- function(..., .headers = character()) {
 #' GET("http://httpbin.org/headers", content_type_xml())
 #' GET("http://httpbin.org/headers", content_type("text/csv"))
 #' GET("http://httpbin.org/headers", content_type(".xml"))
+#' }
 content_type <- function(type) {
   if (is.null(type)) return()
 

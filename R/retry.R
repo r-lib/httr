@@ -36,11 +36,11 @@
 #'   to use [stop_for_status()].
 #' @export
 #' @examples
+#' \dontrun{
 #' # Succeeds straight away
 #' RETRY("GET", "http://httpbin.org/status/200")
 #' # Never succeeds
 #' RETRY("GET", "http://httpbin.org/status/500")
-#' \dontrun{
 #' # Invalid hostname generates curl error condition and is retried but eventually
 #' # raises an error condition.
 #' RETRY("GET", "http://invalidhostname/")

@@ -6,8 +6,10 @@
 #' @export
 #' @examples
 #' citation <- upload_file(system.file("CITATION"))
+#' \dontrun{
 #' POST("http://httpbin.org/post", body = citation)
 #' POST("http://httpbin.org/post", body = list(y = citation))
+#' }
 upload_file <- function(path, type = NULL) {
   stopifnot(is.character(path), length(path) == 1, file.exists(path))
 

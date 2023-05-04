@@ -25,8 +25,10 @@
 #' @family http methods
 #' @export
 #' @examples
+#' \dontrun{
 #' DELETE("http://httpbin.org/delete")
 #' POST("http://httpbin.org/delete")
+#' }
 DELETE <- function(url = NULL, config = list(), ...,
                    body = NULL, encode = c("multipart", "form", "json", "raw"),
                    handle = NULL) {

@@ -9,7 +9,7 @@ vignette: >
 
 ```{r, echo = FALSE}
 library(httr)
-knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
+knitr::opts_chunk$set(comment = "#>", collapse = TRUE, eval = FALSE)
 ```
 
 # httr quickstart guide

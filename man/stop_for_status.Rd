@@ -31,28 +31,26 @@ be used whenever you're creating requests inside a function, so
 that the user knows why a request has failed.
 }
 \examples{
+\dontrun{
 x <- GET("http://httpbin.org/status/200")
 stop_for_status(x) # nothing happens
 warn_for_status(x)
 message_for_status(x)
 
 x <- GET("http://httpbin.org/status/300")
-\dontrun{
 stop_for_status(x)
-}
 warn_for_status(x)
 message_for_status(x)
 
 x <- GET("http://httpbin.org/status/404")
-\dontrun{
 stop_for_status(x)
-}
 warn_for_status(x)
 message_for_status(x)
 
 # You can provide more information with the task argument
 warn_for_status(x, "download spreadsheet")
 message_for_status(x, "download spreadsheet")
+}
 }
 \seealso{
 \code{\link[=http_status]{http_status()}} and

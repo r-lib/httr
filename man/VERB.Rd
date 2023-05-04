@@ -78,8 +78,10 @@ r <- VERB(
 stop_for_status(r)
 content(r)
 
+\dontrun{
 VERB("POST", url = "http://httpbin.org/post")
 VERB("POST", url = "http://httpbin.org/post", body = "foobar")
+}
 }
 \seealso{
 Other http methods: 

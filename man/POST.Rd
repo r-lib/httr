@@ -68,6 +68,7 @@ A \code{\link[=response]{response()}} object.
 POST file to a server.
 }
 \examples{
+\dontrun{
 b2 <- "http://httpbin.org/post"
 POST(b2, body = "A simple text string")
 POST(b2, body = list(x = "A simple text string"))
@@ -86,6 +87,7 @@ POST(b2, body = json_body, encode = "raw")
 POST(b2, body = NULL, verbose())
 POST(b2, body = FALSE, verbose())
 POST(b2, body = "", verbose())
+}
 }
 \seealso{
 Other http methods: 

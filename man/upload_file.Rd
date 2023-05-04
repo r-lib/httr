@@ -17,6 +17,8 @@ Upload a file with \code{\link[=POST]{POST()}} or \code{\link[=PUT]{PUT()}}.
 }
 \examples{
 citation <- upload_file(system.file("CITATION"))
+\dontrun{
 POST("http://httpbin.org/post", body = citation)
 POST("http://httpbin.org/post", body = list(y = citation))
+}
 }
