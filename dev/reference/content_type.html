@@ -94,116 +94,17 @@ ask for json or xml responses or tell the server you are sending json/xml.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 301 B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json, text/xml, application/xml, */*", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.5.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f8ce20-39b7c93f582e6bee4bf31518"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">accept_json</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 269 B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.5.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f8ce21-123ccaa623cc7208352baf0c"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">accept</span><span class="op">(</span><span class="st">"text/csv"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 261 B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "text/csv", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.5.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f8ce22-3509e7ed1f1978497b8f4efb"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">accept</span><span class="op">(</span><span class="st">".doc"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 271 B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/msword", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.5.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f8ce23-633700473a5b47425181f2a5"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">content_type_xml</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 341 B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json, text/xml, application/xml, */*", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Type": "application/xml", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.5.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f8ce26-059ccaad124cedd0415d66e9"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">content_type</span><span class="op">(</span><span class="st">"text/csv"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 334 B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json, text/xml, application/xml, */*", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Type": "text/csv", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.5.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f8ce27-442c4d0b3164756349f6e1c7"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/headers"</span>, <span class="fu">content_type</span><span class="op">(</span><span class="st">".xml"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/headers]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: application/json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 341 B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json, text/xml, application/xml, */*", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Type": "application/xml", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.5.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f8ce2b-7dcc5def391c7b9955b7c2f8"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

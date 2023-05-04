@@ -159,114 +159,16 @@ you will protect yourself against changes to httr.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="POST.html">POST</a></span><span class="op">(</span><span class="st">"http://httpbin.org/post"</span>, body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="POST.html">POST</a></span><span class="op">(</span><span class="st">"http://httpbin.org/post"</span>, body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">content</span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="co"># automatically parses JSON</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $args</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> named list()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ""</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $files</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> named list()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $form</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $form$a</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $form$b</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$Accept</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "application/json, text/xml, application/xml, */*"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`Accept-Encoding`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "deflate, gzip, br, zstd"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`Content-Length`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "228"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`Content-Type`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "multipart/form-data; boundary=------------------------90e9e59d2dbeaa2c"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$Host</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "httpbin.org"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`User-Agent`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.5.9000"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`X-Amzn-Trace-Id`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Root=1-63f8ce18-1228ac980e060cef2705c8dd"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $json</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $origin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "13.65.246.128"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://httpbin.org/post"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu">content</span><span class="op">(</span><span class="va">r</span>, <span class="st">"text"</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span> <span class="co"># text content</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No encoding supplied: defaulting to UTF-8.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "args": {}, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "data": "", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "files": {}, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "form": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "a": "1", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "b": "2"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   }, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "headers": {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept": "application/json, text/xml, application/xml, */*", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Accept-Encoding": "deflate, gzip, br, zstd", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Length": "228", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Content-Type": "multipart/form-data; boundary=------------------------90e9e59d2dbeaa2c", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "Host": "httpbin.org", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "User-Agent": "libcurl/7.81.0 r-curl/5.0.0 httr/1.4.5.9000", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "X-Amzn-Trace-Id": "Root=1-63f8ce18-1228ac980e060cef2705c8dd"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   }, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "json": null, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "origin": "13.65.246.128", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "url": "http://httpbin.org/post"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
 <span class="r-in"><span><span class="fu">content</span><span class="op">(</span><span class="va">r</span>, <span class="st">"raw"</span><span class="op">)</span> <span class="co"># raw bytes from server</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 7b 0a 20 20 22 61 72 67 73 22 3a 20 7b 7d 2c 20 0a 20 20 22 64 61 74</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [24] 61 22 3a 20 22 22 2c 20 0a 20 20 22 66 69 6c 65 73 22 3a 20 7b 7d 2c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [47] 20 0a 20 20 22 66 6f 72 6d 22 3a 20 7b 0a 20 20 20 20 22 61 22 3a 20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [70] 22 31 22 2c 20 0a 20 20 20 20 22 62 22 3a 20 22 32 22 0a 20 20 7d 2c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [93] 20 0a 20 20 22 68 65 61 64 65 72 73 22 3a 20 7b 0a 20 20 20 20 22 41</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [116] 63 63 65 70 74 22 3a 20 22 61 70 70 6c 69 63 61 74 69 6f 6e 2f 6a 73</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [139] 6f 6e 2c 20 74 65 78 74 2f 78 6d 6c 2c 20 61 70 70 6c 69 63 61 74 69</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [162] 6f 6e 2f 78 6d 6c 2c 20 2a 2f 2a 22 2c 20 0a 20 20 20 20 22 41 63 63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [185] 65 70 74 2d 45 6e 63 6f 64 69 6e 67 22 3a 20 22 64 65 66 6c 61 74 65</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [208] 2c 20 67 7a 69 70 2c 20 62 72 2c 20 7a 73 74 64 22 2c 20 0a 20 20 20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [231] 20 22 43 6f 6e 74 65 6e 74 2d 4c 65 6e 67 74 68 22 3a 20 22 32 32 38</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [254] 22 2c 20 0a 20 20 20 20 22 43 6f 6e 74 65 6e 74 2d 54 79 70 65 22 3a</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [277] 20 22 6d 75 6c 74 69 70 61 72 74 2f 66 6f 72 6d 2d 64 61 74 61 3b 20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [300] 62 6f 75 6e 64 61 72 79 3d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [323] 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 39 30 65 39 65 35 39 64 32 64 62 65 61</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [346] 61 32 63 22 2c 20 0a 20 20 20 20 22 48 6f 73 74 22 3a 20 22 68 74 74</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [369] 70 62 69 6e 2e 6f 72 67 22 2c 20 0a 20 20 20 20 22 55 73 65 72 2d 41</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [392] 67 65 6e 74 22 3a 20 22 6c 69 62 63 75 72 6c 2f 37 2e 38 31 2e 30 20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [415] 72 2d 63 75 72 6c 2f 35 2e 30 2e 30 20 68 74 74 72 2f 31 2e 34 2e 35</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [438] 2e 39 30 30 30 22 2c 20 0a 20 20 20 20 22 58 2d 41 6d 7a 6e 2d 54 72</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [461] 61 63 65 2d 49 64 22 3a 20 22 52 6f 6f 74 3d 31 2d 36 33 66 38 63 65</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [484] 31 38 2d 31 32 32 38 61 63 39 38 30 65 30 36 30 63 65 66 32 37 30 35</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [507] 63 38 64 64 22 0a 20 20 7d 2c 20 0a 20 20 22 6a 73 6f 6e 22 3a 20 6e</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [530] 75 6c 6c 2c 20 0a 20 20 22 6f 72 69 67 69 6e 22 3a 20 22 31 33 2e 36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [553] 35 2e 32 34 36 2e 31 32 38 22 2c 20 0a 20 20 22 75 72 6c 22 3a 20 22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [576] 68 74 74 70 3a 2f 2f 68 74 74 70 62 69 6e 2e 6f 72 67 2f 70 6f 73 74</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [599] 22 0a 7d 0a</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">rlogo</span> <span class="op">&lt;-</span> <span class="fu">content</span><span class="op">(</span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"https://httpbin.org/image/png"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, type <span class="op">=</span> <span class="st">"n"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/rasterImage.html" class="external-link">rasterImage</a></span><span class="op">(</span><span class="va">rlogo</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="content-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

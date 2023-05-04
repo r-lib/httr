@@ -120,78 +120,15 @@ even when the requests are buried inside another function call.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org"</span>, <span class="fu">verbose</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:49</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=utf-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 9.59 kB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!DOCTYPE html&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;html lang="en"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;head&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;meta charset="UTF-8"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;title&gt;httpbin.org&lt;/title&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link href="https://fonts.googleapis.com/css?family=Open+Sans:400,7...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         rel="stylesheet"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagg...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes=...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org"</span>, <span class="fu">verbose</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org"</span>, <span class="fu">verbose</span><span class="op">(</span>info <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:49</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=utf-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 9.59 kB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!DOCTYPE html&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;html lang="en"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;head&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;meta charset="UTF-8"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;title&gt;httpbin.org&lt;/title&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link href="https://fonts.googleapis.com/css?family=Open+Sans:400,7...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         rel="stylesheet"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagg...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes=...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="with_config.html">with_verbose</a></span><span class="op">(</span><span class="fu">f</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:49</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=utf-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 9.59 kB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!DOCTYPE html&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;html lang="en"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;head&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;meta charset="UTF-8"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;title&gt;httpbin.org&lt;/title&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link href="https://fonts.googleapis.com/css?family=Open+Sans:400,7...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         rel="stylesheet"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagg...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes=...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span><span class="fu"><a href="with_config.html">with_verbose</a></span><span class="op">(</span><span class="fu">f</span><span class="op">(</span><span class="op">)</span>, info <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://httpbin.org/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:49</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=utf-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 9.59 kB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!DOCTYPE html&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;html lang="en"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;head&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;meta charset="UTF-8"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;title&gt;httpbin.org&lt;/title&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link href="https://fonts.googleapis.com/css?family=Open+Sans:400,7...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         rel="stylesheet"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link rel="stylesheet" type="text/css" href="/flasgger_static/swagg...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;link rel="icon" type="image/png" href="/static/favicon.ico" sizes=...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># verbose() makes it easy to see exactly what POST requests send</span></span></span>
 <span class="r-in"><span><span class="va">POST_verbose</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">body</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span></span>
@@ -199,14 +136,12 @@ even when the requests are buried inside another function call.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="fu">POST_verbose</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"a"</span>, y <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">POST_verbose</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"a"</span>, y <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span>, encode <span class="op">=</span> <span class="st">"form"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">POST_verbose</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">POST_verbose</span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">POST_verbose</span><span class="op">(</span><span class="st">""</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">POST_verbose</span><span class="op">(</span><span class="st">"xyz"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

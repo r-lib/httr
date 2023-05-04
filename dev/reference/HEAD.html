@@ -137,7 +137,7 @@ cache MUST treat the cache entry as stale.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">HEAD</span><span class="op">(</span><span class="st">"http://google.com"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-02-24 14:46</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-05-04 17:34</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;EMPTY BODY&gt;</span>
@@ -145,8 +145,11 @@ cache MUST treat the cache entry as stale.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`content-type`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "text/html; charset=ISO-8859-1"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $`content-security-policy-report-only`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "object-src 'none';base-uri 'self';script-src 'nonce-2jA37p1IYUHduQkUvSxM1Q' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Fri, 24 Feb 2023 14:46:57 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Thu, 04 May 2023 17:34:51 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $server</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "gws"</span>
@@ -161,16 +164,16 @@ cache MUST treat the cache entry as stale.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "chunked"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $expires</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Fri, 24 Feb 2023 14:46:57 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Thu, 04 May 2023 17:34:51 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`cache-control`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "private"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`set-cookie`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1P_JAR=2023-02-24-14; expires=Sun, 26-Mar-2023 14:46:57 GMT; path=/; domain=.google.com; Secure"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1P_JAR=2023-05-04-17; expires=Sat, 03-Jun-2023 17:34:51 GMT; path=/; domain=.google.com; Secure"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`set-cookie`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "AEC=ARSKqsJyUPzTkRMBVoXl9KuYURx5nJ_vWI0DrJUCEOCVoto0GfW0MOVD1A; expires=Wed, 23-Aug-2023 14:46:57 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "AEC=AUEFqZcEWLktyvNcZlkm9GbNzIapnWtIfYVrRZUnWmdZzmnJcPQCBi34Zg; expires=Tue, 31-Oct-2023 17:34:51 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "insensitive" "list"       </span>
