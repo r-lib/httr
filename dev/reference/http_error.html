@@ -102,12 +102,11 @@ otherwise <code>FALSE</code>.</p>
 <span class="r-in"><span><span class="co"># You can pass a url:</span></span></span>
 <span class="r-in"><span><span class="fu">http_error</span><span class="op">(</span><span class="st">"http://www.google.com"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">http_error</span><span class="op">(</span><span class="st">"http://httpbin.org/status/404"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Or a request</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span><span class="st">"http://httpbin.org/status/201"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">http_error</span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Or an (integer) status code</span></span></span>
 <span class="r-in"><span><span class="fu">http_error</span><span class="op">(</span><span class="fl">200L</span><span class="op">)</span></span></span>

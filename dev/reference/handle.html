@@ -104,7 +104,7 @@ selection of the correct handle is taken care of when the user passes an url
 <span class="r-in"><span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu">handle</span><span class="op">(</span><span class="st">"http://google.com"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span>handle <span class="op">=</span> <span class="va">h</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-05-04 17:40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-05-04 19:25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 14.7 kB</span>
@@ -122,7 +122,7 @@ selection of the correct handle is taken care of when the user passes an url
 <span class="r-in"><span><span class="co"># Should see cookies sent back to server</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span>handle <span class="op">=</span> <span class="va">h</span>, config <span class="op">=</span> <span class="fu"><a href="verbose.html">verbose</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response [http://www.google.com/]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-05-04 17:40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Date: 2023-05-04 19:25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Status: 200</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Content-Type: text/html; charset=ISO-8859-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Size: 14.7 kB</span>
@@ -142,9 +142,9 @@ selection of the correct handle is taken care of when the user passes an url
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Cookies argument is deprecated</span>
 <span class="r-in"><span><span class="fu"><a href="GET.html">GET</a></span><span class="op">(</span>handle <span class="op">=</span> <span class="va">h</span><span class="op">)</span><span class="op">$</span><span class="va">cookies</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  domain flag path secure          expiration name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 #HttpOnly_.google.com TRUE    /  FALSE 2023-11-03 17:40:55  NID</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 #HttpOnly_.google.com TRUE    /  FALSE 2023-11-03 19:25:34  NID</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                             value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 511=EJi00YS0tfZjvL8521ycWDEaudfNwocENA-b97NZpzNealBreMYKOcZLs1u04p07DsCskD8p_AuZJEY24ih2K1SA4af4INOBpz7r81TkoyEMt5PhJEaA-ubcu08c8Owf4w5s52MOEgzVMPrVEO4Ta-Y3iA612yX1OT1_mJvNYgY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 511=nhTnPa7noxoCKkz_s2eRalLUJMKGGe_5wwPn-LpVoQ3dhWG1wSoQOyhSXkKGbwHaCIVQQeQpljKJG3VK5emWdGtaESyxM3dgVenFJK3x_2friXxikJAS1nl-O6VmfiBsQmMAw4z9UOEckry_Nu0JHptVkOUqOGAwP-7-OtJ961U</span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># Using the preferred way of configuring the http methods</span></span></span>
 <span class="r-in"><span><span class="co"># will not work when using handle():</span></span></span>
