@@ -1,5 +1,13 @@
 # httr
 
+## Status
+
+[![Lifecycle: superseded](https://img.shields.io/badge/lifecycle-superseded-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#superseded)
+
+httr is superseded: only changes necessary to keep it on CRAN will be made. We recommend using [httr2](https://httr2.r-lib.org) instead.
+
+---
+
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/httr)](https://cran.r-project.org/package=httr)
 [![R-CMD-check](https://github.com/r-lib/httr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/httr/actions/workflows/R-CMD-check.yaml)
