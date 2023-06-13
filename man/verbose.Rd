@@ -37,6 +37,7 @@ different components of the http messages:
 }
 
 \examples{
+\dontrun{
 GET("http://httpbin.org", verbose())
 GET("http://httpbin.org", verbose(info = TRUE))
 
@@ -57,6 +58,7 @@ POST_verbose(FALSE)
 POST_verbose(NULL)
 POST_verbose("")
 POST_verbose("xyz")
+}
 }
 \seealso{
 \code{\link[=with_verbose]{with_verbose()}} makes it easier to use verbose mode

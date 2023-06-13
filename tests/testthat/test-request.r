@@ -20,9 +20,8 @@ test_that('request_build upper cases verbs', {
 })
 
 test_that("non-http methods don't parse headers", {
-  # skip on travis to avoid hammering the FTP server, which doesn't
-  # seem to be able to handle multiple simultaneous requests
-  skip_on_travis()
+  skip_on_cran()
+  skip_on_ci()
 
   # Must not reuse or FTP connection is closed at the wrong time,
   # causing problems in final test

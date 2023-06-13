@@ -32,6 +32,7 @@ an apparently valid request. More details on the codes can be found at
 http_status(100)
 http_status(404)
 
+\dontrun{
 x <- GET("http://httpbin.org/status/200")
 http_status(x)
 
@@ -40,7 +41,6 @@ http_status(GET("http://httpbin.org/status/301"))
 http_status(GET("http://httpbin.org/status/404"))
 
 # errors out on unknown status
-\dontrun{
 http_status(GET("http://httpbin.org/status/320"))
 }
 }

@@ -12,6 +12,6 @@ hmac_sha1(key, string)
 \item{string}{data to securely hash}
 }
 \description{
-As described in \url{http://datatracker.ietf.org/doc/rfc2104/}.
+As described in \url{https://datatracker.ietf.org/doc/rfc2104/}.
 }
 \keyword{internal}

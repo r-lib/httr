@@ -11,7 +11,7 @@ parse_media(x)
 }
 \description{
 Parsed according to RFC 2616, as at
-\url{http://pretty-rfc.herokuapp.com/RFC2616#media.types}.
+\url{https://www.rfc-editor.org/rfc/rfc2616#section-3.7}.
 }
 \details{
 A simplified minimal EBNF is:

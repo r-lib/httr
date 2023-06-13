@@ -30,16 +30,16 @@ status_code.numeric <- function(x) x
 #' @examples
 #' http_status(100)
 #' http_status(404)
-#' 
+#'
+#' \dontrun{
 #' x <- GET("http://httpbin.org/status/200")
 #' http_status(x)
-#' 
+#'
 #' http_status(GET("http://httpbin.org/status/300"))
 #' http_status(GET("http://httpbin.org/status/301"))
 #' http_status(GET("http://httpbin.org/status/404"))
-#' 
+#'
 #' # errors out on unknown status
-#' \dontrun{
 #' http_status(GET("http://httpbin.org/status/320"))
 #' }
 #' @export
@@ -152,14 +152,16 @@ http_statuses <- c(
 #' @export
 #' @family response methods
 #' @examples
+#' \dontrun{
 #' # You can pass a url:
 #' http_error("http://www.google.com")
 #' http_error("http://httpbin.org/status/404")
-#' 
+#'
 #' # Or a request
 #' r <- GET("http://httpbin.org/status/201")
 #' http_error(r)
-#' 
+#' }
+#'
 #' # Or an (integer) status code
 #' http_error(200L)
 #' http_error(404L)
@@ -218,28 +220,26 @@ url_ok <- function(x, ...) {
 #'   on http status codes.
 #' @family response methods
 #' @examples
+#' \dontrun{
 #' x <- GET("http://httpbin.org/status/200")
 #' stop_for_status(x) # nothing happens
 #' warn_for_status(x)
 #' message_for_status(x)
-#' 
+#'
 #' x <- GET("http://httpbin.org/status/300")
-#' \dontrun{
 #' stop_for_status(x)
-#' }
 #' warn_for_status(x)
 #' message_for_status(x)
-#' 
+#'
 #' x <- GET("http://httpbin.org/status/404")
-#' \dontrun{
 #' stop_for_status(x)
-#' }
 #' warn_for_status(x)
 #' message_for_status(x)
-#' 
+#'
 #' # You can provide more information with the task argument
 #' warn_for_status(x, "download spreadsheet")
 #' message_for_status(x, "download spreadsheet")
+#' }
 #' @export
 stop_for_status <- function(x, task = NULL) {
   if (status_code(x) < 300) {
@@ -292,6 +292,7 @@ message_for_status <- function(x, task = NULL) {
 #'   for more details about R's condition handling model
 #' @export
 #' @examples
+#' \dontrun{
 #' # You can use tryCatch to take different actions based on the type
 #' # of error. Note that tryCatch will call the first handler that
 #' # matches any classes of the condition, not the best matching, so
@@ -307,6 +308,7 @@ message_for_status <- function(x, task = NULL) {
 #' f("http://httpbin.org/status/404")
 #' f("http://httpbin.org/status/403")
 #' f("http://httpbin.org/status/505")
+#' }
 http_condition <- function(x, type, task = NULL, call = sys.call(-1)) {
   type <- match.arg(type, c("error", "warning", "message"))
 

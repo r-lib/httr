@@ -30,6 +30,7 @@ and error. These can be used in conjunction with \code{\link[=tryCatch]{tryCatch
 to respond differently to different type of failure.
 }
 \examples{
+\dontrun{
 # You can use tryCatch to take different actions based on the type
 # of error. Note that tryCatch will call the first handler that
 # matches any classes of the condition, not the best matching, so
@@ -45,6 +46,7 @@ f <- function(url) {
 f("http://httpbin.org/status/404")
 f("http://httpbin.org/status/403")
 f("http://httpbin.org/status/505")
+}
 }
 \seealso{
 \url{http://adv-r.had.co.nz/Exceptions-Debugging.html#condition-handling}

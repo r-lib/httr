@@ -29,7 +29,7 @@ a list containing:
 }
 }
 \description{
-See \url{https://tools.ietf.org/html/rfc3986} for details of parsing
+See \url{https://www.rfc-editor.org/rfc/rfc3986} for details of parsing
 algorithm.
 }
 \examples{

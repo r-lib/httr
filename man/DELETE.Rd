@@ -90,8 +90,10 @@ Responses to this method are not cacheable.
 }
 
 \examples{
+\dontrun{
 DELETE("http://httpbin.org/delete")
 POST("http://httpbin.org/delete")
+}
 }
 \seealso{
 Other http methods: 

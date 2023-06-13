@@ -45,12 +45,12 @@ callback_env$response <- NULL
 #' req_logger <- function(req) {
 #'   cat("HTTP request to", sQuote(req$url), "\n")
 #' }
-#' 
+#'
 #' old <- set_callback("request", req_logger)
 #' g1 <- GET("https://httpbin.org")
 #' g2 <- GET("https://httpbin.org/ip")
 #' set_callback("request", old)
-#' 
+#'
 #' ## Log all HTTP requests and response status codes as well
 #' req_logger2 <- function(req) {
 #'   cat("HTTP request to", sQuote(req$url), "... ")
@@ -58,14 +58,14 @@ callback_env$response <- NULL
 #' res_logger <- function(req, res) {
 #'   cat(res$status_code, "\n")
 #' }
-#' 
+#'
 #' old_req <- set_callback("request", req_logger2)
 #' old_res <- set_callback("response", res_logger)
 #' g3 <- GET("https://httpbin.org")
 #' g4 <- GET("https://httpbin.org/ip")
 #' set_callback("request", old_req)
 #' set_callback("response", old_res)
-#' 
+#'
 #' ## Return a recorded response, without performing the HTTP request
 #' replay <- function(req) {
 #'   if (req$url == "https://httpbin.org") g3
@@ -75,7 +75,7 @@ callback_env$response <- NULL
 #' grec$date == g3$date
 #' set_callback("request", old_req)
 #' }
-#' 
+#'
 get_callback <- function(name) {
   stopifnot(is.character(name), length(name) == 1, !is.na(name))
   if (!name %in% ls(callback_env)) stop("Unknown httr callback: ", name)

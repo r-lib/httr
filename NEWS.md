@@ -1,3 +1,22 @@
+# httr 1.4.6
+
+* Supress use of httpbin in examples and tests because it has become 
+  unreliable.
+
+# httr 1.4.5
+
+* An internal helper that checks for an interactive session in the OOB flow now
+  honors the `"rlang_interactive"` global option, in case it's necessary to
+  declare the session to be interactive (enough) for OOB (@jennybc, #734).
+
+# httr 1.4.4
+
+* Fix intermittent failing test.
+
+# httr 1.4.3
+
+* Fix failing test.
+
 # httr 1.4.2
 
 * Fix failing test.
@@ -148,7 +167,7 @@ Updates to demos:
       based on `user_agent` (@muschellij2, #363).
       
     * `client_credentials`, allows you to use the OAauth2 *Client Credential 
-      Grant*. See [RFC 6749](https://tools.ietf.org/html/rfc6749#section-4)
+      Grant*. See [RFC 6749](https://www.rfc-editor.org/rfc/rfc6749#section-4)
       for details. (@cderv, #384)
 
     * A `credentials` argument that allows you to customise the auth flow. 
@@ -371,7 +390,7 @@ Updates to demos:
   a stream of raw vectors (#143).
 
 * Suport for Google OAuth2 
-  [service accounts](https://developers.google.com/accounts/docs/OAuth2ServiceAccount).
+  [service accounts](https://developers.google.com/identity/protocols/oauth2/service-account).
   (#119, thanks to help from @siddharthab).
 
 * `VERB()` allows to you use custom http verbs (#169).

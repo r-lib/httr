@@ -8,9 +8,11 @@
 #' @examples
 #' set_cookies(a = 1, b = 2)
 #' set_cookies(.cookies = c(a = "1", b = "2"))
-#' 
+#'
+#' \dontrun{
 #' GET("http://httpbin.org/cookies")
 #' GET("http://httpbin.org/cookies", set_cookies(a = 1, b = 2))
+#' }
 set_cookies <- function(..., .cookies = character(0)) {
   cookies <- c(..., .cookies)
   stopifnot(is.character(cookies))
@@ -27,8 +29,10 @@ set_cookies <- function(..., .cookies = character(0)) {
 #' @seealso [set_cookies()] to send cookies in request.
 #' @param x A response.
 #' @examples
+#' \dontrun{
 #' r <- GET("http://httpbin.org/cookies/set", query = list(a = 1, b = 2))
 #' cookies(r)
+#' }
 #' @export
 cookies <- function(x) UseMethod("cookies")
 

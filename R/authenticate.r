@@ -11,11 +11,13 @@
 #' @export
 #' @family config
 #' @examples
+#' \dontrun{
 #' GET("http://httpbin.org/basic-auth/user/passwd")
 #' GET(
 #'   "http://httpbin.org/basic-auth/user/passwd",
 #'   authenticate("user", "passwd")
 #' )
+#' }
 authenticate <- function(user, password, type = "basic") {
   stopifnot(is.character(user), length(user) == 1)
   stopifnot(is.character(password), length(password) == 1)

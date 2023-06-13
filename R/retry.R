@@ -8,7 +8,7 @@
 #' It is designed to be kind to the server: after each failure
 #' randomly waits up to twice as long. (Technically it uses exponential
 #' backoff with jitter, using the approach outlined in
-#' <https://www.awsarchitectureblog.com/2015/03/backoff.html>.)
+#' <https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/>.)
 #' If the server returns status code 429 and specifies a `retry-after` value, that
 #' value will be used instead, unless it's smaller than `pause_min`.
 #'
@@ -16,9 +16,9 @@
 #' @inherit GET params return
 #' @inheritParams POST
 #' @param times Maximum number of requests to attempt.
-#' @param pause_base,pause_cap This method uses exponential back-off with
-#'   full jitter - this means that each request will randomly wait between 0
-#'   and `pause_base * 2 ^ attempt` seconds, up to a maximum of
+#' @param pause_base,pause_cap This method uses exponential back-off with full
+#'   jitter - this means that each request will randomly wait between
+#'   `pause_min` and `pause_base * 2 ^ attempt` seconds, up to a maximum of
 #'   `pause_cap` seconds.
 #' @param pause_min Minimum time to wait in the backoff; generally
 #'   only necessary if you need pauses less than one second (which may
@@ -36,11 +36,11 @@
 #'   to use [stop_for_status()].
 #' @export
 #' @examples
+#' \dontrun{
 #' # Succeeds straight away
 #' RETRY("GET", "http://httpbin.org/status/200")
 #' # Never succeeds
 #' RETRY("GET", "http://httpbin.org/status/500")
-#' \dontrun{
 #' # Invalid hostname generates curl error condition and is retried but eventually
 #' # raises an error condition.
 #' RETRY("GET", "http://invalidhostname/")

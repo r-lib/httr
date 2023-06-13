@@ -1,22 +1,19 @@
 Package: httr
 Title: Tools for Working with URLs and HTTP
-Version: 1.4.2
-Authors@R: 
-    c(person(given = "Hadley",
-             family = "Wickham",
-             role = c("aut", "cre"),
-             email = "hadley@rstudio.com"),
-      person(given = "RStudio",
-             role = "cph"))
-Description: Useful tools for working with HTTP organised by
-    HTTP verbs (GET(), POST(), etc). Configuration functions make it easy
-    to control additional request components (authenticate(),
-    add_headers() and so on).
+Version: 1.4.6
+Authors@R: c(
+    person("Hadley", "Wickham", , "hadley@posit.co", role = c("aut", "cre")),
+    person("Posit, PBC", role = c("cph", "fnd"))
+  )
+Description: Useful tools for working with HTTP organised by HTTP verbs
+    (GET(), POST(), etc). Configuration functions make it easy to control
+    additional request components (authenticate(), add_headers() and so
+    on).
 License: MIT + file LICENSE
 URL: https://httr.r-lib.org/, https://github.com/r-lib/httr
 BugReports: https://github.com/r-lib/httr/issues
 Depends:
-    R (>= 3.2)
+    R (>= 3.5)
 Imports:
     curl (>= 3.0.0),
     jsonlite,
@@ -35,6 +32,7 @@ Suggests:
     xml2
 VignetteBuilder: 
     knitr
+Config/Needs/website: tidyverse/tidytemplate
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = FALSE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3

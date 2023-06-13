@@ -17,14 +17,14 @@ which one is most appropriate, based on the content-type.}
 
 \item{type}{MIME type (aka internet media type) used to override
 the content type returned by the server. See
-\url{http://en.wikipedia.org/wiki/Internet_media_type} for a list of
+\url{https://en.wikipedia.org/wiki/Internet_media_type} for a list of
 common types.}
 
 \item{encoding}{For text, overrides the charset or the Latin1 (ISO-8859-1)
 default, if you know that the server is returning the incorrect encoding
 as the charset in the content-type. Use for text and parsed outputs.}
 
-\item{...}{Other parameters parsed on to the parsing functions, if
+\item{...}{Other parameters passed on to the parsing functions, if
 \code{as = "parsed"}}
 }
 \value{
@@ -70,14 +70,16 @@ you will protect yourself against changes to httr.
 }
 
 \examples{
+\dontrun{
 r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
 content(r) # automatically parses JSON
 cat(content(r, "text"), "\n") # text content
 content(r, "raw") # raw bytes from server
 
-rlogo <- content(GET("http://cran.r-project.org/Rlogo.jpg"))
+rlogo <- content(GET("https://httpbin.org/image/png"))
 plot(0:1, 0:1, type = "n")
 rasterImage(rlogo, 0, 0, 1, 1)
+}
 }
 \seealso{
 Other response methods: 

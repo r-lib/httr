@@ -65,9 +65,9 @@ need to make sure to set the \code{\link[=content_type]{content_type()}} yoursel
 
 \item{times}{Maximum number of requests to attempt.}
 
-\item{pause_base, pause_cap}{This method uses exponential back-off with
-full jitter - this means that each request will randomly wait between 0
-and \code{pause_base * 2 ^ attempt} seconds, up to a maximum of
+\item{pause_base, pause_cap}{This method uses exponential back-off with full
+jitter - this means that each request will randomly wait between
+\code{pause_min} and \code{pause_base * 2 ^ attempt} seconds, up to a maximum of
 \code{pause_cap} seconds.}
 
 \item{pause_min}{Minimum time to wait in the backoff; generally
@@ -107,16 +107,16 @@ but if the last retry still raises one, \code{RETRY} will raise it again with
 It is designed to be kind to the server: after each failure
 randomly waits up to twice as long. (Technically it uses exponential
 backoff with jitter, using the approach outlined in
-\url{https://www.awsarchitectureblog.com/2015/03/backoff.html}.)
+\url{https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/}.)
 If the server returns status code 429 and specifies a \code{retry-after} value, that
 value will be used instead, unless it's smaller than \code{pause_min}.
 }
 \examples{
+\dontrun{
 # Succeeds straight away
 RETRY("GET", "http://httpbin.org/status/200")
 # Never succeeds
 RETRY("GET", "http://httpbin.org/status/500")
-\dontrun{
 # Invalid hostname generates curl error condition and is retried but eventually
 # raises an error condition.
 RETRY("GET", "http://invalidhostname/")

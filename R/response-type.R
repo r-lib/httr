@@ -5,13 +5,15 @@
 #'   stripped off.
 #' @export
 #' @examples
+#' \dontrun{
 #' r1 <- GET("http://httpbin.org/image/png")
 #' http_type(r1)
 #' headers(r1)[["Content-Type"]]
-#' 
+#'
 #' r2 <- GET("http://httpbin.org/ip")
 #' http_type(r2)
 #' headers(r2)[["Content-Type"]]
+#' }
 http_type <- function(x) {
   stopifnot(is.response(x))
 

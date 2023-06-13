@@ -22,7 +22,7 @@ A POSIXct object if succesful, otherwise \code{failure}
 }
 \description{
 As defined in RFC2616,
-\url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3}, there are
+\url{https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3}, there are
 three valid formats:
 \itemize{
 \item Sun, 06 Nov 1994 08:49:37 GMT  ; RFC 822, updated by RFC 1123

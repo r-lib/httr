@@ -34,12 +34,12 @@
 #'   which one is most appropriate, based on the content-type.
 #' @param type MIME type (aka internet media type) used to override
 #'   the content type returned by the server. See
-#'   <http://en.wikipedia.org/wiki/Internet_media_type> for a list of
+#'   <https://en.wikipedia.org/wiki/Internet_media_type> for a list of
 #'   common types.
 #' @param encoding For text, overrides the charset or the Latin1 (ISO-8859-1)
 #'   default, if you know that the server is returning the incorrect encoding
 #'   as the charset in the content-type. Use for text and parsed outputs.
-#' @param ... Other parameters parsed on to the parsing functions, if
+#' @param ... Other parameters passed on to the parsing functions, if
 #'  `as = "parsed"`
 #' @family response methods
 #' @return
@@ -52,14 +52,16 @@
 #' For "auto", a parsed R object.
 #' @export
 #' @examples
+#' \dontrun{
 #' r <- POST("http://httpbin.org/post", body = list(a = 1, b = 2))
 #' content(r) # automatically parses JSON
 #' cat(content(r, "text"), "\n") # text content
 #' content(r, "raw") # raw bytes from server
-#' 
-#' rlogo <- content(GET("http://cran.r-project.org/Rlogo.jpg"))
+#'
+#' rlogo <- content(GET("https://httpbin.org/image/png"))
 #' plot(0:1, 0:1, type = "n")
 #' rasterImage(rlogo, 0, 0, 1, 1)
+#' }
 #' @aliases text_content parsed_content
 content <- function(x, as = NULL, type = NULL, encoding = NULL, ...) {
   stopifnot(is.response(x))
@@ -100,8 +102,10 @@ parsed_content <- function(x, ...) {
 #' @keywords internal
 #' @export
 #' @examples
+#' \dontrun{
 #' has_content(POST("http://httpbin.org/post", body = FALSE))
 #' has_content(HEAD("http://httpbin.org/headers"))
+#' }
 has_content <- function(x) {
   length(x$content) > 0
 }

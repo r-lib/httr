@@ -13,8 +13,8 @@
 #'   Despite its name, this does not necessarily need to be protected like a
 #'   password, i.e. the user still has to authenticate themselves and grant the
 #'   app permission to access resources on their behalf. For example, see
-#'   Google's docs for
-#'   \href{https://developers.google.com/identity/protocols/OAuth2#installed}{OAuth2 for installed applications}.
+#'   Google's docs for [OAuth2 for installed
+#'   applications](https://developers.google.com/identity/protocols/oauth2).
 #' @param redirect_uri The URL that user will be redirected to after
 #'   authorisation is complete. You should generally leave this as the default
 #'   unless you're using a non-standard auth flow (like with shiny).

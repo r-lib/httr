@@ -69,7 +69,7 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #'   [POST()], e.g. [user_agent()].
 #' @param client_credentials Default to `FALSE`. Set to `TRUE` to use
 #'   *Client Credentials Grant* instead of *Authorization
-#'   Code Grant*. See <https://tools.ietf.org/html/rfc6749#section-4.4>.
+#'   Code Grant*. See <https://www.rfc-editor.org/rfc/rfc6749#section-4.4>.
 #' @param query_authorize_extra Default to `list()`. Set to named list
 #'   holding query parameters to append to initial auth page query. Useful for
 #'   some APIs.
@@ -211,8 +211,12 @@ check_scope <- function(x) {
   paste(x, collapse = " ")
 }
 
-# Wrap base::interactive in a non-primitive function so that the call can be mocked for testing
-is_interactive <- function() interactive()
+# gargle needs to access (pseudo-)OOB flow from Google Colab, so we need to
+# be able to use the "rlang_interactive" option to signal that we are in
+# an environment that is interactive (enough) to complete this flow.
+is_interactive <- function() {
+  getOption("rlang_interactive") %||% interactive()
+}
 
 check_oob <- function(use_oob, oob_value = NULL) {
   if (!is.logical(use_oob) || length(use_oob) != 1) {

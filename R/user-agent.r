@@ -6,8 +6,10 @@
 #' @export
 #' @family config
 #' @examples
+#' \dontrun{
 #' GET("http://httpbin.org/user-agent")
 #' GET("http://httpbin.org/user-agent", user_agent("httr"))
+#' }
 user_agent <- function(agent) {
   stopifnot(is.character(agent), length(agent) == 1)
 

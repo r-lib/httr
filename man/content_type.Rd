@@ -34,6 +34,7 @@ These are convenient wrappers aroud \code{\link[=add_headers]{add_headers()}}.
 ask for json or xml responses or tell the server you are sending json/xml.
 }
 \examples{
+\dontrun{
 GET("http://httpbin.org/headers")
 
 GET("http://httpbin.org/headers", accept_json())
@@ -43,4 +44,5 @@ GET("http://httpbin.org/headers", accept(".doc"))
 GET("http://httpbin.org/headers", content_type_xml())
 GET("http://httpbin.org/headers", content_type("text/csv"))
 GET("http://httpbin.org/headers", content_type(".xml"))
+}
 }

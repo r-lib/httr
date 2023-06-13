@@ -13,8 +13,10 @@ user_agent(agent)
 Override the default RCurl user agent of \code{NULL}
 }
 \examples{
+\dontrun{
 GET("http://httpbin.org/user-agent")
 GET("http://httpbin.org/user-agent", user_agent("httr"))
+}
 }
 \seealso{
 Other config: 

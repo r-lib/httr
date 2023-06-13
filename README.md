@@ -1,9 +1,17 @@
 # httr
 
+## Status
+
+[![Lifecycle: superseded](https://img.shields.io/badge/lifecycle-superseded-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#superseded)
+
+httr is superseded: only changes necessary to keep it on CRAN will be made. We recommend using [httr2](https://httr2.r-lib.org) instead.
+
+---
+
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/httr)](https://cran.r-project.org/package=httr)
-[![R build status](https://github.com/r-lib/httr/workflows/R-CMD-check/badge.svg)](https://github.com/r-lib/httr/actions)
-[![Codecov test coverage](https://codecov.io/gh/r-lib/httr/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/httr?branch=master)
+[![R-CMD-check](https://github.com/r-lib/httr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/httr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/httr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/httr?branch=main)
 <!-- badges: end -->
 
 The aim of httr is to provide a wrapper for the [curl](https://cran.r-project.org/package=curl) package, customised to the demands of modern web APIs.
@@ -35,7 +43,7 @@ Key features:
   withings and yahoo) and four for 2.0 (facebook, github, google, linkedin). 
   OAuth credentials are automatically cached within a project. 
 
-httr wouldn't be possible without the hard work of the authors of [curl](https://cran.r-project.org/package=curl) and [libcurl](http://curl.haxx.se/). Thanks! httr is inspired by http libraries in other languages, such as [Resty](http://beders.github.com/Resty/Resty/Examples.html), [Requests](https://requests.readthedocs.io/en/master/) and [httparty](http://github.com/jnunemaker/httparty/tree/master).
+httr wouldn't be possible without the hard work of the authors of [curl](https://cran.r-project.org/package=curl) and [libcurl](https://curl.se/). Thanks! httr is inspired by http libraries in other languages, such as [Resty](http://beders.github.io/Resty/Resty/Examples.html), [Requests](https://requests.readthedocs.io/en/latest/) and [httparty](https://github.com/jnunemaker/httparty/tree/master).
 
 ## Installation
 
