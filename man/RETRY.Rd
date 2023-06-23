@@ -22,7 +22,7 @@ RETRY(
 )
 }
 \arguments{
-\item{verb}{Name of verb to use.}
+\item{verb}{Character string naming the verb to use.}
 
 \item{url}{the url of the page to retrieve}
 

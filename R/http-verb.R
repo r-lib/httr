@@ -4,7 +4,7 @@
 #'
 #' @inherit GET params return
 #' @inheritParams POST
-#' @param verb Name of verb to use.
+#' @param verb Character string naming the verb to use.
 #' @family http methods
 #' @export
 #' @examples
