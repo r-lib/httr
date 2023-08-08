@@ -1,7 +1,7 @@
 context("OAuth")
 
 test_that("oauth2.0 signing works", {
-  skip_on_cran()
+  skip_httpbin()
   request_url <- "http://httpbin.org/headers"
 
   token <- Token2.0$new(
