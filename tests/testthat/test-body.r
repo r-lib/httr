@@ -27,6 +27,8 @@ test_that("string/raw in body gives same string in data element", {
 })
 
 test_that("string/raw in body doesn't lose content type", {
+  skip_on_cran()
+
   body <- charToRaw("test")
   content_type <- "application/awesome"
   response <- content(POST("http://httpbin.org/post",
