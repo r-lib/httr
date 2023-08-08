@@ -2,6 +2,10 @@
 
 * Suppress another use of httpbin.
 
+* More aggressively skip httpbin using tests.
+
+* Remove vignette contents and point to httr2.
+
 # httr 1.4.6
 
 * Suppress use of httpbin in examples and tests because it has become 
