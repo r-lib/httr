@@ -3,4 +3,4 @@
 
 ## revdepcheck results
 
-I did not check revdeps as this release just disables tests and examples that rely on the unreliable httpbin.org.
+I did not check revdeps as this release just disables further tests and vignettes that rely on the unreliable httpbin.org.
