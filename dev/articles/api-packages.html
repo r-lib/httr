@@ -9,8 +9,8 @@
 <title>Best practices for API packages • httr</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.6/font.css" rel="stylesheet">
-<link href="../deps/Source_Code_Pro-0.4.6/font.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.7/font.css" rel="stylesheet">
+<link href="../deps/Source_Code_Pro-0.4.7/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Best practices for API packages">
@@ -190,7 +190,7 @@ httr issues which requires sending a GET request to
 <span><span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu">github_api</span><span class="op">(</span><span class="st">"/repos/hadley/httr"</span><span class="op">)</span></span>
 <span><span class="va">resp</span></span>
 <span><span class="co">#&gt; Response [https://api.github.com/repositories/2756403]</span></span>
-<span><span class="co">#&gt;   Date: 2023-05-08 15:20</span></span>
+<span><span class="co">#&gt;   Date: 2023-08-08 16:17</span></span>
 <span><span class="co">#&gt;   Status: 200</span></span>
 <span><span class="co">#&gt;   Content-Type: application/json; charset=utf-8</span></span>
 <span><span class="co">#&gt;   Size: 6.27 kB</span></span>
@@ -220,38 +220,16 @@ parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=xml"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=xml]</span></span>
-<span><span class="co">#&gt;   Date: 2023-05-08 15:20</span></span>
+<span><span class="co">#&gt;   Date: 2023-08-08 16:17</span></span>
 <span><span class="co">#&gt;   Status: 403</span></span>
 <span><span class="co">#&gt;   Content-Type: text/html; charset=UTF-8</span></span>
-<span><span class="co">#&gt;   Size: 6.18 kB</span></span>
-<span><span class="co">#&gt; &lt;!DOCTYPE html&gt;</span></span>
-<span><span class="co">#&gt; &lt;html lang="en-US"&gt;</span></span>
-<span><span class="co">#&gt; &lt;head&gt;</span></span>
-<span><span class="co">#&gt;     &lt;title&gt;Just a moment...&lt;/title&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta name="robots" content="noindex,nofollow"&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;</span></span>
-<span><span class="co">#&gt;     &lt;link href="/cdn-cgi/styles/challenges.css" rel="stylesheet"&gt;</span></span>
-<span><span class="co">#&gt;     </span></span>
-<span><span class="co">#&gt; ...</span></span>
+<span><span class="co">#&gt;   Size: 4.77 kB</span></span>
 <span><span class="fu"><a href="../reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"http://www.colourlovers.com/api/color/6B4106?format=json"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Response [http://www.colourlovers.com/api/color/6B4106?format=json]</span></span>
-<span><span class="co">#&gt;   Date: 2023-05-08 15:20</span></span>
+<span><span class="co">#&gt;   Date: 2023-08-08 16:17</span></span>
 <span><span class="co">#&gt;   Status: 403</span></span>
 <span><span class="co">#&gt;   Content-Type: text/html; charset=UTF-8</span></span>
-<span><span class="co">#&gt;   Size: 6.16 kB</span></span>
-<span><span class="co">#&gt; &lt;!DOCTYPE html&gt;</span></span>
-<span><span class="co">#&gt; &lt;html lang="en-US"&gt;</span></span>
-<span><span class="co">#&gt; &lt;head&gt;</span></span>
-<span><span class="co">#&gt;     &lt;title&gt;Just a moment...&lt;/title&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta name="robots" content="noindex,nofollow"&gt;</span></span>
-<span><span class="co">#&gt;     &lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;</span></span>
-<span><span class="co">#&gt;     &lt;link href="/cdn-cgi/styles/challenges.css" rel="stylesheet"&gt;</span></span>
-<span><span class="co">#&gt;     </span></span>
-<span><span class="co">#&gt; ...</span></span></code></pre></div>
+<span><span class="co">#&gt;   Size: 4.78 kB</span></span></code></pre></div>
 <p>Others use <a href="https://en.wikipedia.org/wiki/Content_negotiation" class="external-link">content
 negotiation</a> to determine what sort of data to send back. If the API
 you’re wrapping does this, then you’ll need to include one of
@@ -367,12 +345,12 @@ make debugging later on much much much more pleasant.</p>
 <span><span class="co">#&gt;  $ hireable           : NULL</span></span>
 <span><span class="co">#&gt;  $ bio                : chr "Chief Scientist at @posit-pbc"</span></span>
 <span><span class="co">#&gt;  $ twitter_username   : NULL</span></span>
-<span><span class="co">#&gt;  $ public_repos       : int 324</span></span>
+<span><span class="co">#&gt;  $ public_repos       : int 327</span></span>
 <span><span class="co">#&gt;  $ public_gists       : int 181</span></span>
-<span><span class="co">#&gt;  $ followers          : int 24277</span></span>
+<span><span class="co">#&gt;  $ followers          : int 24569</span></span>
 <span><span class="co">#&gt;  $ following          : int 0</span></span>
 <span><span class="co">#&gt;  $ created_at         : chr "2008-04-01T14:47:36Z"</span></span>
-<span><span class="co">#&gt;  $ updated_at         : chr "2023-04-10T14:40:49Z"</span></span></code></pre></div>
+<span><span class="co">#&gt;  $ updated_at         : chr "2023-08-02T10:51:05Z"</span></span></code></pre></div>
 <p>The API might return invalid data, but this should be rare, so you
 can just rely on the parser to provide a useful error message.</p>
 </div>
@@ -434,7 +412,7 @@ next request (or even automatically wait that long!).</p>
 <span><span class="fu">github_api</span><span class="op">(</span><span class="st">"/user/hadley"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error: GitHub API request failed [404]</span></span>
 <span><span class="co">#&gt; Not Found</span></span>
-<span><span class="co">#&gt; &lt;https://docs.github.com/rest/reference/users#get-a-user&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;https://docs.github.com/rest/users/users#get-a-user&gt;</span></span></code></pre></div>
 <blockquote>
 <p>Some poorly written APIs will return different types of response
 based on whether or not the request succeeded or failed. If your API
@@ -679,33 +657,33 @@ you.</p>
 <span><span class="co">#&gt;  $ resources:List of 4</span></span>
 <span><span class="co">#&gt;   ..$ core                :List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 60</span></span>
-<span><span class="co">#&gt;   .. ..$ remaining: int 19</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1683559382</span></span>
-<span><span class="co">#&gt;   .. ..$ used     : int 41</span></span>
+<span><span class="co">#&gt;   .. ..$ remaining: int 52</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1691512183</span></span>
+<span><span class="co">#&gt;   .. ..$ used     : int 8</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "core"</span></span>
 <span><span class="co">#&gt;   ..$ graphql             :List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ remaining: int 0</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1683562802</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1691515071</span></span>
 <span><span class="co">#&gt;   .. ..$ used     : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "graphql"</span></span>
 <span><span class="co">#&gt;   ..$ integration_manifest:List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 5000</span></span>
 <span><span class="co">#&gt;   .. ..$ remaining: int 5000</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1683562802</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1691515071</span></span>
 <span><span class="co">#&gt;   .. ..$ used     : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "integration_manifest"</span></span>
 <span><span class="co">#&gt;   ..$ search              :List of 5</span></span>
 <span><span class="co">#&gt;   .. ..$ limit    : int 10</span></span>
 <span><span class="co">#&gt;   .. ..$ remaining: int 10</span></span>
-<span><span class="co">#&gt;   .. ..$ reset    : int 1683559262</span></span>
+<span><span class="co">#&gt;   .. ..$ reset    : int 1691511531</span></span>
 <span><span class="co">#&gt;   .. ..$ used     : int 0</span></span>
 <span><span class="co">#&gt;   .. ..$ resource : chr "search"</span></span>
 <span><span class="co">#&gt;  $ rate     :List of 5</span></span>
 <span><span class="co">#&gt;   ..$ limit    : int 60</span></span>
-<span><span class="co">#&gt;   ..$ remaining: int 19</span></span>
-<span><span class="co">#&gt;   ..$ reset    : int 1683559382</span></span>
-<span><span class="co">#&gt;   ..$ used     : int 41</span></span>
+<span><span class="co">#&gt;   ..$ remaining: int 52</span></span>
+<span><span class="co">#&gt;   ..$ reset    : int 1691512183</span></span>
+<span><span class="co">#&gt;   ..$ used     : int 8</span></span>
 <span><span class="co">#&gt;   ..$ resource : chr "core"</span></span></code></pre></div>
 <p>After getting the first version working, you’ll often want to polish
 the output to be more user friendly. For this example, we can parse the
@@ -721,7 +699,7 @@ unix timestamps into more useful date types.</p>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu">rate_limit</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 19 / 60 (Resets at 15:23:01)</span></span></code></pre></div>
+<span><span class="co">#&gt; 52 / 60 (Resets at 16:29:43)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
