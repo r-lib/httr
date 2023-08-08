@@ -1,4 +1,4 @@
-# httr (development version)
+# httr 1.4.7
 
 * Suppress another use of httpbin.
 
