@@ -34,9 +34,6 @@ requesting delegated access.}
 the issued time.}
 
 \item{duration}{Duration of token, in seconds.}
-
-\item{iss}{Email address of the client_id of the application making the
-access token request.}
 }
 \description{
 As described in

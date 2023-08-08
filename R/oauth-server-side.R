@@ -28,8 +28,6 @@ init_oauth_service_account <- function(secrets, scope = NULL, sub = NULL) {
 #' @param credentials Parsed contents of the credentials file.
 #' @param scope A space-delimited list of the permissions that the application
 #'    requests.
-#' @param iss Email address of the client_id of the application making the
-#'   access token request.
 #' @param scope A space-delimited list of the permissions that the application
 #'    requests.
 #' @param sub The email address of the user for which the application is

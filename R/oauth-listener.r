@@ -10,8 +10,6 @@
 #'
 #' @param request_url the url to send the browser to
 #' @param is_interactive DEPRECATED
-#' @param host ip address for the listener
-#' @param port for the listener
 #' @export
 #' @keywords internal
 oauth_listener <- function(request_url, is_interactive = interactive()) {

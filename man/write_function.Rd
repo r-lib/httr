@@ -8,8 +8,6 @@ write_function(subclass, ...)
 }
 \arguments{
 \item{subclass, ...}{Class name and fields. Used in class constructors.}
-
-\item{x}{A \code{write_function} object to process.}
 }
 \description{
 This S3 object allows you to control how the response body is saved.

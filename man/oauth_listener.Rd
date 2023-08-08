@@ -10,10 +10,6 @@ oauth_listener(request_url, is_interactive = interactive())
 \item{request_url}{the url to send the browser to}
 
 \item{is_interactive}{DEPRECATED}
-
-\item{host}{ip address for the listener}
-
-\item{port}{for the listener}
 }
 \description{
 This opens a web browser pointing to \code{request_url}, and opens a
