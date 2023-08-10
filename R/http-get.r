@@ -46,8 +46,10 @@
 #' @export
 #' @examples
 #' GET("http://google.com/")
+#' \dontrun{
 #' GET("http://google.com/", path = "search")
 #' GET("http://google.com/", path = "search", query = list(q = "ham"))
+#' }
 #'
 #' # See what GET is doing with httpbin.org
 #' \dontrun{
@@ -62,9 +64,11 @@
 #'
 #' # You might want to manually specify the handle so you can have multiple
 #' # independent logins to the same website.
+#' \dontrun{
 #' google <- handle("http://google.com")
 #' GET(handle = google, path = "/")
 #' GET(handle = google, path = "search")
+#' }
 GET <- function(url = NULL, config = list(), ..., handle = NULL) {
   hu <- handle_url(handle, url, ...)
   req <- request_build("GET", hu$url, as.request(config), ...)
