@@ -15,7 +15,7 @@ BugReports: https://github.com/r-lib/httr/issues
 Depends:
     R (>= 3.5)
 Imports:
-    curl (>= 3.0.0),
+    curl (>= 5.0.2),
     jsonlite,
     mime,
     openssl (>= 0.8),

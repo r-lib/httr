@@ -1,5 +1,7 @@
 # httr 1.4.7
 
+* Add support for seeking in uploads (#741).
+
 * Suppress another use of httpbin.
 
 * More aggressively skip httpbin using tests.
