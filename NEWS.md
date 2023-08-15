@@ -1,3 +1,5 @@
+# httr (development version)
+
 # httr 1.4.7
 
 * Add support for seeking in uploads (#741).
