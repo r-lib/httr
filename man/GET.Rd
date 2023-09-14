@@ -59,8 +59,10 @@ data already held by the client.
 
 \examples{
 GET("http://google.com/")
+\dontrun{
 GET("http://google.com/", path = "search")
 GET("http://google.com/", path = "search", query = list(q = "ham"))
+}
 
 # See what GET is doing with httpbin.org
 \dontrun{
@@ -75,9 +77,11 @@ GET(url, verbose())
 
 # You might want to manually specify the handle so you can have multiple
 # independent logins to the same website.
+\dontrun{
 google <- handle("http://google.com")
 GET(handle = google, path = "/")
 GET(handle = google, path = "search")
+}
 }
 \seealso{
 Other http methods: 

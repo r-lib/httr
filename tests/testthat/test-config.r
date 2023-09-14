@@ -2,7 +2,7 @@ context("Config")
 
 
 test_that("basic authentication works", {
-  skip_on_cran()
+  skip_httpbin()
 
   h <- handle("http://httpbin.org")
   path <- "basic-auth/user/passwd"
@@ -22,7 +22,7 @@ test_that("basic authentication works", {
 })
 
 test_that("digest authentication works", {
-  skip_on_cran()
+  skip_httpbin()
 
   h <- handle("http://httpbin.org")
   path <- "digest-auth/qop/user/passwd"
@@ -38,7 +38,7 @@ test_that("digest authentication works", {
 })
 
 test_that("timeout enforced", {
-  skip_on_cran()
+  skip_httpbin()
   expect_error(
     GET("http://httpbin.org/delay/1", timeout(0.5)),
     "(Timeout was reached)|(timed out)"

@@ -1,7 +1,7 @@
 context("Body")
 
 round_trip <- function(...) {
-  skip_on_cran()
+  skip_httpbin()
   content(POST("http://httpbin.org/post", ...))
 }
 
@@ -27,6 +27,8 @@ test_that("string/raw in body gives same string in data element", {
 })
 
 test_that("string/raw in body doesn't lose content type", {
+  skip_httpbin()
+
   body <- charToRaw("test")
   content_type <- "application/awesome"
   response <- content(POST("http://httpbin.org/post",

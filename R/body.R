@@ -25,6 +25,12 @@ body_config <- function(body = NULL,
           }
           bin
         },
+        seekfunction = function(offset, ...) {
+          if (is.null(con)) {
+            con <<- file(body$path, "rb")
+          }
+          seek(con, where = offset)
+        },
         postfieldsize_large = size
       ),
       content_type(body$type)

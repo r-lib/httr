@@ -38,8 +38,6 @@ the issued time.}
 
 \item{...}{any additional claims for the token.}
 
-\item{iss}{Email address of the client_id of the application making the
-access token request.}
 }
 \description{
 As described in

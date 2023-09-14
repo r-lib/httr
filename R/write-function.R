@@ -3,7 +3,6 @@
 #' This S3 object allows you to control how the response body is saved.
 #'
 #' @param subclass,... Class name and fields. Used in class constructors.
-#' @param x A `write_function` object to process.
 #' @keywords internal
 #' @export
 write_function <- function(subclass, ...) {
@@ -24,10 +23,10 @@ write_function <- function(subclass, ...) {
 #' tmp <- tempfile()
 #' r1 <- GET("https://www.google.com", write_disk(tmp))
 #' readLines(tmp)
-#' 
+#'
 #' # The default
 #' r2 <- GET("https://www.google.com", write_memory())
-#' 
+#'
 #' # Save a very large file
 #' \dontrun{
 #' GET(
