@@ -56,8 +56,8 @@ install.packages("httr")
 To get the current development version from github:
 
 ```R
-# install.packages("devtools")
-devtools::install_github("r-lib/httr")
+# install.packages("pak")
+pak::pak("r-lib/httr")
 ```
 
 ## Code of Conduct
