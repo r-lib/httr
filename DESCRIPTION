@@ -3,7 +3,7 @@ Title: Tools for Working with URLs and HTTP
 Version: 1.4.7.9000
 Authors@R: c(
     person("Hadley", "Wickham", , "hadley@posit.co", role = c("aut", "cre")),
-    person("Posit, PBC", role = c("cph", "fnd"))
+    person("Posit Software, PBC", role = c("cph", "fnd"))
   )
 Description: Useful tools for working with HTTP organised by HTTP verbs
     (GET(), POST(), etc). Configuration functions make it easy to control
@@ -13,7 +13,7 @@ License: MIT + file LICENSE
 URL: https://httr.r-lib.org/, https://github.com/r-lib/httr
 BugReports: https://github.com/r-lib/httr/issues
 Depends:
-    R (>= 3.5)
+    R (>= 3.6)
 Imports:
     curl (>= 5.1.0),
     jsonlite,
