@@ -21,7 +21,10 @@ handle_find <- function(url) {
     handle <- handle_pool[[name]]
   } else {
     handle <- handle(name)
-    handle_pool[[name]] <- handle
+    # Pool http requests only: https://github.com/curl/curl/issues/13731
+    if (grepl('^http', name)) {
+      handle_pool[[name]] <- handle
+    }
   }
 
   handle
