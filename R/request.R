@@ -51,9 +51,13 @@ c.request <- function(...) {
 }
 
 as.request <- function(x) UseMethod("as.request")
+#' @export
 as.request.list <- function(x) structure(x, class = "request")
+#' @export
 as.request.request <- function(x) x
+#' @export
 as.request.NULL <- function(x) request()
+#' @export
 as.request.Token <- function(x) request(auth_token = x)
 
 request_build <- function(method, url, ...) {

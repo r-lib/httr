@@ -74,18 +74,22 @@ write_stream <- function(f) {
 
 
 request_fetch <- function(x, url, handle) UseMethod("request_fetch")
+#' @export
 request_fetch.write_memory <- function(x, url, handle) {
   curl::curl_fetch_memory(url, handle = handle)
 }
+#' @export
 request_fetch.write_disk <- function(x, url, handle) {
   resp <- curl::curl_fetch_disk(url, x$path, handle = handle)
   resp$content <- path(resp$content)
   resp
 }
+#' @export
 request_fetch.write_stream <- function(x, url, handle) {
   curl::curl_fetch_stream(url, x$f, handle = handle)
 }
 
 path <- function(x) structure(x, class = "path")
+#' @export
 length.path <- function(x) file.info(x)$size
 is.path <- function(x) inherits(x, "path")
