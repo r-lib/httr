@@ -15,3 +15,4 @@
 ^LICENSE\.md$
 ^\.github$
 ^CRAN-SUBMISSION$
+^demo$
