@@ -90,6 +90,8 @@ request_fetch.write_stream <- function(x, url, handle) {
 }
 
 path <- function(x) structure(x, class = "path")
-#' @export
+
+# Can't export this method: 
+#' @exportS3Method NULL
 length.path <- function(x) file.info(x)$size
 is.path <- function(x) inherits(x, "path")
