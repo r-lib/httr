@@ -1,4 +1,4 @@
-# httr (development version)
+# httr 1.4.8
 
 * Fixes for `R CMD check`
 
