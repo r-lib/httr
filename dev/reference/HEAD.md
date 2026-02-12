@@ -83,7 +83,7 @@ Other http methods:
 ``` r
 HEAD("http://google.com")
 #> Response [http://www.google.com/]
-#>   Date: 2026-02-10 17:01
+#>   Date: 2026-02-12 14:00
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
 #> <EMPTY BODY>
@@ -92,13 +92,13 @@ headers(HEAD("http://google.com"))
 #> [1] "text/html; charset=ISO-8859-1"
 #> 
 #> $`content-security-policy-report-only`
-#> [1] "object-src 'none';base-uri 'self';script-src 'nonce-v53OOOSb9_Hk1ACyL8IaeQ' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp"
+#> [1] "object-src 'none';base-uri 'self';script-src 'nonce-GcJMABsZ1MqrSbtfLMWiVg' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp"
 #> 
 #> $`reporting-endpoints`
-#> [1] "default=\"//www.google.com/httpservice/retry/jserror?ei=VWSLabHACuWYptQPqYfLOQ&cad=crash&error=Page%20Crash&jsel=1\""
+#> [1] "default=\"//www.google.com/httpservice/retry/jserror?ei=Dt2NaZytEfrfkPIP1eSG6A8&cad=crash&error=Page%20Crash&jsel=1\""
 #> 
 #> $date
-#> [1] "Tue, 10 Feb 2026 17:01:09 GMT"
+#> [1] "Thu, 12 Feb 2026 14:00:46 GMT"
 #> 
 #> $server
 #> [1] "gws"
@@ -110,13 +110,13 @@ headers(HEAD("http://google.com"))
 #> [1] "SAMEORIGIN"
 #> 
 #> $expires
-#> [1] "Tue, 10 Feb 2026 17:01:09 GMT"
+#> [1] "Thu, 12 Feb 2026 14:00:46 GMT"
 #> 
 #> $`cache-control`
 #> [1] "private"
 #> 
 #> $`set-cookie`
-#> [1] "AEC=AaJma5uhG__3y9MlQ0_DfWlEzxuat0xE0eaDA5SMI0Q0zv3jwIEot2w-uE4; expires=Sun, 09-Aug-2026 17:01:09 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax"
+#> [1] "AEC=AaJma5upMOVkO2Q2X5rHagcZs6tIJ0H1IGhqAgU4ujnxqNvHbWjhM3nWk1E; expires=Tue, 11-Aug-2026 14:00:46 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax"
 #> 
 #> $`transfer-encoding`
 #> [1] "chunked"

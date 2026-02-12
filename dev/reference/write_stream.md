@@ -49,7 +49,6 @@ GET(
 #> [1] 32768
 #> [1] 32768
 #> [1] 32768
-#> [1] 31194
 #> [1] 32768
 #> [1] 32768
 #> [1] 32768
@@ -228,9 +227,10 @@ GET(
 #> [1] 32768
 #> [1] 32768
 #> [1] 32768
-#> [1] 6758
+#> [1] 32768
+#> [1] 5184
 #> Response [https://raw.githubusercontent.com/jeroen/data/gh-pages/diamonds.json]
-#>   Date: 2026-02-10 17:01
+#>   Date: 2026-02-12 14:01
 #>   Status: 200
 #>   Content-Type: text/plain; charset=utf-8
 #> <EMPTY BODY>

@@ -42,10 +42,10 @@ handle("https://google.com")
 h <- handle("http://google.com")
 GET(handle = h)
 #> Response [http://www.google.com/]
-#>   Date: 2026-02-10 17:01
+#>   Date: 2026-02-12 14:00
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
-#>   Size: 17.5 kB
+#>   Size: 17.6 kB
 #> <!doctype html><html itemscope="" itemtype="http://schema.org/WebPag...
 #> var g=this||self;function k(){return window.google&&window.google.kO...
 #> function r(a,b,d,c,h){var e="";b.search("&ei=")===-1&&(e="&ei="+n(c)...
@@ -60,10 +60,10 @@ GET(handle = h)
 # Should see cookies sent back to server
 GET(handle = h, config = verbose())
 #> Response [http://www.google.com/]
-#>   Date: 2026-02-10 17:01
+#>   Date: 2026-02-12 14:00
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
-#>   Size: 17.5 kB
+#>   Size: 17.6 kB
 #> <!doctype html><html itemscope="" itemtype="http://schema.org/WebPag...
 #> var g=this||self;function k(){return window.google&&window.google.kO...
 #> function r(a,b,d,c,h){var e="";b.search("&ei=")===-1&&(e="&ei="+n(c)...
@@ -80,9 +80,9 @@ h <- handle("http://google.com", cookies = FALSE)
 #> Warning: Cookies argument is deprecated
 GET(handle = h)$cookies
 #>                  domain flag path secure          expiration name
-#> 1 #HttpOnly_.google.com TRUE    /  FALSE 2026-08-12 17:01:15  NID
+#> 1 #HttpOnly_.google.com TRUE    /  FALSE 2026-08-14 14:00:53  NID
 #>                                                                                                                                                                                                                                         value
-#> 1 528=kLzXiKojv-cN28X0imW9Sv84_Ymp-aODR-n1c9cDGvdZQM8InwCt1rcg4R2FcsvfNEKM_o4pos5bqDhO2ul3WmABovOARSRqLpIIBb8N3zuNJaFSDCWJmjQf5nmGKl0o0tw-ebXjfeigAXlGMC7GvpvNSq0pqdAHSPBGH5kpChmWCzkgUzm2_CrqyY-SdvGtZ6TNpGXKp_NnxRFaxbNhUIkZYGB3w3poP7gmx-A
+#> 1 528=AS-Wbh7oUwrBZGmlH-zdFvzIb2OsJYo9uQhKKTpQMOQl63oFP-lJdJ_jm7BWBChpRg_Uzr8FGAmgxYjw4JPybLDv0QOHUIXA2QSgTSazn9-dnbKQJvMm3dAlZ3r5QjuG3ugTFv-VWmyHxQwxteUrGBKiHPsflhIlK7KY1wDU9w9nTsJzMIWeZsSM-FIed4FMsXlI901lozO8W_5ijkLUMoYnBfDmHB4fgtEP5xM
 if (FALSE) { # \dontrun{
 # Using the preferred way of configuring the http methods
 # will not work when using handle():

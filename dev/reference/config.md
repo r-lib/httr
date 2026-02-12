@@ -64,7 +64,7 @@ Other ways to set configuration:
 # * you can add directly to a request
 HEAD("https://www.google.com", verbose())
 #> Response [https://www.google.com/]
-#>   Date: 2026-02-10 17:01
+#>   Date: 2026-02-12 14:00
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
 #> <EMPTY BODY>
@@ -72,7 +72,7 @@ HEAD("https://www.google.com", verbose())
 # * you can wrap with with_config()
 with_config(verbose(), HEAD("https://www.google.com"))
 #> Response [https://www.google.com/]
-#>   Date: 2026-02-10 17:01
+#>   Date: 2026-02-12 14:00
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
 #> <EMPTY BODY>
@@ -81,7 +81,7 @@ with_config(verbose(), HEAD("https://www.google.com"))
 old <- set_config(verbose())
 HEAD("https://www.google.com")
 #> Response [https://www.google.com/]
-#>   Date: 2026-02-10 17:01
+#>   Date: 2026-02-12 14:00
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
 #> <EMPTY BODY>
@@ -89,7 +89,7 @@ HEAD("https://www.google.com")
 set_config(old, override = TRUE)
 HEAD("https://www.google.com")
 #> Response [https://www.google.com/]
-#>   Date: 2026-02-10 17:01
+#>   Date: 2026-02-12 14:00
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
 #> <EMPTY BODY>
@@ -97,7 +97,7 @@ HEAD("https://www.google.com")
 reset_config()
 HEAD("https://www.google.com")
 #> Response [https://www.google.com/]
-#>   Date: 2026-02-10 17:01
+#>   Date: 2026-02-12 14:00
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
 #> <EMPTY BODY>
@@ -107,7 +107,7 @@ HEAD("https://www.google.com")
 # in config
 HEAD("https://www.google.com/", config(verbose = TRUE))
 #> Response [https://www.google.com/]
-#>   Date: 2026-02-10 17:01
+#>   Date: 2026-02-12 14:00
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
 #> <EMPTY BODY>
