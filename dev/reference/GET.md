@@ -90,10 +90,10 @@ Other http methods:
 ``` r
 GET("http://google.com/")
 #> Response [http://www.google.com/]
-#>   Date: 2026-02-12 14:00
+#>   Date: 2026-02-12 23:41
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
-#>   Size: 17.5 kB
+#>   Size: 17.6 kB
 #> <!doctype html><html itemscope="" itemtype="http://schema.org/WebPag...
 #> var g=this||self;function k(){return window.google&&window.google.kO...
 #> function r(a,b,d,c,h){var e="";b.search("&ei=")===-1&&(e="&ei="+n(c)...
