@@ -16,3 +16,4 @@
 ^\.github$
 ^CRAN-SUBMISSION$
 ^demo$
+^tests/testthat/\.httr-oauth$
