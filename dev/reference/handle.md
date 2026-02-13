@@ -42,10 +42,10 @@ handle("https://google.com")
 h <- handle("http://google.com")
 GET(handle = h)
 #> Response [http://www.google.com/]
-#>   Date: 2026-02-12 23:41
+#>   Date: 2026-02-13 21:44
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
-#>   Size: 17.5 kB
+#>   Size: 17.8 kB
 #> <!doctype html><html itemscope="" itemtype="http://schema.org/WebPag...
 #> var g=this||self;function k(){return window.google&&window.google.kO...
 #> function r(a,b,d,c,h){var e="";b.search("&ei=")===-1&&(e="&ei="+n(c)...
@@ -60,10 +60,10 @@ GET(handle = h)
 # Should see cookies sent back to server
 GET(handle = h, config = verbose())
 #> Response [http://www.google.com/]
-#>   Date: 2026-02-12 23:41
+#>   Date: 2026-02-13 21:44
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
-#>   Size: 17.5 kB
+#>   Size: 17.8 kB
 #> <!doctype html><html itemscope="" itemtype="http://schema.org/WebPag...
 #> var g=this||self;function k(){return window.google&&window.google.kO...
 #> function r(a,b,d,c,h){var e="";b.search("&ei=")===-1&&(e="&ei="+n(c)...
@@ -80,9 +80,9 @@ h <- handle("http://google.com", cookies = FALSE)
 #> Warning: Cookies argument is deprecated
 GET(handle = h)$cookies
 #>                  domain flag path secure          expiration name
-#> 1 #HttpOnly_.google.com TRUE    /  FALSE 2026-08-14 23:41:38  NID
-#>                                                                                                                                                                                                                                        value
-#> 1 528=U1YDWHGJS8P0GZUUsg9-JtOz0cB2gXZCxzwIcrGz7umh9GH8opvCk67L_tM3fZq2Lfr1UX4GPehue81UwLBNxDz3cRaEk4AJ1lEAU5jUGyw1iGAvZ7choDtijPS6vaExNiPLx_4YcO3sdVgjANs9bE0U01AG32z6aH8dtnsjoTsoO_CpMC5UvdddqOQtlMYmJsgK25Ugm0_TC7oqx68-pINuoL5Cz2FikLtPdg
+#> 1 #HttpOnly_.google.com TRUE    /  FALSE 2026-08-15 21:44:08  NID
+#>                                                                                                                                                                                                                                      value
+#> 1 528=cXHTWPWAtlkzIRNddXqiGjy7NylhgRoKG5rRLgX3QcuDu5rxTob3YHwJ8YVhWbDLP-77CLq58pGHLMVIrGVGe4RFiZXKFQPHe_dSuHuvqi52ILlRl1_vLjQLetAqXvqSZm5gM10YJhs1Kigbzot9iy-KXkbJguSx1Oc08mB_wZeeBUeWkBqo0U4bd05njuPyUaHRmwBkPTb4qJblkQ-zTO5eCMULcYrkV-ua
 if (FALSE) { # \dontrun{
 # Using the preferred way of configuring the http methods
 # will not work when using handle():
