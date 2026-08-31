@@ -74,12 +74,14 @@ in other languages, such as
 To get the current released version from CRAN:
 
 ``` r
+
 install.packages("httr")
 ```
 
 To get the current development version from github:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("r-lib/httr")
 ```

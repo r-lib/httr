@@ -46,5 +46,5 @@ parse_http_date("Sun Nov  6 08:49:37 1994")
 #> [1] "1994-11-06 08:49:37 GMT"
 
 http_date(Sys.time())
-#> [1] "Fri, 13 Feb 2026 21:44:12 GMT"
+#> [1] "Mon, 31 Aug 2026 23:02:33 GMT"
 ```

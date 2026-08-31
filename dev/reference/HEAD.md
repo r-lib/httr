@@ -83,7 +83,7 @@ Other http methods:
 ``` r
 HEAD("http://google.com")
 #> Response [http://www.google.com/]
-#>   Date: 2026-02-13 21:44
+#>   Date: 2026-08-31 23:02
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
 #> <EMPTY BODY>
@@ -92,13 +92,10 @@ headers(HEAD("http://google.com"))
 #> [1] "text/html; charset=ISO-8859-1"
 #> 
 #> $`content-security-policy-report-only`
-#> [1] "object-src 'none';base-uri 'self';script-src 'nonce-8vpXDk0k2TPtitU8VHSZyw' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp"
-#> 
-#> $`reporting-endpoints`
-#> [1] "default=\"//www.google.com/httpservice/retry/jserror?ei=IZuPaeXvC_LBp84P5rWrsA4&cad=crash&error=Page%20Crash&jsel=1\""
+#> [1] "object-src 'none';base-uri 'self';script-src 'nonce-YG6cTi3TDvCaLSx_JBRNfA' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp"
 #> 
 #> $date
-#> [1] "Fri, 13 Feb 2026 21:44:01 GMT"
+#> [1] "Mon, 31 Aug 2026 23:02:24 GMT"
 #> 
 #> $server
 #> [1] "gws"
@@ -110,13 +107,16 @@ headers(HEAD("http://google.com"))
 #> [1] "SAMEORIGIN"
 #> 
 #> $expires
-#> [1] "Fri, 13 Feb 2026 21:44:01 GMT"
+#> [1] "Mon, 31 Aug 2026 23:02:24 GMT"
 #> 
 #> $`cache-control`
 #> [1] "private"
 #> 
 #> $`set-cookie`
-#> [1] "AEC=AaJma5tHYRJhb--Xxqg52H4z2G0JScNqX4Tsnv1eWM0IcJ6PjN_8nWa4H44; expires=Wed, 12-Aug-2026 21:44:01 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax"
+#> [1] "__Secure-STRP=ANmZwa1HMZ47G_eL7JyP6jA4ylghVQY9_GCLYfqBHGaEl75SJHrhw-73QUY7xNDSv-tnx_qEme2PWByAVyDcjEK_tZhuxqqpXA; expires=Mon, 31-Aug-2026 23:07:24 GMT; path=/; domain=.google.com; Secure; SameSite=strict"
+#> 
+#> $`set-cookie`
+#> [1] "AEC=AdJVEat0SdYyfbS0VA3KnPypc5v3_5D4tQlU3FA9xOLXn5nU9MgTE5lovQ; expires=Sat, 27-Feb-2027 23:02:24 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax"
 #> 
 #> $`transfer-encoding`
 #> [1] "chunked"

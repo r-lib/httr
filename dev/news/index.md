@@ -2,7 +2,11 @@
 
 ## httr (development version)
 
+- Fixes for `R CMD check`
+
 ## httr 1.4.8
+
+CRAN release: 2026-02-13
 
 - Fixes for `R CMD check`
 

@@ -27,26 +27,26 @@ r1 <- GET("https://www.google.com")
 cache_info(r1)
 #> <cache_info>  https://www.google.com/
 #>   Cacheable:     TRUE
-#>   Expires:       Fri, 13 Feb 2026 21:44:04 GMT <expired>
+#>   Expires:       Mon, 31 Aug 2026 23:02:25 GMT <expired>
 #>   Last-Modified: 
 #>   Etag:          
 r1$date
-#> [1] "2026-02-13 21:44:04 GMT"
+#> [1] "2026-08-31 23:02:25 GMT"
 rerequest(r1)$date
-#> [1] "2026-02-13 21:44:04 GMT"
+#> [1] "2026-08-31 23:02:25 GMT"
 
 # Expires in a year
 r2 <- GET("https://www.google.com/images/srpr/logo11w.png")
 cache_info(r2)
 #> <cache_info>  https://www.google.com/images/srpr/logo11w.png
 #>   Cacheable:     TRUE
-#>   Expires:       Sat, 13 Feb 2027 21:44:04 GMT
+#>   Expires:       Tue, 31 Aug 2027 23:02:25 GMT
 #>   Last-Modified: Tue, 22 Oct 2019 18:30:00 GMT
 #>   Etag:          
 r2$date
-#> [1] "2026-02-13 21:44:04 GMT"
+#> [1] "2026-08-31 23:02:25 GMT"
 rerequest(r2)$date
-#> [1] "2026-02-13 21:44:04 GMT"
+#> [1] "2026-08-31 23:02:25 GMT"
 
 if (FALSE) { # \dontrun{
 # Has last-modified and etag, so does revalidation

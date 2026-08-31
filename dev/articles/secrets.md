@@ -59,6 +59,7 @@ precautions:
   [`Sys.chmod()`](https://rdrr.io/r/base/files2.html) to do so:
 
   ``` r
+
   Sys.chmod("secret.file", mode = "0400")
   ```
 
@@ -83,6 +84,7 @@ function to locate the file and provide an informative message if it’s
 missing.
 
 ``` r
+
 my_secrets <- function() {
   path <- "~/secrets/secret.json"
   if (!file.exists(path)) {
@@ -114,6 +116,7 @@ RStudio an easy and secure way to request a password is with the
 rstudioapi package:
 
 ``` r
+
 password <- rstudioapi::askForPassword()
 ```
 
@@ -136,6 +139,7 @@ For passing envvars to R, you can list name-value pairs in a file called
 run:
 
 ``` r
+
 file.edit("~/.Renviron")
 ```
 
@@ -148,6 +152,7 @@ And you can access the values in R using
 [`Sys.getenv()`](https://rdrr.io/r/base/Sys.getenv.html):
 
 ``` r
+
 Sys.getenv("VAR1")
 #> [1] "value1"
 ```
@@ -166,6 +171,7 @@ to store (and retrieve) data in your OS’s secure secret store. Keyring
 has a simple API:
 
 ``` r
+
 keyring::key_set("MY_SECRET")
 keyring::key_get("MY_SECRET")
 ```
@@ -179,6 +185,7 @@ keep it locked. That will require you to enter a password every time you
 want to access your secret.
 
 ``` r
+
 keyring::keyring_create("httr")
 keyring::key_set("MY_SECRET", keyring = "httr")
 ```
@@ -187,6 +194,7 @@ Note that accessing the key always unlocks the keyring, so if you’re
 being really careful, make sure to lock it again afterwards.
 
 ``` r
+
 keyring::keyring_lock("httr")
 ```
 
@@ -230,6 +238,7 @@ Otherwise, you’ll need to encrypt the secret so you can share it with
 me. The easiest way to do so is with the following snippet:
 
 ``` r
+
 library(openssl)
 library(jsonlite)
 library(curl)
@@ -253,6 +262,7 @@ cat(cipher)
 Then I can run the following code on my computer to access it:
 
 ``` r
+
 decrypt <- function(cipher, key = openssl::my_key()) {
   cipherraw <- jsonlite::base64_dec(cipher)
   rawToChar(openssl::rsa_decrypt(cipherraw, key = key))
@@ -288,6 +298,7 @@ the value. A good error message will save you a lot of time when
 debugging problems!
 
 ``` r
+
 my_secret <- function() {
   val <- Sys.getenv("SECRET")
   if (identical(val, "")) {
@@ -335,6 +346,7 @@ vignette is built locally, and only checked by CRAN. In a setup chunk,
 do:
 
 ``` r
+
 NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 knitr::opts_chunk$set(purl = NOT_CRAN)
 ```
@@ -350,6 +362,7 @@ will wrap this into a little helper function that I call at the start of
 every test requiring auth.
 
 ``` r
+
 skip_if_no_auth <- function() {
   if (identical(Sys.getenv("MY_SECRET"), "")) {
     skip("No authentication available")
