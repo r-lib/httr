@@ -3,4 +3,4 @@
 
 ## revdepcheck results
 
-I did not check revdeps as this release just disables further demos.
+I did not check revdeps.
