@@ -29,13 +29,13 @@ GET(
 }
 }
 \seealso{
-Other config: 
-\code{\link{add_headers}()},
-\code{\link{config}()},
-\code{\link{set_cookies}()},
-\code{\link{timeout}()},
-\code{\link{use_proxy}()},
-\code{\link{user_agent}()},
-\code{\link{verbose}()}
+Other config:
+\code{\link[=add_headers]{add_headers()}},
+\code{\link[=config]{config()}},
+\code{\link[=set_cookies]{set_cookies()}},
+\code{\link[=timeout]{timeout()}},
+\code{\link[=use_proxy]{use_proxy()}},
+\code{\link[=user_agent]{user_agent()}},
+\code{\link[=verbose]{verbose()}}
 }
 \concept{config}

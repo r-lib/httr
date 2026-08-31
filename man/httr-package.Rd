@@ -43,6 +43,11 @@ Useful links:
 \author{
 \strong{Maintainer}: Hadley Wickham \email{hadley@posit.co}
 
+Authors:
+\itemize{
+  \item Hadley Wickham \email{hadley@posit.co}
+}
+
 Other contributors:
 \itemize{
   \item Posit Software, PBC [copyright holder, funder]

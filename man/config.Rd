@@ -53,18 +53,18 @@ HEAD("https://www.google.com/", config(verbose = TRUE))
 
 All known available options are listed in \code{\link[=httr_options]{httr_options()}}
 
-Other config: 
-\code{\link{add_headers}()},
-\code{\link{authenticate}()},
-\code{\link{set_cookies}()},
-\code{\link{timeout}()},
-\code{\link{use_proxy}()},
-\code{\link{user_agent}()},
-\code{\link{verbose}()}
+Other config:
+\code{\link[=add_headers]{add_headers()}},
+\code{\link[=authenticate]{authenticate()}},
+\code{\link[=set_cookies]{set_cookies()}},
+\code{\link[=timeout]{timeout()}},
+\code{\link[=use_proxy]{use_proxy()}},
+\code{\link[=user_agent]{user_agent()}},
+\code{\link[=verbose]{verbose()}}
 
-Other ways to set configuration: 
-\code{\link{set_config}()},
-\code{\link{with_config}()}
+Other ways to set configuration:
+\code{\link[=set_config]{set_config()}},
+\code{\link[=with_config]{with_config()}}
 }
 \concept{config}
 \concept{ways to set configuration}

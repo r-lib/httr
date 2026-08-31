@@ -19,13 +19,13 @@ GET("http://httpbin.org/user-agent", user_agent("httr"))
 }
 }
 \seealso{
-Other config: 
-\code{\link{add_headers}()},
-\code{\link{authenticate}()},
-\code{\link{config}()},
-\code{\link{set_cookies}()},
-\code{\link{timeout}()},
-\code{\link{use_proxy}()},
-\code{\link{verbose}()}
+Other config:
+\code{\link[=add_headers]{add_headers()}},
+\code{\link[=authenticate]{authenticate()}},
+\code{\link[=config]{config()}},
+\code{\link[=set_cookies]{set_cookies()}},
+\code{\link[=timeout]{timeout()}},
+\code{\link[=use_proxy]{use_proxy()}},
+\code{\link[=verbose]{verbose()}}
 }
 \concept{config}

@@ -84,13 +84,13 @@ VERB("POST", url = "http://httpbin.org/post", body = "foobar")
 }
 }
 \seealso{
-Other http methods: 
-\code{\link{BROWSE}()},
-\code{\link{DELETE}()},
-\code{\link{GET}()},
-\code{\link{HEAD}()},
-\code{\link{PATCH}()},
-\code{\link{POST}()},
-\code{\link{PUT}()}
+Other http methods:
+\code{\link[=BROWSE]{BROWSE()}},
+\code{\link[=DELETE]{DELETE()}},
+\code{\link[=GET]{GET()}},
+\code{\link[=HEAD]{HEAD()}},
+\code{\link[=PATCH]{PATCH()}},
+\code{\link[=POST]{POST()}},
+\code{\link[=PUT]{PUT()}}
 }
 \concept{http methods}

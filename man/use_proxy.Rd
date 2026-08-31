@@ -23,13 +23,13 @@ Use a proxy to connect to the internet.
 # GET("http://had.co.nz", use_proxy("64.251.21.73", 8080), verbose())
 }
 \seealso{
-Other config: 
-\code{\link{add_headers}()},
-\code{\link{authenticate}()},
-\code{\link{config}()},
-\code{\link{set_cookies}()},
-\code{\link{timeout}()},
-\code{\link{user_agent}()},
-\code{\link{verbose}()}
+Other config:
+\code{\link[=add_headers]{add_headers()}},
+\code{\link[=authenticate]{authenticate()}},
+\code{\link[=config]{config()}},
+\code{\link[=set_cookies]{set_cookies()}},
+\code{\link[=timeout]{timeout()}},
+\code{\link[=user_agent]{user_agent()}},
+\code{\link[=verbose]{verbose()}}
 }
 \concept{config}

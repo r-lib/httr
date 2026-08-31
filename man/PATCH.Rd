@@ -68,13 +68,13 @@ A \code{\link[=response]{response()}} object.
 Send PATCH request to a server.
 }
 \seealso{
-Other http methods: 
-\code{\link{BROWSE}()},
-\code{\link{DELETE}()},
-\code{\link{GET}()},
-\code{\link{HEAD}()},
-\code{\link{POST}()},
-\code{\link{PUT}()},
-\code{\link{VERB}()}
+Other http methods:
+\code{\link[=BROWSE]{BROWSE()}},
+\code{\link[=DELETE]{DELETE()}},
+\code{\link[=GET]{GET()}},
+\code{\link[=HEAD]{HEAD()}},
+\code{\link[=POST]{POST()}},
+\code{\link[=PUT]{PUT()}},
+\code{\link[=VERB]{VERB()}}
 }
 \concept{http methods}

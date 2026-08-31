@@ -38,13 +38,13 @@ BROWSE("http://google.com")
 BROWSE("http://had.co.nz")
 }
 \seealso{
-Other http methods: 
-\code{\link{DELETE}()},
-\code{\link{GET}()},
-\code{\link{HEAD}()},
-\code{\link{PATCH}()},
-\code{\link{POST}()},
-\code{\link{PUT}()},
-\code{\link{VERB}()}
+Other http methods:
+\code{\link[=DELETE]{DELETE()}},
+\code{\link[=GET]{GET()}},
+\code{\link[=HEAD]{HEAD()}},
+\code{\link[=PATCH]{PATCH()}},
+\code{\link[=POST]{POST()}},
+\code{\link[=PUT]{PUT()}},
+\code{\link[=VERB]{VERB()}}
 }
 \concept{http methods}

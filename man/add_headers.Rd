@@ -37,13 +37,13 @@ GET("http://httpbin.org/headers", add_headers(Accept = ""))
 \code{\link[=accept]{accept()}} and \code{\link[=content_type]{content_type()}} for
 convenience functions for setting accept and content-type headers.
 
-Other config: 
-\code{\link{authenticate}()},
-\code{\link{config}()},
-\code{\link{set_cookies}()},
-\code{\link{timeout}()},
-\code{\link{use_proxy}()},
-\code{\link{user_agent}()},
-\code{\link{verbose}()}
+Other config:
+\code{\link[=authenticate]{authenticate()}},
+\code{\link[=config]{config()}},
+\code{\link[=set_cookies]{set_cookies()}},
+\code{\link[=timeout]{timeout()}},
+\code{\link[=use_proxy]{use_proxy()}},
+\code{\link[=user_agent]{user_agent()}},
+\code{\link[=verbose]{verbose()}}
 }
 \concept{config}

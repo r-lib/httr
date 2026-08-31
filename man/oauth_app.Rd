@@ -39,10 +39,10 @@ google_app <- oauth_app(
 }
 }
 \seealso{
-Other OAuth: 
-\code{\link{oauth1.0_token}()},
-\code{\link{oauth2.0_token}()},
-\code{\link{oauth_endpoint}()},
-\code{\link{oauth_service_token}()}
+Other OAuth:
+\code{\link[=oauth1.0_token]{oauth1.0_token()}},
+\code{\link[=oauth2.0_token]{oauth2.0_token()}},
+\code{\link[=oauth_endpoint]{oauth_endpoint()}},
+\code{\link[=oauth_service_token]{oauth_service_token()}}
 }
 \concept{OAuth}

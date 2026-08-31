@@ -96,13 +96,13 @@ POST("http://httpbin.org/delete")
 }
 }
 \seealso{
-Other http methods: 
-\code{\link{BROWSE}()},
-\code{\link{GET}()},
-\code{\link{HEAD}()},
-\code{\link{PATCH}()},
-\code{\link{POST}()},
-\code{\link{PUT}()},
-\code{\link{VERB}()}
+Other http methods:
+\code{\link[=BROWSE]{BROWSE()}},
+\code{\link[=GET]{GET()}},
+\code{\link[=HEAD]{HEAD()}},
+\code{\link[=PATCH]{PATCH()}},
+\code{\link[=POST]{POST()}},
+\code{\link[=PUT]{PUT()}},
+\code{\link[=VERB]{VERB()}}
 }
 \concept{http methods}
