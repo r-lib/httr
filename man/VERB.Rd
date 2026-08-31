@@ -71,6 +71,7 @@ A \code{\link[=response]{response()}} object.
 Use an arbitrary verb.
 }
 \examples{
+\dontrun{
 r <- VERB(
   "PROPFIND", "http://svn.r-project.org/R/tags/",
   add_headers(depth = 1), verbose()
@@ -78,7 +79,6 @@ r <- VERB(
 stop_for_status(r)
 content(r)
 
-\dontrun{
 VERB("POST", url = "http://httpbin.org/post")
 VERB("POST", url = "http://httpbin.org/post", body = "foobar")
 }
