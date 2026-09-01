@@ -68,11 +68,6 @@ named_vector <- function(title, x) {
   cat(bullets, sep = "\n")
 }
 
-keep_last <- function(...) {
-  x <- c(...)
-  x[!duplicated(names(x), fromLast = TRUE)]
-}
-
 find_cert_bundle <- function() {
   if (.Platform$OS.type != "windows") {
     return()
