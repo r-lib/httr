@@ -40,10 +40,10 @@ Other ways to set configuration:
 ``` r
 GET("http://google.com")
 #> Response [http://www.google.com/]
-#>   Date: 2026-08-31 23:02
+#>   Date: 2026-09-01 14:33
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
-#>   Size: 83.3 kB
+#>   Size: 83.4 kB
 #> <!doctype html><html itemscope="" itemtype="http://schema.org/WebPag...
 #> var h=this||self;var k=/#|$/;function l(a,c){var e=a.search(k);a:{va...
 #> function t(a,c,e,b,f){var d="";c.search("&ei=")===-1&&(d="&ei="+p(b)...
@@ -58,10 +58,10 @@ GET("http://google.com")
 set_config(verbose())
 GET("http://google.com")
 #> Response [http://www.google.com/]
-#>   Date: 2026-08-31 23:02
+#>   Date: 2026-09-01 14:33
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
-#>   Size: 83.3 kB
+#>   Size: 83.4 kB
 #> <!doctype html><html itemscope="" itemtype="http://schema.org/WebPag...
 #> var h=this||self;var k=/#|$/;function l(a,c){var e=a.search(k);a:{va...
 #> function t(a,c,e,b,f){var d="";c.search("&ei=")===-1&&(d="&ei="+p(b)...
@@ -76,10 +76,10 @@ GET("http://google.com")
 reset_config()
 GET("http://google.com")
 #> Response [http://www.google.com/]
-#>   Date: 2026-08-31 23:02
+#>   Date: 2026-09-01 14:33
 #>   Status: 200
 #>   Content-Type: text/html; charset=ISO-8859-1
-#>   Size: 83.3 kB
+#>   Size: 83.4 kB
 #> <!doctype html><html itemscope="" itemtype="http://schema.org/WebPag...
 #> var h=this||self;var k=/#|$/;function l(a,c){var e=a.search(k);a:{va...
 #> function t(a,c,e,b,f){var d="";c.search("&ei=")===-1&&(d="&ei="+p(b)...
