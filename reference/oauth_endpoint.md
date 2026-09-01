@@ -80,6 +80,6 @@ oauth_endpoints
 #>             authorize = "authorize", access = "access"), stop("Unknown endpoint", 
 #>             call. = FALSE))
 #> }
-#> <bytecode: 0x55d3e8177040>
+#> <bytecode: 0x55b42799d3c8>
 #> <environment: namespace:httr>
 ```
