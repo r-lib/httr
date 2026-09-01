@@ -607,7 +607,7 @@ Updates to demos:
 
 ## OAuth improvements
 
-OAuth 2.0 has recieved a major overhaul in this version. The authentication
+OAuth 2.0 has received a major overhaul in this version. The authentication
 dance now works in more environments (including RStudio), and is generally
 a little faster. When working on a remote server, or if R's internet connection
 is constrained in other ways, you can now use out-of-band authentication,
